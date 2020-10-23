@@ -1,5 +1,5 @@
 <template>
-    <div class="live-stats-container" style="min-width: 1275px;">
+    <div class="live-stats-container" style="min-width: 1240px;">
         <CCard body-wrapper>
             <CTabs variant="tabs" :active-tab="1">
                 <CTab :title="'Scheduled Games('+scheduleLength+')'">
@@ -940,9 +940,18 @@
                             <CCollapse
                                     :show="isCollapsed1(item1.index0)" class="mt-0"
                             >
+<<<<<<< HEAD
                                 <div class = "bottom-part bottom-part1">
                                     <div class="header" style="width: 100%; height: 50px;">
                                         <div class="header-content detail_total" style="width: 25.5%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+=======
+                                <div class = "bottom-part">
+                                    <div class="header" style="width: 100%; height: 50px;">
+                                        <div class="header-content" style="width: 15%; height: 50px; float: left; text-align: left; color: #ffffff; background: #ffffff;">
+                                            .
+                                        </div>
+                                        <div class="header-content detail_total" style="width: 22.5%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                             More info Total
                                             <div style="width: 100%">
                                                 <div class="detail">
@@ -974,7 +983,11 @@
                                                 </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <div class="header-content detail_total" style="width: 24%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+=======
+                                        <div class="header-content detail_total" style="width: 20%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                             Total Indexes
                                             <div style="width: 100%">
                                                 <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
@@ -1000,7 +1013,11 @@
                                                 </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <div class="header-content detail_total" style="width: 26.5%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+=======
+                                        <div class="header-content detail_total" style="width: 22.5%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                             More info last 10 minutes
                                             <div style="width: 100%">
                                                 <div class="detail">
@@ -1032,7 +1049,11 @@
                                                 </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <div class="header-content" style="width: 24%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+=======
+                                        <div class="header-content" style="width: 20%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                             Last 10 minutes Indexes
                                             <div style="width: 100%">
                                                 <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
@@ -1059,7 +1080,14 @@
                                             </div>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="detail_total" style="width: 25.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+=======
+                                    <div style="width: 15%; height: 30px; float: left;">
+                                        <div class="time_manner" style="width: 60px; float: left;position: relative; top:  23px; left: 15px; font-size: 17px; font-weight: normal"></div>
+                                    </div>
+                                    <div class="detail_total" style="width: 22.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                         <div style="width: 100%; padding: 3px 7px; color: black;">
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.homeT.pas" v-if="item1.homeT.pas == 0" class="detail" style="color: red">
@@ -1200,7 +1228,11 @@
                                             </transition>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="detail_total" style="width: 24%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+=======
+                                    <div class="detail_total" style="width: 20%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                         <div style="width: 100%; padding: 3px 7px; color: black;">
                                             <transition name="slide-fade" mode="out-in">
                                                 <div v-if="item1.home.time != 'HT'" :key="(item1.homeT.on + item1.homeT.off)" class="detail index_detail" style="color: green;">
@@ -1290,7 +1322,11 @@
                                             </transition>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="detail_total" style="width: 26.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+=======
+                                    <div class="detail_total" style="width: 22.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                         <div style="width: 100%; padding: 3px 7px; color: black;">
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.home.pas" v-if="item1.home.pas == null" class="detail">
@@ -1409,7 +1445,11 @@
                                             </transition>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="detail_total" style="width: 24%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+=======
+                                    <div class="detail_total" style="width: 20%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                         <div style="width: 100%; padding: 3px 7px; color: black;">
                                             <transition name="slide-fade" mode="out-in">
                                                 <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="(item1.home.on + item1.home.off)" class="detail index_detail" style="color: green;">
@@ -1515,7 +1555,14 @@
                                         </div>
                                     </div>
                                     <!--  away team data part  last 10 minutes-->
+<<<<<<< HEAD
                                     <div class="detail_total" style="width: 25.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+=======
+                                    <div style="width: 15%; height: 30px; float: left; border-bottom: 1px solid lightgray;">
+                                        <div style="width: 60px; float: left; color: white;">.</div>
+                                    </div>
+                                    <div class="detail_total" style="width: 22.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                         <div style="width: 100%; padding: 3px 7px; color: black;">
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.awayT.pas" v-if="item1.awayT.pas == null" class="detail" style="color: red">
@@ -1649,7 +1696,11 @@
                                             </transition>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="detail_total" style="width: 24%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+=======
+                                    <div class="detail_total" style="width: 20%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                         <div style="width: 100%; padding: 3px 7px; color: black;">
                                             <transition name="slide-fade" mode="out-in">
                                                 <div v-if="item1.home.time != 'HT'" :key="((parseInt(item1.awayT.on) + parseInt(item1.awayT.off))/parseInt(item1.home.time))" class="detail index_detail" style="color: green;">
@@ -1739,7 +1790,11 @@
                                             </transition>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="detail_total" style="width: 26.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+=======
+                                    <div class="detail_total" style="width: 22.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                         <div style="width: 100%; padding: 3px 7px; color: black;">
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.away.pas" v-if="item1.away.pas == null" class="detail">
@@ -1858,7 +1913,11 @@
                                             </transition>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="detail_total" style="width: 24%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+=======
+                                    <div class="detail_total" style="width: 20%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                         <div style="width: 100%; padding: 3px 7px; color: black;">
                                             <transition name="slide-fade" mode="out-in">
                                                 <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="(item1.away.on + item1.away.off)" class="detail index_detail" style="color: green;">
@@ -1966,6 +2025,7 @@
                                 </div>
                                 <div class = "bottom-part">
                                     <div class="header" style="width: 100%; height: 50px;">
+<<<<<<< HEAD
                                         <div class="header-content" style="text-align: center; padding-top: 20px; width: 2.5%; height: 50px; float: left; background: #8db4e2; border-left: 1px solid #ffffff;">
                                             P
                                         </div>
@@ -2038,12 +2098,31 @@
                                                     On
                                                 </div>
                                                 <div class="detail season-detail" style="min-width: 20px!important;">
+=======
+                                        <div class="header-content" style="width: 15%; height: 50px; float: left; text-align: left; background: #8db4e2; padding-top: 20px;">
+                                            H/A
+                                        </div>
+                                        <div class="header-content" style="text-align: center; padding-top: 20px; width: 5%; height: 50px; float: left; background: #8db4e2; border-left: 1px solid #ffffff;">
+                                            P
+                                        </div>
+                                        <div class="header-content detail_total" style="width: 60%; height: 50px; float: left; border-left: 1px solid #ffffff; background: #8db4e2">
+                                            Avg Stats Per Game
+                                            <div class="season-part" style="width: 100%">
+                                                <div class="detail season-detail">
+                                                    On
+                                                </div>
+                                                <div class="detail season-detail">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     Off
                                                 </div>
                                                 <div class="detail season-detail">
                                                     Blk
                                                 </div>
+<<<<<<< HEAD
                                                 <div class="detail season-detail" style="min-width: 20px!important; width: 4.5%!important">
+=======
+                                                <div class="detail season-detail">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     In
                                                 </div>
                                                 <div class="detail season-detail">
@@ -2055,12 +2134,19 @@
                                                 <div class="detail season-detail">
                                                     DA
                                                 </div>
+<<<<<<< HEAD
                                                 <div class="detail season-detail" style="min-width: 30px;">
+=======
+                                                <div class="detail" season-detail style="min-width: 30px;">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     Pos
                                                 </div>
                                                 <div class="detail season-detail">
                                                     Pas
+<<<<<<< HEAD
 
+=======
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                                 <div class="detail season-detail">
                                                     Acc
@@ -2080,7 +2166,11 @@
                                                 <div class="detail season-detail">
                                                     Fou
                                                 </div>
+<<<<<<< HEAD
                                                 <div class="detail season-detail" style="min-width: 30px!important; width: 6.5%!important">
+=======
+                                                <div class="detail season-detail" style="min-width: 30px;">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     G_att
                                                 </div>
                                                 <div class="detail season-detail">
@@ -2088,7 +2178,11 @@
                                                 </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <div class="header-content" style="width: 18%; height: 50px; float: left; border-left: 1px solid #ffffff; background: #8db4e2">
+=======
+                                        <div class="header-content" style="width: 20%; height: 50px; float: left; border-left: 1px solid #ffffff; background: #8db4e2">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                             Indexes
                                             <div style="width: 100%">
                                                 <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
@@ -2115,6 +2209,7 @@
                                             </div>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div style="width: 2.5%; height: 30px; float: left; border-left: 1px solid lightgray;">
                                         <div style="text-align: center;">{{item1.home_p}}</div>
                                     </div>
@@ -2137,6 +2232,17 @@
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+=======
+                                    <div style="width: 15%; height: 30px; float: left;">
+                                        <div class="time_manner" style="width: 60px; float: left;position: relative; top:  23px; left: 15px; font-size: 17px; font-weight: normal"></div>
+                                    </div>
+                                    <div style="width: 5%; height: 30px; float: left; border-left: 1px solid lightgray;">
+                                        <div style="text-align: center;">{{item1.home_p}}</div>
+                                    </div>
+                                    <div class="detail_total" style="width: 60%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                        <div style="width: 100%; padding: 3px 7px; color: black;">
+                                            <transition name="slide-fade" mode="out-in">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 <div :key="item1.home_season.on" v-if="item1.home_season.on == 0" class="detail season-detail" style="color: red">
                                                     0
                                                 </div>
@@ -2148,7 +2254,11 @@
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.home_season.on" v-if="item1.home_season.on != null && item1.home_season.on != 0" class="detail season-detail" style="color: green">
+<<<<<<< HEAD
                                                     {{(item1.home_season.on/item1.home_p).toFixed(1)}}
+=======
+                                                    {{item1.home_season.on}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
@@ -2163,7 +2273,11 @@
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.home_season.off" v-if="item1.home_season.off != 0 && item1.home_season.off != null" class="detail season-detail" style="color: green">
+<<<<<<< HEAD
                                                     {{(item1.home_season.off/item1.home_p).toFixed(1)}}
+=======
+                                                    {{item1.home_season.off}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
@@ -2179,7 +2293,11 @@
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.home_season.blk" v-if="item1.home_season.blk != 0 && item1.home_season.blk != null" class="detail season-detail" style="color: green">
+<<<<<<< HEAD
                                                     {{(item1.home_season.blk/item1.home_p).toFixed(1)}}
+=======
+                                                    {{item1.home_season.blk}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
@@ -2195,7 +2313,11 @@
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.home_season.in" v-if="item1.home_season.in != 0 && item1.home_season.in != null" class="detail season-detail" style="color: green">
+<<<<<<< HEAD
                                                     {{(item1.home_season.in/item1.home_p).toFixed(1)}}
+=======
+                                                    {{item1.home_season.in}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
@@ -2211,7 +2333,11 @@
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.home_season.out" v-if="item1.home_season.out != 0 && item1.home_season.out != null" class="detail season-detail" style="color: green">
+<<<<<<< HEAD
                                                     {{(item1.home_season.out/item1.home_p).toFixed(1)}}
+=======
+                                                    {{item1.home_season.out}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
@@ -2227,7 +2353,11 @@
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.home_season.cnr" v-if="item1.home_season.cnr != 0 && item1.home_season.cnr != null" class="detail season-detail" style="color: green">
+<<<<<<< HEAD
                                                     {{(item1.home_season.cnr/item1.home_p).toFixed(1)}}
+=======
+                                                    {{item1.home_season.cnr}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
@@ -2243,6 +2373,7 @@
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.home_season.da" v-if="item1.home_season.da != 0 && item1.home_season.da != null" class="detail season-detail" style="color: green">
+<<<<<<< HEAD
                                                     {{(item1.home_season.da/item1.home_p).toFixed(1)}}
                                                 </div>
                                             </transition>
@@ -2535,6 +2666,9 @@
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.home_season.da" v-if="item1.home_season.da != 0 && item1.home_season.da != null" class="detail season-detail" style="color: green">
                                                     {{item1.home_season.da}}
+=======
+                                                    {{item1.home_season.da}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
@@ -2555,6 +2689,7 @@
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.home_season.pas" v-if="item1.home_season.pas == 0" class="detail season-detail"  style="color: red">
                                                     0
                                                 </div>
@@ -2822,143 +2957,255 @@
 
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.away_season.in" v-if="item1.away_season.in == 0" class="detail season-detail"  style="color: red">
+=======
+                                                <div :key="item1.home_season.pas" v-if="item1.home_season.pas == 0" class="detail season-detail"  style="color: red">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     0
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.in" v-if="item1.away_season.in == null" class="detail season-detail" >
+=======
+                                                <div :key="item1.home_season.pas" v-if="item1.home_season.pas == null" class="detail season-detail" >
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     -
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.in" v-if="item1.away_season.in != 0 && item1.away_season.in != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.in/item1.away_p).toFixed(1)}}
+=======
+                                                <div :key="item1.home_season.pas" v-if="item1.home_season.pas != 0 && item1.home_season.pas != null" class="detail season-detail" style="color: green">
+                                                    {{item1.home_season.pas}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.out" v-if="item1.away_season.out == 0" class="detail season-detail"  style="color: red">
+=======
+                                                <div :key="item1.home_season.acc" v-if="item1.home_season.acc == 0" class="detail season-detail"  style="color: red">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     0
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.out" v-if="item1.away_season.out == null" class="detail season-detail" >
+=======
+                                                <div :key="item1.home_season.acc" v-if="item1.home_season.acc == null" class="detail season-detail" >
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     -
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.out" v-if="item1.away_season.out != 0 && item1.away_season.out != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.out/item1.away_p).toFixed(1)}}
+=======
+                                                <div :key="item1.home_season.acc" v-if="item1.home_season.acc != 0 && item1.home_season.acc != null" class="detail season-detail" style="color: green">
+                                                    {{item1.home_season.acc}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.cnr" v-if="item1.away_season.cnr == 0" class="detail season-detail"  style="color: red">
+=======
+                                                <div :key="item1.home_season.atk" v-if="item1.home_season.atk == 0" class="detail season-detail"  style="color: red">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     0
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.cnr" v-if="item1.away_season.cnr == null" class="detail season-detail" >
+=======
+                                                <div :key="item1.home_season.atk" v-if="item1.home_season.atk == null" class="detail season-detail" >
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     -
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.cnr" v-if="item1.away_season.cnr != 0 && item1.away_season.cnr != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.cnr/item1.away_p).toFixed(1)}}
+=======
+                                                <div :key="item1.home_season.atk" v-if="item1.home_season.atk != 0 && item1.home_season.atk != null" class="detail season-detail" style="color: green">
+                                                    {{item1.home_season.atk}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.da" v-if="item1.away_season.da == 0" class="detail season-detail"  style="color: red">
+=======
+                                                <div :key="item1.home_season.ofs" v-if="item1.home_season.ofs == 0" class="detail season-detail"  style="color: red">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     0
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.da" v-if="item1.away_season.da == null" class="detail season-detail" >
+=======
+                                                <div :key="item1.home_season.ofs" v-if="item1.home_season.ofs == null" class="detail season-detail" >
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     -
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.da" v-if="item1.away_season.da != 0 && item1.away_season.da != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.da/item1.away_p).toFixed(1)}}
+=======
+                                                <div :key="item1.home_season.ofs" v-if="item1.home_season.ofs != 0 && item1.home_season.ofs != null" class="detail season-detail" style="color: green">
+                                                    {{item1.home_season.ofs}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.pos" v-if="item1.away_season.pos == 0" class="detail season-detail"  style="color: red">
+=======
+                                                <div :key="item1.home_season.sav" v-if="item1.home_season.sav == 0" class="detail season-detail"  style="color: red">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     0
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.pos" v-if="item1.away_season.pos == null" class="detail season-detail" >
+=======
+                                                <div :key="item1.home_season.sav" v-if="item1.home_season.sav == null" class="detail season-detail" >
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     -
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.pos" v-if="item1.away_season.pos != 0 && item1.away_season.pos != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.pos/item1.away_p).toFixed(1)}}
+=======
+                                                <div :key="item1.home_season.sav" v-if="item1.home_season.sav != 0 && item1.home_season.sav != null" class="detail season-detail" style="color: green">
+                                                    {{item1.home_season.sav}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.pas" v-if="item1.away_season.pas == 0" class="detail season-detail"  style="color: red">
+=======
+                                                <div :key="item1.home_season.sbst" v-if="item1.home_season.sbst == 0" class="detail season-detail"  style="color: red">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     0
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.pas" v-if="item1.away_season.pas == null" class="detail season-detail" >
+=======
+                                                <div :key="item1.home_season.sbst" v-if="item1.home_season.sbst == null" class="detail season-detail" >
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     -
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.pas" v-if="item1.away_season.pas != 0 && item1.away_season.pas != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.pas/item1.away_p).toFixed(1)}}
+=======
+                                                <div :key="item1.home_season.sbst" v-if="item1.home_season.sbst != 0 && item1.home_season.sav != null" class="detail season-detail" style="color: green">
+                                                    {{item1.home_season.sbst}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.acc" v-if="item1.away_season.acc == 0" class="detail season-detail"  style="color: red">
+=======
+                                                <div :key="item1.home_season.fou" v-if="item1.home_season.fou == 0" class="detail season-detail"  style="color: red">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     0
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.acc" v-if="item1.away_season.acc == null" class="detail season-detail" >
+=======
+                                                <div :key="item1.home_season.fou" v-if="item1.home_season.fou == null" class="detail season-detail" >
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     -
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.acc" v-if="item1.away_season.acc != 0 && item1.away_season.acc != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.acc/item1.away_p).toFixed(1)}}
+=======
+                                                <div :key="item1.home_season.fou" v-if="item1.home_season.fou != 0 && item1.home_season.sav != null" class="detail season-detail" style="color: green">
+                                                    {{item1.home_season.fou}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.atk" v-if="item1.away_season.atk == 0" class="detail season-detail"  style="color: red">
+=======
+                                                <div :key="item1.home_season.g_att" v-if="item1.home_season.g_att == 0" class="detail season-detail"  style="color: red">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     0
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.atk" v-if="item1.away_season.atk == null" class="detail season-detail" >
+=======
+                                                <div :key="item1.home_season.g_att" v-if="item1.home_season.g_att == null" class="detail season-detail" >
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     -
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.atk" v-if="item1.away_season.atk != 0 && item1.away_season.atk != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.atk/item1.away_p).toFixed(1)}}
+=======
+                                                <div :key="item1.home_season.g_att" v-if="item1.home_season.g_att != 0 && item1.home_season.g_att != null" class="detail season-detail" style="color: green">
+                                                    {{item1.home_season.g_att}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.ofs" v-if="item1.away_season.ofs == 0" class="detail season-detail"  style="color: red">
+=======
+                                                <div :key="item1.home_season.safe" v-if="item1.home_season.safe == 0" class="detail season-detail"  style="color: red">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     0
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.ofs" v-if="item1.away_season.ofs == null" class="detail season-detail" >
+=======
+                                                <div :key="item1.home_season.safe" v-if="item1.home_season.safe == null" class="detail season-detail" >
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     -
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.ofs" v-if="item1.away_season.ofs != 0 && item1.away_season.ofs != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.ofs/item1.away_p).toFixed(1)}}
                                                 </div>
@@ -2977,10 +3224,35 @@
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.away_season.sav" v-if="item1.away_season.sav != 0 && item1.away_season.sav != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.sav/item1.away_p).toFixed(1)}}
+=======
+                                                <div :key="item1.home_season.safe" v-if="item1.home_season.safe != 0 && item1.home_season.safe != null" class="detail season-detail" style="color: green">
+                                                    {{item1.home_season.safe}}
+                                                </div>
+                                            </transition>
+
+                                         </div>
+                                    </div>
+                                    <div class="detail_total" style="width: 20%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                        <div style="width: 100%; padding: 3px 7px; color: black;">
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="(item1.home.on + item1.home.off)" class="detail index_detail" style="color: green;">
+                                                    {{((parseInt(item1.home.on) + parseInt(item1.home.off))/parseInt(item1.home.time)).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="(item1.home.on + item1.home.off)" class="detail index_detail" style="color: green;">
+                                                    {{((parseInt(item1.home.on) + parseInt(item1.home.off))/10).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.home.time === 'HT'" :key="(item1.home.on + item1.home.off)" class="detail index_detail" style="color: green;">
+                                                    {{((parseInt(item1.home.on) + parseInt(item1.home.off))/10).toFixed(2)}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.sbst" v-if="item1.away_season.sbst == 0" class="detail season-detail"  style="color: red">
                                                     0
                                                 </div>
@@ -2993,10 +3265,25 @@
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.away_season.sbst" v-if="item1.away_season.sbst != 0 && item1.away_season.sav != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.sbst/item1.away_p).toFixed(1)}}
+=======
+                                                <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="item1.home.on" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.home.on))/parseInt(item1.home.time)).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="item1.home.on" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.home.on))/10).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.home.time === 'HT'" :key="item1.home.on" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.home.on))/10).toFixed(2)}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.fou" v-if="item1.away_season.fou == 0" class="detail season-detail"  style="color: red">
                                                     0
                                                 </div>
@@ -3009,10 +3296,25 @@
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.away_season.fou" v-if="item1.away_season.fou != 0 && item1.away_season.sav != null" class="detail season-detail" style="color: green">
                                                     {{(item1.away_season.fou/item1.away_p).toFixed(1)}}
+=======
+                                                <div v-if="parseInt(item1.away.on) + parseInt(item1.away.off) != 0 && item1.home.blk != null" :key="((parseInt(item1.home.blk))/(parseInt(item1.away.on)+ parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.home.blk))/(parseInt(item1.away.on) + parseInt(item1.away.off))).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="parseInt(item1.away.on) + parseInt(item1.away.off) == 0 && item1.home.blk != null" :key="((parseInt(item1.home.blk))/(parseInt(item1.away.on)+ parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                    0.00
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.home.blk == null" :key="item1.home.blk" class="detail index_detail" style="color: green">
+                                                    -
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div :key="item1.away_season.g_att" v-if="item1.away_season.g_att == 0" class="detail season-detail"  style="color: red">
                                                     0
                                                 </div>
@@ -3063,6 +3365,71 @@
                                                 </div>
                                             </transition>
 
+=======
+                                                <div v-if="item1.home.on != 0" :key="(parseInt(item1.home.score))/parseInt(item1.home.on)" class="detail index_detail" style="color: green;">
+                                                    {{((parseInt(item1.home.goal))/parseInt(item1.home.on)).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.home.on == 0" :key="(parseInt(item1.home.score))/parseInt(item1.home.on)" class="detail index_detail" style="color: green;">
+                                                    0.00
+                                                </div>
+                                            </transition>
+
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="((parseInt(item1.home.da))/parseInt(item1.home.time))" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.home.da))/parseInt(item1.home.time)).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="((parseInt(item1.home.da))/parseInt(item1.home.time))" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.home.da))/10).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.home.time === 'HT'" :key="(parseInt(item1.home.da))" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.home.da))/10).toFixed(2)}}
+                                                </div>
+                                            </transition>
+
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="(parseInt(item1.home.on) + parseInt(item1.home.off)) != 0" :key="(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off)))" class="detail index_detail" style="color: green">
+                                                    {{(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off))).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="(parseInt(item1.home.on) + parseInt(item1.home.off)) == 0" :key="(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off)))" class="detail index_detail" style="color: green">
+                                                    0.00
+                                                </div>
+                                            </transition>
+
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.home.pas != 0 && item1.home.pas != null" :key="(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off)))" class="detail index_detail" style="color: green">
+                                                    {{(parseInt(item1.home.acc)/parseInt(item1.home.pas)).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.home.pas == 0 && item1.home.pas != null" :key="(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off)))" class="detail index_detail" style="color: green">
+                                                    0.00
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.home.pas == null" :key="(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off)))" class="detail index_detail" style="color: green">
+                                                    -
+                                                </div>
+                                            </transition>
+                                        </div>
+                                    </div>
+                                    <!--  away team data part  last 10 minutes-->
+                                    <div style="width: 15%; height: 30px; float: left; border-bottom: 1px solid lightgray;">
+                                        <div style="width: 60px; float: left; color: white;">.</div>
+                                    </div>
+                                    <div style="width: 5%; height: 30px; float: left; border-bottom: 1px solid lightgray; border-left: 1px solid lightgray;">
+                                        <div style="text-align: center;">{{item1.away_p}}</div>
+                                    </div>
+                                    <div class="detail_total" style="width: 60%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                        <div style="width: 100%; padding: 3px 7px; color: black;">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                             <transition name="slide-fade" mode="out-in">
                                                 <div :key="item1.away_season.on" v-if="item1.away_season.on == 0" class="detail season-detail" style="color: red">
                                                     0
@@ -3335,52 +3702,149 @@
                                             </transition>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="detail_total season-stats-part" style="width: 18%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
                                         <div style="width: 100%; padding: 3px 7px; color: black;">
                                             <transition name="slide-fade" mode="out-in">
                                                 <div class="detail index_detail" style="color: green;">
                                                     {{((item1.away_season.on + item1.away_season.off)/90/item1.away_p).toFixed(2)}}
+=======
+                                    <div class="detail_total" style="width: 20%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                        <div style="width: 100%; padding: 3px 7px; color: black;">
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="(item1.away.on + item1.away.off)" class="detail index_detail" style="color: green;">
+                                                    {{((parseInt(item1.away.on) + parseInt(item1.away.off))/parseInt(item1.home.time)).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="(item1.away.on + item1.away.off)" class="detail index_detail" style="color: green;">
+                                                    {{((parseInt(item1.away.on) + parseInt(item1.away.off))/10).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.home.time === 'HT'" :key="(item1.away.on + item1.away.off)" class="detail index_detail" style="color: green;">
+                                                    {{((parseInt(item1.away.on) + parseInt(item1.away.off))/10).toFixed(2)}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div class="detail index_detail" style="color: green;">
                                                     {{((item1.away_season.on)/90/item1.away_p).toFixed(2)}}
+=======
+                                                <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="item1.away.on" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.away.on))/parseInt(item1.home.time)).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="item1.away.on" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.away.on))/10).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.home.time === 'HT'" :key="item1.away.on" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.away.on))/10).toFixed(2)}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div v-if="item1.away_season.blk" class="detail index_detail" style="color: green;">
                                                     {{((item1.away_season.blk)/item1.away_p).toFixed(2)}}
                                                 </div>
                                             </transition>
                                             <transition name="slide-fade" mode="out-in">
                                                 <div v-if="!item1.away_season.blk" class="detail index_detail" style="color: green;">
+=======
+                                                <div v-if="parseInt(item1.home.on) + parseInt(item1.home.off) != 0 && item1.away.blk != null" :key="item1.away.blk" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.away.blk))/(parseInt(item1.home.on) + parseInt(item1.home.off))).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="parseInt(item1.home.on) + parseInt(item1.home.off) == 0 && item1.away.blk != null" :key="item1.away.blk" class="detail index_detail" style="color: green">
+                                                    0.00
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.away.blk == null" class="detail index_detail" style="color: green">
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                     -
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div class="detail index_detail" style="color: green;">
                                                     {{((item1.away_season.goals)/(item1.away_season.on)).toFixed(2)}}
+=======
+                                                <div v-if="item1.away.on != 0" :key="(parseInt(item1.away.score))/parseInt(item1.away.on)" class="detail index_detail" style="color: green;">
+                                                    {{((parseInt(item1.away.goal))/parseInt(item1.away.on)).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.away.on == 0" :key="(parseInt(item1.away.score))/parseInt(item1.away.on)" class="detail index_detail" style="color: green;">
+                                                    0.00
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div class="detail index_detail" style="color: green;">
                                                     {{((item1.away_season.da)/90/item1.away_p).toFixed(2)}}
+=======
+                                                <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="((parseInt(item1.away.da))/parseInt(item1.away.time))" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.away.da))/parseInt(item1.home.time)).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="((parseInt(item1.away.da))/parseInt(item1.away.time))" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.away.da))/10).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.home.time === 'HT'" :key="(parseInt(item1.away.da))" class="detail index_detail" style="color: green">
+                                                    {{((parseInt(item1.away.da))/10).toFixed(2)}}
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div class="detail index_detail" style="color: green;">
                                                     {{((item1.away_season.on)/(item1.away_season.on + item1.away_season.off)).toFixed(2)}}
+=======
+                                                <div v-if="(parseInt(item1.away.on) + parseInt(item1.away.off)) != 0" :key="(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                    {{(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off))).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="(parseInt(item1.away.on) + parseInt(item1.away.off)) == 0" :key="(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                    0.00
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
 
                                             <transition name="slide-fade" mode="out-in">
+<<<<<<< HEAD
                                                 <div class="detail index_detail" style="color: green;">
                                                     {{((item1.away_season.acc)/(item1.away_season.pas)).toFixed(2)}}
+=======
+                                                <div v-if="item1.away.pas != 0 && item1.away.pas != null" :key="(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                    {{(parseInt(item1.away.acc)/parseInt(item1.away.pas)).toFixed(2)}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.away.pas == 0 && item1.away.pas != null" :key="(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                    0.00
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.away.pas == null" :key="(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                    -
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                 </div>
                                             </transition>
                                         </div>
@@ -3786,8 +4250,12 @@
                                         'sbst': 0,
                                         'fou': 0 ,
                                         'g_att': 0 ,
+<<<<<<< HEAD
                                         'safe': 0,
                                         'goals':0
+=======
+                                        'safe': 0
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                     }
                                     let away_season = {
                                         'on': 0,
@@ -3806,8 +4274,12 @@
                                         'sbst': 0,
                                         'fou': 0 ,
                                         'g_att': 0 ,
+<<<<<<< HEAD
                                         'safe': 0,
                                         'goals': 0
+=======
+                                        'safe': 0
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                     }
                                     let home_p = 0
                                     let away_p = 0
@@ -3823,7 +4295,10 @@
                                                         if(main_data[j].season_stats[u].stats[uu][0]){
                                                             if(main_data[j].season_stats[u].stats[uu][0].team_id == home.id){
                                                                 home_p++
+<<<<<<< HEAD
                                                                 console.log(main_data[j], main_data[j].season_stats[u].stats, u)
+=======
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                                 if(main_data[j].season_stats[u].stats[uu][0].shots){
                                                                     home_season.on = home_season.on + main_data[j].season_stats[u].stats[uu][0].shots.ongoal
                                                                     home_season.off = home_season.off + main_data[j].season_stats[u].stats[uu][0].shots.offgoal
@@ -3831,10 +4306,13 @@
                                                                     home_season.in = home_season.in + main_data[j].season_stats[u].stats[uu][0].shots.insidebox
                                                                     home_season.out = home_season.out + main_data[j].season_stats[u].stats[uu][0].shots.outsidebox
                                                                 }
+<<<<<<< HEAD
 
                                                                 if(main_data[j].season_stats[u].stats[uu][0].goals){
                                                                     home_season.goals = home_season.goals + main_data[j].season_stats[u].stats[uu][0].goals
                                                                 }
+=======
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                                 if(main_data[j].season_stats[u].stats[uu][0].corners != null){
                                                                     home_season.cnr = home_season.cnr + main_data[j].season_stats[u].stats[uu][0].corners
                                                                 }
@@ -3873,6 +4351,7 @@
                                                                     home_season.safe = home_season.safe + main_data[j].season_stats[u].stats[uu][0].ball_safe
                                                                 }
                                                             }
+<<<<<<< HEAD
                                                             if(main_data[j].season_stats[u].stats[uu][1].team_id == away.id){
                                                                 away_p++
 
@@ -3928,6 +4407,9 @@
                                                                     away_season.safe = home_season.safe + main_data[j].season_stats[u].stats[uu][1].ball_safe
                                                                 }
                                                             }
+=======
+                                                            
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                                         }
                                                     }
                                                 }
@@ -4278,8 +4760,13 @@
                                         awayT.safe = main_data[j].stats[0].ball_safe
                                     }
                                     //-----------------------------------//
+<<<<<<< HEAD
                                     // home_season.pos = parseInt(home_season.pos/home_poss_index)
                                     // away_season.pos = 100 - home_season.pos
+=======
+                                    home_season.pos = parseInt(home_season.pos/home_poss_index)
+                                    away_season.pos = 100 - home_season.pos
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
                                     this.eventArray[i].events.push({
                                         'index0': k,
                                         'main_data': main_data[j],
@@ -4700,6 +5187,7 @@
 </script>
 <style>
     .season-detail{
+<<<<<<< HEAD
         width: 5.5%!important;
         min-width: 24px!important;
         font-size: 10px!important;
@@ -4709,6 +5197,9 @@
     }
     .bottom-part.bottom-part1 .index_detail{
         width: 14%!important;
+=======
+        width: 5.85%!important;
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
     }
     .live-stats-container .nav-item a{
         height: 30px;
@@ -4765,9 +5256,12 @@
     .live-stats-container div{
         font-size: 12px!important;
     }
+<<<<<<< HEAD
     .live-stats-container .season-detail{
         font-size: 10px!important;
     }
+=======
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
     .live-stats-container .card-body{
         padding: 5px;
     }
@@ -4807,7 +5301,11 @@
         width: 11%;
     }
     .index_detail{
+<<<<<<< HEAD
         width: 14%!important;
+=======
+        width: 14%;
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
     }
     .time_manner{
         animation: splash infinite 1.5s;

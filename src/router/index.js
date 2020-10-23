@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+// Navigation Pages
+
 import MainView from "../views/MainView";
 import AdminVue from "../views/AdminVue";
 import StatsList from "../views/StatsList"
@@ -8,6 +11,9 @@ import PredictionStats from "../views/prediction_stats";
 import TeamAnalysis from "../views/TeamAnalysis";
 import HistoricDataUpload from "../views/HistoricDataUpload";
 import prediction_upload from "../views/prediction_upload";
+
+const NavDashboard = () => import("@/views/navigations/pages/NavDashboard");
+
 // Containers
 const TheContainer = () => import('@/containers/TheContainer')
 
@@ -152,6 +158,14 @@ function configRoutes () {
           component: prediction_upload
         },
         {
+<<<<<<< HEAD
+=======
+          path: 'nav-dashboard',
+          name: 'Nav Dashboard',
+          component: NavDashboard
+        },
+        {
+>>>>>>> 09b413546515adaac4a5af376284e057434dbddc
           path: 'widgets',
           name: 'Widgets',
           component: Widgets
