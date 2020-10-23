@@ -3508,12 +3508,15 @@
         }
     }
 </script>
+
 <style scoped>
 
     /* Dashboard Logo */
     .dashboard-logo-wrapper {
         min-width: 300px;
     }
+    /* End Dashboard Logo */
+    
     .dashboard-logo {
         width: 200px;
         display: initial;
