@@ -14,6 +14,8 @@ const TheContainer = () => import('@/containers/TheContainer')
 // Views
 const Dashboard = () => import('@/views/Dashboard')
 
+const NavDashboard = () => import("@/views/navigations/pages/NavDashboard")
+
 const Colors = () => import('@/views/theme/Colors')
 const Typography = () => import('@/views/theme/Typography')
 
@@ -150,6 +152,11 @@ function configRoutes () {
           path: 'prediction_upload',
           name: 'PredictionUpload',
           component: prediction_upload
+        },
+        {
+          path: 'nav-dashboard',
+          name: 'NavDashboard',
+          component: NavDashboard
         },
         {
           path: 'widgets',
