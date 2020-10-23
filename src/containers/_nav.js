@@ -66,12 +66,6 @@ export default [
       },
       {
         _name: 'CSidebarNavItem',
-        name: 'Nav Dashboard',
-        to: '/nav-dashboard',
-        icon: 'cil-football'
-      },
-      {
-        _name: 'CSidebarNavItem',
         name: 'Today',
         to: '/theme/colors',
         icon: 'cil-football'

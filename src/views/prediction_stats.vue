@@ -680,122 +680,222 @@
                        {{this.currentMarketId}}
                     </div>
                 </div>
-                <div v-if="currentPredictionType === 'MATCH_ODDS'" style="display: flex; width: 100%; font-weight: 600; margin-top: 10px;">
-                    <div style="flex: 1;">
-                        1X2 Pre match:
+
+<!--                <div v-if="currentPredictionType === 'MATCH_ODDS'" style="display: flex; width: 100%; font-weight: 600; margin-top: 10px;">-->
+<!--                    <div style="flex: 1;">-->
+<!--                        1X2 Pre match:-->
+<!--                    </div>-->
+<!--                    <div style="flex: 1; font-weight: normal; text-align: center;">-->
+<!--                        <div>-->
+<!--                            1-->
+<!--                        </div>-->
+<!--                        <div style="display: flex">-->
+<!--                            <div style="flex: 1; text-align: center;">-->
+<!--                                {{currentPrematchOdd[0].exchange.availableToBack[0].price}}-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; text-align: center;">-->
+<!--                                {{currentPrematchOdd[0].exchange.availableToLay[0].price}}-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div style="flex: 1;  font-weight: normal; text-align: center;">-->
+<!--                        <div>-->
+<!--                            X-->
+<!--                        </div>-->
+<!--                        <div style="display: flex">-->
+<!--                            <div style="flex: 1; text-align: center;">-->
+<!--                                {{currentPrematchOdd[2].exchange.availableToBack[0].price}}-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; text-align: center;">-->
+<!--                                {{currentPrematchOdd[2].exchange.availableToLay[0].price}}-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div style="flex: 1;  font-weight: normal; text-align: center;">-->
+<!--                        <div>-->
+<!--                            2-->
+<!--                        </div>-->
+<!--                        <div style="display: flex">-->
+<!--                            <div style="flex: 1; text-align: center;">-->
+<!--                                {{currentPrematchOdd[1].exchange.availableToBack[0].price}}-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; text-align: center;">-->
+<!--                                {{currentPrematchOdd[1].exchange.availableToLay[0].price}}-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div style="width: 100%;">-->
+<!--                    <label style="margin-top: 20px;">Selected Match Stats:</label>-->
+<!--                </div>-->
+<!--                <div style="text-align: center;">-->
+<!--                    <div style="display: flex; width: 100%;">-->
+<!--                        <div style="flex: 1; text-align: left;">-->
+<!--                            Risk:-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1; background: #92d050">-->
+<!--                            Easy-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1; background: #ffff00">-->
+<!--                            Medium-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1; background: #fd4016">-->
+<!--                            Hard-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div style="display: flex; width: 100%;">-->
+<!--                        <div style="flex: 1; text-align: left;">-->
+<!--                            Profit%:-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            31.00-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            56.00-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            -40.00-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div style="display: flex; width: 100%;">-->
+<!--                        <div style="flex: 1; text-align: left;">-->
+<!--                            Cashout minute:-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            35-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            60-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            72-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div style="display: flex; width: 100%;">-->
+<!--                        <div style="flex: 1; text-align: left;">-->
+<!--                            Cash Out Odds:-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            4.60-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            5.80-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            1.80-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div style="display: flex; width: 100%;">-->
+<!--                        <div style="flex: 1; text-align: left;">-->
+<!--                            Score:-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            0 - 1-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            0 - 1-->
+<!--                        </div>-->
+<!--                        <div style="flex: 1;">-->
+<!--                            1 - 1-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                <div style="margin-top: 20px;">
+                    <div class="stats-header">
+                        <div class="stats-header-detail">
+                            On
+                        </div>
+                        <div class="stats-header-detail">
+                            Off
+                        </div>
+                        <div class="stats-header-detail">
+                            Blk
+                        </div>
+                        <div class="stats-header-detail">
+                            In
+                        </div>
+                        <div class="stats-header-detail">
+                            Out
+                        </div>
+                        <div class="stats-header-detail">
+                            Pos
+                        </div>
+                        <div class="stats-header-detail">
+                            Cnr
+                        </div>
+                        <div class="stats-header-detail">
+                            Da
+                        </div>
+                        <div class="stats-header-detail">
+                            Red
+                        </div>
+                        <div class="stats-header-detail">
+                            Rtg
+                        </div>
                     </div>
-                    <div style="flex: 1; font-weight: normal; text-align: center;">
-                        <div>
-                            1
+                    <div class="stats-content">
+                        <div class="stats-header-detail">
+                            {{last_stats_home.on}}
                         </div>
-                        <div style="display: flex">
-                            <div style="flex: 1; text-align: center;">
-                                {{currentPrematchOdd[0].exchange.availableToBack[0].price}}
-                            </div>
-                            <div style="flex: 1; text-align: center;">
-                                {{currentPrematchOdd[0].exchange.availableToLay[0].price}}
-                            </div>
+                        <div class="stats-header-detail">
+                            {{last_stats_home.off}}
                         </div>
-                    </div>
-                    <div style="flex: 1;  font-weight: normal; text-align: center;">
-                        <div>
-                            X
+                        <div class="stats-header-detail">
+                            {{last_stats_home.blk}}
                         </div>
-                        <div style="display: flex">
-                            <div style="flex: 1; text-align: center;">
-                                {{currentPrematchOdd[2].exchange.availableToBack[0].price}}
-                            </div>
-                            <div style="flex: 1; text-align: center;">
-                                {{currentPrematchOdd[2].exchange.availableToLay[0].price}}
-                            </div>
+                        <div class="stats-header-detail">
+                            {{last_stats_home.in}}
                         </div>
-                    </div>
-                    <div style="flex: 1;  font-weight: normal; text-align: center;">
-                        <div>
-                            2
+                        <div class="stats-header-detail">
+                            {{last_stats_home.out}}
                         </div>
-                        <div style="display: flex">
-                            <div style="flex: 1; text-align: center;">
-                                {{currentPrematchOdd[1].exchange.availableToBack[0].price}}
-                            </div>
-                            <div style="flex: 1; text-align: center;">
-                                {{currentPrematchOdd[1].exchange.availableToLay[0].price}}
-                            </div>
+                        <div class="stats-header-detail">
+                            {{last_stats_home.pos}}
+                        </div>
+                        <div class="stats-header-detail">
+                            {{last_stats_home.cnr}}
+                        </div>
+                        <div class="stats-header-detail">
+                            {{last_stats_home.da}}
+                        </div>
+                        <div class="stats-header-detail">
+                            {{last_stats_home.red}}
+                        </div>
+                        <div class="stats-header-detail">
+                            {{last_stats_home.rtg}}
                         </div>
                     </div>
-                </div>
-                <div style="width: 100%;">
-                    <label style="margin-top: 20px;">Selected Match Stats:</label>
-                </div>
-                <div style="text-align: center;">
-                    <div style="display: flex; width: 100%;">
-                        <div style="flex: 1; text-align: left;">
-                            Risk:
+                    <div class="stats-content">
+                        <div class="stats-header-detail">
+                            {{last_stats_away.on}}
                         </div>
-                        <div style="flex: 1; background: #92d050">
-                            Easy
+                        <div class="stats-header-detail">
+                            {{last_stats_away.off}}
                         </div>
-                        <div style="flex: 1; background: #ffff00">
-                            Medium
+                        <div class="stats-header-detail">
+                            {{last_stats_away.blk}}
                         </div>
-                        <div style="flex: 1; background: #fd4016">
-                            Hard
+                        <div class="stats-header-detail">
+                            {{last_stats_away.in}}
                         </div>
-                    </div>
-                    <div style="display: flex; width: 100%;">
-                        <div style="flex: 1; text-align: left;">
-                            Profit%:
+                        <div class="stats-header-detail">
+                            {{last_stats_away.out}}
                         </div>
-                        <div style="flex: 1;">
-                            31.00
+                        <div class="stats-header-detail">
+                            {{last_stats_away.pos}}
                         </div>
-                        <div style="flex: 1;">
-                            56.00
+                        <div class="stats-header-detail">
+                            {{last_stats_away.cnr}}
                         </div>
-                        <div style="flex: 1;">
-                            -40.00
+                        <div class="stats-header-detail">
+                            {{last_stats_away.da}}
                         </div>
-                    </div>
-                    <div style="display: flex; width: 100%;">
-                        <div style="flex: 1; text-align: left;">
-                            Cashout minute:
+                        <div class="stats-header-detail">
+                            {{last_stats_away.red}}
                         </div>
-                        <div style="flex: 1;">
-                            35
-                        </div>
-                        <div style="flex: 1;">
-                            60
-                        </div>
-                        <div style="flex: 1;">
-                            72
-                        </div>
-                    </div>
-                    <div style="display: flex; width: 100%;">
-                        <div style="flex: 1; text-align: left;">
-                            Cash Out Odds:
-                        </div>
-                        <div style="flex: 1;">
-                            4.60
-                        </div>
-                        <div style="flex: 1;">
-                            5.80
-                        </div>
-                        <div style="flex: 1;">
-                            1.80
-                        </div>
-                    </div>
-                    <div style="display: flex; width: 100%;">
-                        <div style="flex: 1; text-align: left;">
-                            Score:
-                        </div>
-                        <div style="flex: 1;">
-                            0 - 1
-                        </div>
-                        <div style="flex: 1;">
-                            0 - 1
-                        </div>
-                        <div style="flex: 1;">
-                            1 - 1
+                        <div class="stats-header-detail">
+                            {{last_stats_away.rtg}}
                         </div>
                     </div>
                 </div>
@@ -2253,7 +2353,32 @@
                 counter: 10,
                 current_counter: 2,
                 timer: null,
-                current_predictionId: ''
+                current_predictionId: '',
+                current_stats: {},
+                last_stats_home:{
+                    'on': '-',
+                    'off': '-',
+                    'blk': '-',
+                    'in': '-',
+                    'out': '-',
+                    'pos': '-',
+                    'cnr': '-',
+                    'da': '-',
+                    'red': '-',
+                    'rtg': '-'
+                },
+                last_stats_away:{
+                    'on': '-',
+                    'off': '-',
+                    'blk': '-',
+                    'in': '-',
+                    'out': '-',
+                    'pos': '-',
+                    'cnr': '-',
+                    'da': '-',
+                    'red': '-',
+                    'rtg': '-'
+                }
             }
         },
         methods: {
@@ -2343,11 +2468,19 @@
                                                         if(this.searchFilter.valid_type === this.eventLists2[i].predictionType && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price >= this.searchFilter.home_pre_odd_min && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price <= this.searchFilter.home_pre_odd_max && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price >= this.searchFilter.away_pre_odd_min && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price <= this.searchFilter.away_pre_odd_max && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price >= this.searchFilter.draw_pre_odd_min && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price <= this.searchFilter.draw_pre_odd_max){
                                                             if(this.searchFilter.week === true){
                                                                 if(this.eventLists2[i].week === 1){
-                                                                    this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                    let liveStats = []
+                                                                    if(this.eventLists2[i].liveStats.length > 0){
+                                                                        liveStats = this.eventLists2[i].liveStats
+                                                                    }
+                                                                    this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                                 }
                                                             }
                                                             else{
-                                                                this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                let liveStats = []
+                                                                if(this.eventLists2[i].liveStats.length > 0){
+                                                                    liveStats = this.eventLists2[i].liveStats
+                                                                }
+                                                                this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                             }
                                                         }
                                                     }
@@ -2357,11 +2490,19 @@
                                                         if(this.searchFilter.valid_type === this.eventLists2[i].predictionType && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price >= this.searchFilter.home_pre_odd_min && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price <= this.searchFilter.home_pre_odd_max && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price >= this.searchFilter.away_pre_odd_min && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price <= this.searchFilter.away_pre_odd_max && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price >= this.searchFilter.draw_pre_odd_min && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price <= this.searchFilter.draw_pre_odd_max){
                                                             if(this.searchFilter.week === true){
                                                                 if(this.eventLists2[i].week === 1){
-                                                                    this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                    let liveStats = []
+                                                                    if(this.eventLists2[i].liveStats.length > 0){
+                                                                        liveStats = this.eventLists2[i].liveStats
+                                                                    }
+                                                                    this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                                 }
                                                             }
                                                             else{
-                                                                this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                let liveStats = []
+                                                                if(this.eventLists2[i].liveStats.length > 0){
+                                                                    liveStats = this.eventLists2[i].liveStats
+                                                                }
+                                                                this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                             }
                                                         }
                                                     }
@@ -2370,11 +2511,19 @@
                                             else{
                                                 if(this.searchFilter.week === true){
                                                     if(this.eventLists2[i].week === 1){
-                                                        this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                        let liveStats = []
+                                                        if(this.eventLists2[i].liveStats.length > 0){
+                                                            liveStats = this.eventLists2[i].liveStats
+                                                        }
+                                                        this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                     }
                                                 }
                                                 else{
-                                                    this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                    let liveStats = []
+                                                    if(this.eventLists2[i].liveStats.length > 0){
+                                                        liveStats = this.eventLists2[i].liveStats
+                                                    }
+                                                    this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                 }
                                             }
                                         }
@@ -2393,11 +2542,19 @@
                                                     if(this.searchFilter.valid_type === this.eventLists2[i].predictionType && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price >= this.searchFilter.home_pre_odd_min && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price <= this.searchFilter.home_pre_odd_max && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price >= this.searchFilter.away_pre_odd_min && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price <= this.searchFilter.away_pre_odd_max && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price >= this.searchFilter.draw_pre_odd_min && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price <= this.searchFilter.draw_pre_odd_max){
                                                         if(this.searchFilter.week === true){
                                                             if(this.eventLists2[i].week === 1){
-                                                                this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                let liveStats = []
+                                                                if(this.eventLists2[i].liveStats.length > 0){
+                                                                    liveStats = this.eventLists2[i].liveStats
+                                                                }
+                                                                this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                             }
                                                         }
                                                         else{
-                                                            this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                            let liveStats = []
+                                                            if(this.eventLists2[i].liveStats.length > 0){
+                                                                liveStats = this.eventLists2[i].liveStats
+                                                            }
+                                                            this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                         }
                                                     }
                                                 }
@@ -2407,11 +2564,19 @@
                                                     if(this.searchFilter.valid_type === this.eventLists2[i].predictionType && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price >= this.searchFilter.home_pre_odd_min && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price <= this.searchFilter.home_pre_odd_max && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price >= this.searchFilter.away_pre_odd_min && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price <= this.searchFilter.away_pre_odd_max && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price >= this.searchFilter.draw_pre_odd_min && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price <= this.searchFilter.draw_pre_odd_max){
                                                         if(this.searchFilter.week === true){
                                                             if(this.eventLists2[i].week === 1){
-                                                                this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                let liveStats = []
+                                                                if(this.eventLists2[i].liveStats.length > 0){
+                                                                    liveStats = this.eventLists2[i].liveStats
+                                                                }
+                                                                this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                             }
                                                         }
                                                         else{
-                                                            this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                            let liveStats = []
+                                                            if(this.eventLists2[i].liveStats.length > 0){
+                                                                liveStats = this.eventLists2[i].liveStats
+                                                            }
+                                                            this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                         }
                                                     }
                                                 }
@@ -2420,11 +2585,19 @@
                                         else{
                                             if(this.searchFilter.week === true){
                                                 if(this.eventLists2[i].week === 1){
-                                                    this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                    let liveStats = []
+                                                    if(this.eventLists2[i].liveStats.length > 0){
+                                                        liveStats = this.eventLists2[i].liveStats
+                                                    }
+                                                    this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                 }
                                             }
                                             else{
-                                                this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                let liveStats = []
+                                                if(this.eventLists2[i].liveStats.length > 0){
+                                                    liveStats = this.eventLists2[i].liveStats
+                                                }
+                                                this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                             }
                                         }
                                     }
@@ -2446,11 +2619,19 @@
                                                             if(this.searchFilter.valid_type === this.eventLists2[i].predictionType && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price >= this.searchFilter.home_pre_odd_min && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price <= this.searchFilter.home_pre_odd_max && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price >= this.searchFilter.away_pre_odd_min && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price <= this.searchFilter.away_pre_odd_max && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price >= this.searchFilter.draw_pre_odd_min && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price <= this.searchFilter.draw_pre_odd_max){
                                                                 if(this.searchFilter.week === true){
                                                                     if(this.eventLists2[i].week === 1){
-                                                                        this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                        let liveStats = []
+                                                                        if(this.eventLists2[i].liveStats.length > 0){
+                                                                            liveStats = this.eventLists2[i].liveStats
+                                                                        }
+                                                                        this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                                     }
                                                                 }
                                                                 else{
-                                                                    this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                    let liveStats = []
+                                                                    if(this.eventLists2[i].liveStats.length > 0){
+                                                                        liveStats = this.eventLists2[i].liveStats
+                                                                    }
+                                                                    this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                                 }
                                                             }
                                                         }
@@ -2460,11 +2641,19 @@
                                                             if(this.searchFilter.valid_type === this.eventLists2[i].predictionType && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price >= this.searchFilter.home_pre_odd_min && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price <= this.searchFilter.home_pre_odd_max && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price >= this.searchFilter.away_pre_odd_min && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price <= this.searchFilter.away_pre_odd_max && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price >= this.searchFilter.draw_pre_odd_min && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price <= this.searchFilter.draw_pre_odd_max){
                                                                 if(this.searchFilter.week === true){
                                                                     if(this.eventLists2[i].week === 1){
-                                                                        this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                        let liveStats = []
+                                                                        if(this.eventLists2[i].liveStats.length > 0){
+                                                                            liveStats = this.eventLists2[i].liveStats
+                                                                        }
+                                                                        this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                                     }
                                                                 }
                                                                 else{
-                                                                    this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                    let liveStats = []
+                                                                    if(this.eventLists2[i].liveStats.length > 0){
+                                                                        liveStats = this.eventLists2[i].liveStats
+                                                                    }
+                                                                    this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                                 }
                                                             }
                                                         }
@@ -2473,11 +2662,19 @@
                                                 else{
                                                     if(this.searchFilter.week === true){
                                                         if(this.eventLists2[i].week === 1){
-                                                            this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                            let liveStats = []
+                                                            if(this.eventLists2[i].liveStats.length > 0){
+                                                                liveStats = this.eventLists2[i].liveStats
+                                                            }
+                                                            this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                         }
                                                     }
                                                     else{
-                                                        this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                        let liveStats = []
+                                                        if(this.eventLists2[i].liveStats.length > 0){
+                                                            liveStats = this.eventLists2[i].liveStats
+                                                        }
+                                                        this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                     }
                                                 }
                                             }
@@ -2496,11 +2693,19 @@
                                                         if(this.searchFilter.valid_type === this.eventLists2[i].predictionType && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price >= this.searchFilter.home_pre_odd_min && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price <= this.searchFilter.home_pre_odd_max && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price >= this.searchFilter.away_pre_odd_min && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price <= this.searchFilter.away_pre_odd_max && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price >= this.searchFilter.draw_pre_odd_min && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price <= this.searchFilter.draw_pre_odd_max){
                                                             if(this.searchFilter.week === true){
                                                                 if(this.eventLists2[i].week === 1){
-                                                                    this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                    let liveStats = []
+                                                                    if(this.eventLists2[i].liveStats.length > 0){
+                                                                        liveStats = this.eventLists2[i].liveStats
+                                                                    }
+                                                                    this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                                 }
                                                             }
                                                             else{
-                                                                this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                let liveStats = []
+                                                                if(this.eventLists2[i].liveStats.length > 0){
+                                                                    liveStats = this.eventLists2[i].liveStats
+                                                                }
+                                                                this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                             }
                                                         }
                                                     }
@@ -2510,11 +2715,19 @@
                                                         if(this.searchFilter.valid_type === this.eventLists2[i].predictionType && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price >= this.searchFilter.home_pre_odd_min && this.eventLists2[i].pre_MatchOdd[0].exchange.availableToBack[0].price <= this.searchFilter.home_pre_odd_max && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price >= this.searchFilter.away_pre_odd_min && this.eventLists2[i].pre_MatchOdd[1].exchange.availableToBack[0].price <= this.searchFilter.away_pre_odd_max && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price >= this.searchFilter.draw_pre_odd_min && this.eventLists2[i].pre_MatchOdd[2].exchange.availableToBack[0].price <= this.searchFilter.draw_pre_odd_max){
                                                             if(this.searchFilter.week === true){
                                                                 if(this.eventLists2[i].week === 1){
-                                                                    this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                    let liveStats = []
+                                                                    if(this.eventLists2[i].liveStats.length > 0){
+                                                                        liveStats = this.eventLists2[i].liveStats
+                                                                    }
+                                                                    this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                                 }
                                                             }
                                                             else{
-                                                                this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                                let liveStats = []
+                                                                if(this.eventLists2[i].liveStats.length > 0){
+                                                                    liveStats = this.eventLists2[i].liveStats
+                                                                }
+                                                                this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                             }
                                                         }
                                                     }
@@ -2523,11 +2736,19 @@
                                             else{
                                                 if(this.searchFilter.week === true){
                                                     if(this.eventLists2[i].week === 1){
-                                                        this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                        let liveStats = []
+                                                        if(this.eventLists2[i].liveStats.length > 0){
+                                                            liveStats = this.eventLists2[i].liveStats
+                                                        }
+                                                        this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time,  'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                     }
                                                 }
                                                 else{
-                                                    this.predictionlist.push({'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
+                                                    let liveStats = []
+                                                    if(this.eventLists2[i].liveStats.length > 0){
+                                                        liveStats = this.eventLists2[i].liveStats
+                                                    }
+                                                    this.predictionlist.push({'liveStats': liveStats, 'value': this.eventLists2[i]._id, 'league':this.eventLists2[i].league,'half_extra': this.eventLists2[i].half_extra,'break_time':this.eventLists2[i].break_time, 'pre_MatchOdd': this.eventLists2[i].pre_MatchOdd,'predictionType': this.eventLists2[i].predictionType,"value1": this.eventLists2[i].value,'week':this.eventLists2[i].week, 'label': this.eventLists2[i].label, 'marketType': this.eventLists2[i].marketType, 'scores': this.eventLists2[i].scores, 'Odds': this.eventLists2[i].Odds, 'status': this.eventLists2[i].status})
                                                 }
                                             }
                                         }
@@ -3660,6 +3881,73 @@
                 })
                 this.current_predictionId = val
                 this.currentPrediction = prediction[0].value1
+                this.current_stats = prediction[0].liveStats
+                if(this.current_stats.length > 0){
+                    this.last_stats_home.on = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].shots.ongoal
+                    this.last_stats_away.on = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][1].shots.ongoal
+                    this.last_stats_home.off = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].shots.offgoal
+                    this.last_stats_away.off = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][1].shots.offgoal
+                    this.last_stats_home.blk = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].shots.blocked
+                    this.last_stats_away.blk = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][1].shots.blocked
+                    this.last_stats_home.pos = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].possessiontime
+                    this.last_stats_away.pos = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][1].possessiontime
+                    if(this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].shots.insidebox){
+                        this.last_stats_home.in = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].shots.insidebox
+                        this.last_stats_away.in = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][1].shots.insidebox
+                    }
+                    else{
+                        this.last_stats_home.in = '-'
+                        this.last_stats_away.in = '-'
+                    }
+                    if(this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].shots.outsidebox){
+                        this.last_stats_home.out = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].shots.outsidebox
+                        this.last_stats_away.out = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][1].shots.outsidebox
+                    }
+                    else{
+                        this.last_stats_home.out = '-'
+                        this.last_stats_away.out = '-'
+                    }
+                    this.last_stats_home.cnr = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].corners
+                    this.last_stats_away.cnr = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][1].corners
+                    if(this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].attacks){
+                        this.last_stats_home.da = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].attacks.dangerous_attacks
+                        this.last_stats_away.da = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][1].attacks.dangerous_attacks
+                    }
+                    else{
+                        this.last_stats_home.da = '-'
+                        this.last_stats_away.da = '-'
+                    }
+                    this.last_stats_home.red = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].redcards
+                    this.last_stats_away.red = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][1].redcards
+                    console.log('current_stats====>', this.current_stats)
+                }
+                else{
+                    this.last_stats_home = {
+                        'on': '-',
+                        'off': '-',
+                        'blk': '-',
+                        'in': '-',
+                        'out': '-',
+                        'pos': '-',
+                        'cnr': '-',
+                        'da': '-',
+                        'red': '-',
+                        'rtg': '-'
+                    },
+                    this.last_stats_away = {
+                        'on': '-',
+                        'off': '-',
+                        'blk': '-',
+                        'in': '-',
+                        'out': '-',
+                        'pos': '-',
+                        'cnr': '-',
+                        'da': '-',
+                        'red': '-',
+                        'rtg': '-'
+                    }
+                }
+
                 this.select_filter()
             },
             select_filter(){
@@ -4088,6 +4376,29 @@
     }
 </script>
 <style>
+    .stats-header{
+        display: flex;
+        width: 400px;
+        border-left: 1px solid lightgrey;
+    }
+    .stats-header .stats-header-detail{
+        flex: 1;
+        background: #8db4e2;
+        text-align: center;
+        border-left: 1px solid lightgrey;
+    }
+    .stats-content{
+        display: flex;
+        width: 400px;
+        border-left: 1px solid lightgrey;
+    }
+    .stats-content .stats-header-detail{
+        flex: 1;
+        text-align: center;
+        border: 1px solid lightgrey;
+        border-top: none;
+        border-left: none;
+    }
     .prediction-delete-button{
         height: 30px;
         padding: 0px 15px;
