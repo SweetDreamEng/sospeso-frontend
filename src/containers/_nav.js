@@ -42,6 +42,12 @@ export default [
       },
       {
         _name: 'CSidebarNavItem',
+        name: 'Live Stats Analysis',
+        to: '/livestats_analysis',
+        icon: 'cil-football'
+      },
+      {
+        _name: 'CSidebarNavItem',
         name: 'Prediction Stats',
         to: '/predictionstats',
         icon: 'cil-football'
