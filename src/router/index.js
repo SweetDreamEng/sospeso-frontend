@@ -8,6 +8,7 @@ import PredictionStats from "../views/prediction_stats";
 import TeamAnalysis from "../views/TeamAnalysis";
 import HistoricDataUpload from "../views/HistoricDataUpload";
 import prediction_upload from "../views/prediction_upload";
+import LiveStatsAnalysis from "../views/LiveStatsAnalysis";
 // Containers
 const TheContainer = () => import('@/containers/TheContainer')
 
@@ -152,6 +153,11 @@ function configRoutes () {
           path: 'prediction_upload',
           name: 'PredictionUpload',
           component: prediction_upload
+        },
+        {
+          path: 'livestats_analysis',
+          name: 'LiveStatsAnalysis',
+          component: LiveStatsAnalysis
         },
         {
           path: 'nav-dashboard',
