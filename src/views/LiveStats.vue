@@ -214,12 +214,12 @@
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.blk" v-if="item1.homeT.blk == 0" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.home_tooltip.blk" v-if="item1.homeT.blk == 0 && item1.awayT.blk != 0" class="detail" style="color: red">
                                             {{item1.homeT.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div  v-c-tooltip="item1.home_tooltip.blk" :key="item1.homeT.blk" v-if="item1.homeT.blk == null" class="detail" style="color: red">
+                                        <div  v-c-tooltip="item1.home_tooltip.blk" :key="item1.homeT.blk" v-if="item1.homeT.blk == null || (item1.homeT.blk == 0 && item1.awayT.blk == 0)" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
@@ -330,59 +330,75 @@
                                     </transition>
 
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-if="item1.home.blk >= 0" class="detail" style="color: red">
+                                        <div v-if="item1.homeT.blk > 0" class="detail" style="color: red">
                                             {{item1.home.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.home.blk" v-if="item1.home.blk == null" class="detail" style="color: red">
+                                        <div v-if="(item1.homeT.blk == 0 && item1.awayT.blk != 0)" class="detail" style="color: red">
+                                            {{item1.home.blk}}
+                                        </div>
+                                    </transition>
+                                    <transition name="slide-fade" mode="out-in">
+                                        <div :key="item1.homeT.blk" v-if="item1.homeT.blk == null || (item1.homeT.blk == 0 && item1.awayT.blk == 0)" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
 
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.home.in" v-if="item1.home.in >= 0" class="detail" style="color: green;">
+                                        <div :key="item1.homeT.in" v-if="item1.homeT.in > 0" class="detail" style="color: green;">
                                             {{item1.home.in}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.home.in" v-if="item1.home.in == null" class="detail" style="color: red">
+                                        <div :key="item1.homeT.in" v-if="item1.homeT.in == 0" class="detail" style="color: green;">
+                                            {{item1.home.in}}
+                                        </div>
+                                    </transition>
+                                    <transition name="slide-fade" mode="out-in">
+                                        <div :key="item1.homeT.in" v-if="item1.homeT.in == null" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
 
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.home.out" v-if="item1.home.out >= 0" class="detail" style="color: green">
+                                        <div :key="item1.homeT.out" v-if="item1.homeT.out > 0" class="detail" style="color: green">
                                             {{item1.home.out}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.home.out" v-if="item1.home.out == null" class="detail">
+                                        <div :key="item1.homeT.out" v-if="item1.homeT.out == 0" class="detail" style="color: green">
+                                            {{item1.home.out}}
+                                        </div>
+                                    </transition>
+                                    <transition name="slide-fade" mode="out-in">
+                                        <div :key="item1.homeT.out" v-if="item1.homeT.out == null" class="detail">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.home.cnr" v-if="item1.home.cnr == 0" class="detail" style="color: red">
+                                        <div :key="item1.homeT.cnr" v-if="item1.homeT.cnr == 0" class="detail" style="color: red">
                                             {{item1.home.cnr}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.home.cnr" v-if="item1.home.cnr > 0" class="detail" style="color: green">
+                                        <div :key="item1.homeT.cnr" v-if="item1.homeT.cnr > 0" class="detail" style="color: green">
                                             {{item1.home.cnr}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.home.cnr" v-if="item1.home.cnr == null" class="detail">
+                                        <div :key="item1.homeT.cnr" v-if="item1.homeT.cnr == null" class="detail">
                                             -
                                         </div>
                                     </transition>
+
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.home.da" v-if="item1.home.da == 0" class="detail" style="color: red">
+                                        <div :key="item1.home.da" v-if="item1.homeT.da == 0" class="detail" style="color: red">
                                             {{item1.home.da}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.home.da" v-if="item1.home.da > 0" class="detail" style="color: green">
+                                        <div :key="item1.home.da" v-if="item1.homeT.da > 0" class="detail" style="color: green">
                                             {{item1.home.da}}
                                         </div>
                                     </transition>
@@ -416,115 +432,7 @@
                                             -
                                         </div>
                                     </transition>
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.pas" v-if="item1.home.pas == null" class="detail">-->
-                                    <!--                                                - -->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.pas" v-if="item1.home.pas >= 0" class="detail" style="color: green">-->
-                                    <!--                                                {{item1.home.pas}}-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.acc" v-if="item1.home.acc == null" class="detail" >-->
-                                    <!--                                                - -->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.acc" v-if="item1.home.acc >= 0" class="detail" style="color: green">-->
-                                    <!--                                                {{item1.home.acc}}-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.atk" v-if="item1.home.atk == null" class="detail" style="color: red">-->
-                                    <!--                                                - -->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.atk" v-if="item1.home.atk >= 0" class="detail" style="color: green">-->
-                                    <!--                                                {{item1.home.atk}}-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.ofs" v-if="item1.home.ofs == null" class="detail" style="color: red">-->
-                                    <!--                                                - -->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.ofs" v-if="item1.home.ofs >= 0" class="detail" style="color: green">-->
-                                    <!--                                                {{item1.home.ofs}}-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.sav" v-if="item1.home.sav == null" class="detail" style="color: red">-->
-                                    <!--                                                - -->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.sav" v-if="item1.home.sav >= 0" class="detail" style="color: green">-->
-                                    <!--                                                {{item1.home.sav}}-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.sbst" v-if="item1.home.sbst == null" class="detail" style="color: red">-->
-                                    <!--                                                - -->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.sbst" v-if="item1.home.sbst >= 0" class="detail" style="color: green">-->
-                                    <!--                                                {{item1.home.sbst}}-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.red" v-if="item1.home.red == null" class="detail" style="color: red">-->
-                                    <!--                                                - -->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.red" v-if="item1.home.red >= 0" class="detail" style="color: green">-->
-                                    <!--                                                {{item1.home.red}}-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.fou" v-if="item1.home.fou == null" class="detail" style="color: red">-->
-                                    <!--                                                - -->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.fou" v-if="item1.home.fou >= 0" class="detail" style="color: green">-->
-                                    <!--                                                {{item1.home.fou}}-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.g_att" v-if="item1.home.g_att == null" class="detail" style="color: red; min-width: 30px;">-->
-                                    <!--                                                - -->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.g_att" v-if="item1.home.g_att >= 0" class="detail" style="color: green; min-width: 30px;">-->
-                                    <!--                                                {{item1.home.g_att}}-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.safe" v-if="item1.home.safe == null" class="detail" style="color: red">-->
-                                    <!--                                                - -->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                    <!--                                        <transition name="slide-fade" mode="out-in">-->
-                                    <!--                                            <div :key="item1.home.safe" v-if="item1.home.safe >= 0" class="detail" style="color: green">-->
-                                    <!--                                                {{item1.home.safe}}-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </transition>-->
-                                </div>
+                                 </div>
                             </div>
                             <div style="width: 10%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
                                 <div style="width: 100%; padding: 3px 7px; color: white;">
@@ -576,12 +484,12 @@
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.blk" :key="item1.awayT.blk" v-if="item1.awayT.blk == 0" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.away_tooltip.blk" :key="item1.awayT.blk" v-if="item1.awayT.blk == 0 && item1.homeT.blk != 0" class="detail" style="color: red">
                                             {{item1.awayT.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.awayT.blk" v-if="item1.awayT.blk == null" class="detail" style="color: red">
+                                        <div :key="item1.awayT.blk" v-if="item1.awayT.blk == null || (item1.awayT.blk == 0 && item1.homeT.blk == 0)" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
@@ -700,62 +608,64 @@
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.blk" v-if="item1.away.blk > 0" class="detail" style="color: green">
+                                        <div :key="item1.awayT.blk" v-if="item1.awayT.blk > 0" class="detail" style="color: green">
                                             {{item1.away.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.blk" v-if="item1.away.blk == 0" class="detail" style="color: red">
+                                        <div :key="item1.awayT.blk" v-if="item1.awayT.blk == 0 && item1.homeT.blk != 0" class="detail" style="color: red">
                                             {{item1.away.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.blk" v-if="item1.away.blk == null" class="detail" style="color: red">
+                                        <div :key="item1.awayT.blk" v-if="item1.awayT.blk == null || (item1.awayT.blk == 0 && item1.homeT.blk == 0)" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.in" v-if="item1.away.in == 0" class="detail" style="color: red">
+                                        <div :key="item1.awayT.in" v-if="item1.awayT.in == 0" class="detail" style="color: red">
                                             {{item1.away.in}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.in" v-if="item1.away.in > 0" class="detail" style="color: green;">
+                                        <div :key="item1.awayT.in" v-if="item1.awayT.in > 0" class="detail" style="color: green;">
                                             {{item1.away.in}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.in" v-if="item1.away.in == null" class="detail" style="color: red">
+                                        <div :key="item1.awayT.in" v-if="item1.awayT.in == null" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
+
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.out" v-if="item1.away.out == 0" class="detail" style="color: red">
+                                        <div :key="item1.awayT.out" v-if="item1.awayT.out == 0" class="detail" style="color: red">
                                             {{item1.away.out}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.out" v-if="item1.away.out > 0" class="detail" style="color: green">
+                                        <div :key="item1.awayT.out" v-if="item1.awayT.out > 0" class="detail" style="color: green">
                                             {{item1.away.out}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.out" v-if="item1.away.out == null" class="detail">
+                                        <div :key="item1.awayT.out" v-if="item1.awayT.out == null" class="detail">
                                             -
                                         </div>
                                     </transition>
+
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.cnr" v-if="item1.away.cnr == 0" class="detail" style="color: red">
+                                        <div :key="item1.away.cnr" v-if="item1.awayT.cnr == 0" class="detail" style="color: red">
                                             {{item1.away.cnr}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.cnr" v-if="item1.away.cnr > 0" class="detail" style="color: green">
+                                        <div :key="item1.away.cnr" v-if="item1.awayT.cnr > 0" class="detail" style="color: green">
                                             {{item1.away.cnr}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.cnr" v-if="item1.away.cnr == null" class="detail">
+                                        <div :key="item1.away.cnr" v-if="item1.awayT.cnr == null" class="detail">
                                             -
                                         </div>
                                     </transition>
@@ -770,7 +680,12 @@
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="item1.away.poss" v-if="item1.away.poss == null" class="detail" style="color: red">
+                                        <div :key="item1.away.da" v-if="item1.away.da == null" class="detail" style="color: green">
+                                            {{item1.away.da}}
+                                        </div>
+                                    </transition>
+                                    <transition name="slide-fade" mode="out-in">
+                                        <div :key="item1.awayT.poss" v-if="item1.away.poss == null" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
@@ -3811,6 +3726,7 @@
                                     }
                                     let home_p = 0
                                     let away_p = 0
+                                    let fixture_id = main_data[j]._id
                                     home.id = main_data[j].home_id
                                     away.id = main_data[j].away_id
                                     let home_poss_index = 0
@@ -3874,21 +3790,24 @@
                                                             }
                                                             if(main_data[j].season_stats[u].stats[uu][1].team_id == away.id){
                                                                 away_p++
+                                                                if(main_data[j].season_stats[u].stats[uu][1].shots){
+                                                                    away_season.on = home_season.on + main_data[j].season_stats[u].stats[uu][1].shots.ongoal
+                                                                    away_season.off = home_season.off + main_data[j].season_stats[u].stats[uu][1].shots.offgoal
 
-                                                                away_season.on = home_season.on + main_data[j].season_stats[u].stats[uu][1].shots.ongoal
-                                                                away_season.off = home_season.off + main_data[j].season_stats[u].stats[uu][1].shots.offgoal
-                                                                if(main_data[j].season_stats[u].stats[uu][0].shots.block != null){
-                                                                    away_season.block = home_season.block + main_data[j].season_stats[u].stats[uu][1].shots.block
-                                                                }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].shots.insidebox != null){
-                                                                    away_season.in = home_season.in + main_data[j].season_stats[u].stats[uu][1].shots.insidebox
+                                                                    if(main_data[j].season_stats[u].stats[uu][0].shots.block != null){
+                                                                        away_season.block = home_season.block + main_data[j].season_stats[u].stats[uu][1].shots.block
+                                                                    }
+                                                                    if(main_data[j].season_stats[u].stats[uu][0].shots.insidebox != null){
+                                                                        away_season.in = home_season.in + main_data[j].season_stats[u].stats[uu][1].shots.insidebox
+                                                                    }
+                                                                    if(main_data[j].season_stats[u].stats[uu][0].shots.outsidebox != null){
+                                                                        away_season.out = home_season.out + main_data[j].season_stats[u].stats[uu][1].shots.outsidebox
+                                                                    }
                                                                 }
                                                                 if(main_data[j].season_stats[u].stats[uu][1].goals){
                                                                     away_season.goals = away_season.goals + main_data[j].season_stats[u].stats[uu][1].goals
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].shots.outsidebox != null){
-                                                                    away_season.out = home_season.out + main_data[j].season_stats[u].stats[uu][1].shots.outsidebox
-                                                                }
+
                                                                 if(main_data[j].season_stats[u].stats[uu][0].corners != null){
                                                                     away_season.cnr = home_season.cnr + main_data[j].season_stats[u].stats[uu][1].corners
                                                                 }
@@ -3975,233 +3894,236 @@
                                     //---------Last 10 min Part----------//
                                     if (main_data[j].stats_ten) {
                                         if(!main_data[j].stats_ten[0]){return}
-                                        if (main_data[j].home_id == main_data[j].stats_ten[0][0].team_id) {
-                                            if(main_data[j].stats[0].shots){
-                                                home.on = main_data[j].stats[0].shots.ongoal - main_data[j].stats_ten[0][0].shots.ongoal
-                                                away.on = main_data[j].stats[1].shots.ongoal - main_data[j].stats_ten[0][1].shots.ongoal
-                                                home.off = main_data[j].stats[0].shots.offgoal - main_data[j].stats_ten[0][0].shots.offgoal
-                                                away.off = main_data[j].stats[1].shots.offgoal - main_data[j].stats_ten[0][1].shots.offgoal
-                                                home.blk = main_data[j].stats[0].shots.blocked - main_data[j].stats_ten[0][0].shots.blocked
-                                                away.blk = main_data[j].stats[1].shots.blocked - main_data[j].stats_ten[0][1].shots.blocked
-                                            }
-                                            if (!main_data[j].stats[0].shots.blocked) {
-                                                home.blk = null
-                                                away.blk = null
-                                            }
-                                            home.in = main_data[j].stats[0].shots.insidebox - main_data[j].stats_ten[0][0].shots.insidebox
-                                            away.in = main_data[j].stats[1].shots.insidebox - main_data[j].stats_ten[0][1].shots.insidebox
-                                            if (!main_data[j].stats[0].shots.insidebox) {
-                                                home.in = null
-                                                away.in = null
-                                            }
-                                            home.out = main_data[j].stats[0].shots.outsidebox - main_data[j].stats_ten[0][0].shots.outsidebox
-                                            away.out = main_data[j].stats[1].shots.outsidebox - main_data[j].stats_ten[0][1].shots.outsidebox
-                                            if (!main_data[j].stats[0].outsidebox) {
-                                                home.out = null
-                                                away.out = null
-                                            }
-                                            home.cnr = main_data[j].stats[0].corners - main_data[j].stats_ten[0][0].corners
-                                            away.cnr = main_data[j].stats[1].corners - main_data[j].stats_ten[0][1].corners
-                                            if (!main_data[j].stats[0].corners) {
-                                                home.cnr = null
-                                                away.cnr = null
-                                            }
+                                        if(main_data[j].stats_ten[0].length > 0){
+                                            if (main_data[j].home_id == main_data[j].stats_ten[0][0].team_id) {
+                                                if(main_data[j].stats[0].shots && main_data[j].stats_ten[0][0].shots){
+                                                    home.on = main_data[j].stats[0].shots.ongoal - main_data[j].stats_ten[0][0].shots.ongoal
+                                                    away.on = main_data[j].stats[1].shots.ongoal - main_data[j].stats_ten[0][1].shots.ongoal
+                                                    home.off = main_data[j].stats[0].shots.offgoal - main_data[j].stats_ten[0][0].shots.offgoal
+                                                    away.off = main_data[j].stats[1].shots.offgoal - main_data[j].stats_ten[0][1].shots.offgoal
+                                                    if(main_data[j].stats[0].shots.blocked){
+                                                        home.blk = main_data[j].stats[0].shots.blocked - main_data[j].stats_ten[0][0].shots.blocked
+                                                        away.blk = main_data[j].stats[1].shots.blocked - main_data[j].stats_ten[0][1].shots.blocked
+                                                    }
+                                                    else{
+                                                        home.blk = null
+                                                        away.blk = null
+                                                    }
+                                                    if(main_data[j].stats[0].shots.insidebox){
+                                                        home.in = main_data[j].stats[0].shots.insidebox - main_data[j].stats_ten[0][0].shots.insidebox
+                                                        away.in = main_data[j].stats[1].shots.insidebox - main_data[j].stats_ten[0][1].shots.insidebox
+                                                    }
+                                                    else{
+                                                        home.in = null
+                                                        away.in = null
+                                                    }
+                                                    if(main_data[j].stats[0].shots.outsidebox){
+                                                        home.out = main_data[j].stats[0].shots.outsidebox - main_data[j].stats_ten[0][0].shots.outsidebox
+                                                        away.out = main_data[j].stats[1].shots.outsidebox - main_data[j].stats_ten[0][1].shots.outsidebox
+                                                    }
+                                                }
 
-                                            if(main_data[j].stats[0].attacks && main_data[j].stats_ten[0][0].attacks){
-                                                home.da = main_data[j].stats[0].attacks.dangerous_attacks - main_data[j].stats_ten[0][0].attacks.dangerous_attacks
-                                                away.da = main_data[j].stats[1].attacks.dangerous_attacks - main_data[j].stats_ten[0][1].attacks.dangerous_attacks
+                                                home.cnr = main_data[j].stats[0].corners - main_data[j].stats_ten[0][0].corners
+                                                away.cnr = main_data[j].stats[1].corners - main_data[j].stats_ten[0][1].corners
+                                                if (!main_data[j].stats[0].corners) {
+                                                    home.cnr = null
+                                                    away.cnr = null
+                                                }
 
-                                                home.atk = main_data[j].stats[0].attacks.attacks - main_data[j].stats_ten[0][0].attacks.attacks
-                                                away.atk = main_data[j].stats[1].attacks.attacks - main_data[j].stats_ten[0][1].attacks.attacks
-                                            }
+                                                if(main_data[j].stats[0].attacks && main_data[j].stats_ten[0][0].attacks){
+                                                    home.da = main_data[j].stats[0].attacks.dangerous_attacks - main_data[j].stats_ten[0][0].attacks.dangerous_attacks
+                                                    away.da = main_data[j].stats[1].attacks.dangerous_attacks - main_data[j].stats_ten[0][1].attacks.dangerous_attacks
 
-                                            home.goal = main_data[j].stats[0].goals - main_data[j].stats_ten[0][0].goals
-                                            away.goal = main_data[j].stats[1].goals - main_data[j].stats_ten[0][1].goals
+                                                    home.atk = main_data[j].stats[0].attacks.attacks - main_data[j].stats_ten[0][0].attacks.attacks
+                                                    away.atk = main_data[j].stats[1].attacks.attacks - main_data[j].stats_ten[0][1].attacks.attacks
+                                                }
 
-                                            home.poss = main_data[j].stats_ten[0][0].possessiontime
-                                            away.poss = 100 - home.poss
-                                            if (home.poss === null || home.poss === 0) {
-                                                away.poss = 0
-                                            }
+                                                home.goal = main_data[j].stats[0].goals - main_data[j].stats_ten[0][0].goals
+                                                away.goal = main_data[j].stats[1].goals - main_data[j].stats_ten[0][1].goals
 
-                                            if (main_data[j].stats[0].passes && main_data[j].stats_ten[0][0].passes) {
-                                                home.pas = main_data[j].stats[0].passes.total - main_data[j].stats_ten[0][0].passes.total
-                                                away.pas = main_data[j].stats[1].passes.total - main_data[j].stats_ten[0][1].passes.total
-                                            } else {
-                                                home.pas = null
-                                                away.pas = null
-                                            }
+                                                home.poss = main_data[j].stats_ten[0][0].possessiontime
+                                                away.poss = 100 - home.poss
+                                                if (home.poss === null || home.poss === 0) {
+                                                    away.poss = 0
+                                                }
 
-                                            if (main_data[j].stats[0].passes && main_data[j].stats_ten[0][0].passes) {
-                                                home.acc = main_data[j].stats[0].passes.accurate - main_data[j].stats_ten[0][0].passes.accurate
-                                                away.acc = main_data[j].stats[1].passes.accurate - main_data[j].stats_ten[0][1].passes.accurate
-                                            } else {
-                                                home.acc = null
-                                                away.acc = null
-                                            }
+                                                if (main_data[j].stats[0].passes && main_data[j].stats_ten[0][0].passes) {
+                                                    home.pas = main_data[j].stats[0].passes.total - main_data[j].stats_ten[0][0].passes.total
+                                                    away.pas = main_data[j].stats[1].passes.total - main_data[j].stats_ten[0][1].passes.total
+                                                } else {
+                                                    home.pas = null
+                                                    away.pas = null
+                                                }
 
-                                            home.ofs = main_data[j].stats[0].offsides - main_data[j].stats_ten[0][0].offsides
-                                            away.ofs = main_data[j].stats[1].offsides - main_data[j].stats_ten[0][1].offsides
+                                                if (main_data[j].stats[0].passes && main_data[j].stats_ten[0][0].passes) {
+                                                    home.acc = main_data[j].stats[0].passes.accurate - main_data[j].stats_ten[0][0].passes.accurate
+                                                    away.acc = main_data[j].stats[1].passes.accurate - main_data[j].stats_ten[0][1].passes.accurate
+                                                } else {
+                                                    home.acc = null
+                                                    away.acc = null
+                                                }
 
-                                            if (!main_data[j].stats[0].offsides) {
-                                                home.ofs = null
-                                                away.ofs = null
-                                            }
-                                            home.sav = main_data[j].stats[0].saves - main_data[j].stats_ten[0][0].saves
-                                            away.sav = main_data[j].stats[1].saves - main_data[j].stats_ten[0][1].saves
-                                            if (!main_data[j].stats[0].saves) {
-                                                home.sav = null
-                                                away.sav = null
-                                            }
-                                            if (main_data[j].stats[0].substitutions != null) {
-                                                home.sbst = main_data[j].stats[0].substitutions - main_data[j].stats_ten[0][0].substitutions
-                                                away.sbst = main_data[j].stats[1].substitutions - main_data[j].stats_ten[0][1].substitutions
-                                            } else {
-                                                home.sbst = null
-                                                away.sbst = null
-                                            }
+                                                home.ofs = main_data[j].stats[0].offsides - main_data[j].stats_ten[0][0].offsides
+                                                away.ofs = main_data[j].stats[1].offsides - main_data[j].stats_ten[0][1].offsides
 
-                                            home.red = main_data[j].stats[0].redcards - main_data[j].stats_ten[0][0].redcards
-                                            away.red = main_data[j].stats[1].redcards - main_data[j].stats_ten[0][1].redcards
-                                            if (!main_data[j].stats[0].redcards) {
-                                                home.red = null
-                                                away.red = null
-                                            }
-                                            home.fou = main_data[j].stats[0].fouls - main_data[j].stats_ten[0][0].fouls
-                                            away.fou = main_data[j].stats[1].fouls - main_data[j].stats_ten[0][1].fouls
+                                                if (!main_data[j].stats[0].offsides) {
+                                                    home.ofs = null
+                                                    away.ofs = null
+                                                }
+                                                home.sav = main_data[j].stats[0].saves - main_data[j].stats_ten[0][0].saves
+                                                away.sav = main_data[j].stats[1].saves - main_data[j].stats_ten[0][1].saves
+                                                if (!main_data[j].stats[0].saves) {
+                                                    home.sav = null
+                                                    away.sav = null
+                                                }
+                                                if (main_data[j].stats[0].substitutions != null) {
+                                                    home.sbst = main_data[j].stats[0].substitutions - main_data[j].stats_ten[0][0].substitutions
+                                                    away.sbst = main_data[j].stats[1].substitutions - main_data[j].stats_ten[0][1].substitutions
+                                                } else {
+                                                    home.sbst = null
+                                                    away.sbst = null
+                                                }
 
-                                            if (!main_data[j].stats[0].fouls) {
-                                                home.fou = null
-                                                away.fou = null
-                                            }
-                                            if (main_data[j].stats[0].goal_attempts != null) {
-                                                home.g_att = main_data[j].stats[0].goal_attempts - main_data[j].stats_ten[0][0].goal_attempts
-                                                away.g_att = main_data[j].stats[1].goal_attempts - main_data[j].stats_ten[0][1].goal_attempts
-                                            } else {
-                                                home.g_att = null
-                                                away.g_att = null
-                                            }
+                                                home.red = main_data[j].stats[0].redcards - main_data[j].stats_ten[0][0].redcards
+                                                away.red = main_data[j].stats[1].redcards - main_data[j].stats_ten[0][1].redcards
+                                                if (!main_data[j].stats[0].redcards) {
+                                                    home.red = null
+                                                    away.red = null
+                                                }
+                                                home.fou = main_data[j].stats[0].fouls - main_data[j].stats_ten[0][0].fouls
+                                                away.fou = main_data[j].stats[1].fouls - main_data[j].stats_ten[0][1].fouls
 
-                                            if (main_data[j].stats[0].ball_safe != null) {
-                                                home.safe = main_data[j].stats[0].ball_safe - main_data[j].stats_ten[0][0].ball_safe
-                                                away.safe = main_data[j].stats[1].ball_safe - main_data[j].stats_ten[0][1].ball_safe
-                                            } else {
-                                                home.safe = null
-                                                away.safe = null
-                                            }
-                                        } else {
-                                            home.on = main_data[j].stats[1].shots.ongoal - main_data[j].stats_ten[0][1].shots.ongoal
-                                            away.on = main_data[j].stats[0].shots.ongoal - main_data[j].stats_ten[0][0].shots.ongoal
-                                            home.off = main_data[j].stats[1].shots.offgoal - main_data[j].stats_ten[0][1].shots.offgoal
-                                            away.off = main_data[j].stats[0].shots.offgoal - main_data[j].stats_ten[0][0].shots.offgoal
-                                            home.blk = main_data[j].stats[1].shots.blocked - main_data[j].stats_ten[0][1].shots.blocked
-                                            away.blk = main_data[j].stats[0].shots.blocked - main_data[j].stats_ten[0][0].shots.blocked
-                                            if (!main_data[j].stats[0].shots.blocked) {
-                                                home.blk = null
-                                                away.blk = null
-                                            }
-                                            home.in = main_data[j].stats[1].shots.insidebox - main_data[j].stats_ten[0][1].shots.insidebox
-                                            away.in = main_data[j].stats[0].shots.insidebox - main_data[j].stats_ten[0][0].shots.insidebox
-                                            if (!main_data[j].stats[0].shots.insidebox) {
-                                                home.in = null
-                                                away.in = null
-                                            }
-                                            home.out = main_data[j].stats[1].shots.outsidebox - main_data[j].stats_ten[0][1].shots.outsidebox
-                                            away.out = main_data[j].stats[0].shots.outsidebox - main_data[j].stats_ten[0][0].shots.outsidebox
-                                            if (!main_data[j].stats[0].outsidebox) {
-                                                home.out = null
-                                                away.out = null
-                                            }
-                                            home.cnr = main_data[j].stats[1].corners - main_data[j].stats_ten[0][1].corners
-                                            away.cnr = main_data[j].stats[0].corners - main_data[j].stats_ten[0][0].corners
-                                            if (!main_data[j].stats[0].corners) {
-                                                home.cnr = null
-                                                away.cnr = null
-                                            }
+                                                if (!main_data[j].stats[0].fouls) {
+                                                    home.fou = null
+                                                    away.fou = null
+                                                }
+                                                if (main_data[j].stats[0].goal_attempts != null) {
+                                                    home.g_att = main_data[j].stats[0].goal_attempts - main_data[j].stats_ten[0][0].goal_attempts
+                                                    away.g_att = main_data[j].stats[1].goal_attempts - main_data[j].stats_ten[0][1].goal_attempts
+                                                } else {
+                                                    home.g_att = null
+                                                    away.g_att = null
+                                                }
 
-                                            if(main_data[j].stats[1].attacks && main_data[j].stats_ten[0][1].attacks){
-                                                home.da = main_data[j].stats[1].attacks.dangerous_attacks - main_data[j].stats_ten[0][1].attacks.dangerous_attacks
-                                                away.da = main_data[j].stats[0].attacks.dangerous_attacks - main_data[j].stats_ten[0][0].attacks.dangerous_attacks
-
-                                                home.atk = main_data[j].stats[1].attacks.attacks - main_data[j].stats_ten[0][1].attacks.attacks
-                                                away.atk = main_data[j].stats[0].attacks.attacks - main_data[j].stats_ten[0][0].attacks.attacks
+                                                if (main_data[j].stats[0].ball_safe != null) {
+                                                    home.safe = main_data[j].stats[0].ball_safe - main_data[j].stats_ten[0][0].ball_safe
+                                                    away.safe = main_data[j].stats[1].ball_safe - main_data[j].stats_ten[0][1].ball_safe
+                                                } else {
+                                                    home.safe = null
+                                                    away.safe = null
+                                                }
                                             }
+                                            else {
+                                                home.on = main_data[j].stats[1].shots.ongoal - main_data[j].stats_ten[0][1].shots.ongoal
+                                                away.on = main_data[j].stats[0].shots.ongoal - main_data[j].stats_ten[0][0].shots.ongoal
+                                                home.off = main_data[j].stats[1].shots.offgoal - main_data[j].stats_ten[0][1].shots.offgoal
+                                                away.off = main_data[j].stats[0].shots.offgoal - main_data[j].stats_ten[0][0].shots.offgoal
+                                                home.blk = main_data[j].stats[1].shots.blocked - main_data[j].stats_ten[0][1].shots.blocked
+                                                away.blk = main_data[j].stats[0].shots.blocked - main_data[j].stats_ten[0][0].shots.blocked
+                                                if (!main_data[j].stats[0].shots.blocked) {
+                                                    home.blk = null
+                                                    away.blk = null
+                                                }
+                                                home.in = main_data[j].stats[1].shots.insidebox - main_data[j].stats_ten[0][1].shots.insidebox
+                                                away.in = main_data[j].stats[0].shots.insidebox - main_data[j].stats_ten[0][0].shots.insidebox
+                                                if (!main_data[j].stats[0].shots.insidebox) {
+                                                    home.in = null
+                                                    away.in = null
+                                                }
+                                                home.out = main_data[j].stats[1].shots.outsidebox - main_data[j].stats_ten[0][1].shots.outsidebox
+                                                away.out = main_data[j].stats[0].shots.outsidebox - main_data[j].stats_ten[0][0].shots.outsidebox
 
-                                            home.goal = main_data[j].stats[1].goals - main_data[j].stats_ten[0][1].goals
-                                            away.goal = main_data[j].stats[0].goals - main_data[j].stats_ten[0][0].goals
+                                                home.cnr = main_data[j].stats[1].corners - main_data[j].stats_ten[0][1].corners
+                                                away.cnr = main_data[j].stats[0].corners - main_data[j].stats_ten[0][0].corners
+                                                if (!main_data[j].stats[0].corners) {
+                                                    home.cnr = null
+                                                    away.cnr = null
+                                                }
 
-                                            home.poss = main_data[j].stats_ten[0][0].possessiontime
-                                            away.poss = 100 - home.poss
-                                            if (home.poss === null || home.poss === 0) {
-                                                away.poss = 0
-                                            }
+                                                if(main_data[j].stats[1].attacks && main_data[j].stats_ten[0][1].attacks){
+                                                    home.da = main_data[j].stats[1].attacks.dangerous_attacks - main_data[j].stats_ten[0][1].attacks.dangerous_attacks
+                                                    away.da = main_data[j].stats[0].attacks.dangerous_attacks - main_data[j].stats_ten[0][0].attacks.dangerous_attacks
 
-                                            if (main_data[j].stats[0].passes != null) {
-                                                home.pas = main_data[j].stats[1].passes.total - main_data[j].stats_ten[0][1].passes.total
-                                                away.pas = main_data[j].stats[0].passes.total - main_data[j].stats_ten[0][0].passes.total
-                                            } else {
-                                                home.pas = null
-                                                away.pas = null
-                                            }
+                                                    home.atk = main_data[j].stats[1].attacks.attacks - main_data[j].stats_ten[0][1].attacks.attacks
+                                                    away.atk = main_data[j].stats[0].attacks.attacks - main_data[j].stats_ten[0][0].attacks.attacks
+                                                }
 
-                                            if (main_data[j].stats[0].passes != null) {
-                                                home.acc = main_data[j].stats[1].passes.accurate - main_data[j].stats_ten[0][1].passes.accurate
-                                                away.acc = main_data[j].stats[0].passes.accurate - main_data[j].stats_ten[0][0].passes.accurate
-                                            } else {
-                                                home.acc = null
-                                                away.acc = null
-                                            }
+                                                home.goal = main_data[j].stats[1].goals - main_data[j].stats_ten[0][1].goals
+                                                away.goal = main_data[j].stats[0].goals - main_data[j].stats_ten[0][0].goals
 
-                                            home.ofs = main_data[j].stats[1].offsides - main_data[j].stats_ten[0][1].offsides
-                                            away.ofs = main_data[j].stats[0].offsides - main_data[j].stats_ten[0][0].offsides
+                                                home.poss = main_data[j].stats_ten[0][0].possessiontime
+                                                away.poss = 100 - home.poss
+                                                if (home.poss === null || home.poss === 0) {
+                                                    away.poss = 0
+                                                }
 
-                                            if (!main_data[j].stats[0].offsides) {
-                                                home.ofs = null
-                                                away.ofs = null
-                                            }
-                                            home.sav = main_data[j].stats[1].saves - main_data[j].stats_ten[0][1].saves
-                                            away.sav = main_data[j].stats[0].saves - main_data[j].stats_ten[0][0].saves
-                                            if (!main_data[j].stats[0].saves) {
-                                                home.sav = null
-                                                away.sav = null
-                                            }
-                                            if (main_data[j].stats[0].substitutions != null) {
-                                                home.sbst = main_data[j].stats[1].substitutions - main_data[j].stats_ten[0][1].substitutions
-                                                away.sbst = main_data[j].stats[0].substitutions - main_data[j].stats_ten[0][0].substitutions
-                                            } else {
-                                                home.sbst = null
-                                                away.sbst = null
-                                            }
+                                                if (main_data[j].stats[0].passes != null) {
+                                                    home.pas = main_data[j].stats[1].passes.total - main_data[j].stats_ten[0][1].passes.total
+                                                    away.pas = main_data[j].stats[0].passes.total - main_data[j].stats_ten[0][0].passes.total
+                                                } else {
+                                                    home.pas = null
+                                                    away.pas = null
+                                                }
 
-                                            home.red = main_data[j].stats[1].redcards - main_data[j].stats_ten[0][1].redcards
-                                            away.red = main_data[j].stats[0].redcards - main_data[j].stats_ten[0][0].redcards
-                                            if (!main_data[j].stats[0].redcards) {
-                                                home.red = null
-                                                away.red = null
-                                            }
-                                            home.fou = main_data[j].stats[1].fouls - main_data[j].stats_ten[0][1].fouls
-                                            away.fou = main_data[j].stats[0].fouls - main_data[j].stats_ten[0][0].fouls
+                                                if (main_data[j].stats[0].passes != null) {
+                                                    home.acc = main_data[j].stats[1].passes.accurate - main_data[j].stats_ten[0][1].passes.accurate
+                                                    away.acc = main_data[j].stats[0].passes.accurate - main_data[j].stats_ten[0][0].passes.accurate
+                                                } else {
+                                                    home.acc = null
+                                                    away.acc = null
+                                                }
 
-                                            if (!main_data[j].stats[0].fouls) {
-                                                home.fou = null
-                                                away.fou = null
-                                            }
-                                            if (main_data[j].stats[0].goal_attempts != null) {
-                                                home.g_att = main_data[j].stats[1].goal_attempts - main_data[j].stats_ten[0][1].goal_attempts
-                                                away.g_att = main_data[j].stats[0].goal_attempts - main_data[j].stats_ten[0][0].goal_attempts
-                                            } else {
-                                                home.g_att = null
-                                                away.g_att = null
-                                            }
+                                                home.ofs = main_data[j].stats[1].offsides - main_data[j].stats_ten[0][1].offsides
+                                                away.ofs = main_data[j].stats[0].offsides - main_data[j].stats_ten[0][0].offsides
 
-                                            if (main_data[j].stats[0].ball_safe != null) {
-                                                home.safe = main_data[j].stats[1].ball_safe - main_data[j].stats_ten[0][1].ball_safe
-                                                away.safe = main_data[j].stats[0].ball_safe - main_data[j].stats_ten[0][0].ball_safe
-                                            } else {
-                                                home.safe = null
-                                                away.safe = null
-                                            }
+                                                if (!main_data[j].stats[0].offsides) {
+                                                    home.ofs = null
+                                                    away.ofs = null
+                                                }
+                                                home.sav = main_data[j].stats[1].saves - main_data[j].stats_ten[0][1].saves
+                                                away.sav = main_data[j].stats[0].saves - main_data[j].stats_ten[0][0].saves
+                                                if (!main_data[j].stats[0].saves) {
+                                                    home.sav = null
+                                                    away.sav = null
+                                                }
+                                                if (main_data[j].stats[0].substitutions != null) {
+                                                    home.sbst = main_data[j].stats[1].substitutions - main_data[j].stats_ten[0][1].substitutions
+                                                    away.sbst = main_data[j].stats[0].substitutions - main_data[j].stats_ten[0][0].substitutions
+                                                } else {
+                                                    home.sbst = null
+                                                    away.sbst = null
+                                                }
 
+                                                home.red = main_data[j].stats[1].redcards - main_data[j].stats_ten[0][1].redcards
+                                                away.red = main_data[j].stats[0].redcards - main_data[j].stats_ten[0][0].redcards
+                                                if (!main_data[j].stats[0].redcards) {
+                                                    home.red = null
+                                                    away.red = null
+                                                }
+                                                home.fou = main_data[j].stats[1].fouls - main_data[j].stats_ten[0][1].fouls
+                                                away.fou = main_data[j].stats[0].fouls - main_data[j].stats_ten[0][0].fouls
+
+                                                if (!main_data[j].stats[0].fouls) {
+                                                    home.fou = null
+                                                    away.fou = null
+                                                }
+                                                if (main_data[j].stats[0].goal_attempts != null) {
+                                                    home.g_att = main_data[j].stats[1].goal_attempts - main_data[j].stats_ten[0][1].goal_attempts
+                                                    away.g_att = main_data[j].stats[0].goal_attempts - main_data[j].stats_ten[0][0].goal_attempts
+                                                } else {
+                                                    home.g_att = null
+                                                    away.g_att = null
+                                                }
+
+                                                if (main_data[j].stats[0].ball_safe != null) {
+                                                    home.safe = main_data[j].stats[1].ball_safe - main_data[j].stats_ten[0][1].ball_safe
+                                                    away.safe = main_data[j].stats[0].ball_safe - main_data[j].stats_ten[0][0].ball_safe
+                                                } else {
+                                                    home.safe = null
+                                                    away.safe = null
+                                                }
+
+                                            }
                                         }
                                     }
                                     //-------------Total Part------------//
@@ -4218,8 +4140,19 @@
                                         awayT.out = main_data[j].stats[1].shots.outsidebox
                                         homeT.cnr = main_data[j].stats[0].corners
                                         awayT.cnr = main_data[j].stats[1].corners
-                                        homeT.da = main_data[j].stats[0].attacks.dangerous_attacks
-                                        awayT.da = main_data[j].stats[1].attacks.dangerous_attacks
+                                        if(main_data[j].stats[0].attacks){
+                                            homeT.da = main_data[j].stats[0].attacks.dangerous_attacks
+                                            awayT.da = main_data[j].stats[1].attacks.dangerous_attacks
+                                            homeT.atk = main_data[j].stats[0].attacks.attacks
+                                            awayT.atk = main_data[j].stats[1].attacks.attacks
+                                        }
+                                        else{
+                                            homeT.da = null
+                                            awayT.da = null
+                                            homeT.atk = null
+                                            awayT.atk = null
+                                        }
+
                                         homeT.poss = main_data[j].stats[0].possessiontime
                                         awayT.poss = main_data[j].stats[1].possessiontime
                                         if (main_data[j].stats[0].passes != null) {
@@ -4237,8 +4170,7 @@
                                             homeT.acc = null
                                             awayT.acc = null
                                         }
-                                        homeT.atk = main_data[j].stats[0].attacks.attacks
-                                        awayT.atk = main_data[j].stats[1].attacks.attacks
+
                                         homeT.ofs = main_data[j].stats[0].offsides
                                         awayT.ofs = main_data[j].stats[1].offsides
                                         homeT.sav = main_data[j].stats[0].saves
@@ -4253,7 +4185,8 @@
                                         awayT.g_att = main_data[j].stats[1].goal_attempts
                                         homeT.safe = main_data[j].stats[0].ball_safe
                                         awayT.safe = main_data[j].stats[1].ball_safe
-                                    } else {
+                                    }
+                                    else {
                                         homeT.on = main_data[j].stats[1].shots.ongoal
                                         awayT.on = main_data[j].stats[0].shots.ongoal
                                         homeT.off = main_data[j].stats[1].shots.offgoal
@@ -4307,6 +4240,7 @@
                                     // away_season.pos = 100 - home_season.pos
                                     this.eventArray[i].events.push({
                                         'index0': k,
+                                        'fixtureId': fixture_id,
                                         'main_data': main_data[j],
                                         'home': home,
                                         'away': away,
@@ -4391,15 +4325,16 @@
                     data[i] = data1[i].updateArray
                     cData[i] = data1[i].currentData
                 }
-
+                let check_new_total = 0
                 for(let i = 0 ; i < data.length ; i++){
                     if(data[i]){
-                        let check_new = 0
+                        let check_new  = 0
                         for(let j = 0 ; j < this.eventArray.length ; j++){
                             for(let k = 0 ; k < this.eventArray[j].events.length ; k++){
                                 if(this.eventArray[j].events[k].main_data._id == data[i]._id && cData[i].stats[0]){
                                     check_new = 1
-                                    if(cData[i].time.status != 'LIVE' && cData[i].time.status != 'ET'){
+                                    if(cData[i].time.status == "FT"){
+                                        console.log('reload===>!!!!!!')
                                         this.readData()
                                     }
                                     this.eventArray[j].events[k].home.time = cData[i].time.minute
@@ -4413,20 +4348,23 @@
                                     if(this.eventArray[j].events[k].home.id === data[i].stats[0].team_id){
                                         this.eventArray[j].events[k].home.score = data[i].scores.localteam_score
                                         this.eventArray[j].events[k].away.score = data[i].scores.visitorteam_score
-                                        this.eventArray[j].events[k].home.on = data[i].stats[0].shots.ongoal - data[i].stats_ten[0][0].shots.ongoal
-                                        this.eventArray[j].events[k].away.on = data[i].stats[1].shots.ongoal - data[i].stats_ten[0][1].shots.ongoal
-                                        this.eventArray[j].events[k].home.off = data[i].stats[0].shots.offgoal - data[i].stats_ten[0][0].shots.offgoal
-                                        this.eventArray[j].events[k].away.off = data[i].stats[1].shots.offgoal - data[i].stats_ten[0][1].shots.offgoal
-                                        this.eventArray[j].events[k].home.blk = data[i].stats[0].shots.blocked - data[i].stats_ten[0][0].shots.blocked
-                                        this.eventArray[j].events[k].away.blk = data[i].stats[1].shots.blocked - data[i].stats_ten[0][1].shots.blocked
-                                        this.eventArray[j].events[k].home.in = data[i].stats[0].shots.insidebox - data[i].stats_ten[0][0].shots.insidebox
-                                        this.eventArray[j].events[k].away.in = data[i].stats[1].shots.insidebox - data[i].stats_ten[0][1].shots.insidebox
-                                        this.eventArray[j].events[k].home.out = data[i].stats[0].shots.outsidebox - data[i].stats_ten[0][0].shots.outsidebox
-                                        this.eventArray[j].events[k].away.out = data[i].stats[1].shots.outsidebox - data[i].stats_ten[0][1].shots.outsidebox
+                                        if(data[i].stats[0].shots && data[i].stats_ten[0][0].shots){
+                                            this.eventArray[j].events[k].home.off = data[i].stats[0].shots.offgoal - data[i].stats_ten[0][0].shots.offgoal
+                                            this.eventArray[j].events[k].away.off = data[i].stats[1].shots.offgoal - data[i].stats_ten[0][1].shots.offgoal
+                                            this.eventArray[j].events[k].home.blk = data[i].stats[0].shots.blocked - data[i].stats_ten[0][0].shots.blocked
+                                            this.eventArray[j].events[k].away.blk = data[i].stats[1].shots.blocked - data[i].stats_ten[0][1].shots.blocked
+                                            this.eventArray[j].events[k].home.in = data[i].stats[0].shots.insidebox - data[i].stats_ten[0][0].shots.insidebox
+                                            this.eventArray[j].events[k].away.in = data[i].stats[1].shots.insidebox - data[i].stats_ten[0][1].shots.insidebox
+                                            this.eventArray[j].events[k].home.out = data[i].stats[0].shots.outsidebox - data[i].stats_ten[0][0].shots.outsidebox
+                                            this.eventArray[j].events[k].away.out = data[i].stats[1].shots.outsidebox - data[i].stats_ten[0][1].shots.outsidebox
+                                        }
+
                                         this.eventArray[j].events[k].home.cnr = data[i].stats[0].corners - data[i].stats_ten[0][0].corners
                                         this.eventArray[j].events[k].away.cnr = data[i].stats[1].corners - data[i].stats_ten[0][1].corners
-                                        this.eventArray[j].events[k].home.da = data[i].stats[0].attacks.dangerous_attacks - data[i].stats_ten[0][0].attacks.dangerous_attacks
-                                        this.eventArray[j].events[k].away.da = data[i].stats[1].attacks.dangerous_attacks - data[i].stats_ten[0][1].attacks.dangerous_attacks
+                                        if(data[i].stats[0].attacks && data[i].stats_ten[0][0].attacks){
+                                            this.eventArray[j].events[k].home.da = data[i].stats[0].attacks.dangerous_attacks - data[i].stats_ten[0][0].attacks.dangerous_attacks
+                                            this.eventArray[j].events[k].away.da = data[i].stats[1].attacks.dangerous_attacks - data[i].stats_ten[0][1].attacks.dangerous_attacks
+                                        }
 
                                         this.eventArray[j].events[k].home.poss =data[i].stats_ten[0][0].possessiontime
                                         this.eventArray[j].events[k].away.poss =data[i].stats_ten[0][1].possessiontime
@@ -4447,8 +4385,11 @@
                                             this.eventArray[j].events[k].away.acc = null
                                         }
 
-                                        this.eventArray[j].events[k].home.atk = data[i].stats[0].attacks.attacks - data[i].stats_ten[0][0].attacks.attacks
-                                        this.eventArray[j].events[k].away.atk = data[i].stats[1].attacks.attacks - data[i].stats_ten[0][1].attacks.attacks
+                                        if(data[i].stats[0].attacks && data[i].stats_ten[0][0].attacks){
+                                            this.eventArray[j].events[k].home.atk = data[i].stats[0].attacks.attacks - data[i].stats_ten[0][0].attacks.attacks
+                                            this.eventArray[j].events[k].away.atk = data[i].stats[1].attacks.attacks - data[i].stats_ten[0][1].attacks.attacks
+                                        }
+
                                         this.eventArray[j].events[k].home.ofs = data[i].stats[0].offsides - data[i].stats_ten[0][0].offsides
                                         this.eventArray[j].events[k].away.ofs = data[i].stats[1].offsides - data[i].stats_ten[0][1].offsides
                                         this.eventArray[j].events[k].home.sav = data[i].stats[0].saves - data[i].stats_ten[0][0].saves
@@ -4500,8 +4441,8 @@
                                         this.eventArray[j].events[k].away.goal = data[i].stats[1].goals - data[i].stats_ten[0][1].goals
                                     }
                                     else{
-                                        this.eventArray[j].events[k].home.score = data[i].stats[1].goals - data[i].stats_ten[0][1].goals
-                                        this.eventArray[j].events[k].away.score = data[i].stats[0].goals - data[i].stats_ten[0][0].goals
+                                        this.eventArray[j].events[k].home.score = data[i].scores.localteam_score
+                                        this.eventArray[j].events[k].away.score = data[i].scores.visitorteam_score
                                         this.eventArray[j].events[k].home.on = data[i].stats[1].shots.ongoal - data[i].stats_ten[0][1].shots.ongoal
                                         this.eventArray[j].events[k].away.on = data[i].stats[0].shots.ongoal - data[i].stats_ten[0][0].shots.ongoal
                                         this.eventArray[j].events[k].home.off = data[i].stats[1].shots.offgoal - data[i].stats_ten[0][1].shots.offgoal
@@ -4618,8 +4559,19 @@
                                         this.eventArray[j].events[k].awayT.out = data[i].stats[1].shots.outsidebox
                                         this.eventArray[j].events[k].homeT.cnr = data[i].stats[0].corners
                                         this.eventArray[j].events[k].awayT.cnr = data[i].stats[1].corners
-                                        this.eventArray[j].events[k].homeT.da = data[i].stats[0].attacks.dangerous_attacks
-                                        this.eventArray[j].events[k].awayT.da = data[i].stats[1].attacks.dangerous_attacks
+                                        if(data[i].stats[0].attacks){
+                                            this.eventArray[j].events[k].homeT.da = data[i].stats[0].attacks.dangerous_attacks
+                                            this.eventArray[j].events[k].awayT.da = data[i].stats[1].attacks.dangerous_attacks
+                                            this.eventArray[j].events[k].homeT.atk = data[i].stats[0].attacks.attacks
+                                            this.eventArray[j].events[k].awayT.atk = data[i].stats[1].attacks.attacks
+                                        }
+                                        else{
+                                            this.eventArray[j].events[k].homeT.da = null
+                                            this.eventArray[j].events[k].awayT.da = null
+                                            this.eventArray[j].events[k].homeT.atk = null
+                                            this.eventArray[j].events[k].awayT.atk = null
+                                        }
+
                                         this.eventArray[j].events[k].homeT.goal = data[i].stats[0].goals
                                         this.eventArray[j].events[k].awayT.goal = data[i].stats[1].goals
 
@@ -4641,8 +4593,7 @@
                                             this.eventArray[j].events[k].homeT.acc = null
                                             this.eventArray[j].events[k].awayT.acc = null
                                         }
-                                        this.eventArray[j].events[k].homeT.atk = data[i].stats[0].attacks.attacks
-                                        this.eventArray[j].events[k].awayT.atk = data[i].stats[1].attacks.attacks
+
                                         this.eventArray[j].events[k].homeT.ofs = data[i].stats[0].offsides
                                         this.eventArray[j].events[k].awayT.ofs = data[i].stats[1].offsides
                                         this.eventArray[j].events[k].homeT.sav = data[i].stats[0].saves
@@ -4716,9 +4667,13 @@
                             }
                         }
                         if(check_new == 0 && data[i].time.status == 'LIVE'){
-                            this.readData()
+                            check_new_total = 1
                         }
                     }
+                }
+                if(check_new_total == 1){
+                    console.log('reload data===>!')
+                    this.readData()
                 }
             })
             //---------------------------------------------------------------
