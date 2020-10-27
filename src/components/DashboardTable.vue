@@ -19,47 +19,47 @@
             </td>
         </template>
         <template #tot="{item}">
-            <td class="table-cell">    
+            <td class="table-cell text-center">    
                 {{item.tot.value}}
             </td>
         </template>
         <template #preodd="{item}">
-            <td class="table-cell">    
+            <td class="table-cell text-center">    
                 {{item.preodd.value}}
             </td>
         </template>
         <template #odd="{item}">
-            <td class="table-cell">    
+            <td class="table-cell text-center">    
                 {{item.odd.value}}
             </td>
         </template>
         <template #back="{item}">
-            <td class="table-info">    
+            <td class="table-info text-center">    
                 {{item.back.value}}
             </td>
         </template>
         <template #lay="{item}">
-            <td class="table-danger">    
+            <td class="table-danger text-center">    
                 {{item.lay.value}}
             </td>
         </template>
         <template #status="{item}">
-            <td class="table-cell">    
+            <td class="table-cell text-center">    
                 {{item.status.value}}
             </td>
         </template>
         <template #minute="{item}">
-            <td class="table-cell">    
+            <td class="table-cell text-center">    
                 {{item.minute.value}}
             </td>
         </template>
         <template #score="{item}">
-            <td class="table-cell">    
+            <td class="table-cell text-center">    
                 {{item.score.value}}
             </td>
         </template>
         <template #gain="{item}">
-            <td class="table-cell">    
+            <td class="table-cell text-center">    
                 {{item.gain.value}}
             </td>
         </template>
@@ -100,19 +100,7 @@
             return {
                 tableItems: [],
                 eventListsLength: 0,
-                // timeRecord: '',
-                tableFields: [
-                    { key: 'match', label:  this.eventListsLength, _classes: 'table-warning'},
-                    { key: 'tot', label:  'Tot. Matched', _classes: 'table-warning'},
-                    { key: 'preodd', label:  'Pre Odd', _classes: 'table-warning'},
-                    { key: 'odd', label:  'Odd', _classes: 'table-warning'},
-                    { key: 'back', label:  'Back', _classes: 'table-info'},
-                    { key: 'lay', label:  'Lay', _classes: 'table-danger'},
-                    { key: 'status', label:  'Status', _classes: 'table-warning'},
-                    { key: 'minute', label:  'Minute', _classes: 'table-warning'},
-                    { key: 'score', label:  'Score', _classes: 'table-warning'},
-                    { key: 'gain', label:  'Gain/Losses%', _classes: 'table-warning'},
-                ],
+                tableFields: []
             }
         },
         methods : {
@@ -125,11 +113,7 @@
                 this.tableItems[index].status.value = this.status;
                 this.tableItems[index].minute.value = this.timeRecord;
                 this.tableItems[index].score.value = this.scoreOne + this.scoreTwo;
-                if (this.percent_text1) {
-                    this.tableItems[index].gain.value = this.percent_text1;
-                } else if (this.percent_text2) {
-                    this.tableItems[index].gain.value = this.percent_text2;
-                }
+                this.tableItems[index].gain.value = this.percent_text2;
             },
             select_match(val){
                 this.key = '0'
@@ -445,7 +429,8 @@
                 }
             },
             odd_calc(val){
-                this.calc_odd = val
+                this.calc_odd = this.prematchOdd;
+                this.calc_stake = 100;
                 if(this.calc_odd != 0 && this.calc_stake != 0 && this.eventId != 0){
                     if(parseInt(this.selectedArray[6]) == 0){
                         this.max_profit = (this.calc_odd * this.calc_stake - this.calc_stake).toFixed(2)
@@ -628,7 +613,6 @@
                         if(this.guad_att > 0){
                             this.guad_att = (this.guad_att * (100 - this.bookmarkerFee)/100).toFixed(2)
                         }
-                        console.log('Lay===>', this.max_profit)
 
                         if(this.guad_max != 0){
                             if(this.guad_att >= 0){
@@ -741,44 +725,43 @@
                                 MG = '0'
                             }
 
-                            console.log('XXXXXXXXXX',MG,this.riskTrading,this.stopLoss,this.tradingMode,this.currentPercent,this.adminTable[0].facile.SLN)
 
-                            if(this.riskTrading == 'easy'){
-                                if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].facile.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].facile.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'medium'){
-                                if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].medio.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].medio.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'risky'){
-                                if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].elevato.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].elevato.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
+                            // if(this.riskTrading == 'easy'){
+                            //     if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].facile.SLN * (-1)){
+                            //         this.percentTextColor1 = '#000'
+                            //         this.percentBackgroundColor = '#ffc000'
+                            //         this.percent_text1 = 'Cash Out Now! '
+                            //     }
+                            //     else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].facile.SLT * (-1)){
+                            //         this.percentTextColor1 = '#000'
+                            //         this.percentBackgroundColor = '#ffc000'
+                            //         this.percent_text1 = 'Cash Out Now! '
+                            //     }
+                            // }
+                            // else if(this.riskTrading == 'medium'){
+                            //     if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].medio.SLN * (-1)){
+                            //         this.percentTextColor1 = '#000'
+                            //         this.percentBackgroundColor = '#ffc000'
+                            //         this.percent_text1 = 'Cash Out Now! '
+                            //     }
+                            //     else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].medio.SLT * (-1)){
+                            //         this.percentTextColor1 = '#000'
+                            //         this.percentBackgroundColor = '#ffc000'
+                            //         this.percent_text1 = 'Cash Out Now! '
+                            //     }
+                            // }
+                            // else if(this.riskTrading == 'risky'){
+                            //     if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].elevato.SLN * (-1)){
+                            //         this.percentTextColor1 = '#000'
+                            //         this.percentBackgroundColor = '#ffc000'
+                            //         this.percent_text1 = 'Cash Out Now! '
+                            //     }
+                            //     else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].elevato.SLT * (-1)){
+                            //         this.percentTextColor1 = '#000'
+                            //         this.percentBackgroundColor = '#ffc000'
+                            //         this.percent_text1 = 'Cash Out Now! '
+                            //     }
+                            // }
 
                         }
 
@@ -788,8 +771,7 @@
                     this.max_profit = 0
                     this.max_lose = 0
                     this.guad_max = 0
-                    this.percent_text1 =
-                        this.percent_text2 = 'Insert Odd and Stake'
+                    this.percent_text2 = 'Insert Odd and Stake'
                     this.guad_att = 0
                     this.percentTextColor = '#20a052'
                     this.percentTextColor1 = '#20a052'
@@ -798,7 +780,7 @@
                 }
             },
             stake_calc(val){
-                this.calc_stake = val
+                this.calc_stake = 100;
                 if(this.calc_odd != 0 && this.calc_stake != 0 && this.eventId != 0){
                     if(parseInt(this.selectedArray[6]) == 0){
                         this.max_profit = (this.calc_odd * this.calc_stake - this.calc_stake).toFixed(2)
@@ -1150,6 +1132,18 @@
         watch: {
             eventLists3(Lists) {
                 this.eventListsLength = Lists.length - 1;
+                this.tableFields = [
+                    { key: 'match', label:  'Match (' + this.eventListsLength + ')', _classes: 'table-warning'},
+                    { key: 'tot', label:  'Tot. Matched', _classes: 'table-warning'},
+                    { key: 'preodd', label:  'Pre Odd', _classes: 'table-warning'},
+                    { key: 'odd', label:  'Odd', _classes: 'table-warning'},
+                    { key: 'back', label:  'Back', _classes: 'table-info'},
+                    { key: 'lay', label:  'Lay', _classes: 'table-danger'},
+                    { key: 'status', label:  'Status', _classes: 'table-warning'},
+                    { key: 'minute', label:  'Minute', _classes: 'table-warning'},
+                    { key: 'score', label:  'Score', _classes: 'table-warning'},
+                    { key: 'gain', label:  'Gain/Losses%', _classes: 'table-warning'}
+                ]
                 for (let i=0; i<Lists.length; i++) {
                     this.tableItems.push(
                         {
