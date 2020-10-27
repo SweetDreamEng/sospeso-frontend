@@ -1527,9 +1527,6 @@
                         }
                     }
                 }
-
-
-
             },
             select_prediction(val){
                 this.key1 = 0
