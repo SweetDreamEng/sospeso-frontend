@@ -1,10 +1,13 @@
 <template>
-    <CSelect
+    <!-- <CSelect
             :value.sync = "key1"
             :options="eventLists3"
             @update:value="select_match"
     >
-    </CSelect>
+    </CSelect> -->
+    <select name="" id="" @change="select_match" class="form-control">
+        <option :value="item.value" v-for="(item, index) in eventLists3" :key="index" :selected="item.selected">{{item.label}}</option>
+    </select>
 </template>
 
 <script>
@@ -18,34 +21,57 @@
             updateItem: {
                 type: Function
             },
+            propEventId: {
+                type: Number
+            },
             index: {
                 type: Number
+            },
+            all: {
+                type: Boolean
             }
         },
         components: {
         },
         data () {
             return {
-                key1: ''
+                key1: '',
+                eventId: 0,
+                selectedArray: [],
+                eventValue: ''
             }
         },
         methods: {
             // Filter
             select_match(val){
+                val = val.target.value
+                this.eventValue = val;
+                this.selectedArray = val.split(',');
+                if (this.selectedArray[0] == '0') {
+                    this.eventId = parseInt(this.selectedArray[1]);
+                } else {
+                    this.eventId = parseInt(this.selectedArray[0]);
+                }
                 this.updateItem(val, this.index);
             },
         },
         watch: {
-            eventLists3(value) {
-                alert('hi');
-                console.log('eventLists3 value => ', value);
+            propEventId(val) {
+                if (this.eventId == val) {
+                    this.updateItem(this.eventValue, this.index);
+                }
             },
-            tableItem(value) {
-                console.log('tableItem value => ', value);
+            all(val) {
+                this.eventLists3[5].selected = true
+                console.log("all -> this.eventLists3[1]", this.eventLists3[1])
+                this.eventLists3.forEach((element, index) => {
+                    if (index == 5) {
+                        this.eventLists3[index].selected = true
+
+                    }
+                });
             }
         },
-        created() {
-        }
     }
 </script>
 <style scoped>

@@ -162,6 +162,7 @@
                             :eventLists3="eventLists3"
                             :competitionList="competitionList"
                             :mainList="mainList"
+                            :eventLists="eventLists"
                             :prematchOddList="prematchOddList"
                             :eventFlag="eventFlag"
                         >
@@ -292,18 +293,14 @@
         methods: {
             bet_date(){
                 this.bet_data.date = 'today';
-                console.log('bet data', this.bet_data)
 
                 window.axios.post(`${process.env.VUE_APP_URL}from_betsrc`,[this.bet_data]).then(({data})=>{
                     this.eventLists[0] = {'value': '', 'label': 'Select Match'}
-                console.log("bet_date -> data", data)
                     this.mainList = data.data[0]
                     this.teamgroups1 = data.data[1]
                     this.teamgroups2 = data.data[2]
                     this.competitionList = data.data[3]
                     this.adminTable = data.data[4]
-
-                    console.log('adminTable====>', this.adminTable[0])
 
                     let premarketArray = data.data[0]
                     let m_index = 0
@@ -315,7 +312,6 @@
                             }
                         }
                     }
-                    console.log('prematch_odd_list====>', this.prematchOddList)
 
                     let eventList0 = data.data[0]
                     let marketNode = []
@@ -371,7 +367,6 @@
                     }
                     this.eventLists3 = this.eventLists
                     this.select_prediction(true)
-                    console.log('matchOddcounts------------>', this.eventLists3)
                 })
 
             },
@@ -1026,7 +1021,6 @@
                     //---------excluded filter-------------
 
                     for(let i = 0; i < this.predictionList1.length ; i++){
-                        console.log(this.predictionList1[i])
                         if(this.predictionList1[i].value.split(',')[2] != 'MATCH_ODDS'){
                             let self = this
                             let predictions =this.predictionList1.filter(function(item) {
@@ -1068,7 +1062,6 @@
                                         }
                                     }
                                 }
-                                console.log('predictions1=>', predictions1)
                             }
                         }
                         else{
@@ -1077,7 +1070,6 @@
                                 return item.value.split(',')[1] == self.predictionList1[i].value.split(',')[1] && item.value.split(',')[2] == self.predictionList1[i].value.split(',')[2];
                             });
                             if(predictions.length > 1){
-                                console.log('excluded check===>', predictions)
                                 let check001 = 0
                                 let check002 = 0
                                 let check003 = 0
@@ -1098,7 +1090,6 @@
                                 }
                                 if((check001 === 1 && check002 === 1) || ((check003 === 1) && (check001 === 1 || check002 === 1)) || (check003 === 1 && check004 === 1)){
                                     for(let j = 0 ; j < predictions.length; j++){
-                                        console.log('predictions===>',predictions[j])
                                         let index = this.predictionList1.indexOf(predictions[j]);
                                         if (index > -1) {
                                             i = i - 1
@@ -1141,7 +1132,6 @@
                     }
 
                     if(this.weekFilter ==  false){
-                        console.log('prediction_list_check===>',this.predictionList1)
                         // let predictions =this.predictionList1.filter(function(item) {
                         //     return parseInt(item.value.split(',')[5]) > parseInt(item.value.split(',')[4]);
                         // });
@@ -1150,9 +1140,7 @@
                             let p_val = this.predictionList1[n].value.split(',')[7].trim()
                             let val1 = parseInt(this.predictionList1[n].value.split(',')[4])
                             let val2 = parseInt(this.predictionList1[n].value.split(',')[5])
-                            console.log('value is just these =>', p_val, val1, val2)
                             if(p_val == 'Perde da' || p_val == 'Perde in casa da' || p_val == 'Pareggia fuori da'){
-                                console.log('value is just these =>', p_val)
                                 let index = this.predictionList1.indexOf(this.predictionList1[n]);
                                 if (index > -1) {
                                     n = n - 1
@@ -1169,7 +1157,6 @@
                                 }
                             }
                             else{
-                                console.log(this.predictionList1)
                             }
                         }
                     }
@@ -1275,7 +1262,6 @@
                             let marketNode = eventNode[0].markets.filter(function(item) {
                                 return item.marketType == marketType;
                             });
-                            console.log('marketNode===>', marketNode, marketType)
                             if(marketNode.length > 0){
                                 if(marketNode[0].totalMatched < this.matchedMin || marketNode[0].totalMatched > this.matchedMax){
                                     let index = this.predictionList1.indexOf(this.predictionList1[p]);
@@ -1308,7 +1294,6 @@
                             let marketNode = eventNode[0].markets.filter(function(item) {
                                 return item.marketType == marketType;
                             });
-                            console.log('marketNode===>', marketNode[0])
                             if(marketNode[0]){
                                 if(!marketNode[0].runners){
                                     return
@@ -1317,7 +1302,6 @@
                                 if(predictionLabel.includes(' - Live') == true){
                                     for(let h = 0  ; h < this.prematchOddList.length ;  h++){
                                         if(this.prematchOddList[h].marketId == marketNode[0].marketId){
-                                            console.log('great!!', marketNode[0].marketId)
                                             if(this.prematchOddList[h].runners[marketNo].exchange){
                                                 if(runnerNo == '0'){
                                                     if(this.prematchOddList[h].runners[marketNo].exchange.availableToBack){
@@ -1448,128 +1432,127 @@
         created() {
             this.bet_date();
             this.gameList1 = this.gameList
-            let self = this
-            this.sockets.listener.subscribe('UpdateOdds', (data) => {
+            // let self = this
+            // this.sockets.listener.subscribe('UpdateOdds', (data) => {
 
-                for(let i = 0 ; i < self.mainList.length; i++){
-                    let marketsNode = self.mainList[i].markets
-                    for(let j = 0; j < marketsNode.length; j++){
-                        for(let k = 0; k < data.length; k++){
-                            if(marketsNode[j].marketId == data[k].marketId){
-                                self.mainList[i].markets[j].inplay = data[k].inplay
-                                self.mainList[i].markets[j].runners = data[k].runners
-                                self.mainList[i].markets[j].state = data[k].state
-                            }
-                            if(self.marketId == data[k].marketId){
-                                self.odd_calc(this.calc_odd)
-                                let selections = data[k].runners.filter(function(runner) {
-                                    return runner.selectionId == self.selectionId;
-                                });
-                                if(data[k].state.status == 'SUSPENDED'){
-                                    this.marketStatus = 'SUSPENDED'
-                                }
-                                else if(data[k].state.status == "CLOSED"){
-                                    this.marketStatus = 'CLOSED'
-                                }
-                                else if(data[k].state.status == "OPEN"){
-                                    this.marketStatus =''
-                                }
-                                if(selections[0].exchange.availableToBack){
-                                    self.back = selections[0].exchange.availableToBack[0].price ||''
-                                    self.back_matched = selections[0].exchange.availableToBack[0].size || 0
-                                }
-                                else{
-                                    self.back =''
-                                    self.back_matched = 0
-                                }
+            //     for(let i = 0 ; i < self.mainList.length; i++){
+            //         let marketsNode = self.mainList[i].markets
+            //         for(let j = 0; j < marketsNode.length; j++){
+            //             for(let k = 0; k < data.length; k++){
+            //                 if(marketsNode[j].marketId == data[k].marketId){
+            //                     self.mainList[i].markets[j].inplay = data[k].inplay
+            //                     self.mainList[i].markets[j].runners = data[k].runners
+            //                     self.mainList[i].markets[j].state = data[k].state
+            //                 }
+            //                 if(self.marketId == data[k].marketId){
+            //                     self.odd_calc(this.calc_odd)
+            //                     let selections = data[k].runners.filter(function(runner) {
+            //                         return runner.selectionId == self.selectionId;
+            //                     });
+            //                     if(data[k].state.status == 'SUSPENDED'){
+            //                         this.marketStatus = 'SUSPENDED'
+            //                     }
+            //                     else if(data[k].state.status == "CLOSED"){
+            //                         this.marketStatus = 'CLOSED'
+            //                     }
+            //                     else if(data[k].state.status == "OPEN"){
+            //                         this.marketStatus =''
+            //                     }
+            //                     if(selections[0].exchange.availableToBack){
+            //                         self.back = selections[0].exchange.availableToBack[0].price ||''
+            //                         self.back_matched = selections[0].exchange.availableToBack[0].size || 0
+            //                     }
+            //                     else{
+            //                         self.back =''
+            //                         self.back_matched = 0
+            //                     }
 
-                                if(selections[0].exchange.availableToLay){
-                                    self.lay = selections[0].exchange.availableToLay[0].price ||''
-                                    self.lay_matched = selections[0].exchange.availableToLay[0].size || 0
-                                }
-                                else{
-                                    self.lay =''
-                                    self.lay_matched = 0
-                                }
-                                self.total_matched = (data[k].state.totalMatched).toFixed(1)
-                            }
-                        }
-                    }
-                }
-            });
-            this.sockets.listener.subscribe('UpdateScore', (data) => {
-                console.log('RefreshScore----------------------',data)
+            //                     if(selections[0].exchange.availableToLay){
+            //                         self.lay = selections[0].exchange.availableToLay[0].price ||''
+            //                         self.lay_matched = selections[0].exchange.availableToLay[0].size || 0
+            //                     }
+            //                     else{
+            //                         self.lay =''
+            //                         self.lay_matched = 0
+            //                     }
+            //                     self.total_matched = (data[k].state.totalMatched).toFixed(1)
+            //                 }
+            //             }
+            //         }
+            //     }
+            // });
+            // this.sockets.listener.subscribe('UpdateScore', (data) => {
+                
+            //     for(let i = 0 ; i < self.mainList.length ; i++){
+            //         if(self.mainList[i].eventId == data.eventId){
+            //             self.mainList[i].inPlayMatchStatus = data.inPlayMatchStatus
+            //             self.mainList[i].score = data.score
+            //             self.mainList[i].timeElapsed = data.timeElapsed
+            //             self.mainList[i].status = data.status
+            //             self.mainList[i].updateDetails = data.updateDetails
+            //             if(data.status == 'IN_PLAY'){
+            //                 for(let j = 0; j < this.eventLists.length; j++){
+            //                     let value = this.eventLists[j].value
+            //                     let liveArray = value.split(',')
+            //                     if(data.eventId == liveArray[0]){
+            //                         let str = this.eventLists[j].label
+            //                         if(str.includes(' - Live') == false){
+            //                             this.eventLists[j].label = this.eventLists[j].label + ' - Live'
+            //                         }
+            //                     }
+            //                     if(data.eventId == liveArray[1]){
+            //                         let str = this.eventLists[j].label
+            //                         if(str.includes(' - Live') == false){
+            //                             this.eventLists[j].label = this.eventLists[j].label + ' - Live'
+            //                         }
+            //                     }
+            //                 }
+            //             }
+            //             else{
+            //                 for(let j = 0; j < this.eventLists.length; j++){
+            //                     let value = this.eventLists[j].value
+            //                     let liveArray = value.split(',')
+            //                     if(data.eventId == liveArray[0]){
+            //                         let str = this.eventLists[j].label
+            //                         if(str.includes(' - Live') == true){
+            //                             this.eventLists[j].label.replace(' - Live', )
+            //                         }
+            //                     }
+            //                 }
+            //                 for(let j = 0; j < this.eventLists.length; j++){
+            //                     let value = this.eventLists[j].value
+            //                     let liveArray = value.split(',')
+            //                     if(data.eventId == liveArray[1]){
+            //                         let str = this.eventLists[j].label
+            //                         if(str.includes(' - Live') == true){
+            //                             this.eventLists[j].label.replace(' - Live', )
+            //                         }
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
 
-                for(let i = 0 ; i < self.mainList.length ; i++){
-                    if(self.mainList[i].eventId == data.eventId){
-                        self.mainList[i].inPlayMatchStatus = data.inPlayMatchStatus
-                        self.mainList[i].score = data.score
-                        self.mainList[i].timeElapsed = data.timeElapsed
-                        self.mainList[i].status = data.status
-                        self.mainList[i].updateDetails = data.updateDetails
-                        if(data.status == 'IN_PLAY'){
-                            for(let j = 0; j < this.eventLists.length; j++){
-                                let value = this.eventLists[j].value
-                                let liveArray = value.split(',')
-                                if(data.eventId == liveArray[0]){
-                                    let str = this.eventLists[j].label
-                                    if(str.includes(' - Live') == false){
-                                        this.eventLists[j].label = this.eventLists[j].label + ' - Live'
-                                    }
-                                }
-                                if(data.eventId == liveArray[1]){
-                                    let str = this.eventLists[j].label
-                                    if(str.includes(' - Live') == false){
-                                        this.eventLists[j].label = this.eventLists[j].label + ' - Live'
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0; j < this.eventLists.length; j++){
-                                let value = this.eventLists[j].value
-                                let liveArray = value.split(',')
-                                if(data.eventId == liveArray[0]){
-                                    let str = this.eventLists[j].label
-                                    if(str.includes(' - Live') == true){
-                                        this.eventLists[j].label.replace(' - Live', )
-                                    }
-                                }
-                            }
-                            for(let j = 0; j < this.eventLists.length; j++){
-                                let value = this.eventLists[j].value
-                                let liveArray = value.split(',')
-                                if(data.eventId == liveArray[1]){
-                                    let str = this.eventLists[j].label
-                                    if(str.includes(' - Live') == true){
-                                        this.eventLists[j].label.replace(' - Live', )
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if(self.eventId ==  data.eventId){
-                    self.timeRecord = data.timeElapsed
-                    self.status = data.status
-                    if(data.status == 'IN_PLAY'){
-                        self.status = 'Live - '
-                        this.scoreOne = data.score.home.score + " -"
-                        this.scoreTwo = data.score.away.score
-                        this.timeRecord = data.timeElapsed+ "'"
-                    }
-                    else if(!data.status){
-                        self.status = 'Coming Up'
-                        this.scoreOne =''
-                        this.scoreTwo =''
-                        this.timeRecord =''
-                    }
-                    if(data.inPlayMatchStatus == 'FirstHalfEnd'){
-                        this.timeRecord = "HT"
-                    }
-                }
-            });
+            //     if(self.eventId ==  data.eventId){
+            //         self.timeRecord = data.timeElapsed
+            //         self.status = data.status
+            //         if(data.status == 'IN_PLAY'){
+            //             self.status = 'Live - '
+            //             this.scoreOne = data.score.home.score + " -"
+            //             this.scoreTwo = data.score.away.score
+            //             this.timeRecord = data.timeElapsed+ "'"
+            //         }
+            //         else if(!data.status){
+            //             self.status = 'Coming Up'
+            //             this.scoreOne =''
+            //             this.scoreTwo =''
+            //             this.timeRecord =''
+            //         }
+            //         if(data.inPlayMatchStatus == 'FirstHalfEnd'){
+            //             this.timeRecord = "HT"
+            //         }
+            //     }
+            // });
         }
     }
 </script>
