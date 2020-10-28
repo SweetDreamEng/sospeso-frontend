@@ -6,7 +6,7 @@
                 <div class="from_date" style="height: 40px; width: 100%;">
                     <div style="flex: 1; padding-top: 1px; padding-right: 10px;">From:</div>
                     <div style="flex: 4; padding-right: 35px;">
-<!--                        <CInput type="text"  :value="this.from_date" @update:value="from_date_f" class="odd-filter-inputbox" placeholder="2000-01-01"></CInput>-->
+                        <!--                        <CInput type="text"  :value="this.from_date" @update:value="from_date_f" class="odd-filter-inputbox" placeholder="2000-01-01"></CInput>-->
                         <CSelect
                                 class="fromdate"
                                 :options="dateList1"
@@ -16,7 +16,7 @@
                     </div>
                     <div style="flex: 1; padding-top: 1px; padding-right: 10px;">End:</div>
                     <div style="flex: 4; padding-right: 35px;">
-<!--                        <CInput type="text"  :value="this.end_date" @update:value="end_date_f" class="odd-filter-inputbox" placeholder="2000-01-01"></CInput>-->
+                        <!--                        <CInput type="text"  :value="this.end_date" @update:value="end_date_f" class="odd-filter-inputbox" placeholder="2000-01-01"></CInput>-->
                         <CSelect
                                 class="fromdate"
                                 :options="dateList2"
@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                 <div class="from_date" style="padding-right: 35px;">
+                <div class="from_date" style="padding-right: 35px;">
                     <label style="flex: 2; color: red; font-weight: bold;">Minute:</label>
                     <div style="flex: 2; text-align: right; padding-top: 1px; padding-right: 10px;">From:</div>
                     <div style="flex: 3;">
@@ -64,7 +64,7 @@
                 >
                 </CSelect>
             </CCol>
-            <CCol lg="6" class="stats-filter-content" style="height: 600px; background: white; padding: 20px 30px;">
+            <CCol lg="6" class="stats-filter-content" style="height: 820px; background: white; padding: 20px 30px;">
                 <div style="width: 50%; float: left; padding-right: 20px;">
                     <label style="color: red; font-weight: bold;">Home Team:</label>
                     <div style="display: flex;">
@@ -479,13 +479,194 @@
                         </div>
                     </div>
                 </div>
+
+                <div style="width: 100%; margin-top: 20px;">
+                    <label style="color: red; font-weight: bold; margin-top: 20px;">Stats by Segment Time:</label>
+                </div>
+                <div class="totalMatches score_stats" style="display: flex; font-weight: 600; font-size: 12px;">
+                    <div  style="flex: 1; text-align: center;">
+                        <p class="header" style="color: #d1c4e1">Time</p>
+                        <p class="value">0 - 15</p>
+                        <p class="percent">16 - 30</p>
+                        <p class="value">31 - 45</p>
+                        <p class="percent">46 - 60</p>
+                        <p class="value">61 - 75</p>
+                        <p class="percent">76 - 90</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">0 - 0</p>
+                        <p v-if="this.stats_segment.stats_0_15.score_over00 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over00}} ({{(this.stats_segment.stats_0_15.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_16_30.score_over00 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over00}} ({{(this.stats_segment.stats_16_30.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_31_45.score_over00 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over00}} ({{(this.stats_segment.stats_31_45.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_46_60.score_over00 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over00}} ({{(this.stats_segment.stats_46_60.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_61_75.score_over00 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over00}} ({{(this.stats_segment.stats_61_75.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_76_90.score_over00 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over00}} ({{(this.stats_segment.stats_76_90.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Over 1.5</p>
+                        <p v-if="this.stats_segment.stats_0_15.score_over15 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over15}} ({{(this.stats_segment.stats_0_15.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_16_30.score_over15 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over15}} ({{(this.stats_segment.stats_16_30.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_31_45.score_over15 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over15}} ({{(this.stats_segment.stats_31_45.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_46_60.score_over15 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over15}} ({{(this.stats_segment.stats_46_60.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_61_75.score_over15 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over15}} ({{(this.stats_segment.stats_61_75.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_76_90.score_over15 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over15}} ({{(this.stats_segment.stats_76_90.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Over 2.5</p>
+                        <p v-if="this.stats_segment.stats_0_15.score_over25 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over25}} ({{(this.stats_segment.stats_0_15.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_16_30.score_over25 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over25}} ({{(this.stats_segment.stats_16_30.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_31_45.score_over25 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over25}} ({{(this.stats_segment.stats_31_45.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_46_60.score_over25 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over25}} ({{(this.stats_segment.stats_46_60.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_61_75.score_over25 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over25}} ({{(this.stats_segment.stats_61_75.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_76_90.score_over25 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over25}} ({{(this.stats_segment.stats_76_90.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Over 3.5</p>
+                        <p v-if="this.stats_segment.stats_0_15.score_over35 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over35}} ({{(this.stats_segment.stats_0_15.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_16_30.score_over35 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over35}} ({{(this.stats_segment.stats_16_30.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_31_45.score_over35 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over35}} ({{(this.stats_segment.stats_31_45.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_46_60.score_over35 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over35}} ({{(this.stats_segment.stats_46_60.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_61_75.score_over35 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over35}} ({{(this.stats_segment.stats_61_75.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_76_90.score_over35 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over35}} ({{(this.stats_segment.stats_76_90.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Over 4.5</p>
+                        <p v-if="this.stats_segment.stats_0_15.score_over45 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over45}} ({{(this.stats_segment.stats_0_15.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_16_30.score_over45 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over45}} ({{(this.stats_segment.stats_16_30.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_31_45.score_over45 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over45}} ({{(this.stats_segment.stats_31_45.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_46_60.score_over45 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over45}} ({{(this.stats_segment.stats_46_60.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_61_75.score_over45 === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over45}} ({{(this.stats_segment.stats_61_75.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_76_90.score_over45 === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over45}} ({{(this.stats_segment.stats_76_90.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Home</p>
+                        <p v-if="this.stats_segment.stats_0_15.score_home === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_home}} ({{(this.stats_segment.stats_0_15.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_16_30.score_home === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_home}} ({{(this.stats_segment.stats_16_30.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_31_45.score_home === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_home}} ({{(this.stats_segment.stats_31_45.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_46_60.score_home === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_home}} ({{(this.stats_segment.stats_46_60.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_61_75.score_home === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_home}} ({{(this.stats_segment.stats_61_75.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_76_90.score_home === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_home}} ({{(this.stats_segment.stats_76_90.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Draws</p>
+                        <p v-if="this.stats_segment.stats_0_15.score_draw === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_draw}} ({{(this.stats_segment.stats_0_15.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_16_30.score_draw === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_draw}} ({{(this.stats_segment.stats_16_30.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_31_45.score_draw === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_draw}} ({{(this.stats_segment.stats_31_45.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_46_60.score_draw === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_draw}} ({{(this.stats_segment.stats_46_60.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_61_75.score_draw === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_draw}} ({{(this.stats_segment.stats_61_75.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_76_90.score_draw === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_draw}} ({{(this.stats_segment.stats_76_90.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Away</p>
+                        <p v-if="this.stats_segment.stats_0_15.score_away === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_away}} ({{(this.stats_segment.stats_0_15.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_16_30.score_away === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_away}} ({{(this.stats_segment.stats_16_30.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_31_45.score_away === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_away}} ({{(this.stats_segment.stats_31_45.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_46_60.score_away === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_away}} ({{(this.stats_segment.stats_46_60.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_61_75.score_away === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_away}} ({{(this.stats_segment.stats_61_75.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_76_90.score_away === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_away}} ({{(this.stats_segment.stats_76_90.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">BTS</p>
+                        <p v-if="this.stats_segment.stats_0_15.score_bts === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_bts}} ({{(this.stats_segment.stats_0_15.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_16_30.score_bts === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_bts}} ({{(this.stats_segment.stats_16_30.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_31_45.score_bts === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_bts}} ({{(this.stats_segment.stats_31_45.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_46_60.score_bts === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_bts}} ({{(this.stats_segment.stats_46_60.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_61_75.score_bts === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_bts}} ({{(this.stats_segment.stats_61_75.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_76_90.score_bts === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_bts}} ({{(this.stats_segment.stats_76_90.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Odd</p>
+                        <p v-if="this.stats_segment.stats_0_15.score_odd === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_odd}} ({{(this.stats_segment.stats_0_15.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_16_30.score_odd === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_odd}} ({{(this.stats_segment.stats_16_30.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_31_45.score_odd === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_odd}} ({{(this.stats_segment.stats_31_45.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_46_60.score_odd === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_odd}} ({{(this.stats_segment.stats_46_60.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_61_75.score_odd === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_odd}} ({{(this.stats_segment.stats_61_75.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_76_90.score_odd === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_odd}} ({{(this.stats_segment.stats_76_90.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Even</p>
+                        <p v-if="this.stats_segment.stats_0_15.score_even === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_even}} ({{(this.stats_segment.stats_0_15.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_16_30.score_even === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_even}} ({{(this.stats_segment.stats_16_30.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_31_45.score_even === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_even}} ({{(this.stats_segment.stats_31_45.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_46_60.score_even === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_even}} ({{(this.stats_segment.stats_46_60.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_61_75.score_even === 0" class="value">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_even}} ({{(this.stats_segment.stats_61_75.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-if="this.stats_segment.stats_76_90.score_even === 0" class="percent">0</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_even}} ({{(this.stats_segment.stats_76_90.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                    </div>
+                </div>
+
             </CCol>
-            <CCol lg="6" class="stats-filter-content" style="height: 600px; background: white; padding: 20px 30px;">
+            <CCol lg="6" class="stats-filter-content" style="height: 820px; background: white; padding: 20px 30px;">
                 <label style="color: red; font-weight: bold;">Selected Event Stats:</label>
                 <div class="stats-header">
                     <div style="flex: 2; border-right: 1px solid lightgray; color: black;">
                         <div style="height: 20px; width: 100%; text-align: center; padding: 3px;">
-                            Italy Seria A
+                            {{total_home_stats.competition}}
                         </div>
                         <div style="height: 20px; width: 100%; text-align: left; padding-left: 5px;">
                             Time
@@ -518,53 +699,52 @@
                 </div>
                 <div class="stats-content">
                     <div style="flex: 2; border-right: 1px solid lightgray; color: black;">
-                        <div style="width: 20%; float: left; text-align: center; padding-top: 20px;">FT</div>
+                        <div style="width: 20%; float: left; text-align: center; padding-top: 20px;">{{total_home_stats.time}}</div>
                         <div style="width: 80%; float: left;">
                             <div style="height: 30px; width: 100%; text-align: center; padding: 2px;">
-                                Napoli (11)
+                                {{total_home_stats.name}}
                             </div>
                             <div style="height: 30px; width: 100%; text-align: center; padding: 2px;">
-                                Juventus (6)
+                                {{total_away_stats.name}}
                             </div>
                         </div>
                     </div>
                     <div style="flex: 1; border-right: 1px solid lightgray;">
                         <div style="height: 60px; width: 100%; text-align: center; padding-top: 20px;">
-                            2 - 1
+                            {{total_home_stats.score}} - {{total_away_stats.score}}
                         </div>
                     </div>
                     <div style="flex: 7;">
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
-                            <div style="flex: 1; text-align: center;">On</div>
-                            <div style="flex: 1; text-align: center;">Off</div>
-                            <div style="flex: 1; text-align: center;">Blk</div>
-                            <div style="flex: 1; text-align: center;">In</div>
-                            <div style="flex: 1; text-align: center;">Out</div>
-                            <div style="flex: 1; text-align: center;">Cnr</div>
-                            <div style="flex: 1; text-align: center;">DA</div>
-                            <div style="flex: 1; text-align: center;">Pos</div>
-                            <div style="flex: 1; text-align: center;">Red</div>
-                            <div style="flex: 1; text-align: center;">Yel</div>
+                            <div style="flex: 1; text-align: center;">{{total_home_stats.on}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_home_stats.off}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_home_stats.blk}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_home_stats.in}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_home_stats.out}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_home_stats.cnr}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_home_stats.da}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_home_stats.pos}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_home_stats.red}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_home_stats.yel}}</div>
                         </div>
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
-                            <div style="flex: 1; text-align: center;">On</div>
-                            <div style="flex: 1; text-align: center;">Off</div>
-                            <div style="flex: 1; text-align: center;">Blk</div>
-                            <div style="flex: 1; text-align: center;">In</div>
-                            <div style="flex: 1; text-align: center;">Out</div>
-                            <div style="flex: 1; text-align: center;">Cnr</div>
-                            <div style="flex: 1; text-align: center;">DA</div>
-                            <div style="flex: 1; text-align: center;">Pos</div>
-                            <div style="flex: 1; text-align: center;">Red</div>
-                            <div style="flex: 1; text-align: center;">Yel</div>
+                            <div style="flex: 1; text-align: center;">{{total_away_stats.on}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_away_stats.off}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_away_stats.blk}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_away_stats.in}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_away_stats.out}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_away_stats.cnr}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_away_stats.da}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_away_stats.pos}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_away_stats.red}}</div>
+                            <div style="flex: 1; text-align: center;">{{total_away_stats.yel}}</div>
                         </div>
                     </div>
                 </div>
-
                 <div class="stats-header" style="background: #7c9fc7;">
                     <div style="flex: 2; border-right: 1px solid lightgray; color: black;">
-                        <div style="height: 20px; width: 100%; text-align: center; padding: 3px;">
-                            Italy Seria A
+                        <div style="height: 20px; width: 100%; text-align: center; padding: 3px; color: #7c9fc7">
+                            .
                         </div>
                         <div style="height: 20px; width: 100%; text-align: left; padding-left: 5px;">
                             H/A
@@ -574,7 +754,7 @@
                         <div style="height: 20px; width: 100%; text-align: center; padding: 3px;">
                         </div>
                         <div style="height: 20px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black;">
-                            Result
+                            P
                         </div>
                     </div>
                     <div style="flex: 7;">
@@ -595,6 +775,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="stats-content">
                     <div style="flex: 2; border-right: 1px solid lightgray; color: black;">
                         <div style="width: 20%; float: left; text-align: center;">
@@ -607,65 +788,64 @@
                         </div>
                         <div style="width: 80%; float: left;">
                             <div style="height: 30px; width: 100%; text-align: center; padding: 2px;">
-                                Napoli (11)
+                                {{total_home_stats.name}}
                             </div>
                             <div style="height: 30px; width: 100%; text-align: center; padding: 2px;">
-                                Juventus (6)
+                                {{total_away_stats.name}}
                             </div>
                         </div>
                     </div>
                     <div style="flex: 1; border-right: 1px solid lightgray;">
                         <div style="height: 60px; width: 100%; text-align: center;">
                             <div style="height: 30px; width: 100%; text-align: center; padding: 2px;">
-                                12
+                                {{avg_home_stats.p}}
                             </div>
                             <div style="height: 30px; width: 100%; text-align: center; padding: 2px;">
-                                13
+                                {{avg_away_stats.p}}
                             </div>
                         </div>
                     </div>
                     <div style="flex: 7;">
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
-                            <div style="flex: 1; text-align: center;">On</div>
-                            <div style="flex: 1; text-align: center;">Off</div>
-                            <div style="flex: 1; text-align: center;">Blk</div>
-                            <div style="flex: 1; text-align: center;">In</div>
-                            <div style="flex: 1; text-align: center;">Out</div>
-                            <div style="flex: 1; text-align: center;">Cnr</div>
-                            <div style="flex: 1; text-align: center;">DA</div>
-                            <div style="flex: 1; text-align: center;">Pos</div>
-                            <div style="flex: 1; text-align: center;">Red</div>
-                            <div style="flex: 1; text-align: center;">Yel</div>
+                            <div style="flex: 1; text-align: center;">{{avg_home_stats.on}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_home_stats.off}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_home_stats.blk}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_home_stats.in}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_home_stats.out}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_home_stats.cnr}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_home_stats.da}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_home_stats.pos}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_home_stats.red}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_home_stats.yel}}</div>
                         </div>
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
-                            <div style="flex: 1; text-align: center;">On</div>
-                            <div style="flex: 1; text-align: center;">Off</div>
-                            <div style="flex: 1; text-align: center;">Blk</div>
-                            <div style="flex: 1; text-align: center;">In</div>
-                            <div style="flex: 1; text-align: center;">Out</div>
-                            <div style="flex: 1; text-align: center;">Cnr</div>
-                            <div style="flex: 1; text-align: center;">DA</div>
-                            <div style="flex: 1; text-align: center;">Pos</div>
-                            <div style="flex: 1; text-align: center;">Red</div>
-                            <div style="flex: 1; text-align: center;">Yel</div>
+                            <div style="flex: 1; text-align: center;">{{avg_away_stats.on}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_away_stats.off}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_away_stats.blk}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_away_stats.in}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_away_stats.out}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_away_stats.cnr}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_away_stats.da}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_away_stats.pos}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_away_stats.red}}</div>
+                            <div style="flex: 1; text-align: center;">{{avg_away_stats.yel}}</div>
                         </div>
                     </div>
                 </div>
-
                 <div class="stats-header" style="background: #00ad4e;">
                     <div style="flex: 2; border-right: 1px solid lightgray; color: black;">
-                        <div style="height: 20px; width: 100%; text-align: center; padding: 3px;">
-                            Italy Seria A
+                        <div style="height: 20px; width: 100%; text-align: center; padding: 3px; color: #00ad4e">
+                            .
                         </div>
-                        <div style="height: 20px; width: 100%; text-align: left; padding-left: 5px;">
-                            H/A
+                        <div style="height: 20px; width: 100%; text-align: left; padding-left: 5px; color: #00ad4e">
+                            .
                         </div>
                     </div>
                     <div style="flex: 1; border-right: 1px solid lightgray;">
                         <div style="height: 20px; width: 100%; text-align: center; padding: 3px;">
                         </div>
-                        <div style="height: 20px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black;">
-                            Result
+                        <div style="height: 20px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; color: #00ad4e">
+                           .
                         </div>
                     </div>
                     <div style="flex: 7;">
@@ -686,6 +866,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="stats-content" style="border-bottom: 1px solid lightgrey;">
                     <div style="flex: 2; border-right: 1px solid lightgray; color: black;">
                         <div style="width: 20%; float: left; text-align: center;">
@@ -698,20 +879,20 @@
                         </div>
                         <div style="width: 80%; float: left;">
                             <div style="height: 30px; width: 100%; text-align: center; padding: 2px;">
-                                Napoli (11)
+                                {{total_home_stats.name}}
                             </div>
                             <div style="height: 30px; width: 100%; text-align: center; padding: 2px;">
-                                Juventus (6)
+                                {{total_away_stats.name}}
                             </div>
                         </div>
                     </div>
                     <div style="flex: 1; border-right: 1px solid lightgray;">
                         <div style="height: 60px; width: 100%; text-align: center;">
-                            <div style="height: 30px; width: 100%; text-align: center; padding: 2px;">
-                                12
+                            <div style="height: 30px; width: 100%; text-align: center; padding: 2px; color: white">
+                                .
                             </div>
-                            <div style="height: 30px; width: 100%; text-align: center; padding: 2px;">
-                                13
+                            <div style="height: 30px; width: 100%; text-align: center; padding: 2px; color: white">
+                                .
                             </div>
                         </div>
                     </div>
@@ -896,28 +1077,134 @@
                 dateList1: [],
                 dateList2:[],
                 avg_home_stats:{
-                    'on': '-',
-                    'off': '-',
-                    'blk': '-',
-                    'in': '-',
-                    'out': '-',
-                    'cnr': '-',
-                    'da': '-',
-                    'pos': '-',
-                    'red': '-',
-                    'yel': '-'
+                    'p': 0,
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'pos': 0,
+                    'red': 0,
+                    'yel': 0
                 },
                 avg_away_stats:{
-                    'on': '-',
-                    'off': '-',
-                    'blk': '-',
-                    'in': '-',
-                    'out': '-',
-                    'cnr': '-',
-                    'da': '-',
-                    'pos': '-',
-                    'red': '-',
-                    'yel': '-'
+                    'p': 0,
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'pos': 0,
+                    'red': 0,
+                    'yel': 0
+                },
+                delta_home_index:{
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'pos': 0,
+                    'red': 0,
+                    'yel': 0
+                },
+                delta_away_index:{
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'pos': 0,
+                    'red': 0,
+                    'yel': 0
+                },
+                stats_segment:{
+                    stats_0_15:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    },
+                    stats_16_30:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    },
+                    stats_31_45:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    },
+                    stats_46_60:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    },
+                    stats_61_75:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    },
+                    stats_76_90:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    }
                 },
             }
         },
@@ -998,11 +1285,24 @@
                 let away_id = val.away_id
                 let home_name = val.home_name
                 let away_name = val.away_name
-                let home_rank = val.home_rank
-                let away_rank = val.away_rank
 
-                this.total_home_stats.name = home_name + ' (' + home_rank + ') '
-                this.total_away_stats.name = away_name + ' (' + away_rank + ') '
+                let home_rank = ''
+                let away_rank = ''
+                if(val.home_rank){
+                    home_rank = val.home_rank
+                    this.total_home_stats.name = home_name + ' (' + home_rank + ') '
+                }
+                else{
+                    this.total_home_stats.name = home_name
+                }
+                if(val.away_rank){
+                    away_rank = val.away_rank
+                    this.total_away_stats.name = away_name + ' (' + away_rank + ') '
+                }
+                else{
+                    this.total_away_stats.name = away_name
+                }
+
                 this.total_home_stats.time = 'FT'
                 let statsLength = val.stats.length
                 let cStats = val.stats[statsLength - 1]
@@ -1013,36 +1313,182 @@
                 if(val.competitions.length > 0){
                     this.total_home_stats.competition = val.competitions[0].name
                 }
-
+                if(home_id === cStats[0].team_id && away_id === cStats[1].team_id){
+                    if(cStats[0].shots){
+                        this.total_home_stats.on = cStats[0].shots.ongoal
+                        this.total_away_stats.on = cStats[1].shots.ongoal
+                        this.total_home_stats.off = cStats[0].shots.offgoal
+                        this.total_away_stats.off = cStats[1].shots.offgoal
+                        this.total_home_stats.blk = cStats[0].shots.blocked
+                        this.total_away_stats.blk = cStats[1].shots.blocked
+                        this.total_home_stats.in = cStats[0].shots.insidebox
+                        this.total_away_stats.in = cStats[1].shots.insidebox
+                        this.total_home_stats.out = cStats[0].shots.outsidebox
+                        this.total_away_stats.out = cStats[1].shots.outsidebox
+                    }
+                    if(cStats[0].corners){
+                        this.total_home_stats.cnr = cStats[0].corners
+                        this.total_away_stats.cnr = cStats[1].corners
+                    }
+                    if(cStats[0].attacks){
+                        this.total_home_stats.da = cStats[0].attacks.dangerous_attacks
+                        this.total_away_stats.da = cStats[1].attacks.dangerous_attacks
+                    }
+                    if(cStats[0].possessiontime){
+                        this.total_home_stats.pos = cStats[0].possessiontime
+                        this.total_away_stats.pos = cStats[1].possessiontime
+                    }
+                    if(cStats[0].redcards){
+                        this.total_home_stats.red = cStats[0].redcards
+                        this.total_away_stats.red = cStats[1].redcards
+                    }
+                    if(cStats[0].yellowcards){
+                        this.total_home_stats.yel = cStats[0].yellowcards
+                        this.total_away_stats.yel = cStats[1].yellowcards
+                    }
+                }
+                else if(home_id === cStats[1].team_id && away_id === cStats[0].team_id){
+                    if(cStats[0].shots){
+                        this.total_home_stats.on = cStats[1].shots.ongoal
+                        this.total_away_stats.on = cStats[0].shots.ongoal
+                        this.total_home_stats.off = cStats[1].shots.offgoal
+                        this.total_away_stats.off = cStats[0].shots.offgoal
+                        this.total_home_stats.blk = cStats[1].shots.blocked
+                        this.total_away_stats.blk = cStats[0].shots.blocked
+                        this.total_home_stats.in = cStats[1].shots.insidebox
+                        this.total_away_stats.in = cStats[0].shots.insidebox
+                        this.total_home_stats.out = cStats[1].shots.outsidebox
+                        this.total_away_stats.out = cStats[0].shots.outsidebox
+                    }
+                    if(cStats[0].corners){
+                        this.total_home_stats.cnr = cStats[1].corners
+                        this.total_away_stats.cnr = cStats[0].corners
+                    }
+                    if(cStats[0].attacks){
+                        this.total_home_stats.da = cStats[1].attacks.dangerous_attacks
+                        this.total_away_stats.da = cStats[0].attacks.dangerous_attacks
+                    }
+                    if(cStats[0].possessiontime){
+                        this.total_home_stats.pos = cStats[1].possessiontime
+                        this.total_away_stats.pos = cStats[0].possessiontime
+                    }
+                    if(cStats[0].redcards){
+                        this.total_home_stats.red = cStats[1].redcards
+                        this.total_away_stats.red = cStats[0].redcards
+                    }
+                    if(cStats[0].yellowcards){
+                        this.total_home_stats.yel = cStats[1].yellowcards
+                        this.total_away_stats.yel = cStats[0].yellowcards
+                    }
+                }
                 this.avg_home_stats = {
-                    'on': '-',
-                    'off': '-',
-                    'blk': '-',
-                    'in': '-',
-                    'out': '-',
-                    'cnr': '-',
-                    'da': '-',
-                    'pos': '-',
-                    'red': '-',
-                    'yel': '-'
+                    'p': 0,
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'pos': 0,
+                    'red': 0,
+                    'yel': 0
                 }
                 this.avg_away_stats = {
-                    'on': '-',
-                    'off': '-',
-                    'blk': '-',
-                    'in': '-',
-                    'out': '-',
-                    'cnr': '-',
-                    'da': '-',
-                    'pos': '-',
-                    'red': '-',
-                    'yel': '-'
+                    'p': 0,
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'pos': 0,
+                    'red': 0,
+                    'yel': 0
                 }
                 if(cSeasonStats.length > 0){
                     for(let i = 0; i < cSeasonStats.length ; i++){
                         if(cSeasonStats[i].stats){
                             if(cSeasonStats[i].stats.length > 0){
-
+                                for(let j = 0; j < cSeasonStats[i].stats.length; j++){
+                                    if(cSeasonStats[i].stats[j]){
+                                        if(cSeasonStats[i].stats[j][0].team_id === home_id){
+                                            this.avg_home_stats.p++
+                                            if(cSeasonStats[i].stats[j][0].shots){
+                                                if(cSeasonStats[i].stats[j][0].shots.ongoal){
+                                                    this.avg_home_stats.on = this.avg_home_stats.on + cSeasonStats[i].stats[j][0].shots.ongoal
+                                                }
+                                                if(cSeasonStats[i].stats[j][0].shots.offgoal){
+                                                    this.avg_home_stats.off = this.avg_home_stats.off + cSeasonStats[i].stats[j][0].shots.offgoal
+                                                }
+                                                if(cSeasonStats[i].stats[j][0].shots.blocked){
+                                                    this.avg_home_stats.blk = this.avg_home_stats.blk + cSeasonStats[i].stats[j][0].shots.blocked
+                                                }
+                                                if(cSeasonStats[i].stats[j][0].shots.insidebox){
+                                                    this.avg_home_stats.in = this.avg_home_stats.in + cSeasonStats[i].stats[j][0].shots.insidebox
+                                                }
+                                                if(cSeasonStats[i].stats[j][0].shots.outsidebox){
+                                                    this.avg_home_stats.out = this.avg_home_stats.out + cSeasonStats[i].stats[j][0].shots.outsidebox
+                                                }
+                                            }
+                                            if(cSeasonStats[i].stats[j][0].corners){
+                                                this.avg_home_stats.cnr = this.avg_home_stats.cnr + cSeasonStats[i].stats[j][0].corners
+                                            }
+                                            if(cSeasonStats[i].stats[j][0].attacks){
+                                                if(cSeasonStats[i].stats[j][0].attacks.dangerous_attacks){
+                                                    this.avg_home_stats.da = this.avg_home_stats.da + cSeasonStats[i].stats[j][0].attacks.dangerous_attacks
+                                                }
+                                            }
+                                            if(cSeasonStats[i].stats[j][0].possessiontime){
+                                                this.avg_home_stats.pos = this.avg_home_stats.pos + cSeasonStats[i].stats[j][0].possessiontime
+                                            }
+                                            if(cSeasonStats[i].stats[j][0].redcards){
+                                                this.avg_home_stats.red = this.avg_home_stats.red + cSeasonStats[i].stats[j][0].redcards
+                                            }
+                                            if(cSeasonStats[i].stats[j][0].yellowcards){
+                                                this.avg_home_stats.yel = this.avg_home_stats.yel + cSeasonStats[i].stats[j][0].yellowcards
+                                            }
+                                        }
+                                        if(cSeasonStats[i].stats[j][1].team_id === away_id){
+                                            this.avg_away_stats.p++
+                                            if(cSeasonStats[i].stats[j][1].shots){
+                                                if(cSeasonStats[i].stats[j][1].shots.ongoal){
+                                                    this.avg_away_stats.on = this.avg_away_stats.on + cSeasonStats[i].stats[j][1].shots.ongoal
+                                                }
+                                                if(cSeasonStats[i].stats[j][1].shots.offgoal){
+                                                    this.avg_away_stats.off = this.avg_away_stats.off + cSeasonStats[i].stats[j][1].shots.offgoal
+                                                }
+                                                if(cSeasonStats[i].stats[j][1].shots.blocked){
+                                                    this.avg_away_stats.blk = this.avg_away_stats.blk + cSeasonStats[i].stats[j][1].shots.blocked
+                                                }
+                                                if(cSeasonStats[i].stats[j][1].shots.insidebox){
+                                                    this.avg_away_stats.in = this.avg_away_stats.in + cSeasonStats[i].stats[j][1].shots.insidebox
+                                                }
+                                                if(cSeasonStats[i].stats[j][1].shots.outsidebox){
+                                                    this.avg_away_stats.out = this.avg_away_stats.out + cSeasonStats[i].stats[j][1].shots.outsidebox
+                                                }
+                                            }
+                                            if(cSeasonStats[i].stats[j][1].corners){
+                                                this.avg_away_stats.cnr = this.avg_away_stats.cnr + cSeasonStats[i].stats[j][1].corners
+                                            }
+                                            if(cSeasonStats[i].stats[j][1].attacks){
+                                                if(cSeasonStats[i].stats[j][1].attacks.dangerous_attacks){
+                                                    this.avg_away_stats.da = this.avg_away_stats.da + cSeasonStats[i].stats[j][1].attacks.dangerous_attacks
+                                                }
+                                            }
+                                            if(cSeasonStats[i].stats[j][1].possessiontime){
+                                                this.avg_away_stats.pos = this.avg_away_stats.pos + cSeasonStats[i].stats[j][1].possessiontime
+                                            }
+                                            if(cSeasonStats[i].stats[j][1].redcards){
+                                                this.avg_away_stats.red = this.avg_away_stats.red + cSeasonStats[i].stats[j][1].redcards
+                                            }
+                                            if(cSeasonStats[i].stats[j][1].yellowcards){
+                                                this.avg_away_stats.yel = this.avg_away_stats.yel + cSeasonStats[i].stats[j][1].yellowcards
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -1436,6 +1882,7 @@
                     this.dateList1.push({'label': next_date, 'value': next_date})
                 }
                 this.dateList2 = this.dateList1
+                this.from_date = this.dateList1[0].value
                 console.log('datelistcheck===>', this.dateList1, this.dateList2)
             }
         },
@@ -1453,7 +1900,7 @@
 </script>
 <style>
     .live-stats-container{
-        min-width: 1200px;
+        min-width: 1224px;
     }
     .live-stats-container input{
         border-radius: 0;
@@ -1462,6 +1909,12 @@
     .live-stats-container .stats-filter-content input{
         padding-left: 5px;
         padding-right: 0px;
+    }
+    .stats-cell{
+        height: 35px;
+        border: 1px solid white;
+        border-top: none;
+        border-right: none;
     }
     .from_date{
         display: flex;
