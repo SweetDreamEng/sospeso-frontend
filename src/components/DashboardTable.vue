@@ -13,7 +13,9 @@
                     :updateItem="updateItem"
                     :eventLists3="eventLists3"
                     :index="index"
+                    :propEventId="propEventId"
                     :item="item"
+                    :all="all"
                 >
                 </MatchSelect>
             </td>
@@ -86,6 +88,9 @@
             mainList: {
                 type: Array
             },
+            eventLists: {
+                type: Array
+            },
             prematchOddList: {
                 type: Array
             },
@@ -100,7 +105,10 @@
             return {
                 tableItems: [],
                 eventListsLength: 0,
-                tableFields: []
+                tableFields: [],
+                eventId: 0,
+                propEventId: 0,
+                all: false
             }
         },
         methods : {
@@ -111,7 +119,11 @@
                 this.tableItems[index].back.value = this.back;
                 this.tableItems[index].lay.value = this.lay;
                 this.tableItems[index].status.value = this.status;
-                this.tableItems[index].minute.value = this.timeRecord;
+                if (this.timeRecord.includes('undefined')) {
+                    this.tableItems[index].minute.value = 'Unknown';
+                } else {
+                    this.tableItems[index].minute.value = this.timeRecord;
+                }
                 this.tableItems[index].score.value = this.scoreOne + this.scoreTwo;
                 this.tableItems[index].gain.value = this.percent_text2;
             },
@@ -179,7 +191,6 @@
                 if(this.selectedArray[0] == '0'){
 
                     let eventId = parseInt(this.selectedArray[1])
-                    console.log('eventId', this.selectedArray)
                     let marketType = this.selectedArray[2]
                     let team = parseInt(this.selectedArray[3])
                     let runnerNo = parseInt(this.selectedArray[6])
@@ -301,7 +312,6 @@
                         return
                     }
                     //---------------score----------------
-                    console.log('eventNode', eventNode[0])
                     if(eventNode[0].score){
                         let scoreDetail = eventNode[0].score
                         this.scoreOne = scoreDetail.home.score + ' - '
@@ -331,7 +341,6 @@
                     if(marketNode.length < 1){
                         return
                     }
-                    // console.log('marketNode', marketNode,team)
 
                     if(marketNode[0].state){
                         if(marketNode[0].state.status == 'SUSPENDED'){
@@ -351,14 +360,12 @@
 
                     this.selectionId = runnerNode.selectionId
                     if(eventNode[0].status){
-                        console.log('great', this.marketId)
                         for(let u = 0; u < this.prematchOddList.length; u++){
                             let c1 =  this.marketId
                             let c2 =  this.prematchOddList[u].marketId
                             if(c1 == c2){
                                 let runnerlists = this.prematchOddList[u].runners[team]
                                 if(runnerNo == 0 && runnerlists.exchange && runnerlists.exchange.availableToBack){
-                                    console.log('test!!!!',runnerlists.exchange.availableToBack[0].price)
                                     this.prematchOdd = runnerlists.exchange.availableToBack[0].price
                                 }
 
@@ -425,12 +432,12 @@
                     }
                     this.odd_calc(0)
                     this.stake_calc(0)
-                    console.log('runnerNode===>',runnerNode)
                 }
             },
             odd_calc(val){
                 this.calc_odd = this.prematchOdd;
                 this.calc_stake = 100;
+                
                 if(this.calc_odd != 0 && this.calc_stake != 0 && this.eventId != 0){
                     if(parseInt(this.selectedArray[6]) == 0){
                         this.max_profit = (this.calc_odd * this.calc_stake - this.calc_stake).toFixed(2)
@@ -472,7 +479,6 @@
                             if(MG == ''){
                                 MG = '0'
                             }
-                            console.log('XXXXXXXXXX->>>>',MG,this.riskTrading,this.stopLoss,this.tradingMode,this.currentPercent)
                             if(this.riskTrading == 'easy'){
                                 if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].facile.GN){
                                     this.percentTextColor1 = '#000'
@@ -556,8 +562,6 @@
                                 MG = '0'
                             }
 
-                            console.log('XXXXXXXXXX',MG,this.riskTrading,this.stopLoss,this.tradingMode,this.currentPercent)
-
                             if(this.riskTrading == 'easy'){
                                 if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].facile.SLN * (-1)){
                                     this.percentTextColor1 = '#000'
@@ -596,8 +600,6 @@
                             }
 
                         }
-                        console.log('Layasdasd===>', this.max_profit)
-
                     }
                     else{
                         this.max_lose = (this.calc_odd * this.calc_stake - this.calc_stake).toFixed(2)
@@ -639,8 +641,6 @@
                             if(MG =='' ){
                                 MG = '0'
                             }
-
-                            console.log('XXXXXXXXXX',MG,this.riskTrading,this.stopLoss,this.tradingMode,this.currentPercent)
 
                             if(this.riskTrading == 'easy'){
                                 if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].facile.GN){
@@ -959,7 +959,6 @@
                         if(this.guad_att > 0){
                             this.guad_att = this.guad_att * (100 - this.bookmarkerFee)/100
                         }
-                        console.log('Lay===>', this.max_profit)
 
                         if(this.guad_max != 0){
                             if(this.guad_att >= 0){
@@ -986,76 +985,6 @@
                             if(MG =='' ){
                                 MG = '0'
                             }
-
-                            console.log('XXXXXXXXXX',MG,this.riskTrading,this.stopLoss,this.tradingMode,this.currentPercent)
-
-                            if(this.riskTrading == 'easy'){
-                                if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].facile.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].facile.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].facile.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].facile.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'medium'){
-                                if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].medio.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].medio.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].medio.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].medio.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'risky'){
-                                if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].elevato.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].elevato.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].elevato.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].elevato.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-
                         }
                         else if(this.currentPercent < 0){
                             this.percentTextColor = '#b80101'
@@ -1071,48 +1000,7 @@
                             if(MG =='' ){
                                 MG = '0'
                             }
-
-                            console.log('XXXXXXXXXX',MG,this.riskTrading,this.stopLoss,this.tradingMode,this.currentPercent,this.adminTable[0].facile.SLN)
-
-                            if(this.riskTrading == 'easy'){
-                                if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].facile.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].facile.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'medium'){
-                                if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].medio.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].medio.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'risky'){
-                                if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].elevato.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].elevato.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-
                         }
-
                     }
                 }
                 else{
@@ -1133,7 +1021,7 @@
             eventLists3(Lists) {
                 this.eventListsLength = Lists.length - 1;
                 this.tableFields = [
-                    { key: 'match', label:  'Match (' + this.eventListsLength + ')', _classes: 'table-warning'},
+                    { key: 'match', label:  `Match (${this.eventListsLength})`, _classes: 'table-warning'},
                     { key: 'tot', label:  'Tot. Matched', _classes: 'table-warning'},
                     { key: 'preodd', label:  'Pre Odd', _classes: 'table-warning'},
                     { key: 'odd', label:  'Odd', _classes: 'table-warning'},
@@ -1144,7 +1032,7 @@
                     { key: 'score', label:  'Score', _classes: 'table-warning'},
                     { key: 'gain', label:  'Gain/Losses%', _classes: 'table-warning'}
                 ]
-                for (let i=0; i<Lists.length; i++) {
+                for (let i=0; i<this.eventListsLength; i++) {
                     this.tableItems.push(
                         {
                             tot: {value: null},
@@ -1165,24 +1053,29 @@
                     return
                 }
                 if (event == 'all') {
+                    this.eventLists3.forEach((element, index) => {
+                        if (element.value)
+                            this.updateItem(element.value, index-1);
+                    });
+                    this.all = true
+                } else if (event == 'clear') {
                     for (let event of this.eventLists3) {
-                        this.select_match(event.value);
                         for (const item of this.tableItems) {
-                            item.tot.value = '€' + this.total_matched;
-                            item.preodd.value = this.prematchOdd;
-                            item.back.value = this.back;
-                            item.lay.value = this.lay;
-                            item.status.value = this.status;
-                            item.minute.value = this.timeRecord;
-                            item.score.value = this.scoreOne + this.scoreTwo;
+                            item.tot.value = null;
+                            item.preodd.value = null;
+                            item.back.value = null;
+                            item.lay.value = null;
+                            item.status.value = null;
+                            item.minute.value = null;
+                            item.score.value = null;
                             if (this.percent_text1) {
-                                item.gain.value = this.percent_text1;
+                                item.gain.value = null;
                             } else if (this.percent_text2) {
-                                item.gain.value = this.percent_text2;
+                                item.gain.value = null;
                             }
                         }
                     }
-                } else if (event == 'clear') {
+                } else {
                     for (let event of this.eventLists3) {
                         for (const item of this.tableItems) {
                             item.tot.value = null;
@@ -1201,6 +1094,131 @@
                     }
                 }
             }
+        },
+        created() {
+            let self = this
+            this.sockets.listener.subscribe('UpdateOdds', (data) => {
+
+                for(let i = 0 ; i < self.mainList.length; i++){
+                    let marketsNode = self.mainList[i].markets
+                    for(let j = 0; j < marketsNode.length; j++){
+                        for(let k = 0; k < data.length; k++){
+                            if(marketsNode[j].marketId == data[k].marketId){
+                                self.mainList[i].markets[j].inplay = data[k].inplay
+                                self.mainList[i].markets[j].runners = data[k].runners
+                                self.mainList[i].markets[j].state = data[k].state
+                            }
+                            if(self.marketId == data[k].marketId){
+                                self.odd_calc(this.calc_odd)
+                                let selections = data[k].runners.filter(function(runner) {
+                                    return runner.selectionId == self.selectionId;
+                                });
+                                if(data[k].state.status == 'SUSPENDED'){
+                                    this.marketStatus = 'SUSPENDED'
+                                }
+                                else if(data[k].state.status == "CLOSED"){
+                                    this.marketStatus = 'CLOSED'
+                                }
+                                else if(data[k].state.status == "OPEN"){
+                                    this.marketStatus =''
+                                }
+                                if(selections[0].exchange.availableToBack){
+                                    self.back = selections[0].exchange.availableToBack[0].price ||''
+                                    self.back_matched = selections[0].exchange.availableToBack[0].size || 0
+                                }
+                                else{
+                                    self.back =''
+                                    self.back_matched = 0
+                                }
+
+                                if(selections[0].exchange.availableToLay){
+                                    self.lay = selections[0].exchange.availableToLay[0].price ||''
+                                    self.lay_matched = selections[0].exchange.availableToLay[0].size || 0
+                                }
+                                else{
+                                    self.lay =''
+                                    self.lay_matched = 0
+                                }
+                                self.total_matched = (data[k].state.totalMatched).toFixed(1)
+                            }
+                        }
+                    }
+                }
+            });
+            this.sockets.listener.subscribe('UpdateScore', (data) => {
+
+                this.propEventId = data.eventId;
+                
+                for(let i = 0 ; i < self.mainList.length ; i++){
+                    if(self.mainList[i].eventId == data.eventId){
+                        self.mainList[i].inPlayMatchStatus = data.inPlayMatchStatus
+                        self.mainList[i].score = data.score
+                        self.mainList[i].timeElapsed = data.timeElapsed
+                        self.mainList[i].status = data.status
+                        self.mainList[i].updateDetails = data.updateDetails
+                        if(data.status == 'IN_PLAY'){
+                            for(let j = 0; j < this.eventLists.length; j++){
+                                let value = this.eventLists[j].value
+                                let liveArray = value.split(',')
+                                if(data.eventId == liveArray[0]){
+                                    let str = this.eventLists[j].label
+                                    if(str.includes(' - Live') == false){
+                                        this.eventLists[j].label = this.eventLists[j].label + ' - Live'
+                                    }
+                                }
+                                if(data.eventId == liveArray[1]){
+                                    let str = this.eventLists[j].label
+                                    if(str.includes(' - Live') == false){
+                                        this.eventLists[j].label = this.eventLists[j].label + ' - Live'
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0; j < this.eventLists.length; j++){
+                                let value = this.eventLists[j].value
+                                let liveArray = value.split(',')
+                                if(data.eventId == liveArray[0]){
+                                    let str = this.eventLists[j].label
+                                    if(str.includes(' - Live') == true){
+                                        this.eventLists[j].label.replace(' - Live', )
+                                    }
+                                }
+                            }
+                            for(let j = 0; j < this.eventLists.length; j++){
+                                let value = this.eventLists[j].value
+                                let liveArray = value.split(',')
+                                if(data.eventId == liveArray[1]){
+                                    let str = this.eventLists[j].label
+                                    if(str.includes(' - Live') == true){
+                                        this.eventLists[j].label.replace(' - Live', )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(self.eventId ==  data.eventId){
+                    self.timeRecord = data.timeElapsed
+                    self.status = data.status
+                    if(data.status == 'IN_PLAY'){
+                        self.status = 'Live - '
+                        this.scoreOne = data.score.home.score + " -"
+                        this.scoreTwo = data.score.away.score
+                        this.timeRecord = data.timeElapsed+ "'"
+                    }
+                    else if(!data.status){
+                        self.status = 'Coming Up'
+                        this.scoreOne =''
+                        this.scoreTwo =''
+                        this.timeRecord =''
+                    }
+                    if(data.inPlayMatchStatus == 'FirstHalfEnd'){
+                        this.timeRecord = "HT"
+                    }
+                }
+            });
         }
     }
 </script>
