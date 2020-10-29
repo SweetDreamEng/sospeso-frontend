@@ -1,17 +1,13 @@
 <template>
-    <!-- <CSelect
-            :value.sync = "key1"
-            :options="eventLists3"
-            @update:value="select_match"
-    >
-    </CSelect> -->
-    <select name="" id="" @change="select_match" class="form-control">
-        <option :value="item.value" v-for="(item, index) in eventLists3" :key="index" :selected="item.selected">{{item.label}}</option>
+    <select v-if="all" name="" id="" @change="select_match" class="form-control">
+        <option :value="item.value" v-for="(item, ind) in eventLists3" :key="ind" :selected="all && index==ind-1">{{item.label}}</option>
+    </select>
+    <select v-else name="" id="" @change="select_match" class="form-control">
+        <option :value="item.value" v-for="(item, ind) in eventLists3" :key="ind" >{{item.label}}</option>
     </select>
 </template>
 
 <script>
-
     export default {
         name: 'MatchSelect',
         props: {
@@ -29,7 +25,7 @@
             },
             all: {
                 type: Boolean
-            }
+            },
         },
         components: {
         },
@@ -61,16 +57,6 @@
                     this.updateItem(this.eventValue, this.index);
                 }
             },
-            all(val) {
-                this.eventLists3[5].selected = true
-                console.log("all -> this.eventLists3[1]", this.eventLists3[1])
-                this.eventLists3.forEach((element, index) => {
-                    if (index == 5) {
-                        this.eventLists3[index].selected = true
-
-                    }
-                });
-            }
         },
     }
 </script>

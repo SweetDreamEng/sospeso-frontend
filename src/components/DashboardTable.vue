@@ -95,6 +95,9 @@
                 type: Array
             },
             eventFlag: {
+                type: Boolean
+            },
+            clickEventValue: {
                 type: String
             }
         },
@@ -108,7 +111,10 @@
                 tableFields: [],
                 eventId: 0,
                 propEventId: 0,
-                all: false
+                childEventLists: [],
+                all: false,
+                selectionId: '',
+                marketIds: []
             }
         },
         methods : {
@@ -126,6 +132,14 @@
                 }
                 this.tableItems[index].score.value = this.scoreOne + this.scoreTwo;
                 this.tableItems[index].gain.value = this.percent_text2;
+
+                if (!this.marketIds.includes(this.marketId)) {
+                    this.marketIds.push(
+                        {
+                            'index': index,
+                            'market': this.marketId
+                        });
+                }
             },
             select_match(val){
                 this.key = '0'
@@ -724,47 +738,7 @@
                             if(MG =='' ){
                                 MG = '0'
                             }
-
-
-                            // if(this.riskTrading == 'easy'){
-                            //     if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].facile.SLN * (-1)){
-                            //         this.percentTextColor1 = '#000'
-                            //         this.percentBackgroundColor = '#ffc000'
-                            //         this.percent_text1 = 'Cash Out Now! '
-                            //     }
-                            //     else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].facile.SLT * (-1)){
-                            //         this.percentTextColor1 = '#000'
-                            //         this.percentBackgroundColor = '#ffc000'
-                            //         this.percent_text1 = 'Cash Out Now! '
-                            //     }
-                            // }
-                            // else if(this.riskTrading == 'medium'){
-                            //     if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].medio.SLN * (-1)){
-                            //         this.percentTextColor1 = '#000'
-                            //         this.percentBackgroundColor = '#ffc000'
-                            //         this.percent_text1 = 'Cash Out Now! '
-                            //     }
-                            //     else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].medio.SLT * (-1)){
-                            //         this.percentTextColor1 = '#000'
-                            //         this.percentBackgroundColor = '#ffc000'
-                            //         this.percent_text1 = 'Cash Out Now! '
-                            //     }
-                            // }
-                            // else if(this.riskTrading == 'risky'){
-                            //     if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].elevato.SLN * (-1)){
-                            //         this.percentTextColor1 = '#000'
-                            //         this.percentBackgroundColor = '#ffc000'
-                            //         this.percent_text1 = 'Cash Out Now! '
-                            //     }
-                            //     else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].elevato.SLT * (-1)){
-                            //         this.percentTextColor1 = '#000'
-                            //         this.percentBackgroundColor = '#ffc000'
-                            //         this.percent_text1 = 'Cash Out Now! '
-                            //     }
-                            // }
-
                         }
-
                     }
                 }
                 else{
@@ -1052,43 +1026,47 @@
                 if (this.eventListsLength == 0) {
                     return
                 }
-                if (event == 'all') {
+                if (this.clickEventValue == 'all') {
+                    this.all = true;
                     this.eventLists3.forEach((element, index) => {
                         if (element.value)
                             this.updateItem(element.value, index-1);
                     });
-                    this.all = true
-                } else if (event == 'clear') {
+                } else if (this.clickEventValue == 'clear') {
+                    this.marketIds = []
+                    this.all = false;
                     for (let event of this.eventLists3) {
                         for (const item of this.tableItems) {
-                            item.tot.value = null;
-                            item.preodd.value = null;
-                            item.back.value = null;
-                            item.lay.value = null;
-                            item.status.value = null;
-                            item.minute.value = null;
-                            item.score.value = null;
+                            item.tot.value = '';
+                            item.preodd.value = '';
+                            item.back.value = '';
+                            item.lay.value = '';
+                            item.status.value = '';
+                            item.minute.value = '';
+                            item.score.value = '';
                             if (this.percent_text1) {
-                                item.gain.value = null;
+                                item.gain.value = '';
                             } else if (this.percent_text2) {
-                                item.gain.value = null;
+                                item.gain.value = '';
                             }
                         }
                     }
                 } else {
+                    console.log(this.tableItems);
+                    this.all = false;
                     for (let event of this.eventLists3) {
                         for (const item of this.tableItems) {
-                            item.tot.value = null;
-                            item.preodd.value = null;
-                            item.back.value = null;
-                            item.lay.value = null;
-                            item.status.value = null;
-                            item.minute.value = null;
-                            item.score.value = null;
+                            item.tot.value = '';
+                            item.preodd.value = '';
+                            item.back.value = '';
+                            item.lay.value = '';
+                            item.status.value = '';
+                            item.minute.value = '';
+                            item.score.value = '';
                             if (this.percent_text1) {
-                                item.gain.value = null;
+                                item.gain.value = '';
                             } else if (this.percent_text2) {
-                                item.gain.value = null;
+                                item.gain.value = '';
                             }
                         }
                     }
@@ -1098,57 +1076,49 @@
         created() {
             let self = this
             this.sockets.listener.subscribe('UpdateOdds', (data) => {
-
-                for(let i = 0 ; i < self.mainList.length; i++){
-                    let marketsNode = self.mainList[i].markets
-                    for(let j = 0; j < marketsNode.length; j++){
-                        for(let k = 0; k < data.length; k++){
-                            if(marketsNode[j].marketId == data[k].marketId){
-                                self.mainList[i].markets[j].inplay = data[k].inplay
-                                self.mainList[i].markets[j].runners = data[k].runners
-                                self.mainList[i].markets[j].state = data[k].state
+                this.marketIds.forEach(element => {
+                    for (let i = 0; i < data.length; i++) {
+                        if(element.market == data[i].marketId){
+                            self.odd_calc(this.calc_odd)
+                            let selections = data[i].runners;
+                            if(data[i].state.status == 'SUSPENDED'){
+                                this.marketStatus = 'SUSPENDED'
                             }
-                            if(self.marketId == data[k].marketId){
-                                self.odd_calc(this.calc_odd)
-                                let selections = data[k].runners.filter(function(runner) {
-                                    return runner.selectionId == self.selectionId;
-                                });
-                                if(data[k].state.status == 'SUSPENDED'){
-                                    this.marketStatus = 'SUSPENDED'
-                                }
-                                else if(data[k].state.status == "CLOSED"){
-                                    this.marketStatus = 'CLOSED'
-                                }
-                                else if(data[k].state.status == "OPEN"){
-                                    this.marketStatus =''
-                                }
-                                if(selections[0].exchange.availableToBack){
-                                    self.back = selections[0].exchange.availableToBack[0].price ||''
-                                    self.back_matched = selections[0].exchange.availableToBack[0].size || 0
-                                }
-                                else{
-                                    self.back =''
-                                    self.back_matched = 0
-                                }
-
-                                if(selections[0].exchange.availableToLay){
-                                    self.lay = selections[0].exchange.availableToLay[0].price ||''
-                                    self.lay_matched = selections[0].exchange.availableToLay[0].size || 0
-                                }
-                                else{
-                                    self.lay =''
-                                    self.lay_matched = 0
-                                }
-                                self.total_matched = (data[k].state.totalMatched).toFixed(1)
+                            else if(data[i].state.status == "CLOSED"){
+                                this.marketStatus = 'CLOSED'
                             }
+                            else if(data[i].state.status == "OPEN"){
+                                this.marketStatus =''
+                            }
+                            if(selections[0].exchange.availableToBack){
+                                self.back = selections[0].exchange.availableToBack[0].price ||''
+                                self.back_matched = selections[0].exchange.availableToBack[0].size || 0
+                            }
+                            else{
+                                self.back =''
+                                self.back_matched = 0
+                            }
+
+                            if(selections[0].exchange.availableToLay){
+                                self.lay = selections[0].exchange.availableToLay[0].price ||''
+                                self.lay_matched = selections[0].exchange.availableToLay[0].size || 0
+                            }
+                            else{
+                                self.lay =''
+                                self.lay_matched = 0
+                            }
+                            self.total_matched = (data[i].state.totalMatched).toFixed(1);
+
+                            this.tableItems[element.index].tot.value = self.total_matched;
+                            this.tableItems[element.index].back.value = self.back;
+                            this.tableItems[element.index].lay.value = self.lay;
                         }
                     }
-                }
+                });
             });
+            
             this.sockets.listener.subscribe('UpdateScore', (data) => {
 
-                this.propEventId = data.eventId;
-                
                 for(let i = 0 ; i < self.mainList.length ; i++){
                     if(self.mainList[i].eventId == data.eventId){
                         self.mainList[i].inPlayMatchStatus = data.inPlayMatchStatus
