@@ -149,9 +149,9 @@
                         </div>
                     </CCol>
                     <CCol xs="12" sm="4" md="3">
-                        <CButton color="success" class="dashboard-button" @click="eventFlag='all'">Add all events</CButton>
-                        <CButton color="success" class="dashboard-button" @click="eventFlag='clear'">Clear</CButton>
-                        <CButton color="success" class="dashboard-button" @click="eventFlag='end'">Clear ended events</CButton>
+                        <CButton color="success" class="dashboard-button" @click="eventClick" :value="'all'">Add all events</CButton>
+                        <CButton color="success" class="dashboard-button" @click="eventClick" :value="'clear'">Clear</CButton>
+                        <CButton color="success" class="dashboard-button" @click="eventClick" :value="'end'">Clear ended events</CButton>
                     </CCol>
                 </CROW>
             </CCardHeader>
@@ -165,6 +165,7 @@
                             :eventLists="eventLists"
                             :prematchOddList="prematchOddList"
                             :eventFlag="eventFlag"
+                            :clickEventValue="clickEventValue"
                         >
                         </DashboardTable>
                     </CCol>
@@ -287,7 +288,8 @@
                 net_profit1: 0,
                 net_profit2: 0,
                 stakeCashout:0,
-                eventFlag: ''
+                eventFlag: false,
+                clickEventValue: ''
             }
         },
         methods: {
@@ -1428,131 +1430,14 @@
                 this.filter1(this.filterQuery)
                 // }
             },
+            eventClick(event){
+                this.eventFlag = !this.eventFlag;
+                this.clickEventValue = event.target.value;
+            }
         },
         created() {
             this.bet_date();
             this.gameList1 = this.gameList
-            // let self = this
-            // this.sockets.listener.subscribe('UpdateOdds', (data) => {
-
-            //     for(let i = 0 ; i < self.mainList.length; i++){
-            //         let marketsNode = self.mainList[i].markets
-            //         for(let j = 0; j < marketsNode.length; j++){
-            //             for(let k = 0; k < data.length; k++){
-            //                 if(marketsNode[j].marketId == data[k].marketId){
-            //                     self.mainList[i].markets[j].inplay = data[k].inplay
-            //                     self.mainList[i].markets[j].runners = data[k].runners
-            //                     self.mainList[i].markets[j].state = data[k].state
-            //                 }
-            //                 if(self.marketId == data[k].marketId){
-            //                     self.odd_calc(this.calc_odd)
-            //                     let selections = data[k].runners.filter(function(runner) {
-            //                         return runner.selectionId == self.selectionId;
-            //                     });
-            //                     if(data[k].state.status == 'SUSPENDED'){
-            //                         this.marketStatus = 'SUSPENDED'
-            //                     }
-            //                     else if(data[k].state.status == "CLOSED"){
-            //                         this.marketStatus = 'CLOSED'
-            //                     }
-            //                     else if(data[k].state.status == "OPEN"){
-            //                         this.marketStatus =''
-            //                     }
-            //                     if(selections[0].exchange.availableToBack){
-            //                         self.back = selections[0].exchange.availableToBack[0].price ||''
-            //                         self.back_matched = selections[0].exchange.availableToBack[0].size || 0
-            //                     }
-            //                     else{
-            //                         self.back =''
-            //                         self.back_matched = 0
-            //                     }
-
-            //                     if(selections[0].exchange.availableToLay){
-            //                         self.lay = selections[0].exchange.availableToLay[0].price ||''
-            //                         self.lay_matched = selections[0].exchange.availableToLay[0].size || 0
-            //                     }
-            //                     else{
-            //                         self.lay =''
-            //                         self.lay_matched = 0
-            //                     }
-            //                     self.total_matched = (data[k].state.totalMatched).toFixed(1)
-            //                 }
-            //             }
-            //         }
-            //     }
-            // });
-            // this.sockets.listener.subscribe('UpdateScore', (data) => {
-                
-            //     for(let i = 0 ; i < self.mainList.length ; i++){
-            //         if(self.mainList[i].eventId == data.eventId){
-            //             self.mainList[i].inPlayMatchStatus = data.inPlayMatchStatus
-            //             self.mainList[i].score = data.score
-            //             self.mainList[i].timeElapsed = data.timeElapsed
-            //             self.mainList[i].status = data.status
-            //             self.mainList[i].updateDetails = data.updateDetails
-            //             if(data.status == 'IN_PLAY'){
-            //                 for(let j = 0; j < this.eventLists.length; j++){
-            //                     let value = this.eventLists[j].value
-            //                     let liveArray = value.split(',')
-            //                     if(data.eventId == liveArray[0]){
-            //                         let str = this.eventLists[j].label
-            //                         if(str.includes(' - Live') == false){
-            //                             this.eventLists[j].label = this.eventLists[j].label + ' - Live'
-            //                         }
-            //                     }
-            //                     if(data.eventId == liveArray[1]){
-            //                         let str = this.eventLists[j].label
-            //                         if(str.includes(' - Live') == false){
-            //                             this.eventLists[j].label = this.eventLists[j].label + ' - Live'
-            //                         }
-            //                     }
-            //                 }
-            //             }
-            //             else{
-            //                 for(let j = 0; j < this.eventLists.length; j++){
-            //                     let value = this.eventLists[j].value
-            //                     let liveArray = value.split(',')
-            //                     if(data.eventId == liveArray[0]){
-            //                         let str = this.eventLists[j].label
-            //                         if(str.includes(' - Live') == true){
-            //                             this.eventLists[j].label.replace(' - Live', )
-            //                         }
-            //                     }
-            //                 }
-            //                 for(let j = 0; j < this.eventLists.length; j++){
-            //                     let value = this.eventLists[j].value
-            //                     let liveArray = value.split(',')
-            //                     if(data.eventId == liveArray[1]){
-            //                         let str = this.eventLists[j].label
-            //                         if(str.includes(' - Live') == true){
-            //                             this.eventLists[j].label.replace(' - Live', )
-            //                         }
-            //                     }
-            //                 }
-            //             }
-            //         }
-            //     }
-
-            //     if(self.eventId ==  data.eventId){
-            //         self.timeRecord = data.timeElapsed
-            //         self.status = data.status
-            //         if(data.status == 'IN_PLAY'){
-            //             self.status = 'Live - '
-            //             this.scoreOne = data.score.home.score + " -"
-            //             this.scoreTwo = data.score.away.score
-            //             this.timeRecord = data.timeElapsed+ "'"
-            //         }
-            //         else if(!data.status){
-            //             self.status = 'Coming Up'
-            //             this.scoreOne =''
-            //             this.scoreTwo =''
-            //             this.timeRecord =''
-            //         }
-            //         if(data.inPlayMatchStatus == 'FirstHalfEnd'){
-            //             this.timeRecord = "HT"
-            //         }
-            //     }
-            // });
         }
     }
 </script>
