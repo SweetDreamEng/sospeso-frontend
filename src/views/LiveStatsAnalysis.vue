@@ -845,7 +845,7 @@
                         <div style="height: 20px; width: 100%; text-align: center; padding: 3px;">
                         </div>
                         <div style="height: 20px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; color: #00ad4e">
-                           .
+                            .
                         </div>
                     </div>
                     <div style="flex: 7;">
@@ -923,6 +923,362 @@
                         </div>
                     </div>
                 </div>
+                <div style="margin-top: 20px;">
+                    <label style="color: red; font-weight: bold">Total filtered livestats</label>
+                    <div style="flex: 7; background: #b1a0c7">
+                        <div style="height: 20px; width: 100%; text-align: center; padding: 3px; color: black;">
+                            Total Live Stats
+                        </div>
+                        <div style="display: flex; height: 20px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black;">
+                            <div style="flex: 1; text-align: center;">On</div>
+                            <div style="flex: 1; text-align: center;">Off</div>
+                            <div style="flex: 1; text-align: center;">Blk</div>
+                            <div style="flex: 1; text-align: center;">In</div>
+                            <div style="flex: 1; text-align: center;">Out</div>
+                            <div style="flex: 1; text-align: center;">Cnr</div>
+                            <div style="flex: 1; text-align: center;">DA</div>
+                            <div style="flex: 1; text-align: center;">Pos</div>
+                            <div style="flex: 1; text-align: center;">Red</div>
+                            <div style="flex: 1; text-align: center;">Yel</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px; border: 1px solid lightgray;  border-bottom: none;">
+                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.on}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.off}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.blk}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.in}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.out}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.cnr}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.da}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.pos}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.red}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.yel}}</div>
+                    </div>
+                    <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px; border: 1px solid lightgray; border-top: none;">
+                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.on}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.off}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.blk}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.in}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.out}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.cnr}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.da}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.pos}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.red}}</div>
+                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.yel}}</div>
+                    </div>
+                </div>
+                <div style="width: 100%; margin-top: 20px;">
+                    <label style="color: red; font-weight: bold; margin-top: 20px;">Time Segmented Live Stats:</label>
+                </div>
+                <div class="totalMatches score_stats" style="display: flex; font-weight: 600; font-size: 12px;">
+                    <div  style="flex: 1; text-align: center;">
+                        <p class="header" style="color: #d1c4e1">Time</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">home</div>
+                            <div style="height: 15px;">away</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">home</div>
+                            <div style="height: 15px;">away</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">home</div>
+                            <div style="height: 15px;">away</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">home</div>
+                            <div style="height: 15px;">away</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">home</div>
+                            <div style="height: 15px;">away</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">home</div>
+                            <div style="height: 15px;">away</div>
+                        </div>
+                    </div>
+                    <div  style="flex: 1; text-align: center;">
+                        <p class="header">Time</p>
+                        <div class="value stats-cell" style="padding-top: 8px;">0 - 15</div>
+                        <div class="percent stats-cell" style="padding-top: 8px;">16 - 30</div>
+                        <div class="value stats-cell" style="padding-top: 8px;">31 - 45+</div>
+                        <div class="percent stats-cell" style="padding-top: 8px;">46 - 60</div>
+                        <div class="value stats-cell" style="padding-top: 8px;">61 - 75</div>
+                        <div class="percent stats-cell" style="padding-top: 8px;">76 - 90+</div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">On</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Off</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Block</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">In</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Out</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Cnr</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">DA</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Pos</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Red</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Yel</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                    </div>
+                </div>
+
             </CCol>
         </CRow>
     </div>
@@ -1206,6 +1562,31 @@
                         'score_even':0
                     }
                 },
+                matches_found: 0,
+                total_live_home_stats:{
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'pos': 0,
+                    'red': 0,
+                    'yel': 0
+                },
+                total_live_away_stats:{
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'pos': 0,
+                    'red': 0,
+                    'yel': 0
+                },
             }
         },
         methods: {
@@ -1223,8 +1604,586 @@
                         }
                     }
                     this.origin_events = this.eventList
-                    console.log('eventListResult===>', this.eventList)
+                    this.matches_found = this.eventList.length - 1
+                    this.get_time_seg_stats(this.origin_events)
                 })
+            },
+            get_time_seg_stats(val){
+                let event_array = val
+                this.stats_segment = {
+                    stats_0_15:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    },
+                    stats_16_30:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    },
+                    stats_31_45:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    },
+                    stats_46_60:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    },
+                    stats_61_75:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    },
+                    stats_76_90:{
+                        'score_over00':0,
+                        'score_over15':0,
+                        'score_over25':0,
+                        'score_over35':0,
+                        'score_over45':0,
+                        'score_home':0,
+                        'score_draw':0,
+                        'score_away':0,
+                        'score_bts':0,
+                        'score_odd':0,
+                        'score_even':0
+                    }
+                }
+                let stats_segment = {
+                    stats_0_15:{
+                        'score_over00_home':'',
+                        'score_over15_home':'',
+                        'score_over25_home':'',
+                        'score_over35_home':'',
+                        'score_over45_home':'',
+                        'score_home_home':'',
+                        'score_draw_home':'',
+                        'score_away_home':'',
+                        'score_bts_home':'',
+                        'score_odd_home':'',
+                        'score_even_home':'',
+
+                        'score_over00_away':'',
+                        'score_over15_away':'',
+                        'score_over25_away':'',
+                        'score_over35_away':'',
+                        'score_over45_away':'',
+                        'score_home_away':'',
+                        'score_draw_away':'',
+                        'score_away_away':'',
+                        'score_bts_away':'',
+                        'score_odd_away':'',
+                        'score_even_away':''
+                    },
+                    stats_16_30:{
+                        'score_over00_home':'',
+                        'score_over15_home':'',
+                        'score_over25_home':'',
+                        'score_over35_home':'',
+                        'score_over45_home':'',
+                        'score_home_home':'',
+                        'score_draw_home':'',
+                        'score_away_home':'',
+                        'score_bts_home':'',
+                        'score_odd_home':'',
+                        'score_even_home':'',
+
+                        'score_over00_away':'',
+                        'score_over15_away':'',
+                        'score_over25_away':'',
+                        'score_over35_away':'',
+                        'score_over45_away':'',
+                        'score_home_away':'',
+                        'score_draw_away':'',
+                        'score_away_away':'',
+                        'score_bts_away':'',
+                        'score_odd_away':'',
+                        'score_even_away':''
+                    },
+                    stats_31_45:{
+                        'score_over00_home':'',
+                        'score_over15_home':'',
+                        'score_over25_home':'',
+                        'score_over35_home':'',
+                        'score_over45_home':'',
+                        'score_home_home':'',
+                        'score_draw_home':'',
+                        'score_away_home':'',
+                        'score_bts_home':'',
+                        'score_odd_home':'',
+                        'score_even_home':'',
+
+                        'score_over00_away':'',
+                        'score_over15_away':'',
+                        'score_over25_away':'',
+                        'score_over35_away':'',
+                        'score_over45_away':'',
+                        'score_home_away':'',
+                        'score_draw_away':'',
+                        'score_away_away':'',
+                        'score_bts_away':'',
+                        'score_odd_away':'',
+                        'score_even_away':''
+                    },
+                    stats_46_60:{
+                        'score_over00_home':'',
+                        'score_over15_home':'',
+                        'score_over25_home':'',
+                        'score_over35_home':'',
+                        'score_over45_home':'',
+                        'score_home_home':'',
+                        'score_draw_home':'',
+                        'score_away_home':'',
+                        'score_bts_home':'',
+                        'score_odd_home':'',
+                        'score_even_home':'',
+
+                        'score_over00_away':'',
+                        'score_over15_away':'',
+                        'score_over25_away':'',
+                        'score_over35_away':'',
+                        'score_over45_away':'',
+                        'score_home_away':'',
+                        'score_draw_away':'',
+                        'score_away_away':'',
+                        'score_bts_away':'',
+                        'score_odd_away':'',
+                        'score_even_away':''
+                    },
+                    stats_61_75:{
+                        'score_over00_home':'',
+                        'score_over15_home':'',
+                        'score_over25_home':'',
+                        'score_over35_home':'',
+                        'score_over45_home':'',
+                        'score_home_home':'',
+                        'score_draw_home':'',
+                        'score_away_home':'',
+                        'score_bts_home':'',
+                        'score_odd_home':'',
+                        'score_even_home':'',
+
+                        'score_over00_away':'',
+                        'score_over15_away':'',
+                        'score_over25_away':'',
+                        'score_over35_away':'',
+                        'score_over45_away':'',
+                        'score_home_away':'',
+                        'score_draw_away':'',
+                        'score_away_away':'',
+                        'score_bts_away':'',
+                        'score_odd_away':'',
+                        'score_even_away':''
+                    },
+                    stats_76_90:{
+                        'score_over00_home':'',
+                        'score_over15_home':'',
+                        'score_over25_home':'',
+                        'score_over35_home':'',
+                        'score_over45_home':'',
+                        'score_home_home':'',
+                        'score_draw_home':'',
+                        'score_away_home':'',
+                        'score_bts_home':'',
+                        'score_odd_home':'',
+                        'score_even_home':'',
+
+                        'score_over00_away':'',
+                        'score_over15_away':'',
+                        'score_over25_away':'',
+                        'score_over35_away':'',
+                        'score_over45_away':'',
+                        'score_home_away':'',
+                        'score_draw_away':'',
+                        'score_away_away':'',
+                        'score_bts_away':'',
+                        'score_odd_away':'',
+                        'score_even_away':''
+                    }
+                }
+                this.total_live_home_stats = {
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'pos': 0,
+                    'red': 0,
+                    'yel': 0
+                }
+                this.total_live_away_stats = {
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'pos': 0,
+                    'red': 0,
+                    'yel': 0
+                }
+                for(let i = 1; i < event_array.length; i++){
+                    let value = event_array[i].value.scores
+                    let times = event_array[i].value.time
+                    let stats = event_array[i].value.stats
+                    let home_id = event_array[i].value.home_id
+                    let away_id = event_array[i].value.away_id
+                    if(times.length > 0){
+                        for(let j = 0; j < times.length; j++){
+                            if(times[j].minute <= 15){
+                                stats_segment.stats_0_15.score_over00_home = value[j].localteam_score
+                                stats_segment.stats_0_15.score_over00_away = value[j].visitorteam_score
+                                stats_segment.stats_0_15.score_over15_home = value[j].localteam_score
+                                stats_segment.stats_0_15.score_over15_away = value[j].visitorteam_score
+                                stats_segment.stats_0_15.score_over25_home = value[j].localteam_score
+                                stats_segment.stats_0_15.score_over25_away = value[j].visitorteam_score
+                                stats_segment.stats_0_15.score_over35_home = value[j].localteam_score
+                                stats_segment.stats_0_15.score_over35_away = value[j].visitorteam_score
+                                stats_segment.stats_0_15.score_over45_home = value[j].localteam_score
+                                stats_segment.stats_0_15.score_over45_away = value[j].visitorteam_score
+                                stats_segment.stats_0_15.score_home_home = value[j].localteam_score
+                                stats_segment.stats_0_15.score_home_away = value[j].visitorteam_score
+                                stats_segment.stats_0_15.score_away_home = value[j].localteam_score
+                                stats_segment.stats_0_15.score_away_away = value[j].visitorteam_score
+                                stats_segment.stats_0_15.score_draw_home = value[j].localteam_score
+                                stats_segment.stats_0_15.score_draw_away = value[j].visitorteam_score
+                                stats_segment.stats_0_15.score_bts_home = value[j].localteam_score
+                                stats_segment.stats_0_15.score_bts_away = value[j].visitorteam_score
+                                stats_segment.stats_0_15.score_odd_home = value[j].localteam_score
+                                stats_segment.stats_0_15.score_odd_away = value[j].visitorteam_score
+                                stats_segment.stats_0_15.score_even_home = value[j].localteam_score
+                                stats_segment.stats_0_15.score_even_away = value[j].visitorteam_score
+                            }
+                            if(times[j].minute > 15 && times[j].minute <= 30){
+                                stats_segment.stats_16_30.score_over00_home = value[j].localteam_score
+                                stats_segment.stats_16_30.score_over00_away = value[j].visitorteam_score
+                                stats_segment.stats_16_30.score_over15_home = value[j].localteam_score
+                                stats_segment.stats_16_30.score_over15_away = value[j].visitorteam_score
+                                stats_segment.stats_16_30.score_over25_home = value[j].localteam_score
+                                stats_segment.stats_16_30.score_over25_away = value[j].visitorteam_score
+                                stats_segment.stats_16_30.score_over35_home = value[j].localteam_score
+                                stats_segment.stats_16_30.score_over35_away = value[j].visitorteam_score
+                                stats_segment.stats_16_30.score_over45_home = value[j].localteam_score
+                                stats_segment.stats_16_30.score_over45_away = value[j].visitorteam_score
+                                stats_segment.stats_16_30.score_home_home = value[j].localteam_score
+                                stats_segment.stats_16_30.score_home_away = value[j].visitorteam_score
+                                stats_segment.stats_16_30.score_away_home = value[j].localteam_score
+                                stats_segment.stats_16_30.score_away_away = value[j].visitorteam_score
+                                stats_segment.stats_16_30.score_draw_home = value[j].localteam_score
+                                stats_segment.stats_16_30.score_draw_away = value[j].visitorteam_score
+                                stats_segment.stats_16_30.score_bts_home = value[j].localteam_score
+                                stats_segment.stats_16_30.score_bts_away = value[j].visitorteam_score
+                                stats_segment.stats_16_30.score_odd_home = value[j].localteam_score
+                                stats_segment.stats_16_30.score_odd_away = value[j].visitorteam_score
+                                stats_segment.stats_16_30.score_even_home = value[j].localteam_score
+                                stats_segment.stats_16_30.score_even_away = value[j].visitorteam_score
+                            }
+                            if(times[j].minute > 30 && times[j].minute <= 45){
+                                stats_segment.stats_31_45.score_over00_home = value[j].localteam_score
+                                stats_segment.stats_31_45.score_over00_away = value[j].visitorteam_score
+                                stats_segment.stats_31_45.score_over15_home = value[j].localteam_score
+                                stats_segment.stats_31_45.score_over15_away = value[j].visitorteam_score
+                                stats_segment.stats_31_45.score_over25_home = value[j].localteam_score
+                                stats_segment.stats_31_45.score_over25_away = value[j].visitorteam_score
+                                stats_segment.stats_31_45.score_over35_home = value[j].localteam_score
+                                stats_segment.stats_31_45.score_over35_away = value[j].visitorteam_score
+                                stats_segment.stats_31_45.score_over45_home = value[j].localteam_score
+                                stats_segment.stats_31_45.score_over45_away = value[j].visitorteam_score
+                                stats_segment.stats_31_45.score_home_home = value[j].localteam_score
+                                stats_segment.stats_31_45.score_home_away = value[j].visitorteam_score
+                                stats_segment.stats_31_45.score_away_home = value[j].localteam_score
+                                stats_segment.stats_31_45.score_away_away = value[j].visitorteam_score
+                                stats_segment.stats_31_45.score_draw_home = value[j].localteam_score
+                                stats_segment.stats_31_45.score_draw_away = value[j].visitorteam_score
+                                stats_segment.stats_31_45.score_bts_home = value[j].localteam_score
+                                stats_segment.stats_31_45.score_bts_away = value[j].visitorteam_score
+                                stats_segment.stats_31_45.score_odd_home = value[j].localteam_score
+                                stats_segment.stats_31_45.score_odd_away = value[j].visitorteam_score
+                                stats_segment.stats_31_45.score_even_home = value[j].localteam_score
+                                stats_segment.stats_31_45.score_even_away = value[j].visitorteam_score
+                            }
+                            if(times[j].minute > 45 && times[j].minute <= 60){
+                                stats_segment.stats_46_60.score_over00_home = value[j].localteam_score
+                                stats_segment.stats_46_60.score_over00_away = value[j].visitorteam_score
+                                stats_segment.stats_46_60.score_over15_home = value[j].localteam_score
+                                stats_segment.stats_46_60.score_over15_away = value[j].visitorteam_score
+                                stats_segment.stats_46_60.score_over25_home = value[j].localteam_score
+                                stats_segment.stats_46_60.score_over25_away = value[j].visitorteam_score
+                                stats_segment.stats_46_60.score_over35_home = value[j].localteam_score
+                                stats_segment.stats_46_60.score_over35_away = value[j].visitorteam_score
+                                stats_segment.stats_46_60.score_over45_home = value[j].localteam_score
+                                stats_segment.stats_46_60.score_over45_away = value[j].visitorteam_score
+                                stats_segment.stats_46_60.score_home_home = value[j].localteam_score
+                                stats_segment.stats_46_60.score_home_away = value[j].visitorteam_score
+                                stats_segment.stats_46_60.score_away_home = value[j].localteam_score
+                                stats_segment.stats_46_60.score_away_away = value[j].visitorteam_score
+                                stats_segment.stats_46_60.score_draw_home = value[j].localteam_score
+                                stats_segment.stats_46_60.score_draw_away = value[j].visitorteam_score
+                                stats_segment.stats_46_60.score_bts_home = value[j].localteam_score
+                                stats_segment.stats_46_60.score_bts_away = value[j].visitorteam_score
+                                stats_segment.stats_46_60.score_odd_home = value[j].localteam_score
+                                stats_segment.stats_46_60.score_odd_away = value[j].visitorteam_score
+                                stats_segment.stats_46_60.score_even_home = value[j].localteam_score
+                                stats_segment.stats_46_60.score_even_away = value[j].visitorteam_score
+                            }
+                            if(times[j].minute > 60 && times[j].minute <= 75){
+                                stats_segment.stats_61_75.score_over00_home = value[j].localteam_score
+                                stats_segment.stats_61_75.score_over00_away = value[j].visitorteam_score
+                                stats_segment.stats_61_75.score_over15_home = value[j].localteam_score
+                                stats_segment.stats_61_75.score_over15_away = value[j].visitorteam_score
+                                stats_segment.stats_61_75.score_over25_home = value[j].localteam_score
+                                stats_segment.stats_61_75.score_over25_away = value[j].visitorteam_score
+                                stats_segment.stats_61_75.score_over35_home = value[j].localteam_score
+                                stats_segment.stats_61_75.score_over35_away = value[j].visitorteam_score
+                                stats_segment.stats_61_75.score_over45_home = value[j].localteam_score
+                                stats_segment.stats_61_75.score_over45_away = value[j].visitorteam_score
+                                stats_segment.stats_61_75.score_home_home = value[j].localteam_score
+                                stats_segment.stats_61_75.score_home_away = value[j].visitorteam_score
+                                stats_segment.stats_61_75.score_away_home = value[j].localteam_score
+                                stats_segment.stats_61_75.score_away_away = value[j].visitorteam_score
+                                stats_segment.stats_61_75.score_draw_home = value[j].localteam_score
+                                stats_segment.stats_61_75.score_draw_away = value[j].visitorteam_score
+                                stats_segment.stats_61_75.score_bts_home = value[j].localteam_score
+                                stats_segment.stats_61_75.score_bts_away = value[j].visitorteam_score
+                                stats_segment.stats_61_75.score_odd_home = value[j].localteam_score
+                                stats_segment.stats_61_75.score_odd_away = value[j].visitorteam_score
+                                stats_segment.stats_61_75.score_even_home = value[j].localteam_score
+                                stats_segment.stats_61_75.score_even_away = value[j].visitorteam_score
+                            }
+                            if(times[j].minute > 75 && times[j].minute <= 90){
+                                stats_segment.stats_76_90.score_over00_home = value[j].localteam_score
+                                stats_segment.stats_76_90.score_over00_away = value[j].visitorteam_score
+                                stats_segment.stats_76_90.score_over15_home = value[j].localteam_score
+                                stats_segment.stats_76_90.score_over15_away = value[j].visitorteam_score
+                                stats_segment.stats_76_90.score_over25_home = value[j].localteam_score
+                                stats_segment.stats_76_90.score_over25_away = value[j].visitorteam_score
+                                stats_segment.stats_76_90.score_over35_home = value[j].localteam_score
+                                stats_segment.stats_76_90.score_over35_away = value[j].visitorteam_score
+                                stats_segment.stats_76_90.score_over45_home = value[j].localteam_score
+                                stats_segment.stats_76_90.score_over45_away = value[j].visitorteam_score
+                                stats_segment.stats_76_90.score_home_home = value[j].localteam_score
+                                stats_segment.stats_76_90.score_home_away = value[j].visitorteam_score
+                                stats_segment.stats_76_90.score_away_home = value[j].localteam_score
+                                stats_segment.stats_76_90.score_away_away = value[j].visitorteam_score
+                                stats_segment.stats_76_90.score_draw_home = value[j].localteam_score
+                                stats_segment.stats_76_90.score_draw_away = value[j].visitorteam_score
+                                stats_segment.stats_76_90.score_bts_home = value[j].localteam_score
+                                stats_segment.stats_76_90.score_bts_away = value[j].visitorteam_score
+                                stats_segment.stats_76_90.score_odd_home = value[j].localteam_score
+                                stats_segment.stats_76_90.score_odd_away = value[j].visitorteam_score
+                                stats_segment.stats_76_90.score_even_home = value[j].localteam_score
+                                stats_segment.stats_76_90.score_even_away = value[j].visitorteam_score
+                            }
+                        }
+                        if(stats_segment.stats_0_15.score_over00_home == "0" && stats_segment.stats_0_15.score_over00_away == "0"){ this.stats_segment.stats_0_15.score_over00++ }
+                        if(parseInt(stats_segment.stats_0_15.score_over15_home) + parseInt(stats_segment.stats_0_15.score_over15_away) > 1){ this.stats_segment.stats_0_15.score_over15++ }
+                        if(parseInt(stats_segment.stats_0_15.score_over25_home) + parseInt(stats_segment.stats_0_15.score_over25_away) > 2){ this.stats_segment.stats_0_15.score_over25++ }
+                        if(parseInt(stats_segment.stats_0_15.score_over35_home) + parseInt(stats_segment.stats_0_15.score_over35_away) > 3){ this.stats_segment.stats_0_15.score_over35++ }
+                        if(parseInt(stats_segment.stats_0_15.score_over45_home) + parseInt(stats_segment.stats_0_15.score_over45_away) > 4){ this.stats_segment.stats_0_15.score_over45++ }
+                        if(parseInt(stats_segment.stats_0_15.score_home_home) > parseInt(stats_segment.stats_0_15.score_home_away) ){ this.stats_segment.stats_0_15.score_home++ }
+                        if(parseInt(stats_segment.stats_0_15.score_away_home) < parseInt(stats_segment.stats_0_15.score_away_away) ){ this.stats_segment.stats_0_15.score_away++ }
+                        if(parseInt(stats_segment.stats_0_15.score_draw_home) === parseInt(stats_segment.stats_0_15.score_draw_away) ){ this.stats_segment.stats_0_15.score_draw++ }
+                        if(parseInt(stats_segment.stats_0_15.score_bts_home) > 0 && parseInt(stats_segment.stats_0_15.score_bts_away) > 0 ){ this.stats_segment.stats_0_15.score_bts++ }
+                        if((parseInt(stats_segment.stats_0_15.score_home_home) + parseInt(stats_segment.stats_0_15.score_home_away)) % 2 === 1 ){ this.stats_segment.stats_0_15.score_odd++ }
+                        if((parseInt(stats_segment.stats_0_15.score_home_home) + parseInt(stats_segment.stats_0_15.score_home_away)) % 2 === 0 ){ this.stats_segment.stats_0_15.score_even++ }
+
+                        if(stats_segment.stats_16_30.score_over00_home == "0" && stats_segment.stats_16_30.score_over00_away == "0"){ this.stats_segment.stats_16_30.score_over00++ }
+                        if(parseInt(stats_segment.stats_16_30.score_over15_home) + parseInt(stats_segment.stats_16_30.score_over15_away) > 1){ this.stats_segment.stats_16_30.score_over15++ }
+                        if(parseInt(stats_segment.stats_16_30.score_over25_home) + parseInt(stats_segment.stats_16_30.score_over25_away) > 2){ this.stats_segment.stats_16_30.score_over25++ }
+                        if(parseInt(stats_segment.stats_16_30.score_over35_home) + parseInt(stats_segment.stats_16_30.score_over35_away) > 3){ this.stats_segment.stats_16_30.score_over35++ }
+                        if(parseInt(stats_segment.stats_16_30.score_over45_home) + parseInt(stats_segment.stats_16_30.score_over45_away) > 4){ this.stats_segment.stats_16_30.score_over45++ }
+                        if(parseInt(stats_segment.stats_16_30.score_home_home) > parseInt(stats_segment.stats_16_30.score_home_away) ){ this.stats_segment.stats_16_30.score_home++ }
+                        if(parseInt(stats_segment.stats_16_30.score_away_home) < parseInt(stats_segment.stats_16_30.score_away_away) ){ this.stats_segment.stats_16_30.score_away++ }
+                        if(parseInt(stats_segment.stats_16_30.score_draw_home) === parseInt(stats_segment.stats_16_30.score_draw_away) ){ this.stats_segment.stats_16_30.score_draw++ }
+                        if(parseInt(stats_segment.stats_16_30.score_bts_home) > 0 && parseInt(stats_segment.stats_16_30.score_bts_away) > 0 ){ this.stats_segment.stats_16_30.score_bts++ }
+                        if((parseInt(stats_segment.stats_16_30.score_home_home) + parseInt(stats_segment.stats_16_30.score_home_away)) % 2 === 1 ){ this.stats_segment.stats_16_30.score_odd++ }
+                        if((parseInt(stats_segment.stats_16_30.score_home_home) + parseInt(stats_segment.stats_16_30.score_home_away)) % 2 === 0 ){ this.stats_segment.stats_16_30.score_even++ }
+
+                        if(stats_segment.stats_31_45.score_over00_home == "0" && stats_segment.stats_31_45.score_over00_away == "0"){ this.stats_segment.stats_31_45.score_over00++ }
+                        if(parseInt(stats_segment.stats_31_45.score_over15_home) + parseInt(stats_segment.stats_31_45.score_over15_away) > 1){ this.stats_segment.stats_31_45.score_over15++ }
+                        if(parseInt(stats_segment.stats_31_45.score_over25_home) + parseInt(stats_segment.stats_31_45.score_over25_away) > 2){ this.stats_segment.stats_31_45.score_over25++ }
+                        if(parseInt(stats_segment.stats_31_45.score_over35_home) + parseInt(stats_segment.stats_31_45.score_over35_away) > 3){ this.stats_segment.stats_31_45.score_over35++ }
+                        if(parseInt(stats_segment.stats_31_45.score_over45_home) + parseInt(stats_segment.stats_31_45.score_over45_away) > 4){ this.stats_segment.stats_31_45.score_over45++ }
+                        if(parseInt(stats_segment.stats_31_45.score_home_home) > parseInt(stats_segment.stats_31_45.score_home_away) ){ this.stats_segment.stats_31_45.score_home++ }
+                        if(parseInt(stats_segment.stats_31_45.score_away_home) < parseInt(stats_segment.stats_31_45.score_away_away) ){ this.stats_segment.stats_31_45.score_away++ }
+                        if(parseInt(stats_segment.stats_31_45.score_draw_home) === parseInt(stats_segment.stats_31_45.score_draw_away) ){ this.stats_segment.stats_31_45.score_draw++ }
+                        if(parseInt(stats_segment.stats_31_45.score_bts_home) > 0 && parseInt(stats_segment.stats_31_45.score_bts_away) > 0 ){ this.stats_segment.stats_31_45.score_bts++ }
+                        if((parseInt(stats_segment.stats_31_45.score_home_home) + parseInt(stats_segment.stats_31_45.score_home_away)) % 2 === 1 ){ this.stats_segment.stats_31_45.score_odd++ }
+                        if((parseInt(stats_segment.stats_31_45.score_home_home) + parseInt(stats_segment.stats_31_45.score_home_away)) % 2 === 0 ){ this.stats_segment.stats_31_45.score_even++ }
+
+                        if(stats_segment.stats_46_60.score_over00_home == "0" && stats_segment.stats_46_60.score_over00_away == "0"){ this.stats_segment.stats_46_60.score_over00++ }
+                        if(parseInt(stats_segment.stats_46_60.score_over15_home) + parseInt(stats_segment.stats_46_60.score_over15_away) > 1){ this.stats_segment.stats_46_60.score_over15++ }
+                        if(parseInt(stats_segment.stats_46_60.score_over25_home) + parseInt(stats_segment.stats_46_60.score_over25_away) > 2){ this.stats_segment.stats_46_60.score_over25++ }
+                        if(parseInt(stats_segment.stats_46_60.score_over35_home) + parseInt(stats_segment.stats_46_60.score_over35_away) > 3){ this.stats_segment.stats_46_60.score_over35++ }
+                        if(parseInt(stats_segment.stats_46_60.score_over45_home) + parseInt(stats_segment.stats_46_60.score_over45_away) > 4){ this.stats_segment.stats_46_60.score_over45++ }
+                        if(parseInt(stats_segment.stats_46_60.score_home_home) > parseInt(stats_segment.stats_46_60.score_home_away) ){ this.stats_segment.stats_46_60.score_home++ }
+                        if(parseInt(stats_segment.stats_46_60.score_away_home) < parseInt(stats_segment.stats_46_60.score_away_away) ){ this.stats_segment.stats_46_60.score_away++ }
+                        if(parseInt(stats_segment.stats_46_60.score_draw_home) === parseInt(stats_segment.stats_46_60.score_draw_away) ){ this.stats_segment.stats_46_60.score_draw++ }
+                        if(parseInt(stats_segment.stats_46_60.score_bts_home) > 0 && parseInt(stats_segment.stats_46_60.score_bts_away) > 0 ){ this.stats_segment.stats_46_60.score_bts++ }
+                        if((parseInt(stats_segment.stats_46_60.score_home_home) + parseInt(stats_segment.stats_46_60.score_home_away)) % 2 === 1 ){ this.stats_segment.stats_46_60.score_odd++ }
+                        if((parseInt(stats_segment.stats_46_60.score_home_home) + parseInt(stats_segment.stats_46_60.score_home_away)) % 2 === 0 ){ this.stats_segment.stats_46_60.score_even++ }
+
+                        if(stats_segment.stats_61_75.score_over00_home == "0" && stats_segment.stats_61_75.score_over00_away == "0"){ this.stats_segment.stats_61_75.score_over00++ }
+                        if(parseInt(stats_segment.stats_61_75.score_over15_home) + parseInt(stats_segment.stats_61_75.score_over15_away) > 1){ this.stats_segment.stats_61_75.score_over15++ }
+                        if(parseInt(stats_segment.stats_61_75.score_over25_home) + parseInt(stats_segment.stats_61_75.score_over25_away) > 2){ this.stats_segment.stats_61_75.score_over25++ }
+                        if(parseInt(stats_segment.stats_61_75.score_over35_home) + parseInt(stats_segment.stats_61_75.score_over35_away) > 3){ this.stats_segment.stats_61_75.score_over35++ }
+                        if(parseInt(stats_segment.stats_61_75.score_over45_home) + parseInt(stats_segment.stats_61_75.score_over45_away) > 4){ this.stats_segment.stats_61_75.score_over45++ }
+                        if(parseInt(stats_segment.stats_61_75.score_home_home) > parseInt(stats_segment.stats_61_75.score_home_away) ){ this.stats_segment.stats_61_75.score_home++ }
+                        if(parseInt(stats_segment.stats_61_75.score_away_home) < parseInt(stats_segment.stats_61_75.score_away_away) ){ this.stats_segment.stats_61_75.score_away++ }
+                        if(parseInt(stats_segment.stats_61_75.score_draw_home) === parseInt(stats_segment.stats_61_75.score_draw_away) ){ this.stats_segment.stats_61_75.score_draw++ }
+                        if(parseInt(stats_segment.stats_61_75.score_bts_home) > 0 && parseInt(stats_segment.stats_61_75.score_bts_away) > 0 ){ this.stats_segment.stats_61_75.score_bts++ }
+                        if((parseInt(stats_segment.stats_61_75.score_home_home) + parseInt(stats_segment.stats_61_75.score_home_away)) % 2 === 1 ){ this.stats_segment.stats_61_75.score_odd++ }
+                        if((parseInt(stats_segment.stats_61_75.score_home_home) + parseInt(stats_segment.stats_61_75.score_home_away)) % 2 === 0 ){ this.stats_segment.stats_61_75.score_even++ }
+
+                        if(stats_segment.stats_76_90.score_over00_home == "0" && stats_segment.stats_76_90.score_over00_away == "0"){ this.stats_segment.stats_76_90.score_over00++ }
+                        if(parseInt(stats_segment.stats_76_90.score_over15_home) + parseInt(stats_segment.stats_76_90.score_over15_away) > 1){ this.stats_segment.stats_76_90.score_over15++ }
+                        if(parseInt(stats_segment.stats_76_90.score_over25_home) + parseInt(stats_segment.stats_76_90.score_over25_away) > 2){ this.stats_segment.stats_76_90.score_over25++ }
+                        if(parseInt(stats_segment.stats_76_90.score_over35_home) + parseInt(stats_segment.stats_76_90.score_over35_away) > 3){ this.stats_segment.stats_76_90.score_over35++ }
+                        if(parseInt(stats_segment.stats_76_90.score_over45_home) + parseInt(stats_segment.stats_76_90.score_over45_away) > 4){ this.stats_segment.stats_76_90.score_over45++ }
+                        if(parseInt(stats_segment.stats_76_90.score_home_home) > parseInt(stats_segment.stats_76_90.score_home_away) ){ this.stats_segment.stats_76_90.score_home++ }
+                        if(parseInt(stats_segment.stats_76_90.score_away_home) < parseInt(stats_segment.stats_76_90.score_away_away) ){ this.stats_segment.stats_76_90.score_away++ }
+                        if(parseInt(stats_segment.stats_76_90.score_draw_home) === parseInt(stats_segment.stats_76_90.score_draw_away) ){ this.stats_segment.stats_76_90.score_draw++ }
+                        if(parseInt(stats_segment.stats_76_90.score_bts_home) > 0 && parseInt(stats_segment.stats_76_90.score_bts_away) > 0 ){ this.stats_segment.stats_76_90.score_bts++ }
+                        if((parseInt(stats_segment.stats_76_90.score_home_home) + parseInt(stats_segment.stats_76_90.score_home_away)) % 2 === 1 ){ this.stats_segment.stats_76_90.score_odd++ }
+                        if((parseInt(stats_segment.stats_76_90.score_home_home) + parseInt(stats_segment.stats_76_90.score_home_away)) % 2 === 0 ){ this.stats_segment.stats_76_90.score_even++ }
+                    }
+                    //---------------
+                    if(stats.length > 0){
+                        let cStats = stats[stats.length - 1]
+                        if(cStats[0].team_id == home_id){
+                            if(cStats[0].shots){
+                                if(cStats[0].shots.ongoal){
+                                    this.total_live_home_stats.on = this.total_live_home_stats.on + cStats[0].shots.ongoal
+                                    this.total_live_away_stats.on = this.total_live_away_stats.on + cStats[1].shots.ongoal
+                                }
+                                if(cStats[0].shots.offgoal){
+                                    this.total_live_home_stats.off = this.total_live_home_stats.off + cStats[0].shots.offgoal
+                                    this.total_live_away_stats.off = this.total_live_away_stats.off + cStats[1].shots.offgoal
+                                }
+                                if(cStats[0].shots.blocked){
+                                    this.total_live_home_stats.blk = this.total_live_home_stats.blk + cStats[0].shots.blocked
+                                    this.total_live_away_stats.blk = this.total_live_away_stats.blk + cStats[1].shots.blocked
+                                }
+                                if(cStats[0].shots.insidebox){
+                                    this.total_live_home_stats.in = this.total_live_home_stats.in + cStats[0].shots.insidebox
+                                    this.total_live_away_stats.in = this.total_live_away_stats.in + cStats[1].shots.insidebox
+                                }
+                                if(cStats[0].shots.outsidebox){
+                                    this.total_live_home_stats.out = this.total_live_home_stats.out + cStats[0].shots.outsidebox
+                                    this.total_live_away_stats.out = this.total_live_away_stats.out + cStats[1].shots.outsidebox
+                                }
+                            }
+                            if(cStats[0].corners){
+                                this.total_live_home_stats.cnr = this.total_live_home_stats.cnr + cStats[0].corners
+                                this.total_live_away_stats.cnr = this.total_live_away_stats.cnr + cStats[1].corners
+                            }
+                            if(cStats[0].attacks){
+                                this.total_live_home_stats.da = this.total_live_home_stats.da + cStats[0].attacks.dangerous_attacks
+                                this.total_live_away_stats.da = this.total_live_away_stats.da + cStats[1].attacks.dangerous_attacks
+                            }
+                            if(cStats[0].possessiontime){
+                                this.total_live_home_stats.pos = this.total_live_home_stats.pos + cStats[0].possessiontime
+                                this.total_live_away_stats.pos = this.total_live_away_stats.pos + cStats[1].possessiontime
+                            }
+                            if(cStats[0].redcards){
+                                this.total_live_home_stats.red = this.total_live_home_stats.red + cStats[0].redcards
+                                this.total_live_away_stats.red = this.total_live_away_stats.red + cStats[1].redcards
+                            }
+                            if(cStats[0].yellowcards){
+                                this.total_live_home_stats.yel = this.total_live_home_stats.yel + cStats[0].yellowcards
+                                this.total_live_away_stats.yel = this.total_live_away_stats.yel + cStats[1].yellowcards
+                            }
+                        }
+                        if(stats[stats.length - 1][1].team_id == home_id){
+                            if(cStats[1].shots){
+                                if(cStats[1].shots.ongoal){
+                                    this.total_live_home_stats.on = this.total_live_home_stats.on + cStats[1].shots.ongoal
+                                    this.total_live_away_stats.on = this.total_live_away_stats.on + cStats[0].shots.ongoal
+                                }
+                                if(cStats[1].shots.offgoal){
+                                    this.total_live_home_stats.off = this.total_live_home_stats.off + cStats[1].shots.offgoal
+                                    this.total_live_away_stats.off = this.total_live_away_stats.off + cStats[0].shots.offgoal
+                                }
+                                if(cStats[1].shots.blocked){
+                                    this.total_live_home_stats.blk = this.total_live_home_stats.blk + cStats[1].shots.blocked
+                                    this.total_live_away_stats.blk = this.total_live_away_stats.blk + cStats[0].shots.blocked
+                                }
+                                if(cStats[1].shots.insidebox){
+                                    this.total_live_home_stats.in = this.total_live_home_stats.in + cStats[1].shots.insidebox
+                                    this.total_live_away_stats.in = this.total_live_away_stats.in + cStats[0].shots.insidebox
+                                }
+                                if(cStats[1].shots.outsidebox){
+                                    this.total_live_home_stats.out = this.total_live_home_stats.out + cStats[1].shots.outsidebox
+                                    this.total_live_away_stats.out = this.total_live_away_stats.out + cStats[0].shots.outsidebox
+                                }
+                            }
+                            if(cStats[0].corners){
+                                this.total_live_home_stats.cnr = this.total_live_home_stats.cnr + cStats[1].corners
+                                this.total_live_away_stats.cnr = this.total_live_away_stats.cnr + cStats[0].corners
+                            }
+                            if(cStats[0].attacks){
+                                this.total_live_home_stats.da = this.total_live_home_stats.da + cStats[1].attacks.dangerous_attacks
+                                this.total_live_away_stats.da = this.total_live_away_stats.da + cStats[0].attacks.dangerous_attacks
+                            }
+                            if(cStats[0].possessiontime){
+                                this.total_live_home_stats.pos = this.total_live_home_stats.pos + cStats[1].possessiontime
+                                this.total_live_away_stats.pos = this.total_live_away_stats.pos + cStats[0].possessiontime
+                            }
+                            if(cStats[0].redcards){
+                                this.total_live_home_stats.red = this.total_live_home_stats.red + cStats[1].redcards
+                                this.total_live_away_stats.red = this.total_live_away_stats.red + cStats[0].redcards
+                            }
+                            if(cStats[0].yellowcards){
+                                this.total_live_home_stats.yel = this.total_live_home_stats.yel + cStats[1].yellowcards
+                                this.total_live_away_stats.yel = this.total_live_away_stats.yel + cStats[0].yellowcards
+                            }
+                        }
+                    }
+                }
             },
             from_date_f(val){
                 console.log(val)
