@@ -56,13 +56,19 @@
                 </div>
             </CCol>
             <CCol lg="6" style="height: 180px; background: white; padding: 20px 30px;">
-                <label style="color: red; font-weight: bold;">Events List</label>
-                <CSelect
-                        class="event-list"
-                        :options="eventList"
-                        @update:value="set_event"
-                >
-                </CSelect>
+                <div style="width: 60%; float: left">
+                    <label style="color: red; font-weight: bold;">Events List</label>
+                    <CSelect
+                            class="event-list"
+                            :options="eventList"
+                            @update:value="set_event"
+                    >
+                    </CSelect>
+                </div>
+                <div style="width: 40%; float: left; padding-top: 20px;">
+                    <label style="color: red; font-weight: bold;">Total Matches Found: <strong style="color: blue; font-weight: bold; font-size: 14px!important">{{matches_found}}</strong></label><br>
+                    <label style="color: red; font-weight: bold;">Total Filtered: <strong style="color: blue; font-weight: bold; font-size: 14px!important">{{filtered_result}}</strong></label>
+                </div>
             </CCol>
             <CCol lg="6" class="stats-filter-content" style="height: 820px; background: white; padding: 20px 30px;">
                 <div style="width: 50%; float: left; padding-right: 20px;">
@@ -762,6 +768,7 @@
                             Avg Stats Per Game
                         </div>
                         <div style="display: flex; height: 20px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black;">
+                            <div style="flex: 1; text-align: center;">Goal</div>
                             <div style="flex: 1; text-align: center;">On</div>
                             <div style="flex: 1; text-align: center;">Off</div>
                             <div style="flex: 1; text-align: center;">Blk</div>
@@ -807,28 +814,52 @@
                     </div>
                     <div style="flex: 7;">
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
-                            <div style="flex: 1; text-align: center;">{{avg_home_stats.on}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_home_stats.off}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_home_stats.blk}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_home_stats.in}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_home_stats.out}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_home_stats.cnr}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_home_stats.da}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_home_stats.pos}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_home_stats.red}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_home_stats.yel}}</div>
+                            <div v-if="avg_home_stats.goal == 0" style="flex: 1; text-align: center;">{{(avg_home_stats.goal).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_home_stats.goal/avg_home_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_home_stats.on == 0" style="flex: 1; text-align: center;">{{(avg_home_stats.on).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_home_stats.on/avg_home_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_home_stats.off == 0" style="flex: 1; text-align: center;">{{(avg_home_stats.off).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_home_stats.off/avg_home_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_home_stats.blk == 0" style="flex: 1; text-align: center;">{{(avg_home_stats.blk).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_home_stats.blk/avg_home_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_home_stats.in == 0" style="flex: 1; text-align: center;">{{(avg_home_stats.in).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_home_stats.in/avg_home_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_home_stats.out == 0" style="flex: 1; text-align: center;">{{(avg_home_stats.out).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_home_stats.out/avg_home_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_home_stats.cnr == 0" style="flex: 1; text-align: center;">{{(avg_home_stats.cnr).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_home_stats.cnr/avg_home_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_home_stats.da == 0" style="flex: 1; text-align: center;">{{(avg_home_stats.da).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_home_stats.da/avg_home_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_home_stats.pos == 0" style="flex: 1; text-align: center;">{{(avg_home_stats.pos).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_home_stats.pos/avg_home_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_home_stats.red == 0" style="flex: 1; text-align: center;">{{(avg_home_stats.red).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_home_stats.red/avg_home_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_home_stats.yel == 0" style="flex: 1; text-align: center;">{{(avg_home_stats.yel).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_home_stats.yel/avg_home_stats.p).toFixed(2)}}</div>
                         </div>
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
-                            <div style="flex: 1; text-align: center;">{{avg_away_stats.on}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_away_stats.off}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_away_stats.blk}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_away_stats.in}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_away_stats.out}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_away_stats.cnr}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_away_stats.da}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_away_stats.pos}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_away_stats.red}}</div>
-                            <div style="flex: 1; text-align: center;">{{avg_away_stats.yel}}</div>
+                            <div v-if="avg_away_stats.goal == 0" style="flex: 1; text-align: center;">{{(avg_away_stats.goal).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_away_stats.goal/avg_away_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_away_stats.on == 0" style="flex: 1; text-align: center;">{{(avg_away_stats.on).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_away_stats.on/avg_away_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_away_stats.off == 0" style="flex: 1; text-align: center;">{{(avg_away_stats.off).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_away_stats.off/avg_away_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_away_stats.blk == 0" style="flex: 1; text-align: center;">{{(avg_away_stats.blk).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_away_stats.blk/avg_away_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_away_stats.in == 0" style="flex: 1; text-align: center;">{{(avg_away_stats.in).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_away_stats.in/avg_away_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_away_stats.out == 0" style="flex: 1; text-align: center;">{{(avg_away_stats.out).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_away_stats.out/avg_away_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_away_stats.cnr == 0" style="flex: 1; text-align: center;">{{(avg_away_stats.cnr).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_away_stats.cnr/avg_away_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_away_stats.da == 0" style="flex: 1; text-align: center;">{{(avg_away_stats.da).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_away_stats.da/avg_away_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_away_stats.pos == 0" style="flex: 1; text-align: center;">{{(avg_away_stats.pos).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_away_stats.pos/avg_away_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_away_stats.red == 0" style="flex: 1; text-align: center;">{{(avg_away_stats.red).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_away_stats.red/avg_away_stats.p).toFixed(2)}}</div>
+                            <div v-if="avg_away_stats.yel == 0" style="flex: 1; text-align: center;">{{(avg_away_stats.yel).toFixed(2)}}</div>
+                            <div v-else style="flex: 1; text-align: center;">{{(avg_away_stats.yel/avg_away_stats.p).toFixed(2)}}</div>
                         </div>
                     </div>
                 </div>
@@ -853,6 +884,7 @@
                             Delta Indexes
                         </div>
                         <div style="display: flex; height: 20px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black;">
+                            <div style="flex: 1; text-align: center;">Goal</div>
                             <div style="flex: 1; text-align: center;">On</div>
                             <div style="flex: 1; text-align: center;">Off</div>
                             <div style="flex: 1; text-align: center;">Blk</div>
@@ -898,6 +930,7 @@
                     </div>
                     <div style="flex: 7;">
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
+                            <div style="flex: 1; text-align: center;">Goal</div>
                             <div style="flex: 1; text-align: center;">On</div>
                             <div style="flex: 1; text-align: center;">Off</div>
                             <div style="flex: 1; text-align: center;">Blk</div>
@@ -910,6 +943,7 @@
                             <div style="flex: 1; text-align: center;">Yel</div>
                         </div>
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
+                            <div style="flex: 1; text-align: center;">Goal</div>
                             <div style="flex: 1; text-align: center;">On</div>
                             <div style="flex: 1; text-align: center;">Off</div>
                             <div style="flex: 1; text-align: center;">Blk</div>
@@ -923,6 +957,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div style="margin-top: 20px;">
                     <label style="color: red; font-weight: bold">Total filtered livestats</label>
                     <div style="flex: 7; background: #b1a0c7">
@@ -930,6 +965,7 @@
                             Total Live Stats
                         </div>
                         <div style="display: flex; height: 20px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black;">
+                            <div style="flex: 1; text-align: center;">Goal</div>
                             <div style="flex: 1; text-align: center;">On</div>
                             <div style="flex: 1; text-align: center;">Off</div>
                             <div style="flex: 1; text-align: center;">Blk</div>
@@ -943,6 +979,7 @@
                         </div>
                     </div>
                     <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px; border: 1px solid lightgray;  border-bottom: none;">
+                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.goal}}</div>
                         <div style="flex: 1; text-align: center;">{{total_live_home_stats.on}}</div>
                         <div style="flex: 1; text-align: center;">{{total_live_home_stats.off}}</div>
                         <div style="flex: 1; text-align: center;">{{total_live_home_stats.blk}}</div>
@@ -955,6 +992,7 @@
                         <div style="flex: 1; text-align: center;">{{total_live_home_stats.yel}}</div>
                     </div>
                     <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px; border: 1px solid lightgray; border-top: none;">
+                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.goal}}</div>
                         <div style="flex: 1; text-align: center;">{{total_live_away_stats.on}}</div>
                         <div style="flex: 1; text-align: center;">{{total_live_away_stats.off}}</div>
                         <div style="flex: 1; text-align: center;">{{total_live_away_stats.blk}}</div>
@@ -1006,6 +1044,33 @@
                         <div class="percent stats-cell" style="padding-top: 8px;">46 - 60</div>
                         <div class="value stats-cell" style="padding-top: 8px;">61 - 75</div>
                         <div class="percent stats-cell" style="padding-top: 8px;">76 - 90+</div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Goal</p>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
+                        <div class="value stats-cell">
+                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">0</div>
+                        </div>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">On</p>
@@ -1404,6 +1469,7 @@
                     'name': '',
                     'score': '',
                     'time': '',
+                    'goal': '-',
                     'on': '-',
                     'off': '-',
                     'blk': '-',
@@ -1419,6 +1485,7 @@
                     'name': '',
                     'score': '',
                     'time': '',
+                    'goal': '-',
                     'on': '-',
                     'off': '-',
                     'blk': '-',
@@ -1434,6 +1501,7 @@
                 dateList2:[],
                 avg_home_stats:{
                     'p': 0,
+                    'goal': 0,
                     'on': 0,
                     'off': 0,
                     'blk': 0,
@@ -1447,6 +1515,7 @@
                 },
                 avg_away_stats:{
                     'p': 0,
+                    'goal': 0,
                     'on': 0,
                     'off': 0,
                     'blk': 0,
@@ -1563,7 +1632,9 @@
                     }
                 },
                 matches_found: 0,
+                filtered_result: 0,
                 total_live_home_stats:{
+                    'goal': 0,
                     'on': 0,
                     'off': 0,
                     'blk': 0,
@@ -1576,6 +1647,7 @@
                     'yel': 0
                 },
                 total_live_away_stats:{
+                    'goal': 0,
                     'on': 0,
                     'off': 0,
                     'blk': 0,
@@ -1587,6 +1659,176 @@
                     'red': 0,
                     'yel': 0
                 },
+                live_segment_stats:{
+                    'stats_0_15': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_16_30': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_31_45': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_46_60': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_61_75': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_76_90': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    }
+                }
             }
         },
         methods: {
@@ -1605,6 +1847,7 @@
                     }
                     this.origin_events = this.eventList
                     this.matches_found = this.eventList.length - 1
+                    this.filtered_result = this.eventList.length - 1
                     this.get_time_seg_stats(this.origin_events)
                 })
             },
@@ -1843,6 +2086,7 @@
                     }
                 }
                 this.total_live_home_stats = {
+                    'goal': 0,
                     'on': 0,
                     'off': 0,
                     'blk': 0,
@@ -1855,6 +2099,7 @@
                     'yel': 0
                 }
                 this.total_live_away_stats = {
+                    'goal': 0,
                     'on': 0,
                     'off': 0,
                     'blk': 0,
@@ -2121,6 +2366,10 @@
                                 this.total_live_home_stats.cnr = this.total_live_home_stats.cnr + cStats[0].corners
                                 this.total_live_away_stats.cnr = this.total_live_away_stats.cnr + cStats[1].corners
                             }
+                            if(cStats[0].goals){
+                                this.total_live_home_stats.goal = this.total_live_home_stats.goal + cStats[0].goals
+                                this.total_live_away_stats.goal = this.total_live_away_stats.goal + cStats[1].goals
+                            }
                             if(cStats[0].attacks){
                                 this.total_live_home_stats.da = this.total_live_home_stats.da + cStats[0].attacks.dangerous_attacks
                                 this.total_live_away_stats.da = this.total_live_away_stats.da + cStats[1].attacks.dangerous_attacks
@@ -2165,6 +2414,10 @@
                                 this.total_live_home_stats.cnr = this.total_live_home_stats.cnr + cStats[1].corners
                                 this.total_live_away_stats.cnr = this.total_live_away_stats.cnr + cStats[0].corners
                             }
+                            if(cStats[0].goals){
+                                this.total_live_home_stats.goal = this.total_live_home_stats.goal + cStats[1].goals
+                                this.total_live_away_stats.goal = this.total_live_away_stats.goal + cStats[0].goals
+                            }
                             if(cStats[0].attacks){
                                 this.total_live_home_stats.da = this.total_live_home_stats.da + cStats[1].attacks.dangerous_attacks
                                 this.total_live_away_stats.da = this.total_live_away_stats.da + cStats[0].attacks.dangerous_attacks
@@ -2180,6 +2433,29 @@
                             if(cStats[0].yellowcards){
                                 this.total_live_home_stats.yel = this.total_live_home_stats.yel + cStats[1].yellowcards
                                 this.total_live_away_stats.yel = this.total_live_away_stats.yel + cStats[0].yellowcards
+                            }
+                        }
+                    }
+                    //---------------
+                    if(times.length > 0){
+                        for(let j = 0; j < times.length; j++){
+                            if(times[j].minute <= 15){
+
+                            }
+                            if(times[j].minute > 15 && times[j].minute <= 30){
+
+                            }
+                            if(times[j].minute > 30 && times[j].minute <= 45){
+
+                            }
+                            if(times[j].minute > 45 && times[j].minute <= 60){
+
+                            }
+                            if(times[j].minute > 60 && times[j].minute <= 75){
+
+                            }
+                            if(times[j].minute > 75 && times[j].minute <= 90){
+
                             }
                         }
                     }
@@ -2214,6 +2490,7 @@
                     'name': '',
                     'score': '',
                     'time': '',
+                    'goal': '',
                     'on': '-',
                     'off': '-',
                     'blk': '-',
@@ -2229,6 +2506,7 @@
                     'name': '',
                     'score': '',
                     'time': '',
+                    'goal': '-',
                     'on': '-',
                     'off': '-',
                     'blk': '-',
@@ -2342,6 +2620,7 @@
                 }
                 this.avg_home_stats = {
                     'p': 0,
+                    'goal': 0,
                     'on': 0,
                     'off': 0,
                     'blk': 0,
@@ -2355,6 +2634,7 @@
                 }
                 this.avg_away_stats = {
                     'p': 0,
+                    'goal': 0,
                     'on': 0,
                     'off': 0,
                     'blk': 0,
@@ -2394,6 +2674,9 @@
                                             if(cSeasonStats[i].stats[j][0].corners){
                                                 this.avg_home_stats.cnr = this.avg_home_stats.cnr + cSeasonStats[i].stats[j][0].corners
                                             }
+                                            if(cSeasonStats[i].stats[j][0].goals){
+                                                this.avg_home_stats.goal = this.avg_home_stats.goal + cSeasonStats[i].stats[j][0].goals
+                                            }
                                             if(cSeasonStats[i].stats[j][0].attacks){
                                                 if(cSeasonStats[i].stats[j][0].attacks.dangerous_attacks){
                                                     this.avg_home_stats.da = this.avg_home_stats.da + cSeasonStats[i].stats[j][0].attacks.dangerous_attacks
@@ -2431,6 +2714,9 @@
                                             if(cSeasonStats[i].stats[j][1].corners){
                                                 this.avg_away_stats.cnr = this.avg_away_stats.cnr + cSeasonStats[i].stats[j][1].corners
                                             }
+                                            if(cSeasonStats[i].stats[j][1].goals){
+                                                this.avg_away_stats.goal = this.avg_away_stats.goal + cSeasonStats[i].stats[j][1].goals
+                                            }
                                             if(cSeasonStats[i].stats[j][1].attacks){
                                                 if(cSeasonStats[i].stats[j][1].attacks.dangerous_attacks){
                                                     this.avg_away_stats.da = this.avg_away_stats.da + cSeasonStats[i].stats[j][1].attacks.dangerous_attacks
@@ -2462,9 +2748,10 @@
                     let stats = value.stats
                     let home_id = value.home_id
                     let away_id = value.away_id
+                    console.log('events ==>', value)
                     if(value.away_rank && value.home_rank){
-                        // console.log('rank checking', this.homeTeam.rank.from, this.homeTeam.rank.to, this.awayTeam.rank.from, this.awayTeam.rank.to)
-                        // console.log('rank checking', value.home_rank, value.away_rank)
+                        console.log('rank checking', this.homeTeam.rank.from, this.homeTeam.rank.to, this.awayTeam.rank.from, this.awayTeam.rank.to)
+                        console.log('rank checking', value.home_rank, value.away_rank)
                         if(value.home_rank >= this.homeTeam.rank.from && value.home_rank <= this.homeTeam.rank.to && value.away_rank >= this.awayTeam.rank.from && value.away_rank <= this.awayTeam.rank.to){
                             let stats_length = stats.length
 
@@ -2604,6 +2891,8 @@
                     }
                 }
                 this.eventList = event_list
+                this.filtered_result = event_list.length - 1
+                this.get_time_seg_stats(event_list)
             },
             h_rank_from(val){
                 this.homeTeam.rank.from = parseInt(val)
@@ -2880,7 +3169,7 @@
         width: 60%;
     }
     .live-stats-container .event-list{
-        width: 60%;
+        width: calc(100% - 20px);
         background: none;
         padding: 0;
     }
