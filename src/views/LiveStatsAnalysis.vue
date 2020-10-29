@@ -2859,7 +2859,7 @@
 </script>
 <style>
     .live-stats-container{
-        min-width: 1224px;
+        min-width: 1340px;
     }
     .live-stats-container input{
         border-radius: 0;
