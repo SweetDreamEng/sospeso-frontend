@@ -1405,6 +1405,8 @@
                         this.eventLists3 = this.predictionList1
                     }
                 }
+
+                console.log('total => ', this.eventLists3);
             },
             odd_min(val){
                 this.oddMin = val
@@ -1441,6 +1443,7 @@
         }
     }
 </script>
+
 <style scoped>
     /* Dashboard Logo */
     .dashboard-logo-wrapper {

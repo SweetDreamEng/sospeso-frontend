@@ -1,10 +1,12 @@
 <template>
+<div  v-if = "eventBox">
     <select v-if="all" name="" id="" @change="select_match" class="form-control">
         <option :value="item.value" v-for="(item, ind) in eventLists3" :key="ind" :selected="all && index==ind-1">{{item.label}}</option>
     </select>
-    <select v-else name="" id="" @change="select_match" class="form-control">
+    <select  t v-else name="" id="" @change="select_match" class="form-control">
         <option :value="item.value" v-for="(item, ind) in eventLists3" :key="ind" >{{item.label}}</option>
     </select>
+</div>
 </template>
 
 <script>
@@ -26,6 +28,9 @@
             all: {
                 type: Boolean
             },
+            buttonFlag: {
+                type: Boolean
+            }
         },
         components: {
         },
@@ -34,7 +39,9 @@
                 key1: '',
                 eventId: 0,
                 selectedArray: [],
-                eventValue: ''
+                eventValue: '',
+                eventBox: true,
+                eventLength: 0
             }
         },
         methods: {
@@ -50,12 +57,24 @@
                 }
                 this.updateItem(val, this.index);
             },
+            Rerender () {
+                // remove the my-component component from the DOM
+                this.eventBox = false;
+
+                this.$nextTick (() => {
+                    // add my-component component in DOM
+                    this.eventBox = true;
+                });
+            },
         },
         watch: {
             propEventId(val) {
                 if (this.eventId == val) {
                     this.updateItem(this.eventValue, this.index);
                 }
+            },
+            buttonFlag(val) {
+                this.Rerender();
             },
         },
     }

@@ -13,7 +13,7 @@
                     :updateItem="updateItem"
                     :eventLists3="eventLists3"
                     :index="index"
-                    :propEventId="propEventId"
+                    :buttonFlag="buttonFlag"
                     :item="item"
                     :all="all"
                 >
@@ -110,11 +110,11 @@
                 eventListsLength: 0,
                 tableFields: [],
                 eventId: 0,
-                propEventId: 0,
+                buttonFlag: false,
                 childEventLists: [],
                 all: false,
                 selectionId: '',
-                marketIds: []
+                marketIds: [],
             }
         },
         methods : {
@@ -480,11 +480,6 @@
                             this.currentPercent = 0
                         }
                         if(this.currentPercent > 0){
-                            this.percentTextColor = '#20a052'
-                            this.percentTextColor1 = '#20a052'
-                            this.percentBackgroundColor = '#d8e4bc'
-                            this.percentBackgroundColor1 = '#d8e4bc'
-                            this.percent_text1 = 'Current Profit:'
                             this.percent_text2 = this.currentPercent.toString() + '%'
 
                             let timeRecord = this.timeRecord
@@ -493,80 +488,8 @@
                             if(MG == ''){
                                 MG = '0'
                             }
-                            if(this.riskTrading == 'easy'){
-                                if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].facile.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].facile.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].facile.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].facile.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'medium'){
-                                if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].medio.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].medio.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].medio.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].medio.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'risky'){
-                                if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].elevato.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].elevato.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].elevato.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].elevato.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-
                         }
                         else if(this.currentPercent < 0){
-                            this.percentTextColor = '#b80101'
-                            this.percentTextColor1 = '#b80101'
-                            this.percentBackgroundColor = '#ffc7ce'
-                            this.percentBackgroundColor1 = '#ffc7ce'
-                            this.percent_text1 = 'Current Profit:'
                             this.percent_text2 = this.currentPercent.toString() + '%'
 
                             let timeRecord = this.timeRecord
@@ -575,44 +498,6 @@
                             if(MG =='' ){
                                 MG = '0'
                             }
-
-                            if(this.riskTrading == 'easy'){
-                                if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].facile.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].facile.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'medium'){
-                                if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].medio.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].medio.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'risky'){
-                                if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].elevato.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].elevato.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-
                         }
                     }
                     else{
@@ -642,11 +527,6 @@
                             this.currentPercent = 0
                         }
                         if(this.currentPercent > 0){
-                            this.percentTextColor = '#20a052'
-                            this.percentTextColor1 = '#20a052'
-                            this.percentBackgroundColor = '#d8e4bc'
-                            this.percentBackgroundColor1 = '#d8e4bc'
-                            this.percent_text1 = 'Current Profit:'
                             this.percent_text2 = this.currentPercent.toString() + '%'
 
                             let timeRecord = this.timeRecord
@@ -655,81 +535,8 @@
                             if(MG =='' ){
                                 MG = '0'
                             }
-
-                            if(this.riskTrading == 'easy'){
-                                if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].facile.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].facile.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].facile.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].facile.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'medium'){
-                                if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].medio.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].medio.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].medio.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].medio.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'risky'){
-                                if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].elevato.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].elevato.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].elevato.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].elevato.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-
                         }
                         else if(this.currentPercent < 0){
-                            this.percentTextColor = '#b80101'
-                            this.percentTextColor1 = '#b80101'
-                            this.percentBackgroundColor = '#ffc7ce'
-                            this.percentBackgroundColor1 = '#ffc7ce'
-                            this.percent_text1 = 'Current Profit:'
                             this.percent_text2 = this.currentPercent.toString() + '%'
 
                             let timeRecord = this.timeRecord
@@ -747,10 +554,6 @@
                     this.guad_max = 0
                     this.percent_text2 = 'Insert Odd and Stake'
                     this.guad_att = 0
-                    this.percentTextColor = '#20a052'
-                    this.percentTextColor1 = '#20a052'
-                    this.percentBackgroundColor = '#d8e4bc'
-                    this.percentBackgroundColor1 = '#d8e4bc'
                 }
             },
             stake_calc(val){
@@ -783,11 +586,6 @@
                             this.currentPercent = 0
                         }
                         if(this.currentPercent > 0){
-                            this.percentTextColor = '#20a052'
-                            this.percentTextColor1 = '#20a052'
-                            this.percentBackgroundColor = '#d8e4bc'
-                            this.percentBackgroundColor1 = '#d8e4bc'
-                            this.percent_text1 = 'Current Profit:'
                             this.percent_text2 = this.currentPercent.toString() + '%'
 
                             let timeRecord = this.timeRecord
@@ -796,80 +594,8 @@
                             if(MG =='' ){
                                 MG = '0'
                             }
-                            if(this.riskTrading == 'easy'){
-                                if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].facile.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].facile.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].facile.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].facile.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'medium'){
-                                if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].medio.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].medio.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].medio.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].medio.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'risky'){
-                                if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == false && this.tradingMode == false && this.currentPercent > this.adminTable[0].elevato.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == false && this.currentPercent > this.adminTable[0].elevato.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent > this.adminTable[0].elevato.GN){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent > this.adminTable[0].elevato.GT){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-
                         }
                         else if(this.currentPercent < 0){
-                            this.percentTextColor = '#b80101'
-                            this.percentTextColor1 = '#b80101'
-                            this.percentBackgroundColor = '#ffc7ce'
-                            this.percentBackgroundColor1 = '#ffc7ce'
-                            this.percent_text1 = 'Current Profit:'
                             this.percent_text2 = this.currentPercent.toString() + '%'
 
                             let timeRecord = this.timeRecord
@@ -878,46 +604,7 @@
                             if(MG == ''){
                                 MG = '0'
                             }
-
-                            if(this.riskTrading == 'easy'){
-                                if(parseInt(MG) > this.adminTable[0].facile.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].facile.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].facile.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].facile.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'medium'){
-                                if(parseInt(MG) > this.adminTable[0].medio.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].medio.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].medio.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].medio.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-                            else if(this.riskTrading == 'risky'){
-                                if(parseInt(MG) > this.adminTable[0].elevato.MG && this.stopLoss == true && this.tradingMode == false && this.currentPercent < this.adminTable[0].elevato.SLN * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                                else if(parseInt(MG) > this.adminTable[0].elevato.MG && this.tradingMode == true && this.stopLoss == true && this.currentPercent < this.adminTable[0].elevato.SLT * (-1)){
-                                    this.percentTextColor1 = '#000'
-                                    this.percentBackgroundColor = '#ffc000'
-                                    this.percent_text1 = 'Cash Out Now! '
-                                }
-                            }
-
                         }
-
                     }
                     else{
                         this.max_lose = (this.calc_odd * this.calc_stake - this.calc_stake).toFixed(2)
@@ -946,11 +633,6 @@
                             this.currentPercent = 0
                         }
                         if(this.currentPercent > 0){
-                            this.percentTextColor = '#20a052'
-                            this.percentTextColor1 = '#20a052'
-                            this.percentBackgroundColor = '#d8e4bc'
-                            this.percentBackgroundColor1 = '#d8e4bc'
-                            this.percent_text1 = 'Current Profit:'
                             this.percent_text2 = this.currentPercent.toString() + '%'
 
                             let timeRecord = this.timeRecord
@@ -961,11 +643,6 @@
                             }
                         }
                         else if(this.currentPercent < 0){
-                            this.percentTextColor = '#b80101'
-                            this.percentTextColor1 = '#b80101'
-                            this.percentBackgroundColor = '#ffc7ce'
-                            this.percentBackgroundColor1 = '#ffc7ce'
-                            this.percent_text1 = 'Current Profit:'
                             this.percent_text2 = this.currentPercent.toString() + '%'
 
                             let timeRecord = this.timeRecord
@@ -981,18 +658,14 @@
                     this.max_profit = 0
                     this.max_lose = 0
                     this.guad_max = 0
-                    this.percent_text1 =
-                        this.percent_text2 = 'Insert Odd and Stake'
+                    this.percent_text2 = 'Insert Odd and Stake'
                     this.guad_att = 0
-                    this.percentTextColor = '#20a052'
-                    this.percentTextColor1 = '#20a052'
-                    this.percentBackgroundColor = '#d8e4bc'
-                    this.percentBackgroundColor1 = '#d8e4bc'
                 }
             },
         },
         watch: {
             eventLists3(Lists) {
+                this.tableItems = [];
                 this.eventListsLength = Lists.length - 1;
                 this.tableFields = [
                     { key: 'match', label:  `Match (${this.eventListsLength})`, _classes: 'table-warning'},
@@ -1028,15 +701,17 @@
                 }
                 if (this.clickEventValue == 'all') {
                     this.all = true;
+                    this.buttonFlag = !this.buttonFlag;
                     this.eventLists3.forEach((element, index) => {
                         if (element.value)
                             this.updateItem(element.value, index-1);
                     });
                 } else if (this.clickEventValue == 'clear') {
-                    this.marketIds = []
+                    this.marketIds = [];
                     this.all = false;
+                    this.buttonFlag = !this.buttonFlag;
                     for (let event of this.eventLists3) {
-                        for (const item of this.tableItems) {
+                        for (let item of this.tableItems) {
                             item.tot.value = '';
                             item.preodd.value = '';
                             item.back.value = '';
@@ -1052,7 +727,6 @@
                         }
                     }
                 } else {
-                    console.log(this.tableItems);
                     this.all = false;
                     for (let event of this.eventLists3) {
                         for (const item of this.tableItems) {
@@ -1079,7 +753,7 @@
                 this.marketIds.forEach(element => {
                     for (let i = 0; i < data.length; i++) {
                         if(element.market == data[i].marketId){
-                            self.odd_calc(this.calc_odd)
+                            // self.odd_calc(this.calc_odd)
                             let selections = data[i].runners;
                             if(data[i].state.status == 'SUSPENDED'){
                                 this.marketStatus = 'SUSPENDED'
@@ -1109,9 +783,13 @@
                             }
                             self.total_matched = (data[i].state.totalMatched).toFixed(1);
 
-                            this.tableItems[element.index].tot.value = self.total_matched;
+                            self.odd_calc(0)
+                            self.stake_calc(0)
+
+                            this.tableItems[element.index].tot.value = '€' + self.total_matched;
                             this.tableItems[element.index].back.value = self.back;
                             this.tableItems[element.index].lay.value = self.lay;
+                            this.tableItems[element.index].gain.value = self.percent_text2;
                         }
                     }
                 });
@@ -1192,6 +870,7 @@
         }
     }
 </script>
+
 
 <style scoped>
     .form-group {
