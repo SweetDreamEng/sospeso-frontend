@@ -502,167 +502,167 @@
                     <div style="flex: 1; text-align: center;">
                         <p class="header">0 - 0</p>
                         <p v-if="this.stats_segment.stats_0_15.score_over00 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over00}} ({{(this.stats_segment.stats_0_15.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over00}} ({{(this.stats_segment.stats_0_15.score_over00/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_over00 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over00}} ({{(this.stats_segment.stats_16_30.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over00}} ({{(this.stats_segment.stats_16_30.score_over00/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_over00 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over00}} ({{(this.stats_segment.stats_31_45.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over00}} ({{(this.stats_segment.stats_31_45.score_over00/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_over00 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over00}} ({{(this.stats_segment.stats_46_60.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over00}} ({{(this.stats_segment.stats_46_60.score_over00/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_over00 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over00}} ({{(this.stats_segment.stats_61_75.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over00}} ({{(this.stats_segment.stats_61_75.score_over00/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_over00 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over00}} ({{(this.stats_segment.stats_76_90.score_over00/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over00}} ({{(this.stats_segment.stats_76_90.score_over00/this.filtered_result*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Over 1.5</p>
                         <p v-if="this.stats_segment.stats_0_15.score_over15 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over15}} ({{(this.stats_segment.stats_0_15.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over15}} ({{(this.stats_segment.stats_0_15.score_over15/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_over15 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over15}} ({{(this.stats_segment.stats_16_30.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over15}} ({{(this.stats_segment.stats_16_30.score_over15/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_over15 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over15}} ({{(this.stats_segment.stats_31_45.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over15}} ({{(this.stats_segment.stats_31_45.score_over15/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_over15 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over15}} ({{(this.stats_segment.stats_46_60.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over15}} ({{(this.stats_segment.stats_46_60.score_over15/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_over15 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over15}} ({{(this.stats_segment.stats_61_75.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over15}} ({{(this.stats_segment.stats_61_75.score_over15/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_over15 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over15}} ({{(this.stats_segment.stats_76_90.score_over15/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over15}} ({{(this.stats_segment.stats_76_90.score_over15/this.filtered_result*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Over 2.5</p>
                         <p v-if="this.stats_segment.stats_0_15.score_over25 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over25}} ({{(this.stats_segment.stats_0_15.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over25}} ({{(this.stats_segment.stats_0_15.score_over25/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_over25 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over25}} ({{(this.stats_segment.stats_16_30.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over25}} ({{(this.stats_segment.stats_16_30.score_over25/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_over25 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over25}} ({{(this.stats_segment.stats_31_45.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over25}} ({{(this.stats_segment.stats_31_45.score_over25/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_over25 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over25}} ({{(this.stats_segment.stats_46_60.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over25}} ({{(this.stats_segment.stats_46_60.score_over25/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_over25 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over25}} ({{(this.stats_segment.stats_61_75.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over25}} ({{(this.stats_segment.stats_61_75.score_over25/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_over25 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over25}} ({{(this.stats_segment.stats_76_90.score_over25/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over25}} ({{(this.stats_segment.stats_76_90.score_over25/this.filtered_result*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Over 3.5</p>
                         <p v-if="this.stats_segment.stats_0_15.score_over35 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over35}} ({{(this.stats_segment.stats_0_15.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over35}} ({{(this.stats_segment.stats_0_15.score_over35/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_over35 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over35}} ({{(this.stats_segment.stats_16_30.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over35}} ({{(this.stats_segment.stats_16_30.score_over35/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_over35 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over35}} ({{(this.stats_segment.stats_31_45.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over35}} ({{(this.stats_segment.stats_31_45.score_over35/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_over35 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over35}} ({{(this.stats_segment.stats_46_60.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over35}} ({{(this.stats_segment.stats_46_60.score_over35/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_over35 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over35}} ({{(this.stats_segment.stats_61_75.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over35}} ({{(this.stats_segment.stats_61_75.score_over35/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_over35 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over35}} ({{(this.stats_segment.stats_76_90.score_over35/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over35}} ({{(this.stats_segment.stats_76_90.score_over35/this.filtered_result*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Over 4.5</p>
                         <p v-if="this.stats_segment.stats_0_15.score_over45 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over45}} ({{(this.stats_segment.stats_0_15.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over45}} ({{(this.stats_segment.stats_0_15.score_over45/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_over45 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over45}} ({{(this.stats_segment.stats_16_30.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over45}} ({{(this.stats_segment.stats_16_30.score_over45/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_over45 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over45}} ({{(this.stats_segment.stats_31_45.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over45}} ({{(this.stats_segment.stats_31_45.score_over45/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_over45 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over45}} ({{(this.stats_segment.stats_46_60.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over45}} ({{(this.stats_segment.stats_46_60.score_over45/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_over45 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over45}} ({{(this.stats_segment.stats_61_75.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over45}} ({{(this.stats_segment.stats_61_75.score_over45/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_over45 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over45}} ({{(this.stats_segment.stats_76_90.score_over45/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over45}} ({{(this.stats_segment.stats_76_90.score_over45/this.filtered_result*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Home</p>
                         <p v-if="this.stats_segment.stats_0_15.score_home === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_home}} ({{(this.stats_segment.stats_0_15.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_home}} ({{(this.stats_segment.stats_0_15.score_home/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_home === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_home}} ({{(this.stats_segment.stats_16_30.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_home}} ({{(this.stats_segment.stats_16_30.score_home/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_home === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_home}} ({{(this.stats_segment.stats_31_45.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_home}} ({{(this.stats_segment.stats_31_45.score_home/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_home === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_home}} ({{(this.stats_segment.stats_46_60.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_home}} ({{(this.stats_segment.stats_46_60.score_home/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_home === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_home}} ({{(this.stats_segment.stats_61_75.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_home}} ({{(this.stats_segment.stats_61_75.score_home/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_home === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_home}} ({{(this.stats_segment.stats_76_90.score_home/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_home}} ({{(this.stats_segment.stats_76_90.score_home/this.filtered_result*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Draws</p>
                         <p v-if="this.stats_segment.stats_0_15.score_draw === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_draw}} ({{(this.stats_segment.stats_0_15.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_draw}} ({{(this.stats_segment.stats_0_15.score_draw/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_draw === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_draw}} ({{(this.stats_segment.stats_16_30.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_draw}} ({{(this.stats_segment.stats_16_30.score_draw/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_draw === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_draw}} ({{(this.stats_segment.stats_31_45.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_draw}} ({{(this.stats_segment.stats_31_45.score_draw/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_draw === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_draw}} ({{(this.stats_segment.stats_46_60.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_draw}} ({{(this.stats_segment.stats_46_60.score_draw/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_draw === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_draw}} ({{(this.stats_segment.stats_61_75.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_draw}} ({{(this.stats_segment.stats_61_75.score_draw/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_draw === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_draw}} ({{(this.stats_segment.stats_76_90.score_draw/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_draw}} ({{(this.stats_segment.stats_76_90.score_draw/this.filtered_result*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Away</p>
                         <p v-if="this.stats_segment.stats_0_15.score_away === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_away}} ({{(this.stats_segment.stats_0_15.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_away}} ({{(this.stats_segment.stats_0_15.score_away/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_away === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_away}} ({{(this.stats_segment.stats_16_30.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_away}} ({{(this.stats_segment.stats_16_30.score_away/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_away === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_away}} ({{(this.stats_segment.stats_31_45.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_away}} ({{(this.stats_segment.stats_31_45.score_away/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_away === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_away}} ({{(this.stats_segment.stats_46_60.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_away}} ({{(this.stats_segment.stats_46_60.score_away/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_away === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_away}} ({{(this.stats_segment.stats_61_75.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_away}} ({{(this.stats_segment.stats_61_75.score_away/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_away === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_away}} ({{(this.stats_segment.stats_76_90.score_away/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_away}} ({{(this.stats_segment.stats_76_90.score_away/this.filtered_result*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">BTS</p>
                         <p v-if="this.stats_segment.stats_0_15.score_bts === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_bts}} ({{(this.stats_segment.stats_0_15.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_bts}} ({{(this.stats_segment.stats_0_15.score_bts/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_bts === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_bts}} ({{(this.stats_segment.stats_16_30.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_bts}} ({{(this.stats_segment.stats_16_30.score_bts/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_bts === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_bts}} ({{(this.stats_segment.stats_31_45.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_bts}} ({{(this.stats_segment.stats_31_45.score_bts/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_bts === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_bts}} ({{(this.stats_segment.stats_46_60.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_bts}} ({{(this.stats_segment.stats_46_60.score_bts/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_bts === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_bts}} ({{(this.stats_segment.stats_61_75.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_bts}} ({{(this.stats_segment.stats_61_75.score_bts/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_bts === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_bts}} ({{(this.stats_segment.stats_76_90.score_bts/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_bts}} ({{(this.stats_segment.stats_76_90.score_bts/this.filtered_result*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Odd</p>
                         <p v-if="this.stats_segment.stats_0_15.score_odd === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_odd}} ({{(this.stats_segment.stats_0_15.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_odd}} ({{(this.stats_segment.stats_0_15.score_odd/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_odd === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_odd}} ({{(this.stats_segment.stats_16_30.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_odd}} ({{(this.stats_segment.stats_16_30.score_odd/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_odd === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_odd}} ({{(this.stats_segment.stats_31_45.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_odd}} ({{(this.stats_segment.stats_31_45.score_odd/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_odd === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_odd}} ({{(this.stats_segment.stats_46_60.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_odd}} ({{(this.stats_segment.stats_46_60.score_odd/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_odd === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_odd}} ({{(this.stats_segment.stats_61_75.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_odd}} ({{(this.stats_segment.stats_61_75.score_odd/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_odd === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_odd}} ({{(this.stats_segment.stats_76_90.score_odd/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_odd}} ({{(this.stats_segment.stats_76_90.score_odd/this.filtered_result*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Even</p>
                         <p v-if="this.stats_segment.stats_0_15.score_even === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_even}} ({{(this.stats_segment.stats_0_15.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_even}} ({{(this.stats_segment.stats_0_15.score_even/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_even === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_even}} ({{(this.stats_segment.stats_16_30.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_even}} ({{(this.stats_segment.stats_16_30.score_even/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_even === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_even}} ({{(this.stats_segment.stats_31_45.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_even}} ({{(this.stats_segment.stats_31_45.score_even/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_even === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_even}} ({{(this.stats_segment.stats_46_60.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_even}} ({{(this.stats_segment.stats_46_60.score_even/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_even === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_even}} ({{(this.stats_segment.stats_61_75.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_even}} ({{(this.stats_segment.stats_61_75.score_even/this.filtered_result*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_even === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_even}} ({{(this.stats_segment.stats_76_90.score_even/this.matches_found*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_even}} ({{(this.stats_segment.stats_76_90.score_even/this.filtered_result*100).toFixed(0)}}%)</p>
                     </div>
                 </div>
 
@@ -1048,298 +1048,302 @@
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Goal</p>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div v-if="live_segment_stats.stats_0_15.home.goal == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.goal}}</div>
+                            <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.goal}} ({{(live_segment_stats.stats_0_15.home.goal/filtered_result).toFixed(2)}}%)</div>
+                            <div v-if="live_segment_stats.stats_0_15.away.goal == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.goal}}</div>
+                            <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.goal}} ({{(live_segment_stats.stats_0_15.away.goal/filtered_result).toFixed(2)}}%)</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div v-if="live_segment_stats.stats_16_30.home.goal == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.goal}}</div>
+                            <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.goal}} ({{(live_segment_stats.stats_16_30.home.goal/filtered_result).toFixed(2)}}%)</div>
+                            <div v-if="live_segment_stats.stats_16_30.away.goal == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.goal}}</div>
+                            <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.goal}} ({{(live_segment_stats.stats_16_30.away.goal/filtered_result).toFixed(2)}}%)</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.goal}}</div>
+                            <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.goal}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.goal}}</div>
+                            <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.goal}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.goal}}</div>
+                            <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.goal}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.goal}}</div>
+                            <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.goal}}</div>
                         </div>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">On</p>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.home.on}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.away.on}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.home.on}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.away.on}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.home.on}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.away.on}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.home.on}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.away.on}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.home.on}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.away.on}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.home.on}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.away.on}}</div>
                         </div>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Off</p>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.home.off}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.away.off}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.home.off}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.away.off}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.home.off}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.away.off}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.home.off}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.away.off}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.home.off}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.away.off}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.home.off}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.away.off}}</div>
                         </div>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">Block</p>
+                        <p class="header">Blk</p>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.home.blk}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.away.blk}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.home.blk}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.away.blk}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.home.blk}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.away.blk}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.home.blk}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.away.blk}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.home.blk}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.away.blk}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.home.blk}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.away.blk}}</div>
                         </div>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">In</p>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.home.in}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.away.in}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.home.in}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.away.in}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.home.in}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.away.in}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.home.in}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.away.in}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.home.in}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.away.in}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.home.in}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.away.in}}</div>
                         </div>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Out</p>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.home.out}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.away.out}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.home.out}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.away.out}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.home.out}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.away.out}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.home.out}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.away.out}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.home.out}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.away.out}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.home.out}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.away.out}}</div>
                         </div>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Cnr</p>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.home.cnr}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.away.cnr}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.home.cnr}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.away.cnr}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.home.cnr}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.away.cnr}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.home.cnr}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.away.cnr}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.home.cnr}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.away.cnr}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.home.cnr}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.away.cnr}}</div>
                         </div>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">DA</p>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.home.da}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.away.da}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.home.da}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.away.da}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.home.da}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.away.da}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.home.da}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.away.da}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.home.da}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.away.da}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.home.da}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.away.da}}</div>
                         </div>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Pos</p>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.home.pos}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.away.pos}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.home.pos}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.away.pos}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.home.pos}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.away.pos}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.home.pos}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.away.pos}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.home.pos}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.away.pos}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.home.pos}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.away.pos}}</div>
                         </div>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Red</p>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.home.red}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.away.red}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.home.red}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.away.red}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.home.red}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.away.red}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.home.red}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.away.red}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.home.red}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.away.red}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.home.red}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.away.red}}</div>
                         </div>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Yel</p>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.home.yel}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_0_15.away.yel}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.home.yel}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_16_30.away.yel}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.home.yel}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_31_45.away.yel}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.home.yel}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_46_60.away.yel}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.home.yel}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_61_75.away.yel}}</div>
                         </div>
                         <div class="value stats-cell">
-                            <div style="height: 15px;">0</div>
-                            <div style="height: 15px;">0</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.home.yel}}</div>
+                            <div style="height: 15px;">{{live_segment_stats.stats_76_90.away.yel}}</div>
                         </div>
                     </div>
                 </div>
@@ -1849,6 +1853,106 @@
                     this.matches_found = this.eventList.length - 1
                     this.filtered_result = this.eventList.length - 1
                     this.get_time_seg_stats(this.origin_events)
+                    this.homeTeam = {
+                        'rank': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'on': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'off': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'blk': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'in': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'out': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'cnr': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'da': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'pos': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'red': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'yel': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'goal': {
+                            'from': 0,
+                            'to': 1000
+                        }
+                    }
+                    this.awayTeam = {
+                        'rank': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'on': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'off': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'blk': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'in': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'out': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'cnr': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'da': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'pos': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'red': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'yel': {
+                            'from': 0,
+                            'to': 1000
+                        },
+                        'goal': {
+                            'from': 0,
+                            'to': 1000
+                        }
+                    }
                 })
             },
             get_time_seg_stats(val){
@@ -1935,154 +2039,154 @@
                 }
                 let stats_segment = {
                     stats_0_15:{
-                        'score_over00_home':'',
-                        'score_over15_home':'',
-                        'score_over25_home':'',
-                        'score_over35_home':'',
-                        'score_over45_home':'',
-                        'score_home_home':'',
-                        'score_draw_home':'',
-                        'score_away_home':'',
-                        'score_bts_home':'',
-                        'score_odd_home':'',
-                        'score_even_home':'',
+                        'score_over00_home':0,
+                        'score_over15_home':0,
+                        'score_over25_home':0,
+                        'score_over35_home':0,
+                        'score_over45_home':0,
+                        'score_home_home':0,
+                        'score_draw_home':0,
+                        'score_away_home':0,
+                        'score_bts_home':0,
+                        'score_odd_home':0,
+                        'score_even_home':0,
 
-                        'score_over00_away':'',
-                        'score_over15_away':'',
-                        'score_over25_away':'',
-                        'score_over35_away':'',
-                        'score_over45_away':'',
-                        'score_home_away':'',
-                        'score_draw_away':'',
-                        'score_away_away':'',
-                        'score_bts_away':'',
-                        'score_odd_away':'',
-                        'score_even_away':''
+                        'score_over00_away':0,
+                        'score_over15_away':0,
+                        'score_over25_away':0,
+                        'score_over35_away':0,
+                        'score_over45_away':0,
+                        'score_home_away':0,
+                        'score_draw_away':0,
+                        'score_away_away':0,
+                        'score_bts_away':0,
+                        'score_odd_away':0,
+                        'score_even_away':0
                     },
                     stats_16_30:{
-                        'score_over00_home':'',
-                        'score_over15_home':'',
-                        'score_over25_home':'',
-                        'score_over35_home':'',
-                        'score_over45_home':'',
-                        'score_home_home':'',
-                        'score_draw_home':'',
-                        'score_away_home':'',
-                        'score_bts_home':'',
-                        'score_odd_home':'',
-                        'score_even_home':'',
+                        'score_over00_home':0,
+                        'score_over15_home':0,
+                        'score_over25_home':0,
+                        'score_over35_home':0,
+                        'score_over45_home':0,
+                        'score_home_home':0,
+                        'score_draw_home':0,
+                        'score_away_home':0,
+                        'score_bts_home':0,
+                        'score_odd_home':0,
+                        'score_even_home':0,
 
-                        'score_over00_away':'',
-                        'score_over15_away':'',
-                        'score_over25_away':'',
-                        'score_over35_away':'',
-                        'score_over45_away':'',
-                        'score_home_away':'',
-                        'score_draw_away':'',
-                        'score_away_away':'',
-                        'score_bts_away':'',
-                        'score_odd_away':'',
-                        'score_even_away':''
+                        'score_over00_away':0,
+                        'score_over15_away':0,
+                        'score_over25_away':0,
+                        'score_over35_away':0,
+                        'score_over45_away':0,
+                        'score_home_away':0,
+                        'score_draw_away':0,
+                        'score_away_away':0,
+                        'score_bts_away':0,
+                        'score_odd_away':0,
+                        'score_even_away':0
                     },
                     stats_31_45:{
-                        'score_over00_home':'',
-                        'score_over15_home':'',
-                        'score_over25_home':'',
-                        'score_over35_home':'',
-                        'score_over45_home':'',
-                        'score_home_home':'',
-                        'score_draw_home':'',
-                        'score_away_home':'',
-                        'score_bts_home':'',
-                        'score_odd_home':'',
-                        'score_even_home':'',
+                        'score_over00_home':0,
+                        'score_over15_home':0,
+                        'score_over25_home':0,
+                        'score_over35_home':0,
+                        'score_over45_home':0,
+                        'score_home_home':0,
+                        'score_draw_home':0,
+                        'score_away_home':0,
+                        'score_bts_home':0,
+                        'score_odd_home':0,
+                        'score_even_home':0,
 
-                        'score_over00_away':'',
-                        'score_over15_away':'',
-                        'score_over25_away':'',
-                        'score_over35_away':'',
-                        'score_over45_away':'',
-                        'score_home_away':'',
-                        'score_draw_away':'',
-                        'score_away_away':'',
-                        'score_bts_away':'',
-                        'score_odd_away':'',
-                        'score_even_away':''
+                        'score_over00_away':0,
+                        'score_over15_away':0,
+                        'score_over25_away':0,
+                        'score_over35_away':0,
+                        'score_over45_away':0,
+                        'score_home_away':0,
+                        'score_draw_away':0,
+                        'score_away_away':0,
+                        'score_bts_away':0,
+                        'score_odd_away':0,
+                        'score_even_away':0
                     },
                     stats_46_60:{
-                        'score_over00_home':'',
-                        'score_over15_home':'',
-                        'score_over25_home':'',
-                        'score_over35_home':'',
-                        'score_over45_home':'',
-                        'score_home_home':'',
-                        'score_draw_home':'',
-                        'score_away_home':'',
-                        'score_bts_home':'',
-                        'score_odd_home':'',
-                        'score_even_home':'',
+                        'score_over00_home':0,
+                        'score_over15_home':0,
+                        'score_over25_home':0,
+                        'score_over35_home':0,
+                        'score_over45_home':0,
+                        'score_home_home':0,
+                        'score_draw_home':0,
+                        'score_away_home':0,
+                        'score_bts_home':0,
+                        'score_odd_home':0,
+                        'score_even_home':0,
 
-                        'score_over00_away':'',
-                        'score_over15_away':'',
-                        'score_over25_away':'',
-                        'score_over35_away':'',
-                        'score_over45_away':'',
-                        'score_home_away':'',
-                        'score_draw_away':'',
-                        'score_away_away':'',
-                        'score_bts_away':'',
-                        'score_odd_away':'',
-                        'score_even_away':''
+                        'score_over00_away':0,
+                        'score_over15_away':0,
+                        'score_over25_away':0,
+                        'score_over35_away':0,
+                        'score_over45_away':0,
+                        'score_home_away':0,
+                        'score_draw_away':0,
+                        'score_away_away':0,
+                        'score_bts_away':0,
+                        'score_odd_away':0,
+                        'score_even_away':0
                     },
                     stats_61_75:{
-                        'score_over00_home':'',
-                        'score_over15_home':'',
-                        'score_over25_home':'',
-                        'score_over35_home':'',
-                        'score_over45_home':'',
-                        'score_home_home':'',
-                        'score_draw_home':'',
-                        'score_away_home':'',
-                        'score_bts_home':'',
-                        'score_odd_home':'',
-                        'score_even_home':'',
+                        'score_over00_home':0,
+                        'score_over15_home':0,
+                        'score_over25_home':0,
+                        'score_over35_home':0,
+                        'score_over45_home':0,
+                        'score_home_home':0,
+                        'score_draw_home':0,
+                        'score_away_home':0,
+                        'score_bts_home':0,
+                        'score_odd_home':0,
+                        'score_even_home':0,
 
-                        'score_over00_away':'',
-                        'score_over15_away':'',
-                        'score_over25_away':'',
-                        'score_over35_away':'',
-                        'score_over45_away':'',
-                        'score_home_away':'',
-                        'score_draw_away':'',
-                        'score_away_away':'',
-                        'score_bts_away':'',
-                        'score_odd_away':'',
-                        'score_even_away':''
+                        'score_over00_away':0,
+                        'score_over15_away':0,
+                        'score_over25_away':0,
+                        'score_over35_away':0,
+                        'score_over45_away':0,
+                        'score_home_away':0,
+                        'score_draw_away':0,
+                        'score_away_away':0,
+                        'score_bts_away':0,
+                        'score_odd_away':0,
+                        'score_even_away':0
                     },
                     stats_76_90:{
-                        'score_over00_home':'',
-                        'score_over15_home':'',
-                        'score_over25_home':'',
-                        'score_over35_home':'',
-                        'score_over45_home':'',
-                        'score_home_home':'',
-                        'score_draw_home':'',
-                        'score_away_home':'',
-                        'score_bts_home':'',
-                        'score_odd_home':'',
-                        'score_even_home':'',
+                        'score_over00_home':0,
+                        'score_over15_home':0,
+                        'score_over25_home':0,
+                        'score_over35_home':0,
+                        'score_over45_home':0,
+                        'score_home_home':0,
+                        'score_draw_home':0,
+                        'score_away_home':0,
+                        'score_bts_home':0,
+                        'score_odd_home':0,
+                        'score_even_home':0,
 
-                        'score_over00_away':'',
-                        'score_over15_away':'',
-                        'score_over25_away':'',
-                        'score_over35_away':'',
-                        'score_over45_away':'',
-                        'score_home_away':'',
-                        'score_draw_away':'',
-                        'score_away_away':'',
-                        'score_bts_away':'',
-                        'score_odd_away':'',
-                        'score_even_away':''
+                        'score_over00_away':0,
+                        'score_over15_away':0,
+                        'score_over25_away':0,
+                        'score_over35_away':0,
+                        'score_over45_away':0,
+                        'score_home_away':0,
+                        'score_draw_away':0,
+                        'score_away_away':0,
+                        'score_bts_away':0,
+                        'score_odd_away':0,
+                        'score_even_away':0
                     }
                 }
                 this.total_live_home_stats = {
@@ -2111,12 +2215,504 @@
                     'red': 0,
                     'yel': 0
                 }
+                this.live_segment_stats = {
+                    'stats_0_15': {
+                        home:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        }
+                    },
+                    'stats_16_30': {
+                        home:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        }
+                    },
+                    'stats_31_45': {
+                        home:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        }
+                    },
+                    'stats_46_60': {
+                        home:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        }
+                    },
+                    'stats_61_75': {
+                        home:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        }
+                    },
+                    'stats_76_90': {
+                        home:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        }
+                    }
+                }
                 for(let i = 1; i < event_array.length; i++){
                     let value = event_array[i].value.scores
                     let times = event_array[i].value.time
                     let stats = event_array[i].value.stats
                     let home_id = event_array[i].value.home_id
                     let away_id = event_array[i].value.away_id
+                    stats_segment = {
+                        stats_0_15:{
+                            'score_over00_home':0,
+                            'score_over15_home':0,
+                            'score_over25_home':0,
+                            'score_over35_home':0,
+                            'score_over45_home':0,
+                            'score_home_home':0,
+                            'score_draw_home':0,
+                            'score_away_home':0,
+                            'score_bts_home':0,
+                            'score_odd_home':0,
+                            'score_even_home':0,
+
+                            'score_over00_away':0,
+                            'score_over15_away':0,
+                            'score_over25_away':0,
+                            'score_over35_away':0,
+                            'score_over45_away':0,
+                            'score_home_away':0,
+                            'score_draw_away':0,
+                            'score_away_away':0,
+                            'score_bts_away':0,
+                            'score_odd_away':0,
+                            'score_even_away':0
+                        },
+                        stats_16_30:{
+                            'score_over00_home':0,
+                            'score_over15_home':0,
+                            'score_over25_home':0,
+                            'score_over35_home':0,
+                            'score_over45_home':0,
+                            'score_home_home':0,
+                            'score_draw_home':0,
+                            'score_away_home':0,
+                            'score_bts_home':0,
+                            'score_odd_home':0,
+                            'score_even_home':0,
+
+                            'score_over00_away':0,
+                            'score_over15_away':0,
+                            'score_over25_away':0,
+                            'score_over35_away':0,
+                            'score_over45_away':0,
+                            'score_home_away':0,
+                            'score_draw_away':0,
+                            'score_away_away':0,
+                            'score_bts_away':0,
+                            'score_odd_away':0,
+                            'score_even_away':0
+                        },
+                        stats_31_45:{
+                            'score_over00_home':0,
+                            'score_over15_home':0,
+                            'score_over25_home':0,
+                            'score_over35_home':0,
+                            'score_over45_home':0,
+                            'score_home_home':0,
+                            'score_draw_home':0,
+                            'score_away_home':0,
+                            'score_bts_home':0,
+                            'score_odd_home':0,
+                            'score_even_home':0,
+
+                            'score_over00_away':0,
+                            'score_over15_away':0,
+                            'score_over25_away':0,
+                            'score_over35_away':0,
+                            'score_over45_away':0,
+                            'score_home_away':0,
+                            'score_draw_away':0,
+                            'score_away_away':0,
+                            'score_bts_away':0,
+                            'score_odd_away':0,
+                            'score_even_away':0
+                        },
+                        stats_46_60:{
+                            'score_over00_home':0,
+                            'score_over15_home':0,
+                            'score_over25_home':0,
+                            'score_over35_home':0,
+                            'score_over45_home':0,
+                            'score_home_home':0,
+                            'score_draw_home':0,
+                            'score_away_home':0,
+                            'score_bts_home':0,
+                            'score_odd_home':0,
+                            'score_even_home':0,
+
+                            'score_over00_away':0,
+                            'score_over15_away':0,
+                            'score_over25_away':0,
+                            'score_over35_away':0,
+                            'score_over45_away':0,
+                            'score_home_away':0,
+                            'score_draw_away':0,
+                            'score_away_away':0,
+                            'score_bts_away':0,
+                            'score_odd_away':0,
+                            'score_even_away':0
+                        },
+                        stats_61_75:{
+                            'score_over00_home':0,
+                            'score_over15_home':0,
+                            'score_over25_home':0,
+                            'score_over35_home':0,
+                            'score_over45_home':0,
+                            'score_home_home':0,
+                            'score_draw_home':0,
+                            'score_away_home':0,
+                            'score_bts_home':0,
+                            'score_odd_home':0,
+                            'score_even_home':0,
+
+                            'score_over00_away':0,
+                            'score_over15_away':0,
+                            'score_over25_away':0,
+                            'score_over35_away':0,
+                            'score_over45_away':0,
+                            'score_home_away':0,
+                            'score_draw_away':0,
+                            'score_away_away':0,
+                            'score_bts_away':0,
+                            'score_odd_away':0,
+                            'score_even_away':0
+                        },
+                        stats_76_90:{
+                            'score_over00_home':0,
+                            'score_over15_home':0,
+                            'score_over25_home':0,
+                            'score_over35_home':0,
+                            'score_over45_home':0,
+                            'score_home_home':0,
+                            'score_draw_home':0,
+                            'score_away_home':0,
+                            'score_bts_home':0,
+                            'score_odd_home':0,
+                            'score_even_home':0,
+
+                            'score_over00_away':0,
+                            'score_over15_away':0,
+                            'score_over25_away':0,
+                            'score_over35_away':0,
+                            'score_over45_away':0,
+                            'score_home_away':0,
+                            'score_draw_away':0,
+                            'score_away_away':0,
+                            'score_bts_away':0,
+                            'score_odd_away':0,
+                            'score_even_away':0
+                        }
+                    }
+                    let live_segment_stats1 = {
+                        'stats_0_15': {
+                            home:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            },
+                            away:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            }
+                        },
+                        'stats_16_30': {
+                            home:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            },
+                            away:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            }
+                        },
+                        'stats_31_45': {
+                            home:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            },
+                            away:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            }
+                        },
+                        'stats_46_60': {
+                            home:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            },
+                            away:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            }
+                        },
+                        'stats_61_75': {
+                            home:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            },
+                            away:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            }
+                        },
+                        'stats_76_90': {
+                            home:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            },
+                            away:{
+                                'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                            }
+                        }
+                    }
                     if(times.length > 0){
                         for(let j = 0; j < times.length; j++){
                             if(times[j].minute <= 15){
@@ -2439,25 +3035,757 @@
                     //---------------
                     if(times.length > 0){
                         for(let j = 0; j < times.length; j++){
+                            let cStats = stats[j]
                             if(times[j].minute <= 15){
-
+                                if(home_id == cStats[0].team_id){
+                                    if(cStats[0].shots){
+                                        if(cStats[0].shots.ongoal){
+                                            live_segment_stats1.stats_0_15.home.on = cStats[0].shots.ongoal
+                                            live_segment_stats1.stats_0_15.away.on = cStats[1].shots.ongoal
+                                        }
+                                        if(cStats[0].shots.offgoal){
+                                            live_segment_stats1.stats_0_15.home.off = cStats[0].shots.offgoal
+                                            live_segment_stats1.stats_0_15.away.off = cStats[1].shots.offgoal
+                                        }
+                                        if(cStats[0].shots.blocked){
+                                            live_segment_stats1.stats_0_15.home.blk = cStats[0].shots.blocked
+                                            live_segment_stats1.stats_0_15.away.blk = cStats[1].shots.blocked
+                                        }
+                                        if(cStats[0].shots.insidebox){
+                                            live_segment_stats1.stats_0_15.home.in = cStats[0].shots.insidebox
+                                            live_segment_stats1.stats_0_15.away.in = cStats[1].shots.insidebox
+                                        }
+                                        if(cStats[0].shots.outsidebox){
+                                            live_segment_stats1.stats_0_15.home.out = cStats[0].shots.outsidebox
+                                            live_segment_stats1.stats_0_15.away.out = cStats[1].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[0].corners){
+                                        live_segment_stats1.stats_0_15.home.cnr = cStats[0].corners
+                                        live_segment_stats1.stats_0_15.away.cnr = cStats[1].corners
+                                    }
+                                    if(cStats[0].goals){
+                                        live_segment_stats1.stats_0_15.home.goal = cStats[0].goals
+                                        live_segment_stats1.stats_0_15.away.goal = cStats[1].goals
+                                    }
+                                    if(cStats[0].attacks){
+                                        if(cStats[0].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_0_15.home.da = cStats[0].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_0_15.away.da = cStats[1].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[0].possessiontime){
+                                        live_segment_stats1.stats_0_15.home.pos = cStats[0].possessiontime
+                                        live_segment_stats1.stats_0_15.away.pos = cStats[1].possessiontime
+                                    }
+                                    if(cStats[0].redcards){
+                                        live_segment_stats1.stats_0_15.home.red = cStats[0].redcards
+                                        live_segment_stats1.stats_0_15.away.red = cStats[1].redcards
+                                    }
+                                    if(cStats[0].yellowcards){
+                                        live_segment_stats1.stats_0_15.home.yel = cStats[0].yellowcards
+                                        live_segment_stats1.stats_0_15.home.yel = cStats[1].yellowcards
+                                    }
+                                }
+                                if(home_id == cStats[1].team_id){
+                                    if(cStats[1].shots){
+                                        if(cStats[1].shots.ongoal){
+                                            live_segment_stats1.stats_0_15.home.on = cStats[1].shots.ongoal
+                                            live_segment_stats1.stats_0_15.away.on = cStats[0].shots.ongoal
+                                        }
+                                        if(cStats[1].shots.offgoal){
+                                            live_segment_stats1.stats_0_15.home.off = cStats[1].shots.offgoal
+                                            live_segment_stats1.stats_0_15.away.off = cStats[0].shots.offgoal
+                                        }
+                                        if(cStats[1].shots.blocked){
+                                            live_segment_stats1.stats_0_15.home.blk = cStats[1].shots.blocked
+                                            live_segment_stats1.stats_0_15.away.blk = cStats[0].shots.blocked
+                                        }
+                                        if(cStats[1].shots.insidebox){
+                                            live_segment_stats1.stats_0_15.home.in = cStats[1].shots.insidebox
+                                            live_segment_stats1.stats_0_15.away.in = cStats[0].shots.insidebox
+                                        }
+                                        if(cStats[1].shots.outsidebox){
+                                            live_segment_stats1.stats_0_15.home.out = cStats[1].shots.outsidebox
+                                            live_segment_stats1.stats_0_15.away.out = cStats[0].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[1].corners){
+                                        live_segment_stats1.stats_0_15.home.cnr = cStats[1].corners
+                                        live_segment_stats1.stats_0_15.away.cnr = cStats[0].corners
+                                    }
+                                    if(cStats[1].goals){
+                                        live_segment_stats1.stats_0_15.home.goal = cStats[1].goals
+                                        live_segment_stats1.stats_0_15.away.goal = cStats[0].goals
+                                    }
+                                    if(cStats[1].attacks){
+                                        if(cStats[1].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_0_15.home.da = cStats[1].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_0_15.away.da = cStats[0].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[1].possessiontime){
+                                        live_segment_stats1.stats_0_15.home.pos = cStats[1].possessiontime
+                                        live_segment_stats1.stats_0_15.away.pos = cStats[0].possessiontime
+                                    }
+                                    if(cStats[1].redcards){
+                                        live_segment_stats1.stats_0_15.home.red = cStats[1].redcards
+                                        live_segment_stats1.stats_0_15.away.red = cStats[0].redcards
+                                    }
+                                    if(cStats[1].yellowcards){
+                                        live_segment_stats1.stats_0_15.home.yel = cStats[1].yellowcards
+                                        live_segment_stats1.stats_0_15.home.yel = cStats[0].yellowcards
+                                    }
+                                }
                             }
                             if(times[j].minute > 15 && times[j].minute <= 30){
-
+                                if(home_id == cStats[0].team_id){
+                                    if(cStats[0].shots){
+                                        if(cStats[0].shots.ongoal){
+                                            live_segment_stats1.stats_16_30.home.on = cStats[0].shots.ongoal
+                                            live_segment_stats1.stats_16_30.away.on = cStats[1].shots.ongoal
+                                        }
+                                        if(cStats[0].shots.offgoal){
+                                            live_segment_stats1.stats_16_30.home.off = cStats[0].shots.offgoal
+                                            live_segment_stats1.stats_16_30.away.off = cStats[1].shots.offgoal
+                                        }
+                                        if(cStats[0].shots.blocked){
+                                            live_segment_stats1.stats_16_30.home.blk = cStats[0].shots.blocked
+                                            live_segment_stats1.stats_16_30.away.blk = cStats[1].shots.blocked
+                                        }
+                                        if(cStats[0].shots.insidebox){
+                                            live_segment_stats1.stats_16_30.home.in = cStats[0].shots.insidebox
+                                            live_segment_stats1.stats_16_30.away.in = cStats[1].shots.insidebox
+                                        }
+                                        if(cStats[0].shots.outsidebox){
+                                            live_segment_stats1.stats_16_30.home.out = cStats[0].shots.outsidebox
+                                            live_segment_stats1.stats_16_30.away.out = cStats[1].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[0].corners){
+                                        live_segment_stats1.stats_16_30.home.cnr = cStats[0].corners
+                                        live_segment_stats1.stats_16_30.away.cnr = cStats[1].corners
+                                    }
+                                    if(cStats[0].goals){
+                                        live_segment_stats1.stats_16_30.home.goal = cStats[0].goals
+                                        live_segment_stats1.stats_16_30.away.goal = cStats[1].goals
+                                    }
+                                    if(cStats[0].attacks){
+                                        if(cStats[0].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_16_30.home.da = cStats[0].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_16_30.away.da = cStats[1].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[0].possessiontime){
+                                        live_segment_stats1.stats_16_30.home.pos = cStats[0].possessiontime
+                                        live_segment_stats1.stats_16_30.away.pos = cStats[1].possessiontime
+                                    }
+                                    if(cStats[0].redcards){
+                                        live_segment_stats1.stats_16_30.home.red = cStats[0].redcards
+                                        live_segment_stats1.stats_16_30.away.red = cStats[1].redcards
+                                    }
+                                    if(cStats[0].yellowcards){
+                                        live_segment_stats1.stats_16_30.home.yel = cStats[0].yellowcards
+                                        live_segment_stats1.stats_16_30.home.yel = cStats[1].yellowcards
+                                    }
+                                }
+                                if(home_id == cStats[1].team_id){
+                                    if(cStats[1].shots){
+                                        if(cStats[1].shots.ongoal){
+                                            live_segment_stats1.stats_16_30.home.on = cStats[1].shots.ongoal
+                                            live_segment_stats1.stats_16_30.away.on = cStats[0].shots.ongoal
+                                        }
+                                        if(cStats[1].shots.offgoal){
+                                            live_segment_stats1.stats_16_30.home.off = cStats[1].shots.offgoal
+                                            live_segment_stats1.stats_16_30.away.off = cStats[0].shots.offgoal
+                                        }
+                                        if(cStats[1].shots.blocked){
+                                            live_segment_stats1.stats_16_30.home.blk = cStats[1].shots.blocked
+                                            live_segment_stats1.stats_16_30.away.blk = cStats[0].shots.blocked
+                                        }
+                                        if(cStats[1].shots.insidebox){
+                                            live_segment_stats1.stats_16_30.home.in = cStats[1].shots.insidebox
+                                            live_segment_stats1.stats_16_30.away.in = cStats[0].shots.insidebox
+                                        }
+                                        if(cStats[1].shots.outsidebox){
+                                            live_segment_stats1.stats_16_30.home.out = cStats[1].shots.outsidebox
+                                            live_segment_stats1.stats_16_30.away.out = cStats[0].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[1].corners){
+                                        live_segment_stats1.stats_16_30.home.cnr = cStats[1].corners
+                                        live_segment_stats1.stats_16_30.away.cnr = cStats[0].corners
+                                    }
+                                    if(cStats[1].goals){
+                                        live_segment_stats1.stats_16_30.home.goal = cStats[1].goals
+                                        live_segment_stats1.stats_16_30.away.goal = cStats[0].goals
+                                    }
+                                    if(cStats[1].attacks){
+                                        if(cStats[1].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_16_30.home.da = cStats[1].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_16_30.away.da = cStats[0].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[1].possessiontime){
+                                        live_segment_stats1.stats_16_30.home.pos = cStats[1].possessiontime
+                                        live_segment_stats1.stats_16_30.away.pos = cStats[0].possessiontime
+                                    }
+                                    if(cStats[1].redcards){
+                                        live_segment_stats1.stats_16_30.home.red = cStats[1].redcards
+                                        live_segment_stats1.stats_16_30.away.red = cStats[0].redcards
+                                    }
+                                    if(cStats[1].yellowcards){
+                                        live_segment_stats1.stats_16_30.home.yel = cStats[1].yellowcards
+                                        live_segment_stats1.stats_16_30.home.yel = cStats[0].yellowcards
+                                    }
+                                }
                             }
                             if(times[j].minute > 30 && times[j].minute <= 45){
-
+                                if(home_id == cStats[0].team_id){
+                                    if(cStats[0].shots){
+                                        if(cStats[0].shots.ongoal){
+                                            live_segment_stats1.stats_31_45.home.on = cStats[0].shots.ongoal
+                                            live_segment_stats1.stats_31_45.away.on = cStats[1].shots.ongoal
+                                        }
+                                        if(cStats[0].shots.offgoal){
+                                            live_segment_stats1.stats_31_45.home.off = cStats[0].shots.offgoal
+                                            live_segment_stats1.stats_31_45.away.off = cStats[1].shots.offgoal
+                                        }
+                                        if(cStats[0].shots.blocked){
+                                            live_segment_stats1.stats_31_45.home.blk = cStats[0].shots.blocked
+                                            live_segment_stats1.stats_31_45.away.blk = cStats[1].shots.blocked
+                                        }
+                                        if(cStats[0].shots.insidebox){
+                                            live_segment_stats1.stats_31_45.home.in = cStats[0].shots.insidebox
+                                            live_segment_stats1.stats_31_45.away.in = cStats[1].shots.insidebox
+                                        }
+                                        if(cStats[0].shots.outsidebox){
+                                            live_segment_stats1.stats_31_45.home.out = cStats[0].shots.outsidebox
+                                            live_segment_stats1.stats_31_45.away.out = cStats[1].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[0].corners){
+                                        live_segment_stats1.stats_31_45.home.cnr = cStats[0].corners
+                                        live_segment_stats1.stats_31_45.away.cnr = cStats[1].corners
+                                    }
+                                    if(cStats[0].goals){
+                                        live_segment_stats1.stats_31_45.home.goal = cStats[0].goals
+                                        live_segment_stats1.stats_31_45.away.goal = cStats[1].goals
+                                    }
+                                    if(cStats[0].attacks){
+                                        if(cStats[0].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_31_45.home.da = cStats[0].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_31_45.away.da = cStats[1].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[0].possessiontime){
+                                        live_segment_stats1.stats_31_45.home.pos = cStats[0].possessiontime
+                                        live_segment_stats1.stats_31_45.away.pos = cStats[1].possessiontime
+                                    }
+                                    if(cStats[0].redcards){
+                                        live_segment_stats1.stats_31_45.home.red = cStats[0].redcards
+                                        live_segment_stats1.stats_31_45.away.red = cStats[1].redcards
+                                    }
+                                    if(cStats[0].yellowcards){
+                                        live_segment_stats1.stats_31_45.home.yel = cStats[0].yellowcards
+                                        live_segment_stats1.stats_31_45.home.yel = cStats[1].yellowcards
+                                    }
+                                }
+                                if(home_id == cStats[1].team_id){
+                                    if(cStats[1].shots){
+                                        if(cStats[1].shots.ongoal){
+                                            live_segment_stats1.stats_31_45.home.on = cStats[1].shots.ongoal
+                                            live_segment_stats1.stats_31_45.away.on = cStats[0].shots.ongoal
+                                        }
+                                        if(cStats[1].shots.offgoal){
+                                            live_segment_stats1.stats_31_45.home.off = cStats[1].shots.offgoal
+                                            live_segment_stats1.stats_31_45.away.off = cStats[0].shots.offgoal
+                                        }
+                                        if(cStats[1].shots.blocked){
+                                            live_segment_stats1.stats_31_45.home.blk = cStats[1].shots.blocked
+                                            live_segment_stats1.stats_31_45.away.blk = cStats[0].shots.blocked
+                                        }
+                                        if(cStats[1].shots.insidebox){
+                                            live_segment_stats1.stats_31_45.home.in = cStats[1].shots.insidebox
+                                            live_segment_stats1.stats_31_45.away.in = cStats[0].shots.insidebox
+                                        }
+                                        if(cStats[1].shots.outsidebox){
+                                            live_segment_stats1.stats_31_45.home.out = cStats[1].shots.outsidebox
+                                            live_segment_stats1.stats_31_45.away.out = cStats[0].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[1].corners){
+                                        live_segment_stats1.stats_31_45.home.cnr = cStats[1].corners
+                                        live_segment_stats1.stats_31_45.away.cnr = cStats[0].corners
+                                    }
+                                    if(cStats[1].goals){
+                                        live_segment_stats1.stats_31_45.home.goal = cStats[1].goals
+                                        live_segment_stats1.stats_31_45.away.goal = cStats[0].goals
+                                    }
+                                    if(cStats[1].attacks){
+                                        if(cStats[1].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_31_45.home.da = cStats[1].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_31_45.away.da = cStats[0].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[1].possessiontime){
+                                        live_segment_stats1.stats_31_45.home.pos = cStats[1].possessiontime
+                                        live_segment_stats1.stats_31_45.away.pos = cStats[0].possessiontime
+                                    }
+                                    if(cStats[1].redcards){
+                                        live_segment_stats1.stats_31_45.home.red = cStats[1].redcards
+                                        live_segment_stats1.stats_31_45.away.red = cStats[0].redcards
+                                    }
+                                    if(cStats[1].yellowcards){
+                                        live_segment_stats1.stats_31_45.home.yel = cStats[1].yellowcards
+                                        live_segment_stats1.stats_31_45.home.yel = cStats[0].yellowcards
+                                    }
+                                }
                             }
                             if(times[j].minute > 45 && times[j].minute <= 60){
-
+                                if(home_id == cStats[0].team_id){
+                                    if(cStats[0].shots){
+                                        if(cStats[0].shots.ongoal){
+                                            live_segment_stats1.stats_46_60.home.on = cStats[0].shots.ongoal
+                                            live_segment_stats1.stats_46_60.away.on = cStats[1].shots.ongoal
+                                        }
+                                        if(cStats[0].shots.offgoal){
+                                            live_segment_stats1.stats_46_60.home.off = cStats[0].shots.offgoal
+                                            live_segment_stats1.stats_46_60.away.off = cStats[1].shots.offgoal
+                                        }
+                                        if(cStats[0].shots.blocked){
+                                            live_segment_stats1.stats_46_60.home.blk = cStats[0].shots.blocked
+                                            live_segment_stats1.stats_46_60.away.blk = cStats[1].shots.blocked
+                                        }
+                                        if(cStats[0].shots.insidebox){
+                                            live_segment_stats1.stats_46_60.home.in = cStats[0].shots.insidebox
+                                            live_segment_stats1.stats_46_60.away.in = cStats[1].shots.insidebox
+                                        }
+                                        if(cStats[0].shots.outsidebox){
+                                            live_segment_stats1.stats_46_60.home.out = cStats[0].shots.outsidebox
+                                            live_segment_stats1.stats_46_60.away.out = cStats[1].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[0].corners){
+                                        live_segment_stats1.stats_46_60.home.cnr = cStats[0].corners
+                                        live_segment_stats1.stats_46_60.away.cnr = cStats[1].corners
+                                    }
+                                    if(cStats[0].goals){
+                                        live_segment_stats1.stats_46_60.home.goal = cStats[0].goals
+                                        live_segment_stats1.stats_46_60.away.goal = cStats[1].goals
+                                    }
+                                    if(cStats[0].attacks){
+                                        if(cStats[0].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_46_60.home.da = cStats[0].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_46_60.away.da = cStats[1].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[0].possessiontime){
+                                        live_segment_stats1.stats_46_60.home.pos = cStats[0].possessiontime
+                                        live_segment_stats1.stats_46_60.away.pos = cStats[1].possessiontime
+                                    }
+                                    if(cStats[0].redcards){
+                                        live_segment_stats1.stats_46_60.home.red = cStats[0].redcards
+                                        live_segment_stats1.stats_46_60.away.red = cStats[1].redcards
+                                    }
+                                    if(cStats[0].yellowcards){
+                                        live_segment_stats1.stats_46_60.home.yel = cStats[0].yellowcards
+                                        live_segment_stats1.stats_46_60.home.yel = cStats[1].yellowcards
+                                    }
+                                }
+                                if(home_id == cStats[1].team_id){
+                                    if(cStats[1].shots){
+                                        if(cStats[1].shots.ongoal){
+                                            live_segment_stats1.stats_46_60.home.on = cStats[1].shots.ongoal
+                                            live_segment_stats1.stats_46_60.away.on = cStats[0].shots.ongoal
+                                        }
+                                        if(cStats[1].shots.offgoal){
+                                            live_segment_stats1.stats_46_60.home.off = cStats[1].shots.offgoal
+                                            live_segment_stats1.stats_46_60.away.off = cStats[0].shots.offgoal
+                                        }
+                                        if(cStats[1].shots.blocked){
+                                            live_segment_stats1.stats_46_60.home.blk = cStats[1].shots.blocked
+                                            live_segment_stats1.stats_46_60.away.blk = cStats[0].shots.blocked
+                                        }
+                                        if(cStats[1].shots.insidebox){
+                                            live_segment_stats1.stats_46_60.home.in = cStats[1].shots.insidebox
+                                            live_segment_stats1.stats_46_60.away.in = cStats[0].shots.insidebox
+                                        }
+                                        if(cStats[1].shots.outsidebox){
+                                            live_segment_stats1.stats_46_60.home.out = cStats[1].shots.outsidebox
+                                            live_segment_stats1.stats_46_60.away.out = cStats[0].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[1].corners){
+                                        live_segment_stats1.stats_46_60.home.cnr = cStats[1].corners
+                                        live_segment_stats1.stats_46_60.away.cnr = cStats[0].corners
+                                    }
+                                    if(cStats[1].goals){
+                                        live_segment_stats1.stats_46_60.home.goal = cStats[1].goals
+                                        live_segment_stats1.stats_46_60.away.goal = cStats[0].goals
+                                    }
+                                    if(cStats[1].attacks){
+                                        if(cStats[1].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_46_60.home.da = cStats[1].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_46_60.away.da = cStats[0].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[1].possessiontime){
+                                        live_segment_stats1.stats_46_60.home.pos = cStats[1].possessiontime
+                                        live_segment_stats1.stats_46_60.away.pos = cStats[0].possessiontime
+                                    }
+                                    if(cStats[1].redcards){
+                                        live_segment_stats1.stats_46_60.home.red = cStats[1].redcards
+                                        live_segment_stats1.stats_46_60.away.red = cStats[0].redcards
+                                    }
+                                    if(cStats[1].yellowcards){
+                                        live_segment_stats1.stats_46_60.home.yel = cStats[1].yellowcards
+                                        live_segment_stats1.stats_46_60.home.yel = cStats[0].yellowcards
+                                    }
+                                }
                             }
                             if(times[j].minute > 60 && times[j].minute <= 75){
-
+                                if(home_id == cStats[0].team_id){
+                                    if(cStats[0].shots){
+                                        if(cStats[0].shots.ongoal){
+                                            live_segment_stats1.stats_61_75.home.on = cStats[0].shots.ongoal
+                                            live_segment_stats1.stats_61_75.away.on = cStats[1].shots.ongoal
+                                        }
+                                        if(cStats[0].shots.offgoal){
+                                            live_segment_stats1.stats_61_75.home.off = cStats[0].shots.offgoal
+                                            live_segment_stats1.stats_61_75.away.off = cStats[1].shots.offgoal
+                                        }
+                                        if(cStats[0].shots.blocked){
+                                            live_segment_stats1.stats_61_75.home.blk = cStats[0].shots.blocked
+                                            live_segment_stats1.stats_61_75.away.blk = cStats[1].shots.blocked
+                                        }
+                                        if(cStats[0].shots.insidebox){
+                                            live_segment_stats1.stats_61_75.home.in = cStats[0].shots.insidebox
+                                            live_segment_stats1.stats_61_75.away.in = cStats[1].shots.insidebox
+                                        }
+                                        if(cStats[0].shots.outsidebox){
+                                            live_segment_stats1.stats_61_75.home.out = cStats[0].shots.outsidebox
+                                            live_segment_stats1.stats_61_75.away.out = cStats[1].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[0].corners){
+                                        live_segment_stats1.stats_61_75.home.cnr = cStats[0].corners
+                                        live_segment_stats1.stats_61_75.away.cnr = cStats[1].corners
+                                    }
+                                    if(cStats[0].goals){
+                                        live_segment_stats1.stats_61_75.home.goal = cStats[0].goals
+                                        live_segment_stats1.stats_61_75.away.goal = cStats[1].goals
+                                    }
+                                    if(cStats[0].attacks){
+                                        if(cStats[0].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_61_75.home.da = cStats[0].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_61_75.away.da = cStats[1].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[0].possessiontime){
+                                        live_segment_stats1.stats_61_75.home.pos = cStats[0].possessiontime
+                                        live_segment_stats1.stats_61_75.away.pos = cStats[1].possessiontime
+                                    }
+                                    if(cStats[0].redcards){
+                                        live_segment_stats1.stats_61_75.home.red = cStats[0].redcards
+                                        live_segment_stats1.stats_61_75.away.red = cStats[1].redcards
+                                    }
+                                    if(cStats[0].yellowcards){
+                                        live_segment_stats1.stats_61_75.home.yel = cStats[0].yellowcards
+                                        live_segment_stats1.stats_61_75.home.yel = cStats[1].yellowcards
+                                    }
+                                }
+                                if(home_id == cStats[1].team_id){
+                                    if(cStats[1].shots){
+                                        if(cStats[1].shots.ongoal){
+                                            live_segment_stats1.stats_61_75.home.on = cStats[1].shots.ongoal
+                                            live_segment_stats1.stats_61_75.away.on = cStats[0].shots.ongoal
+                                        }
+                                        if(cStats[1].shots.offgoal){
+                                            live_segment_stats1.stats_61_75.home.off = cStats[1].shots.offgoal
+                                            live_segment_stats1.stats_61_75.away.off = cStats[0].shots.offgoal
+                                        }
+                                        if(cStats[1].shots.blocked){
+                                            live_segment_stats1.stats_61_75.home.blk = cStats[1].shots.blocked
+                                            live_segment_stats1.stats_61_75.away.blk = cStats[0].shots.blocked
+                                        }
+                                        if(cStats[1].shots.insidebox){
+                                            live_segment_stats1.stats_61_75.home.in = cStats[1].shots.insidebox
+                                            live_segment_stats1.stats_61_75.away.in = cStats[0].shots.insidebox
+                                        }
+                                        if(cStats[1].shots.outsidebox){
+                                            live_segment_stats1.stats_61_75.home.out = cStats[1].shots.outsidebox
+                                            live_segment_stats1.stats_61_75.away.out = cStats[0].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[1].corners){
+                                        live_segment_stats1.stats_61_75.home.cnr = cStats[1].corners
+                                        live_segment_stats1.stats_61_75.away.cnr = cStats[0].corners
+                                    }
+                                    if(cStats[1].goals){
+                                        live_segment_stats1.stats_61_75.home.goal = cStats[1].goals
+                                        live_segment_stats1.stats_61_75.away.goal = cStats[0].goals
+                                    }
+                                    if(cStats[1].attacks){
+                                        if(cStats[1].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_61_75.home.da = cStats[1].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_61_75.away.da = cStats[0].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[1].possessiontime){
+                                        live_segment_stats1.stats_61_75.home.pos = cStats[1].possessiontime
+                                        live_segment_stats1.stats_61_75.away.pos = cStats[0].possessiontime
+                                    }
+                                    if(cStats[1].redcards){
+                                        live_segment_stats1.stats_61_75.home.red = cStats[1].redcards
+                                        live_segment_stats1.stats_61_75.away.red = cStats[0].redcards
+                                    }
+                                    if(cStats[1].yellowcards){
+                                        live_segment_stats1.stats_61_75.home.yel = cStats[1].yellowcards
+                                        live_segment_stats1.stats_61_75.home.yel = cStats[0].yellowcards
+                                    }
+                                }
                             }
                             if(times[j].minute > 75 && times[j].minute <= 90){
-
+                                if(home_id == cStats[0].team_id){
+                                    if(cStats[0].shots){
+                                        if(cStats[0].shots.ongoal){
+                                            live_segment_stats1.stats_76_90.home.on = cStats[0].shots.ongoal
+                                            live_segment_stats1.stats_76_90.away.on = cStats[1].shots.ongoal
+                                        }
+                                        if(cStats[0].shots.offgoal){
+                                            live_segment_stats1.stats_76_90.home.off = cStats[0].shots.offgoal
+                                            live_segment_stats1.stats_76_90.away.off = cStats[1].shots.offgoal
+                                        }
+                                        if(cStats[0].shots.blocked){
+                                            live_segment_stats1.stats_76_90.home.blk = cStats[0].shots.blocked
+                                            live_segment_stats1.stats_76_90.away.blk = cStats[1].shots.blocked
+                                        }
+                                        if(cStats[0].shots.insidebox){
+                                            live_segment_stats1.stats_76_90.home.in = cStats[0].shots.insidebox
+                                            live_segment_stats1.stats_76_90.away.in = cStats[1].shots.insidebox
+                                        }
+                                        if(cStats[0].shots.outsidebox){
+                                            live_segment_stats1.stats_76_90.home.out = cStats[0].shots.outsidebox
+                                            live_segment_stats1.stats_76_90.away.out = cStats[1].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[0].corners){
+                                        live_segment_stats1.stats_76_90.home.cnr = cStats[0].corners
+                                        live_segment_stats1.stats_76_90.away.cnr = cStats[1].corners
+                                    }
+                                    if(cStats[0].goals){
+                                        live_segment_stats1.stats_76_90.home.goal = cStats[0].goals
+                                        live_segment_stats1.stats_76_90.away.goal = cStats[1].goals
+                                    }
+                                    if(cStats[0].attacks){
+                                        if(cStats[0].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_76_90.home.da = cStats[0].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_76_90.away.da = cStats[1].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[0].possessiontime){
+                                        live_segment_stats1.stats_76_90.home.pos = cStats[0].possessiontime
+                                        live_segment_stats1.stats_76_90.away.pos = cStats[1].possessiontime
+                                    }
+                                    if(cStats[0].redcards){
+                                        live_segment_stats1.stats_76_90.home.red = cStats[0].redcards
+                                        live_segment_stats1.stats_76_90.away.red = cStats[1].redcards
+                                    }
+                                    if(cStats[0].yellowcards){
+                                        live_segment_stats1.stats_76_90.home.yel = cStats[0].yellowcards
+                                        live_segment_stats1.stats_76_90.home.yel = cStats[1].yellowcards
+                                    }
+                                }
+                                if(home_id == cStats[1].team_id){
+                                    if(cStats[1].shots){
+                                        if(cStats[1].shots.ongoal){
+                                            live_segment_stats1.stats_76_90.home.on = cStats[1].shots.ongoal
+                                            live_segment_stats1.stats_76_90.away.on = cStats[0].shots.ongoal
+                                        }
+                                        if(cStats[1].shots.offgoal){
+                                            live_segment_stats1.stats_76_90.home.off = cStats[1].shots.offgoal
+                                            live_segment_stats1.stats_76_90.away.off = cStats[0].shots.offgoal
+                                        }
+                                        if(cStats[1].shots.blocked){
+                                            live_segment_stats1.stats_76_90.home.blk = cStats[1].shots.blocked
+                                            live_segment_stats1.stats_76_90.away.blk = cStats[0].shots.blocked
+                                        }
+                                        if(cStats[1].shots.insidebox){
+                                            live_segment_stats1.stats_76_90.home.in = cStats[1].shots.insidebox
+                                            live_segment_stats1.stats_76_90.away.in = cStats[0].shots.insidebox
+                                        }
+                                        if(cStats[1].shots.outsidebox){
+                                            live_segment_stats1.stats_76_90.home.out = cStats[1].shots.outsidebox
+                                            live_segment_stats1.stats_76_90.away.out = cStats[0].shots.outsidebox
+                                        }
+                                    }
+                                    if(cStats[1].corners){
+                                        live_segment_stats1.stats_76_90.home.cnr = cStats[1].corners
+                                        live_segment_stats1.stats_76_90.away.cnr = cStats[0].corners
+                                    }
+                                    if(cStats[1].goals){
+                                        live_segment_stats1.stats_76_90.home.goal = cStats[1].goals
+                                        live_segment_stats1.stats_76_90.away.goal = cStats[0].goals
+                                    }
+                                    if(cStats[1].attacks){
+                                        if(cStats[1].attacks.dangerous_attacks){
+                                            live_segment_stats1.stats_76_90.home.da = cStats[1].attacks.dangerous_attacks
+                                            live_segment_stats1.stats_76_90.away.da = cStats[0].attacks.dangerous_attacks
+                                        }
+                                    }
+                                    if(cStats[1].possessiontime){
+                                        live_segment_stats1.stats_76_90.home.pos = cStats[1].possessiontime
+                                        live_segment_stats1.stats_76_90.away.pos = cStats[0].possessiontime
+                                    }
+                                    if(cStats[1].redcards){
+                                        live_segment_stats1.stats_76_90.home.red = cStats[1].redcards
+                                        live_segment_stats1.stats_76_90.away.red = cStats[0].redcards
+                                    }
+                                    if(cStats[1].yellowcards){
+                                        live_segment_stats1.stats_76_90.home.yel = cStats[1].yellowcards
+                                        live_segment_stats1.stats_76_90.home.yel = cStats[0].yellowcards
+                                    }
+                                }
                             }
                         }
+                        this.live_segment_stats.stats_0_15.home.goal = this.live_segment_stats.stats_0_15.home.goal + live_segment_stats1.stats_0_15.home.goal
+                        this.live_segment_stats.stats_0_15.away.goal = this.live_segment_stats.stats_0_15.away.goal + live_segment_stats1.stats_0_15.away.goal
+                        this.live_segment_stats.stats_0_15.home.on = this.live_segment_stats.stats_0_15.home.on + live_segment_stats1.stats_0_15.home.on
+                        this.live_segment_stats.stats_0_15.away.on = this.live_segment_stats.stats_0_15.away.on + live_segment_stats1.stats_0_15.away.on
+                        this.live_segment_stats.stats_0_15.home.off = this.live_segment_stats.stats_0_15.home.off + live_segment_stats1.stats_0_15.home.off
+                        this.live_segment_stats.stats_0_15.away.off = this.live_segment_stats.stats_0_15.away.off + live_segment_stats1.stats_0_15.away.off
+                        this.live_segment_stats.stats_0_15.home.blk = this.live_segment_stats.stats_0_15.home.blk + live_segment_stats1.stats_0_15.home.blk
+                        this.live_segment_stats.stats_0_15.away.blk = this.live_segment_stats.stats_0_15.away.blk + live_segment_stats1.stats_0_15.away.blk
+                        this.live_segment_stats.stats_0_15.home.in = this.live_segment_stats.stats_0_15.home.in + live_segment_stats1.stats_0_15.home.in
+                        this.live_segment_stats.stats_0_15.away.in = this.live_segment_stats.stats_0_15.away.in + live_segment_stats1.stats_0_15.away.in
+                        this.live_segment_stats.stats_0_15.home.out = this.live_segment_stats.stats_0_15.home.out + live_segment_stats1.stats_0_15.home.out
+                        this.live_segment_stats.stats_0_15.away.out = this.live_segment_stats.stats_0_15.away.out + live_segment_stats1.stats_0_15.away.out
+                        this.live_segment_stats.stats_0_15.home.cnr = this.live_segment_stats.stats_0_15.home.cnr + live_segment_stats1.stats_0_15.home.cnr
+                        this.live_segment_stats.stats_0_15.away.cnr = this.live_segment_stats.stats_0_15.away.cnr + live_segment_stats1.stats_0_15.away.cnr
+                        this.live_segment_stats.stats_0_15.home.da = this.live_segment_stats.stats_0_15.home.da + live_segment_stats1.stats_0_15.home.da
+                        this.live_segment_stats.stats_0_15.away.da = this.live_segment_stats.stats_0_15.away.da + live_segment_stats1.stats_0_15.away.da
+                        this.live_segment_stats.stats_0_15.home.pos = this.live_segment_stats.stats_0_15.home.pos + live_segment_stats1.stats_0_15.home.pos
+                        this.live_segment_stats.stats_0_15.away.pos = this.live_segment_stats.stats_0_15.away.pos + live_segment_stats1.stats_0_15.away.pos
+                        this.live_segment_stats.stats_0_15.home.red = this.live_segment_stats.stats_0_15.home.red + live_segment_stats1.stats_0_15.home.red
+                        this.live_segment_stats.stats_0_15.away.red = this.live_segment_stats.stats_0_15.away.red + live_segment_stats1.stats_0_15.away.red
+                        this.live_segment_stats.stats_0_15.home.yel = this.live_segment_stats.stats_0_15.home.yel + live_segment_stats1.stats_0_15.home.yel
+                        this.live_segment_stats.stats_0_15.away.yel = this.live_segment_stats.stats_0_15.away.yel + live_segment_stats1.stats_0_15.away.yel
+
+                        this.live_segment_stats.stats_16_30.home.goal = this.live_segment_stats.stats_16_30.home.goal + live_segment_stats1.stats_16_30.home.goal
+                        this.live_segment_stats.stats_16_30.away.goal = this.live_segment_stats.stats_16_30.away.goal + live_segment_stats1.stats_16_30.away.goal
+                        this.live_segment_stats.stats_16_30.home.on = this.live_segment_stats.stats_16_30.home.on + live_segment_stats1.stats_16_30.home.on
+                        this.live_segment_stats.stats_16_30.away.on = this.live_segment_stats.stats_16_30.away.on + live_segment_stats1.stats_16_30.away.on
+                        this.live_segment_stats.stats_16_30.home.off = this.live_segment_stats.stats_16_30.home.off + live_segment_stats1.stats_16_30.home.off
+                        this.live_segment_stats.stats_16_30.away.off = this.live_segment_stats.stats_16_30.away.off + live_segment_stats1.stats_16_30.away.off
+                        this.live_segment_stats.stats_16_30.home.blk = this.live_segment_stats.stats_16_30.home.blk + live_segment_stats1.stats_16_30.home.blk
+                        this.live_segment_stats.stats_16_30.away.blk = this.live_segment_stats.stats_16_30.away.blk + live_segment_stats1.stats_16_30.away.blk
+                        this.live_segment_stats.stats_16_30.home.in = this.live_segment_stats.stats_16_30.home.in + live_segment_stats1.stats_16_30.home.in
+                        this.live_segment_stats.stats_16_30.away.in = this.live_segment_stats.stats_16_30.away.in + live_segment_stats1.stats_16_30.away.in
+                        this.live_segment_stats.stats_16_30.home.out = this.live_segment_stats.stats_16_30.home.out + live_segment_stats1.stats_16_30.home.out
+                        this.live_segment_stats.stats_16_30.away.out = this.live_segment_stats.stats_16_30.away.out + live_segment_stats1.stats_16_30.away.out
+                        this.live_segment_stats.stats_16_30.home.cnr = this.live_segment_stats.stats_16_30.home.cnr + live_segment_stats1.stats_16_30.home.cnr
+                        this.live_segment_stats.stats_16_30.away.cnr = this.live_segment_stats.stats_16_30.away.cnr + live_segment_stats1.stats_16_30.away.cnr
+                        this.live_segment_stats.stats_16_30.home.da = this.live_segment_stats.stats_16_30.home.da + live_segment_stats1.stats_16_30.home.da
+                        this.live_segment_stats.stats_16_30.away.da = this.live_segment_stats.stats_16_30.away.da + live_segment_stats1.stats_16_30.away.da
+                        this.live_segment_stats.stats_16_30.home.pos = this.live_segment_stats.stats_16_30.home.pos + live_segment_stats1.stats_16_30.home.pos
+                        this.live_segment_stats.stats_16_30.away.pos = this.live_segment_stats.stats_16_30.away.pos + live_segment_stats1.stats_16_30.away.pos
+                        this.live_segment_stats.stats_16_30.home.red = this.live_segment_stats.stats_16_30.home.red + live_segment_stats1.stats_16_30.home.red
+                        this.live_segment_stats.stats_16_30.away.red = this.live_segment_stats.stats_16_30.away.red + live_segment_stats1.stats_16_30.away.red
+                        this.live_segment_stats.stats_16_30.home.yel = this.live_segment_stats.stats_16_30.home.yel + live_segment_stats1.stats_16_30.home.yel
+                        this.live_segment_stats.stats_16_30.away.yel = this.live_segment_stats.stats_16_30.away.yel + live_segment_stats1.stats_16_30.away.yel
+
+                        this.live_segment_stats.stats_31_45.home.goal = this.live_segment_stats.stats_31_45.home.goal + live_segment_stats1.stats_31_45.home.goal
+                        this.live_segment_stats.stats_31_45.away.goal = this.live_segment_stats.stats_31_45.away.goal + live_segment_stats1.stats_31_45.away.goal
+                        this.live_segment_stats.stats_31_45.home.on = this.live_segment_stats.stats_31_45.home.on + live_segment_stats1.stats_31_45.home.on
+                        this.live_segment_stats.stats_31_45.away.on = this.live_segment_stats.stats_31_45.away.on + live_segment_stats1.stats_31_45.away.on
+                        this.live_segment_stats.stats_31_45.home.off = this.live_segment_stats.stats_31_45.home.off + live_segment_stats1.stats_31_45.home.off
+                        this.live_segment_stats.stats_31_45.away.off = this.live_segment_stats.stats_31_45.away.off + live_segment_stats1.stats_31_45.away.off
+                        this.live_segment_stats.stats_31_45.home.blk = this.live_segment_stats.stats_31_45.home.blk + live_segment_stats1.stats_31_45.home.blk
+                        this.live_segment_stats.stats_31_45.away.blk = this.live_segment_stats.stats_31_45.away.blk + live_segment_stats1.stats_31_45.away.blk
+                        this.live_segment_stats.stats_31_45.home.in = this.live_segment_stats.stats_31_45.home.in + live_segment_stats1.stats_31_45.home.in
+                        this.live_segment_stats.stats_31_45.away.in = this.live_segment_stats.stats_31_45.away.in + live_segment_stats1.stats_31_45.away.in
+                        this.live_segment_stats.stats_31_45.home.out = this.live_segment_stats.stats_31_45.home.out + live_segment_stats1.stats_31_45.home.out
+                        this.live_segment_stats.stats_31_45.away.out = this.live_segment_stats.stats_31_45.away.out + live_segment_stats1.stats_31_45.away.out
+                        this.live_segment_stats.stats_31_45.home.cnr = this.live_segment_stats.stats_31_45.home.cnr + live_segment_stats1.stats_31_45.home.cnr
+                        this.live_segment_stats.stats_31_45.away.cnr = this.live_segment_stats.stats_31_45.away.cnr + live_segment_stats1.stats_31_45.away.cnr
+                        this.live_segment_stats.stats_31_45.home.da = this.live_segment_stats.stats_31_45.home.da + live_segment_stats1.stats_31_45.home.da
+                        this.live_segment_stats.stats_31_45.away.da = this.live_segment_stats.stats_31_45.away.da + live_segment_stats1.stats_31_45.away.da
+                        this.live_segment_stats.stats_31_45.home.pos = this.live_segment_stats.stats_31_45.home.pos + live_segment_stats1.stats_31_45.home.pos
+                        this.live_segment_stats.stats_31_45.away.pos = this.live_segment_stats.stats_31_45.away.pos + live_segment_stats1.stats_31_45.away.pos
+                        this.live_segment_stats.stats_31_45.home.red = this.live_segment_stats.stats_31_45.home.red + live_segment_stats1.stats_31_45.home.red
+                        this.live_segment_stats.stats_31_45.away.red = this.live_segment_stats.stats_31_45.away.red + live_segment_stats1.stats_31_45.away.red
+                        this.live_segment_stats.stats_31_45.home.yel = this.live_segment_stats.stats_31_45.home.yel + live_segment_stats1.stats_31_45.home.yel
+                        this.live_segment_stats.stats_31_45.away.yel = this.live_segment_stats.stats_31_45.away.yel + live_segment_stats1.stats_31_45.away.yel
+
+                        this.live_segment_stats.stats_46_60.home.goal = this.live_segment_stats.stats_46_60.home.goal + live_segment_stats1.stats_46_60.home.goal
+                        this.live_segment_stats.stats_46_60.away.goal = this.live_segment_stats.stats_46_60.away.goal + live_segment_stats1.stats_46_60.away.goal
+                        this.live_segment_stats.stats_46_60.home.on = this.live_segment_stats.stats_46_60.home.on + live_segment_stats1.stats_46_60.home.on
+                        this.live_segment_stats.stats_46_60.away.on = this.live_segment_stats.stats_46_60.away.on + live_segment_stats1.stats_46_60.away.on
+                        this.live_segment_stats.stats_46_60.home.off = this.live_segment_stats.stats_46_60.home.off + live_segment_stats1.stats_46_60.home.off
+                        this.live_segment_stats.stats_46_60.away.off = this.live_segment_stats.stats_46_60.away.off + live_segment_stats1.stats_46_60.away.off
+                        this.live_segment_stats.stats_46_60.home.blk = this.live_segment_stats.stats_46_60.home.blk + live_segment_stats1.stats_46_60.home.blk
+                        this.live_segment_stats.stats_46_60.away.blk = this.live_segment_stats.stats_46_60.away.blk + live_segment_stats1.stats_46_60.away.blk
+                        this.live_segment_stats.stats_46_60.home.in = this.live_segment_stats.stats_46_60.home.in + live_segment_stats1.stats_46_60.home.in
+                        this.live_segment_stats.stats_46_60.away.in = this.live_segment_stats.stats_46_60.away.in + live_segment_stats1.stats_46_60.away.in
+                        this.live_segment_stats.stats_46_60.home.out = this.live_segment_stats.stats_46_60.home.out + live_segment_stats1.stats_46_60.home.out
+                        this.live_segment_stats.stats_46_60.away.out = this.live_segment_stats.stats_46_60.away.out + live_segment_stats1.stats_46_60.away.out
+                        this.live_segment_stats.stats_46_60.home.cnr = this.live_segment_stats.stats_46_60.home.cnr + live_segment_stats1.stats_46_60.home.cnr
+                        this.live_segment_stats.stats_46_60.away.cnr = this.live_segment_stats.stats_46_60.away.cnr + live_segment_stats1.stats_46_60.away.cnr
+                        this.live_segment_stats.stats_46_60.home.da = this.live_segment_stats.stats_46_60.home.da + live_segment_stats1.stats_46_60.home.da
+                        this.live_segment_stats.stats_46_60.away.da = this.live_segment_stats.stats_46_60.away.da + live_segment_stats1.stats_46_60.away.da
+                        this.live_segment_stats.stats_46_60.home.pos = this.live_segment_stats.stats_46_60.home.pos + live_segment_stats1.stats_46_60.home.pos
+                        this.live_segment_stats.stats_46_60.away.pos = this.live_segment_stats.stats_46_60.away.pos + live_segment_stats1.stats_46_60.away.pos
+                        this.live_segment_stats.stats_46_60.home.red = this.live_segment_stats.stats_46_60.home.red + live_segment_stats1.stats_46_60.home.red
+                        this.live_segment_stats.stats_46_60.away.red = this.live_segment_stats.stats_46_60.away.red + live_segment_stats1.stats_46_60.away.red
+                        this.live_segment_stats.stats_46_60.home.yel = this.live_segment_stats.stats_46_60.home.yel + live_segment_stats1.stats_46_60.home.yel
+                        this.live_segment_stats.stats_46_60.away.yel = this.live_segment_stats.stats_46_60.away.yel + live_segment_stats1.stats_46_60.away.yel
+
+                        this.live_segment_stats.stats_61_75.home.goal = this.live_segment_stats.stats_61_75.home.goal + live_segment_stats1.stats_61_75.home.goal
+                        this.live_segment_stats.stats_61_75.away.goal = this.live_segment_stats.stats_61_75.away.goal + live_segment_stats1.stats_61_75.away.goal
+                        this.live_segment_stats.stats_61_75.home.on = this.live_segment_stats.stats_61_75.home.on + live_segment_stats1.stats_61_75.home.on
+                        this.live_segment_stats.stats_61_75.away.on = this.live_segment_stats.stats_61_75.away.on + live_segment_stats1.stats_61_75.away.on
+                        this.live_segment_stats.stats_61_75.home.off = this.live_segment_stats.stats_61_75.home.off + live_segment_stats1.stats_61_75.home.off
+                        this.live_segment_stats.stats_61_75.away.off = this.live_segment_stats.stats_61_75.away.off + live_segment_stats1.stats_61_75.away.off
+                        this.live_segment_stats.stats_61_75.home.blk = this.live_segment_stats.stats_61_75.home.blk + live_segment_stats1.stats_61_75.home.blk
+                        this.live_segment_stats.stats_61_75.away.blk = this.live_segment_stats.stats_61_75.away.blk + live_segment_stats1.stats_61_75.away.blk
+                        this.live_segment_stats.stats_61_75.home.in = this.live_segment_stats.stats_61_75.home.in + live_segment_stats1.stats_61_75.home.in
+                        this.live_segment_stats.stats_61_75.away.in = this.live_segment_stats.stats_61_75.away.in + live_segment_stats1.stats_61_75.away.in
+                        this.live_segment_stats.stats_61_75.home.out = this.live_segment_stats.stats_61_75.home.out + live_segment_stats1.stats_61_75.home.out
+                        this.live_segment_stats.stats_61_75.away.out = this.live_segment_stats.stats_61_75.away.out + live_segment_stats1.stats_61_75.away.out
+                        this.live_segment_stats.stats_61_75.home.cnr = this.live_segment_stats.stats_61_75.home.cnr + live_segment_stats1.stats_61_75.home.cnr
+                        this.live_segment_stats.stats_61_75.away.cnr = this.live_segment_stats.stats_61_75.away.cnr + live_segment_stats1.stats_61_75.away.cnr
+                        this.live_segment_stats.stats_61_75.home.da = this.live_segment_stats.stats_61_75.home.da + live_segment_stats1.stats_61_75.home.da
+                        this.live_segment_stats.stats_61_75.away.da = this.live_segment_stats.stats_61_75.away.da + live_segment_stats1.stats_61_75.away.da
+                        this.live_segment_stats.stats_61_75.home.pos = this.live_segment_stats.stats_61_75.home.pos + live_segment_stats1.stats_61_75.home.pos
+                        this.live_segment_stats.stats_61_75.away.pos = this.live_segment_stats.stats_61_75.away.pos + live_segment_stats1.stats_61_75.away.pos
+                        this.live_segment_stats.stats_61_75.home.red = this.live_segment_stats.stats_61_75.home.red + live_segment_stats1.stats_61_75.home.red
+                        this.live_segment_stats.stats_61_75.away.red = this.live_segment_stats.stats_61_75.away.red + live_segment_stats1.stats_61_75.away.red
+                        this.live_segment_stats.stats_61_75.home.yel = this.live_segment_stats.stats_61_75.home.yel + live_segment_stats1.stats_61_75.home.yel
+                        this.live_segment_stats.stats_61_75.away.yel = this.live_segment_stats.stats_61_75.away.yel + live_segment_stats1.stats_61_75.away.yel
+
+                        this.live_segment_stats.stats_76_90.home.goal = this.live_segment_stats.stats_76_90.home.goal + live_segment_stats1.stats_76_90.home.goal
+                        this.live_segment_stats.stats_76_90.away.goal = this.live_segment_stats.stats_76_90.away.goal + live_segment_stats1.stats_76_90.away.goal
+                        this.live_segment_stats.stats_76_90.home.on = this.live_segment_stats.stats_76_90.home.on + live_segment_stats1.stats_76_90.home.on
+                        this.live_segment_stats.stats_76_90.away.on = this.live_segment_stats.stats_76_90.away.on + live_segment_stats1.stats_76_90.away.on
+                        this.live_segment_stats.stats_76_90.home.off = this.live_segment_stats.stats_76_90.home.off + live_segment_stats1.stats_76_90.home.off
+                        this.live_segment_stats.stats_76_90.away.off = this.live_segment_stats.stats_76_90.away.off + live_segment_stats1.stats_76_90.away.off
+                        this.live_segment_stats.stats_76_90.home.blk = this.live_segment_stats.stats_76_90.home.blk + live_segment_stats1.stats_76_90.home.blk
+                        this.live_segment_stats.stats_76_90.away.blk = this.live_segment_stats.stats_76_90.away.blk + live_segment_stats1.stats_76_90.away.blk
+                        this.live_segment_stats.stats_76_90.home.in = this.live_segment_stats.stats_76_90.home.in + live_segment_stats1.stats_76_90.home.in
+                        this.live_segment_stats.stats_76_90.away.in = this.live_segment_stats.stats_76_90.away.in + live_segment_stats1.stats_76_90.away.in
+                        this.live_segment_stats.stats_76_90.home.out = this.live_segment_stats.stats_76_90.home.out + live_segment_stats1.stats_76_90.home.out
+                        this.live_segment_stats.stats_76_90.away.out = this.live_segment_stats.stats_76_90.away.out + live_segment_stats1.stats_76_90.away.out
+                        this.live_segment_stats.stats_76_90.home.cnr = this.live_segment_stats.stats_76_90.home.cnr + live_segment_stats1.stats_76_90.home.cnr
+                        this.live_segment_stats.stats_76_90.away.cnr = this.live_segment_stats.stats_76_90.away.cnr + live_segment_stats1.stats_76_90.away.cnr
+                        this.live_segment_stats.stats_76_90.home.da = this.live_segment_stats.stats_76_90.home.da + live_segment_stats1.stats_76_90.home.da
+                        this.live_segment_stats.stats_76_90.away.da = this.live_segment_stats.stats_76_90.away.da + live_segment_stats1.stats_76_90.away.da
+                        this.live_segment_stats.stats_76_90.home.pos = this.live_segment_stats.stats_76_90.home.pos + live_segment_stats1.stats_76_90.home.pos
+                        this.live_segment_stats.stats_76_90.away.pos = this.live_segment_stats.stats_76_90.away.pos + live_segment_stats1.stats_76_90.away.pos
+                        this.live_segment_stats.stats_76_90.home.red = this.live_segment_stats.stats_76_90.home.red + live_segment_stats1.stats_76_90.home.red
+                        this.live_segment_stats.stats_76_90.away.red = this.live_segment_stats.stats_76_90.away.red + live_segment_stats1.stats_76_90.away.red
+                        this.live_segment_stats.stats_76_90.home.yel = this.live_segment_stats.stats_76_90.home.yel + live_segment_stats1.stats_76_90.home.yel
+                        this.live_segment_stats.stats_76_90.away.yel = this.live_segment_stats.stats_76_90.away.yel + live_segment_stats1.stats_76_90.away.yel
                     }
                 }
             },
@@ -2750,8 +4078,6 @@
                     let away_id = value.away_id
                     console.log('events ==>', value)
                     if(value.away_rank && value.home_rank){
-                        console.log('rank checking', this.homeTeam.rank.from, this.homeTeam.rank.to, this.awayTeam.rank.from, this.awayTeam.rank.to)
-                        console.log('rank checking', value.home_rank, value.away_rank)
                         if(value.home_rank >= this.homeTeam.rank.from && value.home_rank <= this.homeTeam.rank.to && value.away_rank >= this.awayTeam.rank.from && value.away_rank <= this.awayTeam.rank.to){
                             let stats_length = stats.length
 
@@ -2787,81 +4113,194 @@
                                 }
                                 if(statsData[0].team_id == home_id){
                                     if(statsData[0].shots){
-                                        home_stats_data.on = statsData[0].shots.ongoal
-                                        away_stats_data.on = statsData[1].shots.ongoal
-                                        home_stats_data.off = statsData[0].shots.offgoal
-                                        away_stats_data.off = statsData[1].shots.offgoal
-                                        home_stats_data.blk = statsData[0].shots.blocked
-                                        away_stats_data.blk = statsData[1].shots.blocked
-                                        home_stats_data.in = statsData[0].shots.insidebox
-                                        away_stats_data.in = statsData[1].shots.insidebox
-                                        home_stats_data.out = statsData[0].shots.outsidebox
-                                        away_stats_data.out = statsData[1].shots.outsidebox
+                                        if(statsData[0].shots.ongoal){
+                                            home_stats_data.on = statsData[0].shots.ongoal
+                                            away_stats_data.on = statsData[1].shots.ongoal
+                                        }
+                                        else{
+                                            home_stats_data.on = 0
+                                            away_stats_data.on = 0
+                                        }
+                                        if(statsData[0].shots.offgoal){
+                                            home_stats_data.off = statsData[0].shots.offgoal
+                                            away_stats_data.off = statsData[1].shots.offgoal
+                                        }
+                                        else{
+                                            home_stats_data.off = 0
+                                            away_stats_data.off = 0
+                                        }
+                                        if(statsData[0].shots.blocked){
+                                            home_stats_data.blk = statsData[0].shots.blocked
+                                            away_stats_data.blk = statsData[1].shots.blocked
+                                        }
+                                        else{
+                                            home_stats_data.blk = 0
+                                            away_stats_data.blk = 0
+                                        }
+                                        if(statsData[0].shots.insidebox){
+                                            home_stats_data.in = statsData[0].shots.insidebox
+                                            away_stats_data.in = statsData[1].shots.insidebox
+                                        }
+                                        else{
+                                            home_stats_data.in = 0
+                                            away_stats_data.in = 0
+                                        }
+                                        if(statsData[0].shots.outsidebox){
+                                            home_stats_data.out = statsData[0].shots.outsidebox
+                                            away_stats_data.out = statsData[1].shots.outsidebox
+                                        }
+                                        else{
+                                            home_stats_data.out = 0
+                                            away_stats_data.out = 0
+                                        }
                                     }
+
                                     if(statsData[0].corners){
                                         home_stats_data.cnr = statsData[0].corners
                                         away_stats_data.cnr = statsData[1].corners
                                     }
+                                    else{
+                                        home_stats_data.cnr = 0
+                                        away_stats_data.cnr = 0
+                                    }
                                     if(statsData[0].attacks){
-                                        home_stats_data.cnr = statsData[0].attacks.dangerous_attacks
-                                        away_stats_data.cnr = statsData[1].attacks.dangerous_attacks
+                                        if(statsData[0].attacks.dangerous_attacks){
+                                            home_stats_data.da = statsData[0].attacks.dangerous_attacks
+                                            away_stats_data.da = statsData[1].attacks.dangerous_attacks
+                                        }
+                                        else{
+                                            home_stats_data.da = 0
+                                            away_stats_data.da = 0
+                                        }
                                     }
                                     if(statsData[0].possessiontime){
                                         home_stats_data.pos = statsData[0].possessiontime
                                         away_stats_data.pos = statsData[1].possessiontime
                                     }
+                                    else{
+                                        home_stats_data.pos = 0
+                                        away_stats_data.pos = 0
+                                    }
                                     if(statsData[0].redcards){
                                         home_stats_data.red = statsData[0].redcards
                                         away_stats_data.red = statsData[1].redcards
+                                    }
+                                    else{
+                                        home_stats_data.red = 0
+                                        away_stats_data.red = 0
                                     }
                                     if(statsData[0].yellowcards){
                                         home_stats_data.yel = statsData[0].yellowcards
                                         away_stats_data.yel = statsData[1].yellowcards
                                     }
+                                    else{
+                                        home_stats_data.yel = 0
+                                        away_stats_data.yel = 0
+                                    }
                                     if(statsData[0].goals){
                                         home_stats_data.goal = statsData[0].goals
                                         away_stats_data.goal = statsData[1].goals
                                     }
+                                    else{
+                                        home_stats_data.goal = 0
+                                        away_stats_data.goal = 0
+                                    }
                                 }
                                 else if(statsData[1].team_id == home_id){
-                                    if(statsData[0].shots){
-                                        home_stats_data.on = statsData[1].shots.ongoal
-                                        away_stats_data.on = statsData[0].shots.ongoal
-                                        home_stats_data.off = statsData[1].shots.offgoal
-                                        away_stats_data.off = statsData[0].shots.offgoal
-                                        home_stats_data.blk = statsData[1].shots.blocked
-                                        away_stats_data.blk = statsData[0].shots.blocked
-                                        home_stats_data.in = statsData[1].shots.insidebox
-                                        away_stats_data.in = statsData[0].shots.insidebox
-                                        home_stats_data.out = statsData[1].shots.outsidebox
-                                        away_stats_data.out = statsData[0].shots.outsidebox
+                                    if(statsData[1].shots){
+                                        if(statsData[1].shots.ongoal){
+                                            home_stats_data.on = statsData[1].shots.ongoal
+                                            away_stats_data.on = statsData[0].shots.ongoal
+                                        }
+                                        else{
+                                            home_stats_data.on = 0
+                                            away_stats_data.on = 0
+                                        }
+                                        if(statsData[1].shots.offgoal){
+                                            home_stats_data.off = statsData[1].shots.offgoal
+                                            away_stats_data.off = statsData[0].shots.offgoal
+                                        }
+                                        else{
+                                            home_stats_data.off = 0
+                                            away_stats_data.off = 0
+                                        }
+                                        if(statsData[1].shots.blocked){
+                                            home_stats_data.blk = statsData[1].shots.blocked
+                                            away_stats_data.blk = statsData[0].shots.blocked
+                                        }
+                                        else{
+                                            home_stats_data.blk = 0
+                                            away_stats_data.blk = 0
+                                        }
+                                        if(statsData[1].shots.insidebox){
+                                            home_stats_data.in = statsData[1].shots.insidebox
+                                            away_stats_data.in = statsData[0].shots.insidebox
+                                        }
+                                        else{
+                                            home_stats_data.in = 0
+                                            away_stats_data.in = 0
+                                        }
+                                        if(statsData[1].shots.outsidebox){
+                                            home_stats_data.out = statsData[1].shots.outsidebox
+                                            away_stats_data.out = statsData[0].shots.outsidebox
+                                        }
+                                        else{
+                                            home_stats_data.out = 0
+                                            away_stats_data.out = 0
+                                        }
                                     }
-                                    if(statsData[0].corners){
+
+                                    if(statsData[1].corners){
                                         home_stats_data.cnr = statsData[1].corners
                                         away_stats_data.cnr = statsData[0].corners
                                     }
-                                    if(statsData[0].attacks){
-                                        home_stats_data.cnr = statsData[1].attacks.dangerous_attacks
-                                        away_stats_data.cnr = statsData[0].attacks.dangerous_attacks
+                                    else{
+                                        home_stats_data.cnr = 0
+                                        away_stats_data.cnr = 0
                                     }
-                                    if(statsData[0].possessiontime){
+                                    if(statsData[1].attacks){
+                                        if(statsData[1].attacks.dangerous_attacks){
+                                            home_stats_data.da = statsData[1].attacks.dangerous_attacks
+                                            away_stats_data.da = statsData[0].attacks.dangerous_attacks
+                                        }
+                                        else{
+                                            home_stats_data.da = 0
+                                            away_stats_data.da = 0
+                                        }
+                                    }
+                                    if(statsData[1].possessiontime){
                                         home_stats_data.pos = statsData[1].possessiontime
                                         away_stats_data.pos = statsData[0].possessiontime
                                     }
-                                    if(statsData[0].redcards){
+                                    else{
+                                        home_stats_data.pos = 0
+                                        away_stats_data.pos = 0
+                                    }
+                                    if(statsData[1].redcards){
                                         home_stats_data.red = statsData[1].redcards
                                         away_stats_data.red = statsData[0].redcards
                                     }
-                                    if(statsData[0].yellowcards){
+                                    else{
+                                        home_stats_data.red = 0
+                                        away_stats_data.red = 0
+                                    }
+                                    if(statsData[1].yellowcards){
                                         home_stats_data.yel = statsData[1].yellowcards
                                         away_stats_data.yel = statsData[0].yellowcards
                                     }
-                                    if(statsData[0].goals){
+                                    else{
+                                        home_stats_data.yel = 0
+                                        away_stats_data.yel = 0
+                                    }
+                                    if(statsData[1].goals){
                                         home_stats_data.goal = statsData[1].goals
                                         away_stats_data.goal = statsData[0].goals
                                     }
+                                    else{
+                                        home_stats_data.goal = 0
+                                        away_stats_data.goal = 0
+                                    }
                                 }
-                                // console.log('on checking=>', home_stats_data.on, away_stats_data.on, statsData[0].team_id, home_id)
                                 if(home_stats_data.on >= this.homeTeam.on.from && home_stats_data.on <= this.homeTeam.on.to && away_stats_data.on >= this.awayTeam.on.from && away_stats_data.on <= this.awayTeam.on.to){
 // console.log('+++++++++++++++++++++++on - checking', this.homeTeam.on.from, this.homeTeam.on.to, this.awayTeam.on.from, this.awayTeam.on.to)
                                     if(home_stats_data.off >= this.homeTeam.off.from && home_stats_data.off <= this.homeTeam.off.to && away_stats_data.off >= this.awayTeam.off.from && away_stats_data.off <= this.awayTeam.off.to){
@@ -2869,6 +4308,7 @@
                                             if(home_stats_data.in >= this.homeTeam.in.from && home_stats_data.in <= this.homeTeam.in.to && away_stats_data.in >= this.awayTeam.in.from && away_stats_data.in <= this.awayTeam.in.to){
                                                 if(home_stats_data.out >= this.homeTeam.out.from && home_stats_data.out <= this.homeTeam.out.to && away_stats_data.out >= this.awayTeam.out.from && away_stats_data.out <= this.awayTeam.out.to){
                                                     if(home_stats_data.cnr >= this.homeTeam.cnr.from && home_stats_data.cnr <= this.homeTeam.cnr.to && away_stats_data.cnr >= this.awayTeam.cnr.from && away_stats_data.cnr <= this.awayTeam.cnr.to){
+                                                        console.log('cnr checking=>', home_stats_data.cnr, away_stats_data.cnr)
                                                         if(home_stats_data.da >= this.homeTeam.da.from && home_stats_data.da <= this.homeTeam.da.to && away_stats_data.da >= this.awayTeam.da.from && away_stats_data.da <= this.awayTeam.da.to){
                                                             if(home_stats_data.pos >= this.homeTeam.pos.from && home_stats_data.pos <= this.homeTeam.pos.to && away_stats_data.pos >= this.awayTeam.pos.from && away_stats_data.pos <= this.awayTeam.pos.to){
                                                                 if(home_stats_data.red >= this.homeTeam.red.from && home_stats_data.red <= this.homeTeam.red.to && away_stats_data.red >= this.awayTeam.red.from && away_stats_data.red <= this.awayTeam.red.to){
