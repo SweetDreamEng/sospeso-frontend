@@ -451,7 +451,6 @@
                 }
             },
             odd_calc(val){
-                console.log("odd_calc -> val", val)
                 this.calc_odd = this.prematchOdd;
                 this.calc_stake = 100;
 
@@ -682,8 +681,6 @@
                     for (let i = 0; i < data.length; i++) {
                         if(element.market == data[i].marketId){
                             self.odd_calc(this.calc_odd);
-
-                            console.log('self.selectionId => ', element.selectionId);;
 
                             let selections = data[i].runners.filter(function(runner) {
                                 return runner.selectionId == element.selectionId;
