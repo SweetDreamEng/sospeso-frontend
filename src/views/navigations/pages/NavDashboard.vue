@@ -1406,7 +1406,6 @@
                     }
                 }
 
-                console.log('total => ', this.eventLists3);
             },
             odd_min(val){
                 this.oddMin = val

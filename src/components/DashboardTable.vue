@@ -139,7 +139,10 @@
                         {
                             'index': index,
                             'market': this.marketId,
-                            'selectionId': this.selectionId
+                            'selectionId': this.selectionId,
+                            'eventValue': val,
+                            'prematchOdd': this.prematchOdd,
+                            'selectedArray': this.selectedArray[6]
                         });
                 }
             },
@@ -450,7 +453,80 @@
                     this.stake_calc(0)
                 }
             },
+            oddCalcRefresh(odd, selected, calc_lay, calc_back){
+                this.calc_odd = odd;
+
+                this.calc_stake = 100;
+
+                if(this.calc_odd != 0 && this.calc_stake != 0 && this.eventId != 0){
+                    if(parseInt(selected) == 0){
+                        this.max_profit = (this.calc_odd * this.calc_stake - this.calc_stake).toFixed(2)
+                        this.max_lose = this.calc_stake
+                        this.guad_max = this.max_profit
+                        if(calc_lay == '' || calc_lay == 0){
+                            this.guad_att = 0
+                        }
+                        else{
+                            this.guad_att = (this.calc_odd * this.calc_stake/parseFloat(calc_lay) -  this.calc_stake).toFixed(2)
+                        }
+
+                        if(this.guad_att > 0){
+                            this.guad_att = (this.guad_att * (100 - this.bookmarkerFee)/100).toFixed(2)
+                        }
+
+                        if(this.guad_max != 0){
+                            if(this.guad_att >= 0){
+                                this.currentPercent = (100*this.guad_att/this.guad_max).toFixed(2)
+                            }
+                            else{
+                                this.currentPercent = (100*this.guad_att/this.calc_stake).toFixed(2)
+                            }
+                        }
+                        else{
+                            this.currentPercent = 0
+                        }
+                        this.percent_text2 = this.currentPercent.toString() + '%'
+                    }
+                    else{
+                        this.max_lose = (this.calc_odd * this.calc_stake - this.calc_stake).toFixed(2)
+                        this.max_profit = this.calc_stake
+                        this.guad_max = this.calc_stake
+                        if(calc_back == '' || calc_back == 0){
+                            this.guad_att = 0
+                        }
+                        else{
+                            this.guad_att = ( this.calc_stake - this.calc_odd * this.calc_stake/parseFloat(calc_back)).toFixed(2)
+                        }
+
+                        if(this.guad_att > 0){
+                            this.guad_att = (this.guad_att * (100 - this.bookmarkerFee)/100).toFixed(2)
+                        }
+
+                        if(this.guad_max != 0){
+                            if(this.guad_att >= 0){
+                                this.currentPercent = (100*this.guad_att/this.guad_max).toFixed(2)
+                            }
+                            else{
+                                this.currentPercent = (100*this.guad_att/(this.calc_odd * this.calc_stake - this.calc_stake)).toFixed(2)
+                            }
+                        }
+                        else{
+                            this.currentPercent = 0
+                        }
+                        this.percent_text2 = this.currentPercent.toString() + '%'
+                    }
+                    console.log("oddCalcRefresh -> this.currentPercent", this.percent_text2)
+                }
+                else{
+                    this.max_profit = 0
+                    this.max_lose = 0
+                    this.guad_max = 0
+                    this.percent_text2 = 'Insert Odd and Stake'
+                    this.guad_att = 0
+                }
+            },
             odd_calc(val){
+                console.log('this.selectedArray[6] ======> ', this.selectedArray[6]);
                 this.calc_odd = this.prematchOdd;
                 this.calc_stake = 100;
 
@@ -678,13 +754,16 @@
             this.sockets.listener.subscribe('UpdateOdds', (data) => {
                 for (let i=0; i<this.marketIds.length; i++) {
                     const element = this.marketIds[i];
-                    for (let i = 0; i < data.length; i++) {
-                        if(element.market == data[i].marketId){
-                            self.odd_calc(this.calc_odd);
-
-                            let selections = data[i].runners.filter(function(runner) {
+                    for (let j = 0; j < data.length; j++) {
+                        if(element.market == data[j].marketId){
+                            
+                            let selections = data[j].runners.filter(function(runner) {
                                 return runner.selectionId == element.selectionId;
                             });
+                            // let selections = data[i].runners
+
+                            const test = self.back
+
 
                             if (selections.length > 0) {
                                 
@@ -705,12 +784,14 @@
                                     self.lay =''
                                     self.lay_matched = 0
                                 }
-                                self.total_matched = (data[i].state.totalMatched).toFixed(1);
+                                self.total_matched = (data[j].state.totalMatched).toFixed(1);
                             }
+                            self.oddCalcRefresh(element.prematchOdd, element.selectedArray, self.lay, self.back);
+
                             this.tableItems[element.index].tot.value = '€' + self.total_matched;
                             this.tableItems[element.index].back.value = self.back;
                             this.tableItems[element.index].lay.value = self.lay;
-                            this.tableItems[element.index].gain.value = self.percent_text2;
+                            this.tableItems[element.index].gain.value = self.currentPercent.toString() + '%';
                         }
                     }
                 }
