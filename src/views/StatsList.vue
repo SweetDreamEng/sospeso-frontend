@@ -3256,6 +3256,12 @@
                                 let homeTeamId = main_data[j].localTeamId
                                 let awayTeamId = main_data[j].visitorTeamId
                                 let seasonId = main_data[j].season_id
+                                let events = main_data[j].events
+
+                                for(let m = 0 ; m < events.length ; m++){
+
+                                }
+
                                 home.pos = main_data[j].standing.localteam_position
                                 away.pos = main_data[j].standing.visitorteam_position
                                 home.h_a = this.H_A_calculation(seasonId, homeTeamId, 'home')
