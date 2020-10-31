@@ -690,6 +690,7 @@
                             Total Games
                         </div>
                         <div style="display: flex; height: 20px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black;">
+                            <div style="flex: 1; text-align: center;">Goal</div>
                             <div style="flex: 1; text-align: center;">On</div>
                             <div style="flex: 1; text-align: center;">Off</div>
                             <div style="flex: 1; text-align: center;">Blk</div>
@@ -722,6 +723,7 @@
                     </div>
                     <div style="flex: 7;">
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
+                            <div style="flex: 1; text-align: center;">{{total_home_stats.score}}</div>
                             <div style="flex: 1; text-align: center;">{{total_home_stats.on}}</div>
                             <div style="flex: 1; text-align: center;">{{total_home_stats.off}}</div>
                             <div style="flex: 1; text-align: center;">{{total_home_stats.blk}}</div>
@@ -734,6 +736,7 @@
                             <div style="flex: 1; text-align: center;">{{total_home_stats.yel}}</div>
                         </div>
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
+                            <div style="flex: 1; text-align: center;">{{total_away_stats.score}}</div>
                             <div style="flex: 1; text-align: center;">{{total_away_stats.on}}</div>
                             <div style="flex: 1; text-align: center;">{{total_away_stats.off}}</div>
                             <div style="flex: 1; text-align: center;">{{total_away_stats.blk}}</div>
@@ -930,34 +933,33 @@
                     </div>
                     <div style="flex: 7;">
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
-                            <div style="flex: 1; text-align: center;">Goal</div>
-                            <div style="flex: 1; text-align: center;">On</div>
-                            <div style="flex: 1; text-align: center;">Off</div>
-                            <div style="flex: 1; text-align: center;">Blk</div>
-                            <div style="flex: 1; text-align: center;">In</div>
-                            <div style="flex: 1; text-align: center;">Out</div>
-                            <div style="flex: 1; text-align: center;">Cnr</div>
-                            <div style="flex: 1; text-align: center;">DA</div>
-                            <div style="flex: 1; text-align: center;">Pos</div>
-                            <div style="flex: 1; text-align: center;">Red</div>
-                            <div style="flex: 1; text-align: center;">Yel</div>
+                            <div style="flex: 1; text-align: center;">{{delta_home_stats.score}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_home_stats.on}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_home_stats.off}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_home_stats.blk}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_home_stats.in}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_home_stats.out}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_home_stats.cnr}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_home_stats.da}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_home_stats.pos}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_home_stats.red}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_home_stats.yel}}</div>
                         </div>
                         <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px;">
-                            <div style="flex: 1; text-align: center;">Goal</div>
-                            <div style="flex: 1; text-align: center;">On</div>
-                            <div style="flex: 1; text-align: center;">Off</div>
-                            <div style="flex: 1; text-align: center;">Blk</div>
-                            <div style="flex: 1; text-align: center;">In</div>
-                            <div style="flex: 1; text-align: center;">Out</div>
-                            <div style="flex: 1; text-align: center;">Cnr</div>
-                            <div style="flex: 1; text-align: center;">DA</div>
-                            <div style="flex: 1; text-align: center;">Pos</div>
-                            <div style="flex: 1; text-align: center;">Red</div>
-                            <div style="flex: 1; text-align: center;">Yel</div>
+                            <div style="flex: 1; text-align: center;">{{delta_away_stats.score}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_away_stats.on}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_away_stats.off}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_away_stats.blk}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_away_stats.in}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_away_stats.out}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_away_stats.cnr}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_away_stats.da}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_away_stats.pos}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_away_stats.red}}</div>
+                            <div style="flex: 1; text-align: center;">{{delta_away_stats.yel}}</div>
                         </div>
                     </div>
                 </div>
-
                 <div style="margin-top: 20px;">
                     <label style="color: red; font-weight: bold">Total filtered livestats</label>
                     <div style="flex: 7; background: #b1a0c7">
@@ -1052,429 +1054,429 @@
                             <p class="header">Goal</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_0_15.home.goal == 0" style="height: 15px;">{{live_segment_stats.stats_0_15.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.goal}} ({{(live_segment_stats.stats_0_15.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.goal}} ({{(live_segment_stats.stats_0_15.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_0_15.away.goal == 0" style="height: 15px;">{{live_segment_stats.stats_0_15.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.goal}} ({{(live_segment_stats.stats_0_15.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.goal}} ({{(live_segment_stats.stats_0_15.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_16_30.home.goal == 0" style="height: 15px;">{{live_segment_stats.stats_16_30.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.goal}} ({{(live_segment_stats.stats_16_30.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.goal}} ({{(live_segment_stats.stats_16_30.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.goal == 0" style="height: 15px;">{{live_segment_stats.stats_16_30.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.goal}} ({{(live_segment_stats.stats_16_30.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.goal}} ({{(live_segment_stats.stats_16_30.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_31_45.home.goal == 0" style="height: 15px;">{{live_segment_stats.stats_31_45.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.goal}} ({{(live_segment_stats.stats_31_45.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.goal}} ({{(live_segment_stats.stats_31_45.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_31_45.away.goal == 0" style="height: 15px;">{{live_segment_stats.stats_31_45.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.goal}} ({{(live_segment_stats.stats_31_45.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.goal}} ({{(live_segment_stats.stats_31_45.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_46_60.home.goal == 0" style="height: 15px;">{{live_segment_stats.stats_46_60.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.goal}} ({{(live_segment_stats.stats_46_60.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.goal}} ({{(live_segment_stats.stats_46_60.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_46_60.away.goal == 0" style="height: 15px;">{{live_segment_stats.stats_46_60.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.goal}} ({{(live_segment_stats.stats_46_60.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.goal}} ({{(live_segment_stats.stats_46_60.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_61_75.home.goal == 0" style="height: 15px;">{{live_segment_stats.stats_61_75.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.goal}} ({{(live_segment_stats.stats_61_75.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.goal}} ({{(live_segment_stats.stats_61_75.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_61_75.away.goal == 0" style="height: 15px;">{{live_segment_stats.stats_61_75.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.goal}} ({{(live_segment_stats.stats_61_75.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.goal}} ({{(live_segment_stats.stats_61_75.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.goal == 0" style="height: 15px;">{{live_segment_stats.stats_76_90.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.goal}} ({{(live_segment_stats.stats_76_90.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.goal}} ({{(live_segment_stats.stats_76_90.home.goal/live_segment_stats.stats_76_90.home.goal*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.goal == 0" style="height: 15px;">{{live_segment_stats.stats_76_90.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.goal}} ({{(live_segment_stats.stats_76_90.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.goal}} ({{(live_segment_stats.stats_76_90.away.goal/live_segment_stats.stats_76_90.away.goal*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">On</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_0_15.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.on}} ({{(live_segment_stats.stats_0_15.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.on}} ({{(live_segment_stats.stats_0_15.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_0_15.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.on}} ({{(live_segment_stats.stats_0_15.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.on}} ({{(live_segment_stats.stats_0_15.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_16_30.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.on}} ({{(live_segment_stats.stats_16_30.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.on}} ({{(live_segment_stats.stats_16_30.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.on}} ({{(live_segment_stats.stats_16_30.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.on}} ({{(live_segment_stats.stats_16_30.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_31_45.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.on}} ({{(live_segment_stats.stats_31_45.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.on}} ({{(live_segment_stats.stats_31_45.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_31_45.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.on}} ({{(live_segment_stats.stats_31_45.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.on}} ({{(live_segment_stats.stats_31_45.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_46_60.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.on}} ({{(live_segment_stats.stats_46_60.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.on}} ({{(live_segment_stats.stats_46_60.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_46_60.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.on}} ({{(live_segment_stats.stats_46_60.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.on}} ({{(live_segment_stats.stats_46_60.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_61_75.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.on}} ({{(live_segment_stats.stats_61_75.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.on}} ({{(live_segment_stats.stats_61_75.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_61_75.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.on}} ({{(live_segment_stats.stats_61_75.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.on}} ({{(live_segment_stats.stats_61_75.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.on}} ({{(live_segment_stats.stats_76_90.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.on}} ({{(live_segment_stats.stats_76_90.home.on/live_segment_stats.stats_76_90.home.on*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.on}} ({{(live_segment_stats.stats_76_90.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.on}} ({{(live_segment_stats.stats_76_90.away.on/live_segment_stats.stats_76_90.away.on*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Off</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_0_15.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.off}} ({{(live_segment_stats.stats_0_15.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.off}} ({{(live_segment_stats.stats_0_15.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_0_15.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.off}} ({{(live_segment_stats.stats_0_15.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.off}} ({{(live_segment_stats.stats_0_15.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_16_30.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.off}} ({{(live_segment_stats.stats_16_30.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.off}} ({{(live_segment_stats.stats_16_30.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.off}} ({{(live_segment_stats.stats_16_30.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.off}} ({{(live_segment_stats.stats_16_30.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_31_45.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.off}} ({{(live_segment_stats.stats_31_45.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.off}} ({{(live_segment_stats.stats_31_45.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_31_45.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.off}} ({{(live_segment_stats.stats_31_45.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.off}} ({{(live_segment_stats.stats_31_45.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_46_60.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.off}} ({{(live_segment_stats.stats_46_60.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.off}} ({{(live_segment_stats.stats_46_60.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_46_60.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.off}} ({{(live_segment_stats.stats_46_60.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.off}} ({{(live_segment_stats.stats_46_60.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_61_75.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.off}} ({{(live_segment_stats.stats_61_75.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.off}} ({{(live_segment_stats.stats_61_75.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_61_75.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.off}} ({{(live_segment_stats.stats_61_75.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.off}} ({{(live_segment_stats.stats_61_75.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.off}} ({{(live_segment_stats.stats_76_90.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.off}} ({{(live_segment_stats.stats_76_90.home.off/live_segment_stats.stats_76_90.home.off*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.off}} ({{(live_segment_stats.stats_76_90.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.off}} ({{(live_segment_stats.stats_76_90.away.off/live_segment_stats.stats_76_90.away.off*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Blk</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_0_15.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.blk}} ({{(live_segment_stats.stats_0_15.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.blk}} ({{(live_segment_stats.stats_0_15.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_0_15.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.blk}} ({{(live_segment_stats.stats_0_15.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.blk}} ({{(live_segment_stats.stats_0_15.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_16_30.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.blk}} ({{(live_segment_stats.stats_16_30.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.blk}} ({{(live_segment_stats.stats_16_30.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.blk}} ({{(live_segment_stats.stats_16_30.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.blk}} ({{(live_segment_stats.stats_16_30.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_31_45.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.blk}} ({{(live_segment_stats.stats_31_45.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.blk}} ({{(live_segment_stats.stats_31_45.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_31_45.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.blk}} ({{(live_segment_stats.stats_31_45.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.blk}} ({{(live_segment_stats.stats_31_45.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_46_60.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.blk}} ({{(live_segment_stats.stats_46_60.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.blk}} ({{(live_segment_stats.stats_46_60.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_46_60.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.blk}} ({{(live_segment_stats.stats_46_60.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.blk}} ({{(live_segment_stats.stats_46_60.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_61_75.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.blk}} ({{(live_segment_stats.stats_61_75.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.blk}} ({{(live_segment_stats.stats_61_75.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_61_75.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.blk}} ({{(live_segment_stats.stats_61_75.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.blk}} ({{(live_segment_stats.stats_61_75.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.blk}} ({{(live_segment_stats.stats_76_90.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.blk}} ({{(live_segment_stats.stats_76_90.home.blk/live_segment_stats.stats_76_90.home.blk*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.blk}} ({{(live_segment_stats.stats_76_90.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.blk}} ({{(live_segment_stats.stats_76_90.away.blk/live_segment_stats.stats_76_90.away.blk*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">In</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_0_15.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.in}} ({{(live_segment_stats.stats_0_15.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.in}} ({{(live_segment_stats.stats_0_15.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_0_15.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.in}} ({{(live_segment_stats.stats_0_15.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.in}} ({{(live_segment_stats.stats_0_15.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_16_30.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.in}} ({{(live_segment_stats.stats_16_30.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.in}} ({{(live_segment_stats.stats_16_30.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.in}} ({{(live_segment_stats.stats_16_30.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.in}} ({{(live_segment_stats.stats_16_30.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_31_45.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.in}} ({{(live_segment_stats.stats_31_45.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.in}} ({{(live_segment_stats.stats_31_45.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_31_45.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.in}} ({{(live_segment_stats.stats_31_45.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.in}} ({{(live_segment_stats.stats_31_45.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_46_60.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.in}} ({{(live_segment_stats.stats_46_60.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.in}} ({{(live_segment_stats.stats_46_60.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_46_60.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.in}} ({{(live_segment_stats.stats_46_60.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.in}} ({{(live_segment_stats.stats_46_60.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_61_75.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.in}} ({{(live_segment_stats.stats_61_75.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.in}} ({{(live_segment_stats.stats_61_75.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_61_75.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.in}} ({{(live_segment_stats.stats_61_75.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.in}} ({{(live_segment_stats.stats_61_75.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.in}} ({{(live_segment_stats.stats_76_90.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.in}} ({{(live_segment_stats.stats_76_90.home.in/live_segment_stats.stats_76_90.home.in*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.in}} ({{(live_segment_stats.stats_76_90.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.in}} ({{(live_segment_stats.stats_76_90.away.in/live_segment_stats.stats_76_90.away.in*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Out</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_0_15.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.out}} ({{(live_segment_stats.stats_0_15.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.out}} ({{(live_segment_stats.stats_0_15.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_0_15.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.out}} ({{(live_segment_stats.stats_0_15.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.out}} ({{(live_segment_stats.stats_0_15.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_16_30.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.out}} ({{(live_segment_stats.stats_16_30.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.out}} ({{(live_segment_stats.stats_16_30.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.out}} ({{(live_segment_stats.stats_16_30.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.out}} ({{(live_segment_stats.stats_16_30.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_31_45.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.out}} ({{(live_segment_stats.stats_31_45.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.out}} ({{(live_segment_stats.stats_31_45.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_31_45.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.out}} ({{(live_segment_stats.stats_31_45.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.out}} ({{(live_segment_stats.stats_31_45.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_46_60.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.out}} ({{(live_segment_stats.stats_46_60.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.out}} ({{(live_segment_stats.stats_46_60.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_46_60.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.out}} ({{(live_segment_stats.stats_46_60.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.out}} ({{(live_segment_stats.stats_46_60.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_61_75.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.out}} ({{(live_segment_stats.stats_61_75.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.out}} ({{(live_segment_stats.stats_61_75.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_61_75.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.out}} ({{(live_segment_stats.stats_61_75.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.out}} ({{(live_segment_stats.stats_61_75.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.out}} ({{(live_segment_stats.stats_76_90.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.out}} ({{(live_segment_stats.stats_76_90.home.out/live_segment_stats.stats_76_90.home.out*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.out}} ({{(live_segment_stats.stats_76_90.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.out}} ({{(live_segment_stats.stats_76_90.away.out/live_segment_stats.stats_76_90.away.out*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Cnr</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_0_15.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.cnr}} ({{(live_segment_stats.stats_0_15.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.cnr}} ({{(live_segment_stats.stats_0_15.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_0_15.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.cnr}} ({{(live_segment_stats.stats_0_15.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.cnr}} ({{(live_segment_stats.stats_0_15.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_16_30.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.cnr}} ({{(live_segment_stats.stats_16_30.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.cnr}} ({{(live_segment_stats.stats_16_30.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.cnr}} ({{(live_segment_stats.stats_16_30.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.cnr}} ({{(live_segment_stats.stats_16_30.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_31_45.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.cnr}} ({{(live_segment_stats.stats_31_45.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.cnr}} ({{(live_segment_stats.stats_31_45.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_31_45.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.cnr}} ({{(live_segment_stats.stats_31_45.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.cnr}} ({{(live_segment_stats.stats_31_45.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_46_60.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.cnr}} ({{(live_segment_stats.stats_46_60.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.cnr}} ({{(live_segment_stats.stats_46_60.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_46_60.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.cnr}} ({{(live_segment_stats.stats_46_60.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.cnr}} ({{(live_segment_stats.stats_46_60.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_61_75.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.cnr}} ({{(live_segment_stats.stats_61_75.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.cnr}} ({{(live_segment_stats.stats_61_75.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_61_75.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.cnr}} ({{(live_segment_stats.stats_61_75.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.cnr}} ({{(live_segment_stats.stats_61_75.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.cnr}} ({{(live_segment_stats.stats_76_90.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.cnr}} ({{(live_segment_stats.stats_76_90.home.cnr/live_segment_stats.stats_76_90.home.cnr*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.cnr}} ({{(live_segment_stats.stats_76_90.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.cnr}} ({{(live_segment_stats.stats_76_90.away.cnr/live_segment_stats.stats_76_90.away.cnr*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">DA</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_0_15.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.da}} ({{(live_segment_stats.stats_0_15.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.da}} ({{(live_segment_stats.stats_0_15.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_0_15.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.da}} ({{(live_segment_stats.stats_0_15.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.da}} ({{(live_segment_stats.stats_0_15.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_16_30.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.da}} ({{(live_segment_stats.stats_16_30.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.da}} ({{(live_segment_stats.stats_16_30.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.da}} ({{(live_segment_stats.stats_16_30.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.da}} ({{(live_segment_stats.stats_16_30.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_31_45.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.da}} ({{(live_segment_stats.stats_31_45.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.da}} ({{(live_segment_stats.stats_31_45.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_31_45.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.da}} ({{(live_segment_stats.stats_31_45.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.da}} ({{(live_segment_stats.stats_31_45.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_46_60.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.da}} ({{(live_segment_stats.stats_46_60.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.da}} ({{(live_segment_stats.stats_46_60.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_46_60.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.da}} ({{(live_segment_stats.stats_46_60.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.da}} ({{(live_segment_stats.stats_46_60.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_61_75.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.da}} ({{(live_segment_stats.stats_61_75.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.da}} ({{(live_segment_stats.stats_61_75.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_61_75.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.da}} ({{(live_segment_stats.stats_61_75.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.da}} ({{(live_segment_stats.stats_61_75.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.da}} ({{(live_segment_stats.stats_76_90.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.da}} ({{(live_segment_stats.stats_76_90.home.da/live_segment_stats.stats_76_90.home.da*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.da}} ({{(live_segment_stats.stats_76_90.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.da}} ({{(live_segment_stats.stats_76_90.away.da/live_segment_stats.stats_76_90.away.da*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Pos</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_0_15.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.pos}} ({{(live_segment_stats.stats_0_15.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.pos}} ({{(live_segment_stats.stats_0_15.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_0_15.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.pos}} ({{(live_segment_stats.stats_0_15.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.pos}} ({{(live_segment_stats.stats_0_15.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_16_30.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.pos}} ({{(live_segment_stats.stats_16_30.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.pos}} ({{(live_segment_stats.stats_16_30.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.pos}} ({{(live_segment_stats.stats_16_30.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.pos}} ({{(live_segment_stats.stats_16_30.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_31_45.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.pos}} ({{(live_segment_stats.stats_31_45.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.pos}} ({{(live_segment_stats.stats_31_45.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_31_45.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.pos}} ({{(live_segment_stats.stats_31_45.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.pos}} ({{(live_segment_stats.stats_31_45.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_46_60.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.pos}} ({{(live_segment_stats.stats_46_60.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.pos}} ({{(live_segment_stats.stats_46_60.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_46_60.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.pos}} ({{(live_segment_stats.stats_46_60.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.pos}} ({{(live_segment_stats.stats_46_60.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_61_75.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.pos}} ({{(live_segment_stats.stats_61_75.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.pos}} ({{(live_segment_stats.stats_61_75.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_61_75.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.pos}} ({{(live_segment_stats.stats_61_75.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.pos}} ({{(live_segment_stats.stats_61_75.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.pos}} ({{(live_segment_stats.stats_76_90.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.pos}} ({{(live_segment_stats.stats_76_90.home.pos/live_segment_stats.stats_76_90.home.pos*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.pos}} ({{(live_segment_stats.stats_76_90.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.pos}} ({{(live_segment_stats.stats_76_90.away.pos/live_segment_stats.stats_76_90.away.pos*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Red</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_0_15.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.red}} ({{(live_segment_stats.stats_0_15.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.red}} ({{(live_segment_stats.stats_0_15.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_0_15.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.red}} ({{(live_segment_stats.stats_0_15.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.red}} ({{(live_segment_stats.stats_0_15.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_16_30.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.red}} ({{(live_segment_stats.stats_16_30.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.red}} ({{(live_segment_stats.stats_16_30.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.red}} ({{(live_segment_stats.stats_16_30.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.red}} ({{(live_segment_stats.stats_16_30.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_31_45.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.red}} ({{(live_segment_stats.stats_31_45.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.red}} ({{(live_segment_stats.stats_31_45.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_31_45.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.red}} ({{(live_segment_stats.stats_31_45.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.red}} ({{(live_segment_stats.stats_31_45.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_46_60.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.red}} ({{(live_segment_stats.stats_46_60.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.red}} ({{(live_segment_stats.stats_46_60.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_46_60.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.red}} ({{(live_segment_stats.stats_46_60.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.red}} ({{(live_segment_stats.stats_46_60.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_61_75.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.red}} ({{(live_segment_stats.stats_61_75.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.red}} ({{(live_segment_stats.stats_61_75.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_61_75.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.red}} ({{(live_segment_stats.stats_61_75.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.red}} ({{(live_segment_stats.stats_61_75.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.red}} ({{(live_segment_stats.stats_76_90.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.red}} ({{(live_segment_stats.stats_76_90.home.red/live_segment_stats.stats_76_90.home.red*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.red}} ({{(live_segment_stats.stats_76_90.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.red}} ({{(live_segment_stats.stats_76_90.away.red/live_segment_stats.stats_76_90.away.red*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Yel</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_0_15.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.yel}} ({{(live_segment_stats.stats_0_15.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.yel}} ({{(live_segment_stats.stats_0_15.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_0_15.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.yel}} ({{(live_segment_stats.stats_0_15.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_0_15.home.yel}} ({{(live_segment_stats.stats_0_15.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_16_30.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.yel}} ({{(live_segment_stats.stats_16_30.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.home.yel}} ({{(live_segment_stats.stats_16_30.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.yel}} ({{(live_segment_stats.stats_16_30.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_16_30.away.yel}} ({{(live_segment_stats.stats_16_30.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_31_45.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.yel}} ({{(live_segment_stats.stats_31_45.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.home.yel}} ({{(live_segment_stats.stats_31_45.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_31_45.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.yel}} ({{(live_segment_stats.stats_31_45.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_31_45.away.yel}} ({{(live_segment_stats.stats_31_45.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_46_60.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.yel}} ({{(live_segment_stats.stats_46_60.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.home.yel}} ({{(live_segment_stats.stats_46_60.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_46_60.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.yel}} ({{(live_segment_stats.stats_46_60.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_46_60.away.yel}} ({{(live_segment_stats.stats_46_60.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_61_75.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.yel}} ({{(live_segment_stats.stats_61_75.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.home.yel}} ({{(live_segment_stats.stats_61_75.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_61_75.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.yel}} ({{(live_segment_stats.stats_61_75.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_61_75.away.yel}} ({{(live_segment_stats.stats_61_75.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.yel}} ({{(live_segment_stats.stats_76_90.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.home.yel}} ({{(live_segment_stats.stats_76_90.home.yel/live_segment_stats.stats_76_90.home.yel*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.yel}} ({{(live_segment_stats.stats_76_90.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats.stats_76_90.away.yel}} ({{(live_segment_stats.stats_76_90.away.yel/live_segment_stats.stats_76_90.away.yel*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                     </div>
@@ -1526,429 +1528,429 @@
                             <p class="header">Goal</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_0_15.home.goal == 0" style="height: 15px;">{{live_segment_stats1.stats_0_15.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.goal}} ({{(live_segment_stats1.stats_0_15.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.goal}} ({{(live_segment_stats1.stats_0_15.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_0_15.away.goal == 0" style="height: 15px;">{{live_segment_stats1.stats_0_15.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.goal}} ({{(live_segment_stats1.stats_0_15.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.goal}} ({{(live_segment_stats1.stats_0_15.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_16_30.home.goal == 0" style="height: 15px;">{{live_segment_stats1.stats_16_30.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.goal}} ({{(live_segment_stats1.stats_16_30.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.goal}} ({{(live_segment_stats1.stats_16_30.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_16_30.away.goal == 0" style="height: 15px;">{{live_segment_stats1.stats_16_30.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.goal}} ({{(live_segment_stats1.stats_16_30.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.goal}} ({{(live_segment_stats1.stats_16_30.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_31_45.home.goal == 0" style="height: 15px;">{{live_segment_stats1.stats_31_45.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.goal}} ({{(live_segment_stats1.stats_31_45.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.goal}} ({{(live_segment_stats1.stats_31_45.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_31_45.away.goal == 0" style="height: 15px;">{{live_segment_stats1.stats_31_45.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.goal}} ({{(live_segment_stats1.stats_31_45.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.goal}} ({{(live_segment_stats1.stats_31_45.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_46_60.home.goal == 0" style="height: 15px;">{{live_segment_stats1.stats_46_60.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.goal}} ({{(live_segment_stats1.stats_46_60.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.goal}} ({{(live_segment_stats1.stats_46_60.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_46_60.away.goal == 0" style="height: 15px;">{{live_segment_stats1.stats_46_60.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.goal}} ({{(live_segment_stats1.stats_46_60.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.goal}} ({{(live_segment_stats1.stats_46_60.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_61_75.home.goal == 0" style="height: 15px;">{{live_segment_stats1.stats_61_75.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.goal}} ({{(live_segment_stats1.stats_61_75.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.goal}} ({{(live_segment_stats1.stats_61_75.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_61_75.away.goal == 0" style="height: 15px;">{{live_segment_stats1.stats_61_75.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.goal}} ({{(live_segment_stats1.stats_61_75.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal).away.goal*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.goal}} ({{(live_segment_stats1.stats_61_75.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_76_90.home.goal == 0" style="height: 15px;">{{live_segment_stats1.stats_76_90.home.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.goal}} ({{(live_segment_stats1.stats_76_90.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.goal}} ({{(live_segment_stats1.stats_76_90.home.goal/(live_segment_stats1.stats_0_15.home.goal + live_segment_stats1.stats_16_30.home.goal + live_segment_stats1.stats_31_45.home.goal + live_segment_stats1.stats_46_60.home.goal + live_segment_stats1.stats_61_75.home.goal + live_segment_stats1.stats_76_90.home.goal)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_76_90.away.goal == 0" style="height: 15px;">{{live_segment_stats.stats_76_90.away.goal}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.goal}} ({{(live_segment_stats1.stats_76_90.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.goal}} ({{(live_segment_stats1.stats_76_90.away.goal/(live_segment_stats1.stats_0_15.away.goal + live_segment_stats1.stats_16_30.away.goal + live_segment_stats1.stats_31_45.away.goal + live_segment_stats1.stats_46_60.away.goal + live_segment_stats1.stats_61_75.away.goal + live_segment_stats1.stats_76_90.away.goal)*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">On</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_0_15.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.on}} ({{(live_segment_stats1.stats_0_15.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.on}} ({{(live_segment_stats1.stats_0_15.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_0_15.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.on}} ({{(live_segment_stats1.stats_0_15.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.on}} ({{(live_segment_stats1.stats_0_15.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_16_30.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.on}} ({{(live_segment_stats1.stats_16_30.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.on}} ({{(live_segment_stats1.stats_16_30.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_16_30.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.on}} ({{(live_segment_stats1.stats_16_30.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.on}} ({{(live_segment_stats1.stats_16_30.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_31_45.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.on}} ({{(live_segment_stats1.stats_31_45.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.on}} ({{(live_segment_stats1.stats_31_45.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_31_45.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.on}} ({{(live_segment_stats1.stats_31_45.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.on}} ({{(live_segment_stats1.stats_31_45.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_46_60.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.on}} ({{(live_segment_stats1.stats_46_60.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.on}} ({{(live_segment_stats1.stats_46_60.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_46_60.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.on}} ({{(live_segment_stats1.stats_46_60.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.on}} ({{(live_segment_stats1.stats_46_60.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_61_75.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.on}} ({{(live_segment_stats1.stats_61_75.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.on}} ({{(live_segment_stats1.stats_61_75.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_61_75.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.on}} ({{(live_segment_stats1.stats_61_75.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.on}} ({{(live_segment_stats1.stats_61_75.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_76_90.home.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.on}} ({{(live_segment_stats1.stats_76_90.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.on}} ({{(live_segment_stats1.stats_76_90.home.on/(live_segment_stats1.stats_0_15.home.on + live_segment_stats1.stats_16_30.home.on + live_segment_stats1.stats_31_45.home.on + live_segment_stats1.stats_46_60.home.on + live_segment_stats1.stats_61_75.home.on + live_segment_stats1.stats_76_90.home.on)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_76_90.away.on == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.on}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.on}} ({{(live_segment_stats1.stats_76_90.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.on}} ({{(live_segment_stats1.stats_76_90.away.on/(live_segment_stats1.stats_0_15.away.on + live_segment_stats1.stats_16_30.away.on + live_segment_stats1.stats_31_45.away.on + live_segment_stats1.stats_46_60.away.on + live_segment_stats1.stats_61_75.away.on + live_segment_stats1.stats_76_90.away.on)*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Off</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_0_15.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.off}} ({{(live_segment_stats1.stats_0_15.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.off}} ({{(live_segment_stats1.stats_0_15.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_0_15.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.off}} ({{(live_segment_stats1.stats_0_15.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.off}} ({{(live_segment_stats1.stats_0_15.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_16_30.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.off}} ({{(live_segment_stats1.stats_16_30.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.off}} ({{(live_segment_stats1.stats_16_30.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_16_30.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.off}} ({{(live_segment_stats1.stats_16_30.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.off}} ({{(live_segment_stats1.stats_16_30.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_31_45.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.off}} ({{(live_segment_stats1.stats_31_45.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.off}} ({{(live_segment_stats1.stats_31_45.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_31_45.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.off}} ({{(live_segment_stats1.stats_31_45.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.off}} ({{(live_segment_stats1.stats_31_45.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_46_60.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.off}} ({{(live_segment_stats1.stats_46_60.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.off}} ({{(live_segment_stats1.stats_46_60.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_46_60.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.off}} ({{(live_segment_stats1.stats_46_60.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.off}} ({{(live_segment_stats1.stats_46_60.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_61_75.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.off}} ({{(live_segment_stats1.stats_61_75.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.off}} ({{(live_segment_stats1.stats_61_75.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_61_75.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.off}} ({{(live_segment_stats1.stats_61_75.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.off}} ({{(live_segment_stats1.stats_61_75.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_76_90.home.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.off}} ({{(live_segment_stats1.stats_76_90.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.off}} ({{(live_segment_stats1.stats_76_90.home.off/(live_segment_stats1.stats_0_15.home.off + live_segment_stats1.stats_16_30.home.off + live_segment_stats1.stats_31_45.home.off + live_segment_stats1.stats_46_60.home.off + live_segment_stats1.stats_61_75.home.off + live_segment_stats1.stats_76_90.home.off)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_76_90.away.off == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.off}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.off}} ({{(live_segment_stats1.stats_76_90.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.off}} ({{(live_segment_stats1.stats_76_90.away.off/(live_segment_stats1.stats_0_15.away.off + live_segment_stats1.stats_16_30.away.off + live_segment_stats1.stats_31_45.away.off + live_segment_stats1.stats_46_60.away.off + live_segment_stats1.stats_61_75.away.off + live_segment_stats1.stats_76_90.away.off)*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Blk</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_0_15.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.blk}} ({{(live_segment_stats1.stats_0_15.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.blk}} ({{(live_segment_stats1.stats_0_15.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_0_15.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.blk}} ({{(live_segment_stats1.stats_0_15.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.blk}} ({{(live_segment_stats1.stats_0_15.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_16_30.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.blk}} ({{(live_segment_stats1.stats_16_30.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.blk}} ({{(live_segment_stats1.stats_16_30.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_16_30.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.blk}} ({{(live_segment_stats1.stats_16_30.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.blk}} ({{(live_segment_stats1.stats_16_30.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_31_45.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.blk}} ({{(live_segment_stats1.stats_31_45.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.blk}} ({{(live_segment_stats1.stats_31_45.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_31_45.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.blk}} ({{(live_segment_stats1.stats_31_45.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.blk}} ({{(live_segment_stats1.stats_31_45.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_46_60.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.blk}} ({{(live_segment_stats1.stats_46_60.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.blk}} ({{(live_segment_stats1.stats_46_60.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_46_60.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.blk}} ({{(live_segment_stats1.stats_46_60.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.blk}} ({{(live_segment_stats1.stats_46_60.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_61_75.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.blk}} ({{(live_segment_stats1.stats_61_75.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.blk}} ({{(live_segment_stats1.stats_61_75.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_61_75.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.blk}} ({{(live_segment_stats1.stats_61_75.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.blk}} ({{(live_segment_stats1.stats_61_75.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_76_90.home.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.blk}} ({{(live_segment_stats1.stats_76_90.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.blk}} ({{(live_segment_stats1.stats_76_90.home.blk/(live_segment_stats1.stats_0_15.home.blk + live_segment_stats1.stats_16_30.home.blk + live_segment_stats1.stats_31_45.home.blk + live_segment_stats1.stats_46_60.home.blk + live_segment_stats1.stats_61_75.home.blk + live_segment_stats1.stats_76_90.home.blk)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_76_90.away.blk == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.blk}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.blk}} ({{(live_segment_stats1.stats_76_90.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.blk}} ({{(live_segment_stats1.stats_76_90.away.blk/(live_segment_stats1.stats_0_15.away.blk + live_segment_stats1.stats_16_30.away.blk + live_segment_stats1.stats_31_45.away.blk + live_segment_stats1.stats_46_60.away.blk + live_segment_stats1.stats_61_75.away.blk + live_segment_stats1.stats_76_90.away.blk)*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">In</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_0_15.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.in}} ({{(live_segment_stats1.stats_0_15.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.in}} ({{(live_segment_stats1.stats_0_15.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_0_15.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.in}} ({{(live_segment_stats1.stats_0_15.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.in}} ({{(live_segment_stats1.stats_0_15.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_16_30.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.in}} ({{(live_segment_stats1.stats_16_30.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.in}} ({{(live_segment_stats1.stats_16_30.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_16_30.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.in}} ({{(live_segment_stats1.stats_16_30.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.in}} ({{(live_segment_stats1.stats_16_30.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_31_45.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.in}} ({{(live_segment_stats1.stats_31_45.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.in}} ({{(live_segment_stats1.stats_31_45.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_31_45.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.in}} ({{(live_segment_stats1.stats_31_45.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.in}} ({{(live_segment_stats1.stats_31_45.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_46_60.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.in}} ({{(live_segment_stats1.stats_46_60.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.in}} ({{(live_segment_stats1.stats_46_60.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_46_60.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.in}} ({{(live_segment_stats1.stats_46_60.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.in}} ({{(live_segment_stats1.stats_46_60.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_61_75.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.in}} ({{(live_segment_stats1.stats_61_75.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.in}} ({{(live_segment_stats1.stats_61_75.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_61_75.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.in}} ({{(live_segment_stats1.stats_61_75.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.in}} ({{(live_segment_stats1.stats_61_75.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_76_90.home.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.in}} ({{(live_segment_stats1.stats_76_90.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.in}} ({{(live_segment_stats1.stats_76_90.home.in/(live_segment_stats1.stats_0_15.home.in + live_segment_stats1.stats_16_30.home.in + live_segment_stats1.stats_31_45.home.in + live_segment_stats1.stats_46_60.home.in + live_segment_stats1.stats_61_75.home.in + live_segment_stats1.stats_76_90.home.in)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_76_90.away.in == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.in}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.in}} ({{(live_segment_stats1.stats_76_90.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.in}} ({{(live_segment_stats1.stats_76_90.away.in/(live_segment_stats1.stats_0_15.away.in + live_segment_stats1.stats_16_30.away.in + live_segment_stats1.stats_31_45.away.in + live_segment_stats1.stats_46_60.away.in + live_segment_stats1.stats_61_75.away.in + live_segment_stats1.stats_76_90.away.in)*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Out</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_0_15.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.out}} ({{(live_segment_stats1.stats_0_15.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.out}} ({{(live_segment_stats1.stats_0_15.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_0_15.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.out}} ({{(live_segment_stats1.stats_0_15.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.out}} ({{(live_segment_stats1.stats_0_15.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_16_30.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.out}} ({{(live_segment_stats1.stats_16_30.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.out}} ({{(live_segment_stats1.stats_16_30.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_16_30.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.out}} ({{(live_segment_stats1.stats_16_30.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.out}} ({{(live_segment_stats1.stats_16_30.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_31_45.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.out}} ({{(live_segment_stats1.stats_31_45.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.out}} ({{(live_segment_stats1.stats_31_45.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_31_45.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.out}} ({{(live_segment_stats1.stats_31_45.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.out}} ({{(live_segment_stats1.stats_31_45.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_46_60.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.out}} ({{(live_segment_stats1.stats_46_60.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.out}} ({{(live_segment_stats1.stats_46_60.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_46_60.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.out}} ({{(live_segment_stats1.stats_46_60.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.out}} ({{(live_segment_stats1.stats_46_60.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_61_75.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.out}} ({{(live_segment_stats1.stats_61_75.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.out}} ({{(live_segment_stats1.stats_61_75.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_61_75.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.out}} ({{(live_segment_stats1.stats_61_75.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.out}} ({{(live_segment_stats1.stats_61_75.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats.stats_76_90.home.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.out}} ({{(live_segment_stats1.stats_76_90.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.out}} ({{(live_segment_stats1.stats_76_90.home.out/(live_segment_stats1.stats_0_15.home.out + live_segment_stats1.stats_16_30.home.out + live_segment_stats1.stats_31_45.home.out + live_segment_stats1.stats_46_60.home.out + live_segment_stats1.stats_61_75.home.out + live_segment_stats1.stats_76_90.home.out)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_76_90.away.out == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.out}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.out}} ({{(live_segment_stats1.stats_76_90.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.out}} ({{(live_segment_stats1.stats_76_90.away.out/(live_segment_stats1.stats_0_15.away.out + live_segment_stats1.stats_16_30.away.out + live_segment_stats1.stats_31_45.away.out + live_segment_stats1.stats_46_60.away.out + live_segment_stats1.stats_61_75.away.out + live_segment_stats1.stats_76_90.away.out)*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Cnr</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_0_15.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.cnr}} ({{(live_segment_stats1.stats_0_15.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.cnr}} ({{(live_segment_stats1.stats_0_15.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_0_15.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.cnr}} ({{(live_segment_stats1.stats_0_15.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.cnr}} ({{(live_segment_stats1.stats_0_15.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_16_30.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.cnr}} ({{(live_segment_stats1.stats_16_30.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.cnr}} ({{(live_segment_stats1.stats_16_30.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_16_30.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.cnr}} ({{(live_segment_stats1.stats_16_30.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.cnr}} ({{(live_segment_stats1.stats_16_30.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_31_45.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.cnr}} ({{(live_segment_stats1.stats_31_45.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.cnr}} ({{(live_segment_stats1.stats_31_45.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_31_45.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.cnr}} ({{(live_segment_stats1.stats_31_45.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.cnr}} ({{(live_segment_stats1.stats_31_45.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_46_60.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.cnr}} ({{(live_segment_stats1.stats_46_60.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.cnr}} ({{(live_segment_stats1.stats_46_60.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_46_60.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.cnr}} ({{(live_segment_stats1.stats_46_60.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.cnr}} ({{(live_segment_stats1.stats_46_60.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_61_75.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.cnr}} ({{(live_segment_stats1.stats_61_75.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.cnr}} ({{(live_segment_stats1.stats_61_75.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_61_75.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.cnr}} ({{(live_segment_stats1.stats_61_75.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.cnr}} ({{(live_segment_stats1.stats_61_75.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_76_90.home.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.cnr}} ({{(live_segment_stats1.stats_76_90.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.cnr}} ({{(live_segment_stats1.stats_76_90.home.cnr/(live_segment_stats1.stats_0_15.home.cnr + live_segment_stats1.stats_16_30.home.cnr + live_segment_stats1.stats_31_45.home.cnr + live_segment_stats1.stats_46_60.home.cnr + live_segment_stats1.stats_61_75.home.cnr + live_segment_stats1.stats_76_90.home.cnr)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_76_90.away.cnr == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.cnr}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.cnr}} ({{(live_segment_stats1.stats_76_90.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.cnr}} ({{(live_segment_stats1.stats_76_90.away.cnr/(live_segment_stats1.stats_0_15.away.cnr + live_segment_stats1.stats_16_30.away.cnr + live_segment_stats1.stats_31_45.away.cnr + live_segment_stats1.stats_46_60.away.cnr + live_segment_stats1.stats_61_75.away.cnr + live_segment_stats1.stats_76_90.away.cnr)*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">DA</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_0_15.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.da}} ({{(live_segment_stats1.stats_0_15.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.da}} ({{(live_segment_stats1.stats_0_15.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_0_15.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.da}} ({{(live_segment_stats1.stats_0_15.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.da}} ({{(live_segment_stats1.stats_0_15.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_16_30.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.da}} ({{(live_segment_stats1.stats_16_30.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.da}} ({{(live_segment_stats1.stats_16_30.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_16_30.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.da}} ({{(live_segment_stats1.stats_16_30.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.da}} ({{(live_segment_stats1.stats_16_30.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_31_45.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.da}} ({{(live_segment_stats1.stats_31_45.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.da}} ({{(live_segment_stats1.stats_31_45.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_31_45.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.da}} ({{(live_segment_stats1.stats_31_45.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.da}} ({{(live_segment_stats1.stats_31_45.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_46_60.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.da}} ({{(live_segment_stats1.stats_46_60.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.da}} ({{(live_segment_stats1.stats_46_60.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_46_60.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.da}} ({{(live_segment_stats1.stats_46_60.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.da}} ({{(live_segment_stats1.stats_46_60.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_61_75.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.da}} ({{(live_segment_stats1.stats_61_75.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.da}} ({{(live_segment_stats1.stats_61_75.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_61_75.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.da}} ({{(live_segment_stats1.stats_61_75.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.da}} ({{(live_segment_stats1.stats_61_75.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_76_90.home.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.da}} ({{(live_segment_stats1.stats_76_90.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.da}} ({{(live_segment_stats1.stats_76_90.home.da/(live_segment_stats1.stats_0_15.home.da + live_segment_stats1.stats_16_30.home.da + live_segment_stats1.stats_31_45.home.da + live_segment_stats1.stats_46_60.home.da + live_segment_stats1.stats_61_75.home.da + live_segment_stats1.stats_76_90.home.da)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_76_90.away.da == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.da}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.da}} ({{(live_segment_stats1.stats_76_90.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.da}} ({{(live_segment_stats1.stats_76_90.away.da/(live_segment_stats1.stats_0_15.away.da + live_segment_stats1.stats_16_30.away.da + live_segment_stats1.stats_31_45.away.da + live_segment_stats1.stats_46_60.away.da + live_segment_stats1.stats_61_75.away.da + live_segment_stats1.stats_76_90.away.da)*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Pos</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_0_15.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.pos}} ({{(live_segment_stats1.stats_0_15.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.pos}} ({{(live_segment_stats1.stats_0_15.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_0_15.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.pos}} ({{(live_segment_stats1.stats_0_15.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.pos}} ({{(live_segment_stats1.stats_0_15.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_16_30.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.pos}} ({{(live_segment_stats1.stats_16_30.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.pos}} ({{(live_segment_stats1.stats_16_30.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_16_30.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.pos}} ({{(live_segment_stats1.stats_16_30.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.pos}} ({{(live_segment_stats1.stats_16_30.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_31_45.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.pos}} ({{(live_segment_stats1.stats_31_45.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.pos}} ({{(live_segment_stats1.stats_31_45.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_31_45.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.pos}} ({{(live_segment_stats1.stats_31_45.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.pos}} ({{(live_segment_stats1.stats_31_45.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_46_60.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.pos}} ({{(live_segment_stats1.stats_46_60.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.pos}} ({{(live_segment_stats1.stats_46_60.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_46_60.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.pos}} ({{(live_segment_stats1.stats_46_60.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.pos}} ({{(live_segment_stats1.stats_46_60.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_61_75.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.pos}} ({{(live_segment_stats1.stats_61_75.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.pos}} ({{(live_segment_stats1.stats_61_75.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_61_75.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.pos}} ({{(live_segment_stats1.stats_61_75.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.pos}} ({{(live_segment_stats1.stats_61_75.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_76_90.home.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.pos}} ({{(live_segment_stats1.stats_76_90.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.pos}} ({{(live_segment_stats1.stats_76_90.home.pos/(live_segment_stats1.stats_0_15.home.pos + live_segment_stats1.stats_16_30.home.pos + live_segment_stats1.stats_31_45.home.pos + live_segment_stats1.stats_46_60.home.pos + live_segment_stats1.stats_61_75.home.pos + live_segment_stats1.stats_76_90.home.pos)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_76_90.away.pos == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.pos}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.pos}} ({{(live_segment_stats1.stats_76_90.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.pos}} ({{(live_segment_stats1.stats_76_90.away.pos/(live_segment_stats1.stats_0_15.away.pos + live_segment_stats1.stats_16_30.away.pos + live_segment_stats1.stats_31_45.away.pos + live_segment_stats1.stats_46_60.away.pos + live_segment_stats1.stats_61_75.away.pos + live_segment_stats1.stats_76_90.away.pos)*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Red</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_0_15.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.red}} ({{(live_segment_stats1.stats_0_15.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.red}} ({{(live_segment_stats1.stats_0_15.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_0_15.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.red}} ({{(live_segment_stats1.stats_0_15.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.red}} ({{(live_segment_stats1.stats_0_15.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_16_30.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.red}} ({{(live_segment_stats1.stats_16_30.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.red}} ({{(live_segment_stats1.stats_16_30.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_16_30.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.red}} ({{(live_segment_stats1.stats_16_30.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.red}} ({{(live_segment_stats1.stats_16_30.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_31_45.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.red}} ({{(live_segment_stats1.stats_31_45.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.red}} ({{(live_segment_stats1.stats_31_45.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_31_45.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.red}} ({{(live_segment_stats1.stats_31_45.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.red}} ({{(live_segment_stats1.stats_31_45.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_46_60.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.red}} ({{(live_segment_stats1.stats_46_60.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.red}} ({{(live_segment_stats1.stats_46_60.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_46_60.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.red}} ({{(live_segment_stats1.stats_46_60.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.red}} ({{(live_segment_stats1.stats_46_60.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_61_75.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.red}} ({{(live_segment_stats1.stats_61_75.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.red}} ({{(live_segment_stats1.stats_61_75.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_61_75.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.red}} ({{(live_segment_stats1.stats_61_75.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.red}} ({{(live_segment_stats1.stats_61_75.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_76_90.home.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.red}} ({{(live_segment_stats1.stats_76_90.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.red}} ({{(live_segment_stats1.stats_76_90.home.red/(live_segment_stats1.stats_0_15.home.red + live_segment_stats1.stats_16_30.home.red + live_segment_stats1.stats_31_45.home.red + live_segment_stats1.stats_46_60.home.red + live_segment_stats1.stats_61_75.home.red + live_segment_stats1.stats_76_90.home.red)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_76_90.away.red == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.red}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.red}} ({{(live_segment_stats1.stats_76_90.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.red}} ({{(live_segment_stats1.stats_76_90.away.red/(live_segment_stats1.stats_0_15.away.red + live_segment_stats1.stats_16_30.away.red + live_segment_stats1.stats_31_45.away.red + live_segment_stats1.stats_46_60.away.red + live_segment_stats1.stats_61_75.away.red + live_segment_stats1.stats_76_90.away.red)*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
                             <p class="header">Yel</p>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_0_15.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.yel}} ({{(live_segment_stats1.stats_0_15.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.yel}} ({{(live_segment_stats1.stats_0_15.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_0_15.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.yel}} ({{(live_segment_stats1.stats_0_15.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_0_15.home.yel}} ({{(live_segment_stats1.stats_0_15.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_16_30.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.yel}} ({{(live_segment_stats1.stats_16_30.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.home.yel}} ({{(live_segment_stats1.stats_16_30.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats.stats_16_30.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.yel}} ({{(live_segment_stats1.stats_16_30.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_16_30.away.yel}} ({{(live_segment_stats1.stats_16_30.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_31_45.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.yel}} ({{(live_segment_stats1.stats_31_45.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.home.yel}} ({{(live_segment_stats1.stats_31_45.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_31_45.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.yel}} ({{(live_segment_stats1.stats_31_45.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_31_45.away.yel}} ({{(live_segment_stats1.stats_31_45.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_46_60.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.yel}} ({{(live_segment_stats1.stats_46_60.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.home.yel}} ({{(live_segment_stats1.stats_46_60.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_46_60.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.yel}} ({{(live_segment_stats1.stats_46_60.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_46_60.away.yel}} ({{(live_segment_stats1.stats_46_60.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_61_75.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.yel}} ({{(live_segment_stats1.stats_61_75.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.home.yel}} ({{(live_segment_stats1.stats_61_75.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_61_75.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.yel}} ({{(live_segment_stats1.stats_61_75.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_61_75.away.yel}} ({{(live_segment_stats1.stats_61_75.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(0)}}%)</div>
                             </div>
                             <div class="value stats-cell">
                                 <div v-if="live_segment_stats1.stats_76_90.home.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.yel}} ({{(live_segment_stats1.stats_76_90.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.home.yel}} ({{(live_segment_stats1.stats_76_90.home.yel/(live_segment_stats1.stats_0_15.home.yel + live_segment_stats1.stats_16_30.home.yel + live_segment_stats1.stats_31_45.home.yel + live_segment_stats1.stats_46_60.home.yel + live_segment_stats1.stats_61_75.home.yel + live_segment_stats1.stats_76_90.home.yel)*100).toFixed(0)}}%)</div>
                                 <div v-if="live_segment_stats1.stats_76_90.away.yel == 0" style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.yel}}</div>
-                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.yel}} ({{(live_segment_stats1.stats_76_90.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(2)}}%)</div>
+                                <div v-else style="height: 15px; font-size: 11px!important;">{{live_segment_stats1.stats_76_90.away.yel}} ({{(live_segment_stats1.stats_76_90.away.yel/(live_segment_stats1.stats_0_15.away.yel + live_segment_stats1.stats_16_30.away.yel + live_segment_stats1.stats_31_45.away.yel + live_segment_stats1.stats_46_60.away.yel + live_segment_stats1.stats_61_75.away.yel + live_segment_stats1.stats_76_90.away.yel)*100).toFixed(0)}}%)</div>
                             </div>
                         </div>
                     </div>
@@ -2607,7 +2609,33 @@
                             'yel': 0
                         }
                     }
-                }
+                },
+                delta_home_stats:{
+                    'score': '',
+                    'on': '-',
+                    'off': '-',
+                    'blk': '-',
+                    'in': '-',
+                    'out': '-',
+                    'cnr': '-',
+                    'da': '-',
+                    'pos': '-',
+                    'red': '-',
+                    'yel': '-'
+                },
+                delta_away_stats:{
+                    'score': '',
+                    'on': '-',
+                    'off': '-',
+                    'blk': '-',
+                    'in': '-',
+                    'out': '-',
+                    'cnr': '-',
+                    'da': '-',
+                    'pos': '-',
+                    'red': '-',
+                    'yel': '-'
+                },
             }
         },
         methods: {
@@ -4931,11 +4959,37 @@
                     'red': '-',
                     'yel': '-'
                 }
+                this.delta_home_stats = {
+                    'score': '',
+                    'on': '-',
+                    'off': '-',
+                    'blk': '-',
+                    'in': '-',
+                    'out': '-',
+                    'cnr': '-',
+                    'da': '-',
+                    'pos': '-',
+                    'red': '-',
+                    'yel': '-'
+                }
+                this.delta_away_stats = {
+                    'score': '',
+                    'on': '-',
+                    'off': '-',
+                    'blk': '-',
+                    'in': '-',
+                    'out': '-',
+                    'cnr': '-',
+                    'da': '-',
+                    'pos': '-',
+                    'red': '-',
+                    'yel': '-'
+                }
                 let home_id = val.home_id
                 let away_id = val.away_id
                 let home_name = val.home_name
                 let away_name = val.away_name
-
+                let time = val.time[0].starting_at.date
                 let home_rank = ''
                 let away_rank = ''
                 if(val.home_rank){
@@ -5064,85 +5118,89 @@
                         if(cSeasonStats[i].stats){
                             if(cSeasonStats[i].stats.length > 0){
                                 for(let j = 0; j < cSeasonStats[i].stats.length; j++){
-                                    if(cSeasonStats[i].stats[j]){
-                                        if(cSeasonStats[i].stats[j][0].team_id === home_id){
-                                            this.avg_home_stats.p++
-                                            if(cSeasonStats[i].stats[j][0].shots){
-                                                if(cSeasonStats[i].stats[j][0].shots.ongoal){
-                                                    this.avg_home_stats.on = this.avg_home_stats.on + cSeasonStats[i].stats[j][0].shots.ongoal
+                                    if(cSeasonStats[i].events[j]){
+                                        if(cSeasonStats[i].events[j].date < time){
+                                            if(cSeasonStats[i].stats[j]){
+                                                if(cSeasonStats[i].stats[j][0].team_id === home_id){
+                                                    this.avg_home_stats.p++
+                                                    if(cSeasonStats[i].stats[j][0].shots){
+                                                        if(cSeasonStats[i].stats[j][0].shots.ongoal){
+                                                            this.avg_home_stats.on = this.avg_home_stats.on + cSeasonStats[i].stats[j][0].shots.ongoal
+                                                        }
+                                                        if(cSeasonStats[i].stats[j][0].shots.offgoal){
+                                                            this.avg_home_stats.off = this.avg_home_stats.off + cSeasonStats[i].stats[j][0].shots.offgoal
+                                                        }
+                                                        if(cSeasonStats[i].stats[j][0].shots.blocked){
+                                                            this.avg_home_stats.blk = this.avg_home_stats.blk + cSeasonStats[i].stats[j][0].shots.blocked
+                                                        }
+                                                        if(cSeasonStats[i].stats[j][0].shots.insidebox){
+                                                            this.avg_home_stats.in = this.avg_home_stats.in + cSeasonStats[i].stats[j][0].shots.insidebox
+                                                        }
+                                                        if(cSeasonStats[i].stats[j][0].shots.outsidebox){
+                                                            this.avg_home_stats.out = this.avg_home_stats.out + cSeasonStats[i].stats[j][0].shots.outsidebox
+                                                        }
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][0].corners){
+                                                        this.avg_home_stats.cnr = this.avg_home_stats.cnr + cSeasonStats[i].stats[j][0].corners
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][0].goals){
+                                                        this.avg_home_stats.goal = this.avg_home_stats.goal + cSeasonStats[i].stats[j][0].goals
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][0].attacks){
+                                                        if(cSeasonStats[i].stats[j][0].attacks.dangerous_attacks){
+                                                            this.avg_home_stats.da = this.avg_home_stats.da + cSeasonStats[i].stats[j][0].attacks.dangerous_attacks
+                                                        }
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][0].possessiontime){
+                                                        this.avg_home_stats.pos = this.avg_home_stats.pos + cSeasonStats[i].stats[j][0].possessiontime
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][0].redcards){
+                                                        this.avg_home_stats.red = this.avg_home_stats.red + cSeasonStats[i].stats[j][0].redcards
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][0].yellowcards){
+                                                        this.avg_home_stats.yel = this.avg_home_stats.yel + cSeasonStats[i].stats[j][0].yellowcards
+                                                    }
                                                 }
-                                                if(cSeasonStats[i].stats[j][0].shots.offgoal){
-                                                    this.avg_home_stats.off = this.avg_home_stats.off + cSeasonStats[i].stats[j][0].shots.offgoal
+                                                if(cSeasonStats[i].stats[j][1].team_id === away_id){
+                                                    this.avg_away_stats.p++
+                                                    if(cSeasonStats[i].stats[j][1].shots){
+                                                        if(cSeasonStats[i].stats[j][1].shots.ongoal){
+                                                            this.avg_away_stats.on = this.avg_away_stats.on + cSeasonStats[i].stats[j][1].shots.ongoal
+                                                        }
+                                                        if(cSeasonStats[i].stats[j][1].shots.offgoal){
+                                                            this.avg_away_stats.off = this.avg_away_stats.off + cSeasonStats[i].stats[j][1].shots.offgoal
+                                                        }
+                                                        if(cSeasonStats[i].stats[j][1].shots.blocked){
+                                                            this.avg_away_stats.blk = this.avg_away_stats.blk + cSeasonStats[i].stats[j][1].shots.blocked
+                                                        }
+                                                        if(cSeasonStats[i].stats[j][1].shots.insidebox){
+                                                            this.avg_away_stats.in = this.avg_away_stats.in + cSeasonStats[i].stats[j][1].shots.insidebox
+                                                        }
+                                                        if(cSeasonStats[i].stats[j][1].shots.outsidebox){
+                                                            this.avg_away_stats.out = this.avg_away_stats.out + cSeasonStats[i].stats[j][1].shots.outsidebox
+                                                        }
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][1].corners){
+                                                        this.avg_away_stats.cnr = this.avg_away_stats.cnr + cSeasonStats[i].stats[j][1].corners
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][1].goals){
+                                                        this.avg_away_stats.goal = this.avg_away_stats.goal + cSeasonStats[i].stats[j][1].goals
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][1].attacks){
+                                                        if(cSeasonStats[i].stats[j][1].attacks.dangerous_attacks){
+                                                            this.avg_away_stats.da = this.avg_away_stats.da + cSeasonStats[i].stats[j][1].attacks.dangerous_attacks
+                                                        }
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][1].possessiontime){
+                                                        this.avg_away_stats.pos = this.avg_away_stats.pos + cSeasonStats[i].stats[j][1].possessiontime
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][1].redcards){
+                                                        this.avg_away_stats.red = this.avg_away_stats.red + cSeasonStats[i].stats[j][1].redcards
+                                                    }
+                                                    if(cSeasonStats[i].stats[j][1].yellowcards){
+                                                        this.avg_away_stats.yel = this.avg_away_stats.yel + cSeasonStats[i].stats[j][1].yellowcards
+                                                    }
                                                 }
-                                                if(cSeasonStats[i].stats[j][0].shots.blocked){
-                                                    this.avg_home_stats.blk = this.avg_home_stats.blk + cSeasonStats[i].stats[j][0].shots.blocked
-                                                }
-                                                if(cSeasonStats[i].stats[j][0].shots.insidebox){
-                                                    this.avg_home_stats.in = this.avg_home_stats.in + cSeasonStats[i].stats[j][0].shots.insidebox
-                                                }
-                                                if(cSeasonStats[i].stats[j][0].shots.outsidebox){
-                                                    this.avg_home_stats.out = this.avg_home_stats.out + cSeasonStats[i].stats[j][0].shots.outsidebox
-                                                }
-                                            }
-                                            if(cSeasonStats[i].stats[j][0].corners){
-                                                this.avg_home_stats.cnr = this.avg_home_stats.cnr + cSeasonStats[i].stats[j][0].corners
-                                            }
-                                            if(cSeasonStats[i].stats[j][0].goals){
-                                                this.avg_home_stats.goal = this.avg_home_stats.goal + cSeasonStats[i].stats[j][0].goals
-                                            }
-                                            if(cSeasonStats[i].stats[j][0].attacks){
-                                                if(cSeasonStats[i].stats[j][0].attacks.dangerous_attacks){
-                                                    this.avg_home_stats.da = this.avg_home_stats.da + cSeasonStats[i].stats[j][0].attacks.dangerous_attacks
-                                                }
-                                            }
-                                            if(cSeasonStats[i].stats[j][0].possessiontime){
-                                                this.avg_home_stats.pos = this.avg_home_stats.pos + cSeasonStats[i].stats[j][0].possessiontime
-                                            }
-                                            if(cSeasonStats[i].stats[j][0].redcards){
-                                                this.avg_home_stats.red = this.avg_home_stats.red + cSeasonStats[i].stats[j][0].redcards
-                                            }
-                                            if(cSeasonStats[i].stats[j][0].yellowcards){
-                                                this.avg_home_stats.yel = this.avg_home_stats.yel + cSeasonStats[i].stats[j][0].yellowcards
-                                            }
-                                        }
-                                        if(cSeasonStats[i].stats[j][1].team_id === away_id){
-                                            this.avg_away_stats.p++
-                                            if(cSeasonStats[i].stats[j][1].shots){
-                                                if(cSeasonStats[i].stats[j][1].shots.ongoal){
-                                                    this.avg_away_stats.on = this.avg_away_stats.on + cSeasonStats[i].stats[j][1].shots.ongoal
-                                                }
-                                                if(cSeasonStats[i].stats[j][1].shots.offgoal){
-                                                    this.avg_away_stats.off = this.avg_away_stats.off + cSeasonStats[i].stats[j][1].shots.offgoal
-                                                }
-                                                if(cSeasonStats[i].stats[j][1].shots.blocked){
-                                                    this.avg_away_stats.blk = this.avg_away_stats.blk + cSeasonStats[i].stats[j][1].shots.blocked
-                                                }
-                                                if(cSeasonStats[i].stats[j][1].shots.insidebox){
-                                                    this.avg_away_stats.in = this.avg_away_stats.in + cSeasonStats[i].stats[j][1].shots.insidebox
-                                                }
-                                                if(cSeasonStats[i].stats[j][1].shots.outsidebox){
-                                                    this.avg_away_stats.out = this.avg_away_stats.out + cSeasonStats[i].stats[j][1].shots.outsidebox
-                                                }
-                                            }
-                                            if(cSeasonStats[i].stats[j][1].corners){
-                                                this.avg_away_stats.cnr = this.avg_away_stats.cnr + cSeasonStats[i].stats[j][1].corners
-                                            }
-                                            if(cSeasonStats[i].stats[j][1].goals){
-                                                this.avg_away_stats.goal = this.avg_away_stats.goal + cSeasonStats[i].stats[j][1].goals
-                                            }
-                                            if(cSeasonStats[i].stats[j][1].attacks){
-                                                if(cSeasonStats[i].stats[j][1].attacks.dangerous_attacks){
-                                                    this.avg_away_stats.da = this.avg_away_stats.da + cSeasonStats[i].stats[j][1].attacks.dangerous_attacks
-                                                }
-                                            }
-                                            if(cSeasonStats[i].stats[j][1].possessiontime){
-                                                this.avg_away_stats.pos = this.avg_away_stats.pos + cSeasonStats[i].stats[j][1].possessiontime
-                                            }
-                                            if(cSeasonStats[i].stats[j][1].redcards){
-                                                this.avg_away_stats.red = this.avg_away_stats.red + cSeasonStats[i].stats[j][1].redcards
-                                            }
-                                            if(cSeasonStats[i].stats[j][1].yellowcards){
-                                                this.avg_away_stats.yel = this.avg_away_stats.yel + cSeasonStats[i].stats[j][1].yellowcards
                                             }
                                         }
                                     }
@@ -5152,6 +5210,159 @@
                     }
                 }
 
+                if(this.avg_home_stats.goal != 0){
+                    this.delta_home_stats.score = (this.total_home_stats.score * 100 / this.avg_home_stats.goal *this.avg_home_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_home_stats.score = 0
+                }
+
+                if(this.avg_away_stats.goal != 0){
+                    this.delta_away_stats.score = (this.total_away_stats.score * 100 / this.avg_away_stats.goal * this.avg_away_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_away_stats.score = 0
+                }
+
+                if(this.avg_home_stats.on != 0){
+                    this.delta_home_stats.on = (this.total_home_stats.on * 100 / this.avg_home_stats.on * this.avg_home_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_home_stats.on = 0
+                }
+
+                if(this.avg_away_stats.on != 0){
+                    this.delta_away_stats.on = (this.total_away_stats.on * 100 / this.avg_away_stats.on * this.avg_away_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_away_stats.on = 0
+                }
+
+                if(this.avg_home_stats.off != 0){
+                    this.delta_home_stats.off = (this.total_home_stats.off * 100 / this.avg_home_stats.off * this.avg_home_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_home_stats.off = 0
+                }
+
+                if(this.avg_away_stats.off != 0){
+                    this.delta_away_stats.off = (this.total_away_stats.off * 100 / this.avg_away_stats.off * this.avg_away_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_away_stats.off = 0
+                }
+
+                if(this.avg_home_stats.blk != 0){
+                    this.delta_home_stats.blk = (this.total_home_stats.blk * 100 / this.avg_home_stats.blk * this.avg_home_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_home_stats.blk = 0
+                }
+
+                if(this.avg_away_stats.blk != 0){
+                    this.delta_away_stats.blk = (this.total_away_stats.blk * 100 / this.avg_away_stats.blk * this.avg_away_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_away_stats.blk = 0
+                }
+
+                if(this.avg_home_stats.in != 0){
+                    this.delta_home_stats.in = (this.total_home_stats.in * 100 / this.avg_home_stats.in * this.avg_home_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_home_stats.in = 0
+                }
+
+                if(this.avg_away_stats.in != 0){
+                    this.delta_away_stats.in = (this.total_away_stats.in * 100 / this.avg_away_stats.in * this.avg_away_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_away_stats.in = 0
+                }
+
+                if(this.avg_home_stats.out != 0){
+                    this.delta_home_stats.out = (this.total_home_stats.out * 100 / this.avg_home_stats.out * this.avg_home_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_home_stats.out = 0
+                }
+
+                if(this.avg_away_stats.out != 0){
+                    this.delta_away_stats.out = (this.total_away_stats.out * 100 / this.avg_away_stats.out * this.avg_away_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_away_stats.out = 0
+                }
+
+                if(this.avg_home_stats.cnr != 0){
+                    this.delta_home_stats.cnr = (this.total_home_stats.cnr * 100 / this.avg_home_stats.cnr * this.avg_home_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_home_stats.cnr = 0
+                }
+
+                if(this.avg_away_stats.cnr != 0){
+                    this.delta_away_stats.cnr = (this.total_away_stats.cnr * 100 / this.avg_away_stats.cnr * this.avg_away_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_away_stats.cnr = 0
+                }
+
+                if(this.avg_home_stats.da != 0){
+                    this.delta_home_stats.da = (this.total_home_stats.da * 100 / this.avg_home_stats.da * this.avg_home_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_home_stats.da = 0
+                }
+
+                if(this.avg_away_stats.da != 0){
+                    this.delta_away_stats.da = (this.total_away_stats.da * 100 / this.avg_away_stats.da * this.avg_away_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_away_stats.da = 0
+                }
+
+                if(this.avg_home_stats.pos != 0){
+                    this.delta_home_stats.pos = (this.total_home_stats.pos * 100 / this.avg_home_stats.pos * this.avg_home_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_home_stats.pos = 0
+                }
+
+                if(this.avg_away_stats.pos != 0){
+                    this.delta_away_stats.pos = (this.total_away_stats.pos * 100 / this.avg_away_stats.pos * this.avg_away_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_away_stats.pos = 0
+                }
+
+                if(this.avg_home_stats.red != 0 && this.total_home_stats.red != '-'){
+                    this.delta_home_stats.red = (this.total_home_stats.red * 100 / this.avg_home_stats.red * this.avg_home_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_home_stats.red = 0
+                }
+
+                if(this.avg_away_stats.red != 0 && this.total_away_stats.red != '-'){
+                    this.delta_away_stats.red = (this.total_away_stats.red * 100 / this.avg_away_stats.red*this.avg_away_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_away_stats.red = 0
+                }
+
+                if(this.avg_home_stats.yel != 0){
+                    this.delta_home_stats.yel = (this.total_home_stats.yel * 100 / this.avg_home_stats.yel*this.avg_home_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_home_stats.yel = 0
+                }
+
+                if(this.avg_away_stats.yel != 0){
+                    this.delta_away_stats.yel = (this.total_away_stats.yel * 100 / this.avg_away_stats.yel*this.avg_away_stats.p - 100).toFixed(0)
+                }
+                else{
+                    this.delta_away_stats.yel = 0
+                }
             },
             get_search_events(){
                 let events = this.origin_events
@@ -5647,7 +5858,7 @@
             getDateList(){
                 this.dateList1 = []
                 this.dateList2 = []
-                for(let i = 0; i < 118 ; i++){
+                for(let i = 0; i < 119 ; i++){
                     let start_date = new Date();
                     let next_date = start_date.setDate(start_date.getDate() - (118 - i));
                     next_date = new Date(next_date).toISOString()
