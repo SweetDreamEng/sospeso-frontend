@@ -3693,6 +3693,7 @@
                                 let selections = data[k].runners.filter(function(runner) {
                                     return runner.selectionId == self.selectionId;
                                 });
+                                log.console('selections', selections)
                                 if(data[k].state.status == 'SUSPENDED'){
                                     this.marketStatus = 'SUSPENDED'
                                 }

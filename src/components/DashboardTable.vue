@@ -115,6 +115,7 @@
                 all: false,
                 selectionId: '',
                 marketIds: [],
+                bookmarkerFee: 0
             }
         },
         methods : {
@@ -137,7 +138,8 @@
                     this.marketIds.push(
                         {
                             'index': index,
-                            'market': this.marketId
+                            'market': this.marketId,
+                            'selectionId': this.selectionId
                         });
                 }
             },
@@ -451,7 +453,7 @@
             odd_calc(val){
                 this.calc_odd = this.prematchOdd;
                 this.calc_stake = 100;
-                
+
                 if(this.calc_odd != 0 && this.calc_stake != 0 && this.eventId != 0){
                     if(parseInt(this.selectedArray[6]) == 0){
                         this.max_profit = (this.calc_odd * this.calc_stake - this.calc_stake).toFixed(2)
@@ -479,26 +481,7 @@
                         else{
                             this.currentPercent = 0
                         }
-                        if(this.currentPercent > 0){
-                            this.percent_text2 = this.currentPercent.toString() + '%'
-
-                            let timeRecord = this.timeRecord
-                            let MG = timeRecord.substring(0, timeRecord.length)
-
-                            if(MG == ''){
-                                MG = '0'
-                            }
-                        }
-                        else if(this.currentPercent < 0){
-                            this.percent_text2 = this.currentPercent.toString() + '%'
-
-                            let timeRecord = this.timeRecord
-                            let MG = timeRecord.substring(0, timeRecord.length)
-
-                            if(MG =='' ){
-                                MG = '0'
-                            }
-                        }
+                        this.percent_text2 = this.currentPercent.toString() + '%'
                     }
                     else{
                         this.max_lose = (this.calc_odd * this.calc_stake - this.calc_stake).toFixed(2)
@@ -526,26 +509,7 @@
                         else{
                             this.currentPercent = 0
                         }
-                        if(this.currentPercent > 0){
-                            this.percent_text2 = this.currentPercent.toString() + '%'
-
-                            let timeRecord = this.timeRecord
-                            let MG = timeRecord.substring(0, timeRecord.length)
-
-                            if(MG =='' ){
-                                MG = '0'
-                            }
-                        }
-                        else if(this.currentPercent < 0){
-                            this.percent_text2 = this.currentPercent.toString() + '%'
-
-                            let timeRecord = this.timeRecord
-                            let MG = timeRecord.substring(0, timeRecord.length)
-
-                            if(MG =='' ){
-                                MG = '0'
-                            }
-                        }
+                        this.percent_text2 = this.currentPercent.toString() + '%'
                     }
                 }
                 else{
@@ -585,26 +549,7 @@
                         else{
                             this.currentPercent = 0
                         }
-                        if(this.currentPercent > 0){
-                            this.percent_text2 = this.currentPercent.toString() + '%'
-
-                            let timeRecord = this.timeRecord
-                            let MG = timeRecord.substring(0, timeRecord.length)
-
-                            if(MG =='' ){
-                                MG = '0'
-                            }
-                        }
-                        else if(this.currentPercent < 0){
-                            this.percent_text2 = this.currentPercent.toString() + '%'
-
-                            let timeRecord = this.timeRecord
-                            let MG = timeRecord.substring(0, timeRecord.length)
-
-                            if(MG == ''){
-                                MG = '0'
-                            }
-                        }
+                        this.percent_text2 = this.currentPercent.toString() + '%'
                     }
                     else{
                         this.max_lose = (this.calc_odd * this.calc_stake - this.calc_stake).toFixed(2)
@@ -632,26 +577,7 @@
                         else{
                             this.currentPercent = 0
                         }
-                        if(this.currentPercent > 0){
-                            this.percent_text2 = this.currentPercent.toString() + '%'
-
-                            let timeRecord = this.timeRecord
-                            let MG = timeRecord.substring(0, timeRecord.length)
-
-                            if(MG =='' ){
-                                MG = '0'
-                            }
-                        }
-                        else if(this.currentPercent < 0){
-                            this.percent_text2 = this.currentPercent.toString() + '%'
-
-                            let timeRecord = this.timeRecord
-                            let MG = timeRecord.substring(0, timeRecord.length)
-
-                            if(MG =='' ){
-                                MG = '0'
-                            }
-                        }
+                        this.percent_text2 = this.currentPercent.toString() + '%'
                     }
                 }
                 else{
@@ -750,49 +676,44 @@
         created() {
             let self = this
             this.sockets.listener.subscribe('UpdateOdds', (data) => {
-                this.marketIds.forEach(element => {
+                for (let i=0; i<this.marketIds.length; i++) {
+                    const element = this.marketIds[i];
                     for (let i = 0; i < data.length; i++) {
                         if(element.market == data[i].marketId){
-                            // self.odd_calc(this.calc_odd)
-                            let selections = data[i].runners;
-                            if(data[i].state.status == 'SUSPENDED'){
-                                this.marketStatus = 'SUSPENDED'
-                            }
-                            else if(data[i].state.status == "CLOSED"){
-                                this.marketStatus = 'CLOSED'
-                            }
-                            else if(data[i].state.status == "OPEN"){
-                                this.marketStatus =''
-                            }
-                            if(selections[0].exchange.availableToBack){
-                                self.back = selections[0].exchange.availableToBack[0].price ||''
-                                self.back_matched = selections[0].exchange.availableToBack[0].size || 0
-                            }
-                            else{
-                                self.back =''
-                                self.back_matched = 0
-                            }
+                            self.odd_calc(this.calc_odd);
 
-                            if(selections[0].exchange.availableToLay){
-                                self.lay = selections[0].exchange.availableToLay[0].price ||''
-                                self.lay_matched = selections[0].exchange.availableToLay[0].size || 0
-                            }
-                            else{
-                                self.lay =''
-                                self.lay_matched = 0
-                            }
-                            self.total_matched = (data[i].state.totalMatched).toFixed(1);
+                            let selections = data[i].runners.filter(function(runner) {
+                                return runner.selectionId == element.selectionId;
+                            });
 
-                            self.odd_calc(0)
-                            self.stake_calc(0)
+                            if (selections.length > 0) {
+                                
+                                if(selections[0].exchange.availableToBack){
+                                    self.back = selections[0].exchange.availableToBack[0].price ||''
+                                    self.back_matched = selections[0].exchange.availableToBack[0].size || 0
+                                }
+                                else{
+                                    self.back =''
+                                    self.back_matched = 0
+                                }
 
+                                if(selections[0].exchange.availableToLay){
+                                    self.lay = selections[0].exchange.availableToLay[0].price ||''
+                                    self.lay_matched = selections[0].exchange.availableToLay[0].size || 0
+                                }
+                                else{
+                                    self.lay =''
+                                    self.lay_matched = 0
+                                }
+                                self.total_matched = (data[i].state.totalMatched).toFixed(1);
+                            }
                             this.tableItems[element.index].tot.value = '€' + self.total_matched;
                             this.tableItems[element.index].back.value = self.back;
                             this.tableItems[element.index].lay.value = self.lay;
                             this.tableItems[element.index].gain.value = self.percent_text2;
                         }
                     }
-                });
+                }
             });
             
             this.sockets.listener.subscribe('UpdateScore', (data) => {
