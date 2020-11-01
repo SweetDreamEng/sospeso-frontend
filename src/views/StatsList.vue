@@ -195,19 +195,19 @@
                                     <div style="min-width: 150px; float: left; width: 15%;">
                                         <label style="float: left; margin-top: 40px; margin-left: 10px; ">Show last</label>
                                         <CSelect
-                                                v-if="item1.home.eventdays.length <= item1.away.eventdays.length"
+                                                v-if="item1.homeDateList.length <= item1.awayDateList.length"
                                                 class="eventdays"
-                                                :options="item1.home.eventdays"
-                                                @click="item_X = item1"
+                                                :options="item1.homeDateList"
+                                                @click="item_X = item1, home_date_list = item1.homeDateList, away_date_list = item1.awayDateList"
                                                 @update:value="refreshCalc"
                                         >
                                         </CSelect>
 
                                         <CSelect
-                                                v-if="item1.home.eventdays.length > item1.away.eventdays.length"
+                                                v-if="item1.homeDateList.length > item1.awayDateList.length"
                                                 class="eventdays"
                                                 @click="item_X = item1"
-                                                :options="item1.away.eventdays"
+                                                :options="item1.awayDateList"
                                                 @update:value="refreshCalc"
                                         >
                                         </CSelect>
@@ -1406,7 +1406,10 @@
                 leagueIndex: 0,
                 eventIndex: 0,
                 mainList: [],
-                standingList:[]
+                standingList:[],
+                mainData:[],
+                home_date_list:[],
+                away_date_list:[]
             }
         },
         methods: {
@@ -1440,52 +1443,63 @@
                 return this.collapsed.indexOf(id)>-1?true:false;
             },
             refreshCalc(val){
-                let counts1 = val
-                let counts2 = val
                 let historyS = this.item_X
-                let leagueId = 1
-                let eventId = 1
-
-                for(let i = 0 ; i < this.eventList.length; i++){
-                    for(let j = 0 ; j < this.eventList[i].events.length; j++){
-                        let eventName = this.eventList[i].events[j].eventName
-                        if(eventName == historyS.eventName){
-                            leagueId = i
-                            eventId = j
-                        }
+                console.log('val_check==>', val, historyS)
+                console.log('home_date_list_check', this.home_date_list)
+                console.log('away_date_list_check', this.away_date_list)
+                let home_date = ''
+                let away_date = ''
+                for(let i = 0 ; i < this.home_date_list.length ; i++){
+                    if(this.home_date_list.length - i == val){
+                        home_date = this.home_date_list[i].date
                     }
                 }
-                if(val == 'All'){
-                    counts1 = this.getMatchedNumbers(historyS.home.name, this.eventList[leagueId].currentMatchday, historyS.home.historicD, 'home', counts1)
-                    counts2 = this.getMatchedNumbers(historyS.away.name, this.eventList[leagueId].currentMatchday, historyS.away.historicD, 'away', counts2)
+                for(let i = 0 ; i < this.away_date_list.length; i++){
+                    if(this.away_date_list.length - i == val){
+                        away_date = this.away_date_list[i].date
+                    }
                 }
-                this.eventList[leagueId].events[eventId].home.p = counts1
-                this.eventList[leagueId].events[eventId].away.p = counts2
-
-                let z_home = this.zeroScored1(historyS.home.name, this.eventList[leagueId].currentMatchday, historyS.home.historicD, 'home', counts1)
-                let z_away = this.zeroScored1(historyS.away.name, this.eventList[leagueId].currentMatchday, historyS.away.historicD, 'away', counts2)
-                this.eventList[leagueId].events[eventId].home.z_z = z_home
-                this.eventList[leagueId].events[eventId].away.z_z = z_away
-                console.log(historyS.home.name,z_home, z_away,historyS.away.name)
+                this.refresh_calculation(this.item_X, home_date, away_date)
             },
-            p_calculation(data, teamId, dir, date){
+            p_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date){
-                                p++
+                if(d === '1'){
+                    for(let i = 0; i < data.length; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date){
+                                    p++
+                                }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date){
-                                p++
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date){
+                                    p++
+                                }
                             }
                         }
                     }
                 }
+                else{
+                    for(let i = 0; i < data.length; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date){
+                                    p++
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date){
+                                    p++
+                                }
+                            }
+                        }
+                    }
+                }
+
                 return p
             },
             percentage_calculation(data){
@@ -1503,214 +1517,79 @@
                 else(result = (p/data.length*100).toFixed(0))
                 return result
             },
-            zeroTozero_calculation(data, teamId, dir, date){
+            zeroTozero_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
-                                p++
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
-                                p++
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            over15_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
-                                p++
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
-                                p++
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            over25_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
-                                p++
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
-                                p++
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            over35_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
-                                p++
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
-                                p++
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            scored_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
-                                p++
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
-                                p++
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            concd_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
-                                p++
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
-                                p++
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            average_scored_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
-                                p = p + data[i].events[j].localteamScore
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
-                                p = p + data[i].events[j].visitorteamSore
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            average_concd_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
-                                p = p + data[i].events[j].visitorteamSore
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
-                                p = p + data[i].events[j].localteamScore
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            average_bts_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0 && data[i].events[j].localteamScore > 0){
-                                p++
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0 && data[i].events[j].visitorteamSore > 0 ){
-                                p++
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            FH_1st_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45){
-                                        check = 1
-                                    }
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
+                                    p++
                                 }
-                                if(check == 1){
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
                                     p++
                                 }
                             }
                         }
                     }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45){
-                                        check = 1
-                                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
+                                    p++
                                 }
-                                if(check == 1){
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
+                                    p++
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            over15_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
+                                    p++
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
+                                    p++
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
+                                    p++
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
                                     p++
                                 }
                             }
@@ -1719,205 +1598,322 @@
                 }
                 return p
             },
-            FH_2st_calculation(data, teamId, dir, date){
+            over25_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute < 45){
-                                        check++
-                                    }
-                                }
-                                if(check > 1){
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
                                     p++
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute < 45){
-                                        check++
-                                    }
-                                }
-                                if(check > 1){
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
                                     p++
                                 }
                             }
                         }
                     }
                 }
-                return p
-            },
-            SH_1st_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45){
-                                        check = 1
-                                    }
-                                }
-                                if(check == 1){
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
                                     p++
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45){
-                                        check = 1
-                                    }
-                                }
-                                if(check == 1){
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
                                     p++
                                 }
                             }
                         }
                     }
                 }
+
                 return p
             },
-            SH_2st_calculation(data, teamId, dir, date){
+            over35_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45){
-                                        check++
-                                    }
-                                }
-                                if(check > 1){
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
                                     p++
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45){
-                                        check++
-                                    }
-                                }
-                                if(check > 1){
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
                                     p++
                                 }
                             }
                         }
                     }
                 }
-                return p
-            },
-            time_scored_calculation(data, teamId, dir, date, time){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                        check = 1
-                                    }
-                                }
-                                if(check == 1){
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
                                     p++
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                        check = 1
-                                    }
-                                }
-                                if(check == 1){
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
                                     p++
                                 }
                             }
                         }
                     }
                 }
+
                 return p
             },
-            time_concd_calculation(data, teamId, dir, date, time){
+            scored_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                        check = 1
-                                    }
-                                }
-                                if(check == 1){
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
                                     p++
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].teamId == data[i].events[j].localteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                        check = 1
-                                    }
-                                }
-                                if(check == 1){
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
                                     p++
                                 }
                             }
                         }
                     }
                 }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > 0){
+                                    p++
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > 0){
+                                    p++
+                                }
+                            }
+                        }
+                    }
+                }
+
                 return p
             },
-            scored_1st_calculation(data, teamId, dir, date){
+            concd_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
+                                    p++
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
+                                    p++
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > 0){
+                                    p++
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > 0){
+                                    p++
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            average_scored_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
+                                    p = p + data[i].events[j].localteamScore
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
+                                    p = p + data[i].events[j].visitorteamSore
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > 0){
+                                    p = p + data[i].events[j].localteamScore
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > 0){
+                                    p = p + data[i].events[j].visitorteamSore
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            average_concd_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
+                                    p = p + data[i].events[j].visitorteamSore
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
+                                    p = p + data[i].events[j].localteamScore
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > 0){
+                                    p = p + data[i].events[j].visitorteamSore
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > 0){
+                                    p = p + data[i].events[j].localteamScore
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            average_bts_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0 && data[i].events[j].localteamScore > 0){
+                                    p++
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0 && data[i].events[j].visitorteamSore > 0 ){
+                                    p++
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > 0 && data[i].events[j].localteamScore > 0){
+                                    p++
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > 0 && data[i].events[j].visitorteamSore > 0 ){
+                                    p++
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            FH_1st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
                                         p++
                                     }
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId == teamId){
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
                                         p++
                                     }
                                 }
@@ -1925,55 +1921,33 @@
                         }
                     }
                 }
-                return p
-            },
-            scored_2st_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
                                         p++
                                     }
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId == teamId){
-                                        p++
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45){
+                                            check = 1
+                                        }
                                     }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            concd_1st_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
+                                    if(check == 1){
                                         p++
                                     }
                                 }
@@ -1981,27 +1955,38 @@
                         }
                     }
                 }
+
                 return p
             },
-            concd_2st_calculation(data, teamId, dir, date){
+            FH_2st_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute < 45){
+                                            check++
+                                        }
+                                    }
+                                    if(check > 1){
                                         p++
                                     }
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute < 45){
+                                            check++
+                                        }
+                                    }
+                                    if(check > 1){
                                         p++
                                     }
                                 }
@@ -2009,425 +1994,808 @@
                         }
                     }
                 }
-                return p
-            },
-            scored_plus_calculation(data, teamId, dir, date, time){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
-                                        check = 1
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute < 45){
+                                            check++
+                                        }
+                                    }
+                                    if(check > 1){
+                                        p++
                                     }
                                 }
-                                if(check == 1){
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute < 45){
+                                            check++
+                                        }
+                                    }
+                                    if(check > 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            SH_1st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            SH_2st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45){
+                                            check++
+                                        }
+                                    }
+                                    if(check > 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45){
+                                            check++
+                                        }
+                                    }
+                                    if(check > 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45){
+                                            check++
+                                        }
+                                    }
+                                    if(check > 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45){
+                                            check++
+                                        }
+                                    }
+                                    if(check > 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            time_scored_calculation(data, teamId, dir, date, time, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            time_concd_calculation(data, teamId, dir, date, time, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].teamId == data[i].events[j].localteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].teamId == data[i].events[j].localteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            scored_1st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            scored_2st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            concd_1st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            concd_2st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            scored_plus_calculation(data, teamId, dir, date, time, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            win_percentage_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore < data[i].events[j].localteamScore ){
+                                    p++
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > data[i].events[j].visitorteamSore ){
                                     p++
                                 }
                             }
                         }
                     }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
-                                        check = 1
-                                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore < data[i].events[j].localteamScore ){
+                                    p++
                                 }
-                                if(check == 1){
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > data[i].events[j].visitorteamSore ){
                                     p++
                                 }
                             }
                         }
                     }
                 }
+
                 return p
             },
-            win_percentage_calculation(data, teamId, dir, date){
+            draw_percentage_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore < data[i].events[j].localteamScore ){
-                                p++
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > data[i].events[j].visitorteamSore ){
-                                p++
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            draw_percentage_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore == data[i].events[j].localteamScore ){
-                                p++
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore == data[i].events[j].visitorteamSore ){
-                                p++
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            loss_percentage_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > data[i].events[j].localteamScore ){
-                                p++
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore < data[i].events[j].visitorteamSore ){
-                                p++
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            one_to_zero_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                if(data[i].events[j].goals.length > 0){
-                                    if(data[i].events[j].goals[0].teamId == teamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                if(data[i].events[j].goals.length > 0){
-                                    if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            one_to_one_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                if(data[i].events[j].goals.length > 1){
-                                    if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                if(data[i].events[j].goals.length > 1){
-                                    if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == teamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            two_to_one_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                if(data[i].events[j].goals.length > 1){
-                                    if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                if(data[i].events[j].goals.length > 1){
-                                    if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            zero_to_one_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                if(data[i].events[j].goals.length > 0){
-                                    if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                if(data[i].events[j].goals.length > 0){
-                                    if(data[i].events[j].goals[0].teamId == teamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            one_to_one2_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                if(data[i].events[j].goals.length > 1){
-                                    if(data[i].events[j].goals[1].teamId == teamId && data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                if(data[i].events[j].goals.length > 1){
-                                    if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            zero_to_two_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                if(data[i].events[j].goals.length > 1){
-                                    if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                if(data[i].events[j].goals.length > 1){
-                                    if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            two_score_ahead_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                    let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                    if(hometeamScore - awayteamScore >= 2){
-                                        check = 1
-                                    }
-                                }
-                                if(check == 1){p++}
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                    let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                    if(awayteamScore - hometeamScore >= 2){
-                                        check = 1
-                                    }
-                                }
-                                if(check == 1){p++}
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            two_score_behind_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                    let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                    if(awayteamScore - hometeamScore >= 2){
-                                        check = 1
-                                    }
-                                }
-                                if(check == 1){p++}
-                            }
-                        }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let check = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                    let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                    if(hometeamScore - awayteamScore >= 2){
-                                        check = 1
-                                    }
-                                }
-                                if(check == 1){p++}
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            H_1st_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        localScoreSum++
-                                    }
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                        visitorScoreSum++
-                                    }
-                                }
-                                if(localScoreSum > visitorScoreSum){
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore == data[i].events[j].localteamScore ){
                                     p++
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        visitorScoreSum++
-                                    }
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                        localScoreSum++
-                                    }
-                                }
-                                if(localScoreSum > visitorScoreSum){
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore == data[i].events[j].visitorteamSore ){
                                     p++
                                 }
                             }
                         }
                     }
                 }
-                return p
-            },
-            D_1st_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        localScoreSum++
-                                    }
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                        visitorScoreSum++
-                                    }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore == data[i].events[j].localteamScore ){
+                                    p++
                                 }
-                                if(localScoreSum == visitorScoreSum){
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore == data[i].events[j].visitorteamSore ){
                                     p++
                                 }
                             }
                         }
                     }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        visitorScoreSum++
-                                    }
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                        localScoreSum++
+                }
+
+                return p
+            },
+            loss_percentage_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > data[i].events[j].localteamScore ){
+                                    p++
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore < data[i].events[j].visitorteamSore ){
+                                    p++
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > data[i].events[j].localteamScore ){
+                                    p++
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore < data[i].events[j].visitorteamSore ){
+                                    p++
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            one_to_zero_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[0].teamId == teamId){
+                                            p++
+                                        }
                                     }
                                 }
-                                if(localScoreSum == visitorScoreSum){
-                                    p++
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[0].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId){
+                                            p++
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -2435,43 +2803,55 @@
                 }
                 return p
             },
-            A_1st_calculation(data, teamId, dir, date){
+            one_to_one_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        localScoreSum++
-                                    }
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                        visitorScoreSum++
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
                                     }
                                 }
-                                if(localScoreSum < visitorScoreSum){
-                                    p++
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == teamId){
+                                            p++
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        visitorScoreSum++
-                                    }
-                                    if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                        localScoreSum++
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
                                     }
                                 }
-                                if(localScoreSum < visitorScoreSum){
-                                    p++
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == teamId){
+                                            p++
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -2479,157 +2859,459 @@
                 }
                 return p
             },
-            H_2st_calculation(data, teamId, dir, date){
+            two_to_one_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        localScoreSum++
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
+                                            p++
+                                        }
                                     }
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                        visitorScoreSum++
-                                    }
-                                }
-                                if(localScoreSum > visitorScoreSum){
-                                    p++
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        visitorScoreSum++
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
+                                            p++
+                                        }
                                     }
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                        localScoreSum++
-                                    }
-                                }
-                                if(localScoreSum > visitorScoreSum){
-                                    p++
                                 }
                             }
                         }
                     }
                 }
-                return p
-            },
-            D_2st_calculation(data, teamId, dir, date){
-                let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        localScoreSum++
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
+                                            p++
+                                        }
                                     }
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                        visitorScoreSum++
-                                    }
-                                }
-                                if(localScoreSum == visitorScoreSum){
-                                    p++
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        visitorScoreSum++
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
+                                            p++
+                                        }
                                     }
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                        localScoreSum++
-                                    }
-                                }
-                                if(localScoreSum == visitorScoreSum){
-                                    p++
                                 }
                             }
                         }
                     }
                 }
+
                 return p
             },
-            A_2st_calculation(data, teamId, dir, date){
+            zero_to_one_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        localScoreSum++
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
                                     }
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                        visitorScoreSum++
-                                    }
-                                }
-                                if(localScoreSum < visitorScoreSum){
-                                    p++
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                let localScoreSum = 0
-                                let visitorScoreSum = 0
-                                for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                        visitorScoreSum++
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[0].teamId == teamId){
+                                            p++
+                                        }
                                     }
-                                    if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                        localScoreSum++
-                                    }
-                                }
-                                if(localScoreSum < visitorScoreSum){
-                                    p++
                                 }
                             }
                         }
                     }
                 }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[0].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
                 return p
             },
-            Last_goal_calculation(data, teamId, dir, date){
+            one_to_one2_calculation(data, teamId, dir, date, d){
                 let p = 0
-                for(let i = 0; i < data.length ; i++){
-                    if(dir == 'home'){
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                if(data[i].events[j].goals.length > 0){
-                                    if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[1].teamId == teamId && data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[1].teamId == teamId && data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            zero_to_two_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 1){
+                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            two_score_ahead_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
+                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
+                                        if(hometeamScore - awayteamScore >= 2){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){p++}
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
+                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
+                                        if(awayteamScore - hometeamScore >= 2){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){p++}
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
+                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
+                                        if(hometeamScore - awayteamScore >= 2){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){p++}
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
+                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
+                                        if(awayteamScore - hometeamScore >= 2){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){p++}
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            two_score_behind_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
+                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
+                                        if(awayteamScore - hometeamScore >= 2){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){p++}
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
+                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
+                                        if(hometeamScore - awayteamScore >= 2){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){p++}
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
+                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
+                                        if(awayteamScore - hometeamScore >= 2){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){p++}
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let check = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
+                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
+                                        if(hometeamScore - awayteamScore >= 2){
+                                            check = 1
+                                        }
+                                    }
+                                    if(check == 1){p++}
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            H_1st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum > visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum > visitorScoreSum){
                                         p++
                                     }
                                 }
                             }
                         }
                     }
-                    else{
-                        for(let j = 0 ; j < data[i].events.length; j++){
-                            if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                if(data[i].events[j].goals.length > 0){
-                                    if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum > visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum > visitorScoreSum){
                                         p++
                                     }
                                 }
@@ -2637,6 +3319,509 @@
                         }
                     }
                 }
+
+                return p
+            },
+            D_1st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum == visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum == visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum == visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum == visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            A_1st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum < visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum < visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum < visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum < visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            H_2st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum > visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum > visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum > visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum > visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            D_2st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum == visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum == visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum == visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum == visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            A_2st_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum < visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum < visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            localScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
+                                            visitorScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum < visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    let localScoreSum = 0
+                                    let visitorScoreSum = 0
+                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
+                                            visitorScoreSum++
+                                        }
+                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
+                                            localScoreSum++
+                                        }
+                                    }
+                                    if(localScoreSum < visitorScoreSum){
+                                        p++
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return p
+            },
+            Last_goal_calculation(data, teamId, dir, date, d){
+                let p = 0
+                if(d === '1'){
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0; i < data.length ; i++){
+                        if(dir == 'home'){
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(let j = 0 ; j < data[i].events.length; j++){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
+                                    if(data[i].events[j].goals.length > 0){
+                                        if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
+                                            p++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
                 return p
             },
             H_A_calculation(seasonId, teamId, dir){
@@ -2683,7 +3868,7 @@
                 }
                 return rank
             },
-            FH_calculation(data, teamId, seasonId, dir, date){
+            FH_calculation(data, teamId, seasonId, dir, date, d){
                 let teamIdArray = []
                 let rank = 1
                 let currentTeamData = {}
@@ -2696,64 +3881,128 @@
                 }
                 teamIdArray = Array.from(new Set (teamIdArray))
                 let rankArray = []
-                for(let i = 0 ; i < teamIdArray.length ; i++){
-                    let won = 0
-                    let draw = 0
-                    rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                    for(let j = 0 ; j < data.length ; j++){
-                        if(dir == 'home'){
-                            for(let k = 0 ; k < data[j].events.length; k++){
-                                if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date < date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                        if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                            localScoreSum++
-                                            rankArray[i].goals_scored++
+                if(d === '1'){
+                    for(let i = 0 ; i < teamIdArray.length ; i++){
+                        let won = 0
+                        let draw = 0
+                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
+                        for(let j = 0 ; j < data.length ; j++){
+                            if(dir == 'home'){
+                                for(let k = 0 ; k < data[j].events.length; k++){
+                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date < date){
+                                        let localScoreSum = 0
+                                        let visitorScoreSum = 0
+                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                localScoreSum++
+                                                rankArray[i].goals_scored++
+                                            }
+                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
+                                                visitorScoreSum++
+                                                rankArray[i].goals_against++
+                                            }
                                         }
-                                        if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                            visitorScoreSum++
-                                            rankArray[i].goals_against++
+                                        if(localScoreSum == visitorScoreSum){
+                                            draw++
+                                        }
+                                        else if(localScoreSum > visitorScoreSum){
+                                            won++
                                         }
                                     }
-                                    if(localScoreSum == visitorScoreSum){
-                                        draw++
-                                    }
-                                    else if(localScoreSum > visitorScoreSum){
-                                        won++
+                                }
+                            }
+                            else{
+                                for(let k = 0 ; k < data[j].events.length; k++){
+                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date < date){
+                                        let localScoreSum = 0
+                                        let visitorScoreSum = 0
+                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                visitorScoreSum++
+                                                rankArray[i].goals_scored++
+                                            }
+                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
+                                                localScoreSum++
+                                                rankArray[i].goals_against++
+                                            }
+                                        }
+                                        if(localScoreSum == visitorScoreSum){
+                                            draw++
+                                        }
+                                        else if(localScoreSum < visitorScoreSum){
+                                            won++
+                                        }
                                     }
                                 }
                             }
                         }
-                        else{
-                            for(let k = 0 ; k < data[j].events.length; k++){
-                                if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date < date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                        if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                            visitorScoreSum++
-                                            rankArray[i].goals_scored++
+                        rankArray[i].points = draw + won*3
+                        if(teamIdArray[i] == teamId){
+                            currentTeamData = rankArray[i]
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0 ; i < teamIdArray.length ; i++){
+                        let won = 0
+                        let draw = 0
+                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
+                        for(let j = 0 ; j < data.length ; j++){
+                            if(dir == 'home'){
+                                for(let k = 0 ; k < data[j].events.length; k++){
+                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date >= date){
+                                        let localScoreSum = 0
+                                        let visitorScoreSum = 0
+                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                localScoreSum++
+                                                rankArray[i].goals_scored++
+                                            }
+                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
+                                                visitorScoreSum++
+                                                rankArray[i].goals_against++
+                                            }
                                         }
-                                        if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                            localScoreSum++
-                                            rankArray[i].goals_against++
+                                        if(localScoreSum == visitorScoreSum){
+                                            draw++
+                                        }
+                                        else if(localScoreSum > visitorScoreSum){
+                                            won++
                                         }
                                     }
-                                    if(localScoreSum == visitorScoreSum){
-                                        draw++
-                                    }
-                                    else if(localScoreSum < visitorScoreSum){
-                                        won++
+                                }
+                            }
+                            else{
+                                for(let k = 0 ; k < data[j].events.length; k++){
+                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date >= date){
+                                        let localScoreSum = 0
+                                        let visitorScoreSum = 0
+                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                visitorScoreSum++
+                                                rankArray[i].goals_scored++
+                                            }
+                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
+                                                localScoreSum++
+                                                rankArray[i].goals_against++
+                                            }
+                                        }
+                                        if(localScoreSum == visitorScoreSum){
+                                            draw++
+                                        }
+                                        else if(localScoreSum < visitorScoreSum){
+                                            won++
+                                        }
                                     }
                                 }
                             }
                         }
+                        rankArray[i].points = draw + won*3
+                        if(teamIdArray[i] == teamId){
+                            currentTeamData = rankArray[i]
+                        }
                     }
-                    rankArray[i].points = draw + won*3
-                    if(teamIdArray[i] == teamId){
-                        currentTeamData = rankArray[i]
-                    }
+
                 }
 
                 for(let i = 0 ; i < rankArray.length ; i++){
@@ -2768,7 +4017,7 @@
                 }
                 return rank
             },
-            SH_calculation(data, teamId, seasonId, dir, date){
+            SH_calculation(data, teamId, seasonId, dir, date, d){
                 let teamIdArray = []
                 let rank = 1
                 let currentTeamData = {}
@@ -2781,63 +4030,126 @@
                 }
                 teamIdArray = Array.from(new Set (teamIdArray))
                 let rankArray = []
-                for(let i = 0 ; i < teamIdArray.length ; i++){
-                    let won = 0
-                    let draw = 0
-                    rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                    for(let j = 0 ; j < data.length ; j++){
-                        if(dir == 'home'){
-                            for(let k = 0 ; k < data[j].events.length; k++){
-                                if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date < date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                        if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                            localScoreSum++
-                                            rankArray[i].goals_scored++
+                if(d === '1'){
+                    for(let i = 0 ; i < teamIdArray.length ; i++){
+                        let won = 0
+                        let draw = 0
+                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
+                        for(let j = 0 ; j < data.length ; j++){
+                            if(dir == 'home'){
+                                for(let k = 0 ; k < data[j].events.length; k++){
+                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date < date){
+                                        let localScoreSum = 0
+                                        let visitorScoreSum = 0
+                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                localScoreSum++
+                                                rankArray[i].goals_scored++
+                                            }
+                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
+                                                visitorScoreSum++
+                                                rankArray[i].goals_against++
+                                            }
                                         }
-                                        if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                            visitorScoreSum++
-                                            rankArray[i].goals_against++
+                                        if(localScoreSum == visitorScoreSum){
+                                            draw++
+                                        }
+                                        else if(localScoreSum > visitorScoreSum){
+                                            won++
                                         }
                                     }
-                                    if(localScoreSum == visitorScoreSum){
-                                        draw++
-                                    }
-                                    else if(localScoreSum > visitorScoreSum){
-                                        won++
+                                }
+                            }
+                            else{
+                                for(let k = 0 ; k < data[j].events.length; k++){
+                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date < date){
+                                        let localScoreSum = 0
+                                        let visitorScoreSum = 0
+                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                visitorScoreSum++
+                                                rankArray[i].goals_scored++
+                                            }
+                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
+                                                localScoreSum++
+                                                rankArray[i].goals_against++
+                                            }
+                                        }
+                                        if(localScoreSum == visitorScoreSum){
+                                            draw++
+                                        }
+                                        else if(localScoreSum < visitorScoreSum){
+                                            won++
+                                        }
                                     }
                                 }
                             }
                         }
-                        else{
-                            for(let k = 0 ; k < data[j].events.length; k++){
-                                if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date < date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                        if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                            visitorScoreSum++
-                                            rankArray[i].goals_scored++
-                                        }
-                                        if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                            localScoreSum++
-                                            rankArray[i].goals_against++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        draw++
-                                    }
-                                    else if(localScoreSum < visitorScoreSum){
-                                        won++
-                                    }
-                                }
-                            }
+                        rankArray[i].points = draw + won*3
+                        if(teamIdArray[i] == teamId){
+                            currentTeamData = rankArray[i]
                         }
                     }
-                    rankArray[i].points = draw + won*3
-                    if(teamIdArray[i] == teamId){
-                        currentTeamData = rankArray[i]
+                }
+                else{
+                    for(let i = 0 ; i < teamIdArray.length ; i++){
+                        let won = 0
+                        let draw = 0
+                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
+                        for(let j = 0 ; j < data.length ; j++){
+                            if(dir == 'home'){
+                                for(let k = 0 ; k < data[j].events.length; k++){
+                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date >= date){
+                                        let localScoreSum = 0
+                                        let visitorScoreSum = 0
+                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                localScoreSum++
+                                                rankArray[i].goals_scored++
+                                            }
+                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
+                                                visitorScoreSum++
+                                                rankArray[i].goals_against++
+                                            }
+                                        }
+                                        if(localScoreSum == visitorScoreSum){
+                                            draw++
+                                        }
+                                        else if(localScoreSum > visitorScoreSum){
+                                            won++
+                                        }
+                                    }
+                                }
+                            }
+                            else{
+                                for(let k = 0 ; k < data[j].events.length; k++){
+                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date >= date){
+                                        let localScoreSum = 0
+                                        let visitorScoreSum = 0
+                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                visitorScoreSum++
+                                                rankArray[i].goals_scored++
+                                            }
+                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
+                                                localScoreSum++
+                                                rankArray[i].goals_against++
+                                            }
+                                        }
+                                        if(localScoreSum == visitorScoreSum){
+                                            draw++
+                                        }
+                                        else if(localScoreSum < visitorScoreSum){
+                                            won++
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        rankArray[i].points = draw + won*3
+                        if(teamIdArray[i] == teamId){
+                            currentTeamData = rankArray[i]
+                        }
                     }
                 }
 
@@ -2913,7 +4225,7 @@
                 }
                 return rank
             },
-            H_A_Form_calculation(data, teamId, seasonId, dir, date){
+            H_A_Form_calculation(data, teamId, seasonId, dir, date,d){
                 let teamIdArray = []
                 let rank = 1
                 let currentTeamData = {}
@@ -2926,17 +4238,179 @@
                 }
                 teamIdArray = Array.from(new Set (teamIdArray))
                 let rankArray = []
-                for(let i = 0 ; i < teamIdArray.length ; i++){
-                    let won = 0
-                    let draw = 0
-                    let limit = 0
-                    rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                    for(let j = data.length - 1 ; j >= 0 ; j--){
-                        if(dir == 'home'){
+                if(d === '1'){
+                    for(let i = 0 ; i < teamIdArray.length ; i++){
+                        let won = 0
+                        let draw = 0
+                        let limit = 0
+                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
+                        for(let j = data.length - 1 ; j >= 0 ; j--){
+                            if(dir == 'home'){
+                                for(let k = data[j].events.length - 1 ; k >= 0; k--){
+                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date < date){
+                                        limit++
+                                        if(limit <= 3){
+                                            let localScoreSum = 0
+                                            let visitorScoreSum = 0
+                                            for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                                if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                    localScoreSum++
+                                                    rankArray[i].goals_scored++
+                                                }
+                                                if(data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
+                                                    visitorScoreSum++
+                                                    rankArray[i].goals_against++
+                                                }
+                                            }
+                                            if(localScoreSum == visitorScoreSum){
+                                                draw++
+                                            }
+                                            else if(localScoreSum > visitorScoreSum){
+                                                won++
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else{
+                                for(let k = data[j].events.length - 1 ; k >= 0; k--){
+                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date < date){
+                                        limit++
+                                        if(limit <= 3){
+                                            let localScoreSum = 0
+                                            let visitorScoreSum = 0
+                                            for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                                if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                    visitorScoreSum++
+                                                    rankArray[i].goals_scored++
+                                                }
+                                                if(data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
+                                                    localScoreSum++
+                                                    rankArray[i].goals_against++
+                                                }
+                                            }
+                                            if(localScoreSum == visitorScoreSum){
+                                                draw++
+                                            }
+                                            else if(localScoreSum < visitorScoreSum){
+                                                won++
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        rankArray[i].points = draw + won*3
+                        if(teamIdArray[i] == teamId){
+                            currentTeamData = rankArray[i]
+                        }
+                    }
+                }
+                else{
+                    for(let i = 0 ; i < teamIdArray.length ; i++){
+                        let won = 0
+                        let draw = 0
+                        let limit = 0
+                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
+                        for(let j = data.length - 1 ; j >= 0 ; j--){
+                            if(dir == 'home'){
+                                for(let k = data[j].events.length - 1 ; k >= 0; k--){
+                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date >= date){
+                                        limit++
+                                        if(limit <= 3){
+                                            let localScoreSum = 0
+                                            let visitorScoreSum = 0
+                                            for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                                if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                    localScoreSum++
+                                                    rankArray[i].goals_scored++
+                                                }
+                                                if(data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
+                                                    visitorScoreSum++
+                                                    rankArray[i].goals_against++
+                                                }
+                                            }
+                                            if(localScoreSum == visitorScoreSum){
+                                                draw++
+                                            }
+                                            else if(localScoreSum > visitorScoreSum){
+                                                won++
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else{
+                                for(let k = data[j].events.length - 1 ; k >= 0; k--){
+                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date >= date){
+                                        limit++
+                                        if(limit <= 3){
+                                            let localScoreSum = 0
+                                            let visitorScoreSum = 0
+                                            for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                                if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                    visitorScoreSum++
+                                                    rankArray[i].goals_scored++
+                                                }
+                                                if(data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
+                                                    localScoreSum++
+                                                    rankArray[i].goals_against++
+                                                }
+                                            }
+                                            if(localScoreSum == visitorScoreSum){
+                                                draw++
+                                            }
+                                            else if(localScoreSum < visitorScoreSum){
+                                                won++
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        rankArray[i].points = draw + won*3
+                        if(teamIdArray[i] == teamId){
+                            currentTeamData = rankArray[i]
+                        }
+                    }
+                }
+
+                for(let i = 0 ; i < rankArray.length ; i++){
+                    if(rankArray[i].points > currentTeamData.points){
+                        rank++
+                    }
+                    if(rankArray[i].points == currentTeamData.points){
+                        if((rankArray[i].goals_scored - rankArray[i].goals_against) > (currentTeamData.goals_scored - currentTeamData.goals_against)){
+                            rank++
+                        }
+                    }
+                }
+                return rank
+            },
+            Form_calculation(data, teamId, seasonId, date, d){
+                let teamIdArray = []
+                let rank = 1
+                let currentTeamData = {}
+                for(let i = 0 ; i < this.standingList.length ; i++){
+                    if(this.standingList[i].season_id == seasonId){
+                        for(let j = 0 ; j < this.standingList[i].standings.length; j++){
+                            teamIdArray[j] = this.standingList[i].standings[j].team_id
+                        }
+                    }
+                }
+                teamIdArray = Array.from(new Set (teamIdArray))
+                let rankArray = []
+                if(d === '1'){
+                    for(let i = 0 ; i < teamIdArray.length ; i++){
+                        let won = 0
+                        let draw = 0
+                        let limit = 0
+                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
+                        for(let j = data.length - 1 ; j >= 0 ; j--){
                             for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                                if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date < date){
+                                if((data[j].events[k].localteamId == teamIdArray[i] || data[j].events[k].visitorteamId == teamIdArray[i]) && data[j].events[k].date < date){
                                     limit++
-                                    if(limit <= 3){
+                                    if(data[j].events[k].localteamId == teamIdArray[i] && limit <= 6){
                                         let localScoreSum = 0
                                         let visitorScoreSum = 0
                                         for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
@@ -2956,14 +4430,7 @@
                                             won++
                                         }
                                     }
-                                }
-                            }
-                        }
-                        else{
-                            for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                                if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date < date){
-                                    limit++
-                                    if(limit <= 3){
+                                    else if(data[j].events[k].visitorteamId == teamIdArray[i] && limit <= 6){
                                         let localScoreSum = 0
                                         let visitorScoreSum = 0
                                         for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
@@ -2986,93 +4453,69 @@
                                 }
                             }
                         }
-                    }
-                    rankArray[i].points = draw + won*3
-                    if(teamIdArray[i] == teamId){
-                        currentTeamData = rankArray[i]
-                    }
-                }
-
-                for(let i = 0 ; i < rankArray.length ; i++){
-                    if(rankArray[i].points > currentTeamData.points){
-                        rank++
-                    }
-                    if(rankArray[i].points == currentTeamData.points){
-                        if((rankArray[i].goals_scored - rankArray[i].goals_against) > (currentTeamData.goals_scored - currentTeamData.goals_against)){
-                            rank++
+                        rankArray[i].points = draw + won*3
+                        if(teamIdArray[i] == teamId){
+                            currentTeamData = rankArray[i]
                         }
                     }
                 }
-                return rank
-            },
-            Form_calculation(data, teamId, seasonId, date){
-                let teamIdArray = []
-                let rank = 1
-                let currentTeamData = {}
-                for(let i = 0 ; i < this.standingList.length ; i++){
-                    if(this.standingList[i].season_id == seasonId){
-                        for(let j = 0 ; j < this.standingList[i].standings.length; j++){
-                            teamIdArray[j] = this.standingList[i].standings[j].team_id
-                        }
-                    }
-                }
-                teamIdArray = Array.from(new Set (teamIdArray))
-                let rankArray = []
-                for(let i = 0 ; i < teamIdArray.length ; i++){
-                    let won = 0
-                    let draw = 0
-                    let limit = 0
-                    rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                    for(let j = data.length - 1 ; j >= 0 ; j--){
-                        for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                            if((data[j].events[k].localteamId == teamIdArray[i] || data[j].events[k].visitorteamId == teamIdArray[i]) && data[j].events[k].date < date){
-                                limit++
-                                if(data[j].events[k].localteamId == teamIdArray[i] && limit <= 6){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                        if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                            localScoreSum++
-                                            rankArray[i].goals_scored++
+                else{
+                    for(let i = 0 ; i < teamIdArray.length ; i++){
+                        let won = 0
+                        let draw = 0
+                        let limit = 0
+                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
+                        for(let j = data.length - 1 ; j >= 0 ; j--){
+                            for(let k = data[j].events.length - 1 ; k >= 0; k--){
+                                if((data[j].events[k].localteamId == teamIdArray[i] || data[j].events[k].visitorteamId == teamIdArray[i]) && data[j].events[k].date >= date){
+                                    limit++
+                                    if(data[j].events[k].localteamId == teamIdArray[i] && limit <= 6){
+                                        let localScoreSum = 0
+                                        let visitorScoreSum = 0
+                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                            if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                localScoreSum++
+                                                rankArray[i].goals_scored++
+                                            }
+                                            if(data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
+                                                visitorScoreSum++
+                                                rankArray[i].goals_against++
+                                            }
                                         }
-                                        if(data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                            visitorScoreSum++
-                                            rankArray[i].goals_against++
+                                        if(localScoreSum == visitorScoreSum){
+                                            draw++
+                                        }
+                                        else if(localScoreSum > visitorScoreSum){
+                                            won++
                                         }
                                     }
-                                    if(localScoreSum == visitorScoreSum){
-                                        draw++
-                                    }
-                                    else if(localScoreSum > visitorScoreSum){
-                                        won++
-                                    }
-                                }
-                                else if(data[j].events[k].visitorteamId == teamIdArray[i] && limit <= 6){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                        if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                            visitorScoreSum++
-                                            rankArray[i].goals_scored++
+                                    else if(data[j].events[k].visitorteamId == teamIdArray[i] && limit <= 6){
+                                        let localScoreSum = 0
+                                        let visitorScoreSum = 0
+                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
+                                            if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
+                                                visitorScoreSum++
+                                                rankArray[i].goals_scored++
+                                            }
+                                            if(data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
+                                                localScoreSum++
+                                                rankArray[i].goals_against++
+                                            }
                                         }
-                                        if(data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                            localScoreSum++
-                                            rankArray[i].goals_against++
+                                        if(localScoreSum == visitorScoreSum){
+                                            draw++
                                         }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        draw++
-                                    }
-                                    else if(localScoreSum < visitorScoreSum){
-                                        won++
+                                        else if(localScoreSum < visitorScoreSum){
+                                            won++
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                    rankArray[i].points = draw + won*3
-                    if(teamIdArray[i] == teamId){
-                        currentTeamData = rankArray[i]
+                        rankArray[i].points = draw + won*3
+                        if(teamIdArray[i] == teamId){
+                            currentTeamData = rankArray[i]
+                        }
                     }
                 }
 
@@ -3094,6 +4537,7 @@
                     console.log('data1******', data.data[1])
                     this.standingList = data.data[1]
                     let main_data = data.data[0]
+                    this.mainData = main_data
                     let competitionArray = []
                     for(let i = 0 ; i < main_data.length ; i++){
                         competitionArray[i] = main_data[i].competitions[0].name
@@ -3251,11 +4695,34 @@
                                 countryCode = main_data[j].countryCode
                                 home.name = main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')'
                                 away.name = main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')'
-                                events[k - 1] = {'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'openDate':  main_data[j].time.starting_at.time, 'home':home, 'away': away}
+                                events[k - 1] = {'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'home_id': 0, 'away_id': 0, 'openDate':  main_data[j].time.starting_at.time, 'home':home, 'away': away, 'homeDateList': [], "awayDateList": []}
 
                                 let homeTeamId = main_data[j].localTeamId
                                 let awayTeamId = main_data[j].visitorTeamId
+
+                                events[k - 1].home_id = homeTeamId
+                                events[k - 1].away_id = awayTeamId
+
                                 let seasonId = main_data[j].season_id
+                                let event_item = main_data[j].events
+                                let home_date_list = []
+                                let away_date_list = []
+                                let home_date_Index = 0
+                                let away_date_Index = 0
+                                for(let m = 0 ; m < event_item.length ; m++){
+                                    for(let mm = 0 ; mm < event_item[m].events.length ; mm++){
+                                        if(event_item[m].events[mm].localteamId == homeTeamId){
+                                            home_date_Index++
+                                            home_date_list.push({'value': home_date_Index,"date": event_item[m].events[mm].date, "label": home_date_Index})
+                                        }
+                                        if(event_item[m].events[mm].visitorteamId == awayTeamId){
+                                            away_date_Index++
+                                            away_date_list.push({'value': away_date_Index,"date": event_item[m].events[mm].date, "label": away_date_Index})
+                                        }
+                                    }
+                                }
+                                events[k - 1].homeDateList = home_date_list
+                                events[k - 1].awayDateList = away_date_list
                                 home.pos = main_data[j].standing.localteam_position
                                 away.pos = main_data[j].standing.visitorteam_position
                                 home.h_a = this.H_A_calculation(seasonId, homeTeamId, 'home')
@@ -3274,8 +4741,8 @@
                                     away.swing1 =''
                                     home.swing1 =''
                                 }
-                                home.FH = this.FH_calculation(main_data[j].events, main_data[j].localTeamId,seasonId, 'home', next_date4)
-                                away.FH = this.FH_calculation(main_data[j].events, main_data[j].visitorTeamId,seasonId, 'away', next_date4)
+                                home.FH = this.FH_calculation(main_data[j].events, main_data[j].localTeamId,seasonId, 'home', next_date4, '1')
+                                away.FH = this.FH_calculation(main_data[j].events, main_data[j].visitorTeamId,seasonId, 'away', next_date4, '1')
 
                                 let swing2 =(away.pos - away.FH) -  (home.pos - home.FH)
                                 if(swing2 > 0){
@@ -3291,8 +4758,8 @@
                                     home.swing2 =''
                                 }
 
-                                home.SH = this.SH_calculation(main_data[j].events, main_data[j].localTeamId,seasonId, 'home', next_date4)
-                                away.SH = this.SH_calculation(main_data[j].events, main_data[j].visitorTeamId,seasonId, 'away', next_date4)
+                                home.SH = this.SH_calculation(main_data[j].events, main_data[j].localTeamId,seasonId, 'home', next_date4, '1')
+                                away.SH = this.SH_calculation(main_data[j].events, main_data[j].visitorTeamId,seasonId, 'away', next_date4, '1')
 
                                 let swing3 =(away.pos - away.SH) -  (home.pos - home.SH)
                                 if(swing3 > 0){
@@ -3312,141 +4779,142 @@
                                 away.attack = this.attack_calculation(seasonId, awayTeamId, 'away')
                                 home.defense = this.defense_calculation(seasonId, homeTeamId, 'home')
                                 away.defense = this.defense_calculation(seasonId, awayTeamId, 'away')
-                                home.form_H_A = this.H_A_Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, 'home', next_date4)
-                                away.form_H_A = this.H_A_Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, 'away', next_date4)
-                                home.form = this.Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, next_date4)
-                                away.form = this.Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, next_date4)
+                                home.form_H_A = this.H_A_Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, 'home', next_date4, '1')
+                                away.form_H_A = this.H_A_Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, 'away', next_date4, '1')
+                                home.form = this.Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, next_date4, '1')
+                                away.form = this.Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, next_date4, '1')
 
                                 percentage = this.percentage_calculation(main_data[j].events)
-                                home.p = this.p_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)
-                                away.p = this.p_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)
-                                home.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p + 0.001)*100).toFixed(0)
-                                away.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p + 0.001)*100).toFixed(0)
-                                home.over15 = (this.over15_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p + 0.001)*100).toFixed(0)
-                                away.over15 = (this.over15_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p + 0.001)*100).toFixed(0)
-                                home.over25 = (this.over25_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p + 0.001)*100).toFixed(0)
-                                away.over25 = (this.over25_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p + 0.001)*100).toFixed(0)
-                                home.over35 = (this.over35_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p + 0.001)*100).toFixed(0)
-                                away.over35 = (this.over35_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p + 0.001)*100).toFixed(0)
-                                home.scored = (this.scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p + 0.001)*100).toFixed(0)
-                                away.scored = (this.scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p + 0.001)*100).toFixed(0)
-                                home.conc = (this.concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p + 0.001)*100).toFixed(0)
-                                away.conc = (this.concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p + 0.001)*100).toFixed(0)
-                                home.average1 = (this.average_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)).toFixed(2)
-                                away.average1 = (this.average_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)).toFixed(2)
-                                home.average2 = (this.average_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)).toFixed(2)
-                                away.average2 = (this.average_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)).toFixed(2)
-                                if(this.average_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4) == 0){home.average1 = 0;}
-                                if(this.average_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4) == 0){away.average1 = 0;}
-                                if(this.average_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4) == 0){home.average2 = 0;}
-                                if(this.average_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4) == 0){away.average2 = 0;}
-                                home.bts = (this.average_bts_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p + 0.0001)*100).toFixed(0)
-                                away.bts = (this.average_bts_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p + 0.0001)*100).toFixed(0)
-                                home.first1 = (this.FH_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p + 0.0001)*100).toFixed(0)
-                                away.first1 = (this.FH_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p + 0.0001)*100).toFixed(0)
-                                home.first2 = (this.FH_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p + 0.0001)*100).toFixed(0)
-                                away.first2 = (this.FH_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p + 0.0001)*100).toFixed(0)
-                                home.second1 = (this.SH_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p + 0.0001)*100).toFixed(0)
-                                away.second1 = (this.SH_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p + 0.0001)*100).toFixed(0)
-                                home.second2 = (this.SH_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p + 0.0001)*100).toFixed(0)
-                                away.second2 = (this.SH_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time15_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 15)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time15_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 15)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time15_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 15)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time15_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 15)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time30_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 30)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time30_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 30)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time30_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 30)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time30_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 30)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time45_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time45_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time45_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time45_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time60_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 60)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time60_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 60)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time60_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 60)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time60_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 60)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time75_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 75)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time75_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 75)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time75_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 75)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time75_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 75)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time90_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time90_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90)/(away.p + 0.0001)*100).toFixed(0)
-                                home.time90_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90)/(home.p + 0.0001)*100).toFixed(0)
-                                away.time90_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90)/(away.p + 0.0001)*100).toFixed(0)
-                                let hgs1 = this.scored_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)
-                                let ags1 = this.scored_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)
-                                let hgs2 = this.scored_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)
-                                let ags2 = this.scored_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)
+                                home.p = this.p_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')
+                                away.p = this.p_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')
+                                home.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.001)*100).toFixed(0)
+                                away.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p + 0.001)*100).toFixed(0)
+                                home.over15 = (this.over15_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.001)*100).toFixed(0)
+                                away.over15 = (this.over15_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p + 0.001)*100).toFixed(0)
+                                home.over25 = (this.over25_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.001)*100).toFixed(0)
+                                away.over25 = (this.over25_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p + 0.001)*100).toFixed(0)
+                                home.over35 = (this.over35_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.001)*100).toFixed(0)
+                                away.over35 = (this.over35_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p + 0.001)*100).toFixed(0)
+                                home.scored = (this.scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.001)*100).toFixed(0)
+                                away.scored = (this.scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p + 0.001)*100).toFixed(0)
+                                home.conc = (this.concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.001)*100).toFixed(0)
+                                away.conc = (this.concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p + 0.001)*100).toFixed(0)
+                                home.average1 = (this.average_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)).toFixed(2)
+                                away.average1 = (this.average_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)).toFixed(2)
+                                home.average2 = (this.average_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)).toFixed(2)
+                                away.average2 = (this.average_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)).toFixed(2)
+                                if(this.average_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1') == 0){home.average1 = 0;}
+                                if(this.average_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1') == 0){away.average1 = 0;}
+                                if(this.average_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1') == 0){home.average2 = 0;}
+                                if(this.average_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1') == 0){away.average2 = 0;}
+                                home.bts = (this.average_bts_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.bts = (this.average_bts_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.first1 = (this.FH_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.first1 = (this.FH_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.first2 = (this.FH_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.first2 = (this.FH_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.second1 = (this.SH_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.second1 = (this.SH_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.second2 = (this.SH_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.second2 = (this.SH_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p + 0.0001)*100).toFixed(0)
+
+                                home.time15_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 15, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time15_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 15, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time15_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 15, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time15_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 15, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time30_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 30, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time30_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 30, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time30_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 30, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time30_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 30, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time45_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time45_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time45_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time45_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time60_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 60, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time60_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 60, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time60_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 60, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time60_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 60, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time75_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 75, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time75_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 75, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time75_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 75, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time75_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 75, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time90_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time90_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time90_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90, '1')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time90_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90, '1')/(away.p + 0.0001)*100).toFixed(0)
+                                let hgs1 = this.scored_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')
+                                let ags1 = this.scored_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')
+                                let hgs2 = this.scored_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')
+                                let ags2 = this.scored_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')
                                 home.gs1 = (hgs1/(hgs1 + hgs2)*100).toFixed(0)
                                 home.gs2 = (hgs2/(hgs1 + hgs2)*100).toFixed(0)
                                 if((hgs1 + hgs2) == 0){home.gs1 = 0; home.gs2 = 0}
                                 away.gs1 = (ags1/(ags1 + ags2)*100).toFixed(0)
                                 away.gs2 = (ags2/(ags1 + ags2)*100).toFixed(0)
                                 if((ags1 + ags2) == 0){away.gs1 = 0 ; away.gs2 = 0}
-                                let hgc1 = this.concd_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)
-                                let agc1 = this.concd_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)
-                                let hgc2 = this.concd_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)
-                                let agc2 = this.concd_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)
+                                let hgc1 = this.concd_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')
+                                let agc1 = this.concd_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')
+                                let hgc2 = this.concd_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')
+                                let agc2 = this.concd_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')
                                 home.gc1 = (hgc1/(hgc1 + hgc2)*100).toFixed(0)
                                 home.gc2 = (hgc2/(hgc1 + hgc2)*100).toFixed(0)
                                 if((hgc1 + hgc2) == 0){home.gc1 = 0; home.gc2 = 0}
                                 away.gc1 = (agc1/(agc1 + agc2)*100).toFixed(0)
                                 away.gc2 = (agc2/(agc1 + agc2)*100).toFixed(0)
                                 if((agc1 + agc2) == 0){away.gc1 = 0 ; away.gc2 = 0}
-                                home.over40 = (this.scored_plus_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45)/(home.p)*100).toFixed(0)
-                                away.over40 = (this.scored_plus_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45)/(away.p)*100).toFixed(0)
-                                home.over85 = (this.scored_plus_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90)/(home.p)*100).toFixed(0)
-                                away.over85 = (this.scored_plus_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90)/(away.p)*100).toFixed(0)
+                                home.over40 = (this.scored_plus_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45, '1')/(home.p)*100).toFixed(0)
+                                away.over40 = (this.scored_plus_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45, '1')/(away.p)*100).toFixed(0)
+                                home.over85 = (this.scored_plus_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90, '1')/(home.p)*100).toFixed(0)
+                                away.over85 = (this.scored_plus_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90, '1')/(away.p)*100).toFixed(0)
 
-                                home.C_H = (this.win_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.C_H = (this.win_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
-                                home.C_D = (this.draw_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.C_D = (this.draw_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
-                                home.C_A = (this.loss_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.C_A = (this.loss_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
+                                home.C_H = (this.win_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.C_H = (this.win_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
+                                home.C_D = (this.draw_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.C_D = (this.draw_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
+                                home.C_A = (this.loss_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.C_A = (this.loss_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
 
-                                home.lastGoal = (this.Last_goal_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.lastGoal = (this.Last_goal_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
+                                home.lastGoal = (this.Last_goal_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.lastGoal = (this.Last_goal_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
                                 if(home.p == 0){home.over40 = 0; home.over85 = 0; home.C_H = 0; home.C_D = 0; home.C_A = 0; home.lastGoal = 0}
                                 if(away.p == 0){away.over40 = 0; away.over85 = 0; away.C_H = 0; away.C_D = 0; away.C_A = 0; away.lastGoal = 0}
-                                home.first10 = this.one_to_zero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)
-                                away.first10 = this.one_to_zero_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)
+                                home.first10 = this.one_to_zero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')
+                                away.first10 = this.one_to_zero_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')
 
-                                home.first11 = (this.one_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.first10)*100).toFixed(0)
-                                away.first11 = (this.one_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.first10)*100).toFixed(0)
-                                home.first20 = (this.two_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.first10)*100).toFixed(0)
-                                away.first20 = (this.two_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.first10)*100).toFixed(0)
+                                home.first11 = (this.one_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.first10)*100).toFixed(0)
+                                away.first11 = (this.one_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.first10)*100).toFixed(0)
+                                home.first20 = (this.two_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.first10)*100).toFixed(0)
+                                away.first20 = (this.two_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.first10)*100).toFixed(0)
 
                                 if(home.first10 == 0){home.first11 = 0; home.first20 = 0}
                                 if(away.first10 == 0){away.first11 = 0; away.first20 = 0}
-                                home.second01 = this.zero_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)
-                                away.second01 = this.zero_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)
+                                home.second01 = this.zero_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')
+                                away.second01 = this.zero_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')
 
-                                home.second11 = (this.one_to_one2_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.second01)*100).toFixed(0)
-                                away.second11 = (this.one_to_one2_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.second01)*100).toFixed(0)
-                                home.second02 = (this.zero_to_two_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.second01)*100).toFixed(0)
-                                away.second02 = (this.zero_to_two_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.second01)*100).toFixed(0)
+                                home.second11 = (this.one_to_one2_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.second01)*100).toFixed(0)
+                                away.second11 = (this.one_to_one2_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.second01)*100).toFixed(0)
+                                home.second02 = (this.zero_to_two_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.second01)*100).toFixed(0)
+                                away.second02 = (this.zero_to_two_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.second01)*100).toFixed(0)
 
                                 if(home.second01 == 0){home.second11 = 0; home.second02 = 0}
                                 if(away.second01 == 0){away.second11 = 0; away.second02 = 0}
-                                home.secondplus = (this.two_score_ahead_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.secondplus = (this.two_score_ahead_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
-                                home.secondminus = (this.two_score_behind_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.secondminus = (this.two_score_behind_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
-                                home.homefirst = (this.H_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.homefirst = (this.H_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
-                                home.drawfirst = (this.D_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.drawfirst = (this.D_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
-                                home.awayfirst = (this.A_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.awayfirst = (this.A_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
+                                home.secondplus = (this.two_score_ahead_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.secondplus = (this.two_score_ahead_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
+                                home.secondminus = (this.two_score_behind_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.secondminus = (this.two_score_behind_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
+                                home.homefirst = (this.H_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.homefirst = (this.H_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
+                                home.drawfirst = (this.D_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.drawfirst = (this.D_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
+                                home.awayfirst = (this.A_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.awayfirst = (this.A_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
 
-                                home.homesecond = (this.H_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.homesecond = (this.H_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
-                                home.drawsecond = (this.D_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.drawsecond = (this.D_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
-                                home.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4)/(home.p)*100).toFixed(0)
-                                away.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4)/(away.p)*100).toFixed(0)
+                                home.homesecond = (this.H_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.homesecond = (this.H_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
+                                home.drawsecond = (this.D_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.drawsecond = (this.D_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
+                                home.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p)*100).toFixed(0)
+                                away.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')/(away.p)*100).toFixed(0)
                                 if(home.p == 0){home.secondplus = 0; home.secondminus = 0; home.homefirst = 0; home.drawfirst = 0; home.awayfirst = 0; home.homesecond = 0; home.drawsecond = 0; home.awaysecond = 0}
                                 if(away.p == 0){away.secondplus = 0; away.secondminus = 0; away.homefirst = 0; away.drawfirst = 0; away.awayfirst = 0; away.homesecond = 0; away.drawsecond = 0; away.awaysecond = 0}
                             }
@@ -3466,6 +4934,371 @@
                     }
                     console.log('this.mainList==>',this.mainList)
                 })
+            },
+            refresh_calculation(val, home_date, away_date){
+                let c_home_id = val.home_id
+                let c_away_id = val.away_id
+                let main_data = this.mainData
+
+                for(let j = 0; j < main_data.length ; j++){
+                        if(main_data[j].events.length < 45){
+
+                            let home = {
+                                p:0,
+                                name:'',
+                                rank: '',
+                                z_z: 0,
+                                over15: 0,
+                                over25:0,
+                                over35:0,
+                                scored:0,
+                                conc:0,
+                                average1:0,
+                                average2:0,
+                                bts:0,
+                                first1:0,
+                                first2:0,
+                                second1:0,
+                                second2:0,
+                                time15_S:0,
+                                time30_S:0,
+                                time45_S:0,
+                                time60_S:0,
+                                time75_S:0,
+                                time90_S:0,
+                                time15_C:0,
+                                time30_C:0,
+                                time45_C:0,
+                                time60_C:0,
+                                time75_C:0,
+                                time90_C:0,
+                                gs1:0,
+                                gs2:0,
+                                gc1:0,
+                                gc2:0,
+                                over40:0,
+                                over85:0,
+                                C_H:0,
+                                C_D:0,
+                                C_A:0,
+                                first10:0,
+                                first11:0,
+                                first20:0,
+                                second01:0,
+                                second11:0,
+                                second02:0,
+                                firstGoal:0,
+                                lastGoal:0,
+                                secondplus:0,
+                                secondminus:0,
+                                homefirst:0,
+                                drawfirst:0,
+                                awayfirst:0,
+                                homesecond:0,
+                                drawsecond:0,
+                                awaysecond:0,
+                                eventdays:['All'],
+                                pos:0,
+                                h_a:0,
+                                swing1:'',
+                                FH:0,
+                                swing2:'',
+                                SH:0,
+                                swing3:'',
+                                attack:0,
+                                defense:0,
+                                form:0,
+                                form_H_A:0
+
+                            }
+                            let away = {
+                                p:0,
+                                name:'',
+                                rank:'' ,
+                                z_z: 0,
+                                over15: 0,
+                                over25:0,
+                                over35:0,
+                                scored:0,
+                                conc:0,
+                                average1:0,
+                                average2:0,
+                                bts:0,
+                                first1:0,
+                                first2:0,
+                                second1:0,
+                                second2:0,
+                                time15_S:0,
+                                time30_S:0,
+                                time45_S:0,
+                                time60_S:0,
+                                time75_S:0,
+                                time90_S:0,
+                                time15_C:0,
+                                time30_C:0,
+                                time45_C:0,
+                                time60_C:0,
+                                time75_C:0,
+                                time90_C:0,
+                                gs1:0,
+                                gs2:0,
+                                gc1:0,
+                                gc2:0,
+                                over40:0,
+                                over85:0,
+                                C_H:0,
+                                C_D:0,
+                                C_A:0,
+                                first10:0,
+                                first11:0,
+                                first20:0,
+                                second01:0,
+                                second11:0,
+                                second02:0,
+                                firstGoal:0,
+                                lastGoal:0,
+                                secondPlus:0,
+                                secondMinus:0,
+                                homefirst:0,
+                                drawfirst:0,
+                                awayfirst:0,
+                                homesecond:0,
+                                drawsecond:0,
+                                awaysecond:0,
+                                eventdays:['All'],
+                                pos:0,
+                                h_a:0,
+                                swing1: '',
+                                FH:0,
+                                swing2: '',
+                                SH:0,
+                                swing3: '',
+                                attack:0,
+                                defense:0,
+                                form:0,
+                                form_H_A:0
+                            }
+
+                            let homeTeamId = main_data[j].localTeamId
+                            let awayTeamId = main_data[j].visitorTeamId
+
+                            if(homeTeamId == c_home_id && awayTeamId == c_away_id){
+                                let seasonId = main_data[j].season_id
+
+                                home.pos = main_data[j].standing.localteam_position
+                                away.pos = main_data[j].standing.visitorteam_position
+                                home.h_a = this.H_A_calculation(seasonId, homeTeamId, 'home')
+                                away.h_a = this.H_A_calculation(seasonId, awayTeamId, 'away')
+
+                                let swing1 = (away.pos - away.h_a) - (home.pos - home.h_a)
+                                if(swing1 > 0){
+                                    away.swing1 = '+'+swing1
+                                    home.swing1 =''
+                                }
+                                else if(swing1 < 0){
+                                    away.swing1 =''
+                                    home.swing1 = '+'+swing1*(-1)
+                                }
+                                if((home.pos > home.h_a && away.pos > away.h_a) || (home.pos < home.h_a && away.pos < away.h_a)){
+                                    away.swing1 =''
+                                    home.swing1 =''
+                                }
+                                home.FH = this.FH_calculation(main_data[j].events, main_data[j].localTeamId,seasonId, 'home', home_date, '2')
+                                away.FH = this.FH_calculation(main_data[j].events, main_data[j].visitorTeamId,seasonId, 'away', away_date, '2')
+
+                                let swing2 =(away.pos - away.FH) -  (home.pos - home.FH)
+                                if(swing2 > 0){
+                                    away.swing2 = '+'+swing2
+                                    home.swing2 =''
+                                }
+                                else if(swing2 < 0){
+                                    away.swing2 =''
+                                    home.swing2 = '+'+swing2*(-1)
+                                }
+                                if((home.pos > home.FH && away.pos > away.FH) || (home.pos < home.FH && away.pos < away.FH)){
+                                    away.swing2 =''
+                                    home.swing2 =''
+                                }
+
+                                home.SH = this.SH_calculation(main_data[j].events, main_data[j].localTeamId,seasonId, 'home', home_date, '2')
+                                away.SH = this.SH_calculation(main_data[j].events, main_data[j].visitorTeamId,seasonId, 'away', away_date, '2')
+
+                                let swing3 =(away.pos - away.SH) -  (home.pos - home.SH)
+                                if(swing3 > 0){
+                                    away.swing3 = '+'+swing3
+                                    home.swing3 =''
+                                }
+                                else if(swing3 < 0){
+                                    away.swing3 =''
+                                    home.swing3 = '+'+swing3*(-1)
+                                }
+                                if((home.pos > home.SH && away.pos > away.SH) || (home.pos < home.SH && away.pos < away.SH)){
+                                    away.swing3 =''
+                                    home.swing3 =''
+                                }
+
+                                home.attack = this.attack_calculation(seasonId, homeTeamId, 'home')
+                                away.attack = this.attack_calculation(seasonId, awayTeamId, 'away')
+                                home.defense = this.defense_calculation(seasonId, homeTeamId, 'home')
+                                away.defense = this.defense_calculation(seasonId, awayTeamId, 'away')
+                                home.form_H_A = this.H_A_Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, 'home', home_date, '2')
+                                away.form_H_A = this.H_A_Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, 'away', away_date, '2')
+                                home.form = this.Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, home_date, '2')
+                                away.form = this.Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, away_date, '2')
+
+                                home.p = this.p_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')
+                                away.p = this.p_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')
+                                home.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
+                                away.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
+                                home.over15 = (this.over15_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
+                                away.over15 = (this.over15_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
+                                home.over25 = (this.over25_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
+                                away.over25 = (this.over25_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
+                                home.over35 = (this.over35_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
+                                away.over35 = (this.over35_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
+                                home.scored = (this.scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
+                                away.scored = (this.scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
+                                home.conc = (this.concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
+                                away.conc = (this.concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
+                                home.average1 = (this.average_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)).toFixed(2)
+                                away.average1 = (this.average_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)).toFixed(2)
+                                home.average2 = (this.average_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)).toFixed(2)
+                                away.average2 = (this.average_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)).toFixed(2)
+                                if(this.average_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2') == 0){home.average1 = 0;}
+                                if(this.average_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2') == 0){away.average1 = 0;}
+                                if(this.average_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2') == 0){home.average2 = 0;}
+                                if(this.average_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2') == 0){away.average2 = 0;}
+                                home.bts = (this.average_bts_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.bts = (this.average_bts_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.first1 = (this.FH_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.first1 = (this.FH_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.first2 = (this.FH_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.first2 = (this.FH_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.second1 = (this.SH_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.second1 = (this.SH_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.second2 = (this.SH_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.second2 = (this.SH_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time15_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 15, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time15_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 15, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time15_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 15, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time15_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 15, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time30_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 30, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time30_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 30, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time30_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 30, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time30_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 30, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time45_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 45, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time45_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 45, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time45_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 45, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time45_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 45, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time60_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 60, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time60_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 60, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time60_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 60, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time60_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 60, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time75_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 75, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time75_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 75, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time75_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 75, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time75_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 75, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time90_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 90, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time90_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 90, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                home.time90_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 90, '2')/(home.p + 0.0001)*100).toFixed(0)
+                                away.time90_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 90, '2')/(away.p + 0.0001)*100).toFixed(0)
+                                let hgs1 = this.scored_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')
+                                let ags1 = this.scored_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')
+                                let hgs2 = this.scored_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')
+                                let ags2 = this.scored_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')
+                                home.gs1 = (hgs1/(hgs1 + hgs2)*100).toFixed(0)
+                                home.gs2 = (hgs2/(hgs1 + hgs2)*100).toFixed(0)
+                                if((hgs1 + hgs2) == 0){home.gs1 = 0; home.gs2 = 0}
+                                away.gs1 = (ags1/(ags1 + ags2)*100).toFixed(0)
+                                away.gs2 = (ags2/(ags1 + ags2)*100).toFixed(0)
+                                if((ags1 + ags2) == 0){away.gs1 = 0 ; away.gs2 = 0}
+                                let hgc1 = this.concd_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')
+                                let agc1 = this.concd_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')
+                                let hgc2 = this.concd_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')
+                                let agc2 = this.concd_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')
+                                home.gc1 = (hgc1/(hgc1 + hgc2)*100).toFixed(0)
+                                home.gc2 = (hgc2/(hgc1 + hgc2)*100).toFixed(0)
+                                if((hgc1 + hgc2) == 0){home.gc1 = 0; home.gc2 = 0}
+                                away.gc1 = (agc1/(agc1 + agc2)*100).toFixed(0)
+                                away.gc2 = (agc2/(agc1 + agc2)*100).toFixed(0)
+                                if((agc1 + agc2) == 0){away.gc1 = 0 ; away.gc2 = 0}
+                                home.over40 = (this.scored_plus_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 45, '2')/(home.p)*100).toFixed(0)
+                                away.over40 = (this.scored_plus_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 45, '2')/(away.p)*100).toFixed(0)
+                                home.over85 = (this.scored_plus_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, 90, '2')/(home.p)*100).toFixed(0)
+                                away.over85 = (this.scored_plus_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, 90, '2')/(away.p)*100).toFixed(0)
+
+                                home.C_H = (this.win_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.C_H = (this.win_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+                                home.C_D = (this.draw_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.C_D = (this.draw_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+                                home.C_A = (this.loss_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.C_A = (this.loss_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+
+                                home.lastGoal = (this.Last_goal_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.lastGoal = (this.Last_goal_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+                                if(home.p == 0){home.over40 = 0; home.over85 = 0; home.C_H = 0; home.C_D = 0; home.C_A = 0; home.lastGoal = 0}
+                                if(away.p == 0){away.over40 = 0; away.over85 = 0; away.C_H = 0; away.C_D = 0; away.C_A = 0; away.lastGoal = 0}
+                                home.first10 = this.one_to_zero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')
+                                away.first10 = this.one_to_zero_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')
+
+                                home.first11 = (this.one_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.first10)*100).toFixed(0)
+                                away.first11 = (this.one_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.first10)*100).toFixed(0)
+                                home.first20 = (this.two_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.first10)*100).toFixed(0)
+                                away.first20 = (this.two_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.first10)*100).toFixed(0)
+
+                                if(home.first10 == 0){home.first11 = 0; home.first20 = 0}
+                                if(away.first10 == 0){away.first11 = 0; away.first20 = 0}
+                                home.second01 = this.zero_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')
+                                away.second01 = this.zero_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')
+
+                                home.second11 = (this.one_to_one2_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.second01)*100).toFixed(0)
+                                away.second11 = (this.one_to_one2_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.second01)*100).toFixed(0)
+                                home.second02 = (this.zero_to_two_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.second01)*100).toFixed(0)
+                                away.second02 = (this.zero_to_two_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.second01)*100).toFixed(0)
+
+                                if(home.second01 == 0){home.second11 = 0; home.second02 = 0}
+                                if(away.second01 == 0){away.second11 = 0; away.second02 = 0}
+                                home.secondplus = (this.two_score_ahead_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.secondplus = (this.two_score_ahead_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+                                home.secondminus = (this.two_score_behind_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.secondminus = (this.two_score_behind_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+                                home.homefirst = (this.H_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.homefirst = (this.H_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+                                home.drawfirst = (this.D_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.drawfirst = (this.D_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+                                home.awayfirst = (this.A_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.awayfirst = (this.A_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+
+                                home.homesecond = (this.H_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.homesecond = (this.H_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+                                home.drawsecond = (this.D_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.drawsecond = (this.D_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+                                home.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
+                                away.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
+                                if(home.p == 0){home.secondplus = 0; home.secondminus = 0; home.homefirst = 0; home.drawfirst = 0; home.awayfirst = 0; home.homesecond = 0; home.drawsecond = 0; home.awaysecond = 0}
+                                if(away.p == 0){away.secondplus = 0; away.secondminus = 0; away.homefirst = 0; away.drawfirst = 0; away.awayfirst = 0; away.homesecond = 0; away.drawsecond = 0; away.awaysecond = 0}
+
+                                for(let c = 0 ; c < this.mainList.length ; c++){
+                                    for(let cc = 0 ; cc < this.mainList[c].events.length ; cc++){
+                                        if(this.mainList[c].events[cc].home_id == homeTeamId && this.mainList[c].events[cc].away_id == awayTeamId){
+                                            let home_name = this.mainList[c].events[cc].home.name
+                                            let home_rank = this.mainList[c].events[cc].home.rank
+                                            let away_name = this.mainList[c].events[cc].away.name
+                                            let away_rank = this.mainList[c].events[cc].away.rank
+                                            this.mainList[c].events[cc].home = home
+                                            this.mainList[c].events[cc].away = away
+                                            this.mainList[c].events[cc].home.name = home_name
+                                            this.mainList[c].events[cc].home.rank = home_rank
+                                            this.mainList[c].events[cc].away.name = away_name
+                                            this.mainList[c].events[cc].away.rank = away_rank
+
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    }
             },
             sortJSON(data, key){
                 return data.sort(function(a, b) {
