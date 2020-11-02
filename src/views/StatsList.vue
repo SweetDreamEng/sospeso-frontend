@@ -12,9 +12,9 @@
                         v-if="item.events.length > 0"
                 >
                     {{item.country}} - {{item.league}}  <span v-if="item.percentage != 0" style="font-weight: normal; margin-left: 10px;">{{item.percentage}}%</span>
-                    <img v-if="item.percentage > 50 && item.percentage < 95" src="/img/icon-warning-orange.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
-                    <img v-if="item.percentage <= 50" src="/img/icon-warning-red.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
-                    <img v-if="item.percentage >= 95" src="/img/icon-tick.png" width="13px;" style="width: 18px; position:relative; top: -1px; margin-left: 5px; margin-right: 10px;"/>
+                    <img v-if="item.percentage >= 96" src="/img/icon-warning-orange.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
+                    <img v-if="item.percentage <= 10" src="/img/icon-warning-red.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
+                    <img v-if="item.percentage >= 11 && item.percentage <= 95" src="/img/icon-tick.png" width="13px;" style="width: 18px; position:relative; top: -1px; margin-left: 5px; margin-right: 10px;"/>
                     {{item.events.length}} matches
                     <img v-if="isPlus(index)" src="/img/ico-plus.png" width="13px;" style="width: 16px; float: right;"/>
                     <img v-if="isMinus(index)" src="/img/ico-minus.png" width="13px;" style="width: 16px; float: right;"/>
@@ -1452,6 +1452,7 @@
                 for(let i = 0 ; i < this.home_date_list.length ; i++){
                     if(this.home_date_list.length - i == val){
                         home_date = this.home_date_list[i].date
+
                     }
                 }
                 for(let i = 0 ; i < this.away_date_list.length; i++){
@@ -1504,18 +1505,21 @@
             },
             percentage_calculation(data){
                 let p = 0
-                for(let i = 0 ; i < data.length ; i++){
-                    if(data[i].events.length > 0){
-                        p++
+                let events = data.events
+                let roundId = data.round_id
+                let name1 = 0
+                let round_ids = events.filter(function(item) {
+                    return item.round_id == roundId;
+                });
+
+                if(events.length > 0){
+                    if(round_ids.length > 0){
+                        name1 = round_ids[0].name
+                        p = (name1/events.length*100).toFixed(0)
                     }
                 }
-                if(p == data.length){
-                    p = p - 1
-                }
-                let result = 0
-                if(data.length == 0){ result = 0}
-                else(result = (p/data.length*100).toFixed(0))
-                return result
+
+                return p
             },
             zeroTozero_calculation(data, teamId, dir, date, d){
                 let p = 0
@@ -4784,7 +4788,7 @@
                                 home.form = this.Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, next_date4, '1')
                                 away.form = this.Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, next_date4, '1')
 
-                                percentage = this.percentage_calculation(main_data[j].events)
+                                percentage = this.percentage_calculation(main_data[j])
                                 home.p = this.p_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')
                                 away.p = this.p_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')
                                 home.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.001)*100).toFixed(0)
