@@ -1,5 +1,5 @@
 <template>
-    <div    style="min-width: 1250px">
+    <div style="min-width: 1250px">
         <CCard body-wrapper>
             <div
                     v-for="(item,index) in mainList"
@@ -12,7 +12,11 @@
                         v-if="item.events.length > 0"
                 >
                     {{item.country}} - {{item.league}}
-                    - {{item.events.length}} matches
+                    <span v-if="item.percentage != 0" style="font-weight: normal; margin-left: 10px;">{{item.percentage}}%</span>
+                    <img v-if="item.percentage >= 96" src="/img/icon-warning-orange.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
+                    <img v-if="item.percentage <= 10" src="/img/icon-warning-red.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
+                    <img v-if="item.percentage >= 11 && item.percentage <= 95" src="/img/icon-tick.png" width="13px;" style="width: 18px; position:relative; top: -1px; margin-left: 5px; margin-right: 10px;"/>
+                    {{item.events.length}} matches
                     <img v-if="isPlus(index)" src="/img/ico-plus.png" width="13px;" style="width: 16px; float: right;"/>
                     <img v-if="isMinus(index)" src="/img/ico-minus.png" width="13px;" style="width: 16px; float: right;"/>
                 </div>
@@ -1133,6 +1137,24 @@
             isMinus(id){
                 return this.collapsed.indexOf(id)>-1?true:false;
             },
+            percentage_calculation(data){
+                let p = 0
+                let events = data.events
+                let roundId = data.round_id
+                let name1 = 0
+                let round_ids = events.filter(function(item) {
+                    return item.round_id == roundId;
+                });
+
+                if(events.length > 0){
+                    if(round_ids.length > 0){
+                        name1 = round_ids[0].name
+                        p = (name1/events.length*100).toFixed(0)
+                    }
+                }
+
+                return p
+            },
             select_lineup(value){
                 for(let i = 0 ; i < this.mainList.length ; i++){
                     for(let j = 0 ; j < this.mainList[i].events.length ; j++){
@@ -1814,7 +1836,8 @@
                                     homeTeamPformation = main_data[j].pre_formations.localteam_formation
                                     awayTeamPformation = main_data[j].pre_formations.visitorteam_formation
                                 }
-console.log('live formations===>', main_data[j])
+
+                                percentage = this.percentage_calculation(main_data[j])
                                 let homeTeamLformation = main_data[j].live_formations.localteam_formation
                                 let awayTeamLformation = main_data[j].live_formations.visitorteam_formation
                                 if(main_data[j].lineup != null){
