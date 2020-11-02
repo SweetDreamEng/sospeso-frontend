@@ -2909,7 +2909,6 @@
                 this.calc_odd = val
                 if(this.calc_odd != 0 && this.calc_stake != 0 && this.eventId != 0){
                     if(parseInt(this.selectedArray[6]) == 0){
-                        
                         this.max_profit = (this.calc_odd * this.calc_stake - this.calc_stake).toFixed(2)
                         this.max_lose = this.calc_stake
                         this.guad_max = this.max_profit
@@ -3694,6 +3693,7 @@
                                 let selections = data[k].runners.filter(function(runner) {
                                     return runner.selectionId == self.selectionId;
                                 });
+                                log.console('selections', selections)
                                 if(data[k].state.status == 'SUSPENDED'){
                                     this.marketStatus = 'SUSPENDED'
                                 }
@@ -3727,6 +3727,7 @@
                 }
             });
             this.sockets.listener.subscribe('UpdateScore', (data) => {
+                console.log('RefreshScore----------------------',data)
 
                 for(let i = 0 ; i < self.mainList.length ; i++){
                     if(self.mainList[i].eventId == data.eventId){
