@@ -130,7 +130,7 @@
                             </div>
                         </div>
                     </CCol>
-                    <CCol xs="12" sm="8" md="4">
+                    <CCol xs="12" sm="6" md="3">
                         <div class="filter-wrapper">
                             <label class="sub-title">Odd Filters:</label>
                             <div class="odd-filter">
@@ -148,7 +148,14 @@
                             </div>
                         </div>
                     </CCol>
-                    <CCol xs="12" sm="4" md="3">
+                    <CCol xs="12" sm="3" md="2">
+                        <label style="color: red; font-weight: 600;">Commissions(%):</label>
+                        <CInput
+                                type="number"
+                                @update:value = "commission"
+                        ></CInput>
+                    </CCol>
+                    <CCol xs="12" sm="3" md="2">
                         <CButton color="success" class="dashboard-button" @click="eventClick" :value="'all'">Add all events</CButton>
                         <CButton color="success" class="dashboard-button" @click="eventClick" :value="'clear'">Clear</CButton>
                         <CButton color="success" class="dashboard-button" @click="eventClick" :value="'end'">Clear ended events</CButton>
@@ -158,7 +165,7 @@
             <CCardBody>
                 <CRow>
                     <CCol md="12">
-                        <DashboardTable 
+                        <DashboardTable
                             :eventLists3="eventLists3"
                             :competitionList="competitionList"
                             :mainList="mainList"
@@ -166,6 +173,7 @@
                             :prematchOddList="prematchOddList"
                             :eventFlag="eventFlag"
                             :clickEventValue="clickEventValue"
+                            :bookmarkerFee="bookmarkerFee"
                         >
                         </DashboardTable>
                     </CCol>
@@ -280,7 +288,7 @@
                 stopLoss:false,
                 tradingMode:false,
                 riskTrading:'easy',
-                bookmarkerFee:0,
+                bookmarkerFee: 0,
                 classic_match:'',
                 low_cash: false,
                 cash_out: true,
@@ -1434,7 +1442,10 @@
             eventClick(event){
                 this.eventFlag = !this.eventFlag;
                 this.clickEventValue = event.target.value;
-            }
+            },
+            commission(val){
+                this.bookmarkerFee = Number(val)
+            },
         },
         created() {
             this.bet_date();
