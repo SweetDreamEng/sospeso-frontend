@@ -3693,7 +3693,6 @@
                                 let selections = data[k].runners.filter(function(runner) {
                                     return runner.selectionId == self.selectionId;
                                 });
-                                log.console('selections', selections)
                                 if(data[k].state.status == 'SUSPENDED'){
                                     this.marketStatus = 'SUSPENDED'
                                 }
@@ -3727,7 +3726,6 @@
                 }
             });
             this.sockets.listener.subscribe('UpdateScore', (data) => {
-                console.log('RefreshScore----------------------',data)
 
                 for(let i = 0 ; i < self.mainList.length ; i++){
                     if(self.mainList[i].eventId == data.eventId){

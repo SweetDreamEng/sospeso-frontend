@@ -761,6 +761,7 @@
                             let selections = data[j].runners.filter(function(runner) {
                                 return runner.selectionId == element.selectionId;
                             });
+                            console.log('selections[0].exchange.availableToBack[0].price', selections[0].exchange.availableToBack[0].price);
                             if(data[j].state.status == 'SUSPENDED'){
                                     this.status = 'SUSPENDED';
                                     this.marketIds[i].market = 'SUSPENDED';
