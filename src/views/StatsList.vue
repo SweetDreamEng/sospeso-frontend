@@ -1491,6 +1491,7 @@
                     }
                 }
 
+
                 for(let i = 0 ; i < bc_data.length; i++){
                         for(let j = 0 ; j < bc_data[i].redCards.length ; j++){
                             if(this.red_FH_check === true && bc_data[i].redCards[j].redFH > 0){
