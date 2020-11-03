@@ -4201,7 +4201,7 @@
             this.sockets.listener.subscribe('UpdateStats', (data1) => {
 
                 let check_new_total = 0
-                for(let i = 0 ; i < data.length ; i++){
+                for(let i = 0 ; i < data1.length ; i++){
                     if(data1[i].updateArray){
                         let check_new  = 0
                         for(let j = 0 ; j < this.eventArray.length ; j++){
