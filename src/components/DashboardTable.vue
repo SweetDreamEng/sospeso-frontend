@@ -74,7 +74,9 @@
         </template>
         <template #gain="{item}">
             <transition name="slide-fade" mode="out-in">
-                <td :key="item.gain.value" class="table-cell text-center" :style="{'color': item.gain.value && Number(item.gain.value.replace('%', ''))>=0 ? 'lightgreen': 'red'}">    
+                <td :key="item.gain.value" class="table-cell text-center"
+                    :style="{'color': item.gain.value && Number(item.gain.value.replace('%', ''))>=0 ? 'rgb(32, 160, 82)': 'rgb(184, 1, 1)',
+                    'background': item.gain.value && Number(item.gain.value.replace('%', ''))>=0 ? 'rgb(216, 228, 188)': 'rgb(255, 199, 206)'}">    
                     {{item.gain.value}}
                 </td>
             </transition>
@@ -150,7 +152,11 @@
                     this.tableItems[index].minute.value = this.timeRecord;
                 }
                 this.tableItems[index].score.value = this.scoreOne + this.scoreTwo;
-                this.tableItems[index].gain.value = this.percent_text2;
+                if (this.status == 'CLOSED') {
+                    this.tableItems[index].gain.value = '';
+                } else {
+                    this.tableItems[index].gain.value = this.percent_text2;
+                }
 
                 if (!this.marketIds.includes(this.marketId)) {
                     this.marketIds.push(
@@ -537,7 +543,7 @@
                     this.max_profit = 0
                     this.max_lose = 0
                     this.guad_max = 0
-                    this.percent_text2 = 'Insert Odd and Stake'
+                    this.percent_text2 = ''
                     this.guad_att = 0
                 }
             },
@@ -607,7 +613,7 @@
                     this.max_profit = 0
                     this.max_lose = 0
                     this.guad_max = 0
-                    this.percent_text2 = 'Insert Odd and Stake'
+                    this.percent_text2 = ''
                     this.guad_att = 0
                 }
             },
@@ -675,7 +681,7 @@
                     this.max_profit = 0
                     this.max_lose = 0
                     this.guad_max = 0
-                    this.percent_text2 = 'Insert Odd and Stake'
+                    this.percent_text2 = ''
                     this.guad_att = 0
                 }
             },
