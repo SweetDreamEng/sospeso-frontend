@@ -1518,26 +1518,30 @@
                                 if (index2 > -1) {
                                     bc_data[i].events.splice(index2, 1);
                                 }
+
+                                let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
+                                this.home_date_list.splice(index1, 1)
+
                                 let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
                                 if (index > -1) {
                                     bc_data[i].redCards.splice(index, 1);
                                     j = j - 1
                                 }
-                                let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.home_date_list.splice(index1, 1)
                             }
                             if(away_id === bc_data[i].redCards[j].visitorteamId){
                                 let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
                                 if (index2 > -1) {
                                     bc_data[i].events.splice(index2, 1);
                                 }
+
+                                let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
+                                this.away_date_list.splice(index1, 1)
+
                                 let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
                                 if (index > -1) {
                                     bc_data[i].redCards.splice(index, 1);
                                     j = j - 1
                                 }
-                                let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.away_date_list.splice(index1, 1)
                             }
                         }
                         if(this.red_SH_check === true && bc_data[i].redCards[j].redSH > 0){
@@ -1546,26 +1550,30 @@
                                 if (index2 > -1) {
                                     bc_data[i].events.splice(index2, 1);
                                 }
+
+                                let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
+                                this.home_date_list.splice(index1, 1)
+
                                 let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
                                 if (index > -1) {
                                     bc_data[i].redCards.splice(index, 1);
                                     j = j - 1
                                 }
-                                let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.home_date_list.splice(index1, 1)
                             }
                             if(away_id === bc_data[i].redCards[j].visitorteamId){
                                 let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
                                 if (index2 > -1) {
                                     bc_data[i].events.splice(index2, 1);
                                 }
+
+                                let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
+                                this.away_date_list.splice(index1, 1)
+
                                 let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
                                 if (index > -1) {
                                     bc_data[i].redCards.splice(index, 1);
                                     j = j - 1
                                 }
-                                let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.away_date_list.splice(index1, 1)
                             }
                         }
                     }
