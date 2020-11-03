@@ -5121,84 +5121,84 @@
                                     if(cSeasonStats[i].events[j]){
                                         if(cSeasonStats[i].events[j].date < time){
                                             if(cSeasonStats[i].stats[j]){
-                                                if(cSeasonStats[i].stats[j][0].team_id === home_id){
+                                                if(cSeasonStats[i].stats[j].stats[0].team_id === home_id){
                                                     this.avg_home_stats.p++
-                                                    if(cSeasonStats[i].stats[j][0].shots){
-                                                        if(cSeasonStats[i].stats[j][0].shots.ongoal){
-                                                            this.avg_home_stats.on = this.avg_home_stats.on + cSeasonStats[i].stats[j][0].shots.ongoal
+                                                    if(cSeasonStats[i].stats[j].stats[0].shots){
+                                                        if(cSeasonStats[i].stats[j].stats[0].shots.ongoal){
+                                                            this.avg_home_stats.on = this.avg_home_stats.on + cSeasonStats[i].stats[j].stats[0].shots.ongoal
                                                         }
-                                                        if(cSeasonStats[i].stats[j][0].shots.offgoal){
-                                                            this.avg_home_stats.off = this.avg_home_stats.off + cSeasonStats[i].stats[j][0].shots.offgoal
+                                                        if(cSeasonStats[i].stats[j].stats[0].shots.offgoal){
+                                                            this.avg_home_stats.off = this.avg_home_stats.off + cSeasonStats[i].stats[j].stats[0].shots.offgoal
                                                         }
-                                                        if(cSeasonStats[i].stats[j][0].shots.blocked){
-                                                            this.avg_home_stats.blk = this.avg_home_stats.blk + cSeasonStats[i].stats[j][0].shots.blocked
+                                                        if(cSeasonStats[i].stats[j].stats[0].shots.blocked){
+                                                            this.avg_home_stats.blk = this.avg_home_stats.blk + cSeasonStats[i].stats[j].stats[0].shots.blocked
                                                         }
-                                                        if(cSeasonStats[i].stats[j][0].shots.insidebox){
-                                                            this.avg_home_stats.in = this.avg_home_stats.in + cSeasonStats[i].stats[j][0].shots.insidebox
+                                                        if(cSeasonStats[i].stats[j].stats[0].shots.insidebox){
+                                                            this.avg_home_stats.in = this.avg_home_stats.in + cSeasonStats[i].stats[j].stats[0].shots.insidebox
                                                         }
-                                                        if(cSeasonStats[i].stats[j][0].shots.outsidebox){
-                                                            this.avg_home_stats.out = this.avg_home_stats.out + cSeasonStats[i].stats[j][0].shots.outsidebox
-                                                        }
-                                                    }
-                                                    if(cSeasonStats[i].stats[j][0].corners){
-                                                        this.avg_home_stats.cnr = this.avg_home_stats.cnr + cSeasonStats[i].stats[j][0].corners
-                                                    }
-                                                    if(cSeasonStats[i].stats[j][0].goals){
-                                                        this.avg_home_stats.goal = this.avg_home_stats.goal + cSeasonStats[i].stats[j][0].goals
-                                                    }
-                                                    if(cSeasonStats[i].stats[j][0].attacks){
-                                                        if(cSeasonStats[i].stats[j][0].attacks.dangerous_attacks){
-                                                            this.avg_home_stats.da = this.avg_home_stats.da + cSeasonStats[i].stats[j][0].attacks.dangerous_attacks
+                                                        if(cSeasonStats[i].stats[j].stats[0].shots.outsidebox){
+                                                            this.avg_home_stats.out = this.avg_home_stats.out + cSeasonStats[i].stats[j].stats[0].shots.outsidebox
                                                         }
                                                     }
-                                                    if(cSeasonStats[i].stats[j][0].possessiontime){
-                                                        this.avg_home_stats.pos = this.avg_home_stats.pos + cSeasonStats[i].stats[j][0].possessiontime
+                                                    if(cSeasonStats[i].stats[j].stats[0].corners){
+                                                        this.avg_home_stats.cnr = this.avg_home_stats.cnr + cSeasonStats[i].stats[j].stats[0].corners
                                                     }
-                                                    if(cSeasonStats[i].stats[j][0].redcards){
-                                                        this.avg_home_stats.red = this.avg_home_stats.red + cSeasonStats[i].stats[j][0].redcards
+                                                    if(cSeasonStats[i].stats[j].stats[0].goals){
+                                                        this.avg_home_stats.goal = this.avg_home_stats.goal + cSeasonStats[i].stats[j].stats[0].goals
                                                     }
-                                                    if(cSeasonStats[i].stats[j][0].yellowcards){
-                                                        this.avg_home_stats.yel = this.avg_home_stats.yel + cSeasonStats[i].stats[j][0].yellowcards
+                                                    if(cSeasonStats[i].stats[j].stats[0].attacks){
+                                                        if(cSeasonStats[i].stats[j].stats[0].attacks.dangerous_attacks){
+                                                            this.avg_home_stats.da = this.avg_home_stats.da + cSeasonStats[i].stats[j].stats[0].attacks.dangerous_attacks
+                                                        }
+                                                    }
+                                                    if(cSeasonStats[i].stats[j].stats[0].possessiontime){
+                                                        this.avg_home_stats.pos = this.avg_home_stats.pos + cSeasonStats[i].stats[j].stats[0].possessiontime
+                                                    }
+                                                    if(cSeasonStats[i].stats[j].stats[0].redcards){
+                                                        this.avg_home_stats.red = this.avg_home_stats.red + cSeasonStats[i].stats[j].stats[0].redcards
+                                                    }
+                                                    if(cSeasonStats[i].stats[j].stats[0].yellowcards){
+                                                        this.avg_home_stats.yel = this.avg_home_stats.yel + cSeasonStats[i].stats[j].stats[0].yellowcards
                                                     }
                                                 }
-                                                if(cSeasonStats[i].stats[j][1].team_id === away_id){
+                                                if(cSeasonStats[i].stats[j].stats[1].team_id === away_id){
                                                     this.avg_away_stats.p++
-                                                    if(cSeasonStats[i].stats[j][1].shots){
-                                                        if(cSeasonStats[i].stats[j][1].shots.ongoal){
-                                                            this.avg_away_stats.on = this.avg_away_stats.on + cSeasonStats[i].stats[j][1].shots.ongoal
+                                                    if(cSeasonStats[i].stats[j].stats[1].shots){
+                                                        if(cSeasonStats[i].stats[j].stats[1].shots.ongoal){
+                                                            this.avg_away_stats.on = this.avg_away_stats.on + cSeasonStats[i].stats[j].stats[1].shots.ongoal
                                                         }
-                                                        if(cSeasonStats[i].stats[j][1].shots.offgoal){
-                                                            this.avg_away_stats.off = this.avg_away_stats.off + cSeasonStats[i].stats[j][1].shots.offgoal
+                                                        if(cSeasonStats[i].stats[j].stats[1].shots.offgoal){
+                                                            this.avg_away_stats.off = this.avg_away_stats.off + cSeasonStats[i].stats[j].stats[1].shots.offgoal
                                                         }
-                                                        if(cSeasonStats[i].stats[j][1].shots.blocked){
-                                                            this.avg_away_stats.blk = this.avg_away_stats.blk + cSeasonStats[i].stats[j][1].shots.blocked
+                                                        if(cSeasonStats[i].stats[j].stats[1].shots.blocked){
+                                                            this.avg_away_stats.blk = this.avg_away_stats.blk + cSeasonStats[i].stats[j].stats[1].shots.blocked
                                                         }
-                                                        if(cSeasonStats[i].stats[j][1].shots.insidebox){
-                                                            this.avg_away_stats.in = this.avg_away_stats.in + cSeasonStats[i].stats[j][1].shots.insidebox
+                                                        if(cSeasonStats[i].stats[j].stats[1].shots.insidebox){
+                                                            this.avg_away_stats.in = this.avg_away_stats.in + cSeasonStats[i].stats[j].stats[1].shots.insidebox
                                                         }
-                                                        if(cSeasonStats[i].stats[j][1].shots.outsidebox){
-                                                            this.avg_away_stats.out = this.avg_away_stats.out + cSeasonStats[i].stats[j][1].shots.outsidebox
-                                                        }
-                                                    }
-                                                    if(cSeasonStats[i].stats[j][1].corners){
-                                                        this.avg_away_stats.cnr = this.avg_away_stats.cnr + cSeasonStats[i].stats[j][1].corners
-                                                    }
-                                                    if(cSeasonStats[i].stats[j][1].goals){
-                                                        this.avg_away_stats.goal = this.avg_away_stats.goal + cSeasonStats[i].stats[j][1].goals
-                                                    }
-                                                    if(cSeasonStats[i].stats[j][1].attacks){
-                                                        if(cSeasonStats[i].stats[j][1].attacks.dangerous_attacks){
-                                                            this.avg_away_stats.da = this.avg_away_stats.da + cSeasonStats[i].stats[j][1].attacks.dangerous_attacks
+                                                        if(cSeasonStats[i].stats[j].stats[1].shots.outsidebox){
+                                                            this.avg_away_stats.out = this.avg_away_stats.out + cSeasonStats[i].stats[j].stats[1].shots.outsidebox
                                                         }
                                                     }
-                                                    if(cSeasonStats[i].stats[j][1].possessiontime){
-                                                        this.avg_away_stats.pos = this.avg_away_stats.pos + cSeasonStats[i].stats[j][1].possessiontime
+                                                    if(cSeasonStats[i].stats[j].stats[1].corners){
+                                                        this.avg_away_stats.cnr = this.avg_away_stats.cnr + cSeasonStats[i].stats[j].stats[1].corners
                                                     }
-                                                    if(cSeasonStats[i].stats[j][1].redcards){
-                                                        this.avg_away_stats.red = this.avg_away_stats.red + cSeasonStats[i].stats[j][1].redcards
+                                                    if(cSeasonStats[i].stats[j].stats[1].goals){
+                                                        this.avg_away_stats.goal = this.avg_away_stats.goal + cSeasonStats[i].stats[j].stats[1].goals
                                                     }
-                                                    if(cSeasonStats[i].stats[j][1].yellowcards){
-                                                        this.avg_away_stats.yel = this.avg_away_stats.yel + cSeasonStats[i].stats[j][1].yellowcards
+                                                    if(cSeasonStats[i].stats[j].stats[1].attacks){
+                                                        if(cSeasonStats[i].stats[j].stats[1].attacks.dangerous_attacks){
+                                                            this.avg_away_stats.da = this.avg_away_stats.da + cSeasonStats[i].stats[j].stats[1].attacks.dangerous_attacks
+                                                        }
+                                                    }
+                                                    if(cSeasonStats[i].stats[j].stats[1].possessiontime){
+                                                        this.avg_away_stats.pos = this.avg_away_stats.pos + cSeasonStats[i].stats[j].stats[1].possessiontime
+                                                    }
+                                                    if(cSeasonStats[i].stats[j].stats[1].redcards){
+                                                        this.avg_away_stats.red = this.avg_away_stats.red + cSeasonStats[i].stats[j].stats[1].redcards
+                                                    }
+                                                    if(cSeasonStats[i].stats[j].stats[1].yellowcards){
+                                                        this.avg_away_stats.yel = this.avg_away_stats.yel + cSeasonStats[i].stats[j].stats[1].yellowcards
                                                     }
                                                 }
                                             }
