@@ -432,7 +432,7 @@
                                             -
                                         </div>
                                     </transition>
-                                 </div>
+                                </div>
                             </div>
                             <div style="width: 10%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
                                 <div style="width: 100%; padding: 3px 7px; color: white;">
@@ -2197,7 +2197,7 @@
                                                 </div>
                                             </transition>
 
-                                         </div>
+                                        </div>
                                     </div>
                                     <div class="detail_total season-stats-part" style="width: 37.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
                                         <div style="width: 100%; padding: 3px 7px; color: black;">
@@ -3364,8 +3364,8 @@
                 </CTab>
                 <CTab title="My Games">
                     My game content tabs
-<!--                    <Plotly :data="data" :layout="layout" :display-mode-bar="false"></Plotly>-->
-<!--                    <vue-plotly :data="data" :layout="layout" :options="options"/>-->
+                    <!--                    <Plotly :data="data" :layout="layout" :display-mode-bar="false"></Plotly>-->
+                    <!--                    <vue-plotly :data="data" :layout="layout" :options="options"/>-->
                 </CTab>
             </CTabs>
         </CCard>
@@ -3446,7 +3446,7 @@
             },
             readData(){
                 window.axios.post(`${process.env.VUE_APP_URL}getLiveStats`).then(({data})=> {
-                    console.log('data', data.data[0], data.data[1], data.data[2])
+
                     this.liveDataArray = data.data[1]
                     let main_data = data.data[0]
                     let competitionArray = []
@@ -4199,63 +4199,58 @@
         created() {
             this.readData()
             this.sockets.listener.subscribe('UpdateStats', (data1) => {
-                let data = []
-                let cData = []
-                for(let i = 0 ; i < data1.length ; i++){
-                    data[i] = data1[i].updateArray
-                    cData[i] = data1[i].currentData
-                }
+
                 let check_new_total = 0
                 for(let i = 0 ; i < data.length ; i++){
-                    if(data[i]){
+                    if(data1[i].updateArray){
                         let check_new  = 0
                         for(let j = 0 ; j < this.eventArray.length ; j++){
                             for(let k = 0 ; k < this.eventArray[j].events.length ; k++){
-                                if(this.eventArray[j].events[k].main_data._id == data[i]._id && cData[i].stats[0]){
+                                if(this.eventArray[j].events[k].main_data._id == data1[i].updateArray._id && data1[i].currentData.stats[0]){
                                     check_new = 1
-                                    if(cData[i].time.status == "FT"){
+                                    if(data1[i].currentData.time.status == "FT"){
                                         console.log('reload===>!!!!!!')
                                         this.readData()
                                     }
-                                    this.eventArray[j].events[k].home.time = cData[i].time.minute
-                                    if(cData[i].time.injury_time != null){
-                                        this.eventArray[j].events[k].home.time = cData[i].time.minute + '+' + cData[i].time.injury_time
+                                    this.eventArray[j].events[k].home.time = data1[i].currentData.time.minute
+                                    if(data1[i].currentData.time.injury_time != null){
+                                        this.eventArray[j].events[k].home.time = data1[i].currentData.time.minute + '+' + data1[i].currentData.time.injury_time
                                     }
-                                    if(cData[i].time.status == 'HT'){
+                                    if(data1[i].currentData.time.status == 'HT'){
                                         this.eventArray[j].events[k].home.time == 'HT'
                                     }
-                                    this.eventArray[j].events[k].goal_tooltip = data[i].goal_tooltip
-                                    if(this.eventArray[j].events[k].home.id === data[i].stats[0].team_id){
-                                        this.eventArray[j].events[k].home.score = data[i].scores.localteam_score
-                                        this.eventArray[j].events[k].away.score = data[i].scores.visitorteam_score
-                                        if(data[i].stats[0].shots && data[i].stats_ten[0][0].shots){
-                                            this.eventArray[j].events[k].home.off = data[i].stats[0].shots.offgoal - data[i].stats_ten[0][0].shots.offgoal
-                                            this.eventArray[j].events[k].away.off = data[i].stats[1].shots.offgoal - data[i].stats_ten[0][1].shots.offgoal
-                                            this.eventArray[j].events[k].home.blk = data[i].stats[0].shots.blocked - data[i].stats_ten[0][0].shots.blocked
-                                            this.eventArray[j].events[k].away.blk = data[i].stats[1].shots.blocked - data[i].stats_ten[0][1].shots.blocked
-                                            this.eventArray[j].events[k].home.in = data[i].stats[0].shots.insidebox - data[i].stats_ten[0][0].shots.insidebox
-                                            this.eventArray[j].events[k].away.in = data[i].stats[1].shots.insidebox - data[i].stats_ten[0][1].shots.insidebox
-                                            this.eventArray[j].events[k].home.out = data[i].stats[0].shots.outsidebox - data[i].stats_ten[0][0].shots.outsidebox
-                                            this.eventArray[j].events[k].away.out = data[i].stats[1].shots.outsidebox - data[i].stats_ten[0][1].shots.outsidebox
+                                    this.eventArray[j].events[k].goal_tooltip = data1[i].updateArray.goal_tooltip
+                                    if(this.eventArray[j].events[k].home.id === data1[i].updateArray.stats[0].team_id){
+                                        this.eventArray[j].events[k].home.score = data1[i].updateArray.scores.localteam_score
+                                        this.eventArray[j].events[k].away.score = data1[i].updateArray.scores.visitorteam_score
+                                        if(data1[i].updateArray.stats[0].shots && data1[i].updateArray.stats_ten[0][0].shots){
+                                            this.eventArray[j].events[k].home.off = data1[i].updateArray.stats[0].shots.offgoal - data1[i].updateArray.stats_ten[0][0].shots.offgoal
+                                            this.eventArray[j].events[k].away.off = data1[i].updateArray.stats[1].shots.offgoal - data1[i].updateArray.stats_ten[0][1].shots.offgoal
+                                            this.eventArray[j].events[k].home.blk = data1[i].updateArray.stats[0].shots.blocked - data1[i].updateArray.stats_ten[0][0].shots.blocked
+                                            this.eventArray[j].events[k].away.blk = data1[i].updateArray.stats[1].shots.blocked - data1[i].updateArray.stats_ten[0][1].shots.blocked
+                                            this.eventArray[j].events[k].home.in = data1[i].updateArray.stats[0].shots.insidebox - data1[i].updateArray.stats_ten[0][0].shots.insidebox
+                                            this.eventArray[j].events[k].away.in = data1[i].updateArray.stats[1].shots.insidebox - data1[i].updateArray.stats_ten[0][1].shots.insidebox
+                                            this.eventArray[j].events[k].home.out = data1[i].updateArray.stats[0].shots.outsidebox - data1[i].updateArray.stats_ten[0][0].shots.outsidebox
+                                            this.eventArray[j].events[k].away.out = data1[i].updateArray.stats[1].shots.outsidebox - data1[i].updateArray.stats_ten[0][1].shots.outsidebox
                                         }
 
-                                        this.eventArray[j].events[k].home.cnr = data[i].stats[0].corners - data[i].stats_ten[0][0].corners
-                                        this.eventArray[j].events[k].away.cnr = data[i].stats[1].corners - data[i].stats_ten[0][1].corners
-                                        if(data[i].stats[0].attacks && data[i].stats_ten[0][0].attacks){
-                                            this.eventArray[j].events[k].home.da = data[i].stats[0].attacks.dangerous_attacks - data[i].stats_ten[0][0].attacks.dangerous_attacks
-                                            this.eventArray[j].events[k].away.da = data[i].stats[1].attacks.dangerous_attacks - data[i].stats_ten[0][1].attacks.dangerous_attacks
+                                        this.eventArray[j].events[k].home.cnr = data1[i].updateArray.stats[0].corners - data1[i].updateArray.stats_ten[0][0].corners
+                                        this.eventArray[j].events[k].away.cnr = data1[i].updateArray.stats[1].corners - data1[i].updateArray.stats_ten[0][1].corners
+                                        if(data1[i].updateArray.stats[0].attacks && data1[i].updateArray.stats_ten[0][0].attacks){
+                                            this.eventArray[j].events[k].home.da = data1[i].updateArray.stats[0].attacks.dangerous_attacks - data1[i].updateArray.stats_ten[0][0].attacks.dangerous_attacks
+                                            this.eventArray[j].events[k].away.da = data1[i].updateArray.stats[1].attacks.dangerous_attacks - data1[i].updateArray.stats_ten[0][1].attacks.dangerous_attacks
                                         }
 
-                                        this.eventArray[j].events[k].home.poss =data[i].stats_ten[0][0].possessiontime
-                                        this.eventArray[j].events[k].away.poss =data[i].stats_ten[0][1].possessiontime
+                                        this.eventArray[j].events[k].home.poss =data1[i].updateArray.stats_ten[0][0].possessiontime
+                                        this.eventArray[j].events[k].away.poss =data1[i].updateArray.stats_ten[0][1].possessiontime
 
-                                        if(data[i].stats[0].passes && data[i].stats_ten[0][0]){
-                                            if(data[i].stats_ten[0][0].passes){
-                                                this.eventArray[j].events[k].home.pas = data[i].stats[0].passes.total - data[i].stats_ten[0][0].passes.total
-                                                this.eventArray[j].events[k].away.pas = data[i].stats[1].passes.total - data[i].stats_ten[0][1].passes.total
+                                        if(data1[i].updateArray.stats[0].passes && data1[i].updateArray.stats_ten[0][0]){
+                                            if(data1[i].updateArray.stats_ten[0][0].passes){
+                                                this.eventArray[j].events[k].home.pas = data1[i].updateArray.stats[0].passes.total - data1[i].updateArray.stats_ten[0][0].passes.total
+                                                this.eventArray[j].events[k].away.pas = data1[i].updateArray.stats[1].passes.total - data1[i].updateArray.stats_ten[0][1].passes.total
 
-                                                this.eventArray[j].events[k].home.acc = data[i].stats[0].passes.accurate - data[i].stats_ten[0][0].passes.accurate
-                                                this.eventArray[j].events[k].away.acc = data[i].stats[1].passes.accurate - data[i].stats_ten[0][1].passes.accurate
+                                                this.eventArray[j].events[k].home.acc = data1[i].updateArray.stats[0].passes.accurate - data1[i].updateArray.stats_ten[0][0].passes.accurate
+                                                this.eventArray[j].events[k].away.acc = data1[i].updateArray.stats[1].passes.accurate - data1[i].updateArray.stats_ten[0][1].passes.accurate
                                             }
                                         }
                                         else{
@@ -4265,185 +4260,185 @@
                                             this.eventArray[j].events[k].away.acc = null
                                         }
 
-                                        if(data[i].stats[0].attacks && data[i].stats_ten[0][0].attacks){
-                                            this.eventArray[j].events[k].home.atk = data[i].stats[0].attacks.attacks - data[i].stats_ten[0][0].attacks.attacks
-                                            this.eventArray[j].events[k].away.atk = data[i].stats[1].attacks.attacks - data[i].stats_ten[0][1].attacks.attacks
+                                        if(data1[i].updateArray.stats[0].attacks && data1[i].updateArray.stats_ten[0][0].attacks){
+                                            this.eventArray[j].events[k].home.atk = data1[i].updateArray.stats[0].attacks.attacks - data1[i].updateArray.stats_ten[0][0].attacks.attacks
+                                            this.eventArray[j].events[k].away.atk = data1[i].updateArray.stats[1].attacks.attacks - data1[i].updateArray.stats_ten[0][1].attacks.attacks
                                         }
 
-                                        this.eventArray[j].events[k].home.ofs = data[i].stats[0].offsides - data[i].stats_ten[0][0].offsides
-                                        this.eventArray[j].events[k].away.ofs = data[i].stats[1].offsides - data[i].stats_ten[0][1].offsides
-                                        this.eventArray[j].events[k].home.sav = data[i].stats[0].saves - data[i].stats_ten[0][0].saves
-                                        this.eventArray[j].events[k].away.sav = data[i].stats[1].saves - data[i].stats_ten[0][1].saves
-                                        if(data[i].stats[0].substitutions != null){
-                                            this.eventArray[j].events[k].home.sbst = data[i].stats[0].substitutions - data[i].stats_ten[0][0].substitutions
-                                            this.eventArray[j].events[k].away.sbst = data[i].stats[1].substitutions - data[i].stats_ten[0][1].substitutions
+                                        this.eventArray[j].events[k].home.ofs = data1[i].updateArray.stats[0].offsides - data1[i].updateArray.stats_ten[0][0].offsides
+                                        this.eventArray[j].events[k].away.ofs = data1[i].updateArray.stats[1].offsides - data1[i].updateArray.stats_ten[0][1].offsides
+                                        this.eventArray[j].events[k].home.sav = data1[i].updateArray.stats[0].saves - data1[i].updateArray.stats_ten[0][0].saves
+                                        this.eventArray[j].events[k].away.sav = data1[i].updateArray.stats[1].saves - data1[i].updateArray.stats_ten[0][1].saves
+                                        if(data1[i].updateArray.stats[0].substitutions != null){
+                                            this.eventArray[j].events[k].home.sbst = data1[i].updateArray.stats[0].substitutions - data1[i].updateArray.stats_ten[0][0].substitutions
+                                            this.eventArray[j].events[k].away.sbst = data1[i].updateArray.stats[1].substitutions - data1[i].updateArray.stats_ten[0][1].substitutions
                                         }
                                         else{
                                             this.eventArray[j].events[k].home.sbst = null
                                             this.eventArray[j].events[k].away.sbst = null
                                         }
-                                        this.eventArray[j].events[k].home.red = data[i].stats[0].redcards - data[i].stats_ten[0][0].redcards
-                                        this.eventArray[j].events[k].away.red = data[i].stats[1].redcards - data[i].stats_ten[0][1].redcards
-                                        this.eventArray[j].events[k].home.fou = data[i].stats[0].fouls - data[i].stats_ten[0][0].fouls
-                                        this.eventArray[j].events[k].away.fou = data[i].stats[1].fouls - data[i].stats_ten[0][1].fouls
-                                        if(data[i].stats[0].goal_attempts != null){
-                                            this.eventArray[j].events[k].home.g_att = data[i].stats[0].goal_attempts - data[i].stats_ten[0][0].goal_attempts
-                                            this.eventArray[j].events[k].away.g_att = data[i].stats[1].goal_attempts - data[i].stats_ten[0][1].goal_attempts
+                                        this.eventArray[j].events[k].home.red = data1[i].updateArray.stats[0].redcards - data1[i].updateArray.stats_ten[0][0].redcards
+                                        this.eventArray[j].events[k].away.red = data1[i].updateArray.stats[1].redcards - data1[i].updateArray.stats_ten[0][1].redcards
+                                        this.eventArray[j].events[k].home.fou = data1[i].updateArray.stats[0].fouls - data1[i].updateArray.stats_ten[0][0].fouls
+                                        this.eventArray[j].events[k].away.fou = data1[i].updateArray.stats[1].fouls - data1[i].updateArray.stats_ten[0][1].fouls
+                                        if(data1[i].updateArray.stats[0].goal_attempts != null){
+                                            this.eventArray[j].events[k].home.g_att = data1[i].updateArray.stats[0].goal_attempts - data1[i].updateArray.stats_ten[0][0].goal_attempts
+                                            this.eventArray[j].events[k].away.g_att = data1[i].updateArray.stats[1].goal_attempts - data1[i].updateArray.stats_ten[0][1].goal_attempts
                                         }
                                         else{
                                             this.eventArray[j].events[k].home.g_att = null
                                             this.eventArray[j].events[k].away.g_att = null
                                         }
-                                        if(data[i].stats[0].ball_safe != null){
-                                            this.eventArray[j].events[k].home.safe = data[i].stats[0].ball_safe - data[i].stats_ten[0][0].ball_safe
-                                            this.eventArray[j].events[k].away.safe = data[i].stats[1].ball_safe - data[i].stats_ten[0][1].ball_safe
+                                        if(data1[i].updateArray.stats[0].ball_safe != null){
+                                            this.eventArray[j].events[k].home.safe = data1[i].updateArray.stats[0].ball_safe - data1[i].updateArray.stats_ten[0][0].ball_safe
+                                            this.eventArray[j].events[k].away.safe = data1[i].updateArray.stats[1].ball_safe - data1[i].updateArray.stats_ten[0][1].ball_safe
                                         }
                                         else{
                                             this.eventArray[j].events[k].home.safe = null
                                             this.eventArray[j].events[k].away.safe = null
                                         }
 
-                                        if(data[i].stats[0].goals > this.eventArray[j].events[k].home.goal){
+                                        if(data1[i].updateArray.stats[0].goals > this.eventArray[j].events[k].home.goal){
                                             this.eventArray[j].events[k].home.flash = 1
                                         }
                                         else{
                                             this.eventArray[j].events[k].home.flash = 0
                                         }
 
-                                        if(data[i].stats[1].goals > this.eventArray[j].events[k].away.goal){
+                                        if(data1[i].updateArray.stats[1].goals > this.eventArray[j].events[k].away.goal){
                                             this.eventArray[j].events[k].away.flash = 1
                                         }
                                         else{
                                             this.eventArray[j].events[k].away.flash = 0
                                         }
 
-                                        this.eventArray[j].events[k].home.goal = data[i].stats[0].goals - data[i].stats_ten[0][0].goals
-                                        this.eventArray[j].events[k].away.goal = data[i].stats[1].goals - data[i].stats_ten[0][1].goals
+                                        this.eventArray[j].events[k].home.goal = data1[i].updateArray.stats[0].goals - data1[i].updateArray.stats_ten[0][0].goals
+                                        this.eventArray[j].events[k].away.goal = data1[i].updateArray.stats[1].goals - data1[i].updateArray.stats_ten[0][1].goals
                                     }
                                     else{
-                                        this.eventArray[j].events[k].home.score = data[i].scores.localteam_score
-                                        this.eventArray[j].events[k].away.score = data[i].scores.visitorteam_score
-                                        this.eventArray[j].events[k].home.on = data[i].stats[1].shots.ongoal - data[i].stats_ten[0][1].shots.ongoal
-                                        this.eventArray[j].events[k].away.on = data[i].stats[0].shots.ongoal - data[i].stats_ten[0][0].shots.ongoal
-                                        this.eventArray[j].events[k].home.off = data[i].stats[1].shots.offgoal - data[i].stats_ten[0][1].shots.offgoal
-                                        this.eventArray[j].events[k].away.off = data[i].stats[0].shots.offgoal - data[i].stats_ten[0][0].shots.offgoal
-                                        this.eventArray[j].events[k].home.blk = data[i].stats[1].shots.blocked - data[i].stats_ten[0][1].shots.blocked
-                                        this.eventArray[j].events[k].away.blk = data[i].stats[0].shots.blocked - data[i].stats_ten[0][0].shots.blocked
-                                        this.eventArray[j].events[k].home.in = data[i].stats[1].shots.insidebox - data[i].stats_ten[0][1].shots.insidebox
-                                        this.eventArray[j].events[k].away.in = data[i].stats[0].shots.insidebox - data[i].stats_ten[0][0].shots.insidebox
-                                        this.eventArray[j].events[k].home.out = data[i].stats[1].shots.outsidebox - data[i].stats_ten[0][1].shots.outsidebox
-                                        this.eventArray[j].events[k].away.out = data[i].stats[0].shots.outsidebox - data[i].stats_ten[0][0].shots.outsidebox
-                                        this.eventArray[j].events[k].home.cnr = data[i].stats[1].corners - data[i].stats_ten[0][1].corners
-                                        this.eventArray[j].events[k].away.cnr = data[i].stats[0].corners - data[i].stats_ten[0][0].corners
-                                        this.eventArray[j].events[k].home.da = data[i].stats[1].attacks.dangerous_attacks - data[i].stats_ten[0][1].attacks.dangerous_attacks
-                                        this.eventArray[j].events[k].away.da = data[i].stats[0].attacks.dangerous_attacks - data[i].stats_ten[0][0].attacks.dangerous_attacks
+                                        this.eventArray[j].events[k].home.score = data1[i].updateArray.scores.localteam_score
+                                        this.eventArray[j].events[k].away.score = data1[i].updateArray.scores.visitorteam_score
+                                        this.eventArray[j].events[k].home.on = data1[i].updateArray.stats[1].shots.ongoal - data1[i].updateArray.stats_ten[0][1].shots.ongoal
+                                        this.eventArray[j].events[k].away.on = data1[i].updateArray.stats[0].shots.ongoal - data1[i].updateArray.stats_ten[0][0].shots.ongoal
+                                        this.eventArray[j].events[k].home.off = data1[i].updateArray.stats[1].shots.offgoal - data1[i].updateArray.stats_ten[0][1].shots.offgoal
+                                        this.eventArray[j].events[k].away.off = data1[i].updateArray.stats[0].shots.offgoal - data1[i].updateArray.stats_ten[0][0].shots.offgoal
+                                        this.eventArray[j].events[k].home.blk = data1[i].updateArray.stats[1].shots.blocked - data1[i].updateArray.stats_ten[0][1].shots.blocked
+                                        this.eventArray[j].events[k].away.blk = data1[i].updateArray.stats[0].shots.blocked - data1[i].updateArray.stats_ten[0][0].shots.blocked
+                                        this.eventArray[j].events[k].home.in = data1[i].updateArray.stats[1].shots.insidebox - data1[i].updateArray.stats_ten[0][1].shots.insidebox
+                                        this.eventArray[j].events[k].away.in = data1[i].updateArray.stats[0].shots.insidebox - data1[i].updateArray.stats_ten[0][0].shots.insidebox
+                                        this.eventArray[j].events[k].home.out = data1[i].updateArray.stats[1].shots.outsidebox - data1[i].updateArray.stats_ten[0][1].shots.outsidebox
+                                        this.eventArray[j].events[k].away.out = data1[i].updateArray.stats[0].shots.outsidebox - data1[i].updateArray.stats_ten[0][0].shots.outsidebox
+                                        this.eventArray[j].events[k].home.cnr = data1[i].updateArray.stats[1].corners - data1[i].updateArray.stats_ten[0][1].corners
+                                        this.eventArray[j].events[k].away.cnr = data1[i].updateArray.stats[0].corners - data1[i].updateArray.stats_ten[0][0].corners
+                                        this.eventArray[j].events[k].home.da = data1[i].updateArray.stats[1].attacks.dangerous_attacks - data1[i].updateArray.stats_ten[0][1].attacks.dangerous_attacks
+                                        this.eventArray[j].events[k].away.da = data1[i].updateArray.stats[0].attacks.dangerous_attacks - data1[i].updateArray.stats_ten[0][0].attacks.dangerous_attacks
 
-                                        this.eventArray[j].events[k].home.poss =data[i].stats_ten[0][1].possessiontime
-                                        this.eventArray[j].events[k].away.poss =data[i].stats_ten[0][0].possessiontime
+                                        this.eventArray[j].events[k].home.poss =data1[i].updateArray.stats_ten[0][1].possessiontime
+                                        this.eventArray[j].events[k].away.poss =data1[i].updateArray.stats_ten[0][0].possessiontime
 
-                                        if(data[i].stats[0].passes != null){
-                                            this.eventArray[j].events[k].home.pas = data[i].stats[1].passes.total - data[i].stats_ten[0][1].passes.total
-                                            this.eventArray[j].events[k].away.pas = data[i].stats[0].passes.total - data[i].stats_ten[0][0].passes.total
+                                        if(data1[i].updateArray.stats[0].passes != null){
+                                            this.eventArray[j].events[k].home.pas = data1[i].updateArray.stats[1].passes.total - data1[i].updateArray.stats_ten[0][1].passes.total
+                                            this.eventArray[j].events[k].away.pas = data1[i].updateArray.stats[0].passes.total - data1[i].updateArray.stats_ten[0][0].passes.total
                                         }
                                         else{
                                             this.eventArray[j].events[k].home.pas = null
                                             this.eventArray[j].events[k].away.pas = null
                                         }
-                                        if(data[i].stats[0].passes != null){
-                                            this.eventArray[j].events[k].home.acc = data[i].stats[1].passes.accurate - data[i].stats_ten[0][1].passes.accurate
-                                            this.eventArray[j].events[k].away.acc = data[i].stats[0].passes.accurate - data[i].stats_ten[0][0].passes.accurate
+                                        if(data1[i].updateArray.stats[0].passes != null){
+                                            this.eventArray[j].events[k].home.acc = data1[i].updateArray.stats[1].passes.accurate - data1[i].updateArray.stats_ten[0][1].passes.accurate
+                                            this.eventArray[j].events[k].away.acc = data1[i].updateArray.stats[0].passes.accurate - data1[i].updateArray.stats_ten[0][0].passes.accurate
                                         }
                                         else{
                                             this.eventArray[j].events[k].home.acc = null
                                             this.eventArray[j].events[k].away.acc = null
                                         }
-                                        this.eventArray[j].events[k].home.atk = data[i].stats[1].attacks.attacks - data[i].stats_ten[0][1].attacks.attacks
-                                        this.eventArray[j].events[k].away.atk = data[i].stats[0].attacks.attacks - data[i].stats_ten[0][0].attacks.attacks
-                                        this.eventArray[j].events[k].home.ofs = data[i].stats[1].offsides - data[i].stats_ten[0][1].offsides
-                                        this.eventArray[j].events[k].away.ofs = data[i].stats[0].offsides - data[i].stats_ten[0][0].offsides
-                                        this.eventArray[j].events[k].home.sav = data[i].stats[1].saves - data[i].stats_ten[0][1].saves
-                                        this.eventArray[j].events[k].away.sav = data[i].stats[0].saves - data[i].stats_ten[0][0].saves
-                                        if(data[i].stats[0].substitutions != null){
-                                            this.eventArray[j].events[k].home.sbst = data[i].stats[1].substitutions - data[i].stats_ten[0][1].substitutions
-                                            this.eventArray[j].events[k].away.sbst = data[i].stats[0].substitutions - data[i].stats_ten[0][0].substitutions
+                                        this.eventArray[j].events[k].home.atk = data1[i].updateArray.stats[1].attacks.attacks - data1[i].updateArray.stats_ten[0][1].attacks.attacks
+                                        this.eventArray[j].events[k].away.atk = data1[i].updateArray.stats[0].attacks.attacks - data1[i].updateArray.stats_ten[0][0].attacks.attacks
+                                        this.eventArray[j].events[k].home.ofs = data1[i].updateArray.stats[1].offsides - data1[i].updateArray.stats_ten[0][1].offsides
+                                        this.eventArray[j].events[k].away.ofs = data1[i].updateArray.stats[0].offsides - data1[i].updateArray.stats_ten[0][0].offsides
+                                        this.eventArray[j].events[k].home.sav = data1[i].updateArray.stats[1].saves - data1[i].updateArray.stats_ten[0][1].saves
+                                        this.eventArray[j].events[k].away.sav = data1[i].updateArray.stats[0].saves - data1[i].updateArray.stats_ten[0][0].saves
+                                        if(data1[i].updateArray.stats[0].substitutions != null){
+                                            this.eventArray[j].events[k].home.sbst = data1[i].updateArray.stats[1].substitutions - data1[i].updateArray.stats_ten[0][1].substitutions
+                                            this.eventArray[j].events[k].away.sbst = data1[i].updateArray.stats[0].substitutions - data1[i].updateArray.stats_ten[0][0].substitutions
                                         }
                                         else{
                                             this.eventArray[j].events[k].home.sbst = null
                                             this.eventArray[j].events[k].away.sbst = null
                                         }
-                                        this.eventArray[j].events[k].home.red = data[i].stats[1].redcards - data[i].stats_ten[0][1].redcards
-                                        this.eventArray[j].events[k].away.red = data[i].stats[0].redcards - data[i].stats_ten[0][0].redcards
-                                        this.eventArray[j].events[k].home.fou = data[i].stats[1].fouls - data[i].stats_ten[0][1].fouls
-                                        this.eventArray[j].events[k].away.fou = data[i].stats[0].fouls - data[i].stats_ten[0][0].fouls
-                                        if(data[i].stats[0].goal_attempts != null){
-                                            this.eventArray[j].events[k].home.g_att = data[i].stats[1].goal_attempts - data[i].stats_ten[0][1].goal_attempts
-                                            this.eventArray[j].events[k].away.g_att = data[i].stats[0].goal_attempts - data[i].stats_ten[0][0].goal_attempts
+                                        this.eventArray[j].events[k].home.red = data1[i].updateArray.stats[1].redcards - data1[i].updateArray.stats_ten[0][1].redcards
+                                        this.eventArray[j].events[k].away.red = data1[i].updateArray.stats[0].redcards - data1[i].updateArray.stats_ten[0][0].redcards
+                                        this.eventArray[j].events[k].home.fou = data1[i].updateArray.stats[1].fouls - data1[i].updateArray.stats_ten[0][1].fouls
+                                        this.eventArray[j].events[k].away.fou = data1[i].updateArray.stats[0].fouls - data1[i].updateArray.stats_ten[0][0].fouls
+                                        if(data1[i].updateArray.stats[0].goal_attempts != null){
+                                            this.eventArray[j].events[k].home.g_att = data1[i].updateArray.stats[1].goal_attempts - data1[i].updateArray.stats_ten[0][1].goal_attempts
+                                            this.eventArray[j].events[k].away.g_att = data1[i].updateArray.stats[0].goal_attempts - data1[i].updateArray.stats_ten[0][0].goal_attempts
                                         }
                                         else{
                                             this.eventArray[j].events[k].home.g_att = null
                                             this.eventArray[j].events[k].away.g_att = null
                                         }
-                                        if(data[i].stats[0].ball_safe != null){
-                                            this.eventArray[j].events[k].home.safe = data[i].stats[1].ball_safe - data[i].stats_ten[0][1].ball_safe
-                                            this.eventArray[j].events[k].away.safe = data[i].stats[0].ball_safe - data[i].stats_ten[0][0].ball_safe
+                                        if(data1[i].updateArray.stats[0].ball_safe != null){
+                                            this.eventArray[j].events[k].home.safe = data1[i].updateArray.stats[1].ball_safe - data1[i].updateArray.stats_ten[0][1].ball_safe
+                                            this.eventArray[j].events[k].away.safe = data1[i].updateArray.stats[0].ball_safe - data1[i].updateArray.stats_ten[0][0].ball_safe
                                         }
                                         else{
                                             this.eventArray[j].events[k].home.safe = null
                                             this.eventArray[j].events[k].away.safe = null
                                         }
 
-                                        if(data[i].stats[0].goals > this.eventArray[j].events[k].home.goal){
+                                        if(data1[i].updateArray.stats[0].goals > this.eventArray[j].events[k].home.goal){
                                             this.eventArray[j].events[k].home.flash = 1
                                         }
                                         else{
                                             this.eventArray[j].events[k].home.flash = 0
                                         }
 
-                                        if(data[i].stats[1].goals > this.eventArray[j].events[k].away.goal){
+                                        if(data1[i].updateArray.stats[1].goals > this.eventArray[j].events[k].away.goal){
                                             this.eventArray[j].events[k].away.flash = 1
                                         }
                                         else{
                                             this.eventArray[j].events[k].away.flash = 0
                                         }
 
-                                        this.eventArray[j].events[k].home.goal = data[i].stats[1].goals - data[i].stats_ten[0][1].goals
-                                        this.eventArray[j].events[k].away.goal = data[i].stats[0].goals - data[i].stats_ten[0][0].goals
+                                        this.eventArray[j].events[k].home.goal = data1[i].updateArray.stats[1].goals - data1[i].updateArray.stats_ten[0][1].goals
+                                        this.eventArray[j].events[k].away.goal = data1[i].updateArray.stats[0].goals - data1[i].updateArray.stats_ten[0][0].goals
                                     }
                                     //-----------------------------------------------------------------------------------------------
-                                    if(data[i].stats[0].goals - data[i].stats_ten[0][0].goals > this.eventArray[j].events[k].home.goal){
+                                    if(data1[i].updateArray.stats[0].goals - data1[i].updateArray.stats_ten[0][0].goals > this.eventArray[j].events[k].home.goal){
                                         this.eventArray[j].events[k].home.flash = 1
                                     }
                                     else{
                                         this.eventArray[j].events[k].home.flash = 0
                                     }
-                                    this.eventArray[j].events[k].home.goal = data[i].stats[0].goals - data[i].stats_ten[0][0].goals
+                                    this.eventArray[j].events[k].home.goal = data1[i].updateArray.stats[0].goals - data1[i].updateArray.stats_ten[0][0].goals
 
-                                    if(data[i].stats[1].goals - data[i].stats_ten[0][1].goals > this.eventArray[j].events[k].away.goal){
+                                    if(data1[i].updateArray.stats[1].goals - data1[i].updateArray.stats_ten[0][1].goals > this.eventArray[j].events[k].away.goal){
                                         this.eventArray[j].events[k].away.flash = 1
                                     }
                                     else{
                                         this.eventArray[j].events[k].away.flash = 0
                                     }
-                                    this.eventArray[j].events[k].away.goal = data[i].stats[1].goals - data[i].stats_ten[0][1].goals
+                                    this.eventArray[j].events[k].away.goal = data1[i].updateArray.stats[1].goals - data1[i].updateArray.stats_ten[0][1].goals
                                     //---------------------------------------Total Part-------------------------------------------
-                                    if(this.eventArray[j].events[k].home.id === data[i].stats[0].team_id){
-                                        this.eventArray[j].events[k].homeT.on = data[i].stats[0].shots.ongoal
-                                        this.eventArray[j].events[k].awayT.on = data[i].stats[1].shots.ongoal
-                                        this.eventArray[j].events[k].homeT.off = data[i].stats[0].shots.offgoal
-                                        this.eventArray[j].events[k].awayT.off = data[i].stats[1].shots.offgoal
-                                        this.eventArray[j].events[k].homeT.blk = data[i].stats[0].shots.blocked
-                                        this.eventArray[j].events[k].awayT.blk = data[i].stats[1].shots.blocked
-                                        this.eventArray[j].events[k].homeT.in = data[i].stats[0].shots.insidebox
-                                        this.eventArray[j].events[k].awayT.in = data[i].stats[1].shots.insidebox
-                                        this.eventArray[j].events[k].homeT.out = data[i].stats[0].shots.outsidebox
-                                        this.eventArray[j].events[k].awayT.out = data[i].stats[1].shots.outsidebox
-                                        this.eventArray[j].events[k].homeT.cnr = data[i].stats[0].corners
-                                        this.eventArray[j].events[k].awayT.cnr = data[i].stats[1].corners
-                                        if(data[i].stats[0].attacks){
-                                            this.eventArray[j].events[k].homeT.da = data[i].stats[0].attacks.dangerous_attacks
-                                            this.eventArray[j].events[k].awayT.da = data[i].stats[1].attacks.dangerous_attacks
-                                            this.eventArray[j].events[k].homeT.atk = data[i].stats[0].attacks.attacks
-                                            this.eventArray[j].events[k].awayT.atk = data[i].stats[1].attacks.attacks
+                                    if(this.eventArray[j].events[k].home.id === data1[i].updateArray.stats[0].team_id){
+                                        this.eventArray[j].events[k].homeT.on = data1[i].updateArray.stats[0].shots.ongoal
+                                        this.eventArray[j].events[k].awayT.on = data1[i].updateArray.stats[1].shots.ongoal
+                                        this.eventArray[j].events[k].homeT.off = data1[i].updateArray.stats[0].shots.offgoal
+                                        this.eventArray[j].events[k].awayT.off = data1[i].updateArray.stats[1].shots.offgoal
+                                        this.eventArray[j].events[k].homeT.blk = data1[i].updateArray.stats[0].shots.blocked
+                                        this.eventArray[j].events[k].awayT.blk = data1[i].updateArray.stats[1].shots.blocked
+                                        this.eventArray[j].events[k].homeT.in = data1[i].updateArray.stats[0].shots.insidebox
+                                        this.eventArray[j].events[k].awayT.in = data1[i].updateArray.stats[1].shots.insidebox
+                                        this.eventArray[j].events[k].homeT.out = data1[i].updateArray.stats[0].shots.outsidebox
+                                        this.eventArray[j].events[k].awayT.out = data1[i].updateArray.stats[1].shots.outsidebox
+                                        this.eventArray[j].events[k].homeT.cnr = data1[i].updateArray.stats[0].corners
+                                        this.eventArray[j].events[k].awayT.cnr = data1[i].updateArray.stats[1].corners
+                                        if(data1[i].updateArray.stats[0].attacks){
+                                            this.eventArray[j].events[k].homeT.da = data1[i].updateArray.stats[0].attacks.dangerous_attacks
+                                            this.eventArray[j].events[k].awayT.da = data1[i].updateArray.stats[1].attacks.dangerous_attacks
+                                            this.eventArray[j].events[k].homeT.atk = data1[i].updateArray.stats[0].attacks.attacks
+                                            this.eventArray[j].events[k].awayT.atk = data1[i].updateArray.stats[1].attacks.attacks
                                         }
                                         else{
                                             this.eventArray[j].events[k].homeT.da = null
@@ -4452,101 +4447,101 @@
                                             this.eventArray[j].events[k].awayT.atk = null
                                         }
 
-                                        this.eventArray[j].events[k].homeT.goal = data[i].stats[0].goals
-                                        this.eventArray[j].events[k].awayT.goal = data[i].stats[1].goals
+                                        this.eventArray[j].events[k].homeT.goal = data1[i].updateArray.stats[0].goals
+                                        this.eventArray[j].events[k].awayT.goal = data1[i].updateArray.stats[1].goals
 
-                                        this.eventArray[j].events[k].homeT.poss = data[i].stats[0].possessiontime
-                                        this.eventArray[j].events[k].awayT.poss = data[i].stats[1].possessiontime
-                                        if(data[i].stats[0].passes != null){
-                                            this.eventArray[j].events[k].homeT.pas = data[i].stats[0].passes.total
-                                            this.eventArray[j].events[k].awayT.pas = data[i].stats[1].passes.total
+                                        this.eventArray[j].events[k].homeT.poss = data1[i].updateArray.stats[0].possessiontime
+                                        this.eventArray[j].events[k].awayT.poss = data1[i].updateArray.stats[1].possessiontime
+                                        if(data1[i].updateArray.stats[0].passes != null){
+                                            this.eventArray[j].events[k].homeT.pas = data1[i].updateArray.stats[0].passes.total
+                                            this.eventArray[j].events[k].awayT.pas = data1[i].updateArray.stats[1].passes.total
                                         }
                                         else{
                                             this.eventArray[j].events[k].homeT.pas = null
                                             this.eventArray[j].events[k].awayT.pas = null
                                         }
-                                        if(data[i].stats[0].passes != null){
-                                            this.eventArray[j].events[k].homeT.acc = data[i].stats[0].passes.accurate
-                                            this.eventArray[j].events[k].awayT.acc = data[i].stats[1].passes.accurate
+                                        if(data1[i].updateArray.stats[0].passes != null){
+                                            this.eventArray[j].events[k].homeT.acc = data1[i].updateArray.stats[0].passes.accurate
+                                            this.eventArray[j].events[k].awayT.acc = data1[i].updateArray.stats[1].passes.accurate
                                         }
                                         else{
                                             this.eventArray[j].events[k].homeT.acc = null
                                             this.eventArray[j].events[k].awayT.acc = null
                                         }
 
-                                        this.eventArray[j].events[k].homeT.ofs = data[i].stats[0].offsides
-                                        this.eventArray[j].events[k].awayT.ofs = data[i].stats[1].offsides
-                                        this.eventArray[j].events[k].homeT.sav = data[i].stats[0].saves
-                                        this.eventArray[j].events[k].awayT.sav = data[i].stats[1].saves
-                                        this.eventArray[j].events[k].homeT.sbst = data[i].stats[0].substitutions
-                                        this.eventArray[j].events[k].awayT.sbst = data[i].stats[1].substitutions
-                                        this.eventArray[j].events[k].homeT.red = data[i].stats[0].redcards
-                                        this.eventArray[j].events[k].awayT.red = data[i].stats[1].redcards
-                                        this.eventArray[j].events[k].homeT.fou = data[i].stats[0].fouls
-                                        this.eventArray[j].events[k].awayT.fou = data[i].stats[1].fouls
-                                        this.eventArray[j].events[k].homeT.g_att = data[i].stats[0].goal_attempts
-                                        this.eventArray[j].events[k].awayT.g_att = data[i].stats[1].goal_attempts
-                                        this.eventArray[j].events[k].homeT.safe = data[i].stats[0].ball_safe
-                                        this.eventArray[j].events[k].awayT.safe = data[i].stats[1].ball_safe
+                                        this.eventArray[j].events[k].homeT.ofs = data1[i].updateArray.stats[0].offsides
+                                        this.eventArray[j].events[k].awayT.ofs = data1[i].updateArray.stats[1].offsides
+                                        this.eventArray[j].events[k].homeT.sav = data1[i].updateArray.stats[0].saves
+                                        this.eventArray[j].events[k].awayT.sav = data1[i].updateArray.stats[1].saves
+                                        this.eventArray[j].events[k].homeT.sbst = data1[i].updateArray.stats[0].substitutions
+                                        this.eventArray[j].events[k].awayT.sbst = data1[i].updateArray.stats[1].substitutions
+                                        this.eventArray[j].events[k].homeT.red = data1[i].updateArray.stats[0].redcards
+                                        this.eventArray[j].events[k].awayT.red = data1[i].updateArray.stats[1].redcards
+                                        this.eventArray[j].events[k].homeT.fou = data1[i].updateArray.stats[0].fouls
+                                        this.eventArray[j].events[k].awayT.fou = data1[i].updateArray.stats[1].fouls
+                                        this.eventArray[j].events[k].homeT.g_att = data1[i].updateArray.stats[0].goal_attempts
+                                        this.eventArray[j].events[k].awayT.g_att = data1[i].updateArray.stats[1].goal_attempts
+                                        this.eventArray[j].events[k].homeT.safe = data1[i].updateArray.stats[0].ball_safe
+                                        this.eventArray[j].events[k].awayT.safe = data1[i].updateArray.stats[1].ball_safe
                                     }
                                     else{
-                                        this.eventArray[j].events[k].homeT.on = data[i].stats[1].shots.ongoal
-                                        this.eventArray[j].events[k].awayT.on = data[i].stats[0].shots.ongoal
-                                        this.eventArray[j].events[k].homeT.off = data[i].stats[1].shots.offgoal
-                                        this.eventArray[j].events[k].awayT.off = data[i].stats[0].shots.offgoal
-                                        this.eventArray[j].events[k].homeT.blk = data[i].stats[1].shots.blocked
-                                        this.eventArray[j].events[k].awayT.blk = data[i].stats[0].shots.blocked
-                                        this.eventArray[j].events[k].homeT.in = data[i].stats[1].shots.insidebox
-                                        this.eventArray[j].events[k].awayT.in = data[i].stats[0].shots.insidebox
-                                        this.eventArray[j].events[k].homeT.out = data[i].stats[1].shots.outsidebox
-                                        this.eventArray[j].events[k].awayT.out = data[i].stats[0].shots.outsidebox
-                                        this.eventArray[j].events[k].homeT.cnr = data[i].stats[1].corners
-                                        this.eventArray[j].events[k].awayT.cnr = data[i].stats[0].corners
-                                        this.eventArray[j].events[k].homeT.da = data[i].stats[1].attacks.dangerous_attacks
-                                        this.eventArray[j].events[k].awayT.da = data[i].stats[0].attacks.dangerous_attacks
-                                        this.eventArray[j].events[k].homeT.goal = data[i].stats[1].goals
-                                        this.eventArray[j].events[k].awayT.goal = data[i].stats[0].goals
+                                        this.eventArray[j].events[k].homeT.on = data1[i].updateArray.stats[1].shots.ongoal
+                                        this.eventArray[j].events[k].awayT.on = data1[i].updateArray.stats[0].shots.ongoal
+                                        this.eventArray[j].events[k].homeT.off = data1[i].updateArray.stats[1].shots.offgoal
+                                        this.eventArray[j].events[k].awayT.off = data1[i].updateArray.stats[0].shots.offgoal
+                                        this.eventArray[j].events[k].homeT.blk = data1[i].updateArray.stats[1].shots.blocked
+                                        this.eventArray[j].events[k].awayT.blk = data1[i].updateArray.stats[0].shots.blocked
+                                        this.eventArray[j].events[k].homeT.in = data1[i].updateArray.stats[1].shots.insidebox
+                                        this.eventArray[j].events[k].awayT.in = data1[i].updateArray.stats[0].shots.insidebox
+                                        this.eventArray[j].events[k].homeT.out = data1[i].updateArray.stats[1].shots.outsidebox
+                                        this.eventArray[j].events[k].awayT.out = data1[i].updateArray.stats[0].shots.outsidebox
+                                        this.eventArray[j].events[k].homeT.cnr = data1[i].updateArray.stats[1].corners
+                                        this.eventArray[j].events[k].awayT.cnr = data1[i].updateArray.stats[0].corners
+                                        this.eventArray[j].events[k].homeT.da = data1[i].updateArray.stats[1].attacks.dangerous_attacks
+                                        this.eventArray[j].events[k].awayT.da = data1[i].updateArray.stats[0].attacks.dangerous_attacks
+                                        this.eventArray[j].events[k].homeT.goal = data1[i].updateArray.stats[1].goals
+                                        this.eventArray[j].events[k].awayT.goal = data1[i].updateArray.stats[0].goals
 
-                                        this.eventArray[j].events[k].homeT.poss = data[i].stats[1].possessiontime
-                                        this.eventArray[j].events[k].awayT.poss = data[i].stats[0].possessiontime
-                                        if(data[i].stats[0].passes != null){
-                                            this.eventArray[j].events[k].homeT.pas = data[i].stats[1].passes.total
-                                            this.eventArray[j].events[k].awayT.pas = data[i].stats[0].passes.total
+                                        this.eventArray[j].events[k].homeT.poss = data1[i].updateArray.stats[1].possessiontime
+                                        this.eventArray[j].events[k].awayT.poss = data1[i].updateArray.stats[0].possessiontime
+                                        if(data1[i].updateArray.stats[0].passes != null){
+                                            this.eventArray[j].events[k].homeT.pas = data1[i].updateArray.stats[1].passes.total
+                                            this.eventArray[j].events[k].awayT.pas = data1[i].updateArray.stats[0].passes.total
                                         }
                                         else{
                                             this.eventArray[j].events[k].homeT.pas = null
                                             this.eventArray[j].events[k].awayT.pas = null
                                         }
-                                        if(data[i].stats[0].passes != null){
-                                            this.eventArray[j].events[k].homeT.acc = data[i].stats[1].passes.accurate
-                                            this.eventArray[j].events[k].awayT.acc = data[i].stats[0].passes.accurate
+                                        if(data1[i].updateArray.stats[0].passes != null){
+                                            this.eventArray[j].events[k].homeT.acc = data1[i].updateArray.stats[1].passes.accurate
+                                            this.eventArray[j].events[k].awayT.acc = data1[i].updateArray.stats[0].passes.accurate
                                         }
                                         else{
                                             this.eventArray[j].events[k].homeT.acc = null
                                             this.eventArray[j].events[k].awayT.acc = null
                                         }
-                                        this.eventArray[j].events[k].homeT.atk = data[i].stats[1].attacks.attacks
-                                        this.eventArray[j].events[k].awayT.atk = data[i].stats[0].attacks.attacks
-                                        this.eventArray[j].events[k].homeT.ofs = data[i].stats[1].offsides
-                                        this.eventArray[j].events[k].awayT.ofs = data[i].stats[0].offsides
-                                        this.eventArray[j].events[k].homeT.sav = data[i].stats[1].saves
-                                        this.eventArray[j].events[k].awayT.sav = data[i].stats[0].saves
-                                        this.eventArray[j].events[k].homeT.sbst = data[i].stats[1].substitutions
-                                        this.eventArray[j].events[k].awayT.sbst = data[i].stats[0].substitutions
-                                        this.eventArray[j].events[k].homeT.red = data[i].stats[1].redcards
-                                        this.eventArray[j].events[k].awayT.red = data[i].stats[0].redcards
-                                        this.eventArray[j].events[k].homeT.fou = data[i].stats[1].fouls
-                                        this.eventArray[j].events[k].awayT.fou = data[i].stats[0].fouls
-                                        this.eventArray[j].events[k].homeT.g_att = data[i].stats[1].goal_attempts
-                                        this.eventArray[j].events[k].awayT.g_att = data[i].stats[0].goal_attempts
-                                        this.eventArray[j].events[k].homeT.safe = data[i].stats[1].ball_safe
-                                        this.eventArray[j].events[k].awayT.safe = data[i].stats[0].ball_safe
+                                        this.eventArray[j].events[k].homeT.atk = data1[i].updateArray.stats[1].attacks.attacks
+                                        this.eventArray[j].events[k].awayT.atk = data1[i].updateArray.stats[0].attacks.attacks
+                                        this.eventArray[j].events[k].homeT.ofs = data1[i].updateArray.stats[1].offsides
+                                        this.eventArray[j].events[k].awayT.ofs = data1[i].updateArray.stats[0].offsides
+                                        this.eventArray[j].events[k].homeT.sav = data1[i].updateArray.stats[1].saves
+                                        this.eventArray[j].events[k].awayT.sav = data1[i].updateArray.stats[0].saves
+                                        this.eventArray[j].events[k].homeT.sbst = data1[i].updateArray.stats[1].substitutions
+                                        this.eventArray[j].events[k].awayT.sbst = data1[i].updateArray.stats[0].substitutions
+                                        this.eventArray[j].events[k].homeT.red = data1[i].updateArray.stats[1].redcards
+                                        this.eventArray[j].events[k].awayT.red = data1[i].updateArray.stats[0].redcards
+                                        this.eventArray[j].events[k].homeT.fou = data1[i].updateArray.stats[1].fouls
+                                        this.eventArray[j].events[k].awayT.fou = data1[i].updateArray.stats[0].fouls
+                                        this.eventArray[j].events[k].homeT.g_att = data1[i].updateArray.stats[1].goal_attempts
+                                        this.eventArray[j].events[k].awayT.g_att = data1[i].updateArray.stats[0].goal_attempts
+                                        this.eventArray[j].events[k].homeT.safe = data1[i].updateArray.stats[1].ball_safe
+                                        this.eventArray[j].events[k].awayT.safe = data1[i].updateArray.stats[0].ball_safe
                                     }
                                     //------------------------------------------------------------------------------------------------
                                 }
                             }
                         }
-                        if(check_new == 0 && data[i].time.status == 'LIVE'){
+                        if(check_new == 0 && data1[i].updateArray.time.status == 'LIVE'){
                             check_new_total = 1
                         }
                     }
