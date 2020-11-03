@@ -12,9 +12,9 @@
                         v-if="item.events.length > 0"
                 >
                     {{item.country}} - {{item.league}}  <span v-if="item.percentage != 0" style="font-weight: normal; margin-left: 10px;">{{item.percentage}}%</span>
-                    <img v-if="item.percentage >= 96" src="/img/icon-warning-orange.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
-                    <img v-if="item.percentage <= 10" src="/img/icon-warning-red.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
-                    <img v-if="item.percentage >= 11 && item.percentage <= 95" src="/img/icon-tick.png" width="13px;" style="width: 18px; position:relative; top: -1px; margin-left: 5px; margin-right: 10px;"/>
+                    <img v-if="item.percentage >= 96 && item.numbers > 6" src="/img/icon-warning-orange.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
+                    <img v-if="item.percentage <= 10 || item.numbers <= 6" src="/img/icon-warning-red.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
+                    <img v-if="item.percentage >= 11  && item.numbers > 6 && item.percentage <= 95" src="/img/icon-tick.png" width="13px;" style="width: 18px; position:relative; top: -1px; margin-left: 5px; margin-right: 10px;"/>
                     {{item.events.length}} matches
                     <img v-if="isPlus(index)" src="/img/ico-plus.png" width="13px;" style="width: 16px; float: right;"/>
                     <img v-if="isMinus(index)" src="/img/ico-minus.png" width="13px;" style="width: 16px; float: right;"/>
@@ -1752,7 +1752,7 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                     }
                 }
 
-                return p
+                return [p, name1]
             },
             zeroTozero_calculation(data, teamId, dir, date, d){
                 let p = 0
@@ -4787,6 +4787,7 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                         let k = 0
                         let events = []
                         let percentage = 0
+                        let numbers = 0
                         for(let j = 0; j < main_data.length ; j++){
                             if(competitionArray[i] == main_data[j].competitions[0].name && main_data[j].events.length < 45){
                                 k++
@@ -5034,7 +5035,10 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                                 home.form = this.Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, next_date4, '1')
                                 away.form = this.Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, next_date4, '1')
 
-                                percentage = this.percentage_calculation(main_data[j])
+                                let percentage0 = this.percentage_calculation(main_data[j])
+                                percentage = percentage0[0]
+                                numbers = percentage0[1]
+
                                 home.p = this.p_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')
                                 away.p = this.p_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1')
                                 home.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1')/(home.p + 0.001)*100).toFixed(0)
@@ -5174,10 +5178,10 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                         });
 
                         if(countryName.length > 0 && events.length > 0){
-                            this.mainList.push({'country': countryName[0].cname, 'league': competitionArray[i], 'percentage': percentage, 'events': events})
+                            this.mainList.push({'country': countryName[0].cname, 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers,  'events': events})
                         }
                         else if(countryName.length < 1 && events.length > 0){
-                            this.mainList.push({'country': 'International', 'league': competitionArray[i], 'percentage': percentage, 'events': events})
+                            this.mainList.push({'country': 'International', 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers, 'events': events})
                         }
                         let self = this
                         this.sortJSON(self.mainList,'country', '123');
