@@ -1481,7 +1481,8 @@
                 let home_id = this.item_X.home_id
                 let away_id = this.item_X.away_id
 
-                let main_data = this.mainData
+                let temp =  JSON.stringify(this.mainData)
+                let  main_data = JSON.parse(temp)
                 let bc_data = []
                 for(let j = 0; j < main_data.length ; j++){
                     if(main_data[j].events.length < 45){
@@ -1493,58 +1494,58 @@
 
 
                 for(let i = 0 ; i < bc_data.length; i++){
-                        for(let j = 0 ; j < bc_data[i].redCards.length ; j++){
-                            if(this.red_FH_check === true && bc_data[i].redCards[j].redFH > 0){
-                                console.log('red check removed!', 'homeId=',bc_data[i].redCards[j].localteamId, 'awayId=', bc_data[i].redCards[j].visitorteamId)
+                    for(let j = 0 ; j < bc_data[i].redCards.length ; j++){
+                        if(this.red_FH_check === true && bc_data[i].redCards[j].redFH > 0){
+                            console.log('red check removed!', 'homeId=',bc_data[i].redCards[j].localteamId, 'awayId=', bc_data[i].redCards[j].visitorteamId)
 
-                                if(home_id === bc_data[i].redCards[j].localteamId){
-                                    let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                    if (index > -1) {
-                                        bc_data[i].redCards.splice(index, 1);
-                                        j = j - 1
-                                    }
-
-                                    let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
-                                    this.home_date_list.splice(index1, 1)
+                            if(home_id === bc_data[i].redCards[j].localteamId){
+                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
+                                if (index > -1) {
+                                    bc_data[i].redCards.splice(index, 1);
+                                    j = j - 1
                                 }
 
-                                if(away_id === bc_data[i].redCards[j].visitorteamId){
-                                    let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                    if (index > -1) {
-                                        bc_data[i].redCards.splice(index, 1);
-                                        j = j - 1
-                                    }
-
-                                    let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
-                                    this.away_date_list.splice(index1, 1)
-                                }
-
+                                let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
+                                this.home_date_list.splice(index1, 1)
                             }
-                            if(this.red_SH_check === true && bc_data[i].redCards[j].redSH > 0){
-                                if(home_id === bc_data[i].redCards[j].localteamId){
-                                    let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                    if (index > -1) {
-                                        bc_data[i].redCards.splice(index, 1);
-                                        j = j - 1
-                                    }
 
-                                    let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
-                                    this.home_date_list.splice(index1, 1)
+                            if(away_id === bc_data[i].redCards[j].visitorteamId){
+                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
+                                if (index > -1) {
+                                    bc_data[i].redCards.splice(index, 1);
+                                    j = j - 1
                                 }
 
-                                if(away_id === bc_data[i].redCards[j].visitorteamId){
-                                    let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                    if (index > -1) {
-                                        bc_data[i].redCards.splice(index, 1);
-                                        j = j - 1
-                                    }
+                                let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
+                                this.away_date_list.splice(index1, 1)
+                            }
 
-                                    let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
-                                    this.away_date_list.splice(index1, 1)
+                        }
+                        if(this.red_SH_check === true && bc_data[i].redCards[j].redSH > 0){
+                            if(home_id === bc_data[i].redCards[j].localteamId){
+                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
+                                if (index > -1) {
+                                    bc_data[i].redCards.splice(index, 1);
+                                    j = j - 1
                                 }
+
+                                let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
+                                this.home_date_list.splice(index1, 1)
+                            }
+
+                            if(away_id === bc_data[i].redCards[j].visitorteamId){
+                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
+                                if (index > -1) {
+                                    bc_data[i].redCards.splice(index, 1);
+                                    j = j - 1
+                                }
+
+                                let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
+                                this.away_date_list.splice(index1, 1)
                             }
                         }
                     }
+                }
 
                 this.basic_data = bc_data
                 this.refresh_calculation(this.item_X, this.home_date_list[0].date, this.away_date_list[0].date, this.basic_data)
