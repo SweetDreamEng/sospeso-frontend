@@ -1484,21 +1484,43 @@
                 let temp =  JSON.stringify(this.mainData)
                 let  main_data = JSON.parse(temp)
                 let bc_data = []
+                this.home_date_list = []
+                this.away_date_list = []
+                let home_date_index = 0
+                let away_date_list = 0
                 for(let j = 0; j < main_data.length ; j++){
                     if(main_data[j].events.length < 45){
                         if(this.item_X.home_id === main_data[j].localTeamId && this.item_X.away_id === main_data[j].visitorTeamId){
                             bc_data = main_data[j].events
+                            for(let p = 0 ; p < main_data[j].events.length ; p++){
+                                for(let pp = 0 ; pp < main_data[j].events[p].events.length ; pp++){
+                                    if(this.item_X.home_id === main_data[j].events[p].events[pp].localteamId){
+                                        home_date_index++
+                                        this.home_date_list.push({"date": main_data[j].events[p].events[pp].date, "value": home_date_index, "label": home_date_index})
+                                    }
+                                    if(this.item_X.away_id === main_data[j].events[p].events[pp].visitorteamId){
+                                        away_date_list++
+                                        this.away_date_list.push({"date": main_data[j].events[p].events[pp].date, "value": away_date_list, "label": away_date_list})
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-
+console.log('date list check ===>', this.home_date_list, this.away_date_list)
+                let self = this
+                this.sortJSON(self.home_date_list,'date', '123');
+                this.sortJSON(self.away_date_list,'date', '123');
 
                 for(let i = 0 ; i < bc_data.length; i++){
                     for(let j = 0 ; j < bc_data[i].redCards.length ; j++){
                         if(this.red_FH_check === true && bc_data[i].redCards[j].redFH > 0){
-                            console.log('red check removed!', 'homeId=',bc_data[i].redCards[j].localteamId, 'awayId=', bc_data[i].redCards[j].visitorteamId)
-
                             if(home_id === bc_data[i].redCards[j].localteamId){
+                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
+                                if (index2 > -1) {
+                                    bc_data[i].events.splice(index2, 1);
+                                }
+
                                 let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
                                 if (index > -1) {
                                     bc_data[i].redCards.splice(index, 1);
@@ -1510,6 +1532,11 @@
                             }
 
                             if(away_id === bc_data[i].redCards[j].visitorteamId){
+                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
+                                if (index2 > -1) {
+                                    bc_data[i].events.splice(index2, 1);
+                                }
+
                                 let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
                                 if (index > -1) {
                                     bc_data[i].redCards.splice(index, 1);
@@ -1523,6 +1550,11 @@
                         }
                         if(this.red_SH_check === true && bc_data[i].redCards[j].redSH > 0){
                             if(home_id === bc_data[i].redCards[j].localteamId){
+                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
+                                if (index2 > -1) {
+                                    bc_data[i].events.splice(index2, 1);
+                                }
+
                                 let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
                                 if (index > -1) {
                                     bc_data[i].redCards.splice(index, 1);
@@ -1534,6 +1566,11 @@
                             }
 
                             if(away_id === bc_data[i].redCards[j].visitorteamId){
+                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
+                                if (index2 > -1) {
+                                    bc_data[i].events.splice(index2, 1);
+                                }
+
                                 let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
                                 if (index > -1) {
                                     bc_data[i].redCards.splice(index, 1);
