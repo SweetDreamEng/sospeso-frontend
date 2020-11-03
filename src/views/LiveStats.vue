@@ -3608,117 +3608,122 @@
                                     let away_poss_index = 0
                                     if(main_data[j].season_stats.length > 0){
                                         for(let u = 0 ; u < main_data[j].season_stats.length ; u++){
+                                            // console.log('homeId Check!!!!',home.id,',', main_data[j].season_stats[u])
                                             if(main_data[j].season_stats[u].stats){
+                                                // console.log('homeId Check!!!!',home.id,',', main_data[j].season_stats[u].stats)
                                                 if(main_data[j].season_stats[u].stats.length > 0){
+                                                    // console.log('homeId Check!!!!',home.id,',', main_data[j].season_stats[u].stats)
                                                     for(let uu = 0 ; uu < main_data[j].season_stats[u].stats.length ; uu++){
-                                                        if(main_data[j].season_stats[u].stats[uu][0]){
-                                                            if(main_data[j].season_stats[u].stats[uu][0].team_id == home.id){
+                                                        // console.log('homeId Check!!!!',home.id,',', main_data[j].season_stats[u].stats[uu])
+                                                        if(main_data[j].season_stats[u].stats[uu].stats[0]){
+                                                            // console.log('homeId Check!!!!',home.id,',', main_data[j].season_stats[u].stats[uu])
+                                                            if(main_data[j].season_stats[u].stats[uu].stats[0].team_id == home.id){
                                                                 home_p++
-                                                                if(main_data[j].season_stats[u].stats[uu][0].shots){
-                                                                    home_season.on = home_season.on + main_data[j].season_stats[u].stats[uu][0].shots.ongoal
-                                                                    home_season.off = home_season.off + main_data[j].season_stats[u].stats[uu][0].shots.offgoal
-                                                                    home_season.block = home_season.block + main_data[j].season_stats[u].stats[uu][0].shots.block
-                                                                    home_season.in = home_season.in + main_data[j].season_stats[u].stats[uu][0].shots.insidebox
-                                                                    home_season.out = home_season.out + main_data[j].season_stats[u].stats[uu][0].shots.outsidebox
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].shots){
+                                                                    home_season.on = home_season.on + main_data[j].season_stats[u].stats[uu].stats[0].shots.ongoal
+                                                                    home_season.off = home_season.off + main_data[j].season_stats[u].stats[uu].stats[0].shots.offgoal
+                                                                    home_season.block = home_season.block + main_data[j].season_stats[u].stats[uu].stats[0].shots.block
+                                                                    home_season.in = home_season.in + main_data[j].season_stats[u].stats[uu].stats[0].shots.insidebox
+                                                                    home_season.out = home_season.out + main_data[j].season_stats[u].stats[uu].stats[0].shots.outsidebox
                                                                 }
 
-                                                                if(main_data[j].season_stats[u].stats[uu][0].goals){
-                                                                    home_season.goals = home_season.goals + main_data[j].season_stats[u].stats[uu][0].goals
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].goals){
+                                                                    home_season.goals = home_season.goals + main_data[j].season_stats[u].stats[uu].stats[0].goals
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].corners != null){
-                                                                    home_season.cnr = home_season.cnr + main_data[j].season_stats[u].stats[uu][0].corners
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].corners != null){
+                                                                    home_season.cnr = home_season.cnr + main_data[j].season_stats[u].stats[uu].stats[0].corners
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].attacks != null){
-                                                                    home_season.da = home_season.da + main_data[j].season_stats[u].stats[uu][0].attacks.dangerous_attacks
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].attacks != null){
+                                                                    home_season.da = home_season.da + main_data[j].season_stats[u].stats[uu].stats[0].attacks.dangerous_attacks
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].possessiontime){
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].possessiontime){
                                                                     home_poss_index++
-                                                                    home_season.pos = home_season.pos + main_data[j].season_stats[u].stats[uu][0].possessiontime
+                                                                    home_season.pos = home_season.pos + main_data[j].season_stats[u].stats[uu].stats[0].possessiontime
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].passes){
-                                                                    home_season.pas = home_season.pas + main_data[j].season_stats[u].stats[uu][0].passes.total
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].passes){
+                                                                    home_season.pas = home_season.pas + main_data[j].season_stats[u].stats[uu].stats[0].passes.total
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].passes){
-                                                                    home_season.acc = home_season.acc + main_data[j].season_stats[u].stats[uu][0].passes.accurate
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].passes){
+                                                                    home_season.acc = home_season.acc + main_data[j].season_stats[u].stats[uu].stats[0].passes.accurate
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].attacks){
-                                                                    home_season.atk = home_season.atk + main_data[j].season_stats[u].stats[uu][0].attacks.attacks
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].attacks){
+                                                                    home_season.atk = home_season.atk + main_data[j].season_stats[u].stats[uu].stats[0].attacks.attacks
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].offsides){
-                                                                    home_season.ofs = home_season.ofs + main_data[j].season_stats[u].stats[uu][0].offsides
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].offsides){
+                                                                    home_season.ofs = home_season.ofs + main_data[j].season_stats[u].stats[uu].stats[0].offsides
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].saves){
-                                                                    home_season.sav = home_season.sav + main_data[j].season_stats[u].stats[uu][0].saves
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].saves){
+                                                                    home_season.sav = home_season.sav + main_data[j].season_stats[u].stats[uu].stats[0].saves
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].saves){
-                                                                    home_season.sbst = home_season.sbst + main_data[j].season_stats[u].stats[uu][0].substitutions
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].saves){
+                                                                    home_season.sbst = home_season.sbst + main_data[j].season_stats[u].stats[uu].stats[0].substitutions
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].fouls){
-                                                                    home_season.fou = home_season.fou + main_data[j].season_stats[u].stats[uu][0].fouls
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].fouls){
+                                                                    home_season.fou = home_season.fou + main_data[j].season_stats[u].stats[uu].stats[0].fouls
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].goal_attempts){
-                                                                    home_season.g_att = home_season.g_att + main_data[j].season_stats[u].stats[uu][0].goal_attempts
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].goal_attempts){
+                                                                    home_season.g_att = home_season.g_att + main_data[j].season_stats[u].stats[uu].stats[0].goal_attempts
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].ball_safe){
-                                                                    home_season.safe = home_season.safe + main_data[j].season_stats[u].stats[uu][0].ball_safe
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].ball_safe){
+                                                                    home_season.safe = home_season.safe + main_data[j].season_stats[u].stats[uu].stats[0].ball_safe
                                                                 }
                                                             }
-                                                            if(main_data[j].season_stats[u].stats[uu][1].team_id == away.id){
+                                                            if(main_data[j].season_stats[u].stats[uu].stats[1].team_id == away.id){
                                                                 away_p++
-                                                                if(main_data[j].season_stats[u].stats[uu][1].shots){
-                                                                    away_season.on = home_season.on + main_data[j].season_stats[u].stats[uu][1].shots.ongoal
-                                                                    away_season.off = home_season.off + main_data[j].season_stats[u].stats[uu][1].shots.offgoal
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[1].shots){
+                                                                    away_season.on = home_season.on + main_data[j].season_stats[u].stats[uu].stats[1].shots.ongoal
+                                                                    away_season.off = home_season.off + main_data[j].season_stats[u].stats[uu].stats[1].shots.offgoal
 
-                                                                    if(main_data[j].season_stats[u].stats[uu][0].shots.block != null){
-                                                                        away_season.block = home_season.block + main_data[j].season_stats[u].stats[uu][1].shots.block
+                                                                    if(main_data[j].season_stats[u].stats[uu].stats[0].shots.block != null){
+                                                                        away_season.block = home_season.block + main_data[j].season_stats[u].stats[uu].stats[1].shots.block
                                                                     }
-                                                                    if(main_data[j].season_stats[u].stats[uu][0].shots.insidebox != null){
-                                                                        away_season.in = home_season.in + main_data[j].season_stats[u].stats[uu][1].shots.insidebox
+                                                                    if(main_data[j].season_stats[u].stats[uu].stats[0].shots.insidebox != null){
+                                                                        away_season.in = home_season.in + main_data[j].season_stats[u].stats[uu].stats[1].shots.insidebox
                                                                     }
-                                                                    if(main_data[j].season_stats[u].stats[uu][0].shots.outsidebox != null){
-                                                                        away_season.out = home_season.out + main_data[j].season_stats[u].stats[uu][1].shots.outsidebox
+                                                                    if(main_data[j].season_stats[u].stats[uu].stats[0].shots.outsidebox != null){
+                                                                        away_season.out = home_season.out + main_data[j].season_stats[u].stats[uu].stats[1].shots.outsidebox
                                                                     }
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][1].goals){
-                                                                    away_season.goals = away_season.goals + main_data[j].season_stats[u].stats[uu][1].goals
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[1].goals){
+                                                                    away_season.goals = away_season.goals + main_data[j].season_stats[u].stats[uu].stats[1].goals
                                                                 }
 
-                                                                if(main_data[j].season_stats[u].stats[uu][0].corners != null){
-                                                                    away_season.cnr = home_season.cnr + main_data[j].season_stats[u].stats[uu][1].corners
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].corners != null){
+                                                                    away_season.cnr = home_season.cnr + main_data[j].season_stats[u].stats[uu].stats[1].corners
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].attacks != null){
-                                                                    away_season.da = home_season.da + main_data[j].season_stats[u].stats[uu][1].attacks.dangerous_attacks
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].attacks != null){
+                                                                    away_season.da = home_season.da + main_data[j].season_stats[u].stats[uu].stats[1].attacks.dangerous_attacks
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].possessiontime){
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].possessiontime){
                                                                     away_poss_index++
-                                                                    away_season.pos = home_season.pos + main_data[j].season_stats[u].stats[uu][1].possessiontime
+                                                                    away_season.pos = home_season.pos + main_data[j].season_stats[u].stats[uu].stats[1].possessiontime
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].passes){
-                                                                    away_season.pas = home_season.pas + main_data[j].season_stats[u].stats[uu][1].passes.total
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].passes){
+                                                                    away_season.pas = home_season.pas + main_data[j].season_stats[u].stats[uu].stats[1].passes.total
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].passes){
-                                                                    away_season.acc = home_season.acc + main_data[j].season_stats[u].stats[uu][1].passes.accurate
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].passes){
+                                                                    away_season.acc = home_season.acc + main_data[j].season_stats[u].stats[uu].stats[1].passes.accurate
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].attacks){
-                                                                    away_season.atk = home_season.atk + main_data[j].season_stats[u].stats[uu][1].attacks.attacks
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].attacks){
+                                                                    away_season.atk = home_season.atk + main_data[j].season_stats[u].stats[uu].stats[1].attacks.attacks
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].offsides){
-                                                                    away_season.ofs = home_season.ofs + main_data[j].season_stats[u].stats[uu][1].offsides
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].offsides){
+                                                                    away_season.ofs = home_season.ofs + main_data[j].season_stats[u].stats[uu].stats[1].offsides
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].saves){
-                                                                    away_season.sav = home_season.sav + main_data[j].season_stats[u].stats[uu][1].saves
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].saves){
+                                                                    away_season.sav = home_season.sav + main_data[j].season_stats[u].stats[uu].stats[1].saves
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].saves){
-                                                                    away_season.sbst = home_season.sbst + main_data[j].season_stats[u].stats[uu][1].substitutions
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].saves){
+                                                                    away_season.sbst = home_season.sbst + main_data[j].season_stats[u].stats[uu].stats[1].substitutions
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].fouls){
-                                                                    away_season.fou = home_season.fou + main_data[j].season_stats[u].stats[uu][1].fouls
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].fouls){
+                                                                    away_season.fou = home_season.fou + main_data[j].season_stats[u].stats[uu].stats[1].fouls
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].goal_attempts){
-                                                                    away_season.g_att = home_season.g_att + main_data[j].season_stats[u].stats[uu][1].goal_attempts
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].goal_attempts){
+                                                                    away_season.g_att = home_season.g_att + main_data[j].season_stats[u].stats[uu].stats[1].goal_attempts
                                                                 }
-                                                                if(main_data[j].season_stats[u].stats[uu][0].ball_safe){
-                                                                    away_season.safe = home_season.safe + main_data[j].season_stats[u].stats[uu][1].ball_safe
+                                                                if(main_data[j].season_stats[u].stats[uu].stats[0].ball_safe){
+                                                                    away_season.safe = home_season.safe + main_data[j].season_stats[u].stats[uu].stats[1].ball_safe
                                                                 }
                                                             }
                                                         }
