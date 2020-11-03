@@ -11,7 +11,7 @@
             <td class="table-cell">
                 <MatchSelect 
                     :updateItem="updateItem"
-                    :eventLists3="eventLists3"
+                    :eventLists3="subEventLists3"
                     :index="index"
                     :buttonFlag="buttonFlag"
                     :item="item"
@@ -21,9 +21,11 @@
             </td>
         </template>
         <template #tot="{item}">
-            <td class="table-cell text-center">    
-                {{item.tot.value}}
-            </td>
+            <transition name="slide-fade" mode="out-in">
+                <td :key="item.tot.value" class="table-cell text-center">    
+                    {{item.tot.value}}
+                </td>
+            </transition>
         </template>
         <template #preodd="{item}">
             <td class="table-cell text-center">    
@@ -36,34 +38,46 @@
             </td>
         </template>
         <template #back="{item}">
-            <td class="table-info text-center">    
-                {{item.back.value}}
-            </td>
+            <transition name="slide-fade" mode="out-in">
+                <td :key="item.back.value" class="table-info text-center">    
+                    {{item.back.value}}
+                </td>
+            </transition>
         </template>
         <template #lay="{item}">
-            <td class="table-danger text-center">    
-                {{item.lay.value}}
-            </td>
+            <transition name="slide-fade" mode="out-in">
+                <td :key="item.lay.value" class="table-danger text-center">    
+                    {{item.lay.value}}
+                </td>
+            </transition>
         </template>
         <template #status="{item}">
-            <td class="table-cell text-center">    
-                {{item.status.value}}
-            </td>
+            <transition name="slide-fade" mode="out-in">
+                <td :key="item.status.value" class="table-cell text-center">    
+                    {{item.status.value}}
+                </td>
+            </transition>
         </template>
         <template #minute="{item}">
-            <td class="table-cell text-center">    
-                {{item.minute.value}}
-            </td>
+            <transition name="slide-fade" mode="out-in">
+                <td :key="item.minute.value" class="table-cell text-center">    
+                    {{item.minute.value}}
+                </td>
+            </transition>
         </template>
         <template #score="{item}">
-            <td class="table-cell text-center">    
-                {{item.score.value}}
-            </td>
+            <transition name="slide-fade" mode="out-in">
+                <td :key="item.score.value" class="table-cell text-center">
+                    {{item.score.value}}
+                </td>
+            </transition>
         </template>
         <template #gain="{item}">
-            <td class="table-cell text-center">    
-                {{item.gain.value}}
-            </td>
+            <transition name="slide-fade" mode="out-in">
+                <td :key="item.gain.value" class="table-cell text-center" :style="{'color': item.gain.value && Number(item.gain.value.replace('%', ''))>=0 ? 'lightgreen': 'red'}">    
+                    {{item.gain.value}}
+                </td>
+            </transition>
         </template>
     </CDataTable>
     <div v-else class="d-flex justify-content-center align-items-center">
@@ -118,6 +132,8 @@
                 all: false,
                 selectionId: '',
                 marketIds: [],
+                clearEndedFlag: false,
+                subEventLists3: []
             }
         },
         methods : {
@@ -666,6 +682,7 @@
         },
         watch: {
             eventLists3(Lists) {
+                this.subEventLists3 = Lists;
                 this.tableItems = [];
                 this.eventListsLength = Lists.length - 1;
                 this.tableFields = [
@@ -703,7 +720,8 @@
                 if (this.clickEventValue == 'all') {
                     this.all = true;
                     this.buttonFlag = !this.buttonFlag;
-                    this.eventLists3.forEach((element, index) => {
+                    this.subEventLists3.forEach((element, index) => {
+                        if (index > this.tableItems.length) return
                         if (element.value)
                             this.updateItem(element.value, index-1);
                     });
@@ -711,7 +729,7 @@
                     this.marketIds = [];
                     this.all = false;
                     this.buttonFlag = !this.buttonFlag;
-                    for (let event of this.eventLists3) {
+                    for (let event of this.subEventLists3) {
                         for (let item of this.tableItems) {
                             item.tot.value = '';
                             item.preodd.value = '';
@@ -728,23 +746,22 @@
                         }
                     }
                 } else {
-                    this.all = false;
-                    for (let event of this.eventLists3) {
-                        for (const item of this.tableItems) {
-                            item.tot.value = '';
-                            item.preodd.value = '';
-                            item.back.value = '';
-                            item.lay.value = '';
-                            item.status.value = '';
-                            item.minute.value = '';
-                            item.score.value = '';
-                            if (this.percent_text1) {
-                                item.gain.value = '';
-                            } else if (this.percent_text2) {
-                                item.gain.value = '';
-                            }
+                    this.clearEndedFlag = true;
+                    this.all = true;
+                    this.buttonFlag = !this.buttonFlag;
+                    this.tableItems.forEach((item, index) => {
+                        if (item.status.value == 'CLOSED') {
+                            this.subEventLists3 = this.subEventLists3.slice(0, index+1).concat(this.subEventLists3.slice(index+2, this.subEventLists3.length));
+                            this.tableItems = this.tableItems.slice(1, index).concat(this.tableItems.slice(index+1, this.tableItems.length))
                         }
-                    }
+                    })
+                    // this.subEventLists3.forEach((subEvent, subIndex) => {
+                    //     this.tableItems.forEach((tableItem, tableIndex) => {
+                    //         if (tableItem.tot.value && tableItem.tot.value !== '' && subIndex==tableIndex+1 && subEvent.value) {
+                    //             this.updateItem(subEvent.value, subIndex-1);
+                    //         }
+                    //     })
+                    // })
                 }
             },
             bookmarkerFee(bookvalue) {
@@ -761,7 +778,6 @@
                             let selections = data[j].runners.filter(function(runner) {
                                 return runner.selectionId == element.selectionId;
                             });
-                            console.log('selections[0].exchange.availableToBack[0].price', selections[0].exchange.availableToBack[0].price);
                             if(data[j].state.status == 'SUSPENDED'){
                                     this.status = 'SUSPENDED';
                                     this.marketIds[i].market = 'SUSPENDED';
@@ -795,6 +811,10 @@
                                 self.total_matched = (data[j].state.totalMatched).toFixed(1);
                             }
                             self.oddCalcRefresh(element.prematchOdd, element.selectedArray, self.lay, self.back);
+
+                            if (element.index >= self.tableItems.length) {
+                                continue
+                            }
 
                             self.tableItems[element.index].tot.value = '€' + self.total_matched;
                             self.tableItems[element.index].back.value = self.back;
@@ -897,4 +917,29 @@
     .form-group {
         margin-bottom: 0px;
     }
+
+    .slide-fade-enter-active {
+        -webkit-animation-name: frame;
+        -webkit-animation-duration: .51s;
+        -webkit-animation-iteration-count: 1;
+        animation-name: frame;
+        animation-duration: .51s;
+        animation-iteration-count: 1;
+    }
+
+    @keyframes frame {
+        0% {
+            background-color: rgba(166, 216, 255, 0.53);
+        }
+        50% {
+            background-color: rgba(18, 18, 18, 0.34);
+        }
+        100% {
+            background-color: rgba(250, 201, 209, 0.53);
+        }
+        100% {
+            background-color: rgba(243, 196, 0, 0.5)!important;
+        }
+    }
+
 </style>

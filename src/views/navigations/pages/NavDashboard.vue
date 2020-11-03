@@ -1417,27 +1417,27 @@
             },
             odd_min(val){
                 this.oddMin = val
-                // if(this.predictionStatus == true){
-                this.filter1(this.filterQuery)
-                // }
+                if(this.predictionStatus == true){
+                    this.filter1(this.filterQuery)
+                }
             },
             odd_max(val){
                 this.oddMax = val
-                // if(this.predictionStatus == true){
-                this.filter1(this.filterQuery)
-                // }
+                if(this.predictionStatus == true){
+                    this.filter1(this.filterQuery)
+                }
             },
             matched_min(val){
                 this.matchedMin = val
-                // if(this.predictionStatus == true){
-                this.filter1(this.filterQuery)
-                // }
+                if(this.predictionStatus == true){
+                    this.filter1(this.filterQuery)
+                }
             },
             matched_max(val){
                 this.matchedMin = val
-                // if(this.predictionStatus == true){
-                this.filter1(this.filterQuery)
-                // }
+                if(this.predictionStatus == true){
+                    this.filter1(this.filterQuery)
+                }
             },
             eventClick(event){
                 this.eventFlag = !this.eventFlag;
