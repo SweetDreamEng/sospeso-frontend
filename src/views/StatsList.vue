@@ -1701,14 +1701,14 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                     for(let i = 0; i < data.length; i++){
                         if(dir == 'home'){
                             for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date <= date){
+                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date){
                                     p++
                                 }
                             }
                         }
                         else{
                             for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date <= date){
+                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date){
                                     p++
                                 }
                             }
