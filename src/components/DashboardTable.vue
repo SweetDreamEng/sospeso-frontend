@@ -749,11 +749,15 @@
                     this.clearEndedFlag = true;
                     this.all = true;
                     this.buttonFlag = !this.buttonFlag;
+                    let indexs = [];
                     this.tableItems.forEach((item, index) => {
                         if (item.status.value == 'CLOSED') {
-                            this.subEventLists3 = this.subEventLists3.slice(0, index+1).concat(this.subEventLists3.slice(index+2, this.subEventLists3.length));
+                            indexs.push(index);
                             this.tableItems = this.tableItems.slice(1, index).concat(this.tableItems.slice(index+1, this.tableItems.length))
                         }
+                    })
+                    indexs.reverse().forEach(index => {
+                        this.subEventLists3 = this.subEventLists3.slice(0, index+1).concat(this.subEventLists3.slice(index+2, this.subEventLists3.length));
                     })
                     // this.subEventLists3.forEach((subEvent, subIndex) => {
                     //     this.tableItems.forEach((tableItem, tableIndex) => {
