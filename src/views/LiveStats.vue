@@ -4223,8 +4223,8 @@
                                         this.eventArray[j].events[k].home.score = data1[i].updateArray.scores.localteam_score
                                         this.eventArray[j].events[k].away.score = data1[i].updateArray.scores.visitorteam_score
                                         if(data1[i].updateArray.stats[0].shots && data1[i].updateArray.stats_ten[0][0].shots){
-                                            this.eventArray[j].events[k].home.on = data1[i].updateArray.stats[0].shots.offgoal - data1[i].updateArray.stats_ten[0][0].shots.offgoal
-                                            this.eventArray[j].events[k].away.on = data1[i].updateArray.stats[1].shots.offgoal - data1[i].updateArray.stats_ten[0][1].shots.offgoal
+                                            this.eventArray[j].events[k].home.on = data1[i].updateArray.stats[0].shots.ongoal - data1[i].updateArray.stats_ten[0][0].shots.ongoal
+                                            this.eventArray[j].events[k].away.on = data1[i].updateArray.stats[1].shots.ongoal - data1[i].updateArray.stats_ten[0][1].shots.ongoal
                                             this.eventArray[j].events[k].home.off = data1[i].updateArray.stats[0].shots.offgoal - data1[i].updateArray.stats_ten[0][0].shots.offgoal
                                             this.eventArray[j].events[k].away.off = data1[i].updateArray.stats[1].shots.offgoal - data1[i].updateArray.stats_ten[0][1].shots.offgoal
                                             this.eventArray[j].events[k].home.blk = data1[i].updateArray.stats[0].shots.blocked - data1[i].updateArray.stats_ten[0][0].shots.blocked
