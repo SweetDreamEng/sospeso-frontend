@@ -797,8 +797,8 @@
                                     this.marketIds[i].market = 'CLOSED';
                                 } else {
                                     this.status = element.status;
+                                    this.marketIds[i].market = '';
                                 }
-
                             if (selections.length > 0) {
                                 
                                 if(selections[0].exchange.availableToBack){
@@ -908,7 +908,6 @@
                             self.timeRecord = "HT"
                         }
 
-                        self.tableItems[element.index].status.value = self.status;
                         if (typeof this.timeRecord == 'string' && this.timeRecord.includes('undefined')) {
                             self.tableItems[element.index].minute.value = 'Unknown';
                         } else {
