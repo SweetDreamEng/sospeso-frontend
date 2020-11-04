@@ -11,11 +11,10 @@
                         class="event-list"
                         v-if="item.events.length > 0"
                 >
-                    {{item.country}} - {{item.league}}
-                    <span v-if="item.percentage != 0" style="font-weight: normal; margin-left: 10px;">{{item.percentage}}%</span>
-                    <img v-if="item.percentage >= 96" src="/img/icon-warning-orange.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
-                    <img v-if="item.percentage <= 10" src="/img/icon-warning-red.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
-                    <img v-if="item.percentage >= 11 && item.percentage <= 95" src="/img/icon-tick.png" width="13px;" style="width: 18px; position:relative; top: -1px; margin-left: 5px; margin-right: 10px;"/>
+                    {{item.country}} - {{item.league}}  <span v-if="item.percentage != 0" style="font-weight: normal; margin-left: 10px;">{{item.percentage}}%</span>
+                    <img v-if="item.percentage >= 96 && item.numbers > 6" src="/img/icon-warning-orange.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
+                    <img v-if="item.percentage <= 10 || item.numbers <= 6" src="/img/icon-warning-red.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
+                    <img v-if="item.percentage >= 11  && item.numbers > 6 && item.percentage <= 95" src="/img/icon-tick.png" width="13px;" style="width: 18px; position:relative; top: -1px; margin-left: 5px; margin-right: 10px;"/>
                     {{item.events.length}} matches
                     <img v-if="isPlus(index)" src="/img/ico-plus.png" width="13px;" style="width: 16px; float: right;"/>
                     <img v-if="isMinus(index)" src="/img/ico-minus.png" width="13px;" style="width: 16px; float: right;"/>
@@ -1139,9 +1138,11 @@
             },
             percentage_calculation(data){
                 let p = 0
+                let p1 = 0
                 let events = data.events
                 let roundId = data.round_id
                 let name1 = 0
+                let stage_id = 0
                 let round_ids = events.filter(function(item) {
                     return item.round_id == roundId;
                 });
@@ -1149,11 +1150,23 @@
                 if(events.length > 0){
                     if(round_ids.length > 0){
                         name1 = round_ids[0].name
+                        stage_id =round_ids[0].stage_id
+                        p = (name1/events.length*100).toFixed(0)
+                    }
+
+                    for(let i = 0 ; i < events.length ; i++){
+                        if(events[i].stage_id !== stage_id && events[i].events.length > 0){
+                            p1++
+                        }
+                    }
+
+                    if(p1 > 0){
+                        name1 = name1 + p1
                         p = (name1/events.length*100).toFixed(0)
                     }
                 }
 
-                return p
+                return [p, name1]
             },
             select_lineup(value){
                 for(let i = 0 ; i < this.mainList.length ; i++){
@@ -1817,6 +1830,7 @@
                         let k = 0
                         let events = []
                         let percentage = 0
+                        let numbers = 0
                         for(let j = 0; j < main_data.length ; j++){
                             if(competitionArray[i] == main_data[j].competitions[0].name && main_data[j].local_players.length > 0){
                                 k++
@@ -1837,7 +1851,10 @@
                                     awayTeamPformation = main_data[j].pre_formations.visitorteam_formation
                                 }
 
-                                percentage = this.percentage_calculation(main_data[j])
+                                let percentage0 = this.percentage_calculation(main_data[j])
+                                percentage = percentage0[0]
+                                numbers = percentage0[1]
+
                                 let homeTeamLformation = main_data[j].live_formations.localteam_formation
                                 let awayTeamLformation = main_data[j].live_formations.visitorteam_formation
                                 if(main_data[j].lineup != null){
@@ -3048,10 +3065,10 @@
                         });
 
                         if(countryName.length > 0 && events.length > 0){
-                            this.mainList.push({'country': countryName[0].cname, 'league': competitionArray[i], 'percentage': percentage, 'events': events})
+                            this.mainList.push({'country': countryName[0].cname, 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers, 'events': events})
                         }
                         else if(countryName.length < 1 && events.length > 0){
-                            this.mainList.push({'country': 'International', 'league': competitionArray[i], 'percentage': percentage, 'events': events})
+                            this.mainList.push({'country': 'International', 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers, 'events': events})
                         }
                         let self = this
                         this.sortJSON(self.mainList,'country', '123');
