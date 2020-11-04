@@ -5482,16 +5482,28 @@
                                         away_stats_data.red = statsData[1].redcards
                                     }
                                     else{
-                                        home_stats_data.red = -1
-                                        away_stats_data.red = -1
+                                        if(this.homeTeam.red.from !== 0 || this.homeTeam.red.to !== 1000 || this.awayTeam.red.from !== 0 || this.awayTeam.red.to !== 1000){
+                                            home_stats_data.red = -1
+                                            away_stats_data.red = -1
+                                        }
+                                        else{
+                                            home_stats_data.red = 0
+                                            away_stats_data.red = 0
+                                        }
                                     }
                                     if(statsData[0].yellowcards){
                                         home_stats_data.yel = statsData[0].yellowcards
                                         away_stats_data.yel = statsData[1].yellowcards
                                     }
                                     else{
-                                        home_stats_data.yel = -1
-                                        away_stats_data.yel = -1
+                                        if(this.homeTeam.yel.from !== 0 || this.homeTeam.yel.to !== 1000 || this.awayTeam.yel.from !== 0 || this.awayTeam.yel.to !== 1000){
+                                            home_stats_data.yel = -1
+                                            away_stats_data.yel = -1
+                                        }
+                                        else{
+                                            home_stats_data.yel = 0
+                                            away_stats_data.yel = 0
+                                        }
                                     }
                                     if(statsData[0].goals){
                                         home_stats_data.goal = statsData[0].goals
@@ -5577,16 +5589,28 @@
                                         away_stats_data.red = statsData[0].redcards
                                     }
                                     else{
-                                        home_stats_data.red = -1
-                                        away_stats_data.red = -1
+                                        if(this.homeTeam.red.from !== 0 || this.homeTeam.red.to !== 1000 || this.awayTeam.red.from !== 0 || this.awayTeam.red.to !== 1000){
+                                            home_stats_data.red = -1
+                                            away_stats_data.red = -1
+                                        }
+                                        else{
+                                            home_stats_data.red = 0
+                                            away_stats_data.red = 0
+                                        }
                                     }
                                     if(statsData[1].yellowcards){
                                         home_stats_data.yel = statsData[1].yellowcards
                                         away_stats_data.yel = statsData[0].yellowcards
                                     }
                                     else{
-                                        home_stats_data.yel = -1
-                                        away_stats_data.yel = -1
+                                        if(this.homeTeam.yel.from !== 0 || this.homeTeam.yel.to !== 1000 || this.awayTeam.yel.from !== 0 || this.awayTeam.yel.to !== 1000){
+                                            home_stats_data.yel = -1
+                                            away_stats_data.yel = -1
+                                        }
+                                        else{
+                                            home_stats_data.yel = 0
+                                            away_stats_data.yel = 0
+                                        }
                                     }
 
                                     if(statsData[1].goals){
