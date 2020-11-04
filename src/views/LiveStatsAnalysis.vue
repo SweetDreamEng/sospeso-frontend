@@ -981,30 +981,52 @@
                         </div>
                     </div>
                     <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px; border: 1px solid lightgray;  border-bottom: none;">
-                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.goal}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.on}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.off}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.blk}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.in}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.out}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.cnr}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.da}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.pos}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.red}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_home_stats.yel}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_home_stats.goal/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_home_stats.on/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_home_stats.off/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_home_stats.blk/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_home_stats.in/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_home_stats.out/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_home_stats.cnr/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_home_stats.da/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_home_stats.pos/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_home_stats.red/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_home_stats.yel/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
                     </div>
                     <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px; border: 1px solid lightgray; border-top: none;">
-                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.goal}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.on}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.off}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.blk}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.in}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.out}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.cnr}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.da}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.pos}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.red}}</div>
-                        <div style="flex: 1; text-align: center;">{{total_live_away_stats.yel}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_away_stats.goal/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_away_stats.on/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_away_stats.off/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_away_stats.blk/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_away_stats.in/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_away_stats.out/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_away_stats.cnr/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_away_stats.da/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_away_stats.pos/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_away_stats.red/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="filtered_result != 0" style="flex: 1; text-align: center;">{{((total_live_away_stats.yel/filtered_result)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
                     </div>
                 </div>
             </CCol>
