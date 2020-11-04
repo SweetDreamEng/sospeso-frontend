@@ -1166,6 +1166,10 @@
                     }
                 }
 
+                if(data.localTeamId === 1858){
+                    console.log('percentage calculation', name1, p)
+                }
+
                 return [p, name1]
             },
             select_lineup(value){
