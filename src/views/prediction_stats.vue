@@ -631,6 +631,75 @@
                         <p v-else class="value">{{this.stats_segment.stats_76_90.score_even}} ({{(this.stats_segment.stats_76_90.score_even/this.matches_found*100).toFixed(0)}}%)</p>
                     </div>
                 </div>
+                <div style="margin-top: 20px;">
+                    <label style="color: red; font-weight: bold">Total filtered livestats</label>
+                    <div style="flex: 7; background: #b1a0c7">
+                        <div style="height: 20px; width: 100%; text-align: center; padding: 3px; color: black;">
+                            Total Live Stats
+                        </div>
+                        <div style="display: flex; height: 20px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black;">
+                            <div style="flex: 1; text-align: center;">Goal</div>
+                            <div style="flex: 1; text-align: center;">On</div>
+                            <div style="flex: 1; text-align: center;">Off</div>
+                            <div style="flex: 1; text-align: center;">Blk</div>
+                            <div style="flex: 1; text-align: center;">In</div>
+                            <div style="flex: 1; text-align: center;">Out</div>
+                            <div style="flex: 1; text-align: center;">Cnr</div>
+                            <div style="flex: 1; text-align: center;">DA</div>
+                            <div style="flex: 1; text-align: center;">Pos</div>
+                            <div style="flex: 1; text-align: center;">Red</div>
+                            <div style="flex: 1; text-align: center;">Yel</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px; border: 1px solid lightgray;  border-bottom: none;">
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.goal/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.on/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.off/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.blk/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.in/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.out/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.cnr/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.da/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.pos/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.red/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.yel/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                    </div>
+                    <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px; border: 1px solid lightgray; border-top: none;">
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.goal/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.on/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.off/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.blk/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.in/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.out/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.cnr/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.da/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.pos/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.red/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.yel/matches_found)).toFixed(1)}}</div>
+                        <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
+                    </div>
+                </div>
             </CCol>
             <CCol lg="6" style="height: 415px; width: 50%!important; padding: 40px; padding-top: 50px;">
                 <div style="width: 100%;">
@@ -2378,6 +2447,32 @@
                     'da': '-',
                     'red': '-',
                     'rtg': '-'
+                },
+                last_stats_home1:{
+                    'goal': 0,
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'pos': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'red': 0,
+                    'yel': 0
+                },
+                last_stats_away1:{
+                    'goal': 0,
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'pos': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'red': 0,
+                    'yel': 0
                 }
             }
         },
@@ -3091,6 +3186,7 @@
                         'score_even':0
                     }
                 }
+                console.log('prediction list===>', this.predictionlist)
                 for(let i = 1; i < this.predictionlist.length ; i++){
                     let score_check = {
                         score0_15:{
@@ -3819,6 +3915,66 @@
                     if(score_check.score76_90.score03_home == "0" && score_check.score76_90.score03_away == "3"){ this.score_stats.score76_90.score03++ }
                     if(score_check.score76_90.score12_home == "1" && score_check.score76_90.score12_away == "2"){ this.score_stats.score76_90.score12++ }
                     if(score_check.score76_90.score13_home == "1" && score_check.score76_90.score13_away == "3"){ this.score_stats.score61_75.score13++ }
+                }
+
+                this.last_stats_home1 = {
+                    'goal': 0,
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'pos': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'red': 0,
+                    'yel': 0
+                }
+                this.last_stats_away1 = {
+                    'goal': 0,
+                    'on': 0,
+                    'off': 0,
+                    'blk': 0,
+                    'in': 0,
+                    'out': 0,
+                    'pos': 0,
+                    'cnr': 0,
+                    'da': 0,
+                    'red': 0,
+                    'yel': 0
+                }
+                for(let i = 1 ; i < this.predictionlist.length; i++){
+                    if(this.predictionlist[i].liveStats.length > 0){
+                        let current_stats = this.predictionlist[i].liveStats
+                        this.last_stats_home1.goal = this.last_stats_home1.goal + current_stats[0].stats[current_stats[0].stats.length - 1][0].goals
+                        this.last_stats_away1.goal = this.last_stats_away1.goal + current_stats[0].stats[current_stats[0].stats.length - 1][1].goals
+                        this.last_stats_home1.on = this.last_stats_home1.on + current_stats[0].stats[current_stats[0].stats.length - 1][0].shots.ongoal
+                        this.last_stats_away1.on = this.last_stats_away1.on + current_stats[0].stats[current_stats[0].stats.length - 1][1].shots.ongoal
+                        this.last_stats_home1.off = this.last_stats_home1.off + current_stats[0].stats[current_stats[0].stats.length - 1][0].shots.offgoal
+                        this.last_stats_away1.off = this.last_stats_away1.off + current_stats[0].stats[current_stats[0].stats.length - 1][1].shots.offgoal
+                        this.last_stats_home1.blk = this.last_stats_home1.blk + current_stats[0].stats[current_stats[0].stats.length - 1][0].shots.blocked
+                        this.last_stats_away1.blk = this.last_stats_away1.blk + current_stats[0].stats[current_stats[0].stats.length - 1][1].shots.blocked
+                        this.last_stats_home1.pos = this.last_stats_home1.pos + current_stats[0].stats[current_stats[0].stats.length - 1][0].possessiontime
+                        this.last_stats_away1.pos = this.last_stats_away1.pos + current_stats[0].stats[current_stats[0].stats.length - 1][1].possessiontime
+                        if(current_stats[0].stats[current_stats[0].stats.length - 1][0].shots.insidebox){
+                            this.last_stats_home1.in = this.last_stats_home1.in + current_stats[0].stats[current_stats[0].stats.length - 1][0].shots.insidebox
+                            this.last_stats_away1.in = this.last_stats_away1.in + current_stats[0].stats[current_stats[0].stats.length - 1][1].shots.insidebox
+                        }
+                        if(current_stats[0].stats[current_stats[0].stats.length - 1][0].shots.outsidebox){
+                            this.last_stats_home1.out = this.last_stats_home1.out + current_stats[0].stats[current_stats[0].stats.length - 1][0].shots.outsidebox
+                            this.last_stats_away1.out = this.last_stats_away1.out + current_stats[0].stats[current_stats[0].stats.length - 1][1].shots.outsidebox
+                        }
+                        this.last_stats_home1.cnr = this.last_stats_home1.cnr + current_stats[0].stats[current_stats[0].stats.length - 1][0].corners
+                        this.last_stats_away1.cnr = this.last_stats_away1.cnr + current_stats[0].stats[current_stats[0].stats.length - 1][1].corners
+                        if(current_stats[0].stats[current_stats[0].stats.length - 1][0].attacks){
+                            this.last_stats_home1.da = this.last_stats_home1.da + current_stats[0].stats[current_stats[0].stats.length - 1][0].attacks.dangerous_attacks
+                            this.last_stats_away1.da = this.last_stats_away1.da + current_stats[0].stats[current_stats[0].stats.length - 1][1].attacks.dangerous_attacks
+                        }
+                        this.last_stats_home1.red = this.last_stats_home1.red + current_stats[0].stats[current_stats[0].stats.length - 1][0].redcards
+                        this.last_stats_away1.red = this.last_stats_away1.red + current_stats[0].stats[current_stats[0].stats.length - 1][1].redcards
+                        this.last_stats_home1.yel = this.last_stats_home1.yel + current_stats[0].stats[current_stats[0].stats.length - 1][0].yellowcards
+                        this.last_stats_away1.yel = this.last_stats_away1.yel + current_stats[0].stats[current_stats[0].stats.length - 1][1].yellowcards
+                    }
                 }
 
             },
