@@ -1,8 +1,8 @@
 <template>
     <div class="predictions-stats-container">
-<!--        <div v-if="!isload">-->
-<!--            <b-progress :value="current_counter" :max="counter" animated></b-progress>-->
-<!--        </div>-->
+        <!--        <div v-if="!isload">-->
+        <!--            <b-progress :value="current_counter" :max="counter" animated></b-progress>-->
+        <!--        </div>-->
         <CRow>
             <CCol lg="6" style="height: 1450px; width: 50%!important; background: white; padding: 40px; padding-top: 20px;">
                 <div style="width: 100%; color: black; font-size: 16px; font-weight: 600;">
@@ -17,19 +17,19 @@
                             <div style="width: 45%; float: left;">
                                 <label style="float: left; color: black;">From:</label>
                                 <CSelect
-                                    class="fromdate"
-                                    :options="datelist1"
-                                    @update:value="set_prediction_date1"
+                                        class="fromdate"
+                                        :options="datelist1"
+                                        @update:value="set_prediction_date1"
                                 >
                                 </CSelect>
                             </div>
                             <div style="width: 35%; float: left;">
                                 <label style="float: left; color: black;">To:</label>
                                 <CSelect
-                                    :value.sync = "key"
-                                    class="todate"
-                                    :options="datelist2"
-                                    @update:value="set_prediction_date2"
+                                        :value.sync = "key"
+                                        class="todate"
+                                        :options="datelist2"
+                                        @update:value="set_prediction_date2"
                                 >
                                 </CSelect>
                             </div>
@@ -37,17 +37,17 @@
                         <div style="width: 100%; float: left;">
                             <label style="float: left;">Leagues:</label>
                             <CSelect
-                                class="leaguelist"
-                                :options="leaguelist"
-                                @update:value="set_league"
+                                    class="leaguelist"
+                                    :options="leaguelist"
+                                    @update:value="set_league"
                             >
                             </CSelect>
                         </div>
                         <div class="checkbox" style="width: 100%;">
                             <div style="width: 35%; float: right;">
                                 <CInputCheckbox class="check-box"
-                                    :checked="false"
-                                    @update:checked="duplicated"
+                                                :checked="false"
+                                                @update:checked="duplicated"
                                 >
                                     <template #label>
                                         Forbidden double
@@ -56,8 +56,8 @@
                             </div>
                             <div style="width: 30%; float: right;">
                                 <CInputCheckbox class="check-box"
-                                    :checked="false"
-                                    @update:checked="doubleTip"
+                                                :checked="false"
+                                                @update:checked="doubleTip"
                                 >
                                     <template #label>
                                         Double Tips
@@ -66,8 +66,8 @@
                             </div>
                             <div style="width: 20%; float: right;">
                                 <CInputCheckbox class="check-box"
-                                    :checked="false"
-                                    @update:checked="week_filter"
+                                                :checked="false"
+                                                @update:checked="week_filter"
                                 >
                                     <template #label>
                                         Week
@@ -1178,9 +1178,9 @@
                 <div style="width: 100%;">
                     <label style="float: left;">Match List Result:</label>
                     <CSelect
-                        class="matchlist"
-                        :options="predictionlist"
-                        @update:value="select_prediction"
+                            class="matchlist"
+                            :options="predictionlist"
+                            @update:value="select_prediction"
                     >
                     </CSelect>
                     <div style="float: left;">
@@ -1219,129 +1219,129 @@
                         marketId:
                     </div>
                     <div style="flex: 1;font-weight: 600; color: red;">
-                       {{this.currentMarketId}}
+                        {{this.currentMarketId}}
                     </div>
                 </div>
 
-<!--                <div v-if="currentPredictionType === 'MATCH_ODDS'" style="display: flex; width: 100%; font-weight: 600; margin-top: 10px;">-->
-<!--                    <div style="flex: 1;">-->
-<!--                        1X2 Pre match:-->
-<!--                    </div>-->
-<!--                    <div style="flex: 1; font-weight: normal; text-align: center;">-->
-<!--                        <div>-->
-<!--                            1-->
-<!--                        </div>-->
-<!--                        <div style="display: flex">-->
-<!--                            <div style="flex: 1; text-align: center;">-->
-<!--                                {{currentPrematchOdd[0].exchange.availableToBack[0].price}}-->
-<!--                            </div>-->
-<!--                            <div style="flex: 1; text-align: center;">-->
-<!--                                {{currentPrematchOdd[0].exchange.availableToLay[0].price}}-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div style="flex: 1;  font-weight: normal; text-align: center;">-->
-<!--                        <div>-->
-<!--                            X-->
-<!--                        </div>-->
-<!--                        <div style="display: flex">-->
-<!--                            <div style="flex: 1; text-align: center;">-->
-<!--                                {{currentPrematchOdd[2].exchange.availableToBack[0].price}}-->
-<!--                            </div>-->
-<!--                            <div style="flex: 1; text-align: center;">-->
-<!--                                {{currentPrematchOdd[2].exchange.availableToLay[0].price}}-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div style="flex: 1;  font-weight: normal; text-align: center;">-->
-<!--                        <div>-->
-<!--                            2-->
-<!--                        </div>-->
-<!--                        <div style="display: flex">-->
-<!--                            <div style="flex: 1; text-align: center;">-->
-<!--                                {{currentPrematchOdd[1].exchange.availableToBack[0].price}}-->
-<!--                            </div>-->
-<!--                            <div style="flex: 1; text-align: center;">-->
-<!--                                {{currentPrematchOdd[1].exchange.availableToLay[0].price}}-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div style="width: 100%;">-->
-<!--                    <label style="margin-top: 20px;">Selected Match Stats:</label>-->
-<!--                </div>-->
-<!--                <div style="text-align: center;">-->
-<!--                    <div style="display: flex; width: 100%;">-->
-<!--                        <div style="flex: 1; text-align: left;">-->
-<!--                            Risk:-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1; background: #92d050">-->
-<!--                            Easy-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1; background: #ffff00">-->
-<!--                            Medium-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1; background: #fd4016">-->
-<!--                            Hard-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div style="display: flex; width: 100%;">-->
-<!--                        <div style="flex: 1; text-align: left;">-->
-<!--                            Profit%:-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            31.00-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            56.00-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            -40.00-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div style="display: flex; width: 100%;">-->
-<!--                        <div style="flex: 1; text-align: left;">-->
-<!--                            Cashout minute:-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            35-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            60-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            72-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div style="display: flex; width: 100%;">-->
-<!--                        <div style="flex: 1; text-align: left;">-->
-<!--                            Cash Out Odds:-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            4.60-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            5.80-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            1.80-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div style="display: flex; width: 100%;">-->
-<!--                        <div style="flex: 1; text-align: left;">-->
-<!--                            Score:-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            0 - 1-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            0 - 1-->
-<!--                        </div>-->
-<!--                        <div style="flex: 1;">-->
-<!--                            1 - 1-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div v-if="currentPredictionType === 'MATCH_ODDS'" style="display: flex; width: 100%; font-weight: 600; margin-top: 10px;">-->
+                <!--                    <div style="flex: 1;">-->
+                <!--                        1X2 Pre match:-->
+                <!--                    </div>-->
+                <!--                    <div style="flex: 1; font-weight: normal; text-align: center;">-->
+                <!--                        <div>-->
+                <!--                            1-->
+                <!--                        </div>-->
+                <!--                        <div style="display: flex">-->
+                <!--                            <div style="flex: 1; text-align: center;">-->
+                <!--                                {{currentPrematchOdd[0].exchange.availableToBack[0].price}}-->
+                <!--                            </div>-->
+                <!--                            <div style="flex: 1; text-align: center;">-->
+                <!--                                {{currentPrematchOdd[0].exchange.availableToLay[0].price}}-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                    <div style="flex: 1;  font-weight: normal; text-align: center;">-->
+                <!--                        <div>-->
+                <!--                            X-->
+                <!--                        </div>-->
+                <!--                        <div style="display: flex">-->
+                <!--                            <div style="flex: 1; text-align: center;">-->
+                <!--                                {{currentPrematchOdd[2].exchange.availableToBack[0].price}}-->
+                <!--                            </div>-->
+                <!--                            <div style="flex: 1; text-align: center;">-->
+                <!--                                {{currentPrematchOdd[2].exchange.availableToLay[0].price}}-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                    <div style="flex: 1;  font-weight: normal; text-align: center;">-->
+                <!--                        <div>-->
+                <!--                            2-->
+                <!--                        </div>-->
+                <!--                        <div style="display: flex">-->
+                <!--                            <div style="flex: 1; text-align: center;">-->
+                <!--                                {{currentPrematchOdd[1].exchange.availableToBack[0].price}}-->
+                <!--                            </div>-->
+                <!--                            <div style="flex: 1; text-align: center;">-->
+                <!--                                {{currentPrematchOdd[1].exchange.availableToLay[0].price}}-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div style="width: 100%;">-->
+                <!--                    <label style="margin-top: 20px;">Selected Match Stats:</label>-->
+                <!--                </div>-->
+                <!--                <div style="text-align: center;">-->
+                <!--                    <div style="display: flex; width: 100%;">-->
+                <!--                        <div style="flex: 1; text-align: left;">-->
+                <!--                            Risk:-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1; background: #92d050">-->
+                <!--                            Easy-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1; background: #ffff00">-->
+                <!--                            Medium-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1; background: #fd4016">-->
+                <!--                            Hard-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                    <div style="display: flex; width: 100%;">-->
+                <!--                        <div style="flex: 1; text-align: left;">-->
+                <!--                            Profit%:-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            31.00-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            56.00-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            -40.00-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                    <div style="display: flex; width: 100%;">-->
+                <!--                        <div style="flex: 1; text-align: left;">-->
+                <!--                            Cashout minute:-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            35-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            60-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            72-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                    <div style="display: flex; width: 100%;">-->
+                <!--                        <div style="flex: 1; text-align: left;">-->
+                <!--                            Cash Out Odds:-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            4.60-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            5.80-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            1.80-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                    <div style="display: flex; width: 100%;">-->
+                <!--                        <div style="flex: 1; text-align: left;">-->
+                <!--                            Score:-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            0 - 1-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            0 - 1-->
+                <!--                        </div>-->
+                <!--                        <div style="flex: 1;">-->
+                <!--                            1 - 1-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
 
                 <div style="margin-top: 20px;">
                     <div class="stats-header">
@@ -5828,18 +5828,18 @@
                         'red': '-',
                         'rtg': '-'
                     },
-                    this.last_stats_away = {
-                        'on': '-',
-                        'off': '-',
-                        'blk': '-',
-                        'in': '-',
-                        'out': '-',
-                        'pos': '-',
-                        'cnr': '-',
-                        'da': '-',
-                        'red': '-',
-                        'rtg': '-'
-                    }
+                        this.last_stats_away = {
+                            'on': '-',
+                            'off': '-',
+                            'blk': '-',
+                            'in': '-',
+                            'out': '-',
+                            'pos': '-',
+                            'cnr': '-',
+                            'da': '-',
+                            'red': '-',
+                            'rtg': '-'
+                        }
                 }
 
                 this.select_filter()
