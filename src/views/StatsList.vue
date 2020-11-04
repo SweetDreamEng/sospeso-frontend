@@ -1738,9 +1738,11 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
             },
             percentage_calculation(data){
                 let p = 0
+                let p1 = 0
                 let events = data.events
                 let roundId = data.round_id
                 let name1 = 0
+                let stage_id = 0
                 let round_ids = events.filter(function(item) {
                     return item.round_id == roundId;
                 });
@@ -1748,6 +1750,18 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                 if(events.length > 0){
                     if(round_ids.length > 0){
                         name1 = round_ids[0].name
+                        stage_id =round_ids[0].stage_id
+                        p = (name1/events.length*100).toFixed(0)
+                    }
+
+                    for(let i = 0 ; i < events.length ; i++){
+                        if(events[i].stage_id !== stage_id && events[i].events.length > 0){
+                            p1++
+                        }
+                    }
+
+                    if(p1 > 0){
+                        name1 = name1 + p1
                         p = (name1/events.length*100).toFixed(0)
                     }
                 }
