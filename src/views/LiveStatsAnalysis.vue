@@ -5528,7 +5528,7 @@
                                         away_stats_data.yel = 0
                                     }
                                 }
-                                if(statsData[0].goals >= 0){
+                                if(statsData[0].goals){
                                     home_stats_data.goal = statsData[0].goals
                                     away_stats_data.goal = statsData[1].goals
                                 }
@@ -5636,7 +5636,7 @@
                                     }
                                 }
 
-                                if(statsData[1].goals >= 0){
+                                if(statsData[1].goals){
                                     home_stats_data.goal = statsData[1].goals
                                     away_stats_data.goal = statsData[0].goals
                                 }
