@@ -5064,11 +5064,13 @@
                         this.total_home_stats.pos = cStats[0].possessiontime
                         this.total_away_stats.pos = cStats[1].possessiontime
                     }
-                    if(cStats[0].redcards){
+                    if(cStats[0].redcards >= 0){
                         this.total_home_stats.red = cStats[0].redcards
                         this.total_away_stats.red = cStats[1].redcards
+                        console.log('++====', cStats[0].redcards, cStats[1].redcards,this.total_home_stats.red,this.total_away_stats.red)
                     }
-                    if(cStats[0].yellowcards){
+                    console.log('++====', cStats[0].redcards, cStats[1].redcards,this.total_home_stats.red,this.total_away_stats.red)
+                    if(cStats[0].yellowcards >= 0){
                         this.total_home_stats.yel = cStats[0].yellowcards
                         this.total_away_stats.yel = cStats[1].yellowcards
                     }
@@ -5098,11 +5100,11 @@
                         this.total_home_stats.pos = cStats[1].possessiontime
                         this.total_away_stats.pos = cStats[0].possessiontime
                     }
-                    if(cStats[0].redcards){
+                    if(cStats[0].redcards >= 0){
                         this.total_home_stats.red = cStats[1].redcards
                         this.total_away_stats.red = cStats[0].redcards
                     }
-                    if(cStats[0].yellowcards){
+                    if(cStats[0].yellowcards >= 0){
                         this.total_home_stats.yel = cStats[1].yellowcards
                         this.total_away_stats.yel = cStats[0].yellowcards
                     }
@@ -5499,7 +5501,7 @@
                                         home_stats_data.pos = 0
                                         away_stats_data.pos = 0
                                     }
-                                    if(statsData[0].redcards){
+                                    if(statsData[0].redcards >= 0){
                                         home_stats_data.red = statsData[0].redcards
                                         away_stats_data.red = statsData[1].redcards
                                     }
@@ -5513,7 +5515,7 @@
                                             away_stats_data.red = 0
                                         }
                                     }
-                                    if(statsData[0].yellowcards){
+                                    if(statsData[0].yellowcards >= 0){
                                         home_stats_data.yel = statsData[0].yellowcards
                                         away_stats_data.yel = statsData[1].yellowcards
                                     }
@@ -5606,7 +5608,7 @@
                                         home_stats_data.pos = 0
                                         away_stats_data.pos = 0
                                     }
-                                    if(statsData[1].redcards){
+                                    if(statsData[1].redcards >= 0){
                                         home_stats_data.red = statsData[1].redcards
                                         away_stats_data.red = statsData[0].redcards
                                     }
@@ -5620,7 +5622,7 @@
                                             away_stats_data.red = 0
                                         }
                                     }
-                                    if(statsData[1].yellowcards){
+                                    if(statsData[1].yellowcards >= 0){
                                         home_stats_data.yel = statsData[1].yellowcards
                                         away_stats_data.yel = statsData[0].yellowcards
                                     }
@@ -5648,7 +5650,7 @@
 // console.log('+++++++++++++++++++++++on - checking', this.homeTeam.on.from, this.homeTeam.on.to, this.awayTeam.on.from, this.awayTeam.on.to)
                                     if(home_stats_data.off >= this.homeTeam.off.from && home_stats_data.off <= this.homeTeam.off.to && away_stats_data.off >= this.awayTeam.off.from && away_stats_data.off <= this.awayTeam.off.to){
                                         if(home_stats_data.blk >= this.homeTeam.blk.from && home_stats_data.blk <= this.homeTeam.blk.to && away_stats_data.blk >= this.awayTeam.blk.from && away_stats_data.blk <= this.awayTeam.blk.to){
-                                              if(home_stats_data.in >= this.homeTeam.in.from && home_stats_data.in <= this.homeTeam.in.to && away_stats_data.in >= this.awayTeam.in.from && away_stats_data.in <= this.awayTeam.in.to){
+                                            if(home_stats_data.in >= this.homeTeam.in.from && home_stats_data.in <= this.homeTeam.in.to && away_stats_data.in >= this.awayTeam.in.from && away_stats_data.in <= this.awayTeam.in.to){
                                                 if(home_stats_data.out >= this.homeTeam.out.from && home_stats_data.out <= this.homeTeam.out.to && away_stats_data.out >= this.awayTeam.out.from && away_stats_data.out <= this.awayTeam.out.to){
                                                     if(home_stats_data.cnr >= this.homeTeam.cnr.from && home_stats_data.cnr <= this.homeTeam.cnr.to && away_stats_data.cnr >= this.awayTeam.cnr.from && away_stats_data.cnr <= this.awayTeam.cnr.to){
                                                         if(home_stats_data.da >= this.homeTeam.da.from && home_stats_data.da <= this.homeTeam.da.to && away_stats_data.da >= this.awayTeam.da.from && away_stats_data.da <= this.awayTeam.da.to){
