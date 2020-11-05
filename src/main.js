@@ -19,7 +19,7 @@ Vue.prototype.$log = console.log.bind(console)
 import VueSocketIO from 'vue-socket.io'
 
 Vue.use(new VueSocketIO({
-  debug: true,
+  debug: false,
   connection: `${process.env.VUE_APP_URL}`,
   vuex: {
     // store,
