@@ -2667,7 +2667,6 @@
                     let events = data.data[0]
                     this.eventList = [{'label': 'select an event', 'value': null}]
                     for(let i = 0 ; i < events.length ; i++){
-                        console.log(events[i])
                         if(events[i].time[0]){
                             let date_str = events[i].time[0].starting_at.date_time.split(" ")[0] + ', '+ events[i].time[0].starting_at.date_time.split(" ")[1]
                             let label = date_str + ' >> ' + events[i].home_name + ' v ' + events[i].away_name
@@ -4033,7 +4032,6 @@
                             let cStats = stats[j]
                             if(cStats[0]){
                                 if(times[j].minute <= 15){
-                                    console.log('+++++++++++++', cStats[0])
                                     if(home_id == cStats[0].team_id){
                                         if(cStats[0].shots){
                                             if(cStats[0].shots.ongoal){
@@ -4928,7 +4926,6 @@
                 }
             },
             from_date_f(val){
-                console.log(val)
                 this.from_date = val
                 this.end_date = val
                 let new_dateList = []
@@ -4940,7 +4937,6 @@
                 this.dateList2 = new_dateList
             },
             end_date_f(val){
-                console.log(val)
                 this.end_date = val
             },
             min_minute_f(){
@@ -4950,7 +4946,6 @@
 
             },
             set_event(val){
-                console.log('selected event value log', val)
                 this.total_home_stats = {
                     'competition': '',
                     'name': '',
@@ -5070,9 +5065,7 @@
                     if(cStats[0].redcards >= 0){
                         this.total_home_stats.red = cStats[0].redcards
                         this.total_away_stats.red = cStats[1].redcards
-                        console.log('++====', cStats[0].redcards, cStats[1].redcards,this.total_home_stats.red,this.total_away_stats.red)
                     }
-                    console.log('++====', cStats[0].redcards, cStats[1].redcards,this.total_home_stats.red,this.total_away_stats.red)
                     if(cStats[0].yellowcards >= 0){
                         this.total_home_stats.yel = cStats[0].yellowcards
                         this.total_away_stats.yel = cStats[1].yellowcards
@@ -5399,7 +5392,6 @@
                     let stats = value.stats
                     let home_id = value.home_id
                     let away_id = value.away_id
-                    // console.log('events ==>', value)
                     let home_rank = 0
                     let away_rank = 0
                     if(value.home_rank){
@@ -5411,9 +5403,7 @@
                     if(home_rank >= this.homeTeam.rank.from && home_rank <= this.homeTeam.rank.to && away_rank >= this.awayTeam.rank.from && away_rank <= this.awayTeam.rank.to){
                         let stats_length = stats.length
                         if(stats_length > 0){
-                            // console.log('rank checking', value.home_rank, value.away_rank)
                             let statsData = stats[stats_length - 1]
-                            // console.log('statsData=>', statsData)
                             let home_stats_data = {
                                 'on': 0,
                                 'off': 0,
@@ -5538,7 +5528,7 @@
                                         away_stats_data.yel = 0
                                     }
                                 }
-                                if(statsData[0].goals){
+                                if(statsData[0].goals >= 0){
                                     home_stats_data.goal = statsData[0].goals
                                     away_stats_data.goal = statsData[1].goals
                                 }
@@ -5646,7 +5636,7 @@
                                     }
                                 }
 
-                                if(statsData[1].goals){
+                                if(statsData[1].goals >= 0){
                                     home_stats_data.goal = statsData[1].goals
                                     away_stats_data.goal = statsData[0].goals
                                 }
@@ -5654,9 +5644,9 @@
                                     home_stats_data.goal = 0
                                     away_stats_data.goal = 0
                                 }
+
                             }
                             if(home_stats_data.on >= this.homeTeam.on.from && home_stats_data.on <= this.homeTeam.on.to && away_stats_data.on >= this.awayTeam.on.from && away_stats_data.on <= this.awayTeam.on.to){
-// console.log('+++++++++++++++++++++++on - checking', this.homeTeam.on.from, this.homeTeam.on.to, this.awayTeam.on.from, this.awayTeam.on.to)
                                 if(home_stats_data.off >= this.homeTeam.off.from && home_stats_data.off <= this.homeTeam.off.to && away_stats_data.off >= this.awayTeam.off.from && away_stats_data.off <= this.awayTeam.off.to){
                                     if(home_stats_data.blk >= this.homeTeam.blk.from && home_stats_data.blk <= this.homeTeam.blk.to && away_stats_data.blk >= this.awayTeam.blk.from && away_stats_data.blk <= this.awayTeam.blk.to){
                                         if(home_stats_data.in >= this.homeTeam.in.from && home_stats_data.in <= this.homeTeam.in.to && away_stats_data.in >= this.awayTeam.in.from && away_stats_data.in <= this.awayTeam.in.to){
@@ -5665,7 +5655,6 @@
                                                     if(home_stats_data.da >= this.homeTeam.da.from && home_stats_data.da <= this.homeTeam.da.to && away_stats_data.da >= this.awayTeam.da.from && away_stats_data.da <= this.awayTeam.da.to){
                                                         if(home_stats_data.pos >= this.homeTeam.pos.from && home_stats_data.pos <= this.homeTeam.pos.to && away_stats_data.pos >= this.awayTeam.pos.from && away_stats_data.pos <= this.awayTeam.pos.to){
                                                             if(home_stats_data.red >= this.homeTeam.red.from && home_stats_data.red <= this.homeTeam.red.to && away_stats_data.red >= this.awayTeam.red.from && away_stats_data.red <= this.awayTeam.red.to){
-                                                                console.log("yellow card checking !!!!", home_stats_data.yel, ', ', this.homeTeam.yel.to,', ', away_stats_data.yel,', ', this.awayTeam.yel.to)
                                                                 if(home_stats_data.yel >= this.homeTeam.yel.from && home_stats_data.yel <= this.homeTeam.yel.to && away_stats_data.yel >= this.awayTeam.yel.from && away_stats_data.yel <= this.awayTeam.yel.to){
                                                                     if(home_stats_data.goal >= this.homeTeam.goal.from && home_stats_data.goal <= this.homeTeam.goal.to && away_stats_data.goal >= this.awayTeam.goal.from && away_stats_data.goal <= this.awayTeam.goal.to){
                                                                         event_list.push({"label": events[i].label, "value": events[i].value})
@@ -5689,7 +5678,6 @@
             },
             h_rank_from(val){
                 this.homeTeam.rank.from = parseInt(val)
-                console.log('homeTeam From====>', val)
                 this.get_search_events()
             },
             a_rank_from(val){
@@ -5706,7 +5694,6 @@
             },
             h_on_from(val){
                 this.homeTeam.on.from = parseInt(val)
-                console.log('homeTeam From====>', val)
                 this.get_search_events()
             },
             a_on_from(val){
@@ -5899,11 +5886,9 @@
                         self.leagues.push({'league': datalist[i].name, 'value': datalist[i].eventId, 'label': datalist[i].name})
                     }
                     this.sortJSON(self.leagues,'league', '123');
-                    console.log(this.leagues)
                 })
             },
             set_league(val){
-                console.log('value===>', val)
                 this.selected_league = val
             },
             sortJSON(data, key){
@@ -5924,7 +5909,6 @@
                 }
                 this.dateList2 = this.dateList1
                 this.from_date = this.dateList1[0].value
-                console.log('datelistcheck===>', this.dateList1, this.dateList2)
             }
         },
         created() {
