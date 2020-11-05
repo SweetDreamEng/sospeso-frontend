@@ -165,6 +165,7 @@
                             'market': this.marketId,
                             'selectionId': this.selectionId,
                             'eventValue': val,
+                            'prematchOdd': this.prematchOdd,
                             'oddSelect': this.prematchOdd===this.back ? 'back':'lay',
                             'selectedArray': this.selectedArray[6],
                             'status': this.status,
@@ -723,7 +724,7 @@
                         }
                     )
                 }
-                this.Rerender();
+                // this.Rerender();
             },
             eventFlag(event) {
                 if (this.eventListsLength == 0) {
@@ -787,21 +788,22 @@
                 for (let i=0; i<this.marketIds.length; i++) {
                     const element = this.marketIds[i];
                     for (let j = 0; j < data.length; j++) {
+                        
                         if(element.market == data[j].marketId){
                             
                             let selections = data[j].runners.filter(function(runner) {
                                 return runner.selectionId == element.selectionId;
                             });
+                            
                             if(data[j].state.status == 'SUSPENDED'){
                                     this.status = 'SUSPENDED';
-                                    this.marketIds[i].market = 'SUSPENDED';
                                 }
                                 else if(data[j].state.status == "CLOSED"){
                                     this.status = 'CLOSED';
-                                    this.marketIds[i].market = 'CLOSED';
+                                } else if (data[j].state.inplay) {
+                                    this.status = 'Live';
                                 } else {
                                     this.status = element.status;
-                                    this.marketIds[i].market = '';
                                 }
                             if (selections.length > 0) {
                                 
@@ -825,12 +827,18 @@
                                 self.total_matched = (data[j].state.totalMatched).toFixed(1);
                             }
 
-                            if (element.oddSelect == 'back') {
+
+                            if (self.status == 'Coming Up' && element.oddSelect == 'back') {
                                 self.oddCalcRefresh(self.back, element.selectedArray, self.lay, self.back);
                                 self.tableItems[element.index].preodd.value = self.back;
-                            } else {
+                                self.marketIds[i].prematchOdd = self.back;
+                            } else if (self.status == 'Coming Up' && element.oddSelect == 'lay') {
                                 self.oddCalcRefresh(self.lay, element.selectedArray, self.lay, self.back);
                                 self.tableItems[element.index].preodd.value = self.lay;
+                                self.marketIds[i].prematchOdd = self.lay;
+                            } else {
+                                self.oddCalcRefresh(self.lay, element.selectedArray, self.lay, self.back);
+                                self.tableItems[element.index].preodd.value = self.marketIds[i].prematchOdd;
                             }
 
                             if (element.index >= self.tableItems.length) {
