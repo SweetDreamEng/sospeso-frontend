@@ -3449,24 +3449,26 @@
 
                     this.liveDataArray = data.data[1]
                     let main_data = data.data[0]
+                    console.log('main_data===>', main_data)
                     let competitionArray = []
                     let index = 0
                     for(let i = 0 ; i < main_data.length ; i++){
                         // console.log(main_data[i].time.status)
                         if((main_data[i].time.status == 'LIVE' || main_data[i].time.status == 'HT' || main_data[i].time.status == 'ET') && main_data[i].stats.length > 0){
                             index++
-                            competitionArray[index - 1] = main_data[i].competitions[0].name
+                            competitionArray[index - 1] = main_data[i].competitions[0].league
+                            console.log('--->', main_data[i].competitions[0].league)
                         }
                     }
                     competitionArray = Array.from(new Set (competitionArray))
-
+console.log('competition Array=>', competitionArray, main_data.length)
                     let k = 0
                     this.eventArray = []
                     for(let i = 0 ; i < competitionArray.length ; i++){
                         this.eventArray.push({'league': competitionArray[i], 'events': []})
                         for(let j = 0 ; j < main_data.length ; j++) {
                             if(main_data[j].stats.length > 0){
-                                if((main_data[j].competitions[0].name == competitionArray[i] && main_data[j].time.status == 'LIVE') || (main_data[j].competitions[0].name == competitionArray[i] && main_data[j].time.status == 'HT') || (main_data[j].competitions[0].name == competitionArray[i] && main_data[j].time.status == 'ET')){
+                                if((main_data[j].competitions[0].league == competitionArray[i] && main_data[j].time.status == 'LIVE') || (main_data[j].competitions[0].league == competitionArray[i] && main_data[j].time.status == 'HT') || (main_data[j].competitions[0].league == competitionArray[i] && main_data[j].time.status == 'ET')){
                                     let home = {
                                         'id': 0,
                                         'on': 0,
@@ -4143,6 +4145,7 @@
                     let self = this
                     this.sortJSON(self.eventArray,'league', '123');
                     this.liveNumbers = k
+console.log('event array==>', this.eventArray)
 
                     let eventList = data.data[2]
                     let competitionArray1 = []
