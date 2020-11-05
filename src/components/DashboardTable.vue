@@ -1,5 +1,5 @@
 <template>
-    <CDataTable v-if="tableItems.length"
+    <CDataTable v-if="eventListsLength"
             class="mb-0 table-outline"
             hover
             :items="tableItems"
@@ -165,7 +165,7 @@
                             'market': this.marketId,
                             'selectionId': this.selectionId,
                             'eventValue': val,
-                            'prematchOdd': this.prematchOdd,
+                            'oddSelect': this.prematchOdd===this.back ? 'back':'lay',
                             'selectedArray': this.selectedArray[6],
                             'status': this.status,
                             'eventId': this.eventId
@@ -685,6 +685,11 @@
                     this.guad_att = 0
                 }
             },
+            Rerender () {
+                this.$nextTick (() => {
+                    this.eventListsLength = this.eventLists3.length;
+                });
+            },
         },
         watch: {
             eventLists3(Lists) {
@@ -718,6 +723,7 @@
                         }
                     )
                 }
+                this.Rerender();
             },
             eventFlag(event) {
                 if (this.eventListsLength == 0) {
@@ -774,8 +780,6 @@
                     // })
                 }
             },
-            bookmarkerFee(bookvalue) {
-            }
         },
         created() {
             let self = this
@@ -820,7 +824,14 @@
                                 }
                                 self.total_matched = (data[j].state.totalMatched).toFixed(1);
                             }
-                            self.oddCalcRefresh(element.prematchOdd, element.selectedArray, self.lay, self.back);
+
+                            if (element.oddSelect == 'back') {
+                                self.oddCalcRefresh(self.back, element.selectedArray, self.lay, self.back);
+                                self.tableItems[element.index].preodd.value = self.back;
+                            } else {
+                                self.oddCalcRefresh(self.lay, element.selectedArray, self.lay, self.back);
+                                self.tableItems[element.index].preodd.value = self.lay;
+                            }
 
                             if (element.index >= self.tableItems.length) {
                                 continue
