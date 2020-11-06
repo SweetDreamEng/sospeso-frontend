@@ -794,17 +794,19 @@
                             let selections = data[j].runners.filter(function(runner) {
                                 return runner.selectionId == element.selectionId;
                             });
-                            
+
                             if(data[j].state.status == 'SUSPENDED'){
-                                    this.status = 'SUSPENDED';
-                                }
-                                else if(data[j].state.status == "CLOSED"){
-                                    this.status = 'CLOSED';
-                                } else if (data[j].state.inplay) {
-                                    this.status = 'Live';
-                                } else {
-                                    this.status = element.status;
-                                }
+                                this.status = 'SUSPENDED';
+                            }
+                            else if(data[j].state.status == "CLOSED"){
+                                this.status = 'CLOSED';
+                            } else if (data[j].state.inplay) {
+                                this.status = 'Live';
+                            } else {
+                                this.status = element.status;
+                            }
+                                console.log("created -> data[j].state.inplay", data[j].state.status, data[j].state.inplay, self.status)
+
                             if (selections.length > 0) {
                                 
                                 if(selections[0].exchange.availableToBack){
@@ -827,7 +829,6 @@
                                 self.total_matched = (data[j].state.totalMatched).toFixed(1);
                             }
 
-
                             if (self.status == 'Coming Up' && element.oddSelect == 'back') {
                                 self.oddCalcRefresh(self.back, element.selectedArray, self.lay, self.back);
                                 self.tableItems[element.index].preodd.value = self.back;
@@ -837,7 +838,7 @@
                                 self.tableItems[element.index].preodd.value = self.lay;
                                 self.marketIds[i].prematchOdd = self.lay;
                             } else {
-                                self.oddCalcRefresh(self.lay, element.selectedArray, self.lay, self.back);
+                                self.oddCalcRefresh(self.marketIds[i].prematchOdd, element.selectedArray, self.lay, self.back);
                                 self.tableItems[element.index].preodd.value = self.marketIds[i].prematchOdd;
                             }
 
@@ -849,7 +850,11 @@
                             self.tableItems[element.index].back.value = self.back;
                             self.tableItems[element.index].lay.value = self.lay;
                             self.tableItems[element.index].status.value = self.status;
-                            self.tableItems[element.index].gain.value = self.currentPercent.toString() + '%';
+                            if (self.currentPercent == 0) {
+                                self.tableItems[element.index].gain.value = '';
+                            } else {
+                                self.tableItems[element.index].gain.value = self.currentPercent.toString() + '%';
+                            }
                         }
                     }
                 }
