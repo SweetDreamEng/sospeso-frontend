@@ -7070,7 +7070,6 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                             let seasonId = main_data[j].season_id
 
                             home.pos = main_data[j].standing.localteam_position
-
                             home.h_a = this.H_A_calculation(seasonId, homeTeamId, 'home')
 
                             let swing1 = (away.pos - away.h_a) - (home.pos - home.h_a)
@@ -7438,31 +7437,31 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                     console.log("ALL")
                     let data = this.item_X
                     let ranks = {"from": 0, "to": 50}
-
+                    this.home_rank_refresh(ranks, data)
                 }
                 else if(val === 2){
                     console.log(this.rank_filter.v1)
                     let data = this.item_X
                     let ranks = this.rank_filter.v1
-
+                    this.home_rank_refresh(ranks, data)
                 }
                 else if(val === 3){
                     console.log(this.rank_filter.v2)
                     let data = this.item_X
                     let ranks = this.rank_filter.v2
-
+                    this.home_rank_refresh(ranks, data)
                 }
                 else if(val === 4){
                     console.log(this.rank_filter.v3)
                     let data = this.item_X
                     let ranks = this.rank_filter.v3
-
+                    this.home_rank_refresh(ranks, data)
                 }
                 else if(val === 5){
                     console.log(this.rank_filter.v4)
                     let data = this.item_X
                     let ranks = this.rank_filter.v4
-
+                    this.home_rank_refresh(ranks, data)
                 }
             },
             away_rank_filter(val){
@@ -7470,31 +7469,31 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                     console.log("ALL")
                     let data = this.item_X
                     let ranks = {"from": 0, "to": 50}
-
+                    this.away_rank_refresh(ranks, data)
                 }
                 else if(val === 2){
                     console.log(this.rank_filter.v1)
                     let data = this.item_X
                     let ranks = this.rank_filter.v1
-
+                    this.away_rank_refresh(ranks, data)
                 }
                 else if(val === 3){
                     console.log(this.rank_filter.v2)
                     let data = this.item_X
                     let ranks = this.rank_filter.v2
-
+                    this.away_rank_refresh(ranks, data)
                 }
                 else if(val === 4){
                     console.log(this.rank_filter.v3)
                     let data = this.item_X
                     let ranks = this.rank_filter.v3
-
+                    this.away_rank_refresh(ranks, data)
                 }
                 else if(val === 5){
                     console.log(this.rank_filter.v4)
                     let data = this.item_X
                     let ranks = this.rank_filter.v4
-
+                    this.away_rank_refresh(ranks, data)
                 }
             },
             sortJSON(data, key){
