@@ -3151,7 +3151,7 @@
                     this.t_missed_livestats = 0
                     for(let i = 0 ; i < data.data[0].length ; i++){
                         this.eventLists2.push(data.data[0][i])
-                        if(data.data[0][i].Odds.length < 10 ||data.data[0][i].scores.length < 10){
+                        if(data.data[0][i].Odds.length < 10 && data.data[0][i].scores.length < 10){
                             this.t_missed_betfair++
                         }
                         if(data.data[0][i].liveStats.length > 0){
@@ -3609,7 +3609,7 @@
                 this.s_missed_betfair =0
                 this.s_missed_livestats = 0
                 for(let i = 1 ; i < this.predictionlist.length ; i++){
-                    if(this.predictionlist[i].Odds.length < 10 || this.predictionlist[i].scores.length < 10){
+                    if(this.predictionlist[i].Odds.length < 10 && this.predictionlist[i].scores.length < 10){
                         this.s_missed_betfair++
                     }
                     if(this.predictionlist[i].liveStats.length > 0){
