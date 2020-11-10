@@ -350,13 +350,13 @@
                                         </div>
                                     </div>
 
-                                    <div style="min-width: 150px; float: left; width: 15%;">
+                                    <div v-if="item1.rankFilter === true" style="min-width: 150px; float: left; width: 15%;">
                                         <div style="width: 100%; height: 30px;">
                                             <label style="float: left; margin-left: 10px; ">HomeTeam:</label>
                                             <div style="width: 50%; float: right;">
                                                 <CSelect
                                                     class="rank_filter"
-                                                    :options="rankList"
+                                                    :options="item1.rank_option"
                                                     @click = "rank_filter = item1.rank_set, item_X = item1, away_team = item1.away, home_team = item1.home"
                                                     @update:value="home_rank_filter"
                                                 >
@@ -368,7 +368,7 @@
                                             <div style="width: 50%; float: right;">
                                                 <CSelect
                                                     class="rank_filter"
-                                                    :options="rankList"
+                                                    :options="item1.rank_option"
                                                     @click = "rank_filter = item1.rank_set, item_X = item1, away_team = item1.away, home_team = item1.home"
                                                     @update:value="away_rank_filter"
                                                 >
@@ -6277,7 +6277,7 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                                 countryCode = main_data[j].countryCode
                                 home.name = main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')'
                                 away.name = main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')'
-                                events[k - 1] = {'rank_set': {}, 'rankFilter': false, 'b_data': main_data[j].events, 'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'home_id': 0, 'away_id': 0, 'openDate':  main_data[j].time.starting_at.time, 'home':home, 'away': away, 'homeDateList': [], "awayDateList": []}
+                                events[k - 1] = {'rank_option': [], 'rank_set': {}, 'rankFilter': false, 'b_data': main_data[j].events, 'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'home_id': 0, 'away_id': 0, 'openDate':  main_data[j].time.starting_at.time, 'home':home, 'away': away, 'homeDateList': [], "awayDateList": []}
 
                                 let homeTeamId = main_data[j].localTeamId
                                 let awayTeamId = main_data[j].visitorTeamId
@@ -6309,6 +6309,7 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                                     "v3": {"from": 0, "to": 0},
                                     "v4": {"from": 0, "to": 0}
                                 }
+                                let rankList_option = []
                                 if(rank_filter_show === true){
                                     let total_teams = teamArray.length
                                     if(total_teams % 2 === 0){
@@ -6363,6 +6364,14 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                                     }
                                     events[k - 1].rankFilter = true
                                     events[k - 1].rank_set = rank_set
+                                    rankList_option = [
+                                        {"value": 1, "label": "vs All"},
+                                        {"value": 2, "label": "vs High rank ( " + rank_set.v1.from + ' to ' + rank_set.v1.to + ' )'},
+                                        {"value": 3, "label": "vs middle-high rank ( " + rank_set.v2.from + ' to ' + rank_set.v2.to + ' )'},
+                                        {"value": 4, "label": "vs middle-low rank (" + rank_set.v3.from + ' to ' + rank_set.v3.to + ' )'},
+                                        {"value": 5, "label": "vs low rank (" + rank_set.v4.from + ' to ' + rank_set.v4.to + ' )'},
+                                    ]
+                                    events[k - 1].rank_option = rankList_option
                                 }
 
                                 let seasonId = main_data[j].season_id
