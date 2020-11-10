@@ -392,182 +392,182 @@
                     <div style="flex: 1; text-align: center;">
                         <p class="header">1 - 1</p>
                         <p v-if="this.score_stats.score0_15.score11 === 0" class="value">{{this.score_stats.score0_15.score11}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score11}} ({{(this.score_stats.score0_15.score11/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score11}} ({{(this.score_stats.score0_15.score11/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score11 === 0" class="percent">{{this.score_stats.score16_30.score11}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score11}} ({{(this.score_stats.score16_30.score11/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score11}} ({{(this.score_stats.score16_30.score11/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score11 === 0" class="value">{{this.score_stats.score31_45.score11}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score11}} ({{(this.score_stats.score31_45.score11/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score11}} ({{(this.score_stats.score31_45.score11/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score11 === 0" class="percent">{{this.score_stats.score46_60.score11}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score11}} ({{(this.score_stats.score46_60.score11/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score11}} ({{(this.score_stats.score46_60.score11/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score11 === 0" class="value">{{this.score_stats.score61_75.score11}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score11}} ({{(this.score_stats.score61_75.score11/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score11}} ({{(this.score_stats.score61_75.score11/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score11 === 0" class="percent">{{this.score_stats.score76_90.score11}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score11}} ({{(this.score_stats.score76_90.score11/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score11}} ({{(this.score_stats.score76_90.score11/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">2 - 2</p>
                         <p v-if="this.score_stats.score0_15.score22 === 0" class="value">{{this.score_stats.score0_15.score22}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score22}} ({{(this.score_stats.score0_15.score22/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score22}} ({{(this.score_stats.score0_15.score22/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score22 === 0" class="percent">{{this.score_stats.score16_30.score22}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score22}} ({{(this.score_stats.score16_30.score22/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score22}} ({{(this.score_stats.score16_30.score22/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score22 === 0" class="value">{{this.score_stats.score31_45.score22}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score22}} ({{(this.score_stats.score31_45.score22/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score22}} ({{(this.score_stats.score31_45.score22/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score22 === 0" class="percent">{{this.score_stats.score46_60.score22}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score22}} ({{(this.score_stats.score46_60.score22/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score22}} ({{(this.score_stats.score46_60.score22/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score22 === 0" class="value">{{this.score_stats.score61_75.score22}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score22}} ({{(this.score_stats.score61_75.score22/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score22}} ({{(this.score_stats.score61_75.score22/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score22 === 0" class="percent">{{this.score_stats.score76_90.score22}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score22}} ({{(this.score_stats.score76_90.score22/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score22}} ({{(this.score_stats.score76_90.score22/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">1 - 0</p>
                         <p v-if="this.score_stats.score0_15.score10 === 0" class="value">{{this.score_stats.score0_15.score10}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score10}} ({{(this.score_stats.score0_15.score10/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score10}} ({{(this.score_stats.score0_15.score10/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score10 === 0" class="percent">{{this.score_stats.score16_30.score10}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score10}} ({{(this.score_stats.score16_30.score10/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score10}} ({{(this.score_stats.score16_30.score10/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score10 === 0" class="value">{{this.score_stats.score31_45.score10}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score10}} ({{(this.score_stats.score31_45.score10/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score10}} ({{(this.score_stats.score31_45.score10/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score10 === 0" class="percent">{{this.score_stats.score46_60.score10}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score10}} ({{(this.score_stats.score46_60.score10/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score10}} ({{(this.score_stats.score46_60.score10/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score10 === 0" class="value">{{this.score_stats.score61_75.score10}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score10}} ({{(this.score_stats.score61_75.score10/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score10}} ({{(this.score_stats.score61_75.score10/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score10 === 0" class="percent">{{this.score_stats.score76_90.score10}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score10}} ({{(this.score_stats.score76_90.score10/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score10}} ({{(this.score_stats.score76_90.score10/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">2 - 0</p>
                         <p v-if="this.score_stats.score0_15.score20 === 0" class="value">{{this.score_stats.score0_15.score20}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score20}} ({{(this.score_stats.score0_15.score20/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score20}} ({{(this.score_stats.score0_15.score20/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score20 === 0" class="percent">{{this.score_stats.score16_30.score20}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score20}} ({{(this.score_stats.score16_30.score20/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score20}} ({{(this.score_stats.score16_30.score20/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score20 === 0" class="value">{{this.score_stats.score31_45.score20}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score20}} ({{(this.score_stats.score31_45.score20/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score20}} ({{(this.score_stats.score31_45.score20/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score20 === 0" class="percent">{{this.score_stats.score46_60.score20}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score20}} ({{(this.score_stats.score46_60.score20/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score20}} ({{(this.score_stats.score46_60.score20/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score20 === 0" class="value">{{this.score_stats.score61_75.score20}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score20}} ({{(this.score_stats.score61_75.score20/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score20}} ({{(this.score_stats.score61_75.score20/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score20 === 0" class="percent">{{this.score_stats.score76_90.score20}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score20}} ({{(this.score_stats.score76_90.score20/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score20}} ({{(this.score_stats.score76_90.score20/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">3 - 0</p>
                         <p v-if="this.score_stats.score0_15.score20 === 0" class="value">{{this.score_stats.score0_15.score30}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score30}} ({{(this.score_stats.score0_15.score30/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score30}} ({{(this.score_stats.score0_15.score30/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score30 === 0" class="percent">{{this.score_stats.score16_30.score30}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score30}} ({{(this.score_stats.score16_30.score30/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score30}} ({{(this.score_stats.score16_30.score30/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score30 === 0" class="value">{{this.score_stats.score31_45.score30}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score30}} ({{(this.score_stats.score31_45.score30/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score30}} ({{(this.score_stats.score31_45.score30/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score30 === 0" class="percent">{{this.score_stats.score46_60.score30}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score30}} ({{(this.score_stats.score46_60.score30/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score30}} ({{(this.score_stats.score46_60.score30/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score30 === 0" class="value">{{this.score_stats.score61_75.score30}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score30}} ({{(this.score_stats.score61_75.score30/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score30}} ({{(this.score_stats.score61_75.score30/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score30 === 0" class="percent">{{this.score_stats.score76_90.score30}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score30}} ({{(this.score_stats.score76_90.score30/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score30}} ({{(this.score_stats.score76_90.score30/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">2 - 1</p>
                         <p v-if="this.score_stats.score0_15.score21 === 0" class="value">{{this.score_stats.score0_15.score21}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score21}} ({{(this.score_stats.score0_15.score21/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score21}} ({{(this.score_stats.score0_15.score21/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score21 === 0" class="percent">{{this.score_stats.score16_30.score21}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score21}} ({{(this.score_stats.score16_30.score21/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score21}} ({{(this.score_stats.score16_30.score21/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score21 === 0" class="value">{{this.score_stats.score31_45.score21}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score21}} ({{(this.score_stats.score31_45.score21/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score21}} ({{(this.score_stats.score31_45.score21/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score21 === 0" class="percent">{{this.score_stats.score46_60.score21}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score21}} ({{(this.score_stats.score46_60.score21/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score21}} ({{(this.score_stats.score46_60.score21/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score21 === 0" class="value">{{this.score_stats.score61_75.score21}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score21}} ({{(this.score_stats.score61_75.score21/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score21}} ({{(this.score_stats.score61_75.score21/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score21 === 0" class="percent">{{this.score_stats.score76_90.score21}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score21}} ({{(this.score_stats.score76_90.score21/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score21}} ({{(this.score_stats.score76_90.score21/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">3 - 1</p>
                         <p v-if="this.score_stats.score0_15.score31 === 0" class="value">{{this.score_stats.score0_15.score31}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score31}} ({{(this.score_stats.score0_15.score31/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score31}} ({{(this.score_stats.score0_15.score31/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score31 === 0" class="percent">{{this.score_stats.score16_30.score31}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score31}} ({{(this.score_stats.score16_30.score31/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score31}} ({{(this.score_stats.score16_30.score31/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score31 === 0" class="value">{{this.score_stats.score31_45.score31}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score31}} ({{(this.score_stats.score31_45.score31/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score31}} ({{(this.score_stats.score31_45.score31/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score31 === 0" class="percent">{{this.score_stats.score46_60.score31}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score31}} ({{(this.score_stats.score46_60.score31/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score31}} ({{(this.score_stats.score46_60.score31/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score31 === 0" class="value">{{this.score_stats.score61_75.score31}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score31}} ({{(this.score_stats.score61_75.score31/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score31}} ({{(this.score_stats.score61_75.score31/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score31 === 0" class="percent">{{this.score_stats.score76_90.score31}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score31}} ({{(this.score_stats.score76_90.score31/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score31}} ({{(this.score_stats.score76_90.score31/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">0 - 1</p>
                         <p v-if="this.score_stats.score0_15.score01 === 0" class="value">{{this.score_stats.score0_15.score01}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score01}} ({{(this.score_stats.score0_15.score01/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score01}} ({{(this.score_stats.score0_15.score01/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score01 === 0" class="percent">{{this.score_stats.score16_30.score01}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score01}} ({{(this.score_stats.score16_30.score01/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score01}} ({{(this.score_stats.score16_30.score01/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score01 === 0" class="value">{{this.score_stats.score31_45.score01}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score01}} ({{(this.score_stats.score31_45.score01/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score01}} ({{(this.score_stats.score31_45.score01/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score01 === 0" class="percent">{{this.score_stats.score46_60.score01}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score01}} ({{(this.score_stats.score46_60.score01/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score01}} ({{(this.score_stats.score46_60.score01/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score01 === 0" class="value">{{this.score_stats.score61_75.score01}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score01}} ({{(this.score_stats.score61_75.score01/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score01}} ({{(this.score_stats.score61_75.score01/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score01 === 0" class="percent">{{this.score_stats.score76_90.score01}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score01}} ({{(this.score_stats.score76_90.score01/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score01}} ({{(this.score_stats.score76_90.score01/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">0 - 2</p>
                         <p v-if="this.score_stats.score0_15.score02 === 0" class="value">{{this.score_stats.score0_15.score02}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score02}} ({{(this.score_stats.score0_15.score02/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score02}} ({{(this.score_stats.score0_15.score02/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score02 === 0" class="percent">{{this.score_stats.score16_30.score02}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score02}} ({{(this.score_stats.score16_30.score02/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score02}} ({{(this.score_stats.score16_30.score02/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score02 === 0" class="value">{{this.score_stats.score31_45.score02}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score02}} ({{(this.score_stats.score31_45.score02/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score02}} ({{(this.score_stats.score31_45.score02/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score02 === 0" class="percent">{{this.score_stats.score46_60.score02}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score02}} ({{(this.score_stats.score46_60.score02/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score02}} ({{(this.score_stats.score46_60.score02/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score02 === 0" class="value">{{this.score_stats.score61_75.score02}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score02}} ({{(this.score_stats.score61_75.score02/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score02}} ({{(this.score_stats.score61_75.score02/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score02 === 0" class="percent">{{this.score_stats.score76_90.score02}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score02}} ({{(this.score_stats.score76_90.score02/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score02}} ({{(this.score_stats.score76_90.score02/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">0 - 3</p>
                         <p v-if="this.score_stats.score0_15.score03 === 0" class="value">{{this.score_stats.score0_15.score03}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score03}} ({{(this.score_stats.score0_15.score03/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score03}} ({{(this.score_stats.score0_15.score03/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score03 === 0" class="percent">{{this.score_stats.score16_30.score03}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score03}} ({{(this.score_stats.score16_30.score03/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score03}} ({{(this.score_stats.score16_30.score03/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score03 === 0" class="value">{{this.score_stats.score31_45.score03}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score03}} ({{(this.score_stats.score31_45.score03/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score03}} ({{(this.score_stats.score31_45.score03/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score03 === 0" class="percent">{{this.score_stats.score46_60.score03}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score03}} ({{(this.score_stats.score46_60.score03/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score03}} ({{(this.score_stats.score46_60.score03/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score03 === 0" class="value">{{this.score_stats.score61_75.score03}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score03}} ({{(this.score_stats.score61_75.score03/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score03}} ({{(this.score_stats.score61_75.score03/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score03 === 0" class="percent">{{this.score_stats.score76_90.score03}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score03}} ({{(this.score_stats.score76_90.score03/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score03}} ({{(this.score_stats.score76_90.score03/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">1 - 2</p>
                         <p v-if="this.score_stats.score0_15.score12 === 0" class="value">{{this.score_stats.score0_15.score12}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score12}} ({{(this.score_stats.score0_15.score12/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score12}} ({{(this.score_stats.score0_15.score12/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score12 === 0" class="percent">{{this.score_stats.score16_30.score12}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score12}} ({{(this.score_stats.score16_30.score12/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score12}} ({{(this.score_stats.score16_30.score12/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score12 === 0" class="value">{{this.score_stats.score31_45.score12}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score12}} ({{(this.score_stats.score31_45.score12/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score12}} ({{(this.score_stats.score31_45.score12/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score12 === 0" class="percent">{{this.score_stats.score46_60.score12}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score12}} ({{(this.score_stats.score46_60.score12/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score12}} ({{(this.score_stats.score46_60.score12/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score12 === 0" class="value">{{this.score_stats.score61_75.score12}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score12}} ({{(this.score_stats.score61_75.score12/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score12}} ({{(this.score_stats.score61_75.score12/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score12 === 0" class="percent">{{this.score_stats.score76_90.score12}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score12}} ({{(this.score_stats.score76_90.score12/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score12}} ({{(this.score_stats.score76_90.score12/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">1 - 3</p>
                         <p v-if="this.score_stats.score0_15.score13 === 0" class="value">{{this.score_stats.score0_15.score13}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score13}} ({{(this.score_stats.score0_15.score13/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score13}} ({{(this.score_stats.score0_15.score13/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score13 === 0" class="percent">{{this.score_stats.score16_30.score13}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score13}} ({{(this.score_stats.score16_30.score13/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score13}} ({{(this.score_stats.score16_30.score13/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score13 === 0" class="value">{{this.score_stats.score31_45.score13}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score13}} ({{(this.score_stats.score31_45.score13/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score13}} ({{(this.score_stats.score31_45.score13/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score13 === 0" class="percent">{{this.score_stats.score46_60.score13}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score13}} ({{(this.score_stats.score46_60.score13/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score13}} ({{(this.score_stats.score46_60.score13/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score13 === 0" class="value">{{this.score_stats.score61_75.score13}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score13}} ({{(this.score_stats.score61_75.score13/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score13}} ({{(this.score_stats.score61_75.score13/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score13 === 0" class="percent">{{this.score_stats.score76_90.score13}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score13}} ({{(this.score_stats.score76_90.score13/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score13}} ({{(this.score_stats.score76_90.score13/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                 </div>
                 <div style="width: 100%; margin-top: 20px;">
@@ -586,137 +586,137 @@
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Over 1.5</p>
                         <p v-if="this.stats_segment.stats_0_15.score_over15 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over15}} ({{(this.stats_segment.stats_0_15.score_over15/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over15}} ({{(this.stats_segment.stats_0_15.score_over15/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_over15 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over15}} ({{(this.stats_segment.stats_16_30.score_over15/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over15}} ({{(this.stats_segment.stats_16_30.score_over15/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_over15 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over15}} ({{(this.stats_segment.stats_31_45.score_over15/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over15}} ({{(this.stats_segment.stats_31_45.score_over15/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_over15 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over15}} ({{(this.stats_segment.stats_46_60.score_over15/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over15}} ({{(this.stats_segment.stats_46_60.score_over15/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_over15 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over15}} ({{(this.stats_segment.stats_61_75.score_over15/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over15}} ({{(this.stats_segment.stats_61_75.score_over15/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_over15 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over15}} ({{(this.stats_segment.stats_76_90.score_over15/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over15}} ({{(this.stats_segment.stats_76_90.score_over15/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Over 2.5</p>
                         <p v-if="this.stats_segment.stats_0_15.score_over25 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over25}} ({{(this.stats_segment.stats_0_15.score_over25/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over25}} ({{(this.stats_segment.stats_0_15.score_over25/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_over25 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over25}} ({{(this.stats_segment.stats_16_30.score_over25/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over25}} ({{(this.stats_segment.stats_16_30.score_over25/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_over25 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over25}} ({{(this.stats_segment.stats_31_45.score_over25/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over25}} ({{(this.stats_segment.stats_31_45.score_over25/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_over25 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over25}} ({{(this.stats_segment.stats_46_60.score_over25/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over25}} ({{(this.stats_segment.stats_46_60.score_over25/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_over25 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over25}} ({{(this.stats_segment.stats_61_75.score_over25/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over25}} ({{(this.stats_segment.stats_61_75.score_over25/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_over25 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over25}} ({{(this.stats_segment.stats_76_90.score_over25/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over25}} ({{(this.stats_segment.stats_76_90.score_over25/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Over 3.5</p>
                         <p v-if="this.stats_segment.stats_0_15.score_over35 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over35}} ({{(this.stats_segment.stats_0_15.score_over35/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_over35}} ({{(this.stats_segment.stats_0_15.score_over35/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_over35 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over35}} ({{(this.stats_segment.stats_16_30.score_over35/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_over35}} ({{(this.stats_segment.stats_16_30.score_over35/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_over35 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over35}} ({{(this.stats_segment.stats_31_45.score_over35/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_over35}} ({{(this.stats_segment.stats_31_45.score_over35/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_over35 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over35}} ({{(this.stats_segment.stats_46_60.score_over35/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_over35}} ({{(this.stats_segment.stats_46_60.score_over35/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_over35 === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over35}} ({{(this.stats_segment.stats_61_75.score_over35/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_over35}} ({{(this.stats_segment.stats_61_75.score_over35/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_over35 === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over35}} ({{(this.stats_segment.stats_76_90.score_over35/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_over35}} ({{(this.stats_segment.stats_76_90.score_over35/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Home</p>
                         <p v-if="this.stats_segment.stats_0_15.score_home === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_home}} ({{(this.stats_segment.stats_0_15.score_home/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_home}} ({{(this.stats_segment.stats_0_15.score_home/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_home === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_home}} ({{(this.stats_segment.stats_16_30.score_home/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_home}} ({{(this.stats_segment.stats_16_30.score_home/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_home === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_home}} ({{(this.stats_segment.stats_31_45.score_home/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_home}} ({{(this.stats_segment.stats_31_45.score_home/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_home === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_home}} ({{(this.stats_segment.stats_46_60.score_home/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_home}} ({{(this.stats_segment.stats_46_60.score_home/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_home === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_home}} ({{(this.stats_segment.stats_61_75.score_home/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_home}} ({{(this.stats_segment.stats_61_75.score_home/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_home === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_home}} ({{(this.stats_segment.stats_76_90.score_home/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_home}} ({{(this.stats_segment.stats_76_90.score_home/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Draws</p>
                         <p v-if="this.stats_segment.stats_0_15.score_draw === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_draw}} ({{(this.stats_segment.stats_0_15.score_draw/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_draw}} ({{(this.stats_segment.stats_0_15.score_draw/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_draw === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_draw}} ({{(this.stats_segment.stats_16_30.score_draw/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_draw}} ({{(this.stats_segment.stats_16_30.score_draw/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_draw === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_draw}} ({{(this.stats_segment.stats_31_45.score_draw/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_draw}} ({{(this.stats_segment.stats_31_45.score_draw/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_draw === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_draw}} ({{(this.stats_segment.stats_46_60.score_draw/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_draw}} ({{(this.stats_segment.stats_46_60.score_draw/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_draw === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_draw}} ({{(this.stats_segment.stats_61_75.score_draw/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_draw}} ({{(this.stats_segment.stats_61_75.score_draw/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_draw === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_draw}} ({{(this.stats_segment.stats_76_90.score_draw/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_draw}} ({{(this.stats_segment.stats_76_90.score_draw/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Away</p>
                         <p v-if="this.stats_segment.stats_0_15.score_away === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_away}} ({{(this.stats_segment.stats_0_15.score_away/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_away}} ({{(this.stats_segment.stats_0_15.score_away/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_away === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_away}} ({{(this.stats_segment.stats_16_30.score_away/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_away}} ({{(this.stats_segment.stats_16_30.score_away/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_away === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_away}} ({{(this.stats_segment.stats_31_45.score_away/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_away}} ({{(this.stats_segment.stats_31_45.score_away/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_away === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_away}} ({{(this.stats_segment.stats_46_60.score_away/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_away}} ({{(this.stats_segment.stats_46_60.score_away/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_away === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_away}} ({{(this.stats_segment.stats_61_75.score_away/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_away}} ({{(this.stats_segment.stats_61_75.score_away/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_away === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_away}} ({{(this.stats_segment.stats_76_90.score_away/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_away}} ({{(this.stats_segment.stats_76_90.score_away/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">BTS</p>
                         <p v-if="this.stats_segment.stats_0_15.score_bts === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_bts}} ({{(this.stats_segment.stats_0_15.score_bts/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_bts}} ({{(this.stats_segment.stats_0_15.score_bts/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_bts === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_bts}} ({{(this.stats_segment.stats_16_30.score_bts/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_bts}} ({{(this.stats_segment.stats_16_30.score_bts/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_bts === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_bts}} ({{(this.stats_segment.stats_31_45.score_bts/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_bts}} ({{(this.stats_segment.stats_31_45.score_bts/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_bts === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_bts}} ({{(this.stats_segment.stats_46_60.score_bts/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_bts}} ({{(this.stats_segment.stats_46_60.score_bts/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_bts === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_bts}} ({{(this.stats_segment.stats_61_75.score_bts/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_bts}} ({{(this.stats_segment.stats_61_75.score_bts/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_bts === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_bts}} ({{(this.stats_segment.stats_76_90.score_bts/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_bts}} ({{(this.stats_segment.stats_76_90.score_bts/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Odd</p>
                         <p v-if="this.stats_segment.stats_0_15.score_odd === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_odd}} ({{(this.stats_segment.stats_0_15.score_odd/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_odd}} ({{(this.stats_segment.stats_0_15.score_odd/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_odd === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_odd}} ({{(this.stats_segment.stats_16_30.score_odd/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_odd}} ({{(this.stats_segment.stats_16_30.score_odd/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_odd === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_odd}} ({{(this.stats_segment.stats_31_45.score_odd/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_odd}} ({{(this.stats_segment.stats_31_45.score_odd/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_odd === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_odd}} ({{(this.stats_segment.stats_46_60.score_odd/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_odd}} ({{(this.stats_segment.stats_46_60.score_odd/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_odd === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_odd}} ({{(this.stats_segment.stats_61_75.score_odd/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_odd}} ({{(this.stats_segment.stats_61_75.score_odd/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_odd === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_odd}} ({{(this.stats_segment.stats_76_90.score_odd/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_odd}} ({{(this.stats_segment.stats_76_90.score_odd/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Even</p>
                         <p v-if="this.stats_segment.stats_0_15.score_even === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_even}} ({{(this.stats_segment.stats_0_15.score_even/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_0_15.score_even}} ({{(this.stats_segment.stats_0_15.score_even/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_16_30.score_even === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_even}} ({{(this.stats_segment.stats_16_30.score_even/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_16_30.score_even}} ({{(this.stats_segment.stats_16_30.score_even/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_31_45.score_even === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_even}} ({{(this.stats_segment.stats_31_45.score_even/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_31_45.score_even}} ({{(this.stats_segment.stats_31_45.score_even/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_46_60.score_even === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_even}} ({{(this.stats_segment.stats_46_60.score_even/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_46_60.score_even}} ({{(this.stats_segment.stats_46_60.score_even/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_61_75.score_even === 0" class="value">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_even}} ({{(this.stats_segment.stats_61_75.score_even/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_61_75.score_even}} ({{(this.stats_segment.stats_61_75.score_even/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.stats_segment.stats_76_90.score_even === 0" class="percent">0</p>
-                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_even}} ({{(this.stats_segment.stats_76_90.score_even/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.stats_segment.stats_76_90.score_even}} ({{(this.stats_segment.stats_76_90.score_even/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                 </div>
 
