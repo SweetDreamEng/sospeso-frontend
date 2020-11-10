@@ -1191,10 +1191,8 @@
                             </div>
                         </CCollapse>
                     </div>
-
                 </CCollapse>
             </div>
-
         </CCard>
     </div>
 </template>
