@@ -121,11 +121,21 @@
                             </div>
                         </div>
 
-                        <div style="width: 100%; float:left; margin-top: 30px;">
-                            <label>Total database:</label><span style="margin-left: 50px; font-weight: 600;">{{this.total_db}}</span>
+                        <div style="width: 200%; float:left; margin-top: 30px;">
+                            <label style="float: left;">Total database:</label>
+                            <span style="float: left; margin-left: 20px; font-weight: 600;">{{this.total_db}}</span>
+                            <label style="float: left; margin-left: 50px;">Missing betfair data:</label>
+                            <span style="float: left; margin-left: 20px; font-weight: 600;">{{this.t_missed_betfair}}</span>
+                            <label style="float: left; margin-left: 50px;">Missing live stats :</label>
+                            <span style="float: left; margin-left: 20px; font-weight: 600;">{{this.t_missed_livestats}}</span>
                         </div>
-                        <div style="width: 100%; float:left; margin-top: 5px;">
-                            <label>Matches found:</label><span style="margin-left: 50px; font-weight: 600;">{{this.matches_found}}</span>
+                        <div style="width: 200%; float:left; margin-top: 5px;">
+                            <label style="float: left;">Matches found:</label>
+                            <span style="float: left; margin-left: 20px; font-weight: 600;">{{this.matches_found}}</span>
+                            <label style="float: left; margin-left: 50px;">Missing betfair data:</label>
+                            <span style="float: left; margin-left: 20px; font-weight: 600;">{{this.s_missed_betfair}}</span>
+                            <label style="float: left; margin-left: 50px;">Missing live stats :</label>
+                            <span style="float: left; margin-left: 20px; font-weight: 600;">{{this.s_missed_livestats}}</span>
                         </div>
                     </CCol>
                     <CCol sm="6">
@@ -652,51 +662,51 @@
                         </div>
                     </div>
                     <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px; border: 1px solid lightgray;  border-bottom: none;">
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.goal/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.goal/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.on/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.on/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.off/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.off/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.blk/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.blk/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.in/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.in/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.out/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.out/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.cnr/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.cnr/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.da/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.da/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.pos/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.pos/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.red/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.red/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.yel/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_home1.yel/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
                     </div>
                     <div style="display: flex; height: 30px; width: 100%; text-align: left; padding-left: 5px; text-align: center; color: black; padding-top: 3px; border: 1px solid lightgray; border-top: none;">
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.goal/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.goal/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.on/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.on/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.off/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.off/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.blk/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.blk/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.in/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.in/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.out/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.out/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.cnr/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.cnr/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.da/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.da/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.pos/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.pos/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.red/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.red/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
-                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.yel/matches_found)).toFixed(1)}}</div>
+                        <div v-if="matches_found != 0" style="flex: 1; text-align: center;">{{((last_stats_away1.yel/(matches_found - s_missed_livestats))).toFixed(1)}}</div>
                         <div v-else style="flex: 1; text-align: center;">{{(0).toFixed(1)}}</div>
                     </div>
                 </div>
@@ -3108,6 +3118,10 @@
                         }
                     }
                 },
+                t_missed_betfair: 0,
+                t_missed_livestats: 0,
+                s_missed_betfair: 0,
+                s_missed_livestats: 0,
             }
         },
         methods: {
@@ -3133,8 +3147,21 @@
 
                     this.eventLists2 = []
                     this.eventLists2 = [{"value": '', "label": 'Select Match'}]
+                    this.t_missed_betfair =0
+                    this.t_missed_livestats = 0
                     for(let i = 0 ; i < data.data[0].length ; i++){
                         this.eventLists2.push(data.data[0][i])
+                        if(data.data[0][i].Odds.length < 10 ||data.data[0][i].scores.length < 10){
+                            this.t_missed_betfair++
+                        }
+                        if(data.data[0][i].liveStats.length > 0){
+                            if(data.data[0][i].liveStats[0].stats.length < 1){
+                                this.t_missed_livestats++
+                            }
+                        }
+                        else{
+                            this.t_missed_livestats++
+                        }
                     }
 
                     console.log('eventList1', this.eventLists2)
@@ -3576,6 +3603,22 @@
                             this.predictionlist.splice(index, 1);
                             i = i - 1
                         }
+                    }
+                }
+
+                this.s_missed_betfair =0
+                this.s_missed_livestats = 0
+                for(let i = 1 ; i < this.predictionlist.length ; i++){
+                    if(this.predictionlist[i].Odds.length < 10 || this.predictionlist[i].scores.length < 10){
+                        this.s_missed_betfair++
+                    }
+                    if(this.predictionlist[i].liveStats.length > 0){
+                        if(this.predictionlist[i].liveStats[0].stats.length < 1){
+                            this.s_missed_livestats++
+                        }
+                    }
+                    else{
+                        this.s_missed_livestats++
                     }
                 }
 
