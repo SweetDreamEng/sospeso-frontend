@@ -253,114 +253,261 @@
                     </CCol>
                 </CRow>
                 <div style="width: 100%;">
-                    <label>Total Matches:</label>
+                    <label>Home Team:</label>
                 </div>
                 <div class="totalMatches" style="display: flex; font-weight: 600; font-size: 12px;">
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header" style="color: #d1c4e1;">.</p>
+                        <p class="value" style="padding: 3px;">Min</p>
+                        <p class="percent" style="padding: 3px;">Max</p>
+                    </div>
                     <div  style="flex: 1; text-align: center;">
-                        <p class="header">X Lay</p>
-                        <p class="value">{{this.total_matches_number.xLay}}</p>
-                        <p v-if="this.db_matches_number.xLay != 0" class="percent">{{(this.total_matches_number.xLay/this.matches_found*100).toFixed(2)}}%</p>
-                        <p v-else class="percent">0.00%</p>
+                        <p class="header">minute</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">X Back</p>
-                        <p class="value">{{this.total_matches_number.xBack}}</p>
-                        <p v-if="this.db_matches_number.xBack != 0" class="percent">{{(this.total_matches_number.xBack/this.matches_found*100).toFixed(2)}}%</p>
-                        <p v-else class="percent">0.00%</p>
+                        <p class="header">Rank</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">1 Lay</p>
-                        <p class="value">{{this.total_matches_number.Lay1}}</p>
-                        <p v-if="this.db_matches_number.Lay1 != 0" class="percent">{{(this.total_matches_number.Lay1/this.matches_found*100).toFixed(2)}}%</p>
-                        <p v-else class="percent">0.00%</p>
+                        <p class="header">Goal</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">2 Lay</p>
-                        <p class="value">{{this.total_matches_number.Lay2}}</p>
-                        <p v-if="this.db_matches_number.Lay2 != 0" class="percent">{{(this.total_matches_number.Lay2/this.matches_found*100).toFixed(2)}}%</p>
-                        <p v-else class="percent">0.00%</p>
+                        <p class="header">On</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">O 2.5 Back</p>
-                        <p class="value">{{this.total_matches_number.o25Back}}</p>
-                        <p v-if="this.db_matches_number.o25Back != 0" class="percent">{{(this.total_matches_number.o25Back/this.matches_found*100).toFixed(2)}}%</p>
-                        <p v-else class="percent">0.00%</p>
+                        <p class="header">Off</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">O 1.5 Back</p>
-                        <p class="value">{{this.total_matches_number.o15Back}}</p>
-                        <p v-if="this.db_matches_number.o15Back != 0" class="percent">{{(this.total_matches_number.o15Back/this.matches_found*100).toFixed(2)}}%</p>
-                        <p v-else class="percent">0.00%</p>
+                        <p class="header">Blk</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">O 0.5 Back</p>
-                        <p class="value">{{this.total_matches_number.o05Back}}</p>
-                        <p v-if="this.db_matches_number.o05Back != 0" class="percent">{{(this.total_matches_number.o05Back/this.matches_found*100).toFixed(2)}}%</p>
-                        <p v-else class="percent">0.00%</p>
+                        <p class="header">In</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">U 3.5 Back</p>
-                        <p class="value">{{this.total_matches_number.u35Back}}</p>
-                        <p v-if="this.db_matches_number.u35Back != 0" class="percent">{{(this.total_matches_number.u35Back/this.matches_found*100).toFixed(2)}}%</p>
-                        <p v-else class="percent">0.00%</p>
+                        <p class="header">Out</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">U 2.5 Back</p>
-                        <p class="value">{{this.total_matches_number.u25Back}}</p>
-                        <p v-if="this.db_matches_number.u25Back != 0" class="percent">{{(this.total_matches_number.u25Back/this.matches_found*100).toFixed(2)}}%</p>
-                        <p v-else class="percent">0.00%</p>
+                        <p class="header">Cnr</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">DA</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Pos</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Red</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Yel</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                 </div>
+
                 <div style="width: 100%;">
-                    <label>Total opportunity matches:</label>
+                    <label>Away Team:</label>
                 </div>
                 <div class="totalMatches" style="display: flex; font-weight: 600; font-size: 12px;">
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header" style="color: #d1c4e1;">.</p>
+                        <p class="value" style="padding: 3px;">Min</p>
+                        <p class="percent" style="padding: 3px;">Max</p>
+                    </div>
                     <div  style="flex: 1; text-align: center;">
-                        <p class="header">X Lay</p>
-                        <p class="value">0</p>
-                        <p class="percent">33.33%</p>
+                        <p class="header">minute</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">X Back</p>
-                        <p class="value">0</p>
-                        <p class="percent">33.33%</p>
+                        <p class="header">Rank</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">1 Lay</p>
-                        <p class="value">0</p>
-                        <p class="percent">33.33%</p>
+                        <p class="header">Goal</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">2 Lay</p>
-                        <p class="value">0</p>
-                        <p class="percent">33.33%</p>
+                        <p class="header">On</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">O 2.5 Back</p>
-                        <p class="value">0</p>
-                        <p class="percent">33.33%</p>
+                        <p class="header">Off</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">O 1.5 Back</p>
-                        <p class="value">0</p>
-                        <p class="percent">33.33%</p>
+                        <p class="header">Blk</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">O 0.5 Back</p>
-                        <p class="value">0</p>
-                        <p class="percent">33.33%</p>
+                        <p class="header">In</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">U 3.5 Back</p>
-                        <p class="value">0</p>
-                        <p class="percent">33.33%</p>
+                        <p class="header">Out</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <p class="header">U 2.5 Back</p>
-                        <p class="value">0</p>
-                        <p class="percent">33.33%</p>
+                        <p class="header">Cnr</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">DA</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Pos</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Red</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Yel</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                        </p>
                     </div>
                 </div>
+
                 <div style="width: 100%; margin-top: 20px;">
                     <label>Results by Segment Time:</label>
                 </div>
@@ -3224,6 +3371,88 @@
                 result_at_ft:{
                     "home": 100,
                     "away": 100
+                },
+                home_stats_filter:{
+                    "minute": {
+                        "from": 0, "to": 1000
+                    },
+                    "rank": {
+                        "from": 0, "to": 1000
+                    },
+                    "goal": {
+                        "from": 0, "to": 1000
+                    },
+                    "on": {
+                        "from": 0, "to": 1000
+                    },
+                    "off": {
+                        "from": 0, "to": 1000
+                    },
+                    "blk": {
+                        "from": 0, "to": 1000
+                    },
+                    "in": {
+                        "from": 0, "to": 1000
+                    },
+                    "out": {
+                        "from": 0, "to": 1000
+                    },
+                    "cnr": {
+                        "from": 0, "to": 1000
+                    },
+                    "da": {
+                        "from": 0, "to": 1000
+                    },
+                    "pos": {
+                        "from": 0, "to": 1000
+                    },
+                    "red": {
+                        "from": 0, "to": 1000
+                    },
+                    "yel": {
+                        "from": 0, "to": 1000
+                    },
+                },
+                away_stats_filter:{
+                    "minute": {
+                        "from": 0, "to": 1000
+                    },
+                    "rank": {
+                        "from": 0, "to": 1000
+                    },
+                    "goal": {
+                        "from": 0, "to": 1000
+                    },
+                    "on": {
+                        "from": 0, "to": 1000
+                    },
+                    "off": {
+                        "from": 0, "to": 1000
+                    },
+                    "blk": {
+                        "from": 0, "to": 1000
+                    },
+                    "in": {
+                        "from": 0, "to": 1000
+                    },
+                    "out": {
+                        "from": 0, "to": 1000
+                    },
+                    "cnr": {
+                        "from": 0, "to": 1000
+                    },
+                    "da": {
+                        "from": 0, "to": 1000
+                    },
+                    "pos": {
+                        "from": 0, "to": 1000
+                    },
+                    "red": {
+                        "from": 0, "to": 1000
+                    },
+                    "yel": {
+                        "from": 0, "to": 1000
+                    },
                 },
             }
         },
@@ -6506,6 +6735,9 @@
                     })
                 }
             },
+            home_stats_minute_from(){
+
+            },
             result_score_15_home(val){
                 this.result_at_15.home = val
                 this.getSearchResult()
@@ -6633,6 +6865,9 @@
     }
 </script>
 <style>
+    .minOdd1 input{
+        width: 58px;
+    }
     .stats-header{
         display: flex;
         width: 400px;
@@ -6744,6 +6979,9 @@
     .progressBar{
         width: 100%;
         height: 10px;
+    }
+    .value div{
+        margin:0;
     }
     @media screen and (max-width: 600px) {
 
