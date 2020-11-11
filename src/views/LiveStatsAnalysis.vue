@@ -71,418 +71,259 @@
                 </div>
             </CCol>
             <CCol lg="6" class="stats-filter-content" style="height: 800px; background: white; padding: 20px 30px;">
-                <div style="width: 50%; float: left; padding-right: 20px;">
-                    <label style="color: red; font-weight: bold;">Home Team:</label>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Rank</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"  :value="homeTeam.rank.from" @update:value="h_rank_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="homeTeam.rank.to" @update:value="h_rank_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                <div style="width: 100%;">
+                    <label>Home Team:</label>
+                </div>
+                <div class="totalMatches" style="display: flex; font-weight: 600; font-size: 12px;">
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header" style="color: #d1c4e1;">.</p>
+                        <p class="value" style="padding: 3px;">Min</p>
+                        <p class="percent" style="padding: 3px;">Max</p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">On</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="homeTeam.on.from" @update:value="h_on_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="homeTeam.on.to" @update:value="h_on_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div  style="flex: 1; text-align: center;">
+                        <p class="header">minute</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.minute.from" @update:value="home_minute_from_filter" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.minute.to" @update:value="home_minute_to_filter" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Off</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.off.from" @update:value="h_off_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.off.to" @update:value="h_off_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Rank</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.rank.from" @update:value="h_rank_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.rank.to" @update:value="h_rank_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Blk</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.blk.from" @update:value="h_blk_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.blk.to" @update:value="h_blk_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Goal</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.goal.from" @update:value="h_goal_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.goal.to" @update:value="h_goal_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">In</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.in.from" @update:value="h_in_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.in.to" @update:value="h_in_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">On</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.on.from" @update:value="h_on_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.on.to" @update:value="h_on_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Out</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.out.from" @update:value="h_out_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.out.to" @update:value="h_out_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Off</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.off.from" @update:value="h_off_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.off.to" @update:value="h_off_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Cnr</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.cnr.from" @update:value="h_cnr_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="homeTeam.cnr.to" @update:value="h_cnr_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Blk</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.blk.from" @update:value="h_blk_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.blk.to" @update:value="h_blk_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">DA</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.da.from" @update:value="h_da_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.da.to" @update:value="h_da_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">In</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.in.from" @update:value="h_in_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.in.to" @update:value="h_in_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Pos</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="homeTeam.pos.from" @update:value="h_pos_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0" :value="homeTeam.pos.to" @update:value="h_pos_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Out</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.out.from" @update:value="h_out_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.out.to" @update:value="h_out_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Red</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0" :value="homeTeam.red.from" @update:value="h_red_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0" :value="homeTeam.red.to" @update:value="h_red_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Cnr</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.cnr.from" @update:value="h_cnr_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.cnr.to" @update:value="h_cnr_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Yel</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="homeTeam.yel.from" @update:value="h_yel_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="homeTeam.yel.to" @update:value="h_yel_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">DA</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.da.from" @update:value="h_da_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.da.to" @update:value="h_da_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Goal</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="homeTeam.goal.from" @update:value="h_goal_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="homeTeam.goal.to" @update:value="h_goal_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Pos</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.pos.from" @update:value="h_pos_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.pos.to" @update:value="h_pos_to" class="minOdd2"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Red</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.red.from" @update:value="h_red_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.red.to" @update:value="h_red_to" class="minOdd2"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Yel</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.yel.from" @update:value="h_yel_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="homeTeam.yel.to" @update:value="h_yel_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
                 </div>
-                <div style="width: 50%; float: left; padding-left: 20px;">
-                    <label style="color: red; font-weight: bold;">Away Team:</label>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Rank</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="awayTeam.rank.from" @update:value="a_rank_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="awayTeam.rank.to" @update:value="a_rank_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+
+                <div style="width: 100%;">
+                    <label>Away Team:</label>
+                </div>
+                <div class="totalMatches" style="display: flex; font-weight: 600; font-size: 12px;">
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header" style="color: #d1c4e1;">.</p>
+                        <p class="value" style="padding: 3px;">Min</p>
+                        <p class="percent" style="padding: 3px;">Max</p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">On</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="awayTeam.on.from" @update:value="a_on_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="awayTeam.on.to" @update:value="a_on_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div  style="flex: 1; text-align: center;">
+                        <p class="header">minute</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.minute.from" @update:value="away_minute_from_filter" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.minute.to" @update:value="away_minute_to_filter" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Off</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="awayTeam.off.from" @update:value="a_off_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="awayTeam.off.to" @update:value="a_off_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Rank</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.rank.from" @update:value="a_rank_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.rank.to" @update:value="a_rank_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Blk</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0"   :value="awayTeam.blk.from" @update:value="a_blk_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="awayTeam.blk.to" @update:value="a_blk_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Goal</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.goal.from" @update:value="a_goal_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.goal.to" @update:value="a_goal_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">In</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="awayTeam.in.from" @update:value="a_in_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="awayTeam.in.to" @update:value="a_in_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">On</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.on.from" @update:value="a_on_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.on.to" @update:value="a_on_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Out</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="awayTeam.out.from" @update:value="a_out_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="awayTeam.out.to" @update:value="a_out_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Off</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.off.from" @update:value="a_off_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.off.to" @update:value="a_off_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Cnr</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="awayTeam.cnr.from" @update:value="a_cnr_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number" min="0" :value="awayTeam.cnr.to" @update:value="a_cnr_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Blk</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.blk.from" @update:value="a_blk_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.blk.to" @update:value="a_blk_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">DA</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="awayTeam.da.from" @update:value="a_da_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0"  :value="awayTeam.da.to" @update:value="a_da_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">In</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.in.from" @update:value="a_in_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.in.to" @update:value="a_in_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style = "background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Pos</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style = "width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type = "number"  min="0" :value="awayTeam.pos.from" @update:value="a_pos_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style = "width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style = "width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0" :value="awayTeam.pos.to" @update:value="a_pos_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Out</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.out.from" @update:value="a_out_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.out.to" @update:value="a_out_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Red</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0" :value="awayTeam.red.from" @update:value="a_red_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0" :value="awayTeam.red.to" @update:value="a_red_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Cnr</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.cnr.from" @update:value="a_cnr_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.cnr.to" @update:value="a_cnr_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Yel</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0" :value="awayTeam.yel.from" @update:value="a_yel_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0" :value="awayTeam.yel.to" @update:value="a_yel_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">DA</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.da.from" @update:value="a_da_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.da.to" @update:value="a_da_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
-                    <div style="display: flex;">
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <div style="background: #b1a0c7; text-align: center; margin: auto; padding: 3px;">Goal</div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">from</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0" :value="awayTeam.goal.from" @update:value="a_goal_from" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
-                        <div style="flex: 1; padding: 1px 5px;">
-                            <label style="width: 30px; float: left; text-align: right; padding-right: 10px;">to</label>
-                            <div style="width: calc(100% - 30px); float: left;">
-                                <CInput type="number"  min="0" :value="awayTeam.goal.to" @update:value="a_goal_to" class="odd-filter-inputbox"></CInput>
-                            </div>
-                        </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Pos</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.pos.from" @update:value="a_pos_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.pos.to" @update:value="a_pos_to" class="minOdd2"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Red</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.red.from" @update:value="a_red_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.red.to" @update:value="a_red_to" class="minOdd2"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Yel</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.yel.from" @update:value="a_yel_from" class="minOdd2"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="awayTeam.yel.to" @update:value="a_yel_to" class="minOdd2"></CInput>
+                        </p>
                     </div>
                 </div>
 
@@ -1997,6 +1838,10 @@
                 leagues: [{"league": '', 'value': 0, 'label': 'select league'}],
                 selected_league: null,
                 homeTeam:{
+                    'minute':{
+                        'from': 0,
+                        'to': 1000
+                    },
                     'rank': {
                         'from': 0,
                         'to': 1000
@@ -2047,6 +1892,10 @@
                     }
                 },
                 awayTeam:{
+                    'minute': {
+                        'from': 0,
+                        'to': 1000
+                    },
                     'rank': {
                         'from': 0,
                         'to': 1000
@@ -2675,10 +2524,15 @@
                         }
                     }
                     this.origin_events = this.eventList
+                    console.log('origin_events=>', this.origin_events)
                     this.matches_found = this.eventList.length - 1
                     this.filtered_result = this.eventList.length - 1
                     this.get_time_seg_stats(this.origin_events)
                     this.homeTeam = {
+                        'minute':{
+                            'from': 0,
+                            'to': 1000
+                        },
                         'rank': {
                             'from': 0,
                             'to': 1000
@@ -2729,6 +2583,10 @@
                         }
                     }
                     this.awayTeam = {
+                        'minute':{
+                            'from': 0,
+                            'to': 1000
+                        },
                         'rank': {
                             'from': 0,
                             'to': 1000
@@ -4946,6 +4804,22 @@
             max_minute_f(){
 
             },
+            home_minute_from_filter(val){
+                this.homeTeam.minute.from = val
+                this.get_search_events()
+            },
+            home_minute_to_filter(val){
+                this.homeTeam.minute.to = val
+                this.get_search_events()
+            },
+            away_minute_from_filter(val){
+                this.awayTeam.minute.from = val
+                this.get_search_events()
+            },
+            away_minute_to_filter(val){
+                this.awayTeam.minute.to = val
+                this.get_search_events()
+            },
             set_event(val){
                 console.log('selected event value log', val)
                 this.total_home_stats = {
@@ -5392,6 +5266,7 @@
                 for(let i = 1 ; i < events.length ; i++){
                     let value = events[i].value
                     let stats = value.stats
+                    let times = value.time
                     let home_id = value.home_id
                     let away_id = value.away_id
                     console.log('events ==>', value)
@@ -5402,6 +5277,13 @@
                             if(stats_length > 0){
                                 // console.log('rank checking', value.home_rank, value.away_rank)
                                 let statsData = stats[stats_length - 1]
+
+                                for(let j = 0 ; j < times.length; j++){
+                                    if(times[j].minute >= this.homeTeam.minute.from && times[j].minute <= this.homeTeam.minute.to && times[j].minute >= this.awayTeam.minute.from && times[j].minute <= this.awayTeam.minute.to){
+                                        statsData = stats[j]
+                                    }
+                                }
+
                                 // console.log('statsData=>', statsData)
                                 let home_stats_data = {
                                     'on': 0,
@@ -5645,7 +5527,6 @@
                                     }
                                 }
                                 if(home_stats_data.on >= this.homeTeam.on.from && home_stats_data.on <= this.homeTeam.on.to && away_stats_data.on >= this.awayTeam.on.from && away_stats_data.on <= this.awayTeam.on.to){
-// console.log('+++++++++++++++++++++++on - checking', this.homeTeam.on.from, this.homeTeam.on.to, this.awayTeam.on.from, this.awayTeam.on.to)
                                     if(home_stats_data.off >= this.homeTeam.off.from && home_stats_data.off <= this.homeTeam.off.to && away_stats_data.off >= this.awayTeam.off.from && away_stats_data.off <= this.awayTeam.off.to){
                                         if(home_stats_data.blk >= this.homeTeam.blk.from && home_stats_data.blk <= this.homeTeam.blk.to && away_stats_data.blk >= this.awayTeam.blk.from && away_stats_data.blk <= this.awayTeam.blk.to){
                                               if(home_stats_data.in >= this.homeTeam.in.from && home_stats_data.in <= this.homeTeam.in.to && away_stats_data.in >= this.awayTeam.in.from && away_stats_data.in <= this.awayTeam.in.to){
@@ -5930,6 +5811,10 @@
     }
 </script>
 <style>
+    .live-stats-container .minOdd2 input{
+        padding-left: 3px!important;
+        width: 44px;
+    }
     .live-stats-container{
         min-width: 1340px;
     }
