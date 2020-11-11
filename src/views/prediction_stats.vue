@@ -267,115 +267,115 @@
                             <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Rank</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.rank.from" @update:value="home_stats_rank_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.rank.to" @update:value="home_stats_rank_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Goal</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.goal.from" @update:value="home_stats_goal_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.goal.to" @update:value="home_stats_goal_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">On</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.on.from" @update:value="home_stats_on_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.on.to" @update:value="home_stats_on_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Off</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.off.from" @update:value="home_stats_off_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.off.to" @update:value="home_stats_off_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Blk</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.blk.from" @update:value="home_stats_blk_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.blk.to" @update:value="home_stats_blk_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">In</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.in.from" @update:value="home_stats_in_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.in.to" @update:value="home_stats_in_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Out</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.out.from" @update:value="home_stats_out_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.out.to" @update:value="home_stats_out_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Cnr</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.cnr.from" @update:value="home_stats_cnr_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.cnr.to" @update:value="home_stats_cnr_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">DA</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.da.from" @update:value="home_stats_da_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.da.to" @update:value="home_stats_da_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Pos</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.pos.from" @update:value="home_stats_pos_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.pos.to" @update:value="home_stats_pos_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Red</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.red.from" @update:value="home_stats_red_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.red.to" @update:value="home_stats_red_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Yel</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.yel.from" @update:value="home_stats_yel_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.yel.to" @update:value="home_stats_yel_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                 </div>
@@ -392,118 +392,118 @@
                     <div  style="flex: 1; text-align: center;">
                         <p class="header">minute</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.minute.from" @update:value="away_stats_minute_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.minute.to" @update:value="away_stats_minute_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Rank</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.rank.from" @update:value="away_stats_rank_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.rank.to" @update:value="away_stats_rank_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Goal</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.goal.from" @update:value="away_stats_goal_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.goal.to" @update:value="away_stats_goal_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">On</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.on.from" @update:value="away_stats_on_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.on.to" @update:value="away_stats_on_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Off</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.off.from" @update:value="away_stats_off_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.off.to" @update:value="away_stats_off_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Blk</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.blk.from" @update:value="away_stats_blk_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.blk.to" @update:value="away_stats_blk_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">In</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.in.from" @update:value="away_stats_in_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.in.to" @update:value="away_stats_in_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Out</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.out.from" @update:value="away_stats_out_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.out.to" @update:value="away_stats_out_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Cnr</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.cnr.from" @update:value="away_stats_cnr_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.cnr.to" @update:value="away_stats_cnr_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">DA</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.da.from" @update:value="away_stats_da_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.da.to" @update:value="away_stats_da_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Pos</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.pos.from" @update:value="away_stats_pos_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.pos.to" @update:value="away_stats_pos_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Red</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.red.from" @update:value="away_stats_red_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.red.to" @update:value="away_stats_red_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">Yel</p>
                         <p class="value">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.from" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.yel.from" @update:value="away_stats_yel_from" class="minOdd1"></CInput>
                         </p>
                         <p class="percent">
-                            <CInput type="number" min="0" max="90000000" :value="this.home_stats_filter.minute.to" @update:value="home_stats_minute_from" class="minOdd1"></CInput>
+                            <CInput type="number" min="0" max="90000000" :value="this.away_stats_filter.yel.to" @update:value="away_stats_yel_to" class="minOdd1"></CInput>
                         </p>
                     </div>
                 </div>
@@ -4016,6 +4016,665 @@
                     }
                 }
 
+                //-----------------------------------------stats filter--------------------------------------------
+                //--------------------------------------
+                if(this.home_stats_filter.goal.from != 0 || this.home_stats_filter.goal.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_goal = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
+                                    home_goal = histo_data.stats[j][0].goals
+                                }
+                            }
+                            if(home_goal < this.home_stats_filter.goal.from || home_goal > this.home_stats_filter.goal.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.home_stats_filter.on.from != 0 || this.home_stats_filter.on.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_on = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
+                                    if(histo_data.stats[j][0].shots){
+                                        home_on = histo_data.stats[j][0].shots.ongoal
+                                    }
+                                }
+                            }
+                            if(home_on < this.home_stats_filter.on.from || home_on > this.home_stats_filter.on.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.home_stats_filter.off.from != 0 || this.home_stats_filter.off.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_off = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
+                                    if(histo_data.stats[j][0].shots){
+                                        home_off = histo_data.stats[j][0].shots.offgoal
+                                    }
+                                }
+                            }
+                            if(home_off < this.home_stats_filter.off.from || home_off > this.home_stats_filter.off.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.home_stats_filter.blk.from != 0 || this.home_stats_filter.blk.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_blk = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
+                                    if(histo_data.stats[j][0].shots){
+                                        home_blk = histo_data.stats[j][0].shots.blocked
+                                    }
+                                }
+                            }
+                            if(home_blk < this.home_stats_filter.blk.from || home_blk > this.home_stats_filter.blk.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.home_stats_filter.in.from != 0 || this.home_stats_filter.in.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_in = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
+                                    if(histo_data.stats[j][0].shots){
+                                        home_in = histo_data.stats[j][0].shots.insidebox
+                                    }
+                                }
+                            }
+                            if(home_in < this.home_stats_filter.in.from || home_in > this.home_stats_filter.in.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.home_stats_filter.out.from != 0 || this.home_stats_filter.out.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_out = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
+                                    if(histo_data.stats[j][0].shots){
+                                        home_out = histo_data.stats[j][0].shots.outsidebox
+                                    }
+                                }
+                            }
+                            if(home_out < this.home_stats_filter.in.from || home_out > this.home_stats_filter.in.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.home_stats_filter.cnr.from != 0 || this.home_stats_filter.cnr.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_cnr = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
+                                    if(histo_data.stats[j][0].corners){
+                                        home_cnr = histo_data.stats[j][0].corners
+                                    }
+                                }
+                            }
+                            if(home_cnr < this.home_stats_filter.cnr.from || home_cnr > this.home_stats_filter.cnr.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.home_stats_filter.da.from != 0 || this.home_stats_filter.da.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_da = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
+                                    if(histo_data.stats[j][0].attacks){
+                                        home_da = histo_data.stats[j][0].attacks.dangerous_attacks
+                                    }
+                                }
+                            }
+                            if(home_da < this.home_stats_filter.da.from || home_da > this.home_stats_filter.da.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.home_stats_filter.pos.from != 0 || this.home_stats_filter.pos.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_pos = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
+                                    if(histo_data.stats[j][0].possessiontime){
+                                        home_pos = histo_data.stats[j][0].possessiontime
+                                    }
+                                }
+                            }
+                            if(home_pos < this.home_stats_filter.pos.from || home_pos > this.home_stats_filter.pos.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.home_stats_filter.red.from != 0 || this.home_stats_filter.red.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_red = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
+                                    if(histo_data.stats[j][0].redcards){
+                                        home_red = histo_data.stats[j][0].redcards
+                                    }
+                                }
+                            }
+                            if(home_red < this.home_stats_filter.red.from || home_red > this.home_stats_filter.red.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.home_stats_filter.yel.from != 0 || this.home_stats_filter.yel.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_yel = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
+                                    if(histo_data.stats[j][0].yellowcards){
+                                        home_yel = histo_data.stats[j][0].yellowcards
+                                    }
+                                }
+                            }
+                            if(home_yel < this.home_stats_filter.yel.from || home_yel > this.home_stats_filter.yel.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+                //-----------------------------------------
+                if(this.away_stats_filter.goal.from != 0 || this.away_stats_filter.goal.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_goal = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
+                                    home_goal = histo_data.stats[j][1].goals
+                                }
+                            }
+                            if(home_goal < this.away_stats_filter.goal.from || home_goal > this.away_stats_filter.goal.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.away_stats_filter.on.from != 0 || this.away_stats_filter.on.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_on = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
+                                    if(histo_data.stats[j][1].shots){
+                                        home_on = histo_data.stats[j][1].shots.ongoal
+                                    }
+                                }
+                            }
+                            if(home_on < this.away_stats_filter.on.from || home_on > this.away_stats_filter.on.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.away_stats_filter.off.from != 0 || this.away_stats_filter.off.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_off = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
+                                    if(histo_data.stats[j][1].shots){
+                                        home_off = histo_data.stats[j][1].shots.offgoal
+                                    }
+                                }
+                            }
+                            if(home_off < this.away_stats_filter.off.from || home_off > this.away_stats_filter.off.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.away_stats_filter.blk.from != 0 || this.away_stats_filter.blk.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_blk = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
+                                    if(histo_data.stats[j][1].shots){
+                                        home_blk = histo_data.stats[j][1].shots.blocked
+                                    }
+                                }
+                            }
+                            if(home_blk < this.away_stats_filter.blk.from || home_blk > this.away_stats_filter.blk.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.away_stats_filter.in.from != 0 || this.away_stats_filter.in.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_in = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
+                                    if(histo_data.stats[j][1].shots){
+                                        home_in = histo_data.stats[j][1].shots.insidebox
+                                    }
+                                }
+                            }
+                            if(home_in < this.away_stats_filter.in.from || home_in > this.away_stats_filter.in.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.away_stats_filter.out.from != 0 || this.away_stats_filter.out.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_out = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
+                                    if(histo_data.stats[j][1].shots){
+                                        home_out = histo_data.stats[j][1].shots.outsidebox
+                                    }
+                                }
+                            }
+                            if(home_out < this.away_stats_filter.out.from || home_out > this.away_stats_filter.out.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.away_stats_filter.cnr.from != 0 || this.away_stats_filter.cnr.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_cnr = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
+                                    if(histo_data.stats[j][1].corners){
+                                        home_cnr = histo_data.stats[j][1].corners
+                                    }
+                                }
+                            }
+                            if(home_cnr < this.away_stats_filter.cnr.from || home_cnr > this.away_stats_filter.cnr.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.away_stats_filter.da.from != 0 || this.away_stats_filter.da.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_da = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
+                                    if(histo_data.stats[j][1].attacks){
+                                        home_da = histo_data.stats[j][1].attacks.dangerous_attacks
+                                    }
+                                }
+                            }
+                            if(home_da < this.away_stats_filter.da.from || home_da > this.away_stats_filter.da.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.away_stats_filter.pos.from != 0 || this.away_stats_filter.pos.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_pos = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
+                                    if(histo_data.stats[j][1].possessiontime){
+                                        home_pos = histo_data.stats[j][1].possessiontime
+                                    }
+                                }
+                            }
+                            if(home_pos < this.away_stats_filter.pos.from || home_pos > this.away_stats_filter.pos.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.away_stats_filter.red.from != 0 || this.away_stats_filter.red.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_red = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
+                                    if(histo_data.stats[j][1].redcards){
+                                        home_red = histo_data.stats[j][1].redcards
+                                    }
+                                }
+                            }
+                            if(home_red < this.away_stats_filter.red.from || home_red > this.away_stats_filter.red.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+
+                if(this.away_stats_filter.yel.from != 0 || this.away_stats_filter.yel.to != 1000){
+                    for(let i = 1; i < this.predictionlist.length; i++){
+                        if(this.predictionlist[i].liveStats.length > 0){
+                            let histo_data = this.predictionlist[i].liveStats[0]
+                            let home_yel = 10000
+                            for(let j = 0 ; j < histo_data.time.length; j++){
+                                if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
+                                    if(histo_data.stats[j][1].yellowcards){
+                                        home_yel = histo_data.stats[j][1].yellowcards
+                                    }
+                                }
+                            }
+                            if(home_yel < this.away_stats_filter.yel.from || home_yel > this.away_stats_filter.yel.to){
+                                let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.predictionlist.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.predictionlist.indexOf(this.predictionlist[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.predictionlist.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+                //---------------------------------------stats filter end------------------------------------------
+
                 if(this.searchFilter.duplicate === true){
                     let predictionList = this.predictionlist
                     let duplicatedPredictions = []
@@ -6735,9 +7394,216 @@
                     })
                 }
             },
-            home_stats_minute_from(){
-
+            home_stats_minute_from(val){
+                this.home_stats_filter.minute.from = val
+                this.getSearchResult()
             },
+            home_stats_minute_to(val){
+                this.home_stats_filter.minute.to = val
+                this.getSearchResult()
+            },
+            home_stats_rank_from(val){
+                this.home_stats_filter.rank.from = val
+                // this.getSearchResult()
+            },
+            home_stats_rank_to(val){
+                this.home_stats_filter.rank.to = val
+                // this.getSearchResult()
+            },
+            home_stats_goal_from(val){
+                this.home_stats_filter.goal.from = val
+                this.getSearchResult()
+            },
+            home_stats_goal_to(val){
+                this.home_stats_filter.goal.to = val
+                this.getSearchResult()
+            },
+            home_stats_on_from(val){
+                this.home_stats_filter.on.from = val
+                this.getSearchResult()
+            },
+            home_stats_on_to(val){
+                this.home_stats_filter.on.to = val
+                this.getSearchResult()
+            },
+            home_stats_off_from(val){
+                this.home_stats_filter.off.from = val
+                this.getSearchResult()
+            },
+            home_stats_off_to(val){
+                this.home_stats_filter.off.to = val
+                this.getSearchResult()
+            },
+            home_stats_blk_from(val){
+                this.home_stats_filter.blk.from = val
+                this.getSearchResult()
+            },
+            home_stats_blk_to(val){
+                this.home_stats_filter.blk.to = val
+                this.getSearchResult()
+            },
+            home_stats_in_from(val){
+                this.home_stats_filter.in.from = val
+                this.getSearchResult()
+            },
+            home_stats_in_to(val){
+                this.home_stats_filter.in.to = val
+                this.getSearchResult()
+            },
+            home_stats_out_from(val){
+                this.home_stats_filter.out.from = val
+                this.getSearchResult()
+            },
+            home_stats_out_to(val){
+                this.home_stats_filter.out.to = val
+                this.getSearchResult()
+            },
+            home_stats_cnr_from(val){
+                this.home_stats_filter.cnr.from = val
+                this.getSearchResult()
+            },
+            home_stats_cnr_to(val){
+                this.home_stats_filter.cnr.to = val
+                this.getSearchResult()
+            },
+            home_stats_da_from(val){
+                this.home_stats_filter.da.from = val
+                this.getSearchResult()
+            },
+            home_stats_da_to(val){
+                this.home_stats_filter.da.to = val
+                this.getSearchResult()
+            },
+            home_stats_pos_from(val){
+                this.home_stats_filter.pos.from = val
+                this.getSearchResult()
+            },
+            home_stats_pos_to(val){
+                this.home_stats_filter.pos.to = val
+                this.getSearchResult()
+            },
+            home_stats_red_from(val){
+                this.home_stats_filter.red.from = val
+                this.getSearchResult()
+            },
+            home_stats_red_to(val){
+                this.home_stats_filter.red.to = val
+                this.getSearchResult()
+            },
+            home_stats_yel_from(val){
+                this.home_stats_filter.yel.from = val
+                this.getSearchResult()
+            },
+            home_stats_yel_to(val){
+                this.home_stats_filter.yel.to = val
+                this.getSearchResult()
+            },
+
+            away_stats_minute_from(val){
+                this.away_stats_filter.minute.from = val
+                this.getSearchResult()
+            },
+            away_stats_minute_to(val){
+                this.away_stats_filter.minute.to = val
+                this.getSearchResult()
+            },
+            away_stats_rank_from(val){
+                this.away_stats_filter.rank.from = val
+                // this.getSearchResult()
+            },
+            away_stats_rank_to(val){
+                this.away_stats_filter.rank.to = val
+                // this.getSearchResult()
+            },
+            away_stats_goal_from(val){
+                this.away_stats_filter.goal.from = val
+                this.getSearchResult()
+            },
+            away_stats_goal_to(val){
+                this.away_stats_filter.goal.to = val
+                this.getSearchResult()
+            },
+            away_stats_on_from(val){
+                this.away_stats_filter.on.from = val
+                this.getSearchResult()
+            },
+            away_stats_on_to(val){
+                this.away_stats_filter.on.to = val
+                this.getSearchResult()
+            },
+            away_stats_off_from(val){
+                this.away_stats_filter.off.from = val
+                this.getSearchResult()
+            },
+            away_stats_off_to(val){
+                this.away_stats_filter.off.to = val
+                this.getSearchResult()
+            },
+            away_stats_blk_from(val){
+                this.away_stats_filter.blk.from = val
+                this.getSearchResult()
+            },
+            away_stats_blk_to(val){
+                this.away_stats_filter.blk.to = val
+                this.getSearchResult()
+            },
+            away_stats_in_from(val){
+                this.away_stats_filter.in.from = val
+                this.getSearchResult()
+            },
+            away_stats_in_to(val){
+                this.away_stats_filter.in.to = val
+                this.getSearchResult()
+            },
+            away_stats_out_from(val){
+                this.away_stats_filter.out.from = val
+                this.getSearchResult()
+            },
+            away_stats_out_to(val){
+                this.away_stats_filter.out.to = val
+                this.getSearchResult()
+            },
+            away_stats_cnr_from(val){
+                this.away_stats_filter.cnr.from = val
+                this.getSearchResult()
+            },
+            away_stats_cnr_to(val){
+                this.away_stats_filter.cnr.to = val
+                this.getSearchResult()
+            },
+            away_stats_da_from(val){
+                this.away_stats_filter.da.from = val
+                this.getSearchResult()
+            },
+            away_stats_da_to(val){
+                this.away_stats_filter.da.to = val
+                this.getSearchResult()
+            },
+            away_stats_pos_from(val){
+                this.away_stats_filter.pos.from = val
+                this.getSearchResult()
+            },
+            away_stats_pos_to(val){
+                this.away_stats_filter.pos.to = val
+                this.getSearchResult()
+            },
+            away_stats_red_from(val){
+                this.away_stats_filter.red.from = val
+                this.getSearchResult()
+            },
+            away_stats_red_to(val){
+                this.away_stats_filter.red.to = val
+                this.getSearchResult()
+            },
+            away_stats_yel_from(val){
+                this.away_stats_filter.yel.from = val
+                this.getSearchResult()
+            },
+            away_stats_yel_to(val){
+                this.away_stats_filter.yel.to = val
+                this.getSearchResult()
+            },
+
             result_score_15_home(val){
                 this.result_at_15.home = val
                 this.getSearchResult()
