@@ -4010,16 +4010,20 @@ console.log('competition Array=>', competitionArray, main_data.length)
                                     }
                                     //-------------Total Part------------//
                                     if (main_data[j].home_id === main_data[j].stats[0].team_id) {
-                                        homeT.on = main_data[j].stats[0].shots.ongoal
-                                        awayT.on = main_data[j].stats[1].shots.ongoal
-                                        homeT.off = main_data[j].stats[0].shots.offgoal
-                                        awayT.off = main_data[j].stats[1].shots.offgoal
-                                        homeT.blk = main_data[j].stats[0].shots.blocked
-                                        awayT.blk = main_data[j].stats[1].shots.blocked
-                                        homeT.in = main_data[j].stats[0].shots.insidebox
-                                        awayT.in = main_data[j].stats[1].shots.insidebox
-                                        homeT.out = main_data[j].stats[0].shots.outsidebox
-                                        awayT.out = main_data[j].stats[1].shots.outsidebox
+                                        console.log(main_data[j])
+                                        if(main_data[j].stats[0].shots){
+                                            homeT.on = main_data[j].stats[0].shots.ongoal
+                                            awayT.on = main_data[j].stats[1].shots.ongoal
+                                            homeT.off = main_data[j].stats[0].shots.offgoal
+                                            awayT.off = main_data[j].stats[1].shots.offgoal
+                                            homeT.blk = main_data[j].stats[0].shots.blocked
+                                            awayT.blk = main_data[j].stats[1].shots.blocked
+                                            homeT.in = main_data[j].stats[0].shots.insidebox
+                                            awayT.in = main_data[j].stats[1].shots.insidebox
+                                            homeT.out = main_data[j].stats[0].shots.outsidebox
+                                            awayT.out = main_data[j].stats[1].shots.outsidebox
+                                        }
+
                                         homeT.cnr = main_data[j].stats[0].corners
                                         awayT.cnr = main_data[j].stats[1].corners
                                         if(main_data[j].stats[0].attacks){
