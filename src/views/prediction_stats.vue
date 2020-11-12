@@ -4309,14 +4309,15 @@
                             let home_red = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
-                                    if(histo_data.stats[j][0]){
-                                        if(histo_data.stats[j][0].redcards){
-                                            home_red = histo_data.stats[j][0].redcards
+                                    if(histo_data.stats[j].length > 0){
+                                        if(histo_data.stats[j][0]){
+                                            let home_red_data = histo_data.stats[j][0]
+                                            home_red = home_red_data.redcards
                                         }
                                     }
                                 }
                             }
-                            console.log('home_red', home_red, 'home_red_from=>', this.home_stats_filter.red.from, 'home_red_to==>', this.home_stats_filter.red.to)
+
                             if(home_red < this.home_stats_filter.red.from || home_red > this.home_stats_filter.red.to){
                                 let index = this.predictionlist.indexOf(this.predictionlist[i]);
                                 if (index > -1) {
@@ -4658,14 +4659,13 @@
                             let home_red = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
-                                    if(histo_data.stats[j][1]){
-                                        if(histo_data.stats[j][1].redcards){
-                                            home_red = histo_data.stats[j][1].redcards
-                                        }
+                                    if(histo_data.stats[j].length > 0){
+                                        let home_red_data = histo_data.stats[j][1]
+                                        home_red = home_red_data.redcards
                                     }
                                 }
                             }
-                            console.log('away_red==>', home_red, 'away_red_from==>',this.away_stats_filter.red.from, 'away_red_to==>', this.away_stats_filter.red.to)
+
                             if(home_red < this.away_stats_filter.red.from || home_red > this.away_stats_filter.red.to){
                                 let index = this.predictionlist.indexOf(this.predictionlist[i]);
                                 if (index > -1) {
