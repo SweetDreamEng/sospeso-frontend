@@ -524,17 +524,17 @@
                     <div style="flex: 1; text-align: center;">
                         <p class="header">0 - 0</p>
                         <p v-if="this.score_stats.score0_15.score00 === 0" class="value">{{this.score_stats.score0_15.score00}}</p>
-                        <p v-else class="value">{{this.score_stats.score0_15.score00}} ({{(this.score_stats.score0_15.score00/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score0_15.score00}} ({{(this.score_stats.score0_15.score00/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score16_30.score00 === 0" class="percent">{{this.score_stats.score16_30.score00}}</p>
-                        <p v-else class="value">{{this.score_stats.score16_30.score00}} ({{(this.score_stats.score16_30.score00/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score16_30.score00}} ({{(this.score_stats.score16_30.score00/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score31_45.score00 === 0" class="value">{{this.score_stats.score31_45.score00}}</p>
-                        <p v-else class="value">{{this.score_stats.score31_45.score00}} ({{(this.score_stats.score31_45.score00/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score31_45.score00}} ({{(this.score_stats.score31_45.score00/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score46_60.score00 === 0" class="percent">{{this.score_stats.score46_60.score00}}</p>
-                        <p v-else class="value">{{this.score_stats.score46_60.score00}} ({{(this.score_stats.score46_60.score00/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score46_60.score00}} ({{(this.score_stats.score46_60.score00/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score61_75.score00 === 0" class="value">{{this.score_stats.score61_75.score00}}</p>
-                        <p v-else class="value">{{this.score_stats.score61_75.score00}} ({{(this.score_stats.score61_75.score00/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score61_75.score00}} ({{(this.score_stats.score61_75.score00/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                         <p v-if="this.score_stats.score76_90.score00 === 0" class="percent">{{this.score_stats.score76_90.score00}}</p>
-                        <p v-else class="value">{{this.score_stats.score76_90.score00}} ({{(this.score_stats.score76_90.score00/(matches_found - s_missed_livestats)*100).toFixed(0)}}%)</p>
+                        <p v-else class="value">{{this.score_stats.score76_90.score00}} ({{(this.score_stats.score76_90.score00/(matches_found - s_missed_betfair)*100).toFixed(0)}}%)</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
                         <p class="header">1 - 1</p>
@@ -4053,8 +4053,10 @@
                             let home_on = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
-                                    if(histo_data.stats[j][0].shots){
-                                        home_on = histo_data.stats[j][0].shots.ongoal
+                                    if(histo_data.stats[j][0]){
+                                        if(histo_data.stats[j][0].shots){
+                                            home_on = histo_data.stats[j][0].shots.ongoal
+                                        }
                                     }
                                 }
                             }
@@ -4083,8 +4085,10 @@
                             let home_off = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
-                                    if(histo_data.stats[j][0].shots){
-                                        home_off = histo_data.stats[j][0].shots.offgoal
+                                    if(histo_data.stats[j][0]){
+                                        if(histo_data.stats[j][0].shots){
+                                            home_off = histo_data.stats[j][0].shots.offgoal
+                                        }
                                     }
                                 }
                             }
@@ -4113,8 +4117,10 @@
                             let home_blk = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
-                                    if(histo_data.stats[j][0].shots){
-                                        home_blk = histo_data.stats[j][0].shots.blocked
+                                    if(histo_data.stats[j][0]){
+                                        if(histo_data.stats[j][0].shots){
+                                            home_blk = histo_data.stats[j][0].shots.blocked
+                                        }
                                     }
                                 }
                             }
@@ -4143,8 +4149,10 @@
                             let home_in = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
-                                    if(histo_data.stats[j][0].shots){
-                                        home_in = histo_data.stats[j][0].shots.insidebox
+                                    if(histo_data.stats[j][0]){
+                                        if(histo_data.stats[j][0].shots){
+                                            home_in = histo_data.stats[j][0].shots.insidebox
+                                        }
                                     }
                                 }
                             }
@@ -4173,8 +4181,10 @@
                             let home_out = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
-                                    if(histo_data.stats[j][0].shots){
-                                        home_out = histo_data.stats[j][0].shots.outsidebox
+                                    if(histo_data.stats[j][0]){
+                                        if(histo_data.stats[j][0].shots){
+                                            home_out = histo_data.stats[j][0].shots.outsidebox
+                                        }
                                     }
                                 }
                             }
@@ -4203,8 +4213,10 @@
                             let home_cnr = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
-                                    if(histo_data.stats[j][0].corners){
-                                        home_cnr = histo_data.stats[j][0].corners
+                                    if(histo_data.stats[j][0]){
+                                        if(histo_data.stats[j][0].corners){
+                                            home_cnr = histo_data.stats[j][0].corners
+                                        }
                                     }
                                 }
                             }
@@ -4233,8 +4245,10 @@
                             let home_da = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
-                                    if(histo_data.stats[j][0].attacks){
-                                        home_da = histo_data.stats[j][0].attacks.dangerous_attacks
+                                    if(histo_data.stats[j][0]){
+                                        if(histo_data.stats[j][0].attacks){
+                                            home_da = histo_data.stats[j][0].attacks.dangerous_attacks
+                                        }
                                     }
                                 }
                             }
@@ -4263,8 +4277,10 @@
                             let home_pos = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
-                                    if(histo_data.stats[j][0].possessiontime){
-                                        home_pos = histo_data.stats[j][0].possessiontime
+                                    if(histo_data.stats[j][0]){
+                                        if(histo_data.stats[j][0].possessiontime){
+                                            home_pos = histo_data.stats[j][0].possessiontime
+                                        }
                                     }
                                 }
                             }
@@ -4293,11 +4309,14 @@
                             let home_red = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
-                                    if(histo_data.stats[j][0].redcards){
-                                        home_red = histo_data.stats[j][0].redcards
+                                    if(histo_data.stats[j][0]){
+                                        if(histo_data.stats[j][0].redcards){
+                                            home_red = histo_data.stats[j][0].redcards
+                                        }
                                     }
                                 }
                             }
+                            console.log('home_red', home_red, 'home_red_from=>', this.home_stats_filter.red.from, 'home_red_to==>', this.home_stats_filter.red.to)
                             if(home_red < this.home_stats_filter.red.from || home_red > this.home_stats_filter.red.to){
                                 let index = this.predictionlist.indexOf(this.predictionlist[i]);
                                 if (index > -1) {
@@ -4323,8 +4342,10 @@
                             let home_yel = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.home_stats_filter.minute.from && histo_data.time[j].minute <= this.home_stats_filter.minute.to){
-                                    if(histo_data.stats[j][0].yellowcards){
-                                        home_yel = histo_data.stats[j][0].yellowcards
+                                    if(histo_data.stats[j][0]){
+                                        if(histo_data.stats[j][0].yellowcards){
+                                            home_yel = histo_data.stats[j][0].yellowcards
+                                        }
                                     }
                                 }
                             }
@@ -4381,8 +4402,10 @@
                             let home_on = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
-                                    if(histo_data.stats[j][1].shots){
-                                        home_on = histo_data.stats[j][1].shots.ongoal
+                                    if(histo_data.stats[j][1]){
+                                        if(histo_data.stats[j][1].shots){
+                                            home_on = histo_data.stats[j][1].shots.ongoal
+                                        }
                                     }
                                 }
                             }
@@ -4411,8 +4434,10 @@
                             let home_off = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
-                                    if(histo_data.stats[j][1].shots){
-                                        home_off = histo_data.stats[j][1].shots.offgoal
+                                    if(histo_data.stats[j][1]){
+                                        if(histo_data.stats[j][1].shots){
+                                            home_off = histo_data.stats[j][1].shots.offgoal
+                                        }
                                     }
                                 }
                             }
@@ -4441,8 +4466,10 @@
                             let home_blk = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
-                                    if(histo_data.stats[j][1].shots){
-                                        home_blk = histo_data.stats[j][1].shots.blocked
+                                    if(histo_data.stats[j][1]){
+                                        if(histo_data.stats[j][1].shots){
+                                            home_blk = histo_data.stats[j][1].shots.blocked
+                                        }
                                     }
                                 }
                             }
@@ -4471,8 +4498,10 @@
                             let home_in = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
-                                    if(histo_data.stats[j][1].shots){
-                                        home_in = histo_data.stats[j][1].shots.insidebox
+                                    if(histo_data.stats[j][1]){
+                                        if(histo_data.stats[j][1].shots){
+                                            home_in = histo_data.stats[j][1].shots.insidebox
+                                        }
                                     }
                                 }
                             }
@@ -4501,8 +4530,10 @@
                             let home_out = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
-                                    if(histo_data.stats[j][1].shots){
-                                        home_out = histo_data.stats[j][1].shots.outsidebox
+                                    if(histo_data.stats[j][1]){
+                                        if(histo_data.stats[j][1].shots){
+                                            home_out = histo_data.stats[j][1].shots.outsidebox
+                                        }
                                     }
                                 }
                             }
@@ -4531,8 +4562,10 @@
                             let home_cnr = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
-                                    if(histo_data.stats[j][1].corners){
-                                        home_cnr = histo_data.stats[j][1].corners
+                                    if(histo_data.stats[j][1]){
+                                        if(histo_data.stats[j][1].corners){
+                                            home_cnr = histo_data.stats[j][1].corners
+                                        }
                                     }
                                 }
                             }
@@ -4561,8 +4594,10 @@
                             let home_da = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
-                                    if(histo_data.stats[j][1].attacks){
-                                        home_da = histo_data.stats[j][1].attacks.dangerous_attacks
+                                    if(histo_data.stats[j][1]){
+                                        if(histo_data.stats[j][1].attacks){
+                                            home_da = histo_data.stats[j][1].attacks.dangerous_attacks
+                                        }
                                     }
                                 }
                             }
@@ -4591,8 +4626,10 @@
                             let home_pos = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
-                                    if(histo_data.stats[j][1].possessiontime){
-                                        home_pos = histo_data.stats[j][1].possessiontime
+                                    if(histo_data.stats[j][1]){
+                                        if(histo_data.stats[j][1].possessiontime){
+                                            home_pos = histo_data.stats[j][1].possessiontime
+                                        }
                                     }
                                 }
                             }
@@ -4621,11 +4658,14 @@
                             let home_red = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
-                                    if(histo_data.stats[j][1].redcards){
-                                        home_red = histo_data.stats[j][1].redcards
+                                    if(histo_data.stats[j][1]){
+                                        if(histo_data.stats[j][1].redcards){
+                                            home_red = histo_data.stats[j][1].redcards
+                                        }
                                     }
                                 }
                             }
+                            console.log('away_red==>', home_red, 'away_red_from==>',this.away_stats_filter.red.from, 'away_red_to==>', this.away_stats_filter.red.to)
                             if(home_red < this.away_stats_filter.red.from || home_red > this.away_stats_filter.red.to){
                                 let index = this.predictionlist.indexOf(this.predictionlist[i]);
                                 if (index > -1) {
@@ -4651,8 +4691,10 @@
                             let home_yel = 10000
                             for(let j = 0 ; j < histo_data.time.length; j++){
                                 if(histo_data.time[j].minute >= this.away_stats_filter.minute.from && histo_data.time[j].minute <= this.away_stats_filter.minute.to){
-                                    if(histo_data.stats[j][1].yellowcards){
-                                        home_yel = histo_data.stats[j][1].yellowcards
+                                    if(histo_data.stats[j][1]){
+                                        if(histo_data.stats[j][1].yellowcards){
+                                            home_yel = histo_data.stats[j][1].yellowcards
+                                        }
                                     }
                                 }
                             }
@@ -4674,7 +4716,6 @@
                     }
                 }
                 //---------------------------------------stats filter end------------------------------------------
-
                 if(this.searchFilter.duplicate === true){
                     let predictionList = this.predictionlist
                     let duplicatedPredictions = []
@@ -6163,615 +6204,617 @@
                         if(times.length > 0){
                             for(let j = 0; j < times.length; j++){
                                 let cStats = stats[j]
-                                if(times[j].minute <= 15){
-                                    if(home_id == cStats[0].team_id){
-                                        if(cStats[0].shots){
-                                            if(cStats[0].shots.ongoal){
-                                                live_segment_stats1.stats_0_15.home.on = cStats[0].shots.ongoal
-                                                live_segment_stats1.stats_0_15.away.on = cStats[1].shots.ongoal
+                                if(cStats[0]){
+                                    if(times[j].minute <= 15){
+                                        if(home_id == cStats[0].team_id){
+                                            if(cStats[0].shots){
+                                                if(cStats[0].shots.ongoal){
+                                                    live_segment_stats1.stats_0_15.home.on = cStats[0].shots.ongoal
+                                                    live_segment_stats1.stats_0_15.away.on = cStats[1].shots.ongoal
+                                                }
+                                                if(cStats[0].shots.offgoal){
+                                                    live_segment_stats1.stats_0_15.home.off = cStats[0].shots.offgoal
+                                                    live_segment_stats1.stats_0_15.away.off = cStats[1].shots.offgoal
+                                                }
+                                                if(cStats[0].shots.blocked){
+                                                    live_segment_stats1.stats_0_15.home.blk = cStats[0].shots.blocked
+                                                    live_segment_stats1.stats_0_15.away.blk = cStats[1].shots.blocked
+                                                }
+                                                if(cStats[0].shots.insidebox){
+                                                    live_segment_stats1.stats_0_15.home.in = cStats[0].shots.insidebox
+                                                    live_segment_stats1.stats_0_15.away.in = cStats[1].shots.insidebox
+                                                }
+                                                if(cStats[0].shots.outsidebox){
+                                                    live_segment_stats1.stats_0_15.home.out = cStats[0].shots.outsidebox
+                                                    live_segment_stats1.stats_0_15.away.out = cStats[1].shots.outsidebox
+                                                }
                                             }
-                                            if(cStats[0].shots.offgoal){
-                                                live_segment_stats1.stats_0_15.home.off = cStats[0].shots.offgoal
-                                                live_segment_stats1.stats_0_15.away.off = cStats[1].shots.offgoal
+                                            if(cStats[0].corners){
+                                                live_segment_stats1.stats_0_15.home.cnr = cStats[0].corners
+                                                live_segment_stats1.stats_0_15.away.cnr = cStats[1].corners
                                             }
-                                            if(cStats[0].shots.blocked){
-                                                live_segment_stats1.stats_0_15.home.blk = cStats[0].shots.blocked
-                                                live_segment_stats1.stats_0_15.away.blk = cStats[1].shots.blocked
+                                            if(cStats[0].goals){
+                                                live_segment_stats1.stats_0_15.home.goal = cStats[0].goals
+                                                live_segment_stats1.stats_0_15.away.goal = cStats[1].goals
                                             }
-                                            if(cStats[0].shots.insidebox){
-                                                live_segment_stats1.stats_0_15.home.in = cStats[0].shots.insidebox
-                                                live_segment_stats1.stats_0_15.away.in = cStats[1].shots.insidebox
+                                            if(cStats[0].attacks){
+                                                if(cStats[0].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_0_15.home.da = cStats[0].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_0_15.away.da = cStats[1].attacks.dangerous_attacks
+                                                }
                                             }
-                                            if(cStats[0].shots.outsidebox){
-                                                live_segment_stats1.stats_0_15.home.out = cStats[0].shots.outsidebox
-                                                live_segment_stats1.stats_0_15.away.out = cStats[1].shots.outsidebox
+                                            if(cStats[0].possessiontime){
+                                                live_segment_stats1.stats_0_15.home.pos = cStats[0].possessiontime
+                                                live_segment_stats1.stats_0_15.away.pos = cStats[1].possessiontime
+                                            }
+                                            if(cStats[0].redcards){
+                                                live_segment_stats1.stats_0_15.home.red = cStats[0].redcards
+                                                live_segment_stats1.stats_0_15.away.red = cStats[1].redcards
+                                            }
+                                            if(cStats[0].yellowcards){
+                                                live_segment_stats1.stats_0_15.home.yel = cStats[0].yellowcards
+                                                live_segment_stats1.stats_0_15.home.yel = cStats[1].yellowcards
                                             }
                                         }
-                                        if(cStats[0].corners){
-                                            live_segment_stats1.stats_0_15.home.cnr = cStats[0].corners
-                                            live_segment_stats1.stats_0_15.away.cnr = cStats[1].corners
-                                        }
-                                        if(cStats[0].goals){
-                                            live_segment_stats1.stats_0_15.home.goal = cStats[0].goals
-                                            live_segment_stats1.stats_0_15.away.goal = cStats[1].goals
-                                        }
-                                        if(cStats[0].attacks){
-                                            if(cStats[0].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_0_15.home.da = cStats[0].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_0_15.away.da = cStats[1].attacks.dangerous_attacks
+                                        if(home_id == cStats[1].team_id){
+                                            if(cStats[1].shots){
+                                                if(cStats[1].shots.ongoal){
+                                                    live_segment_stats1.stats_0_15.home.on = cStats[1].shots.ongoal
+                                                    live_segment_stats1.stats_0_15.away.on = cStats[0].shots.ongoal
+                                                }
+                                                if(cStats[1].shots.offgoal){
+                                                    live_segment_stats1.stats_0_15.home.off = cStats[1].shots.offgoal
+                                                    live_segment_stats1.stats_0_15.away.off = cStats[0].shots.offgoal
+                                                }
+                                                if(cStats[1].shots.blocked){
+                                                    live_segment_stats1.stats_0_15.home.blk = cStats[1].shots.blocked
+                                                    live_segment_stats1.stats_0_15.away.blk = cStats[0].shots.blocked
+                                                }
+                                                if(cStats[1].shots.insidebox){
+                                                    live_segment_stats1.stats_0_15.home.in = cStats[1].shots.insidebox
+                                                    live_segment_stats1.stats_0_15.away.in = cStats[0].shots.insidebox
+                                                }
+                                                if(cStats[1].shots.outsidebox){
+                                                    live_segment_stats1.stats_0_15.home.out = cStats[1].shots.outsidebox
+                                                    live_segment_stats1.stats_0_15.away.out = cStats[0].shots.outsidebox
+                                                }
                                             }
-                                        }
-                                        if(cStats[0].possessiontime){
-                                            live_segment_stats1.stats_0_15.home.pos = cStats[0].possessiontime
-                                            live_segment_stats1.stats_0_15.away.pos = cStats[1].possessiontime
-                                        }
-                                        if(cStats[0].redcards){
-                                            live_segment_stats1.stats_0_15.home.red = cStats[0].redcards
-                                            live_segment_stats1.stats_0_15.away.red = cStats[1].redcards
-                                        }
-                                        if(cStats[0].yellowcards){
-                                            live_segment_stats1.stats_0_15.home.yel = cStats[0].yellowcards
-                                            live_segment_stats1.stats_0_15.home.yel = cStats[1].yellowcards
+                                            if(cStats[1].corners){
+                                                live_segment_stats1.stats_0_15.home.cnr = cStats[1].corners
+                                                live_segment_stats1.stats_0_15.away.cnr = cStats[0].corners
+                                            }
+                                            if(cStats[1].goals){
+                                                live_segment_stats1.stats_0_15.home.goal = cStats[1].goals
+                                                live_segment_stats1.stats_0_15.away.goal = cStats[0].goals
+                                            }
+                                            if(cStats[1].attacks){
+                                                if(cStats[1].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_0_15.home.da = cStats[1].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_0_15.away.da = cStats[0].attacks.dangerous_attacks
+                                                }
+                                            }
+                                            if(cStats[1].possessiontime){
+                                                live_segment_stats1.stats_0_15.home.pos = cStats[1].possessiontime
+                                                live_segment_stats1.stats_0_15.away.pos = cStats[0].possessiontime
+                                            }
+                                            if(cStats[1].redcards){
+                                                live_segment_stats1.stats_0_15.home.red = cStats[1].redcards
+                                                live_segment_stats1.stats_0_15.away.red = cStats[0].redcards
+                                            }
+                                            if(cStats[1].yellowcards){
+                                                live_segment_stats1.stats_0_15.home.yel = cStats[1].yellowcards
+                                                live_segment_stats1.stats_0_15.home.yel = cStats[0].yellowcards
+                                            }
                                         }
                                     }
-                                    if(home_id == cStats[1].team_id){
-                                        if(cStats[1].shots){
-                                            if(cStats[1].shots.ongoal){
-                                                live_segment_stats1.stats_0_15.home.on = cStats[1].shots.ongoal
-                                                live_segment_stats1.stats_0_15.away.on = cStats[0].shots.ongoal
+                                    if(times[j].minute > 15 && times[j].minute <= 30){
+                                        if(home_id == cStats[0].team_id){
+                                            if(cStats[0].shots){
+                                                if(cStats[0].shots.ongoal){
+                                                    live_segment_stats1.stats_16_30.home.on = cStats[0].shots.ongoal
+                                                    live_segment_stats1.stats_16_30.away.on = cStats[1].shots.ongoal
+                                                }
+                                                if(cStats[0].shots.offgoal){
+                                                    live_segment_stats1.stats_16_30.home.off = cStats[0].shots.offgoal
+                                                    live_segment_stats1.stats_16_30.away.off = cStats[1].shots.offgoal
+                                                }
+                                                if(cStats[0].shots.blocked){
+                                                    live_segment_stats1.stats_16_30.home.blk = cStats[0].shots.blocked
+                                                    live_segment_stats1.stats_16_30.away.blk = cStats[1].shots.blocked
+                                                }
+                                                if(cStats[0].shots.insidebox){
+                                                    live_segment_stats1.stats_16_30.home.in = cStats[0].shots.insidebox
+                                                    live_segment_stats1.stats_16_30.away.in = cStats[1].shots.insidebox
+                                                }
+                                                if(cStats[0].shots.outsidebox){
+                                                    live_segment_stats1.stats_16_30.home.out = cStats[0].shots.outsidebox
+                                                    live_segment_stats1.stats_16_30.away.out = cStats[1].shots.outsidebox
+                                                }
                                             }
-                                            if(cStats[1].shots.offgoal){
-                                                live_segment_stats1.stats_0_15.home.off = cStats[1].shots.offgoal
-                                                live_segment_stats1.stats_0_15.away.off = cStats[0].shots.offgoal
+                                            if(cStats[0].corners){
+                                                live_segment_stats1.stats_16_30.home.cnr = cStats[0].corners
+                                                live_segment_stats1.stats_16_30.away.cnr = cStats[1].corners
                                             }
-                                            if(cStats[1].shots.blocked){
-                                                live_segment_stats1.stats_0_15.home.blk = cStats[1].shots.blocked
-                                                live_segment_stats1.stats_0_15.away.blk = cStats[0].shots.blocked
+                                            if(cStats[0].goals){
+                                                live_segment_stats1.stats_16_30.home.goal = cStats[0].goals
+                                                live_segment_stats1.stats_16_30.away.goal = cStats[1].goals
                                             }
-                                            if(cStats[1].shots.insidebox){
-                                                live_segment_stats1.stats_0_15.home.in = cStats[1].shots.insidebox
-                                                live_segment_stats1.stats_0_15.away.in = cStats[0].shots.insidebox
+                                            if(cStats[0].attacks){
+                                                if(cStats[0].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_16_30.home.da = cStats[0].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_16_30.away.da = cStats[1].attacks.dangerous_attacks
+                                                }
                                             }
-                                            if(cStats[1].shots.outsidebox){
-                                                live_segment_stats1.stats_0_15.home.out = cStats[1].shots.outsidebox
-                                                live_segment_stats1.stats_0_15.away.out = cStats[0].shots.outsidebox
+                                            if(cStats[0].possessiontime){
+                                                live_segment_stats1.stats_16_30.home.pos = cStats[0].possessiontime
+                                                live_segment_stats1.stats_16_30.away.pos = cStats[1].possessiontime
+                                            }
+                                            if(cStats[0].redcards){
+                                                live_segment_stats1.stats_16_30.home.red = cStats[0].redcards
+                                                live_segment_stats1.stats_16_30.away.red = cStats[1].redcards
+                                            }
+                                            if(cStats[0].yellowcards){
+                                                live_segment_stats1.stats_16_30.home.yel = cStats[0].yellowcards
+                                                live_segment_stats1.stats_16_30.home.yel = cStats[1].yellowcards
                                             }
                                         }
-                                        if(cStats[1].corners){
-                                            live_segment_stats1.stats_0_15.home.cnr = cStats[1].corners
-                                            live_segment_stats1.stats_0_15.away.cnr = cStats[0].corners
-                                        }
-                                        if(cStats[1].goals){
-                                            live_segment_stats1.stats_0_15.home.goal = cStats[1].goals
-                                            live_segment_stats1.stats_0_15.away.goal = cStats[0].goals
-                                        }
-                                        if(cStats[1].attacks){
-                                            if(cStats[1].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_0_15.home.da = cStats[1].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_0_15.away.da = cStats[0].attacks.dangerous_attacks
+                                        if(home_id == cStats[1].team_id){
+                                            if(cStats[1].shots){
+                                                if(cStats[1].shots.ongoal){
+                                                    live_segment_stats1.stats_16_30.home.on = cStats[1].shots.ongoal
+                                                    live_segment_stats1.stats_16_30.away.on = cStats[0].shots.ongoal
+                                                }
+                                                if(cStats[1].shots.offgoal){
+                                                    live_segment_stats1.stats_16_30.home.off = cStats[1].shots.offgoal
+                                                    live_segment_stats1.stats_16_30.away.off = cStats[0].shots.offgoal
+                                                }
+                                                if(cStats[1].shots.blocked){
+                                                    live_segment_stats1.stats_16_30.home.blk = cStats[1].shots.blocked
+                                                    live_segment_stats1.stats_16_30.away.blk = cStats[0].shots.blocked
+                                                }
+                                                if(cStats[1].shots.insidebox){
+                                                    live_segment_stats1.stats_16_30.home.in = cStats[1].shots.insidebox
+                                                    live_segment_stats1.stats_16_30.away.in = cStats[0].shots.insidebox
+                                                }
+                                                if(cStats[1].shots.outsidebox){
+                                                    live_segment_stats1.stats_16_30.home.out = cStats[1].shots.outsidebox
+                                                    live_segment_stats1.stats_16_30.away.out = cStats[0].shots.outsidebox
+                                                }
                                             }
-                                        }
-                                        if(cStats[1].possessiontime){
-                                            live_segment_stats1.stats_0_15.home.pos = cStats[1].possessiontime
-                                            live_segment_stats1.stats_0_15.away.pos = cStats[0].possessiontime
-                                        }
-                                        if(cStats[1].redcards){
-                                            live_segment_stats1.stats_0_15.home.red = cStats[1].redcards
-                                            live_segment_stats1.stats_0_15.away.red = cStats[0].redcards
-                                        }
-                                        if(cStats[1].yellowcards){
-                                            live_segment_stats1.stats_0_15.home.yel = cStats[1].yellowcards
-                                            live_segment_stats1.stats_0_15.home.yel = cStats[0].yellowcards
+                                            if(cStats[1].corners){
+                                                live_segment_stats1.stats_16_30.home.cnr = cStats[1].corners
+                                                live_segment_stats1.stats_16_30.away.cnr = cStats[0].corners
+                                            }
+                                            if(cStats[1].goals){
+                                                live_segment_stats1.stats_16_30.home.goal = cStats[1].goals
+                                                live_segment_stats1.stats_16_30.away.goal = cStats[0].goals
+                                            }
+                                            if(cStats[1].attacks){
+                                                if(cStats[1].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_16_30.home.da = cStats[1].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_16_30.away.da = cStats[0].attacks.dangerous_attacks
+                                                }
+                                            }
+                                            if(cStats[1].possessiontime){
+                                                live_segment_stats1.stats_16_30.home.pos = cStats[1].possessiontime
+                                                live_segment_stats1.stats_16_30.away.pos = cStats[0].possessiontime
+                                            }
+                                            if(cStats[1].redcards){
+                                                live_segment_stats1.stats_16_30.home.red = cStats[1].redcards
+                                                live_segment_stats1.stats_16_30.away.red = cStats[0].redcards
+                                            }
+                                            if(cStats[1].yellowcards){
+                                                live_segment_stats1.stats_16_30.home.yel = cStats[1].yellowcards
+                                                live_segment_stats1.stats_16_30.home.yel = cStats[0].yellowcards
+                                            }
                                         }
                                     }
-                                }
-                                if(times[j].minute > 15 && times[j].minute <= 30){
-                                    if(home_id == cStats[0].team_id){
-                                        if(cStats[0].shots){
-                                            if(cStats[0].shots.ongoal){
-                                                live_segment_stats1.stats_16_30.home.on = cStats[0].shots.ongoal
-                                                live_segment_stats1.stats_16_30.away.on = cStats[1].shots.ongoal
+                                    if(times[j].minute > 30 && times[j].minute <= 45){
+                                        if(home_id == cStats[0].team_id){
+                                            if(cStats[0].shots){
+                                                if(cStats[0].shots.ongoal){
+                                                    live_segment_stats1.stats_31_45.home.on = cStats[0].shots.ongoal
+                                                    live_segment_stats1.stats_31_45.away.on = cStats[1].shots.ongoal
+                                                }
+                                                if(cStats[0].shots.offgoal){
+                                                    live_segment_stats1.stats_31_45.home.off = cStats[0].shots.offgoal
+                                                    live_segment_stats1.stats_31_45.away.off = cStats[1].shots.offgoal
+                                                }
+                                                if(cStats[0].shots.blocked){
+                                                    live_segment_stats1.stats_31_45.home.blk = cStats[0].shots.blocked
+                                                    live_segment_stats1.stats_31_45.away.blk = cStats[1].shots.blocked
+                                                }
+                                                if(cStats[0].shots.insidebox){
+                                                    live_segment_stats1.stats_31_45.home.in = cStats[0].shots.insidebox
+                                                    live_segment_stats1.stats_31_45.away.in = cStats[1].shots.insidebox
+                                                }
+                                                if(cStats[0].shots.outsidebox){
+                                                    live_segment_stats1.stats_31_45.home.out = cStats[0].shots.outsidebox
+                                                    live_segment_stats1.stats_31_45.away.out = cStats[1].shots.outsidebox
+                                                }
                                             }
-                                            if(cStats[0].shots.offgoal){
-                                                live_segment_stats1.stats_16_30.home.off = cStats[0].shots.offgoal
-                                                live_segment_stats1.stats_16_30.away.off = cStats[1].shots.offgoal
+                                            if(cStats[0].corners){
+                                                live_segment_stats1.stats_31_45.home.cnr = cStats[0].corners
+                                                live_segment_stats1.stats_31_45.away.cnr = cStats[1].corners
                                             }
-                                            if(cStats[0].shots.blocked){
-                                                live_segment_stats1.stats_16_30.home.blk = cStats[0].shots.blocked
-                                                live_segment_stats1.stats_16_30.away.blk = cStats[1].shots.blocked
+                                            if(cStats[0].goals){
+                                                live_segment_stats1.stats_31_45.home.goal = cStats[0].goals
+                                                live_segment_stats1.stats_31_45.away.goal = cStats[1].goals
                                             }
-                                            if(cStats[0].shots.insidebox){
-                                                live_segment_stats1.stats_16_30.home.in = cStats[0].shots.insidebox
-                                                live_segment_stats1.stats_16_30.away.in = cStats[1].shots.insidebox
+                                            if(cStats[0].attacks){
+                                                if(cStats[0].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_31_45.home.da = cStats[0].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_31_45.away.da = cStats[1].attacks.dangerous_attacks
+                                                }
                                             }
-                                            if(cStats[0].shots.outsidebox){
-                                                live_segment_stats1.stats_16_30.home.out = cStats[0].shots.outsidebox
-                                                live_segment_stats1.stats_16_30.away.out = cStats[1].shots.outsidebox
+                                            if(cStats[0].possessiontime){
+                                                live_segment_stats1.stats_31_45.home.pos = cStats[0].possessiontime
+                                                live_segment_stats1.stats_31_45.away.pos = cStats[1].possessiontime
+                                            }
+                                            if(cStats[0].redcards){
+                                                live_segment_stats1.stats_31_45.home.red = cStats[0].redcards
+                                                live_segment_stats1.stats_31_45.away.red = cStats[1].redcards
+                                            }
+                                            if(cStats[0].yellowcards){
+                                                live_segment_stats1.stats_31_45.home.yel = cStats[0].yellowcards
+                                                live_segment_stats1.stats_31_45.home.yel = cStats[1].yellowcards
                                             }
                                         }
-                                        if(cStats[0].corners){
-                                            live_segment_stats1.stats_16_30.home.cnr = cStats[0].corners
-                                            live_segment_stats1.stats_16_30.away.cnr = cStats[1].corners
-                                        }
-                                        if(cStats[0].goals){
-                                            live_segment_stats1.stats_16_30.home.goal = cStats[0].goals
-                                            live_segment_stats1.stats_16_30.away.goal = cStats[1].goals
-                                        }
-                                        if(cStats[0].attacks){
-                                            if(cStats[0].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_16_30.home.da = cStats[0].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_16_30.away.da = cStats[1].attacks.dangerous_attacks
+                                        if(home_id == cStats[1].team_id){
+                                            if(cStats[1].shots){
+                                                if(cStats[1].shots.ongoal){
+                                                    live_segment_stats1.stats_31_45.home.on = cStats[1].shots.ongoal
+                                                    live_segment_stats1.stats_31_45.away.on = cStats[0].shots.ongoal
+                                                }
+                                                if(cStats[1].shots.offgoal){
+                                                    live_segment_stats1.stats_31_45.home.off = cStats[1].shots.offgoal
+                                                    live_segment_stats1.stats_31_45.away.off = cStats[0].shots.offgoal
+                                                }
+                                                if(cStats[1].shots.blocked){
+                                                    live_segment_stats1.stats_31_45.home.blk = cStats[1].shots.blocked
+                                                    live_segment_stats1.stats_31_45.away.blk = cStats[0].shots.blocked
+                                                }
+                                                if(cStats[1].shots.insidebox){
+                                                    live_segment_stats1.stats_31_45.home.in = cStats[1].shots.insidebox
+                                                    live_segment_stats1.stats_31_45.away.in = cStats[0].shots.insidebox
+                                                }
+                                                if(cStats[1].shots.outsidebox){
+                                                    live_segment_stats1.stats_31_45.home.out = cStats[1].shots.outsidebox
+                                                    live_segment_stats1.stats_31_45.away.out = cStats[0].shots.outsidebox
+                                                }
                                             }
-                                        }
-                                        if(cStats[0].possessiontime){
-                                            live_segment_stats1.stats_16_30.home.pos = cStats[0].possessiontime
-                                            live_segment_stats1.stats_16_30.away.pos = cStats[1].possessiontime
-                                        }
-                                        if(cStats[0].redcards){
-                                            live_segment_stats1.stats_16_30.home.red = cStats[0].redcards
-                                            live_segment_stats1.stats_16_30.away.red = cStats[1].redcards
-                                        }
-                                        if(cStats[0].yellowcards){
-                                            live_segment_stats1.stats_16_30.home.yel = cStats[0].yellowcards
-                                            live_segment_stats1.stats_16_30.home.yel = cStats[1].yellowcards
+                                            if(cStats[1].corners){
+                                                live_segment_stats1.stats_31_45.home.cnr = cStats[1].corners
+                                                live_segment_stats1.stats_31_45.away.cnr = cStats[0].corners
+                                            }
+                                            if(cStats[1].goals){
+                                                live_segment_stats1.stats_31_45.home.goal = cStats[1].goals
+                                                live_segment_stats1.stats_31_45.away.goal = cStats[0].goals
+                                            }
+                                            if(cStats[1].attacks){
+                                                if(cStats[1].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_31_45.home.da = cStats[1].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_31_45.away.da = cStats[0].attacks.dangerous_attacks
+                                                }
+                                            }
+                                            if(cStats[1].possessiontime){
+                                                live_segment_stats1.stats_31_45.home.pos = cStats[1].possessiontime
+                                                live_segment_stats1.stats_31_45.away.pos = cStats[0].possessiontime
+                                            }
+                                            if(cStats[1].redcards){
+                                                live_segment_stats1.stats_31_45.home.red = cStats[1].redcards
+                                                live_segment_stats1.stats_31_45.away.red = cStats[0].redcards
+                                            }
+                                            if(cStats[1].yellowcards){
+                                                live_segment_stats1.stats_31_45.home.yel = cStats[1].yellowcards
+                                                live_segment_stats1.stats_31_45.home.yel = cStats[0].yellowcards
+                                            }
                                         }
                                     }
-                                    if(home_id == cStats[1].team_id){
-                                        if(cStats[1].shots){
-                                            if(cStats[1].shots.ongoal){
-                                                live_segment_stats1.stats_16_30.home.on = cStats[1].shots.ongoal
-                                                live_segment_stats1.stats_16_30.away.on = cStats[0].shots.ongoal
+                                    if(times[j].minute > 45 && times[j].minute <= 60){
+                                        if(home_id == cStats[0].team_id){
+                                            if(cStats[0].shots){
+                                                if(cStats[0].shots.ongoal){
+                                                    live_segment_stats1.stats_46_60.home.on = cStats[0].shots.ongoal
+                                                    live_segment_stats1.stats_46_60.away.on = cStats[1].shots.ongoal
+                                                }
+                                                if(cStats[0].shots.offgoal){
+                                                    live_segment_stats1.stats_46_60.home.off = cStats[0].shots.offgoal
+                                                    live_segment_stats1.stats_46_60.away.off = cStats[1].shots.offgoal
+                                                }
+                                                if(cStats[0].shots.blocked){
+                                                    live_segment_stats1.stats_46_60.home.blk = cStats[0].shots.blocked
+                                                    live_segment_stats1.stats_46_60.away.blk = cStats[1].shots.blocked
+                                                }
+                                                if(cStats[0].shots.insidebox){
+                                                    live_segment_stats1.stats_46_60.home.in = cStats[0].shots.insidebox
+                                                    live_segment_stats1.stats_46_60.away.in = cStats[1].shots.insidebox
+                                                }
+                                                if(cStats[0].shots.outsidebox){
+                                                    live_segment_stats1.stats_46_60.home.out = cStats[0].shots.outsidebox
+                                                    live_segment_stats1.stats_46_60.away.out = cStats[1].shots.outsidebox
+                                                }
                                             }
-                                            if(cStats[1].shots.offgoal){
-                                                live_segment_stats1.stats_16_30.home.off = cStats[1].shots.offgoal
-                                                live_segment_stats1.stats_16_30.away.off = cStats[0].shots.offgoal
+                                            if(cStats[0].corners){
+                                                live_segment_stats1.stats_46_60.home.cnr = cStats[0].corners
+                                                live_segment_stats1.stats_46_60.away.cnr = cStats[1].corners
                                             }
-                                            if(cStats[1].shots.blocked){
-                                                live_segment_stats1.stats_16_30.home.blk = cStats[1].shots.blocked
-                                                live_segment_stats1.stats_16_30.away.blk = cStats[0].shots.blocked
+                                            if(cStats[0].goals){
+                                                live_segment_stats1.stats_46_60.home.goal = cStats[0].goals
+                                                live_segment_stats1.stats_46_60.away.goal = cStats[1].goals
                                             }
-                                            if(cStats[1].shots.insidebox){
-                                                live_segment_stats1.stats_16_30.home.in = cStats[1].shots.insidebox
-                                                live_segment_stats1.stats_16_30.away.in = cStats[0].shots.insidebox
+                                            if(cStats[0].attacks){
+                                                if(cStats[0].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_46_60.home.da = cStats[0].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_46_60.away.da = cStats[1].attacks.dangerous_attacks
+                                                }
                                             }
-                                            if(cStats[1].shots.outsidebox){
-                                                live_segment_stats1.stats_16_30.home.out = cStats[1].shots.outsidebox
-                                                live_segment_stats1.stats_16_30.away.out = cStats[0].shots.outsidebox
+                                            if(cStats[0].possessiontime){
+                                                live_segment_stats1.stats_46_60.home.pos = cStats[0].possessiontime
+                                                live_segment_stats1.stats_46_60.away.pos = cStats[1].possessiontime
+                                            }
+                                            if(cStats[0].redcards){
+                                                live_segment_stats1.stats_46_60.home.red = cStats[0].redcards
+                                                live_segment_stats1.stats_46_60.away.red = cStats[1].redcards
+                                            }
+                                            if(cStats[0].yellowcards){
+                                                live_segment_stats1.stats_46_60.home.yel = cStats[0].yellowcards
+                                                live_segment_stats1.stats_46_60.home.yel = cStats[1].yellowcards
                                             }
                                         }
-                                        if(cStats[1].corners){
-                                            live_segment_stats1.stats_16_30.home.cnr = cStats[1].corners
-                                            live_segment_stats1.stats_16_30.away.cnr = cStats[0].corners
-                                        }
-                                        if(cStats[1].goals){
-                                            live_segment_stats1.stats_16_30.home.goal = cStats[1].goals
-                                            live_segment_stats1.stats_16_30.away.goal = cStats[0].goals
-                                        }
-                                        if(cStats[1].attacks){
-                                            if(cStats[1].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_16_30.home.da = cStats[1].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_16_30.away.da = cStats[0].attacks.dangerous_attacks
+                                        if(home_id == cStats[1].team_id){
+                                            if(cStats[1].shots){
+                                                if(cStats[1].shots.ongoal){
+                                                    live_segment_stats1.stats_46_60.home.on = cStats[1].shots.ongoal
+                                                    live_segment_stats1.stats_46_60.away.on = cStats[0].shots.ongoal
+                                                }
+                                                if(cStats[1].shots.offgoal){
+                                                    live_segment_stats1.stats_46_60.home.off = cStats[1].shots.offgoal
+                                                    live_segment_stats1.stats_46_60.away.off = cStats[0].shots.offgoal
+                                                }
+                                                if(cStats[1].shots.blocked){
+                                                    live_segment_stats1.stats_46_60.home.blk = cStats[1].shots.blocked
+                                                    live_segment_stats1.stats_46_60.away.blk = cStats[0].shots.blocked
+                                                }
+                                                if(cStats[1].shots.insidebox){
+                                                    live_segment_stats1.stats_46_60.home.in = cStats[1].shots.insidebox
+                                                    live_segment_stats1.stats_46_60.away.in = cStats[0].shots.insidebox
+                                                }
+                                                if(cStats[1].shots.outsidebox){
+                                                    live_segment_stats1.stats_46_60.home.out = cStats[1].shots.outsidebox
+                                                    live_segment_stats1.stats_46_60.away.out = cStats[0].shots.outsidebox
+                                                }
                                             }
-                                        }
-                                        if(cStats[1].possessiontime){
-                                            live_segment_stats1.stats_16_30.home.pos = cStats[1].possessiontime
-                                            live_segment_stats1.stats_16_30.away.pos = cStats[0].possessiontime
-                                        }
-                                        if(cStats[1].redcards){
-                                            live_segment_stats1.stats_16_30.home.red = cStats[1].redcards
-                                            live_segment_stats1.stats_16_30.away.red = cStats[0].redcards
-                                        }
-                                        if(cStats[1].yellowcards){
-                                            live_segment_stats1.stats_16_30.home.yel = cStats[1].yellowcards
-                                            live_segment_stats1.stats_16_30.home.yel = cStats[0].yellowcards
+                                            if(cStats[1].corners){
+                                                live_segment_stats1.stats_46_60.home.cnr = cStats[1].corners
+                                                live_segment_stats1.stats_46_60.away.cnr = cStats[0].corners
+                                            }
+                                            if(cStats[1].goals){
+                                                live_segment_stats1.stats_46_60.home.goal = cStats[1].goals
+                                                live_segment_stats1.stats_46_60.away.goal = cStats[0].goals
+                                            }
+                                            if(cStats[1].attacks){
+                                                if(cStats[1].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_46_60.home.da = cStats[1].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_46_60.away.da = cStats[0].attacks.dangerous_attacks
+                                                }
+                                            }
+                                            if(cStats[1].possessiontime){
+                                                live_segment_stats1.stats_46_60.home.pos = cStats[1].possessiontime
+                                                live_segment_stats1.stats_46_60.away.pos = cStats[0].possessiontime
+                                            }
+                                            if(cStats[1].redcards){
+                                                live_segment_stats1.stats_46_60.home.red = cStats[1].redcards
+                                                live_segment_stats1.stats_46_60.away.red = cStats[0].redcards
+                                            }
+                                            if(cStats[1].yellowcards){
+                                                live_segment_stats1.stats_46_60.home.yel = cStats[1].yellowcards
+                                                live_segment_stats1.stats_46_60.home.yel = cStats[0].yellowcards
+                                            }
                                         }
                                     }
-                                }
-                                if(times[j].minute > 30 && times[j].minute <= 45){
-                                    if(home_id == cStats[0].team_id){
-                                        if(cStats[0].shots){
-                                            if(cStats[0].shots.ongoal){
-                                                live_segment_stats1.stats_31_45.home.on = cStats[0].shots.ongoal
-                                                live_segment_stats1.stats_31_45.away.on = cStats[1].shots.ongoal
+                                    if(times[j].minute > 60 && times[j].minute <= 75){
+                                        if(home_id == cStats[0].team_id){
+                                            if(cStats[0].shots){
+                                                if(cStats[0].shots.ongoal){
+                                                    live_segment_stats1.stats_61_75.home.on = cStats[0].shots.ongoal
+                                                    live_segment_stats1.stats_61_75.away.on = cStats[1].shots.ongoal
+                                                }
+                                                if(cStats[0].shots.offgoal){
+                                                    live_segment_stats1.stats_61_75.home.off = cStats[0].shots.offgoal
+                                                    live_segment_stats1.stats_61_75.away.off = cStats[1].shots.offgoal
+                                                }
+                                                if(cStats[0].shots.blocked){
+                                                    live_segment_stats1.stats_61_75.home.blk = cStats[0].shots.blocked
+                                                    live_segment_stats1.stats_61_75.away.blk = cStats[1].shots.blocked
+                                                }
+                                                if(cStats[0].shots.insidebox){
+                                                    live_segment_stats1.stats_61_75.home.in = cStats[0].shots.insidebox
+                                                    live_segment_stats1.stats_61_75.away.in = cStats[1].shots.insidebox
+                                                }
+                                                if(cStats[0].shots.outsidebox){
+                                                    live_segment_stats1.stats_61_75.home.out = cStats[0].shots.outsidebox
+                                                    live_segment_stats1.stats_61_75.away.out = cStats[1].shots.outsidebox
+                                                }
                                             }
-                                            if(cStats[0].shots.offgoal){
-                                                live_segment_stats1.stats_31_45.home.off = cStats[0].shots.offgoal
-                                                live_segment_stats1.stats_31_45.away.off = cStats[1].shots.offgoal
+                                            if(cStats[0].corners){
+                                                live_segment_stats1.stats_61_75.home.cnr = cStats[0].corners
+                                                live_segment_stats1.stats_61_75.away.cnr = cStats[1].corners
                                             }
-                                            if(cStats[0].shots.blocked){
-                                                live_segment_stats1.stats_31_45.home.blk = cStats[0].shots.blocked
-                                                live_segment_stats1.stats_31_45.away.blk = cStats[1].shots.blocked
+                                            if(cStats[0].goals){
+                                                live_segment_stats1.stats_61_75.home.goal = cStats[0].goals
+                                                live_segment_stats1.stats_61_75.away.goal = cStats[1].goals
                                             }
-                                            if(cStats[0].shots.insidebox){
-                                                live_segment_stats1.stats_31_45.home.in = cStats[0].shots.insidebox
-                                                live_segment_stats1.stats_31_45.away.in = cStats[1].shots.insidebox
+                                            if(cStats[0].attacks){
+                                                if(cStats[0].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_61_75.home.da = cStats[0].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_61_75.away.da = cStats[1].attacks.dangerous_attacks
+                                                }
                                             }
-                                            if(cStats[0].shots.outsidebox){
-                                                live_segment_stats1.stats_31_45.home.out = cStats[0].shots.outsidebox
-                                                live_segment_stats1.stats_31_45.away.out = cStats[1].shots.outsidebox
+                                            if(cStats[0].possessiontime){
+                                                live_segment_stats1.stats_61_75.home.pos = cStats[0].possessiontime
+                                                live_segment_stats1.stats_61_75.away.pos = cStats[1].possessiontime
+                                            }
+                                            if(cStats[0].redcards){
+                                                live_segment_stats1.stats_61_75.home.red = cStats[0].redcards
+                                                live_segment_stats1.stats_61_75.away.red = cStats[1].redcards
+                                            }
+                                            if(cStats[0].yellowcards){
+                                                live_segment_stats1.stats_61_75.home.yel = cStats[0].yellowcards
+                                                live_segment_stats1.stats_61_75.home.yel = cStats[1].yellowcards
                                             }
                                         }
-                                        if(cStats[0].corners){
-                                            live_segment_stats1.stats_31_45.home.cnr = cStats[0].corners
-                                            live_segment_stats1.stats_31_45.away.cnr = cStats[1].corners
-                                        }
-                                        if(cStats[0].goals){
-                                            live_segment_stats1.stats_31_45.home.goal = cStats[0].goals
-                                            live_segment_stats1.stats_31_45.away.goal = cStats[1].goals
-                                        }
-                                        if(cStats[0].attacks){
-                                            if(cStats[0].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_31_45.home.da = cStats[0].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_31_45.away.da = cStats[1].attacks.dangerous_attacks
+                                        if(home_id == cStats[1].team_id){
+                                            if(cStats[1].shots){
+                                                if(cStats[1].shots.ongoal){
+                                                    live_segment_stats1.stats_61_75.home.on = cStats[1].shots.ongoal
+                                                    live_segment_stats1.stats_61_75.away.on = cStats[0].shots.ongoal
+                                                }
+                                                if(cStats[1].shots.offgoal){
+                                                    live_segment_stats1.stats_61_75.home.off = cStats[1].shots.offgoal
+                                                    live_segment_stats1.stats_61_75.away.off = cStats[0].shots.offgoal
+                                                }
+                                                if(cStats[1].shots.blocked){
+                                                    live_segment_stats1.stats_61_75.home.blk = cStats[1].shots.blocked
+                                                    live_segment_stats1.stats_61_75.away.blk = cStats[0].shots.blocked
+                                                }
+                                                if(cStats[1].shots.insidebox){
+                                                    live_segment_stats1.stats_61_75.home.in = cStats[1].shots.insidebox
+                                                    live_segment_stats1.stats_61_75.away.in = cStats[0].shots.insidebox
+                                                }
+                                                if(cStats[1].shots.outsidebox){
+                                                    live_segment_stats1.stats_61_75.home.out = cStats[1].shots.outsidebox
+                                                    live_segment_stats1.stats_61_75.away.out = cStats[0].shots.outsidebox
+                                                }
                                             }
-                                        }
-                                        if(cStats[0].possessiontime){
-                                            live_segment_stats1.stats_31_45.home.pos = cStats[0].possessiontime
-                                            live_segment_stats1.stats_31_45.away.pos = cStats[1].possessiontime
-                                        }
-                                        if(cStats[0].redcards){
-                                            live_segment_stats1.stats_31_45.home.red = cStats[0].redcards
-                                            live_segment_stats1.stats_31_45.away.red = cStats[1].redcards
-                                        }
-                                        if(cStats[0].yellowcards){
-                                            live_segment_stats1.stats_31_45.home.yel = cStats[0].yellowcards
-                                            live_segment_stats1.stats_31_45.home.yel = cStats[1].yellowcards
+                                            if(cStats[1].corners){
+                                                live_segment_stats1.stats_61_75.home.cnr = cStats[1].corners
+                                                live_segment_stats1.stats_61_75.away.cnr = cStats[0].corners
+                                            }
+                                            if(cStats[1].goals){
+                                                live_segment_stats1.stats_61_75.home.goal = cStats[1].goals
+                                                live_segment_stats1.stats_61_75.away.goal = cStats[0].goals
+                                            }
+                                            if(cStats[1].attacks){
+                                                if(cStats[1].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_61_75.home.da = cStats[1].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_61_75.away.da = cStats[0].attacks.dangerous_attacks
+                                                }
+                                            }
+                                            if(cStats[1].possessiontime){
+                                                live_segment_stats1.stats_61_75.home.pos = cStats[1].possessiontime
+                                                live_segment_stats1.stats_61_75.away.pos = cStats[0].possessiontime
+                                            }
+                                            if(cStats[1].redcards){
+                                                live_segment_stats1.stats_61_75.home.red = cStats[1].redcards
+                                                live_segment_stats1.stats_61_75.away.red = cStats[0].redcards
+                                            }
+                                            if(cStats[1].yellowcards){
+                                                live_segment_stats1.stats_61_75.home.yel = cStats[1].yellowcards
+                                                live_segment_stats1.stats_61_75.home.yel = cStats[0].yellowcards
+                                            }
                                         }
                                     }
-                                    if(home_id == cStats[1].team_id){
-                                        if(cStats[1].shots){
-                                            if(cStats[1].shots.ongoal){
-                                                live_segment_stats1.stats_31_45.home.on = cStats[1].shots.ongoal
-                                                live_segment_stats1.stats_31_45.away.on = cStats[0].shots.ongoal
+                                    if(times[j].minute > 75 && times[j].minute <= 90){
+                                        if(home_id == cStats[0].team_id){
+                                            if(cStats[0].shots){
+                                                if(cStats[0].shots.ongoal){
+                                                    live_segment_stats1.stats_76_90.home.on = cStats[0].shots.ongoal
+                                                    live_segment_stats1.stats_76_90.away.on = cStats[1].shots.ongoal
+                                                }
+                                                if(cStats[0].shots.offgoal){
+                                                    live_segment_stats1.stats_76_90.home.off = cStats[0].shots.offgoal
+                                                    live_segment_stats1.stats_76_90.away.off = cStats[1].shots.offgoal
+                                                }
+                                                if(cStats[0].shots.blocked){
+                                                    live_segment_stats1.stats_76_90.home.blk = cStats[0].shots.blocked
+                                                    live_segment_stats1.stats_76_90.away.blk = cStats[1].shots.blocked
+                                                }
+                                                if(cStats[0].shots.insidebox){
+                                                    live_segment_stats1.stats_76_90.home.in = cStats[0].shots.insidebox
+                                                    live_segment_stats1.stats_76_90.away.in = cStats[1].shots.insidebox
+                                                }
+                                                if(cStats[0].shots.outsidebox){
+                                                    live_segment_stats1.stats_76_90.home.out = cStats[0].shots.outsidebox
+                                                    live_segment_stats1.stats_76_90.away.out = cStats[1].shots.outsidebox
+                                                }
                                             }
-                                            if(cStats[1].shots.offgoal){
-                                                live_segment_stats1.stats_31_45.home.off = cStats[1].shots.offgoal
-                                                live_segment_stats1.stats_31_45.away.off = cStats[0].shots.offgoal
+                                            if(cStats[0].corners){
+                                                live_segment_stats1.stats_76_90.home.cnr = cStats[0].corners
+                                                live_segment_stats1.stats_76_90.away.cnr = cStats[1].corners
                                             }
-                                            if(cStats[1].shots.blocked){
-                                                live_segment_stats1.stats_31_45.home.blk = cStats[1].shots.blocked
-                                                live_segment_stats1.stats_31_45.away.blk = cStats[0].shots.blocked
+                                            if(cStats[0].goals){
+                                                live_segment_stats1.stats_76_90.home.goal = cStats[0].goals
+                                                live_segment_stats1.stats_76_90.away.goal = cStats[1].goals
                                             }
-                                            if(cStats[1].shots.insidebox){
-                                                live_segment_stats1.stats_31_45.home.in = cStats[1].shots.insidebox
-                                                live_segment_stats1.stats_31_45.away.in = cStats[0].shots.insidebox
+                                            if(cStats[0].attacks){
+                                                if(cStats[0].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_76_90.home.da = cStats[0].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_76_90.away.da = cStats[1].attacks.dangerous_attacks
+                                                }
                                             }
-                                            if(cStats[1].shots.outsidebox){
-                                                live_segment_stats1.stats_31_45.home.out = cStats[1].shots.outsidebox
-                                                live_segment_stats1.stats_31_45.away.out = cStats[0].shots.outsidebox
+                                            if(cStats[0].possessiontime){
+                                                live_segment_stats1.stats_76_90.home.pos = cStats[0].possessiontime
+                                                live_segment_stats1.stats_76_90.away.pos = cStats[1].possessiontime
                                             }
-                                        }
-                                        if(cStats[1].corners){
-                                            live_segment_stats1.stats_31_45.home.cnr = cStats[1].corners
-                                            live_segment_stats1.stats_31_45.away.cnr = cStats[0].corners
-                                        }
-                                        if(cStats[1].goals){
-                                            live_segment_stats1.stats_31_45.home.goal = cStats[1].goals
-                                            live_segment_stats1.stats_31_45.away.goal = cStats[0].goals
-                                        }
-                                        if(cStats[1].attacks){
-                                            if(cStats[1].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_31_45.home.da = cStats[1].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_31_45.away.da = cStats[0].attacks.dangerous_attacks
+                                            if(cStats[0].redcards){
+                                                live_segment_stats1.stats_76_90.home.red = cStats[0].redcards
+                                                live_segment_stats1.stats_76_90.away.red = cStats[1].redcards
                                             }
-                                        }
-                                        if(cStats[1].possessiontime){
-                                            live_segment_stats1.stats_31_45.home.pos = cStats[1].possessiontime
-                                            live_segment_stats1.stats_31_45.away.pos = cStats[0].possessiontime
-                                        }
-                                        if(cStats[1].redcards){
-                                            live_segment_stats1.stats_31_45.home.red = cStats[1].redcards
-                                            live_segment_stats1.stats_31_45.away.red = cStats[0].redcards
-                                        }
-                                        if(cStats[1].yellowcards){
-                                            live_segment_stats1.stats_31_45.home.yel = cStats[1].yellowcards
-                                            live_segment_stats1.stats_31_45.home.yel = cStats[0].yellowcards
-                                        }
-                                    }
-                                }
-                                if(times[j].minute > 45 && times[j].minute <= 60){
-                                    if(home_id == cStats[0].team_id){
-                                        if(cStats[0].shots){
-                                            if(cStats[0].shots.ongoal){
-                                                live_segment_stats1.stats_46_60.home.on = cStats[0].shots.ongoal
-                                                live_segment_stats1.stats_46_60.away.on = cStats[1].shots.ongoal
-                                            }
-                                            if(cStats[0].shots.offgoal){
-                                                live_segment_stats1.stats_46_60.home.off = cStats[0].shots.offgoal
-                                                live_segment_stats1.stats_46_60.away.off = cStats[1].shots.offgoal
-                                            }
-                                            if(cStats[0].shots.blocked){
-                                                live_segment_stats1.stats_46_60.home.blk = cStats[0].shots.blocked
-                                                live_segment_stats1.stats_46_60.away.blk = cStats[1].shots.blocked
-                                            }
-                                            if(cStats[0].shots.insidebox){
-                                                live_segment_stats1.stats_46_60.home.in = cStats[0].shots.insidebox
-                                                live_segment_stats1.stats_46_60.away.in = cStats[1].shots.insidebox
-                                            }
-                                            if(cStats[0].shots.outsidebox){
-                                                live_segment_stats1.stats_46_60.home.out = cStats[0].shots.outsidebox
-                                                live_segment_stats1.stats_46_60.away.out = cStats[1].shots.outsidebox
+                                            if(cStats[0].yellowcards){
+                                                live_segment_stats1.stats_76_90.home.yel = cStats[0].yellowcards
+                                                live_segment_stats1.stats_76_90.home.yel = cStats[1].yellowcards
                                             }
                                         }
-                                        if(cStats[0].corners){
-                                            live_segment_stats1.stats_46_60.home.cnr = cStats[0].corners
-                                            live_segment_stats1.stats_46_60.away.cnr = cStats[1].corners
-                                        }
-                                        if(cStats[0].goals){
-                                            live_segment_stats1.stats_46_60.home.goal = cStats[0].goals
-                                            live_segment_stats1.stats_46_60.away.goal = cStats[1].goals
-                                        }
-                                        if(cStats[0].attacks){
-                                            if(cStats[0].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_46_60.home.da = cStats[0].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_46_60.away.da = cStats[1].attacks.dangerous_attacks
+                                        if(home_id == cStats[1].team_id){
+                                            if(cStats[1].shots){
+                                                if(cStats[1].shots.ongoal){
+                                                    live_segment_stats1.stats_76_90.home.on = cStats[1].shots.ongoal
+                                                    live_segment_stats1.stats_76_90.away.on = cStats[0].shots.ongoal
+                                                }
+                                                if(cStats[1].shots.offgoal){
+                                                    live_segment_stats1.stats_76_90.home.off = cStats[1].shots.offgoal
+                                                    live_segment_stats1.stats_76_90.away.off = cStats[0].shots.offgoal
+                                                }
+                                                if(cStats[1].shots.blocked){
+                                                    live_segment_stats1.stats_76_90.home.blk = cStats[1].shots.blocked
+                                                    live_segment_stats1.stats_76_90.away.blk = cStats[0].shots.blocked
+                                                }
+                                                if(cStats[1].shots.insidebox){
+                                                    live_segment_stats1.stats_76_90.home.in = cStats[1].shots.insidebox
+                                                    live_segment_stats1.stats_76_90.away.in = cStats[0].shots.insidebox
+                                                }
+                                                if(cStats[1].shots.outsidebox){
+                                                    live_segment_stats1.stats_76_90.home.out = cStats[1].shots.outsidebox
+                                                    live_segment_stats1.stats_76_90.away.out = cStats[0].shots.outsidebox
+                                                }
                                             }
-                                        }
-                                        if(cStats[0].possessiontime){
-                                            live_segment_stats1.stats_46_60.home.pos = cStats[0].possessiontime
-                                            live_segment_stats1.stats_46_60.away.pos = cStats[1].possessiontime
-                                        }
-                                        if(cStats[0].redcards){
-                                            live_segment_stats1.stats_46_60.home.red = cStats[0].redcards
-                                            live_segment_stats1.stats_46_60.away.red = cStats[1].redcards
-                                        }
-                                        if(cStats[0].yellowcards){
-                                            live_segment_stats1.stats_46_60.home.yel = cStats[0].yellowcards
-                                            live_segment_stats1.stats_46_60.home.yel = cStats[1].yellowcards
-                                        }
-                                    }
-                                    if(home_id == cStats[1].team_id){
-                                        if(cStats[1].shots){
-                                            if(cStats[1].shots.ongoal){
-                                                live_segment_stats1.stats_46_60.home.on = cStats[1].shots.ongoal
-                                                live_segment_stats1.stats_46_60.away.on = cStats[0].shots.ongoal
+                                            if(cStats[1].corners){
+                                                live_segment_stats1.stats_76_90.home.cnr = cStats[1].corners
+                                                live_segment_stats1.stats_76_90.away.cnr = cStats[0].corners
                                             }
-                                            if(cStats[1].shots.offgoal){
-                                                live_segment_stats1.stats_46_60.home.off = cStats[1].shots.offgoal
-                                                live_segment_stats1.stats_46_60.away.off = cStats[0].shots.offgoal
+                                            if(cStats[1].goals){
+                                                live_segment_stats1.stats_76_90.home.goal = cStats[1].goals
+                                                live_segment_stats1.stats_76_90.away.goal = cStats[0].goals
                                             }
-                                            if(cStats[1].shots.blocked){
-                                                live_segment_stats1.stats_46_60.home.blk = cStats[1].shots.blocked
-                                                live_segment_stats1.stats_46_60.away.blk = cStats[0].shots.blocked
+                                            if(cStats[1].attacks){
+                                                if(cStats[1].attacks.dangerous_attacks){
+                                                    live_segment_stats1.stats_76_90.home.da = cStats[1].attacks.dangerous_attacks
+                                                    live_segment_stats1.stats_76_90.away.da = cStats[0].attacks.dangerous_attacks
+                                                }
                                             }
-                                            if(cStats[1].shots.insidebox){
-                                                live_segment_stats1.stats_46_60.home.in = cStats[1].shots.insidebox
-                                                live_segment_stats1.stats_46_60.away.in = cStats[0].shots.insidebox
+                                            if(cStats[1].possessiontime){
+                                                live_segment_stats1.stats_76_90.home.pos = cStats[1].possessiontime
+                                                live_segment_stats1.stats_76_90.away.pos = cStats[0].possessiontime
                                             }
-                                            if(cStats[1].shots.outsidebox){
-                                                live_segment_stats1.stats_46_60.home.out = cStats[1].shots.outsidebox
-                                                live_segment_stats1.stats_46_60.away.out = cStats[0].shots.outsidebox
+                                            if(cStats[1].redcards){
+                                                live_segment_stats1.stats_76_90.home.red = cStats[1].redcards
+                                                live_segment_stats1.stats_76_90.away.red = cStats[0].redcards
                                             }
-                                        }
-                                        if(cStats[1].corners){
-                                            live_segment_stats1.stats_46_60.home.cnr = cStats[1].corners
-                                            live_segment_stats1.stats_46_60.away.cnr = cStats[0].corners
-                                        }
-                                        if(cStats[1].goals){
-                                            live_segment_stats1.stats_46_60.home.goal = cStats[1].goals
-                                            live_segment_stats1.stats_46_60.away.goal = cStats[0].goals
-                                        }
-                                        if(cStats[1].attacks){
-                                            if(cStats[1].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_46_60.home.da = cStats[1].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_46_60.away.da = cStats[0].attacks.dangerous_attacks
+                                            if(cStats[1].yellowcards){
+                                                live_segment_stats1.stats_76_90.home.yel = cStats[1].yellowcards
+                                                live_segment_stats1.stats_76_90.home.yel = cStats[0].yellowcards
                                             }
-                                        }
-                                        if(cStats[1].possessiontime){
-                                            live_segment_stats1.stats_46_60.home.pos = cStats[1].possessiontime
-                                            live_segment_stats1.stats_46_60.away.pos = cStats[0].possessiontime
-                                        }
-                                        if(cStats[1].redcards){
-                                            live_segment_stats1.stats_46_60.home.red = cStats[1].redcards
-                                            live_segment_stats1.stats_46_60.away.red = cStats[0].redcards
-                                        }
-                                        if(cStats[1].yellowcards){
-                                            live_segment_stats1.stats_46_60.home.yel = cStats[1].yellowcards
-                                            live_segment_stats1.stats_46_60.home.yel = cStats[0].yellowcards
-                                        }
-                                    }
-                                }
-                                if(times[j].minute > 60 && times[j].minute <= 75){
-                                    if(home_id == cStats[0].team_id){
-                                        if(cStats[0].shots){
-                                            if(cStats[0].shots.ongoal){
-                                                live_segment_stats1.stats_61_75.home.on = cStats[0].shots.ongoal
-                                                live_segment_stats1.stats_61_75.away.on = cStats[1].shots.ongoal
-                                            }
-                                            if(cStats[0].shots.offgoal){
-                                                live_segment_stats1.stats_61_75.home.off = cStats[0].shots.offgoal
-                                                live_segment_stats1.stats_61_75.away.off = cStats[1].shots.offgoal
-                                            }
-                                            if(cStats[0].shots.blocked){
-                                                live_segment_stats1.stats_61_75.home.blk = cStats[0].shots.blocked
-                                                live_segment_stats1.stats_61_75.away.blk = cStats[1].shots.blocked
-                                            }
-                                            if(cStats[0].shots.insidebox){
-                                                live_segment_stats1.stats_61_75.home.in = cStats[0].shots.insidebox
-                                                live_segment_stats1.stats_61_75.away.in = cStats[1].shots.insidebox
-                                            }
-                                            if(cStats[0].shots.outsidebox){
-                                                live_segment_stats1.stats_61_75.home.out = cStats[0].shots.outsidebox
-                                                live_segment_stats1.stats_61_75.away.out = cStats[1].shots.outsidebox
-                                            }
-                                        }
-                                        if(cStats[0].corners){
-                                            live_segment_stats1.stats_61_75.home.cnr = cStats[0].corners
-                                            live_segment_stats1.stats_61_75.away.cnr = cStats[1].corners
-                                        }
-                                        if(cStats[0].goals){
-                                            live_segment_stats1.stats_61_75.home.goal = cStats[0].goals
-                                            live_segment_stats1.stats_61_75.away.goal = cStats[1].goals
-                                        }
-                                        if(cStats[0].attacks){
-                                            if(cStats[0].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_61_75.home.da = cStats[0].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_61_75.away.da = cStats[1].attacks.dangerous_attacks
-                                            }
-                                        }
-                                        if(cStats[0].possessiontime){
-                                            live_segment_stats1.stats_61_75.home.pos = cStats[0].possessiontime
-                                            live_segment_stats1.stats_61_75.away.pos = cStats[1].possessiontime
-                                        }
-                                        if(cStats[0].redcards){
-                                            live_segment_stats1.stats_61_75.home.red = cStats[0].redcards
-                                            live_segment_stats1.stats_61_75.away.red = cStats[1].redcards
-                                        }
-                                        if(cStats[0].yellowcards){
-                                            live_segment_stats1.stats_61_75.home.yel = cStats[0].yellowcards
-                                            live_segment_stats1.stats_61_75.home.yel = cStats[1].yellowcards
-                                        }
-                                    }
-                                    if(home_id == cStats[1].team_id){
-                                        if(cStats[1].shots){
-                                            if(cStats[1].shots.ongoal){
-                                                live_segment_stats1.stats_61_75.home.on = cStats[1].shots.ongoal
-                                                live_segment_stats1.stats_61_75.away.on = cStats[0].shots.ongoal
-                                            }
-                                            if(cStats[1].shots.offgoal){
-                                                live_segment_stats1.stats_61_75.home.off = cStats[1].shots.offgoal
-                                                live_segment_stats1.stats_61_75.away.off = cStats[0].shots.offgoal
-                                            }
-                                            if(cStats[1].shots.blocked){
-                                                live_segment_stats1.stats_61_75.home.blk = cStats[1].shots.blocked
-                                                live_segment_stats1.stats_61_75.away.blk = cStats[0].shots.blocked
-                                            }
-                                            if(cStats[1].shots.insidebox){
-                                                live_segment_stats1.stats_61_75.home.in = cStats[1].shots.insidebox
-                                                live_segment_stats1.stats_61_75.away.in = cStats[0].shots.insidebox
-                                            }
-                                            if(cStats[1].shots.outsidebox){
-                                                live_segment_stats1.stats_61_75.home.out = cStats[1].shots.outsidebox
-                                                live_segment_stats1.stats_61_75.away.out = cStats[0].shots.outsidebox
-                                            }
-                                        }
-                                        if(cStats[1].corners){
-                                            live_segment_stats1.stats_61_75.home.cnr = cStats[1].corners
-                                            live_segment_stats1.stats_61_75.away.cnr = cStats[0].corners
-                                        }
-                                        if(cStats[1].goals){
-                                            live_segment_stats1.stats_61_75.home.goal = cStats[1].goals
-                                            live_segment_stats1.stats_61_75.away.goal = cStats[0].goals
-                                        }
-                                        if(cStats[1].attacks){
-                                            if(cStats[1].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_61_75.home.da = cStats[1].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_61_75.away.da = cStats[0].attacks.dangerous_attacks
-                                            }
-                                        }
-                                        if(cStats[1].possessiontime){
-                                            live_segment_stats1.stats_61_75.home.pos = cStats[1].possessiontime
-                                            live_segment_stats1.stats_61_75.away.pos = cStats[0].possessiontime
-                                        }
-                                        if(cStats[1].redcards){
-                                            live_segment_stats1.stats_61_75.home.red = cStats[1].redcards
-                                            live_segment_stats1.stats_61_75.away.red = cStats[0].redcards
-                                        }
-                                        if(cStats[1].yellowcards){
-                                            live_segment_stats1.stats_61_75.home.yel = cStats[1].yellowcards
-                                            live_segment_stats1.stats_61_75.home.yel = cStats[0].yellowcards
-                                        }
-                                    }
-                                }
-                                if(times[j].minute > 75 && times[j].minute <= 90){
-                                    if(home_id == cStats[0].team_id){
-                                        if(cStats[0].shots){
-                                            if(cStats[0].shots.ongoal){
-                                                live_segment_stats1.stats_76_90.home.on = cStats[0].shots.ongoal
-                                                live_segment_stats1.stats_76_90.away.on = cStats[1].shots.ongoal
-                                            }
-                                            if(cStats[0].shots.offgoal){
-                                                live_segment_stats1.stats_76_90.home.off = cStats[0].shots.offgoal
-                                                live_segment_stats1.stats_76_90.away.off = cStats[1].shots.offgoal
-                                            }
-                                            if(cStats[0].shots.blocked){
-                                                live_segment_stats1.stats_76_90.home.blk = cStats[0].shots.blocked
-                                                live_segment_stats1.stats_76_90.away.blk = cStats[1].shots.blocked
-                                            }
-                                            if(cStats[0].shots.insidebox){
-                                                live_segment_stats1.stats_76_90.home.in = cStats[0].shots.insidebox
-                                                live_segment_stats1.stats_76_90.away.in = cStats[1].shots.insidebox
-                                            }
-                                            if(cStats[0].shots.outsidebox){
-                                                live_segment_stats1.stats_76_90.home.out = cStats[0].shots.outsidebox
-                                                live_segment_stats1.stats_76_90.away.out = cStats[1].shots.outsidebox
-                                            }
-                                        }
-                                        if(cStats[0].corners){
-                                            live_segment_stats1.stats_76_90.home.cnr = cStats[0].corners
-                                            live_segment_stats1.stats_76_90.away.cnr = cStats[1].corners
-                                        }
-                                        if(cStats[0].goals){
-                                            live_segment_stats1.stats_76_90.home.goal = cStats[0].goals
-                                            live_segment_stats1.stats_76_90.away.goal = cStats[1].goals
-                                        }
-                                        if(cStats[0].attacks){
-                                            if(cStats[0].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_76_90.home.da = cStats[0].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_76_90.away.da = cStats[1].attacks.dangerous_attacks
-                                            }
-                                        }
-                                        if(cStats[0].possessiontime){
-                                            live_segment_stats1.stats_76_90.home.pos = cStats[0].possessiontime
-                                            live_segment_stats1.stats_76_90.away.pos = cStats[1].possessiontime
-                                        }
-                                        if(cStats[0].redcards){
-                                            live_segment_stats1.stats_76_90.home.red = cStats[0].redcards
-                                            live_segment_stats1.stats_76_90.away.red = cStats[1].redcards
-                                        }
-                                        if(cStats[0].yellowcards){
-                                            live_segment_stats1.stats_76_90.home.yel = cStats[0].yellowcards
-                                            live_segment_stats1.stats_76_90.home.yel = cStats[1].yellowcards
-                                        }
-                                    }
-                                    if(home_id == cStats[1].team_id){
-                                        if(cStats[1].shots){
-                                            if(cStats[1].shots.ongoal){
-                                                live_segment_stats1.stats_76_90.home.on = cStats[1].shots.ongoal
-                                                live_segment_stats1.stats_76_90.away.on = cStats[0].shots.ongoal
-                                            }
-                                            if(cStats[1].shots.offgoal){
-                                                live_segment_stats1.stats_76_90.home.off = cStats[1].shots.offgoal
-                                                live_segment_stats1.stats_76_90.away.off = cStats[0].shots.offgoal
-                                            }
-                                            if(cStats[1].shots.blocked){
-                                                live_segment_stats1.stats_76_90.home.blk = cStats[1].shots.blocked
-                                                live_segment_stats1.stats_76_90.away.blk = cStats[0].shots.blocked
-                                            }
-                                            if(cStats[1].shots.insidebox){
-                                                live_segment_stats1.stats_76_90.home.in = cStats[1].shots.insidebox
-                                                live_segment_stats1.stats_76_90.away.in = cStats[0].shots.insidebox
-                                            }
-                                            if(cStats[1].shots.outsidebox){
-                                                live_segment_stats1.stats_76_90.home.out = cStats[1].shots.outsidebox
-                                                live_segment_stats1.stats_76_90.away.out = cStats[0].shots.outsidebox
-                                            }
-                                        }
-                                        if(cStats[1].corners){
-                                            live_segment_stats1.stats_76_90.home.cnr = cStats[1].corners
-                                            live_segment_stats1.stats_76_90.away.cnr = cStats[0].corners
-                                        }
-                                        if(cStats[1].goals){
-                                            live_segment_stats1.stats_76_90.home.goal = cStats[1].goals
-                                            live_segment_stats1.stats_76_90.away.goal = cStats[0].goals
-                                        }
-                                        if(cStats[1].attacks){
-                                            if(cStats[1].attacks.dangerous_attacks){
-                                                live_segment_stats1.stats_76_90.home.da = cStats[1].attacks.dangerous_attacks
-                                                live_segment_stats1.stats_76_90.away.da = cStats[0].attacks.dangerous_attacks
-                                            }
-                                        }
-                                        if(cStats[1].possessiontime){
-                                            live_segment_stats1.stats_76_90.home.pos = cStats[1].possessiontime
-                                            live_segment_stats1.stats_76_90.away.pos = cStats[0].possessiontime
-                                        }
-                                        if(cStats[1].redcards){
-                                            live_segment_stats1.stats_76_90.home.red = cStats[1].redcards
-                                            live_segment_stats1.stats_76_90.away.red = cStats[0].redcards
-                                        }
-                                        if(cStats[1].yellowcards){
-                                            live_segment_stats1.stats_76_90.home.yel = cStats[1].yellowcards
-                                            live_segment_stats1.stats_76_90.home.yel = cStats[0].yellowcards
                                         }
                                     }
                                 }
@@ -7395,212 +7438,218 @@
                 }
             },
             home_stats_minute_from(val){
-                this.home_stats_filter.minute.from = val
+                this.home_stats_filter.minute.from = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_minute_to(val){
-                this.home_stats_filter.minute.to = val
+                this.home_stats_filter.minute.to = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_rank_from(val){
-                this.home_stats_filter.rank.from = val
+                this.home_stats_filter.rank.from = parseInt(val)
                 // this.getSearchResult()
             },
             home_stats_rank_to(val){
-                this.home_stats_filter.rank.to = val
+                this.home_stats_filter.rank.to = parseInt(val)
                 // this.getSearchResult()
             },
             home_stats_goal_from(val){
-                this.home_stats_filter.goal.from = val
+                this.home_stats_filter.goal.from = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_goal_to(val){
-                this.home_stats_filter.goal.to = val
+                this.home_stats_filter.goal.to = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_on_from(val){
-                this.home_stats_filter.on.from = val
+                this.home_stats_filter.on.from = parseInt(val)
                 this.getSearchResult()
+                console.log(val)
             },
             home_stats_on_to(val){
-                this.home_stats_filter.on.to = val
+                this.home_stats_filter.on.to = parseInt(val)
                 this.getSearchResult()
+                console.log(val)
             },
             home_stats_off_from(val){
-                this.home_stats_filter.off.from = val
+                this.home_stats_filter.off.from = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_off_to(val){
-                this.home_stats_filter.off.to = val
+                this.home_stats_filter.off.to = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_blk_from(val){
-                this.home_stats_filter.blk.from = val
+                this.home_stats_filter.blk.from = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_blk_to(val){
-                this.home_stats_filter.blk.to = val
+                this.home_stats_filter.blk.to = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_in_from(val){
-                this.home_stats_filter.in.from = val
+                this.home_stats_filter.in.from = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_in_to(val){
-                this.home_stats_filter.in.to = val
+                this.home_stats_filter.in.to = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_out_from(val){
-                this.home_stats_filter.out.from = val
+                this.home_stats_filter.out.from = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_out_to(val){
-                this.home_stats_filter.out.to = val
+                this.home_stats_filter.out.to = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_cnr_from(val){
-                this.home_stats_filter.cnr.from = val
+                this.home_stats_filter.cnr.from = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_cnr_to(val){
-                this.home_stats_filter.cnr.to = val
+                this.home_stats_filter.cnr.to = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_da_from(val){
-                this.home_stats_filter.da.from = val
+                this.home_stats_filter.da.from = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_da_to(val){
-                this.home_stats_filter.da.to = val
+                this.home_stats_filter.da.to = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_pos_from(val){
-                this.home_stats_filter.pos.from = val
+                this.home_stats_filter.pos.from = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_pos_to(val){
-                this.home_stats_filter.pos.to = val
+                this.home_stats_filter.pos.to = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_red_from(val){
-                this.home_stats_filter.red.from = val
+                this.home_stats_filter.red.from = parseInt(val)
+                console.log(val)
                 this.getSearchResult()
             },
             home_stats_red_to(val){
-                this.home_stats_filter.red.to = val
+                this.home_stats_filter.red.to = parseInt(val)
                 this.getSearchResult()
+                console.log(val)
             },
             home_stats_yel_from(val){
-                this.home_stats_filter.yel.from = val
+                this.home_stats_filter.yel.from = parseInt(val)
                 this.getSearchResult()
             },
             home_stats_yel_to(val){
-                this.home_stats_filter.yel.to = val
+                this.home_stats_filter.yel.to = parseInt(val)
                 this.getSearchResult()
             },
 
             away_stats_minute_from(val){
-                this.away_stats_filter.minute.from = val
+                this.away_stats_filter.minute.from = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_minute_to(val){
-                this.away_stats_filter.minute.to = val
+                this.away_stats_filter.minute.to = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_rank_from(val){
-                this.away_stats_filter.rank.from = val
+                this.away_stats_filter.rank.from = parseInt(val)
                 // this.getSearchResult()
             },
             away_stats_rank_to(val){
-                this.away_stats_filter.rank.to = val
+                this.away_stats_filter.rank.to = parseInt(val)
                 // this.getSearchResult()
             },
             away_stats_goal_from(val){
-                this.away_stats_filter.goal.from = val
+                this.away_stats_filter.goal.from = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_goal_to(val){
-                this.away_stats_filter.goal.to = val
+                this.away_stats_filter.goal.to = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_on_from(val){
-                this.away_stats_filter.on.from = val
+                this.away_stats_filter.on.from = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_on_to(val){
-                this.away_stats_filter.on.to = val
+                this.away_stats_filter.on.to = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_off_from(val){
-                this.away_stats_filter.off.from = val
+                this.away_stats_filter.off.from = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_off_to(val){
-                this.away_stats_filter.off.to = val
+                this.away_stats_filter.off.to = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_blk_from(val){
-                this.away_stats_filter.blk.from = val
+                this.away_stats_filter.blk.from = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_blk_to(val){
-                this.away_stats_filter.blk.to = val
+                this.away_stats_filter.blk.to = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_in_from(val){
-                this.away_stats_filter.in.from = val
+                this.away_stats_filter.in.from = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_in_to(val){
-                this.away_stats_filter.in.to = val
+                this.away_stats_filter.in.to = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_out_from(val){
-                this.away_stats_filter.out.from = val
+                this.away_stats_filter.out.from = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_out_to(val){
-                this.away_stats_filter.out.to = val
+                this.away_stats_filter.out.to = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_cnr_from(val){
-                this.away_stats_filter.cnr.from = val
+                this.away_stats_filter.cnr.from = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_cnr_to(val){
-                this.away_stats_filter.cnr.to = val
+                this.away_stats_filter.cnr.to = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_da_from(val){
-                this.away_stats_filter.da.from = val
+                this.away_stats_filter.da.from = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_da_to(val){
-                this.away_stats_filter.da.to = val
+                this.away_stats_filter.da.to = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_pos_from(val){
-                this.away_stats_filter.pos.from = val
+                this.away_stats_filter.pos.from = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_pos_to(val){
-                this.away_stats_filter.pos.to = val
+                this.away_stats_filter.pos.to = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_red_from(val){
-                this.away_stats_filter.red.from = val
+                this.away_stats_filter.red.from = parseInt(val)
+                console.log(val)
                 this.getSearchResult()
             },
             away_stats_red_to(val){
-                this.away_stats_filter.red.to = val
+                this.away_stats_filter.red.to = parseInt(val)
+                console.log(val)
                 this.getSearchResult()
             },
             away_stats_yel_from(val){
-                this.away_stats_filter.yel.from = val
+                this.away_stats_filter.yel.from = parseInt(val)
                 this.getSearchResult()
             },
             away_stats_yel_to(val){
-                this.away_stats_filter.yel.to = val
+                this.away_stats_filter.yel.to = parseInt(val)
                 this.getSearchResult()
             },
 

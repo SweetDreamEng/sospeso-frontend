@@ -70,7 +70,7 @@
                     <label style="color: red; font-weight: bold;">Total Filtered: <strong style="color: blue; font-weight: bold; font-size: 14px!important">{{filtered_result}}</strong></label>
                 </div>
             </CCol>
-            <CCol lg="6" class="stats-filter-content" style="height: 800px; background: white; padding: 20px 30px;">
+            <CCol lg="6" class="stats-filter-content" style="height: 520px; background: white; padding: 20px 30px;">
                 <div style="width: 100%;">
                     <label>Home Team:</label>
                 </div>
@@ -508,7 +508,7 @@
                 </div>
 
             </CCol>
-            <CCol lg="6" class="stats-filter-content" style="height: 800px; background: white; padding: 20px 30px;">
+            <CCol lg="6" class="stats-filter-content" style="height: 520px; background: white; padding: 20px 30px;">
                 <label style="color: red; font-weight: bold;">Selected Event Stats:</label>
                 <div class="stats-header">
                     <div style="flex: 2; border-right: 1px solid lightgray; color: black;">
@@ -5269,7 +5269,57 @@
                     let times = value.time
                     let home_id = value.home_id
                     let away_id = value.away_id
-                    console.log('events ==>', value)
+                    let statsData = []
+                    for(let j = 0 ; j < times.length; j++){
+                        if(times[j].minute >= this.homeTeam.minute.from && times[j].minute <= this.homeTeam.minute.to && times[j].minute >= this.awayTeam.minute.from && times[j].minute <= this.awayTeam.minute.to){
+                            statsData = stats[j]
+                        }
+                    }
+
+                    if(this.homeTeam.minute.from != 0 || this.homeTeam.minute.to != 1000){
+
+                    }
+                    if(this.homeTeam.rank.from != 0 || this.homeTeam.rank.to != 1000){
+                        if(value.home_rank){
+                             if(value.home_rank >= this.homeTeam.rank.from){
+
+                             }
+                        }
+                        else{
+
+                        }
+                    }
+                    if(this.homeTeam.on.from != 0 || this.homeTeam.on.to != 1000){
+
+                    }
+                    if(this.homeTeam.off.from != 0 || this.homeTeam.off.to != 1000){
+
+                    }
+                    if(this.homeTeam.blk.from != 0 || this.homeTeam.blk.to != 1000){
+
+                    }
+                    if(this.homeTeam.in.from != 0 || this.homeTeam.in.to != 1000){
+
+                    }
+                    if(this.homeTeam.out.from != 0 || this.homeTeam.out.to != 1000){
+
+                    }
+                    if(this.homeTeam.cnr.from != 0 || this.homeTeam.cnr.to != 1000){
+
+                    }
+                    if(this.homeTeam.da.from != 0 || this.homeTeam.da.to != 1000){
+
+                    }
+                    if(this.homeTeam.pos.from != 0 || this.homeTeam.pos.to != 1000){
+
+                    }
+                    if(this.homeTeam.red.from != 0 || this.homeTeam.red.to != 1000){
+
+                    }
+                    if(this.homeTeam.yel.from != 0 || this.homeTeam.yel.to != 1000){
+
+                    }
+
                     if(value.away_rank && value.home_rank){
                         if(value.home_rank >= this.homeTeam.rank.from && value.home_rank <= this.homeTeam.rank.to && value.away_rank >= this.awayTeam.rank.from && value.away_rank <= this.awayTeam.rank.to){
                             let stats_length = stats.length
@@ -5278,11 +5328,11 @@
                                 // console.log('rank checking', value.home_rank, value.away_rank)
                                 let statsData = stats[stats_length - 1]
 
-                                for(let j = 0 ; j < times.length; j++){
-                                    if(times[j].minute >= this.homeTeam.minute.from && times[j].minute <= this.homeTeam.minute.to && times[j].minute >= this.awayTeam.minute.from && times[j].minute <= this.awayTeam.minute.to){
-                                        statsData = stats[j]
-                                    }
-                                }
+                                // for(let j = 0 ; j < times.length; j++){
+                                //     if(times[j].minute >= this.homeTeam.minute.from && times[j].minute <= this.homeTeam.minute.to && times[j].minute >= this.awayTeam.minute.from && times[j].minute <= this.awayTeam.minute.to){
+                                //         statsData = stats[j]
+                                //     }
+                                // }
 
                                 // console.log('statsData=>', statsData)
                                 let home_stats_data = {
@@ -5535,7 +5585,6 @@
                                                         if(home_stats_data.da >= this.homeTeam.da.from && home_stats_data.da <= this.homeTeam.da.to && away_stats_data.da >= this.awayTeam.da.from && away_stats_data.da <= this.awayTeam.da.to){
                                                             if(home_stats_data.pos >= this.homeTeam.pos.from && home_stats_data.pos <= this.homeTeam.pos.to && away_stats_data.pos >= this.awayTeam.pos.from && away_stats_data.pos <= this.awayTeam.pos.to){
                                                                 if(home_stats_data.red >= this.homeTeam.red.from && home_stats_data.red <= this.homeTeam.red.to && away_stats_data.red >= this.awayTeam.red.from && away_stats_data.red <= this.awayTeam.red.to){
-                                                                    console.log("yellow card checking !!!!", home_stats_data.yel, ', ', this.homeTeam.yel.to,', ', away_stats_data.yel,', ', this.awayTeam.yel.to)
                                                                     if(home_stats_data.yel >= this.homeTeam.yel.from && home_stats_data.yel <= this.homeTeam.yel.to && away_stats_data.yel >= this.awayTeam.yel.from && away_stats_data.yel <= this.awayTeam.yel.to){
                                                                         if(home_stats_data.goal >= this.homeTeam.goal.from && home_stats_data.goal <= this.homeTeam.goal.to && away_stats_data.goal >= this.awayTeam.goal.from && away_stats_data.goal <= this.awayTeam.goal.to){
                                                                             event_list.push({"label": events[i].label, "value": events[i].value})
