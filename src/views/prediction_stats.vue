@@ -172,86 +172,151 @@
                             <div style="flex: 1; width: 40%">
                             </div>
                         </div>
-                        <div style="width: 100%; display: flex; float: left; padding-left: 43px; margin-top: 17px;">
-                            <div style="flex: 1;width: 20%;">
-                                <label style="position: relative; top: 4px;">Result at 15': </label>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_15.home" @update:value="result_score_15_home" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_15.away" @update:value="result_score_15_away" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                            </div>
-                        </div>
-                        <div style="width: 100%; display: flex; float: left; padding-left: 43px;">
-                            <div style="flex: 1;width: 20%;">
-                                <label style="position: relative; top: 4px;">Result at 30': </label>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_30.home" @update:value="result_score_30_home" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_30.away" @update:value="result_score_30_away" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                            </div>
-                        </div>
-                        <div style="width: 100%; display: flex; float: left; padding-left: 43px;">
-                            <div style="flex: 1;width: 20%;">
-                                <label style="position: relative; top: 4px;">Result at HT: </label>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_ht.home" @update:value="result_score_ht_home" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_ht.away" @update:value="result_score_ht_away" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                            </div>
-                        </div>
-                        <div style="width: 100%; display: flex; float: left; padding-left: 43px;">
-                            <div style="flex: 1;width: 20%;">
-                                <label style="position: relative; top: 4px;">Result at 60': </label>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_60.home" @update:value="result_score_60_home" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_60.away" @update:value="result_score_60_away" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                            </div>
-                        </div>
-                        <div style="width: 100%; display: flex; float: left; padding-left: 43px;">
-                            <div style="flex: 1;width: 20%;">
-                                <label style="position: relative; top: 4px;">Result at 75': </label>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_70.home" @update:value="result_score_70_home" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_70.away" @update:value="result_score_70_away" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                            </div>
-                        </div>
-                        <div style="width: 100%; display: flex; float: left; padding-left: 43px;">
-                            <div style="flex: 1;width: 20%;">
-                                <label style="position: relative; top: 4px;">Result at FT: </label>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_ft.home" @update:value="result_score_ft_home" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                                <CInput type="number" min="0" max="90000000" :value="result_at_ft.away" @update:value="result_score_ft_away" class="minOdd"></CInput>
-                            </div>
-                            <div style="flex: 1; width: 40%">
-                            </div>
-                        </div>
+
+<!--                        <div style="width: 100%; display: flex; float: left; padding-left: 43px; margin-top: 17px;">-->
+<!--                            <div style="flex: 1;width: 20%;">-->
+<!--                                <label style="position: relative; top: 4px;">Result at 15': </label>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_15.home" @update:value="result_score_15_home" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_15.away" @update:value="result_score_15_away" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div style="width: 100%; display: flex; float: left; padding-left: 43px;">-->
+<!--                            <div style="flex: 1;width: 20%;">-->
+<!--                                <label style="position: relative; top: 4px;">Result at 30': </label>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_30.home" @update:value="result_score_30_home" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_30.away" @update:value="result_score_30_away" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div style="width: 100%; display: flex; float: left; padding-left: 43px;">-->
+<!--                            <div style="flex: 1;width: 20%;">-->
+<!--                                <label style="position: relative; top: 4px;">Result at HT: </label>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_ht.home" @update:value="result_score_ht_home" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_ht.away" @update:value="result_score_ht_away" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div style="width: 100%; display: flex; float: left; padding-left: 43px;">-->
+<!--                            <div style="flex: 1;width: 20%;">-->
+<!--                                <label style="position: relative; top: 4px;">Result at 60': </label>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_60.home" @update:value="result_score_60_home" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_60.away" @update:value="result_score_60_away" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div style="width: 100%; display: flex; float: left; padding-left: 43px;">-->
+<!--                            <div style="flex: 1;width: 20%;">-->
+<!--                                <label style="position: relative; top: 4px;">Result at 75': </label>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_70.home" @update:value="result_score_70_home" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_70.away" @update:value="result_score_70_away" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div style="width: 100%; display: flex; float: left; padding-left: 43px;">-->
+<!--                            <div style="flex: 1;width: 20%;">-->
+<!--                                <label style="position: relative; top: 4px;">Result at FT: </label>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_ft.home" @update:value="result_score_ft_home" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                                <CInput type="number" min="0" max="90000000" :value="result_at_ft.away" @update:value="result_score_ft_away" class="minOdd"></CInput>-->
+<!--                            </div>-->
+<!--                            <div style="flex: 1; width: 40%">-->
+<!--                            </div>-->
+<!--                        </div>-->
+
                     </CCol>
                 </CRow>
+
+                <div class="totalMatches" style="display: flex; font-weight: 600; font-size: 12px;">
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header" style="color: #d1c4e1;">.</p>
+                        <p class="value" style="padding: 3px; width: 100%;">Home Score</p>
+                        <p class="percent" style="padding: 3px; width: 100%;">Away Score</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Result at 15'</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_15.home" @update:value="result_score_15_home" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_15.away" @update:value="result_score_15_away" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Result at 30'</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_30.home" @update:value="result_score_30_home" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_30.away" @update:value="result_score_30_away" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Result at HT</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_ht.home" @update:value="result_score_ht_home" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_ht.away" @update:value="result_score_ht_away" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Result at 60'</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_60.home" @update:value="result_score_60_home" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_60.away" @update:value="result_score_60_away" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Result at 75'</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_70.home" @update:value="result_score_70_home" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_70.away" @update:value="result_score_70_away" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Result at FT</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_ft.home" @update:value="result_score_ft_home" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="result_at_ft.away" @update:value="result_score_ft_away" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                </div>
+
                 <div style="width: 100%;">
                     <label>Home Team:</label>
                 </div>
@@ -1459,125 +1524,125 @@
                     </div>
                 </div>
 
-                <!--                <div v-if="currentPredictionType === 'MATCH_ODDS'" style="display: flex; width: 100%; font-weight: 600; margin-top: 10px;">-->
-                <!--                    <div style="flex: 1;">-->
-                <!--                        1X2 Pre match:-->
-                <!--                    </div>-->
-                <!--                    <div style="flex: 1; font-weight: normal; text-align: center;">-->
-                <!--                        <div>-->
-                <!--                            1-->
-                <!--                        </div>-->
-                <!--                        <div style="display: flex">-->
-                <!--                            <div style="flex: 1; text-align: center;">-->
-                <!--                                {{currentPrematchOdd[0].exchange.availableToBack[0].price}}-->
-                <!--                            </div>-->
-                <!--                            <div style="flex: 1; text-align: center;">-->
-                <!--                                {{currentPrematchOdd[0].exchange.availableToLay[0].price}}-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                    <div style="flex: 1;  font-weight: normal; text-align: center;">-->
-                <!--                        <div>-->
-                <!--                            X-->
-                <!--                        </div>-->
-                <!--                        <div style="display: flex">-->
-                <!--                            <div style="flex: 1; text-align: center;">-->
-                <!--                                {{currentPrematchOdd[2].exchange.availableToBack[0].price}}-->
-                <!--                            </div>-->
-                <!--                            <div style="flex: 1; text-align: center;">-->
-                <!--                                {{currentPrematchOdd[2].exchange.availableToLay[0].price}}-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                    <div style="flex: 1;  font-weight: normal; text-align: center;">-->
-                <!--                        <div>-->
-                <!--                            2-->
-                <!--                        </div>-->
-                <!--                        <div style="display: flex">-->
-                <!--                            <div style="flex: 1; text-align: center;">-->
-                <!--                                {{currentPrematchOdd[1].exchange.availableToBack[0].price}}-->
-                <!--                            </div>-->
-                <!--                            <div style="flex: 1; text-align: center;">-->
-                <!--                                {{currentPrematchOdd[1].exchange.availableToLay[0].price}}-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div style="width: 100%;">-->
-                <!--                    <label style="margin-top: 20px;">Selected Match Stats:</label>-->
-                <!--                </div>-->
-                <!--                <div style="text-align: center;">-->
-                <!--                    <div style="display: flex; width: 100%;">-->
-                <!--                        <div style="flex: 1; text-align: left;">-->
-                <!--                            Risk:-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1; background: #92d050">-->
-                <!--                            Easy-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1; background: #ffff00">-->
-                <!--                            Medium-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1; background: #fd4016">-->
-                <!--                            Hard-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                    <div style="display: flex; width: 100%;">-->
-                <!--                        <div style="flex: 1; text-align: left;">-->
-                <!--                            Profit%:-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            31.00-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            56.00-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            -40.00-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                    <div style="display: flex; width: 100%;">-->
-                <!--                        <div style="flex: 1; text-align: left;">-->
-                <!--                            Cashout minute:-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            35-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            60-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            72-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                    <div style="display: flex; width: 100%;">-->
-                <!--                        <div style="flex: 1; text-align: left;">-->
-                <!--                            Cash Out Odds:-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            4.60-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            5.80-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            1.80-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                    <div style="display: flex; width: 100%;">-->
-                <!--                        <div style="flex: 1; text-align: left;">-->
-                <!--                            Score:-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            0 - 1-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            0 - 1-->
-                <!--                        </div>-->
-                <!--                        <div style="flex: 1;">-->
-                <!--                            1 - 1-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
+                <div v-if="currentPredictionType === 'MATCH_ODDS'" style="display: flex; width: 100%; font-weight: 600; margin-top: 10px;">
+                    <div style="flex: 1;">
+                        1X2 Pre match:
+                    </div>
+                    <div style="flex: 1; font-weight: normal; text-align: center;">
+                        <div>
+                            1
+                        </div>
+                        <div style="display: flex">
+                            <div style="flex: 1; text-align: center;">
+                                {{currentPrematchOdd[0].exchange.availableToBack[0].price}}
+                            </div>
+                            <div style="flex: 1; text-align: center;">
+                                {{currentPrematchOdd[0].exchange.availableToLay[0].price}}
+                            </div>
+                        </div>
+                    </div>
+                    <div style="flex: 1;  font-weight: normal; text-align: center;">
+                        <div>
+                            X
+                        </div>
+                        <div style="display: flex">
+                            <div style="flex: 1; text-align: center;">
+                                {{currentPrematchOdd[2].exchange.availableToBack[0].price}}
+                            </div>
+                            <div style="flex: 1; text-align: center;">
+                                {{currentPrematchOdd[2].exchange.availableToLay[0].price}}
+                            </div>
+                        </div>
+                    </div>
+                    <div style="flex: 1;  font-weight: normal; text-align: center;">
+                        <div>
+                            2
+                        </div>
+                        <div style="display: flex">
+                            <div style="flex: 1; text-align: center;">
+                                {{currentPrematchOdd[1].exchange.availableToBack[0].price}}
+                            </div>
+                            <div style="flex: 1; text-align: center;">
+                                {{currentPrematchOdd[1].exchange.availableToLay[0].price}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 100%;">
+                    <label style="margin-top: 20px;">Selected Match Stats:</label>
+                </div>
+                <div style="text-align: center;">
+                    <div style="display: flex; width: 100%;">
+                        <div style="flex: 1; text-align: left;">
+                            Risk:
+                        </div>
+                        <div style="flex: 1; background: #92d050">
+                            Easy
+                        </div>
+                        <div style="flex: 1; background: #ffff00">
+                            Medium
+                        </div>
+                        <div style="flex: 1; background: #fd4016">
+                            Hard
+                        </div>
+                    </div>
+                    <div style="display: flex; width: 100%;">
+                        <div style="flex: 1; text-align: left;">
+                            Profit%:
+                        </div>
+                        <div style="flex: 1;">
+                            31.00
+                        </div>
+                        <div style="flex: 1;">
+                            56.00
+                        </div>
+                        <div style="flex: 1;">
+                            -40.00
+                        </div>
+                    </div>
+                    <div style="display: flex; width: 100%;">
+                        <div style="flex: 1; text-align: left;">
+                            Cashout minute:
+                        </div>
+                        <div style="flex: 1;">
+                            35
+                        </div>
+                        <div style="flex: 1;">
+                            60
+                        </div>
+                        <div style="flex: 1;">
+                            72
+                        </div>
+                    </div>
+                    <div style="display: flex; width: 100%;">
+                        <div style="flex: 1; text-align: left;">
+                            Cash Out Odds:
+                        </div>
+                        <div style="flex: 1;">
+                            4.60
+                        </div>
+                        <div style="flex: 1;">
+                            5.80
+                        </div>
+                        <div style="flex: 1;">
+                            1.80
+                        </div>
+                    </div>
+                    <div style="display: flex; width: 100%;">
+                        <div style="flex: 1; text-align: left;">
+                            Score:
+                        </div>
+                        <div style="flex: 1;">
+                            0 - 1
+                        </div>
+                        <div style="flex: 1;">
+                            0 - 1
+                        </div>
+                        <div style="flex: 1;">
+                            1 - 1
+                        </div>
+                    </div>
+                </div>
 
                 <div style="margin-top: 20px;">
                     <div class="stats-header">
@@ -7781,7 +7846,7 @@
 </script>
 <style>
     .minOdd1 input{
-        width: 58px;
+        width: 100%;
     }
     .stats-header{
         display: flex;
