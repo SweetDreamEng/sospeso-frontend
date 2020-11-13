@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="min-width: 1280px;">
         <CCard>
             <CCardHeader>
                 <img src="/img/betlogo.png" width="200px;"/>
@@ -18,6 +18,7 @@
                                             @update:value="select_match"
                                     >
                                     </CSelect>
+
                                     <p style="text-align: center; margin-bottom: 8px;"><strong style="color: blue">{{this.competitionName}}</strong></p>
                                 </CCol>
                                 <CCol sm="2">
@@ -749,6 +750,3165 @@
                             </CRow>
                         </div>
                     </CCol>
+                    <CCol lg="12">
+                        <label  style="font-size: 14px!important; font-weight: 600; margin-top: 20px;">Live Stats:</label>
+                        <div class="select-container2" style="min-width: 1240px;">
+                            <CRow>
+                                <CCol sm="12">
+                                    <div class="header-content" style="width: 16%; height: 50px; float: left; text-align: left;">
+                                        {{item1.league}}
+                                    </div>
+                                    <div class="header-content" style="width: 5%; min-width: 30px; height: 50px; float: left; border-left: 1px solid whitesmoke; padding-top: 23px">
+                                        Result
+                                    </div>
+                                    <div class="header-content detail_total" style="width: 30%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+                                        Total Game
+                                        <div style="width: 100%">
+                                            <div class="detail">
+                                                On
+                                            </div>
+                                            <div class="detail">
+                                                Off
+                                            </div>
+                                            <div class="detail">
+                                                Blk
+                                            </div>
+                                            <div class="detail">
+                                                In
+                                            </div>
+                                            <div class="detail">
+                                                Out
+                                            </div>
+                                            <div class="detail">
+                                                Cnr
+                                            </div>
+                                            <div class="detail">
+                                                DA
+                                            </div>
+                                            <div class="detail">
+                                                Poss
+                                            </div>
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Pas-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Acc-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Atk-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Ofs-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Sav-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Sbst-->
+                                            <!--                                        </div>-->
+                                            <div class="detail">
+                                                Red
+                                            </div>
+                                            <div class="detail" style="width: 4%;">
+                                                Rtg
+                                            </div>
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Fou-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail" style="min-width: 30px;">-->
+                                            <!--                                            G_att-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Safe-->
+                                            <!--                                        </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="header-content detail_total" style="width: 32%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+                                        Last 10 minutes
+                                        <div style="width: 100%">
+                                            <div class="detail">
+                                                On
+                                            </div>
+                                            <div class="detail">
+                                                Off
+                                            </div>
+                                            <div class="detail">
+                                                Blk
+                                            </div>
+                                            <div class="detail">
+                                                In
+                                            </div>
+                                            <div class="detail">
+                                                Out
+                                            </div>
+                                            <div class="detail">
+                                                Cnr
+                                            </div>
+                                            <div class="detail">
+                                                DA
+                                            </div>
+                                            <div class="detail" style="min-width: 32px;">
+                                                Poss
+                                            </div>
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Pas-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Acc-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Atk-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Ofs-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Sav-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Sbst-->
+                                            <!--                                        </div>-->
+                                            <div class="detail" style="min-width: 30px;">
+                                                Goals
+                                            </div>
+                                            <div class="detail" style="width: 4%;">
+                                                Rtg
+                                            </div>
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Fou-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail" style="min-width: 30px;">-->
+                                            <!--                                            G_att-->
+                                            <!--                                        </div>-->
+                                            <!--                                        <div class="detail">-->
+                                            <!--                                            Safe-->
+                                            <!--                                        </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="header-content" style="width: 5%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+                                        Alert
+                                    </div>
+                                    <div class="header-content" style="width: 12%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+                                        Chart
+                                    </div>
+                                    <!--  home team data part Total -->
+                                    <div style="width: 16%; height: 30px; float: left; position: relative; top: 0px;">
+                                        <div class="time_manner" style="width: 60px; float: left;position: relative; top:  23px; left: 15px; font-size: 17px; font-weight: normal">{{item1.home.time}}'</div>
+                                        <div v-if="item1.home.flash == 1" class="goal_manner" style="width: calc(100% - 65px); float: left;">{{item1.home.name}} ({{item1.home.rank}})</div>
+                                        <div v-else style="width: calc(100% - 65px); float: left;">{{item1.home.name}} ({{item1.home.rank}})</div>
+                                    </div>
+                                    <div
+                                            @click="SetCollapse1(item1.index0)"
+                                            duration="100"
+                                            style="height: 0px; position: relative; top: 17px; left: -18px;"
+                                    >
+                                        <img v-if="!show_collapse" @click="show_collapse = true" src="/img/ico-plus.png" width="13px;" style="width: 16px; cursor: pointer;"/>
+                                        <img v-if="show_collapse" @click="show_collapse = false" src="/img/ico-minus.png" width="13px;" style="width: 16px; cursor: pointer;"/>
+                                    </div>
+                                    <div style="width: 5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                        <div style="width: 100%; padding: 3px 7px; color: black;">
+                                            <transition name="slide-fade" mode="out-in" class="livenow">
+                                                <div v-c-tooltip="item1.goal_tooltip" :key="item1.home.score" class="detail" style="color: red; position: relative; top: 22px; left: 7px; font-size: 18px;">
+                                                    {{item1.home.score}} - {{item1.away.score}}
+                                                </div>
+                                            </transition>
+                                        </div>
+                                    </div>
+                                    <div class="detail_total" style="width: 30%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                        <div style="width: 100%; padding: 3px 7px; color: black;">
+                                            <transition name="slide-fade" mode="out-in" class="livenow">
+                                                <div v-c-tooltip="item1.home_tooltip.on" :key="item1.homeT.on" v-if="item1.homeT.on == 0" class="detail" style="color: red;">
+                                                    {{item1.homeT.on}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.on" :key="item1.homeT.on" v-if="item1.homeT.on > 0" class="detail" style="color: green;">
+                                                    {{item1.homeT.on}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.off" :key="item1.homeT.off" v-if="item1.homeT.off == 0" class="detail" style="color: red">
+                                                    {{item1.homeT.off}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.off" :key="item1.homeT.off" v-if="item1.homeT.off > 0" class="detail" style="color: green">
+                                                    {{item1.homeT.off}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.blk" :key="item1.homeT.blk" v-if="item1.homeT.blk > 0" class="detail" style="color: green">
+                                                    {{item1.homeT.blk}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.blk" v-if="item1.homeT.blk == 0 && item1.awayT.blk != 0" class="detail" style="color: red">
+                                                    {{item1.homeT.blk}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div  v-c-tooltip="item1.home_tooltip.blk" :key="item1.homeT.blk" v-if="item1.homeT.blk == null || (item1.homeT.blk == 0 && item1.awayT.blk == 0)" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div  v-c-tooltip="item1.home_tooltip.in" :key="item1.homeT.in" v-if="item1.homeT.in == 0" class="detail" style="color: red">
+                                                    {{item1.homeT.in}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.in" :key="item1.homeT.in" v-if="item1.homeT.in > 0" class="detail" style="color: green;">
+                                                    {{item1.homeT.in}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.in" :key="item1.homeT.in" v-if="item1.homeT.in == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.out" :key="item1.homeT.out" v-if="item1.homeT.out == 0" class="detail" style="color: red">
+                                                    {{item1.homeT.out}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.out" :key="item1.homeT.out" v-if="item1.homeT.out > 0" class="detail" style="color: green">
+                                                    {{item1.homeT.out}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.out" :key="item1.homeT.out" v-if="item1.homeT.out == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.cnr" :key="item1.homeT.cnr" v-if="item1.homeT.cnr == 0" class="detail" style="color: red">
+                                                    {{item1.homeT.cnr}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.cnr" :key="item1.homeT.cnr" v-if="item1.homeT.cnr > 0" class="detail" style="color: green">
+                                                    {{item1.homeT.cnr}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.home_tooltip.cnr" :key="item1.homeT.cnr" v-if="item1.homeT.cnr == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.da" v-if="item1.homeT.da == 0" class="detail" style="color: red">
+                                                    {{item1.homeT.da}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.da" v-if="item1.homeT.da > 0" class="detail" style="color: green">
+                                                    {{item1.homeT.da}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.poss" v-if="item1.homeT.poss == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.poss" v-if="item1.homeT.poss == 0" class="detail" style="color: green">
+                                                    {{item1.homeT.poss}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.poss" v-if="item1.homeT.poss != 0 && item1.homeT.poss != null" class="detail" style="color: green">
+                                                    {{item1.homeT.poss}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.red" v-if="item1.homeT.red == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.red" v-if="item1.homeT.red == 0" class="detail" style="color: red">
+                                                    0
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.red" v-if="item1.homeT.red != 0 && item1.homeT.red != null" class="detail" style="color: green">
+                                                    {{item1.homeT.red}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div class="detail" style="color: green">
+                                                    -
+                                                </div>
+                                            </transition>
+                                        </div>
+                                    </div>
+                                    <div class="detail_total" style="width: 32%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                        <div style="width: 100%; padding: 3px 7px; color: black;">
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.home.on" v-if="item1.home.on >= 0" class="detail" style="color: green;">
+                                                    {{item1.home.on}}
+                                                </div>
+                                            </transition>
+
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.home.off" v-if="item1.home.off >= 0" class="detail" style="color: green">
+                                                    {{item1.home.off}}
+                                                </div>
+                                            </transition>
+
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.homeT.blk > 0" class="detail" style="color: red">
+                                                    {{item1.home.blk}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="(item1.homeT.blk == 0 && item1.awayT.blk != 0)" class="detail" style="color: red">
+                                                    {{item1.home.blk}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.blk" v-if="item1.homeT.blk == null || (item1.homeT.blk == 0 && item1.awayT.blk == 0)" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.in" v-if="item1.homeT.in > 0" class="detail" style="color: green;">
+                                                    {{item1.home.in}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.in" v-if="item1.homeT.in == 0" class="detail" style="color: green;">
+                                                    {{item1.home.in}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.in" v-if="item1.homeT.in == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.out" v-if="item1.homeT.out > 0" class="detail" style="color: green">
+                                                    {{item1.home.out}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.out" v-if="item1.homeT.out == 0" class="detail" style="color: green">
+                                                    {{item1.home.out}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.out" v-if="item1.homeT.out == null" class="detail">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.cnr" v-if="item1.homeT.cnr == 0" class="detail" style="color: red">
+                                                    {{item1.home.cnr}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.cnr" v-if="item1.homeT.cnr > 0" class="detail" style="color: green">
+                                                    {{item1.home.cnr}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.homeT.cnr" v-if="item1.homeT.cnr == null" class="detail">
+                                                    -
+                                                </div>
+                                            </transition>
+
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.home.da" v-if="item1.homeT.da == 0" class="detail" style="color: red">
+                                                    {{item1.home.da}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.home.da" v-if="item1.homeT.da > 0" class="detail" style="color: green">
+                                                    {{item1.home.da}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.home.poss" v-if="item1.home.poss == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.home.poss" v-if="item1.home.poss == 0" class="detail" style="color: red">
+                                                    0
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.home.poss" v-if="item1.home.poss != null && item1.home.poss != 0" class="detail" style="color: green">
+                                                    {{item1.home.poss}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.home.goal" v-if="item1.home.goal == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.home.goal" v-if="item1.home.goal != null" class="detail" style="color: green">
+                                                    {{item1.home.goal}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div class="detail" style="color: green">
+                                                    -
+                                                </div>
+                                            </transition>
+                                        </div>
+                                    </div>
+                                    <div style="width: 5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                        <div style="width: 100%; padding: 3px 7px; color: white;">
+                                            ...
+                                        </div>
+                                    </div>
+                                    <div style="width: 12%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                        <div style="width: 100%; padding: 3px 7px; color: white;">
+                                            ...
+                                        </div>
+                                    </div>
+                                    <!--  away team data part  Total-->
+                                    <div style="width: 16%; height: 30px; float: left; position: relative; top: 0px; border-bottom: 1px solid lightgray;">
+                                        <div style="width: 60px; float: left; color: white;">.</div>
+                                        <div v-if="item1.away.flash == 1" class="goal_manner" style="width: calc(100% - 65px); float: left;">{{item1.away.name}} ({{item1.away.rank}})</div>
+                                        <div v-else style="width: calc(100% - 65px); float: left;">{{item1.away.name}} ({{item1.away.rank}})</div>
+                                    </div>
+                                    <div style="width: 5%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                        <div style="width: 100%; padding: 3px 7px; color: black;">
+                                            <transition name="slide-fade" mode="out-in" class="livenow">
+                                            </transition>
+                                        </div>
+                                    </div>
+                                    <div class="detail_total" style="width: 30%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                        <div style="width: 100%; padding: 3px 7px; color: black;">
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.away_tooltip.on" :key="item1.awayT.on" v-if="item1.awayT.on == 0" class="detail" style="color: red;">
+                                                    {{item1.awayT.on}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.away_tooltip.on" :key="item1.awayT.on" v-if="item1.awayT.on > 0" class="detail" style="color: green;">
+                                                    {{item1.awayT.on}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.away_tooltip.off" :key="item1.awayT.off" v-if="item1.awayT.off == 0" class="detail" style="color: red">
+                                                    {{item1.awayT.off}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.away_tooltip.off" :key="item1.awayT.off" v-if="item1.awayT.off > 0" class="detail" style="color: green">
+                                                    {{item1.awayT.off}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.away_tooltip.blk" :key="item1.awayT.blk" v-if="item1.awayT.blk > 0" class="detail" style="color: green">
+                                                    {{item1.awayT.blk}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.away_tooltip.blk" :key="item1.awayT.blk" v-if="item1.awayT.blk == 0 && item1.homeT.blk != 0" class="detail" style="color: red">
+                                                    {{item1.awayT.blk}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.blk" v-if="item1.awayT.blk == null || (item1.awayT.blk == 0 && item1.homeT.blk == 0)" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div  v-c-tooltip="item1.away_tooltip.in" :key="item1.awayT.in" v-if="item1.awayT.in == 0" class="detail" style="color: red">
+                                                    {{item1.awayT.in}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.away_tooltip.in" :key="item1.awayT.in" v-if="item1.awayT.in > 0" class="detail" style="color: green;">
+                                                    {{item1.awayT.in}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.in" v-if="item1.awayT.in == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.away_tooltip.out" :key="item1.awayT.out" v-if="item1.awayT.out == 0" class="detail" style="color: red">
+                                                    {{item1.awayT.out}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.away_tooltip.out" :key="item1.awayT.out" v-if="item1.awayT.out > 0" class="detail" style="color: green">
+                                                    {{item1.awayT.out}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.out" v-if="item1.awayT.out == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.away_tooltip.cnr" :key="item1.awayT.cnr" v-if="item1.awayT.cnr == 0" class="detail" style="color: red">
+                                                    {{item1.awayT.cnr}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-c-tooltip="item1.away_tooltip.cnr" :key="item1.awayT.cnr" v-if="item1.awayT.cnr > 0" class="detail" style="color: green">
+                                                    {{item1.awayT.cnr}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.cnr" v-if="item1.awayT.cnr == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.awayT.da == 0" class="detail" style="color: red">
+                                                    {{item1.awayT.da}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.da" v-if="item1.awayT.da > 0" class="detail" style="color: green">
+                                                    {{item1.awayT.da}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.poss" v-if="item1.awayT.poss == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.poss" v-if="item1.awayT.poss == 0" class="detail" style="color: red">
+                                                    0
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.poss" v-if="item1.awayT.poss != 0 && item1.awayT.poss != null" class="detail" style="color: green">
+                                                    {{item1.awayT.poss}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.red" v-if="item1.awayT.red == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.red" v-if="item1.awayT.red == 0" class="detail" style="color: red">
+                                                    0
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.red" v-if="item1.awayT.red > 0" class="detail" style="color: green">
+                                                    {{item1.awayT.red}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div class="detail" style="color: green">
+                                                    -
+                                                </div>
+                                            </transition>
+                                        </div>
+                                    </div>
+                                    <div class="detail_total" style="width: 32%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                        <div style="width: 100%; padding: 3px 7px; color: black;">
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.on" v-if="item1.away.on == null" class="detail" style="color: red;">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.on" v-if="item1.away.on != null" class="detail" style="color: green;">
+                                                    {{item1.away.on}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.off" v-if="item1.away.off == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.off" v-if="item1.away.off != null" class="detail" style="color: green">
+                                                    {{item1.away.off}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.blk" v-if="item1.awayT.blk > 0" class="detail" style="color: green">
+                                                    {{item1.away.blk}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.blk" v-if="item1.awayT.blk == 0 && item1.homeT.blk != 0" class="detail" style="color: red">
+                                                    {{item1.away.blk}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.blk" v-if="item1.awayT.blk == null || (item1.awayT.blk == 0 && item1.homeT.blk == 0)" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.in" v-if="item1.awayT.in == 0" class="detail" style="color: red">
+                                                    {{item1.away.in}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.in" v-if="item1.awayT.in > 0" class="detail" style="color: green;">
+                                                    {{item1.away.in}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.in" v-if="item1.awayT.in == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.out" v-if="item1.awayT.out == 0" class="detail" style="color: red">
+                                                    {{item1.away.out}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.out" v-if="item1.awayT.out > 0" class="detail" style="color: green">
+                                                    {{item1.away.out}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.out" v-if="item1.awayT.out == null" class="detail">
+                                                    -
+                                                </div>
+                                            </transition>
+
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.cnr" v-if="item1.awayT.cnr == 0" class="detail" style="color: red">
+                                                    {{item1.away.cnr}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.cnr" v-if="item1.awayT.cnr > 0" class="detail" style="color: green">
+                                                    {{item1.away.cnr}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.cnr" v-if="item1.awayT.cnr == null" class="detail">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div v-if="item1.away.da == 0" class="detail" style="color: red">
+                                                    {{item1.away.da}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.da" v-if="item1.away.da > 0" class="detail" style="color: green">
+                                                    {{item1.away.da}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.da" v-if="item1.away.da == null" class="detail" style="color: green">
+                                                    {{item1.away.da}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.awayT.poss" v-if="item1.away.poss == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.poss" v-if="item1.away.poss == 0" class="detail" style="color: red">
+                                                    0
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.poss" v-if="item1.away.poss != null && item1.away.poss != 0" class="detail" style="color: green">
+                                                    {{item1.away.poss}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.goal" v-if="item1.away.goal == null" class="detail" style="color: red">
+                                                    -
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div :key="item1.away.poss" v-if="item1.away.goal != null" class="detail" style="color: green">
+                                                    {{item1.away.goal}}
+                                                </div>
+                                            </transition>
+                                            <transition name="slide-fade" mode="out-in">
+                                                <div class="detail" style="color: green">
+                                                    -
+                                                </div>
+                                            </transition>
+                                        </div>
+                                    </div>
+                                    <div style="width: 5%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                        <div style="width: 100%; padding: 3px 7px; color: white;">
+                                            ...
+                                        </div>
+                                    </div>
+                                    <div style="width: 12%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                        <div style="width: 100%; padding: 3px 7px; color: white;">
+                                            ...
+                                        </div>
+                                    </div>
+                                    <!--  home team data part  last 10 minutes-->
+                                    <CCollapse
+                                            :show="show_collapse" class="mt-0"
+                                    >
+                                        <div class = "bottom-part bottom-part1">
+                                            <div class="header" style="width: 100%; height: 50px;">
+                                                <div class="header-content detail_total" style="width: 25.5%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+                                                    More info Total
+                                                    <div style="width: 100%">
+                                                        <div class="detail">
+                                                            Pas
+                                                        </div>
+                                                        <div class="detail">
+                                                            Acc
+                                                        </div>
+                                                        <div class="detail">
+                                                            Atk
+                                                        </div>
+                                                        <div class="detail">
+                                                            Ofs
+                                                        </div>
+                                                        <div class="detail">
+                                                            Sav
+                                                        </div>
+                                                        <div class="detail">
+                                                            Sbst
+                                                        </div>
+                                                        <div class="detail">
+                                                            Fou
+                                                        </div>
+                                                        <div class="detail" style="min-width: 30px;">
+                                                            G_att
+                                                        </div>
+                                                        <div class="detail">
+                                                            Safe
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="header-content detail_total" style="width: 24%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+                                                    Total Indexes
+                                                    <div style="width: 100%">
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            TSM
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            STPM
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            BS
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            C
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px; min-width: 32px;">
+                                                            DAPM
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            SA
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            PA
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="header-content detail_total" style="width: 26.5%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+                                                    More info last 10 minutes
+                                                    <div style="width: 100%">
+                                                        <div class="detail">
+                                                            Pas
+                                                        </div>
+                                                        <div class="detail">
+                                                            Acc
+                                                        </div>
+                                                        <div class="detail">
+                                                            Atk
+                                                        </div>
+                                                        <div class="detail">
+                                                            Ofs
+                                                        </div>
+                                                        <div class="detail">
+                                                            Sav
+                                                        </div>
+                                                        <div class="detail">
+                                                            Sbst
+                                                        </div>
+                                                        <div class="detail">
+                                                            Fou
+                                                        </div>
+                                                        <div class="detail" style="min-width: 30px;">
+                                                            G_att
+                                                        </div>
+                                                        <div class="detail">
+                                                            Safe
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="header-content" style="width: 24%; height: 50px; float: left; border-left: 1px solid whitesmoke">
+                                                    Last 10 minutes Indexes
+                                                    <div style="width: 100%">
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            TSM
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            STPM
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            BS
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            C
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px; min-width: 32px;">
+                                                            DAPM
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            SA
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            PA
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="detail_total" style="width: 25.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.pas" v-if="item1.homeT.pas == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.pas" v-if="item1.homeT.pas == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.pas" v-if="item1.homeT.pas != null && item1.homeT.pas != 0" class="detail" style="color: green">
+                                                            {{item1.homeT.pas}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.acc" v-if="item1.homeT.acc == 0" class="detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.acc" v-if="item1.homeT.acc == null" class="detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.acc" v-if="item1.homeT.acc != 0 && item1.homeT.acc != null" class="detail" style="color: green">
+                                                            {{item1.homeT.acc}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.atk" v-if="item1.homeT.atk == 0" class="detail" style="color: red">
+                                                            {{item1.homeT.atk}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.atk" v-if="item1.homeT.atk == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.atk" v-if="item1.homeT.atk != 0 && item1.homeT.atk != null" class="detail" style="color: green">
+                                                            {{item1.homeT.atk}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.ofs" v-if="item1.homeT.ofs == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.ofs" v-if="item1.homeT.ofs == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.ofs" v-if="item1.homeT.ofs != 0 && item1.homeT.ofs != null" class="detail" style="color: green">
+                                                            {{item1.homeT.ofs}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.sav" v-if="item1.homeT.sav == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.sav" v-if="item1.homeT.sav == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.sav" v-if="item1.homeT.sav != 0 && item1.homeT.sav != null" class="detail" style="color: green">
+                                                            {{item1.homeT.sav}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.sbst" v-if="item1.homeT.sbst == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.sbst" v-if="item1.homeT.sbst == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.sbst" v-if="item1.homeT.sbst != 0 && item1.homeT.sbst != null" class="detail" style="color: green">
+                                                            {{item1.homeT.sbst}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.fou" v-if="item1.homeT.fou == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.fou" v-if="item1.homeT.fou == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.fou" v-if="item1.homeT.fou != 0 && item1.homeT.fou != null" class="detail" style="color: green">
+                                                            {{item1.homeT.fou}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.g_att" v-if="item1.homeT.g_att == null" class="detail" style="color: red; min-width: 30px;">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.g_att" v-if="item1.homeT.g_att == 0" class="detail" style="color: red; min-width: 30px;">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.g_att" v-if="item1.homeT.g_att != 0 && item1.homeT.g_att != null" class="detail" style="color: green; min-width: 30px;">
+                                                            {{item1.homeT.g_att}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.safe" v-if="item1.homeT.safe == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.safe" v-if="item1.homeT.safe == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.homeT.safe" v-if="item1.homeT.safe != 0 && item1.homeT.safe != null" class="detail" style="color: green">
+                                                            {{item1.homeT.safe}}
+                                                        </div>
+                                                    </transition>
+                                                </div>
+                                            </div>
+                                            <div class="detail_total" style="width: 24%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time != 'HT'" :key="(item1.homeT.on + item1.homeT.off)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.homeT.on) + parseInt(item1.homeT.off))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time == 'HT'" :key="(item1.homeT.on + item1.homeT.off)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.homeT.on) + parseInt(item1.homeT.off))/45).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time == 'HT'" :key="item1.homeT.on" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.homeT.on))/45).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time != 'HT'" :key="item1.homeT.on" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.homeT.on))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.homeT.blk != null && parseInt(item1.awayT.on) + parseInt(item1.awayT.off) != 0" :key="((parseInt(item1.homeT.blk))/(parseInt(item1.awayT.on) + parseInt(item1.awayT.off)))" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.homeT.blk))/(parseInt(item1.awayT.on) + parseInt(item1.awayT.off))).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.homeT.blk != null && parseInt(item1.awayT.on) + parseInt(item1.awayT.off) == 0" :key="((parseInt(item1.homeT.blk))/(parseInt(item1.awayT.on) + parseInt(item1.awayT.off)))" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.homeT.blk == null" :key="item1.homeT.blk" class="detail index_detail" style="color: green">
+                                                            -
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.homeT.on != 0" :key="(parseInt(item1.home.score))/parseInt(item1.homeT.on)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.home.score))/parseInt(item1.homeT.on)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.homeT.on == 0" :key="(parseInt(item1.home.score))/parseInt(item1.homeT.on)" class="detail index_detail" style="color: green;">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time != 'HT'" :key="item1.home.cnr" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.homeT.da))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time == 'HT'" :key="item1.home.cnr" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.homeT.da))/45).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="(parseInt(item1.homeT.on) + parseInt(item1.homeT.off)) != 0" :key="(parseInt(item1.homeT.on)/(parseInt(item1.homeT.on) + parseInt(item1.homeT.off)))" class="detail index_detail" style="color: green">
+                                                            {{(parseInt(item1.homeT.on)/(parseInt(item1.homeT.on) + parseInt(item1.homeT.off))).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="(parseInt(item1.homeT.on) + parseInt(item1.homeT.off)) == 0" :key="(parseInt(item1.homeT.on)/(parseInt(item1.homeT.on) + parseInt(item1.homeT.off)))" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.homeT.pas != 0 && item1.homeT.pas != null" :key="(parseInt(item1.homeT.on)/(parseInt(item1.homeT.on) + parseInt(item1.homeT.off)))" class="detail index_detail" style="color: green">
+                                                            {{(parseInt(item1.homeT.acc)/parseInt(item1.homeT.pas)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.homeT.pas === 0 && item1.homeT.pas != null" :key="(parseInt(item1.homeT.on)/(parseInt(item1.homeT.on) + parseInt(item1.homeT.off)))" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.homeT.pas == null" :key="(parseInt(item1.homeT.on)/(parseInt(item1.homeT.on) + parseInt(item1.homeT.off)))" class="detail index_detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                </div>
+                                            </div>
+                                            <div class="detail_total" style="width: 26.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.pas" v-if="item1.home.pas == null" class="detail">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.pas" v-if="item1.home.pas == 0" class="detail">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.pas" v-if="item1.home.pas > 0" class="detail" style="color: green">
+                                                            {{item1.home.pas}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.acc" v-if="item1.home.acc == null" class="detail">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.acc" v-if="item1.home.acc == 0" class="detail">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.acc" v-if="item1.home.acc > 0" class="detail" style="color: green">
+                                                            {{item1.home.acc}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.atk" v-if="item1.home.atk == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.atk" v-if="item1.home.atk == 0" class="detail" style="color: red">
+                                                            {{item1.home.atk}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.atk" v-if="item1.home.atk > 0" class="detail" style="color: green">
+                                                            {{item1.home.atk}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.ofs" v-if="item1.home.ofs == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.ofs" v-if="item1.home.ofs == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.ofs" v-if="item1.home.ofs > 0" class="detail" style="color: green">
+                                                            {{item1.home.ofs}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.sav" v-if="item1.home.sav == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.sav" v-if="item1.home.sav == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.sav" v-if="item1.home.sav > 0" class="detail" style="color: green">
+                                                            {{item1.home.sav}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.sbst" v-if="item1.home.sbst == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.sbst" v-if="item1.home.sbst >= 0" class="detail" style="color: green">
+                                                            {{item1.home.sbst}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.fou" v-if="item1.home.fou == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.fou" v-if="item1.home.fou >= 0" class="detail" style="color: green">
+                                                            {{item1.home.fou}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.g_att" v-if="item1.home.g_att == null" class="detail" style="color: red; min-width: 30px;">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.g_att" v-if="item1.home.g_att >= 0" class="detail" style="color: green; min-width: 30px;">
+                                                            {{item1.home.g_att}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.safe" v-if="item1.home.safe == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home.safe" v-if="item1.home.safe >= 0" class="detail" style="color: green">
+                                                            {{item1.home.safe}}
+                                                        </div>
+                                                    </transition>
+                                                </div>
+                                            </div>
+                                            <div class="detail_total" style="width: 24%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="(item1.home.on + item1.home.off)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.home.on) + parseInt(item1.home.off))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="(item1.home.on + item1.home.off)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.home.on) + parseInt(item1.home.off))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time === 'HT'" :key="(item1.home.on + item1.home.off)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.home.on) + parseInt(item1.home.off))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="item1.home.on" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.home.on))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="item1.home.on" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.home.on))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time === 'HT'" :key="item1.home.on" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.home.on))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.away.on) + parseInt(item1.away.off) != 0 && item1.home.blk != null" :key="((parseInt(item1.home.blk))/(parseInt(item1.away.on)+ parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.home.blk))/(parseInt(item1.away.on) + parseInt(item1.away.off))).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.away.on) + parseInt(item1.away.off) == 0 && item1.home.blk != null" :key="((parseInt(item1.home.blk))/(parseInt(item1.away.on)+ parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.blk == null" :key="item1.home.blk" class="detail index_detail" style="color: green">
+                                                            -
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.on != 0" :key="(parseInt(item1.home.score))/parseInt(item1.home.on)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.home.goal))/parseInt(item1.home.on)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.on == 0" :key="(parseInt(item1.home.score))/parseInt(item1.home.on)" class="detail index_detail" style="color: green;">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="((parseInt(item1.home.da))/parseInt(item1.home.time))" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.home.da))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="((parseInt(item1.home.da))/parseInt(item1.home.time))" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.home.da))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time === 'HT'" :key="(parseInt(item1.home.da))" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.home.da))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="(parseInt(item1.home.on) + parseInt(item1.home.off)) != 0" :key="(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off)))" class="detail index_detail" style="color: green">
+                                                            {{(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off))).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="(parseInt(item1.home.on) + parseInt(item1.home.off)) == 0" :key="(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off)))" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.pas != 0 && item1.home.pas != null" :key="(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off)))" class="detail index_detail" style="color: green">
+                                                            {{(parseInt(item1.home.acc)/parseInt(item1.home.pas)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.pas == 0 && item1.home.pas != null" :key="(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off)))" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.pas == null" :key="(parseInt(item1.home.on)/(parseInt(item1.home.on) + parseInt(item1.home.off)))" class="detail index_detail" style="color: green">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                </div>
+                                            </div>
+                                            <!--  away team data part  last 10 minutes-->
+                                            <div class="detail_total" style="width: 25.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.pas" v-if="item1.awayT.pas == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.pas" v-if="item1.awayT.pas == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.pas" v-if="item1.awayT.pas > 0" class="detail" style="color: green">
+                                                            {{item1.awayT.pas}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.acc" v-if="item1.awayT.acc == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.acc" v-if="item1.awayT.acc == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.acc" v-if="item1.awayT.acc > 0" class="detail" style="color: green">
+                                                            {{item1.awayT.acc}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.atk" v-if="item1.awayT.atk == 0" class="detail" style="color: red">
+                                                            {{item1.awayT.atk}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.atk" v-if="item1.awayT.atk > 0" class="detail" style="color: green">
+                                                            {{item1.awayT.atk}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.ofs" v-if="item1.awayT.ofs == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.ofs" v-if="item1.awayT.ofs == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.ofs" v-if="item1.awayT.ofs > 0" class="detail" style="color: green">
+                                                            {{item1.awayT.ofs}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.sav" v-if="item1.awayT.sav == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.sav" v-if="item1.awayT.sav == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.sav" v-if="item1.awayT.sav > 0" class="detail" style="color: green">
+                                                            {{item1.awayT.sav}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.sbst" v-if="item1.awayT.sbst == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.sbst" v-if="item1.awayT.sbst == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.sbst" v-if="item1.awayT.sbst > 0" class="detail" style="color: green">
+                                                            {{item1.awayT.sbst}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.fou" v-if="item1.awayT.fou == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.fou" v-if="item1.awayT.fou == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.fou" v-if="item1.awayT.fou > 0" class="detail" style="color: green">
+                                                            {{item1.awayT.fou}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.g_att" v-if="item1.awayT.g_att == null" class="detail" style="color: red; min-width: 30px;">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.g_att" v-if="item1.awayT.g_att == 0" class="detail" style="color: red; min-width: 30px;">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.g_att" v-if="item1.awayT.g_att > 0" class="detail" style="color: green; min-width: 30px;">
+                                                            {{item1.awayT.g_att}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.safe" v-if="item1.awayT.safe == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.safe" v-if="item1.awayT.safe == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.awayT.safe" v-if="item1.awayT.safe > 0" class="detail" style="color: green">
+                                                            {{item1.awayT.safe}}
+                                                        </div>
+                                                    </transition>
+                                                </div>
+                                            </div>
+                                            <div class="detail_total" style="width: 24%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time != 'HT'" :key="((parseInt(item1.awayT.on) + parseInt(item1.awayT.off))/parseInt(item1.home.time))" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.awayT.on) + parseInt(item1.awayT.off))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time == 'HT'" :key="(item1.awayT.on + item1.awayT.off)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.awayT.on) + parseInt(item1.awayT.off))/45).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time == 'HT'" :key="item1.homeT.on" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.awayT.on))/45).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time != 'HT'" :key="item1.awayT.on" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.awayT.on))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.awayT.blk != null && parseInt(item1.homeT.on) + parseInt(item1.homeT.off) != 0" :key="((parseInt(item1.homeT.blk))/(parseInt(item1.awayT.on) + parseInt(item1.awayT.off)))" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.awayT.blk))/(parseInt(item1.homeT.on) + parseInt(item1.homeT.off))).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.awayT.blk != null && parseInt(item1.homeT.on) + parseInt(item1.homeT.off) == 0" :key="((parseInt(item1.homeT.blk))/(parseInt(item1.awayT.on) + parseInt(item1.awayT.off)))" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.awayT.blk == null" :key="((parseInt(item1.homeT.blk))/(parseInt(item1.awayT.on) + parseInt(item1.awayT.off)))" class="detail index_detail" style="color: green">
+                                                            -
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.awayT.on != 0" :key="(parseInt(item1.away.score))/parseInt(item1.awayT.on)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.away.score))/parseInt(item1.awayT.on)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.awayT.on == 0" :key="(parseInt(item1.home.score))/parseInt(item1.awayT.on)" class="detail index_detail" style="color: green;">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time != 'HT'" :key="((parseInt(item1.awayT.da))/parseInt(item1.home.time))" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.awayT.da))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time == 'HT'" :key="((parseInt(item1.awayT.da))/45)" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.awayT.da))/45).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="(parseInt(item1.awayT.on) + parseInt(item1.awayT.off)) != 0" :key="(parseInt(item1.awayT.on)/(parseInt(item1.awayT.on) + parseInt(item1.awayT.off)))" class="detail index_detail" style="color: green">
+                                                            {{(parseInt(item1.awayT.on)/(parseInt(item1.awayT.on) + parseInt(item1.awayT.off))).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="(parseInt(item1.awayT.on) + parseInt(item1.awayT.off)) == 0" :key="(parseInt(item1.awayT.on)/(parseInt(item1.awayT.on) + parseInt(item1.awayT.off)))" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.awayT.pas != 0 && item1.awayT.pas != null" :key="(parseInt(item1.awayT.acc)/parseInt(item1.awayT.pas))" class="detail index_detail" style="color: green">
+                                                            {{(parseInt(item1.awayT.acc)/parseInt(item1.awayT.pas)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.awayT.pas === 0 && item1.awayT.pas != null" :key="(parseInt(item1.awayT.acc)/parseInt(item1.awayT.pas))" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.awayT.pas == null" :key="(parseInt(item1.awayT.acc)/parseInt(item1.awayT.pas))" class="detail index_detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                </div>
+                                            </div>
+                                            <div class="detail_total" style="width: 26.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.pas" v-if="item1.away.pas == null" class="detail">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.pas" v-if="item1.away.pas == 0" class="detail">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.pas" v-if="item1.away.pas > 0" class="detail" style="color: green">
+                                                            {{item1.away.pas}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.acc" v-if="item1.away.acc == null" class="detail">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.acc" v-if="item1.away.acc == 0" class="detail">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.acc" v-if="item1.away.acc > 0" class="detail" style="color: green">
+                                                            {{item1.away.acc}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.atk" v-if="item1.away.atk == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.atk" v-if="item1.away.atk == 0" class="detail" style="color: red">
+                                                            {{item1.away.atk}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.atk" v-if="item1.away.atk > 0" class="detail" style="color: green">
+                                                            {{item1.away.atk}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.ofs" v-if="item1.away.ofs == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.ofs" v-if="item1.away.ofs == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.ofs" v-if="item1.away.ofs > 0" class="detail" style="color: green">
+                                                            {{item1.away.ofs}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.sav" v-if="item1.away.sav == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.sav" v-if="item1.away.sav == 0" class="detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.sav" v-if="item1.away.sav > 0" class="detail" style="color: green">
+                                                            {{item1.away.sav}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.sbst" v-if="item1.away.sbst == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.sbst" v-if="item1.away.sbst >= 0" class="detail" style="color: green">
+                                                            {{item1.away.sbst}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.fou" v-if="item1.away.fou == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.fou" v-if="item1.away.fou >= 0" class="detail" style="color: green">
+                                                            {{item1.away.fou}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.g_att" v-if="item1.away.g_att == null" class="detail" style="color: red; min-width: 30px;">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.g_att" v-if="item1.away.g_att >= 0" class="detail" style="color: green; min-width: 30px;">
+                                                            {{item1.away.g_att}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.safe" v-if="item1.away.safe == null" class="detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away.safe" v-if="item1.away.safe >= 0" class="detail" style="color: green">
+                                                            {{item1.away.safe}}
+                                                        </div>
+                                                    </transition>
+                                                </div>
+                                            </div>
+                                            <div class="detail_total" style="width: 24%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="(item1.away.on + item1.away.off)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.away.on) + parseInt(item1.away.off))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="(item1.away.on + item1.away.off)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.away.on) + parseInt(item1.away.off))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time === 'HT'" :key="(item1.away.on + item1.away.off)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.away.on) + parseInt(item1.away.off))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="item1.away.on" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.away.on))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="item1.away.on" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.away.on))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time === 'HT'" :key="item1.away.on" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.away.on))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.on) + parseInt(item1.home.off) != 0 && item1.away.blk != null" :key="item1.away.blk" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.away.blk))/(parseInt(item1.home.on) + parseInt(item1.home.off))).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.on) + parseInt(item1.home.off) == 0 && item1.away.blk != null" :key="item1.away.blk" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.away.blk == null" class="detail index_detail" style="color: green">
+                                                            -
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.away.on != 0" :key="(parseInt(item1.away.score))/parseInt(item1.away.on)" class="detail index_detail" style="color: green;">
+                                                            {{((parseInt(item1.away.goal))/parseInt(item1.away.on)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.away.on == 0" :key="(parseInt(item1.away.score))/parseInt(item1.away.on)" class="detail index_detail" style="color: green;">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) < 10 && item1.home.time != 'HT'" :key="((parseInt(item1.away.da))/parseInt(item1.away.time))" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.away.da))/parseInt(item1.home.time)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="parseInt(item1.home.time) >= 10 && item1.home.time != 'HT'" :key="((parseInt(item1.away.da))/parseInt(item1.away.time))" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.away.da))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home.time === 'HT'" :key="(parseInt(item1.away.da))" class="detail index_detail" style="color: green">
+                                                            {{((parseInt(item1.away.da))/10).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="(parseInt(item1.away.on) + parseInt(item1.away.off)) != 0" :key="(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                            {{(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off))).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="(parseInt(item1.away.on) + parseInt(item1.away.off)) == 0" :key="(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.away.pas != 0 && item1.away.pas != null" :key="(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                            {{(parseInt(item1.away.acc)/parseInt(item1.away.pas)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.away.pas == 0 && item1.away.pas != null" :key="(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                            0.00
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.away.pas == null" :key="(parseInt(item1.away.on)/(parseInt(item1.away.on) + parseInt(item1.away.off)))" class="detail index_detail" style="color: green">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class = "bottom-part">
+                                            <div class="header" style="width: 100%; height: 50px;">
+                                                <div class="header-content" style="text-align: center; padding-top: 20px; width: 2.5%; height: 50px; float: left; background: #8db4e2; border-left: 1px solid #ffffff;">
+                                                    P
+                                                </div>
+                                                <div class="header-content detail_total" style="width: 42%; height: 50px; float: left; border-left: 1px solid #ffffff; background: #8db4e2">
+                                                    Avg Stats Per Game
+                                                    <div class="season-part" style="width: 100%">
+                                                        <div class="detail season-detail" style="min-width: 30px!important; width: 6.5%!important">
+                                                            Goals
+                                                        </div>
+                                                        <div class="detail season-detail" style="min-width: 20px!important; width: 4.5%!important">
+                                                            On
+                                                        </div>
+                                                        <div class="detail season-detail" style="min-width: 20px!important;">
+                                                            Off
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Blk
+                                                        </div>
+                                                        <div class="detail season-detail" style="min-width: 20px!important; width: 4.5%!important">
+                                                            In
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Out
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Cnr
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            DA
+                                                        </div>
+                                                        <div class="detail season-detail" style="min-width: 30px;">
+                                                            Pos
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Pas
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Acc
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Atk
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Ofs
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Sav
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Sbst
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Fou
+                                                        </div>
+                                                        <div class="detail season-detail" style="min-width: 30px!important; width: 6.5%!important">
+                                                            G_att
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Safe
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="header-content detail_total" style="width: 37.5%; height: 50px; float: left; border-left: 1px solid #ffffff; background: #8db4e2">
+                                                    Total Avg Stats
+                                                    <div class="season-part" style="width: 100%">
+                                                        <div class="detail season-detail" style="min-width: 30px!important; width: 6.5%!important">
+                                                            Goals
+                                                        </div>
+                                                        <div class="detail season-detail" style="min-width: 20px!important; width: 4.5%!important">
+                                                            On
+                                                        </div>
+                                                        <div class="detail season-detail" style="min-width: 20px!important;">
+                                                            Off
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Blk
+                                                        </div>
+                                                        <div class="detail season-detail" style="min-width: 20px!important; width: 4.5%!important">
+                                                            In
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Out
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Cnr
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            DA
+                                                        </div>
+                                                        <div class="detail season-detail" style="min-width: 30px;">
+                                                            Pos
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Pas
+
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Acc
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Atk
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Ofs
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Sav
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Sbst
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Fou
+                                                        </div>
+                                                        <div class="detail season-detail" style="min-width: 30px!important; width: 6.5%!important">
+                                                            G_att
+                                                        </div>
+                                                        <div class="detail season-detail">
+                                                            Safe
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="header-content" style="width: 18%; height: 50px; float: left; border-left: 1px solid #ffffff; background: #8db4e2">
+                                                    Indexes
+                                                    <div style="width: 100%">
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            TSM
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            STPM
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            BS
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            C
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px; min-width: 32px;">
+                                                            DAPM
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            SA
+                                                        </div>
+                                                        <div class="detail index_detail" style="font-size: 11px!important; padding-top: 2px;">
+                                                            PA
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="width: 2.5%; height: 30px; float: left; border-left: 1px solid lightgray;">
+                                                <div style="text-align: center;">{{item1.home_p}}</div>
+                                            </div>
+                                            <div class="detail_total season-stats-part" style="width: 42%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.goals" v-if="item1.home_season.goals == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.goals" v-if="item1.home_season.goals == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.goals" v-if="item1.home_season.goals != 0 && item1.home_season.goals != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.goals/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.on" v-if="item1.home_season.on == 0" class="detail season-detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.on" v-if="item1.home_season.on == null" class="detail season-detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.on" v-if="item1.home_season.on != null && item1.home_season.on != 0" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.on/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.off" v-if="item1.home_season.off == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.off" v-if="item1.home_season.off == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.off" v-if="item1.home_season.off != 0 && item1.home_season.off != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.off/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.blk" v-if="item1.home_season.blk == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.blk" v-if="item1.home_season.blk == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.blk" v-if="item1.home_season.blk != 0 && item1.home_season.blk != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.blk/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.in" v-if="item1.home_season.in == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.in" v-if="item1.home_season.in == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.in" v-if="item1.home_season.in != 0 && item1.home_season.in != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.in/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.out" v-if="item1.home_season.out == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.out" v-if="item1.home_season.out == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.out" v-if="item1.home_season.out != 0 && item1.home_season.out != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.out/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.cnr" v-if="item1.home_season.cnr == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.cnr" v-if="item1.home_season.cnr == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.cnr" v-if="item1.home_season.cnr != 0 && item1.home_season.cnr != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.cnr/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.da" v-if="item1.home_season.da == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.da" v-if="item1.home_season.da == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.da" v-if="item1.home_season.da != 0 && item1.home_season.da != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.da/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pos" v-if="item1.home_season.pos == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pos" v-if="item1.home_season.pos == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pos" v-if="item1.home_season.pos != 0 && item1.home_season.pos != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.pos/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pas" v-if="item1.home_season.pas == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pas" v-if="item1.home_season.pas == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pas" v-if="item1.home_season.pas != 0 && item1.home_season.pas != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.pas/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.acc" v-if="item1.home_season.acc == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.acc" v-if="item1.home_season.acc == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.acc" v-if="item1.home_season.acc != 0 && item1.home_season.acc != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.acc/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.atk" v-if="item1.home_season.atk == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.atk" v-if="item1.home_season.atk == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.atk" v-if="item1.home_season.atk != 0 && item1.home_season.atk != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.atk/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.ofs" v-if="item1.home_season.ofs == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.ofs" v-if="item1.home_season.ofs == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.ofs" v-if="item1.home_season.ofs != 0 && item1.home_season.ofs != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.ofs/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sav" v-if="item1.home_season.sav == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sav" v-if="item1.home_season.sav == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sav" v-if="item1.home_season.sav != 0 && item1.home_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.sav/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sbst" v-if="item1.home_season.sbst == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sbst" v-if="item1.home_season.sbst == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sbst" v-if="item1.home_season.sbst != 0 && item1.home_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.sbst/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.fou" v-if="item1.home_season.fou == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.fou" v-if="item1.home_season.fou == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.fou" v-if="item1.home_season.fou != 0 && item1.home_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.fou/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.g_att" v-if="item1.home_season.g_att == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.g_att" v-if="item1.home_season.g_att == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.g_att" v-if="item1.home_season.g_att != 0 && item1.home_season.g_att != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.g_att/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.safe" v-if="item1.home_season.safe == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.safe" v-if="item1.home_season.safe == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.safe" v-if="item1.home_season.safe != 0 && item1.home_season.safe != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.home_season.safe/item1.home_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                </div>
+                                            </div>
+                                            <div class="detail_total season-stats-part" style="width: 37.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.goals" v-if="item1.home_season.goals == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.goals" v-if="item1.home_season.goals == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.goals" v-if="item1.home_season.goals != 0 && item1.home_season.goals != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.goals}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.on" v-if="item1.home_season.on == 0" class="detail season-detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.on" v-if="item1.home_season.on == null" class="detail season-detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.on" v-if="item1.home_season.on != null && item1.home_season.on != 0" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.on}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.off" v-if="item1.home_season.off == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.off" v-if="item1.home_season.off == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.off" v-if="item1.home_season.off != 0 && item1.home_season.off != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.off}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.blk" v-if="item1.home_season.blk == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.blk" v-if="item1.home_season.blk == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.blk" v-if="item1.home_season.blk != 0 && item1.home_season.blk != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.blk}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.in" v-if="item1.home_season.in == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.in" v-if="item1.home_season.in == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.in" v-if="item1.home_season.in != 0 && item1.home_season.in != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.in}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.out" v-if="item1.home_season.out == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.out" v-if="item1.home_season.out == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.out" v-if="item1.home_season.out != 0 && item1.home_season.out != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.out}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.cnr" v-if="item1.home_season.cnr == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.cnr" v-if="item1.home_season.cnr == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.cnr" v-if="item1.home_season.cnr != 0 && item1.home_season.cnr != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.cnr}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.da" v-if="item1.home_season.da == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.da" v-if="item1.home_season.da == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.da" v-if="item1.home_season.da != 0 && item1.home_season.da != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.da}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pos" v-if="item1.home_season.pos == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pos" v-if="item1.home_season.pos == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pos" v-if="item1.home_season.pos != 0 && item1.home_season.pos != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.pos}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pas" v-if="item1.home_season.pas == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pas" v-if="item1.home_season.pas == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.pas" v-if="item1.home_season.pas != 0 && item1.home_season.pas != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.pas}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.acc" v-if="item1.home_season.acc == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.acc" v-if="item1.home_season.acc == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.acc" v-if="item1.home_season.acc != 0 && item1.home_season.acc != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.acc}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.atk" v-if="item1.home_season.atk == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.atk" v-if="item1.home_season.atk == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.atk" v-if="item1.home_season.atk != 0 && item1.home_season.atk != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.atk}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.ofs" v-if="item1.home_season.ofs == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.ofs" v-if="item1.home_season.ofs == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.ofs" v-if="item1.home_season.ofs != 0 && item1.home_season.ofs != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.ofs}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sav" v-if="item1.home_season.sav == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sav" v-if="item1.home_season.sav == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sav" v-if="item1.home_season.sav != 0 && item1.home_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.sav}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sbst" v-if="item1.home_season.sbst == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sbst" v-if="item1.home_season.sbst == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.sbst" v-if="item1.home_season.sbst != 0 && item1.home_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.sbst}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.fou" v-if="item1.home_season.fou == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.fou" v-if="item1.home_season.fou == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.fou" v-if="item1.home_season.fou != 0 && item1.home_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.fou}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.g_att" v-if="item1.home_season.g_att == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.g_att" v-if="item1.home_season.g_att == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.g_att" v-if="item1.home_season.g_att != 0 && item1.home_season.g_att != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.g_att}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.safe" v-if="item1.home_season.safe == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.safe" v-if="item1.home_season.safe == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.home_season.safe" v-if="item1.home_season.safe != 0 && item1.home_season.safe != null" class="detail season-detail" style="color: green">
+                                                            {{item1.home_season.safe}}
+                                                        </div>
+                                                    </transition>
+
+                                                </div>
+                                            </div>
+                                            <div class="detail_total season-stats-part" style="width: 18%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.home_season.on + item1.home_season.off)/90/item1.home_p).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.home_season.on)/90/item1.home_p).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.home_season.blk" class="detail index_detail" style="color: green;">
+                                                            {{((item1.home_season.blk)/item1.home_p).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="!item1.home_season.blk" class="detail index_detail" style="color: green;">
+                                                            -
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.home_season.goals)/(item1.home_season.on)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.home_season.da)/90/item1.home_p).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.home_season.on)/(item1.home_season.on + item1.home_season.off)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.home_season.acc)/(item1.home_season.pas)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                </div>
+                                            </div>
+                                            <!--  away team data part  last 10 minutes-->
+                                            <div style="width: 2.5%; height: 30px; float: left; border-bottom: 1px solid lightgray; border-left: 1px solid lightgray;">
+                                                <div style="text-align: center;">{{item1.away_p}}</div>
+                                            </div>
+                                            <div class="detail_total season-stats-part" style="width: 42%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.goals" v-if="item1.away_season.goals == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.goals" v-if="item1.away_season.goals == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.goals" v-if="item1.away_season.goals != 0 && item1.home_season.goals != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.goals/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.on" v-if="item1.away_season.on == 0" class="detail season-detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.on" v-if="item1.away_season.on == null" class="detail season-detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.on" v-if="item1.away_season.on != null && item1.home_season.on != 0" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.on/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.off" v-if="item1.away_season.off == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.off" v-if="item1.away_season.off == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.off" v-if="item1.away_season.off != 0 && item1.away_season.off != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.off/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.blk" v-if="item1.away_season.blk == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.blk" v-if="item1.away_season.blk == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.blk" v-if="item1.away_season.blk != 0 && item1.home_season.blk != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.blk/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.in" v-if="item1.away_season.in == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.in" v-if="item1.away_season.in == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.in" v-if="item1.away_season.in != 0 && item1.away_season.in != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.in/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.out" v-if="item1.away_season.out == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.out" v-if="item1.away_season.out == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.out" v-if="item1.away_season.out != 0 && item1.away_season.out != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.out/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.cnr" v-if="item1.away_season.cnr == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.cnr" v-if="item1.away_season.cnr == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.cnr" v-if="item1.away_season.cnr != 0 && item1.away_season.cnr != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.cnr/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.da" v-if="item1.away_season.da == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.da" v-if="item1.away_season.da == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.da" v-if="item1.away_season.da != 0 && item1.away_season.da != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.da/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pos" v-if="item1.away_season.pos == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pos" v-if="item1.away_season.pos == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pos" v-if="item1.away_season.pos != 0 && item1.away_season.pos != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.pos/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pas" v-if="item1.away_season.pas == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pas" v-if="item1.away_season.pas == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pas" v-if="item1.away_season.pas != 0 && item1.away_season.pas != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.pas/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.acc" v-if="item1.away_season.acc == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.acc" v-if="item1.away_season.acc == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.acc" v-if="item1.away_season.acc != 0 && item1.away_season.acc != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.acc/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.atk" v-if="item1.away_season.atk == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.atk" v-if="item1.away_season.atk == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.atk" v-if="item1.away_season.atk != 0 && item1.away_season.atk != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.atk/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.ofs" v-if="item1.away_season.ofs == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.ofs" v-if="item1.away_season.ofs == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.ofs" v-if="item1.away_season.ofs != 0 && item1.away_season.ofs != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.ofs/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sav" v-if="item1.away_season.sav == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sav" v-if="item1.away_season.sav == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sav" v-if="item1.away_season.sav != 0 && item1.away_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.sav/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sbst" v-if="item1.away_season.sbst == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sbst" v-if="item1.away_season.sbst == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sbst" v-if="item1.away_season.sbst != 0 && item1.away_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.sbst/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.fou" v-if="item1.away_season.fou == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.fou" v-if="item1.away_season.fou == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.fou" v-if="item1.away_season.fou != 0 && item1.away_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.fou/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.g_att" v-if="item1.away_season.g_att == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.g_att" v-if="item1.away_season.g_att == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.g_att" v-if="item1.away_season.g_att != 0 && item1.away_season.g_att != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.g_att/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.safe" v-if="item1.away_season.safe == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.safe" v-if="item1.away_season.safe == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.safe" v-if="item1.away_season.safe != 0 && item1.away_season.safe != null" class="detail season-detail" style="color: green">
+                                                            {{(item1.away_season.safe/item1.away_p).toFixed(1)}}
+                                                        </div>
+                                                    </transition>
+                                                </div>
+                                            </div>
+                                            <div class="detail_total season-stats-part" style="width: 37.5%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.goals" v-if="item1.away_season.goals == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.goals" v-if="item1.away_season.goals == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.goals" v-if="item1.away_season.goals != 0 && item1.home_season.goals != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.goals}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.on" v-if="item1.away_season.on == 0" class="detail season-detail" style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.on" v-if="item1.away_season.on == null" class="detail season-detail" style="color: red">
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.on" v-if="item1.away_season.on != null && item1.home_season.on != 0" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.on}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.off" v-if="item1.away_season.off == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.off" v-if="item1.away_season.off == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.off" v-if="item1.away_season.off != 0 && item1.away_season.off != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.off}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.blk" v-if="item1.away_season.blk == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.blk" v-if="item1.away_season.blk == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.blk" v-if="item1.away_season.blk != 0 && item1.home_season.blk != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.blk}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.in" v-if="item1.away_season.in == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.in" v-if="item1.away_season.in == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.in" v-if="item1.away_season.in != 0 && item1.away_season.in != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.in}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.out" v-if="item1.away_season.out == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.out" v-if="item1.away_season.out == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.out" v-if="item1.away_season.out != 0 && item1.away_season.out != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.out}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.cnr" v-if="item1.away_season.cnr == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.cnr" v-if="item1.away_season.cnr == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.cnr" v-if="item1.away_season.cnr != 0 && item1.away_season.cnr != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.cnr}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.da" v-if="item1.away_season.da == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.da" v-if="item1.away_season.da == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.da" v-if="item1.away_season.da != 0 && item1.away_season.da != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.da}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pos" v-if="item1.away_season.pos == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pos" v-if="item1.away_season.pos == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pos" v-if="item1.away_season.pos != 0 && item1.away_season.pos != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.pos}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pas" v-if="item1.away_season.pas == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pas" v-if="item1.away_season.pas == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.pas" v-if="item1.away_season.pas != 0 && item1.away_season.pas != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.pas}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.acc" v-if="item1.away_season.acc == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.acc" v-if="item1.away_season.acc == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.acc" v-if="item1.away_season.acc != 0 && item1.away_season.acc != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.acc}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.atk" v-if="item1.away_season.atk == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.atk" v-if="item1.away_season.atk == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.atk" v-if="item1.away_season.atk != 0 && item1.away_season.atk != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.atk}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.ofs" v-if="item1.away_season.ofs == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.ofs" v-if="item1.away_season.ofs == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.ofs" v-if="item1.away_season.ofs != 0 && item1.away_season.ofs != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.ofs}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sav" v-if="item1.away_season.sav == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sav" v-if="item1.away_season.sav == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sav" v-if="item1.away_season.sav != 0 && item1.away_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.sav}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sbst" v-if="item1.away_season.sbst == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sbst" v-if="item1.away_season.sbst == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.sbst" v-if="item1.away_season.sbst != 0 && item1.away_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.sbst}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.fou" v-if="item1.away_season.fou == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.fou" v-if="item1.away_season.fou == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.fou" v-if="item1.away_season.fou != 0 && item1.away_season.sav != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.fou}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.g_att" v-if="item1.away_season.g_att == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.g_att" v-if="item1.away_season.g_att == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.g_att" v-if="item1.away_season.g_att != 0 && item1.away_season.g_att != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.g_att}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.safe" v-if="item1.away_season.safe == 0" class="detail season-detail"  style="color: red">
+                                                            0
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.safe" v-if="item1.away_season.safe == null" class="detail season-detail" >
+                                                            -
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div :key="item1.away_season.safe" v-if="item1.away_season.safe != 0 && item1.away_season.safe != null" class="detail season-detail" style="color: green">
+                                                            {{item1.away_season.safe}}
+                                                        </div>
+                                                    </transition>
+                                                </div>
+                                            </div>
+                                            <div class="detail_total season-stats-part" style="width: 18%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
+                                                <div style="width: 100%; padding: 3px 7px; color: black;">
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.away_season.on + item1.away_season.off)/90/item1.away_p).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.away_season.on)/90/item1.away_p).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="item1.away_season.blk" class="detail index_detail" style="color: green;">
+                                                            {{((item1.away_season.blk)/item1.away_p).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div v-if="!item1.away_season.blk" class="detail index_detail" style="color: green;">
+                                                            -
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.away_season.goals)/(item1.away_season.on)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.away_season.da)/90/item1.away_p).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.away_season.on)/(item1.away_season.on + item1.away_season.off)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+
+                                                    <transition name="slide-fade" mode="out-in">
+                                                        <div class="detail index_detail" style="color: green;">
+                                                            {{((item1.away_season.acc)/(item1.away_season.pas)).toFixed(2)}}
+                                                        </div>
+                                                    </transition>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </CCollapse>
+                                </CCol>
+                            </CRow>
+                        </div>
+                    </CCol>
                 </CRow>
             </CCardBody>
         </CCard>
@@ -760,6 +3920,159 @@
         name: 'MainView',
         data(){
             return{
+                show_collapse: false,
+                item1:{
+                    'home_season' : {
+                        'on': 0,
+                        'off': 0,
+                        'block': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'pos': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0 ,
+                        'g_att': 0 ,
+                        'safe': 0,
+                        'goals':0
+                    },
+                    'away_season' : {
+                        'on': 0,
+                        'off': 0,
+                        'block': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'pos': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0 ,
+                        'g_att': 0 ,
+                        'safe': 0,
+                        'goals': 0
+                    },
+                    'league': '',
+                    'goal_tooltip': '',
+                    'home_tooltip':{
+                        'on': '',
+                        'off': '',
+                        'blk': '',
+                        'in': '',
+                        'out': '',
+                        'cnr': ''
+                    },
+                    'away_tooltip':{
+                        'on': '',
+                        'off': '',
+                        'blk': '',
+                        'in': '',
+                        'out': '',
+                        'cnr': ''
+                    },
+                    'home':{
+                        'index0': 0,
+                        'flash': 0,
+                        'name': '',
+                        'rank': '',
+                        'time': '',
+                        'score': '',
+                        'on': 0,
+                        'off': 0,
+                        'blk': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'poss': 0,
+                        'goal': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0,
+                        'g_att': 0,
+                        'safe': 0,
+                    },
+                    'away':{
+                        'index0': 0,
+                        'flash': 0,
+                        'name': '',
+                        'rank': '',
+                        'time': '',
+                        'score': '',
+                        'on': 0,
+                        'off': 0,
+                        'blk': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'poss': 0,
+                        'goal': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0,
+                        'g_att': 0,
+                        'safe': 0,
+                    },
+                    'homeT':{
+                        'on': 0,
+                        'off': 0,
+                        'blk': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'poss': 0,
+                        'red': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0,
+                        'g_att': 0,
+                        'safe': 0,
+                    },
+                    'awayT':{
+                        'on': 0,
+                        'off': 0,
+                        'blk': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'poss': 0,
+                        'red': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0,
+                        'g_att': 0,
+                        'safe': 0,
+                    }
+                },
                 bet_data:{
                     src: 'betfair.com',
                     date:'today'
@@ -861,7 +4174,7 @@
                 high_cash: false,
                 net_profit1: 0,
                 net_profit2: 0,
-                stakeCashout:0
+                stakeCashout:0,
             }
         },
         methods:{
@@ -1940,6 +5253,15 @@
                     this.predictionStatus = false
                 }
             },
+            SetCollapse1(val){
+
+            },
+            isPlus(val){
+
+            },
+            isMinus(val){
+
+            },
             select_match(val){
                 this.key = '0'
                 if(val == ''){
@@ -2252,6 +5574,18 @@
                     this.stake_calc(0)
                     console.log('runnerNode===>',runnerNode)
                 }
+                console.log('eventId=>', this.eventId)
+                let eventId = 30121073
+                window.axios.post(`${process.env.VUE_APP_URL}getPredictionLivestats`,[eventId]).then(({data})=>{
+                    console.log('getPredictionLiveStats==>', data)
+                })
+
+            },
+            getPredictionLiveStats(){
+                let eventId = 30121073
+                window.axios.post(`${process.env.VUE_APP_URL}getPredictionLivestats`,[eventId]).then(({data})=>{
+                    console.log('getPredictionLiveStats==>', data)
+                })
             },
             select_filter1(val){
                 if(val == true){
@@ -3675,10 +7009,10 @@
         },
         created() {
             this.bet_date();
+            // this.getPredictionLiveStats()
             this.gameList1 = this.gameList
             let self = this
             this.sockets.listener.subscribe('UpdateOdds', (data) => {
-
                 for(let i = 0 ; i < self.mainList.length; i++){
                     let marketsNode = self.mainList[i].markets
                     for(let j = 0; j < marketsNode.length; j++){
@@ -3798,6 +7132,9 @@
                 }
             });
 
+            this.sockets.listener.subscribe('UpdateStatsMainPage', (data) => {
+                console.log('listener data=>', data)
+            })
         }
     }
 </script>
@@ -3853,6 +7190,13 @@
         border-radius: 5px;
         background: ivory;
         box-shadow: 0 0 4px 0 rgba(0,0,0,.08), 0 2px 4px 0 rgba(0,0,0,.12);
+    }
+    .select-container2 .header-content{
+        font-size: 16px;
+        font-weight: 600;
+        padding: 2px 6px;
+        text-align: center;
+        background: #cecece;
     }
     .betfair-classic-container{
         border: 1px solid lightgray;
