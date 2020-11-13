@@ -3051,6 +3051,348 @@
                         </div>
                     </div>
                 </div>
+
+                <div style="width: 100%;">
+                    <div style="width: 100%;">
+                        <label style="color: red; font-weight: bold; margin-top: 20px;">Time Segmented Live Stats:</label>
+                    </div>
+                    <div class="totalMatches score_stats" style="display: flex; font-weight: 600; font-size: 12px;">
+                        <div  style="flex: 1; text-align: center;">
+                            <p class="header" style="color: #d1c4e1">Time</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                        </div>
+                        <div  style="flex: 1; text-align: center;">
+                            <p class="header">Time</p>
+                            <div class="value stats-cell" style="padding-top: 8px;">0 - 15</div>
+                            <div class="percent stats-cell" style="padding-top: 8px;">16 - 30</div>
+                            <div class="value stats-cell" style="padding-top: 8px;">31 - 45+</div>
+                            <div class="percent stats-cell" style="padding-top: 8px;">46 - 60</div>
+                            <div class="value stats-cell" style="padding-top: 8px;">61 - 75</div>
+                            <div class="percent stats-cell" style="padding-top: 8px;">76 - 90+</div>
+                        </div>
+
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Goal</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_0_15.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_0_15.away.goal}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_16_30.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_16_30.away.goal}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_31_45.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_31_45.away.goal}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_46_60.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_46_60.away.goal}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_61_75.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_61_75.away.goal}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_76_90.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_76_90.away.goal}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">On</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.on}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.on}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.on}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.on}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.on}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.on}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Off</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.off}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.off}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.off}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.off}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.off}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.off}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Blk</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.blk}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.blk}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.blk}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.blk}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.blk}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.blk}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">In</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.in}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.in}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.in}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.in}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.in}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.in}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Out</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.out}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.out}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.out}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.out}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.out}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.out}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Cnr</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.cnr}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.cnr}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.cnr}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.cnr}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.cnr}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.cnr}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">DA</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.da}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.da}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.da}}</div>
+                                 <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.da}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.da}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.da}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.da}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.da}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.da}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.da}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.da}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.da}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Pos</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.pos}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.pos}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.pos}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.pos}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.pos}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.pos}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Red</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.red}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.red}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.red}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.red}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.red}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.red}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Yel</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.yel}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.yel}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.yel}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.yel}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.yel}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.yel}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </CCol>
             <!--            <CCol lg="6" style="height: 300px; background: #fd4016;">-->
 
@@ -3375,6 +3717,176 @@
                     'yel': 0
                 },
                 live_segment_stats1:{
+                    'stats_0_15': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_16_30': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_31_45': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_46_60': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_61_75': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_76_90': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    }
+                },
+                live_segment_stats2:{
                     'stats_0_15': {
                         home:{
                             'goal': 0,
@@ -7655,6 +8167,413 @@
                 this.current_predictionId = val
                 this.currentPrediction = prediction[0].value1
                 this.current_stats = prediction[0].liveStats
+
+                this.live_segment_stats2= {
+                    'stats_0_15': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_16_30': {
+                        home:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                            'on': 0,
+                            'off': 0,
+                            'blk': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'red': 0,
+                            'yel': 0
+                        }
+                    },
+                    'stats_31_45': {
+                        home:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        }
+                    },
+                    'stats_46_60': {
+                        home:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        }
+                    },
+                    'stats_61_75': {
+                        home:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        }
+                    },
+                    'stats_76_90': {
+                        home:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        },
+                        away:{
+                            'goal': 0,
+                                'on': 0,
+                                'off': 0,
+                                'blk': 0,
+                                'in': 0,
+                                'out': 0,
+                                'cnr': 0,
+                                'da': 0,
+                                'pos': 0,
+                                'red': 0,
+                                'yel': 0
+                        }
+                    }
+                }
+
+                if(this.current_stats.length > 0){
+                    let times = this.current_stats[0].time
+                    let stats = this.current_stats[0].stats
+                    for(let i = 0 ; i < times.length ; i++){
+                        if(times[i].minute <= 15){
+                            this.live_segment_stats2.stats_0_15.home.goal = stats[i][0].goals
+                            this.live_segment_stats2.stats_0_15.away.goal = stats[i][1].goals
+                            if(stats[i][0].shots){
+                                this.live_segment_stats2.stats_0_15.home.on = stats[i][0].shots.ongoal
+                                this.live_segment_stats2.stats_0_15.away.on = stats[i][1].shots.ongoal
+                                this.live_segment_stats2.stats_0_15.home.off = stats[i][0].shots.offgoal
+                                this.live_segment_stats2.stats_0_15.away.off = stats[i][1].shots.offgoal
+                                if(stats[i][0].shots.blocked){
+                                    this.live_segment_stats2.stats_0_15.home.blk = stats[i][0].shots.blocked
+                                    this.live_segment_stats2.stats_0_15.away.blk = stats[i][1].shots.blocked
+                                }
+                                if(stats[i][0].shots.insidebox){
+                                    this.live_segment_stats2.stats_0_15.home.in = stats[i][0].shots.insidebox
+                                    this.live_segment_stats2.stats_0_15.away.in = stats[i][1].shots.insidebox
+                                }
+                                if(stats[i][0].shots.outsidebox){
+                                    this.live_segment_stats2.stats_0_15.home.out = stats[i][0].shots.outsidebox
+                                    this.live_segment_stats2.stats_0_15.away.out = stats[i][1].shots.outsidebox
+                                }
+                            }
+                            this.live_segment_stats2.stats_0_15.home.cnr = stats[i][0].corners
+                            this.live_segment_stats2.stats_0_15.away.cnr = stats[i][1].corners
+                            if(stats[i][0].attacks){
+                                this.live_segment_stats2.stats_0_15.home.da = stats[i][0].attacks.dangerous_attacks
+                                this.live_segment_stats2.stats_0_15.away.da = stats[i][1].attacks.dangerous_attacks
+                            }
+                            this.live_segment_stats2.stats_0_15.home.pos = stats[i][0].possessiontime
+                            this.live_segment_stats2.stats_0_15.away.pos = stats[i][1].possessiontime
+                            if(stats[i][0].redcards){
+                                this.live_segment_stats2.stats_0_15.home.red = stats[i][0].redcards
+                                this.live_segment_stats2.stats_0_15.away.red = stats[i][1].redcards
+                            }
+                            if(stats[i][0].yellowcards){
+                                this.live_segment_stats2.stats_0_15.home.yel = stats[i][0].yellowcards
+                                this.live_segment_stats2.stats_0_15.away.yel = stats[i][1].yellowcards
+                            }
+                        }
+                        if(times[i].minute >= 16 && times[i].minute <= 30){
+                            this.live_segment_stats2.stats_16_30.home.goal = stats[i][0].goals
+                            this.live_segment_stats2.stats_16_30.away.goal = stats[i][1].goals
+                            if(stats[i][0].shots){
+                                this.live_segment_stats2.stats_16_30.home.on = stats[i][0].shots.ongoal
+                                this.live_segment_stats2.stats_16_30.away.on = stats[i][1].shots.ongoal
+                                this.live_segment_stats2.stats_16_30.home.off = stats[i][0].shots.offgoal
+                                this.live_segment_stats2.stats_16_30.away.off = stats[i][1].shots.offgoal
+                                if(stats[i][0].shots.blocked){
+                                    this.live_segment_stats2.stats_16_30.home.blk = stats[i][0].shots.blocked
+                                    this.live_segment_stats2.stats_16_30.away.blk = stats[i][1].shots.blocked
+                                }
+                                if(stats[i][0].shots.insidebox){
+                                    this.live_segment_stats2.stats_16_30.home.in = stats[i][0].shots.insidebox
+                                    this.live_segment_stats2.stats_16_30.away.in = stats[i][1].shots.insidebox
+                                }
+                                if(stats[i][0].shots.outsidebox){
+                                    this.live_segment_stats2.stats_16_30.home.out = stats[i][0].shots.outsidebox
+                                    this.live_segment_stats2.stats_16_30.away.out = stats[i][1].shots.outsidebox
+                                }
+                            }
+                            this.live_segment_stats2.stats_16_30.home.cnr = stats[i][0].corners
+                            this.live_segment_stats2.stats_16_30.away.cnr = stats[i][1].corners
+                            if(stats[i][0].attacks){
+                                this.live_segment_stats2.stats_16_30.home.da = stats[i][0].attacks.dangerous_attacks
+                                this.live_segment_stats2.stats_16_30.away.da = stats[i][1].attacks.dangerous_attacks
+                            }
+                            this.live_segment_stats2.stats_16_30.home.pos = stats[i][0].possessiontime
+                            this.live_segment_stats2.stats_16_30.away.pos = stats[i][1].possessiontime
+                            if(stats[i][0].redcards){
+                                this.live_segment_stats2.stats_16_30.home.red = stats[i][0].redcards
+                                this.live_segment_stats2.stats_16_30.away.red = stats[i][1].redcards
+                            }
+                            if(stats[i][0].yellowcards){
+                                this.live_segment_stats2.stats_16_30.home.yel = stats[i][0].yellowcards
+                                this.live_segment_stats2.stats_16_30.away.yel = stats[i][1].yellowcards
+                            }
+                        }
+                        if(times[i].minute >= 31 && times[i].minute <= 45){
+                            this.live_segment_stats2.stats_31_45.home.goal = stats[i][0].goals
+                            this.live_segment_stats2.stats_31_45.away.goal = stats[i][1].goals
+                            if(stats[i][0].shots){
+                                this.live_segment_stats2.stats_31_45.home.on = stats[i][0].shots.ongoal
+                                this.live_segment_stats2.stats_31_45.away.on = stats[i][1].shots.ongoal
+                                this.live_segment_stats2.stats_31_45.home.off = stats[i][0].shots.offgoal
+                                this.live_segment_stats2.stats_31_45.away.off = stats[i][1].shots.offgoal
+                                if(stats[i][0].shots.blocked){
+                                    this.live_segment_stats2.stats_31_45.home.blk = stats[i][0].shots.blocked
+                                    this.live_segment_stats2.stats_31_45.away.blk = stats[i][1].shots.blocked
+                                }
+                                if(stats[i][0].shots.insidebox){
+                                    this.live_segment_stats2.stats_31_45.home.in = stats[i][0].shots.insidebox
+                                    this.live_segment_stats2.stats_31_45.away.in = stats[i][1].shots.insidebox
+                                }
+                                if(stats[i][0].shots.outsidebox){
+                                    this.live_segment_stats2.stats_31_45.home.out = stats[i][0].shots.outsidebox
+                                    this.live_segment_stats2.stats_31_45.away.out = stats[i][1].shots.outsidebox
+                                }
+                            }
+                            this.live_segment_stats2.stats_31_45.home.cnr = stats[i][0].corners
+                            this.live_segment_stats2.stats_31_45.away.cnr = stats[i][1].corners
+                            if(stats[i][0].attacks){
+                                this.live_segment_stats2.stats_31_45.home.da = stats[i][0].attacks.dangerous_attacks
+                                this.live_segment_stats2.stats_31_45.away.da = stats[i][1].attacks.dangerous_attacks
+                            }
+                            this.live_segment_stats2.stats_31_45.home.pos = stats[i][0].possessiontime
+                            this.live_segment_stats2.stats_31_45.away.pos = stats[i][1].possessiontime
+                            if(stats[i][0].redcards){
+                                this.live_segment_stats2.stats_31_45.home.red = stats[i][0].redcards
+                                this.live_segment_stats2.stats_31_45.away.red = stats[i][1].redcards
+                            }
+                            if(stats[i][0].yellowcards){
+                                this.live_segment_stats2.stats_31_45.home.yel = stats[i][0].yellowcards
+                                this.live_segment_stats2.stats_31_45.away.yel = stats[i][1].yellowcards
+                            }
+                        }
+                        if(times[i].minute >= 46 && times[i].minute <= 60){
+                            this.live_segment_stats2.stats_46_60.home.goal = stats[i][0].goals
+                            this.live_segment_stats2.stats_46_60.away.goal = stats[i][1].goals
+                            if(stats[i][0].shots){
+                                this.live_segment_stats2.stats_46_60.home.on = stats[i][0].shots.ongoal
+                                this.live_segment_stats2.stats_46_60.away.on = stats[i][1].shots.ongoal
+                                this.live_segment_stats2.stats_46_60.home.off = stats[i][0].shots.offgoal
+                                this.live_segment_stats2.stats_46_60.away.off = stats[i][1].shots.offgoal
+                                if(stats[i][0].shots.blocked){
+                                    this.live_segment_stats2.stats_46_60.home.blk = stats[i][0].shots.blocked
+                                    this.live_segment_stats2.stats_46_60.away.blk = stats[i][1].shots.blocked
+                                }
+                                if(stats[i][0].shots.insidebox){
+                                    this.live_segment_stats2.stats_46_60.home.in = stats[i][0].shots.insidebox
+                                    this.live_segment_stats2.stats_46_60.away.in = stats[i][1].shots.insidebox
+                                }
+                                if(stats[i][0].shots.outsidebox){
+                                    this.live_segment_stats2.stats_46_60.home.out = stats[i][0].shots.outsidebox
+                                    this.live_segment_stats2.stats_46_60.away.out = stats[i][1].shots.outsidebox
+                                }
+                            }
+                            this.live_segment_stats2.stats_46_60.home.cnr = stats[i][0].corners
+                            this.live_segment_stats2.stats_46_60.away.cnr = stats[i][1].corners
+                            if(stats[i][0].attacks){
+                                this.live_segment_stats2.stats_46_60.home.da = stats[i][0].attacks.dangerous_attacks
+                                this.live_segment_stats2.stats_46_60.away.da = stats[i][1].attacks.dangerous_attacks
+                            }
+                            this.live_segment_stats2.stats_46_60.home.pos = stats[i][0].possessiontime
+                            this.live_segment_stats2.stats_46_60.away.pos = stats[i][1].possessiontime
+                            if(stats[i][0].redcards){
+                                this.live_segment_stats2.stats_46_60.home.red = stats[i][0].redcards
+                                this.live_segment_stats2.stats_46_60.away.red = stats[i][1].redcards
+                            }
+                            if(stats[i][0].yellowcards){
+                                this.live_segment_stats2.stats_46_60.home.yel = stats[i][0].yellowcards
+                                this.live_segment_stats2.stats_46_60.away.yel = stats[i][1].yellowcards
+                            }
+                        }
+                        if(times[i].minute >= 61 && times[i].minute <= 75){
+                            this.live_segment_stats2.stats_61_75.home.goal = stats[i][0].goals
+                            this.live_segment_stats2.stats_61_75.away.goal = stats[i][1].goals
+                            if(stats[i][0].shots){
+                                this.live_segment_stats2.stats_61_75.home.on = stats[i][0].shots.ongoal
+                                this.live_segment_stats2.stats_61_75.away.on = stats[i][1].shots.ongoal
+                                this.live_segment_stats2.stats_61_75.home.off = stats[i][0].shots.offgoal
+                                this.live_segment_stats2.stats_61_75.away.off = stats[i][1].shots.offgoal
+                                if(stats[i][0].shots.blocked){
+                                    this.live_segment_stats2.stats_61_75.home.blk = stats[i][0].shots.blocked
+                                    this.live_segment_stats2.stats_61_75.away.blk = stats[i][1].shots.blocked
+                                }
+                                if(stats[i][0].shots.insidebox){
+                                    this.live_segment_stats2.stats_61_75.home.in = stats[i][0].shots.insidebox
+                                    this.live_segment_stats2.stats_61_75.away.in = stats[i][1].shots.insidebox
+                                }
+                                if(stats[i][0].shots.outsidebox){
+                                    this.live_segment_stats2.stats_61_75.home.out = stats[i][0].shots.outsidebox
+                                    this.live_segment_stats2.stats_61_75.away.out = stats[i][1].shots.outsidebox
+                                }
+                            }
+                            this.live_segment_stats2.stats_61_75.home.cnr = stats[i][0].corners
+                            this.live_segment_stats2.stats_61_75.away.cnr = stats[i][1].corners
+                            if(stats[i][0].attacks){
+                                this.live_segment_stats2.stats_61_75.home.da = stats[i][0].attacks.dangerous_attacks
+                                this.live_segment_stats2.stats_61_75.away.da = stats[i][1].attacks.dangerous_attacks
+                            }
+                            this.live_segment_stats2.stats_61_75.home.pos = stats[i][0].possessiontime
+                            this.live_segment_stats2.stats_61_75.away.pos = stats[i][1].possessiontime
+                            if(stats[i][0].redcards){
+                                this.live_segment_stats2.stats_61_75.home.red = stats[i][0].redcards
+                                this.live_segment_stats2.stats_61_75.away.red = stats[i][1].redcards
+                            }
+                            if(stats[i][0].yellowcards){
+                                this.live_segment_stats2.stats_61_75.home.yel = stats[i][0].yellowcards
+                                this.live_segment_stats2.stats_61_75.away.yel = stats[i][1].yellowcards
+                            }
+                        }
+                        if(times[i].minute >= 76){
+                            this.live_segment_stats2.stats_76_90.home.goal = stats[i][0].goals
+                            this.live_segment_stats2.stats_76_90.away.goal = stats[i][1].goals
+                            if(stats[i][0].shots){
+                                this.live_segment_stats2.stats_76_90.home.on = stats[i][0].shots.ongoal
+                                this.live_segment_stats2.stats_76_90.away.on = stats[i][1].shots.ongoal
+                                this.live_segment_stats2.stats_76_90.home.off = stats[i][0].shots.offgoal
+                                this.live_segment_stats2.stats_76_90.away.off = stats[i][1].shots.offgoal
+                                if(stats[i][0].shots.blocked){
+                                    this.live_segment_stats2.stats_76_90.home.blk = stats[i][0].shots.blocked
+                                    this.live_segment_stats2.stats_76_90.away.blk = stats[i][1].shots.blocked
+                                }
+                                if(stats[i][0].shots.insidebox){
+                                    this.live_segment_stats2.stats_76_90.home.in = stats[i][0].shots.insidebox
+                                    this.live_segment_stats2.stats_76_90.away.in = stats[i][1].shots.insidebox
+                                }
+                                if(stats[i][0].shots.outsidebox){
+                                    this.live_segment_stats2.stats_76_90.home.out = stats[i][0].shots.outsidebox
+                                    this.live_segment_stats2.stats_76_90.away.out = stats[i][1].shots.outsidebox
+                                }
+                            }
+                            this.live_segment_stats2.stats_76_90.home.cnr = stats[i][0].corners
+                            this.live_segment_stats2.stats_76_90.away.cnr = stats[i][1].corners
+                            if(stats[i][0].attacks){
+                                this.live_segment_stats2.stats_76_90.home.da = stats[i][0].attacks.dangerous_attacks
+                                this.live_segment_stats2.stats_76_90.away.da = stats[i][1].attacks.dangerous_attacks
+                            }
+                            this.live_segment_stats2.stats_76_90.home.pos = stats[i][0].possessiontime
+                            this.live_segment_stats2.stats_76_90.away.pos = stats[i][1].possessiontime
+                            if(stats[i][0].redcards){
+                                this.live_segment_stats2.stats_76_90.home.red = stats[i][0].redcards
+                                this.live_segment_stats2.stats_76_90.away.red = stats[i][1].redcards
+                            }
+                            if(stats[i][0].yellowcards){
+                                this.live_segment_stats2.stats_76_90.home.yel = stats[i][0].yellowcards
+                                this.live_segment_stats2.stats_76_90.away.yel = stats[i][1].yellowcards
+                            }
+                        }
+                    }
+                }
+
                 if(this.current_stats.length > 0){
                     this.last_stats_home.on = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][0].shots.ongoal
                     this.last_stats_away.on = this.current_stats[0].stats[this.current_stats[0].stats.length - 1][1].shots.ongoal
