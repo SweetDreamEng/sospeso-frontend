@@ -7259,7 +7259,7 @@
                                 away_score = this.predictionlist[i].scores[j].score.away
                             }
                         }
-                        if((home_score + away_score) < sum){
+                        if((parseInt(home_score) + parseInt(away_score)) < sum){
                             let index = this.predictionlist.indexOf(this.predictionlist[i]);
                             if (index > -1) {
                                 i = i - 1
@@ -7287,7 +7287,7 @@
                                 away_score = this.predictionlist[i].scores[j].score.away
                             }
                         }
-                        if((home_score + away_score) >= sum){
+                        if((parseInt(home_score) + parseInt(away_score)) >= sum){
                             let index = this.predictionlist.indexOf(this.predictionlist[i]);
                             if (index > -1) {
                                 i = i - 1
@@ -7316,7 +7316,7 @@
                                     away_score = this.predictionlist[i].scores[j].score.away
                                 }
                             }
-                            if(home_score <= away_score){
+                            if(parseInt(home_score) <= parseInt(away_score)){
                                 let index = this.predictionlist.indexOf(this.predictionlist[i]);
                                 if (index > -1) {
                                     i = i - 1
@@ -7344,7 +7344,7 @@
                                     away_score = this.predictionlist[i].scores[j].score.away
                                 }
                             }
-                            if(home_score != away_score){
+                            if(parseInt(home_score) != parseInt(away_score)){
                                 let index = this.predictionlist.indexOf(this.predictionlist[i]);
                                 if (index > -1) {
                                     i = i - 1
@@ -7372,7 +7372,7 @@
                                     away_score = this.predictionlist[i].scores[j].score.away
                                 }
                             }
-                            if(home_score >= away_score){
+                            if(parseInt(home_score) >= parseInt(away_score)){
                                 let index = this.predictionlist.indexOf(this.predictionlist[i]);
                                 if (index > -1) {
                                     i = i - 1
@@ -7402,7 +7402,7 @@
                                     away_score = this.predictionlist[i].scores[j].score.away
                                 }
                             }
-                            if(home_score < 1 || away_score < 1){
+                            if(parseInt(home_score) < 1 || parseInt(away_score) < 1){
                                 let index = this.predictionlist.indexOf(this.predictionlist[i]);
                                 if (index > -1) {
                                     i = i - 1
@@ -7430,7 +7430,8 @@
                                     away_score = this.predictionlist[i].scores[j].score.away
                                 }
                             }
-                            if((home_score + away_score) % 2 === 0){
+                            console.log('odd check===>', home_score, ', ', away_score, ', ', this.predictionlist[i].scores, ', ', (parseInt(home_score) + parseInt(away_score)) % 2)
+                            if((parseInt(home_score) + parseInt(away_score)) % 2 === 0){
                                 let index = this.predictionlist.indexOf(this.predictionlist[i]);
                                 if (index > -1) {
                                     i = i - 1
@@ -7458,7 +7459,7 @@
                                     away_score = this.predictionlist[i].scores[j].score.away
                                 }
                             }
-                            if((home_score + away_score) % 2 === 1){
+                            if((parseInt(home_score) + parseInt(away_score)) % 2 === 1){
                                 let index = this.predictionlist.indexOf(this.predictionlist[i]);
                                 if (index > -1) {
                                     i = i - 1
