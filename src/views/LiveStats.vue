@@ -3448,21 +3448,16 @@
                 window.axios.post(`${process.env.VUE_APP_URL}getLiveStats`).then(({data})=> {
 
                     this.liveDataArray = data.data[1]
-                    let main_data = data.data[0]                    
-                    console.log('reponse', main_data)
-                    console.log('main_data===>', main_data)
+                    let main_data = data.data[0]
                     let competitionArray = []
                     let index = 0
                     for(let i = 0 ; i < main_data.length ; i++){
-                        // console.log(main_data[i].time.status)
                         if((main_data[i].time.status == 'LIVE' || main_data[i].time.status == 'HT' || main_data[i].time.status == 'ET') && main_data[i].stats.length > 0){
                             index++
                             competitionArray[index - 1] = main_data[i].competitions[0].league
-                            console.log('--->', main_data[i].competitions[0].league)
                         }
                     }
                     competitionArray = Array.from(new Set (competitionArray))
-                    console.log('competition Array=>', competitionArray, main_data.length)
                     let k = 0
                     this.eventArray = []
                     for(let i = 0 ; i < competitionArray.length ; i++){
@@ -3612,19 +3607,13 @@
                                     
                                     if(main_data[j].season_stats.length > 0){
                                         for(let u = 0 ; u < main_data[j].season_stats.length ; u++){
-                                            // console.log('homeId Check!!!!',home.id,',', main_data[j].season_stats[u])
                                             if(main_data[j].season_stats[u].stats){
-                                                // console.log('homeId Check!!!!',home.id,',', main_data[j].season_stats[u].stats)
                                                 if(main_data[j].season_stats[u].stats.length > 0){
-                                                    // console.log('homeId Check!!!!',home.id,',', main_data[j].season_stats[u].stats)
-                                                    for(let uu = 0 ; uu < main_data[j].season_stats[u].stats.length ; uu++){
-                                                        // console.log('main data', stats[0]);
-                                                        // console.log('homeId Check!!!!',home.id,',', main_data[j].season_stats[u].stats[uu])                                                        
-                                                        let stats = main_data[j].season_stats[u].stats[uu];
+                                                    for(let uu = 0 ; uu < main_data[j].season_stats[u].stats.length ; uu++){                                                   
+                                                        let stats = main_data[j].season_stats[u].stats[uu]
                                                         if (!!stats.stats)
-                                                            stats = stats.stats;
+                                                            stats = stats.stats
                                                         if(stats[0]){
-                                                            // console.log('homeId Check!!!!',home.id,',', main_data[j].season_stats[u].stats[uu])
                                                             if(stats[0].team_id == home.id){
                                                                 home_p++
                                                                 if(stats[0].shots){
@@ -4016,7 +4005,6 @@
                                     }
                                     //-------------Total Part------------//
                                     if (main_data[j].home_id === main_data[j].stats[0].team_id) {
-                                        // console.log(main_data[j])
                                         if(main_data[j].stats[0].shots){
                                             homeT.on = main_data[j].stats[0].shots.ongoal
                                             awayT.on = main_data[j].stats[1].shots.ongoal
@@ -4155,7 +4143,6 @@
                     let self = this
                     this.sortJSON(self.eventArray,'league', '123');
                     this.liveNumbers = k
-                    console.log('event array==>', this.eventArray)
 
                     let eventList = data.data[2]
                     let competitionArray1 = []
@@ -4221,7 +4208,6 @@
                                 if(this.eventArray[j].events[k].main_data._id == data1[i].updateArray._id && data1[i].currentData.stats[0]){
                                     check_new = 1
                                     if(data1[i].currentData.time.status == "FT"){
-                                        console.log('reload===>!!!!!!')
                                         this.readData()
                                     }
                                     this.eventArray[j].events[k].home.time = data1[i].currentData.time.minute
@@ -4561,7 +4547,6 @@
                     }
                 }
                 if(check_new_total == 1){
-                    console.log('reload data===>!')
                     this.readData()
                 }
             })
