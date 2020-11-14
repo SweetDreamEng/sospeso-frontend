@@ -4170,7 +4170,6 @@ console.log('event array==>', this.eventArray)
                             }
                         }
                     }
-
                     this.finishedArray = []
                     this.finishedLength = 0
                     for(let j = 0 ; j < competitionArray1.length ; j++){
@@ -4193,7 +4192,6 @@ console.log('event array==>', this.eventArray)
                             }
                         }
                     }
-
                 })
             },
             sortJSON(data, key){
