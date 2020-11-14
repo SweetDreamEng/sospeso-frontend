@@ -4163,7 +4163,6 @@
                             }
                         }
                     }
-
                     this.finishedArray = []
                     this.finishedLength = 0
                     for(let j = 0 ; j < competitionArray1.length ; j++){
@@ -4186,7 +4185,6 @@
                             }
                         }
                     }
-
                 })
             },
             sortJSON(data, key){

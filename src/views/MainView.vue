@@ -755,7 +755,7 @@
                         <div class="select-container2" style="min-width: 1240px;">
                             <CRow>
                                 <CCol sm="12">
-                                    <div class="header-content" style="width: 16%; height: 50px; float: left; text-align: left;">
+                                    <div class="header-content" style="width: 16%; height: 50px; float: left; text-align: left; padding-top: 7px; color: black;">
                                         {{item1.league}}
                                     </div>
                                     <div class="header-content" style="width: 5%; min-width: 30px; height: 50px; float: left; border-left: 1px solid whitesmoke; padding-top: 23px">
@@ -3263,7 +3263,7 @@
 
                                                     <transition name="slide-fade" mode="out-in">
                                                         <div class="detail index_detail" style="color: green;">
-                                                            {{((item1.home_season.acc)/(item1.home_season.pas)).toFixed(2)}}
+                                                            {{((item1.home_season.acc)/(item1.home_season.pas + 0.0001)).toFixed(2)}}
                                                         </div>
                                                     </transition>
 
@@ -3898,7 +3898,7 @@
 
                                                     <transition name="slide-fade" mode="out-in">
                                                         <div class="detail index_detail" style="color: green;">
-                                                            {{((item1.away_season.acc)/(item1.away_season.pas)).toFixed(2)}}
+                                                            {{((item1.away_season.acc)/(item1.away_season.pas + 0.00001)).toFixed(2)}}
                                                         </div>
                                                     </transition>
                                                 </div>
@@ -3920,8 +3920,12 @@
         name: 'MainView',
         data(){
             return{
+                home_id : 0,
+                away_id: 0,
                 show_collapse: false,
                 item1:{
+                    'home_p': 1,
+                    'away_p': 1,
                     'home_season' : {
                         'on': 0,
                         'off': 0,
@@ -3962,7 +3966,7 @@
                         'safe': 0,
                         'goals': 0
                     },
-                    'league': '',
+                    'league': '-',
                     'goal_tooltip': '',
                     'home_tooltip':{
                         'on': '',
@@ -3986,7 +3990,7 @@
                         'name': '',
                         'rank': '',
                         'time': '',
-                        'score': '',
+                        'score': 0,
                         'on': 0,
                         'off': 0,
                         'blk': 0,
@@ -4012,7 +4016,7 @@
                         'name': '',
                         'rank': '',
                         'time': '',
-                        'score': '',
+                        'score': 0,
                         'on': 0,
                         'off': 0,
                         'blk': 0,
@@ -5291,8 +5295,10 @@
 
                     if(competitionNode.length > 0){
                         this.competitionName = "Competition >> " + competitionNode[0].competitions[0].name
+                        this.item1.league = competitionNode[0].competitions[0].name
                     }else{
                         this.competitionName = 'Competition >> N/D'
+                        this.item1.league = 'N/D'
                     }
 
                     for(let i = 0; i < this.mainList.length; i++){
@@ -5426,6 +5432,7 @@
 
                     if(competitionNode.length > 0){
                         this.competitionName = "Competition >> " + competitionNode[0].competitions[0].name
+                        this.item1.league = competitionNode[0].competitions[0].name
                         this.oddUrl = competitionNode[0].competitions[0].name.toLowerCase()
                         this.oddUrl = this.oddUrl.replace(" ", "-")
 
@@ -5438,6 +5445,7 @@
                         }
                     }else{
                         this.competitionName = 'Competition >> N/D'
+                        this.item1.league = 'N/D'
                     }
 
                     let eventNode = this.mainList.filter(function(item) {
@@ -5575,17 +5583,596 @@
                     console.log('runnerNode===>',runnerNode)
                 }
                 console.log('eventId=>', this.eventId)
-                let eventId = 30121073
-                window.axios.post(`${process.env.VUE_APP_URL}getPredictionLivestats`,[eventId]).then(({data})=>{
-                    console.log('getPredictionLiveStats==>', data)
+                this.home_id = 0
+                this.away_id = 0
+                this.show_collapse= false
+                let c = this.item1.league
+                this.item1 = {
+                'home_p': 1,
+                'league': '',
+                'away_p': 1,
+                'home_season' : {
+                    'on': 0,
+                        'off': 0,
+                        'block': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'pos': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0 ,
+                        'g_att': 0 ,
+                        'safe': 0,
+                        'goals':0
+                },
+                'away_season' : {
+                    'on': 0,
+                        'off': 0,
+                        'block': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'pos': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0 ,
+                        'g_att': 0 ,
+                        'safe': 0,
+                        'goals': 0
+                },
+                'goal_tooltip': '',
+                'home_tooltip':{
+                    'on': '',
+                        'off': '',
+                        'blk': '',
+                        'in': '',
+                        'out': '',
+                        'cnr': ''
+                },
+                'away_tooltip':{
+                    'on': '',
+                        'off': '',
+                        'blk': '',
+                        'in': '',
+                        'out': '',
+                        'cnr': ''
+                },
+                'home':{
+                    'index0': 0,
+                        'flash': 0,
+                        'name': '',
+                        'rank': '',
+                        'time': '',
+                        'score': 0,
+                        'on': 0,
+                        'off': 0,
+                        'blk': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'poss': 0,
+                        'goal': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0,
+                        'g_att': 0,
+                        'safe': 0,
+                },
+                'away':{
+                    'index0': 0,
+                        'flash': 0,
+                        'name': '',
+                        'rank': '',
+                        'time': '',
+                        'score': 0,
+                        'on': 0,
+                        'off': 0,
+                        'blk': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'poss': 0,
+                        'goal': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0,
+                        'g_att': 0,
+                        'safe': 0,
+                },
+                'homeT':{
+                    'on': 0,
+                        'off': 0,
+                        'blk': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'poss': 0,
+                        'red': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0,
+                        'g_att': 0,
+                        'safe': 0,
+                },
+                'awayT':{
+                    'on': 0,
+                        'off': 0,
+                        'blk': 0,
+                        'in': 0,
+                        'out': 0,
+                        'cnr': 0,
+                        'da': 0,
+                        'poss': 0,
+                        'red': 0,
+                        'pas': 0,
+                        'acc': 0,
+                        'atk': 0,
+                        'ofs': 0,
+                        'sav': 0,
+                        'sbst': 0,
+                        'fou': 0,
+                        'g_att': 0,
+                        'safe': 0,
+                }
+            }
+                this.item1.league = c
+            window.axios.post(`${process.env.VUE_APP_URL}getPredictionLivestats`,[this.eventId]).then(({data})=>{
+                    console.log('getPredictionLiveStats==>', data.data[0][0])
+                    if(data.data[0].length > 0){
+                        let livestats = data.data[0][0].liveStats
+                        let total_data = data.data[0][0]
+                        this.item1.home.name = data.data[0][0].localTeamName
+                        this.item1.away.name = data.data[0][0].visitorTeamName
+                        this.item1.home.rank = data.data[0][0].standing.localteam_position
+                        this.item1.away.rank = data.data[0][0].standing.visitorteam_position
+                        let homeId = data.data[0][0].localTeamId
+                        let awayId = data.data[0][0].visitorTeamId
+                        this.home_id = homeId
+                        this.away_id = awayId
+                        if(livestats.length > 0 ){
+                            this.item1.home.rank = livestats[0].home_rank
+                            this.item1.away.rank = livestats[0].away_rank
+                            if(livestats[0].time.status === 'LIVE' || livestats[0].time.status === 'HT'){
+                                this.item1.home.time = livestats[0].time.minute
+                            }
+                            else{
+                                this.item1.home.time = livestats[0].time.status
+                            }
+                            this.item1.home.score = livestats[0].scores.localteam_score
+                            this.item1.away.score = livestats[0].scores.visitorteam_score
+                            if(livestats[0].stats.length > 0){
+                                if(homeId === livestats[0].stats[0].team_id){
+                                    if(livestats[0].stats[0].shots){
+                                        this.item1.homeT.on = livestats[0].stats[0].shots.ongoal
+                                        this.item1.homeT.off = livestats[0].stats[0].shots.offgoal
+                                        this.item1.homeT.blk = livestats[0].stats[0].shots.blocked
+                                        this.item1.homeT.in = livestats[0].stats[0].shots.insidebox
+                                        this.item1.homeT.out = livestats[0].stats[0].shots.outsidebox
+
+                                        this.item1.awayT.on = livestats[0].stats[1].shots.ongoal
+                                        this.item1.awayT.off = livestats[0].stats[1].shots.offgoal
+                                        this.item1.awayT.blk = livestats[0].stats[1].shots.blocked
+                                        this.item1.awayT.in = livestats[0].stats[1].shots.insidebox
+                                        this.item1.awayT.out = livestats[0].stats[1].shots.outsidebox
+                                    }
+                                    this.item1.homeT.cnr = livestats[0].stats[0].corners
+                                    this.item1.awayT.cnr = livestats[0].stats[1].corners
+                                    if(livestats[0].stats[0].attacks){
+                                        this.item1.homeT.da = livestats[0].stats[0].attacks.dangerous_attacks
+                                        this.item1.awayT.da = livestats[0].stats[1].attacks.dangerous_attacks
+                                        this.item1.homeT.atk = livestats[0].stats[0].attacks.attacks
+                                        this.item1.awayT.atk = livestats[0].stats[1].attacks.attacks
+                                    }
+                                    this.item1.homeT.poss = livestats[0].stats[0].possessiontime
+                                    this.item1.awayT.poss = livestats[0].stats[1].possessiontime
+                                    this.item1.homeT.red = livestats[0].stats[0].redcards
+                                    this.item1.awayT.red = livestats[0].stats[1].redcards
+                                    if(livestats[0].stats[0].passes){
+                                        this.item1.homeT.pas = livestats[0].stats[0].passes.total
+                                        this.item1.awayT.pas = livestats[0].stats[1].passes.total
+                                        this.item1.homeT.acc = livestats[0].stats[0].passes.accurate
+                                        this.item1.awayT.acc = livestats[0].stats[1].passes.accurate
+                                    }
+                                    this.item1.homeT.ofs = livestats[0].stats[0].offsides
+                                    this.item1.awayT.ofs = livestats[0].stats[1].offsides
+                                    this.item1.homeT.sav = livestats[0].stats[0].saves
+                                    this.item1.awayT.sav = livestats[0].stats[1].saves
+                                    this.item1.homeT.sbst = livestats[0].stats[0].substitutions
+                                    this.item1.awayT.sbst = livestats[0].stats[1].substitutions
+                                    this.item1.homeT.fou = livestats[0].stats[0].fouls
+                                    this.item1.awayT.fou = livestats[0].stats[1].fouls
+                                    if(livestats[0].stats[0].goal_attempts){
+                                        this.item1.homeT.g_att = livestats[0].stats[0].goal_attempts
+                                        this.item1.awayT.g_att = livestats[0].stats[1].goal_attempts
+                                    }
+                                    if(livestats[0].stats[0].ball_safe){
+                                        this.item1.homeT.safe = livestats[0].stats[0].ball_safe
+                                        this.item1.awayT.safe = livestats[0].stats[1].ball_safe
+                                    }
+                                }
+                                else{
+                                    if(livestats[0].stats[0].shots){
+                                        this.item1.homeT.on = livestats[0].stats[1].shots.ongoal
+                                        this.item1.homeT.off = livestats[0].stats[1].shots.offgoal
+                                        this.item1.homeT.blk = livestats[0].stats[1].shots.blocked
+                                        this.item1.homeT.in = livestats[0].stats[1].shots.insidebox
+                                        this.item1.homeT.out = livestats[0].stats[1].shots.outsidebox
+
+                                        this.item1.awayT.on = livestats[0].stats[0].shots.ongoal
+                                        this.item1.awayT.off = livestats[0].stats[0].shots.offgoal
+                                        this.item1.awayT.blk = livestats[0].stats[0].shots.blocked
+                                        this.item1.awayT.in = livestats[0].stats[0].shots.insidebox
+                                        this.item1.awayT.out = livestats[0].stats[0].shots.outsidebox
+                                    }
+                                    this.item1.homeT.cnr = livestats[0].stats[1].corners
+                                    this.item1.awayT.cnr = livestats[0].stats[0].corners
+                                    if(livestats[0].stats[0].attacks){
+                                        this.item1.homeT.da = livestats[0].stats[1].attacks.dangerous_attacks
+                                        this.item1.awayT.da = livestats[0].stats[0].attacks.dangerous_attacks
+                                        this.item1.homeT.atk = livestats[0].stats[1].attacks.attacks
+                                        this.item1.awayT.atk = livestats[0].stats[0].attacks.attacks
+                                    }
+                                    this.item1.homeT.poss = livestats[0].stats[1].possessiontime
+                                    this.item1.awayT.poss = livestats[0].stats[0].possessiontime
+                                    this.item1.homeT.red = livestats[0].stats[1].redcards
+                                    this.item1.awayT.red = livestats[0].stats[0].redcards
+                                    if(livestats[0].stats[0].passes){
+                                        this.item1.homeT.pas = livestats[0].stats[1].passes.total
+                                        this.item1.awayT.pas = livestats[0].stats[0].passes.total
+                                        this.item1.homeT.acc = livestats[0].stats[1].passes.accurate
+                                        this.item1.awayT.acc = livestats[0].stats[0].passes.accurate
+                                    }
+                                    this.item1.homeT.ofs = livestats[0].stats[1].offsides
+                                    this.item1.awayT.ofs = livestats[0].stats[0].offsides
+                                    this.item1.homeT.sav = livestats[0].stats[1].saves
+                                    this.item1.awayT.sav = livestats[0].stats[0].saves
+                                    this.item1.homeT.sbst = livestats[0].stats[1].substitutions
+                                    this.item1.awayT.sbst = livestats[0].stats[0].substitutions
+                                    this.item1.homeT.fou = livestats[0].stats[1].fouls
+                                    this.item1.awayT.fou = livestats[0].stats[0].fouls
+                                    if(livestats[0].stats[0].goal_attempts){
+                                        this.item1.homeT.g_att = livestats[0].stats[1].goal_attempts
+                                        this.item1.awayT.g_att = livestats[0].stats[0].goal_attempts
+                                    }
+                                    if(livestats[0].stats[0].ball_safe){
+                                        this.item1.homeT.safe = livestats[0].stats[1].ball_safe
+                                        this.item1.awayT.safe = livestats[0].stats[0].ball_safe
+                                    }
+                                }
+                            }
+                            if(livestats[0].stats_ten.length > 0){
+                                if(livestats[0].stats_ten[0].length > 0){
+                                    let stats_ten = livestats[0].stats_ten[0]
+                                    if(stats_ten[0].team_id === homeId){
+                                        if(stats_ten[0].shots){
+                                            this.item1.home.on = this.item1.homeT.on - stats_ten[0].shots.ongoal
+                                            this.item1.home.off = this.item1.homeT.off - stats_ten[0].shots.offgoal
+                                            this.item1.away.on = this.item1.awayT.on - stats_ten[1].shots.ongoal
+                                            this.item1.away.off = this.item1.awayT.off - stats_ten[1].shots.offgoal
+                                            if(stats_ten[0].shots.blocked){
+                                                this.item1.home.blk = this.item1.homeT.blk - stats_ten[0].shots.blocked
+                                                this.item1.away.blk = this.item1.awayT.blk - stats_ten[1].shots.blocked
+                                            }
+                                            if(stats_ten[0].shots.insidebox){
+                                                this.item1.home.in = this.item1.homeT.in - stats_ten[0].shots.insidebox
+                                                this.item1.away.in = this.item1.awayT.in - stats_ten[1].shots.insidebox
+                                            }
+                                            if(stats_ten[0].shots.outsidebox){
+                                                this.item1.home.out = this.item1.homeT.out - stats_ten[0].shots.outsidebox
+                                                this.item1.away.out = this.item1.awayT.out - stats_ten[1].shots.outsidebox
+                                            }
+                                        }
+                                        if(stats_ten[0].corners){
+                                            this.item1.home.cnr = this.item1.homeT.cnr - stats_ten[0].corners
+                                            this.item1.away.cnr = this.item1.awayT.cnr - stats_ten[1].corners
+                                        }
+                                        if(stats_ten[0].attacks.dangerous_attacks){
+                                            this.item1.home.da = this.item1.homeT.da - stats_ten[0].attacks.dangerous_attacks
+                                            this.item1.away.da = this.item1.awayT.da - stats_ten[1].attacks.dangerous_attacks
+                                            this.item1.home.atk = this.item1.homeT.atk - stats_ten[0].attacks.attacks
+                                            this.item1.away.atk = this.item1.awayT.atk - stats_ten[1].attacks.attacks
+                                        }
+                                        if(stats_ten[0].possessiontime){
+                                            this.item1.home.poss = stats_ten[0].possessiontime
+                                            this.item1.away.poss = stats_ten[1].possessiontime
+                                        }
+                                        if(stats_ten[0].goals){
+                                            this.item1.home.goal = this.item1.home.score - stats_ten[0].goals
+                                            this.item1.away.goal = this.item1.away.score - stats_ten[1].goals
+                                        }
+
+                                        if(stats_ten[0].passes){
+                                            this.item1.home.pas = this.item1.homeT.pas - stats_ten[0].passes.total
+                                            this.item1.away.pas = this.item1.awayT.pas - stats_ten[1].passes.total
+                                            this.item1.home.acc = this.item1.homeT.acc - stats_ten[0].passes.accurate
+                                            this.item1.away.acc = this.item1.awayT.acc -stats_ten[1].passes.accurate
+                                        }
+                                        this.item1.home.ofs = this.item1.homeT.ofs - stats_ten[0].offsides
+                                        this.item1.away.ofs = this.item1.awayT.ofs - stats_ten[1].offsides
+                                        this.item1.home.sav = this.item1.homeT.sav - stats_ten[0].saves
+                                        this.item1.away.sav = this.item1.awayT.sav - stats_ten[1].saves
+                                        this.item1.home.sbst = this.item1.homeT.sbst - stats_ten[0].substitutions
+                                        this.item1.away.sbst = this.item1.awayT.sbst - stats_ten[1].substitutions
+                                        this.item1.home.fou = this.item1.homeT.fou - stats_ten[0].fouls
+                                        this.item1.away.fou = this.item1.awayT.fou - stats_ten[1].fouls
+                                        if(stats_ten[0].goal_attempts){
+                                            this.item1.home.g_att = this.item1.homeT.g_att - stats_ten[0].goal_attempts
+                                            this.item1.away.g_att = this.item1.awayT.g_att - stats_ten[1].goal_attempts
+                                        }
+                                        if(stats_ten[0].ball_safe){
+                                            this.item1.home.safe = this.item1.homeT.safe - stats_ten[0].ball_safe
+                                            this.item1.away.safe = this.item1.awayT.safe - stats_ten[1].ball_safe
+                                        }
+                                    }
+                                    else{
+                                        if(stats_ten[0].shots){
+                                            this.item1.home.on = this.item1.homeT.on - stats_ten[1].shots.ongoal
+                                            this.item1.home.off = this.item1.homeT.off - stats_ten[1].shots.offgoal
+                                            this.item1.away.on = this.item1.awayT.on - stats_ten[0].shots.ongoal
+                                            this.item1.away.off = this.item1.awayT.off - stats_ten[0].shots.offgoal
+                                            if(stats_ten[0].shots.blocked){
+                                                this.item1.home.blk = this.item1.homeT.blk - stats_ten[1].shots.blocked
+                                                this.item1.away.blk = this.item1.awayT.blk - stats_ten[0].shots.blocked
+                                            }
+                                            if(stats_ten[0].shots.insidebox){
+                                                this.item1.home.in = this.item1.homeT.in - stats_ten[1].shots.insidebox
+                                                this.item1.away.in = this.item1.awayT.in - stats_ten[0].shots.insidebox
+                                            }
+                                            if(stats_ten[0].shots.outsidebox){
+                                                this.item1.home.out = this.item1.homeT.out - stats_ten[1].shots.outsidebox
+                                                this.item1.away.out = this.item1.awayT.out - stats_ten[0].shots.outsidebox
+                                            }
+                                        }
+                                        if(stats_ten[0].corners){
+                                            this.item1.home.cnr = this.item1.homeT.cnr - stats_ten[1].corners
+                                            this.item1.away.cnr = this.item1.awayT.cnr - stats_ten[0].corners
+                                        }
+                                        if(stats_ten[0].attacks.dangerous_attacks){
+                                            this.item1.home.da = this.item1.homeT.da - stats_ten[1].attacks.dangerous_attacks
+                                            this.item1.away.da = this.item1.awayT.da - stats_ten[0].attacks.dangerous_attacks
+                                            this.item1.home.atk = this.item1.homeT.atk - stats_ten[1].attacks.attacks
+                                            this.item1.away.atk = this.item1.awayT.atk - stats_ten[0].attacks.attacks
+                                        }
+                                        if(stats_ten[0].possessiontime){
+                                            this.item1.home.poss = stats_ten[0].possessiontime
+                                            this.item1.away.poss = stats_ten[1].possessiontime
+                                        }
+                                        if(stats_ten[0].goals){
+                                            this.item1.home.goal = this.item1.home.score - stats_ten[1].goals
+                                            this.item1.away.goal = this.item1.away.score - stats_ten[0].goals
+                                        }
+
+                                        if(stats_ten[0].passes){
+                                            this.item1.home.pas = this.item1.homeT.pas - stats_ten[1].passes.total
+                                            this.item1.away.pas = this.item1.awayT.pas - stats_ten[0].passes.total
+                                            this.item1.home.acc = this.item1.homeT.acc - stats_ten[1].passes.accurate
+                                            this.item1.away.acc = this.item1.awayT.acc -stats_ten[0].passes.accurate
+                                        }
+                                        this.item1.home.ofs = this.item1.homeT.ofs - stats_ten[1].offsides
+                                        this.item1.away.ofs = this.item1.awayT.ofs - stats_ten[0].offsides
+                                        this.item1.home.sav = this.item1.homeT.sav - stats_ten[1].saves
+                                        this.item1.away.sav = this.item1.awayT.sav - stats_ten[0].saves
+                                        this.item1.home.sbst = this.item1.homeT.sbst - stats_ten[1].substitutions
+                                        this.item1.away.sbst = this.item1.awayT.sbst - stats_ten[0].substitutions
+                                        this.item1.home.fou = this.item1.homeT.fou - stats_ten[1].fouls
+                                        this.item1.away.fou = this.item1.awayT.fou - stats_ten[0].fouls
+                                        if(stats_ten[0].goal_attempts){
+                                            this.item1.home.g_att = this.item1.homeT.g_att - stats_ten[1].goal_attempts
+                                            this.item1.away.g_att = this.item1.awayT.g_att - stats_ten[0].goal_attempts
+                                        }
+                                        if(stats_ten[0].ball_safe){
+                                            this.item1.home.safe = this.item1.homeT.safe - stats_ten[1].ball_safe
+                                            this.item1.away.safe = this.item1.awayT.safe - stats_ten[0].ball_safe
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            this.item1.home.time = 'NS'
+                        }
+                        let home_p = 0
+                        let away_p = 0
+                        let home_poss_index = 0
+                        let away_poss_index = 0
+                        let home_season = {
+                            'on': 0,
+                            'off': 0,
+                            'block': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'pas': 0,
+                            'acc': 0,
+                            'atk': 0,
+                            'ofs': 0,
+                            'sav': 0,
+                            'sbst': 0,
+                            'fou': 0 ,
+                            'g_att': 0 ,
+                            'safe': 0,
+                            'goals':0
+                        }
+                        let away_season = {
+                            'on': 0,
+                            'off': 0,
+                            'block': 0,
+                            'in': 0,
+                            'out': 0,
+                            'cnr': 0,
+                            'da': 0,
+                            'pos': 0,
+                            'pas': 0,
+                            'acc': 0,
+                            'atk': 0,
+                            'ofs': 0,
+                            'sav': 0,
+                            'sbst': 0,
+                            'fou': 0 ,
+                            'g_att': 0 ,
+                            'safe': 0,
+                            'goals': 0
+                        }
+                        if(total_data.season_stats.length > 0){
+                            for(let u = 0 ; u < total_data.season_stats.length ; u++){
+                                if(total_data.season_stats[u].stats){
+                                    if(total_data.season_stats[u].stats.length > 0){
+                                        for(let uu = 0 ; uu < total_data.season_stats[u].stats.length ; uu++){
+                                            if(total_data.season_stats[u].stats[uu].stats[0]){
+                                                if(total_data.season_stats[u].stats[uu].stats[0].team_id == homeId){
+                                                    home_p++
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].shots){
+                                                        home_season.on = home_season.on + total_data.season_stats[u].stats[uu].stats[0].shots.ongoal
+                                                        home_season.off = home_season.off + total_data.season_stats[u].stats[uu].stats[0].shots.offgoal
+                                                        home_season.block = home_season.block + total_data.season_stats[u].stats[uu].stats[0].shots.block
+                                                        home_season.in = home_season.in + total_data.season_stats[u].stats[uu].stats[0].shots.insidebox
+                                                        home_season.out = home_season.out + total_data.season_stats[u].stats[uu].stats[0].shots.outsidebox
+                                                    }
+
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].goals){
+                                                        home_season.goals = home_season.goals + total_data.season_stats[u].stats[uu].stats[0].goals
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].corners != null){
+                                                        home_season.cnr = home_season.cnr + total_data.season_stats[u].stats[uu].stats[0].corners
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].attacks != null){
+                                                        home_season.da = home_season.da + total_data.season_stats[u].stats[uu].stats[0].attacks.dangerous_attacks
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].possessiontime){
+                                                        home_poss_index++
+                                                        home_season.pos = home_season.pos + total_data.season_stats[u].stats[uu].stats[0].possessiontime
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].passes){
+                                                        home_season.pas = home_season.pas + total_data.season_stats[u].stats[uu].stats[0].passes.total
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].passes){
+                                                        home_season.acc = home_season.acc + total_data.season_stats[u].stats[uu].stats[0].passes.accurate
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].attacks){
+                                                        home_season.atk = home_season.atk + total_data.season_stats[u].stats[uu].stats[0].attacks.attacks
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].offsides){
+                                                        home_season.ofs = home_season.ofs + total_data.season_stats[u].stats[uu].stats[0].offsides
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].saves){
+                                                        home_season.sav = home_season.sav + total_data.season_stats[u].stats[uu].stats[0].saves
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].saves){
+                                                        home_season.sbst = home_season.sbst + total_data.season_stats[u].stats[uu].stats[0].substitutions
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].fouls){
+                                                        home_season.fou = home_season.fou + total_data.season_stats[u].stats[uu].stats[0].fouls
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].goal_attempts){
+                                                        home_season.g_att = home_season.g_att + total_data.season_stats[u].stats[uu].stats[0].goal_attempts
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].ball_safe){
+                                                        home_season.safe = home_season.safe + total_data.season_stats[u].stats[uu].stats[0].ball_safe
+                                                    }
+                                                }
+                                                if(total_data.season_stats[u].stats[uu].stats[1].team_id == awayId){
+                                                    away_p++
+                                                    if(total_data.season_stats[u].stats[uu].stats[1].shots){
+                                                        away_season.on = home_season.on + total_data.season_stats[u].stats[uu].stats[1].shots.ongoal
+                                                        away_season.off = home_season.off + total_data.season_stats[u].stats[uu].stats[1].shots.offgoal
+
+                                                        if(total_data.season_stats[u].stats[uu].stats[0].shots.block != null){
+                                                            away_season.block = home_season.block + total_data.season_stats[u].stats[uu].stats[1].shots.block
+                                                        }
+                                                        if(total_data.season_stats[u].stats[uu].stats[0].shots.insidebox != null){
+                                                            away_season.in = home_season.in + total_data.season_stats[u].stats[uu].stats[1].shots.insidebox
+                                                        }
+                                                        if(total_data.season_stats[u].stats[uu].stats[0].shots.outsidebox != null){
+                                                            away_season.out = home_season.out + total_data.season_stats[u].stats[uu].stats[1].shots.outsidebox
+                                                        }
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[1].goals){
+                                                        away_season.goals = away_season.goals + total_data.season_stats[u].stats[uu].stats[1].goals
+                                                    }
+
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].corners != null){
+                                                        away_season.cnr = home_season.cnr + total_data.season_stats[u].stats[uu].stats[1].corners
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].attacks != null){
+                                                        away_season.da = home_season.da + total_data.season_stats[u].stats[uu].stats[1].attacks.dangerous_attacks
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].possessiontime){
+                                                        away_poss_index++
+                                                        away_season.pos = home_season.pos + total_data.season_stats[u].stats[uu].stats[1].possessiontime
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].passes){
+                                                        away_season.pas = home_season.pas + total_data.season_stats[u].stats[uu].stats[1].passes.total
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].passes){
+                                                        away_season.acc = home_season.acc + total_data.season_stats[u].stats[uu].stats[1].passes.accurate
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].attacks){
+                                                        away_season.atk = home_season.atk + total_data.season_stats[u].stats[uu].stats[1].attacks.attacks
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].offsides){
+                                                        away_season.ofs = home_season.ofs + total_data.season_stats[u].stats[uu].stats[1].offsides
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].saves){
+                                                        away_season.sav = home_season.sav + total_data.season_stats[u].stats[uu].stats[1].saves
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].saves){
+                                                        away_season.sbst = home_season.sbst + total_data.season_stats[u].stats[uu].stats[1].substitutions
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].fouls){
+                                                        away_season.fou = home_season.fou + total_data.season_stats[u].stats[uu].stats[1].fouls
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].goal_attempts){
+                                                        away_season.g_att = home_season.g_att + total_data.season_stats[u].stats[uu].stats[1].goal_attempts
+                                                    }
+                                                    if(total_data.season_stats[u].stats[uu].stats[0].ball_safe){
+                                                        away_season.safe = home_season.safe + total_data.season_stats[u].stats[uu].stats[1].ball_safe
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            home_season.pos = parseInt(home_season.pos/home_poss_index)
+                            away_season.pos = parseInt(away_season.pos/away_poss_index)
+                        }
+                        this.item1.home_season = home_season
+                        this.item1.away_season = away_season
+                        if(home_p !== 0){
+                            this.item1.home_p = home_p
+                            this.item1.away_p = away_p
+                        }
+                    }
                 })
 
-            },
-            getPredictionLiveStats(){
-                let eventId = 30121073
-                window.axios.post(`${process.env.VUE_APP_URL}getPredictionLivestats`,[eventId]).then(({data})=>{
-                    console.log('getPredictionLiveStats==>', data)
-                })
             },
             select_filter1(val){
                 if(val == true){
@@ -7060,7 +7647,6 @@
                 }
             });
             this.sockets.listener.subscribe('UpdateScore', (data) => {
-
                 for(let i = 0 ; i < self.mainList.length ; i++){
                     if(self.mainList[i].eventId == data.eventId){
                         self.mainList[i].inPlayMatchStatus = data.inPlayMatchStatus
@@ -7131,14 +7717,264 @@
                     }
                 }
             });
-
             this.sockets.listener.subscribe('UpdateStatsMainPage', (data) => {
                 console.log('listener data=>', data)
+                for(let i = 0 ; i < data.length ; i++){
+                    let current_data = data[i].currentData
+                    let updated_array = data[i].updateArray
+                    let homeId = updated_array.home_id
+                    let awayId = updated_array.away_id
+                    // this.home_id = 9628
+                    // this.away_id = 13671
+                    if(this.home_id == homeId && this.away_id == awayId){
+                        console.log('====>', current_data, ', ', updated_array)
+                        let livestats = []
+                        livestats.push(updated_array)
+                        if(livestats[0].time.status === 'LIVE' || livestats[0].time.status === 'HT'){
+                            this.item1.home.time = livestats[0].time.minute
+                        }
+                        else{
+                            this.item1.home.time = livestats[0].time.status
+                        }
+                        this.item1.home.score = livestats[0].scores.localteam_score
+                        this.item1.away.score = livestats[0].scores.visitorteam_score
+                        if(livestats[0].stats.length > 0){
+                            if(homeId === livestats[0].stats[0].team_id){
+                                if(livestats[0].stats[0].shots){
+                                    this.item1.homeT.on = livestats[0].stats[0].shots.ongoal
+                                    this.item1.homeT.off = livestats[0].stats[0].shots.offgoal
+                                    this.item1.homeT.blk = livestats[0].stats[0].shots.blocked
+                                    this.item1.homeT.in = livestats[0].stats[0].shots.insidebox
+                                    this.item1.homeT.out = livestats[0].stats[0].shots.outsidebox
+
+                                    this.item1.awayT.on = livestats[0].stats[1].shots.ongoal
+                                    this.item1.awayT.off = livestats[0].stats[1].shots.offgoal
+                                    this.item1.awayT.blk = livestats[0].stats[1].shots.blocked
+                                    this.item1.awayT.in = livestats[0].stats[1].shots.insidebox
+                                    this.item1.awayT.out = livestats[0].stats[1].shots.outsidebox
+                                }
+                                this.item1.homeT.cnr = livestats[0].stats[0].corners
+                                this.item1.awayT.cnr = livestats[0].stats[1].corners
+                                if(livestats[0].stats[0].attacks){
+                                    this.item1.homeT.da = livestats[0].stats[0].attacks.dangerous_attacks
+                                    this.item1.awayT.da = livestats[0].stats[1].attacks.dangerous_attacks
+                                    this.item1.homeT.atk = livestats[0].stats[0].attacks.attacks
+                                    this.item1.awayT.atk = livestats[0].stats[1].attacks.attacks
+                                }
+                                this.item1.homeT.poss = livestats[0].stats[0].possessiontime
+                                this.item1.awayT.poss = livestats[0].stats[1].possessiontime
+                                this.item1.homeT.red = livestats[0].stats[0].redcards
+                                this.item1.awayT.red = livestats[0].stats[1].redcards
+                                if(livestats[0].stats[0].passes){
+                                    this.item1.homeT.pas = livestats[0].stats[0].passes.total
+                                    this.item1.awayT.pas = livestats[0].stats[1].passes.total
+                                    this.item1.homeT.acc = livestats[0].stats[0].passes.accurate
+                                    this.item1.awayT.acc = livestats[0].stats[1].passes.accurate
+                                }
+                                this.item1.homeT.ofs = livestats[0].stats[0].offsides
+                                this.item1.awayT.ofs = livestats[0].stats[1].offsides
+                                this.item1.homeT.sav = livestats[0].stats[0].saves
+                                this.item1.awayT.sav = livestats[0].stats[1].saves
+                                this.item1.homeT.sbst = livestats[0].stats[0].substitutions
+                                this.item1.awayT.sbst = livestats[0].stats[1].substitutions
+                                this.item1.homeT.fou = livestats[0].stats[0].fouls
+                                this.item1.awayT.fou = livestats[0].stats[1].fouls
+                                if(livestats[0].stats[0].goal_attempts){
+                                    this.item1.homeT.g_att = livestats[0].stats[0].goal_attempts
+                                    this.item1.awayT.g_att = livestats[0].stats[1].goal_attempts
+                                }
+                                if(livestats[0].stats[0].ball_safe){
+                                    this.item1.homeT.safe = livestats[0].stats[0].ball_safe
+                                    this.item1.awayT.safe = livestats[0].stats[1].ball_safe
+                                }
+                            }
+                            else{
+                                if(livestats[0].stats[0].shots){
+                                    this.item1.homeT.on = livestats[0].stats[1].shots.ongoal
+                                    this.item1.homeT.off = livestats[0].stats[1].shots.offgoal
+                                    this.item1.homeT.blk = livestats[0].stats[1].shots.blocked
+                                    this.item1.homeT.in = livestats[0].stats[1].shots.insidebox
+                                    this.item1.homeT.out = livestats[0].stats[1].shots.outsidebox
+
+                                    this.item1.awayT.on = livestats[0].stats[0].shots.ongoal
+                                    this.item1.awayT.off = livestats[0].stats[0].shots.offgoal
+                                    this.item1.awayT.blk = livestats[0].stats[0].shots.blocked
+                                    this.item1.awayT.in = livestats[0].stats[0].shots.insidebox
+                                    this.item1.awayT.out = livestats[0].stats[0].shots.outsidebox
+                                }
+                                this.item1.homeT.cnr = livestats[0].stats[1].corners
+                                this.item1.awayT.cnr = livestats[0].stats[0].corners
+                                if(livestats[0].stats[0].attacks){
+                                    this.item1.homeT.da = livestats[0].stats[1].attacks.dangerous_attacks
+                                    this.item1.awayT.da = livestats[0].stats[0].attacks.dangerous_attacks
+                                    this.item1.homeT.atk = livestats[0].stats[1].attacks.attacks
+                                    this.item1.awayT.atk = livestats[0].stats[0].attacks.attacks
+                                }
+                                this.item1.homeT.poss = livestats[0].stats[1].possessiontime
+                                this.item1.awayT.poss = livestats[0].stats[0].possessiontime
+                                this.item1.homeT.red = livestats[0].stats[1].redcards
+                                this.item1.awayT.red = livestats[0].stats[0].redcards
+                                if(livestats[0].stats[0].passes){
+                                    this.item1.homeT.pas = livestats[0].stats[1].passes.total
+                                    this.item1.awayT.pas = livestats[0].stats[0].passes.total
+                                    this.item1.homeT.acc = livestats[0].stats[1].passes.accurate
+                                    this.item1.awayT.acc = livestats[0].stats[0].passes.accurate
+                                }
+                                this.item1.homeT.ofs = livestats[0].stats[1].offsides
+                                this.item1.awayT.ofs = livestats[0].stats[0].offsides
+                                this.item1.homeT.sav = livestats[0].stats[1].saves
+                                this.item1.awayT.sav = livestats[0].stats[0].saves
+                                this.item1.homeT.sbst = livestats[0].stats[1].substitutions
+                                this.item1.awayT.sbst = livestats[0].stats[0].substitutions
+                                this.item1.homeT.fou = livestats[0].stats[1].fouls
+                                this.item1.awayT.fou = livestats[0].stats[0].fouls
+                                if(livestats[0].stats[0].goal_attempts){
+                                    this.item1.homeT.g_att = livestats[0].stats[1].goal_attempts
+                                    this.item1.awayT.g_att = livestats[0].stats[0].goal_attempts
+                                }
+                                if(livestats[0].stats[0].ball_safe){
+                                    this.item1.homeT.safe = livestats[0].stats[1].ball_safe
+                                    this.item1.awayT.safe = livestats[0].stats[0].ball_safe
+                                }
+                            }
+                        }
+                        if(livestats[0].stats_ten.length > 0){
+                            if(livestats[0].stats_ten[0].length > 0){
+                                let stats_ten = livestats[0].stats_ten[0]
+                                if(stats_ten[0].team_id === homeId){
+                                    if(stats_ten[0].shots){
+                                        this.item1.home.on = this.item1.homeT.on - stats_ten[0].shots.ongoal
+                                        this.item1.home.off = this.item1.homeT.off - stats_ten[0].shots.offgoal
+                                        this.item1.away.on = this.item1.awayT.on - stats_ten[1].shots.ongoal
+                                        this.item1.away.off = this.item1.awayT.off - stats_ten[1].shots.offgoal
+                                        if(stats_ten[0].shots.blocked){
+                                            this.item1.home.blk = this.item1.homeT.blk - stats_ten[0].shots.blocked
+                                            this.item1.away.blk = this.item1.awayT.blk - stats_ten[1].shots.blocked
+                                        }
+                                        if(stats_ten[0].shots.insidebox){
+                                            this.item1.home.in = this.item1.homeT.in - stats_ten[0].shots.insidebox
+                                            this.item1.away.in = this.item1.awayT.in - stats_ten[1].shots.insidebox
+                                        }
+                                        if(stats_ten[0].shots.outsidebox){
+                                            this.item1.home.out = this.item1.homeT.out - stats_ten[0].shots.outsidebox
+                                            this.item1.away.out = this.item1.awayT.out - stats_ten[1].shots.outsidebox
+                                        }
+                                    }
+                                    if(stats_ten[0].corners){
+                                        this.item1.home.cnr = this.item1.homeT.cnr - stats_ten[0].corners
+                                        this.item1.away.cnr = this.item1.awayT.cnr - stats_ten[1].corners
+                                    }
+                                    if(stats_ten[0].attacks.dangerous_attacks){
+                                        this.item1.home.da = this.item1.homeT.da - stats_ten[0].attacks.dangerous_attacks
+                                        this.item1.away.da = this.item1.awayT.da - stats_ten[1].attacks.dangerous_attacks
+                                        this.item1.home.atk = this.item1.homeT.atk - stats_ten[0].attacks.attacks
+                                        this.item1.away.atk = this.item1.awayT.atk - stats_ten[1].attacks.attacks
+                                    }
+                                    if(stats_ten[0].possessiontime){
+                                        this.item1.home.poss = stats_ten[0].possessiontime
+                                        this.item1.away.poss = stats_ten[1].possessiontime
+                                    }
+                                    if(stats_ten[0].goals){
+                                        this.item1.home.goal = this.item1.home.score - stats_ten[0].goals
+                                        this.item1.away.goal = this.item1.away.score - stats_ten[1].goals
+                                    }
+
+                                    if(stats_ten[0].passes){
+                                        this.item1.home.pas = this.item1.homeT.pas - stats_ten[0].passes.total
+                                        this.item1.away.pas = this.item1.awayT.pas - stats_ten[1].passes.total
+                                        this.item1.home.acc = this.item1.homeT.acc - stats_ten[0].passes.accurate
+                                        this.item1.away.acc = this.item1.awayT.acc -stats_ten[1].passes.accurate
+                                    }
+                                    this.item1.home.ofs = this.item1.homeT.ofs - stats_ten[0].offsides
+                                    this.item1.away.ofs = this.item1.awayT.ofs - stats_ten[1].offsides
+                                    this.item1.home.sav = this.item1.homeT.sav - stats_ten[0].saves
+                                    this.item1.away.sav = this.item1.awayT.sav - stats_ten[1].saves
+                                    this.item1.home.sbst = this.item1.homeT.sbst - stats_ten[0].substitutions
+                                    this.item1.away.sbst = this.item1.awayT.sbst - stats_ten[1].substitutions
+                                    this.item1.home.fou = this.item1.homeT.fou - stats_ten[0].fouls
+                                    this.item1.away.fou = this.item1.awayT.fou - stats_ten[1].fouls
+                                    if(stats_ten[0].goal_attempts){
+                                        this.item1.home.g_att = this.item1.homeT.g_att - stats_ten[0].goal_attempts
+                                        this.item1.away.g_att = this.item1.awayT.g_att - stats_ten[1].goal_attempts
+                                    }
+                                    if(stats_ten[0].ball_safe){
+                                        this.item1.home.safe = this.item1.homeT.safe - stats_ten[0].ball_safe
+                                        this.item1.away.safe = this.item1.awayT.safe - stats_ten[1].ball_safe
+                                    }
+                                }
+                                else{
+                                    if(stats_ten[0].shots){
+                                        this.item1.home.on = this.item1.homeT.on - stats_ten[1].shots.ongoal
+                                        this.item1.home.off = this.item1.homeT.off - stats_ten[1].shots.offgoal
+                                        this.item1.away.on = this.item1.awayT.on - stats_ten[0].shots.ongoal
+                                        this.item1.away.off = this.item1.awayT.off - stats_ten[0].shots.offgoal
+                                        if(stats_ten[0].shots.blocked){
+                                            this.item1.home.blk = this.item1.homeT.blk - stats_ten[1].shots.blocked
+                                            this.item1.away.blk = this.item1.awayT.blk - stats_ten[0].shots.blocked
+                                        }
+                                        if(stats_ten[0].shots.insidebox){
+                                            this.item1.home.in = this.item1.homeT.in - stats_ten[1].shots.insidebox
+                                            this.item1.away.in = this.item1.awayT.in - stats_ten[0].shots.insidebox
+                                        }
+                                        if(stats_ten[0].shots.outsidebox){
+                                            this.item1.home.out = this.item1.homeT.out - stats_ten[1].shots.outsidebox
+                                            this.item1.away.out = this.item1.awayT.out - stats_ten[0].shots.outsidebox
+                                        }
+                                    }
+                                    if(stats_ten[0].corners){
+                                        this.item1.home.cnr = this.item1.homeT.cnr - stats_ten[1].corners
+                                        this.item1.away.cnr = this.item1.awayT.cnr - stats_ten[0].corners
+                                    }
+                                    if(stats_ten[0].attacks.dangerous_attacks){
+                                        this.item1.home.da = this.item1.homeT.da - stats_ten[1].attacks.dangerous_attacks
+                                        this.item1.away.da = this.item1.awayT.da - stats_ten[0].attacks.dangerous_attacks
+                                        this.item1.home.atk = this.item1.homeT.atk - stats_ten[1].attacks.attacks
+                                        this.item1.away.atk = this.item1.awayT.atk - stats_ten[0].attacks.attacks
+                                    }
+                                    if(stats_ten[0].possessiontime){
+                                        this.item1.home.poss = stats_ten[0].possessiontime
+                                        this.item1.away.poss = stats_ten[1].possessiontime
+                                    }
+                                    if(stats_ten[0].goals){
+                                        this.item1.home.goal = this.item1.home.score - stats_ten[1].goals
+                                        this.item1.away.goal = this.item1.away.score - stats_ten[0].goals
+                                    }
+
+                                    if(stats_ten[0].passes){
+                                        this.item1.home.pas = this.item1.homeT.pas - stats_ten[1].passes.total
+                                        this.item1.away.pas = this.item1.awayT.pas - stats_ten[0].passes.total
+                                        this.item1.home.acc = this.item1.homeT.acc - stats_ten[1].passes.accurate
+                                        this.item1.away.acc = this.item1.awayT.acc -stats_ten[0].passes.accurate
+                                    }
+                                    this.item1.home.ofs = this.item1.homeT.ofs - stats_ten[1].offsides
+                                    this.item1.away.ofs = this.item1.awayT.ofs - stats_ten[0].offsides
+                                    this.item1.home.sav = this.item1.homeT.sav - stats_ten[1].saves
+                                    this.item1.away.sav = this.item1.awayT.sav - stats_ten[0].saves
+                                    this.item1.home.sbst = this.item1.homeT.sbst - stats_ten[1].substitutions
+                                    this.item1.away.sbst = this.item1.awayT.sbst - stats_ten[0].substitutions
+                                    this.item1.home.fou = this.item1.homeT.fou - stats_ten[1].fouls
+                                    this.item1.away.fou = this.item1.awayT.fou - stats_ten[0].fouls
+                                    if(stats_ten[0].goal_attempts){
+                                        this.item1.home.g_att = this.item1.homeT.g_att - stats_ten[1].goal_attempts
+                                        this.item1.away.g_att = this.item1.awayT.g_att - stats_ten[0].goal_attempts
+                                    }
+                                    if(stats_ten[0].ball_safe){
+                                        this.item1.home.safe = this.item1.homeT.safe - stats_ten[1].ball_safe
+                                        this.item1.away.safe = this.item1.awayT.safe - stats_ten[0].ball_safe
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             })
         }
     }
 </script>
 <style scoped>
+    .bottom-part .season-stats-part div{
+        font-size: 10px!important;
+    }
     .match-container{
         border: 1px solid lightgray;
         padding: 10px;
