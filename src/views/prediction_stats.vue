@@ -1703,6 +1703,347 @@
                         </div>
                     </div>
                 </div>
+                <div style="width: 100%;">
+                    <div style="width: 100%;">
+                        <label style="color: red; font-weight: bold; margin-top: 20px;">Time Segmented Live Stats:</label>
+                    </div>
+                    <div class="totalMatches score_stats" style="display: flex; font-weight: 600; font-size: 12px;">
+                        <div  style="flex: 1; text-align: center;">
+                            <p class="header" style="color: #d1c4e1">Time</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">home</div>
+                                <div style="height: 15px;">away</div>
+                            </div>
+                        </div>
+                        <div  style="flex: 1; text-align: center;">
+                            <p class="header">Time</p>
+                            <div class="value stats-cell" style="padding-top: 8px;">0 - 15</div>
+                            <div class="percent stats-cell" style="padding-top: 8px;">16 - 30</div>
+                            <div class="value stats-cell" style="padding-top: 8px;">31 - 45+</div>
+                            <div class="percent stats-cell" style="padding-top: 8px;">46 - 60</div>
+                            <div class="value stats-cell" style="padding-top: 8px;">61 - 75</div>
+                            <div class="percent stats-cell" style="padding-top: 8px;">76 - 90+</div>
+                        </div>
+
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Goal</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_0_15.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_0_15.away.goal}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_16_30.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_16_30.away.goal}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_31_45.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_31_45.away.goal}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_46_60.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_46_60.away.goal}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_61_75.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_61_75.away.goal}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px;">{{live_segment_stats2.stats_76_90.home.goal}}</div>
+                                <div style="height: 15px;">{{live_segment_stats2.stats_76_90.away.goal}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">On</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.on}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.on}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.on}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.on}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.on}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.on}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.on}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Off</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.off}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.off}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.off}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.off}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.off}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.off}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.off}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Blk</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.blk}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.blk}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.blk}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.blk}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.blk}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.blk}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.blk}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">In</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.in}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.in}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.in}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.in}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.in}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.in}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.in}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Out</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.out}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.out}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.out}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.out}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.out}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.out}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.out}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Cnr</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.cnr}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.cnr}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.cnr}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.cnr}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.cnr}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.cnr}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.cnr}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">DA</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.da}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.da}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.da}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.da}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.da}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.da}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.da}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.da}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.da}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.da}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.da}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.da}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Pos</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.pos}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.pos}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.pos}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.pos}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.pos}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.pos}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.pos}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Red</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.red}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.red}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.red}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.red}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.red}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.red}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.red}}</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <p class="header">Yel</p>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.yel}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.yel}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.yel}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.yel}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.yel}}</div>
+                            </div>
+                            <div class="value stats-cell">
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.yel}}</div>
+                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.yel}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 <!--                <div style="width: 100%;">-->
 <!--                    <label style="margin-top: 20px;">Selected Match Stats:</label>-->
 <!--                </div>-->
@@ -3052,347 +3393,7 @@
                     </div>
                 </div>
 
-                <div style="width: 100%;">
-                    <div style="width: 100%;">
-                        <label style="color: red; font-weight: bold; margin-top: 20px;">Time Segmented Live Stats:</label>
-                    </div>
-                    <div class="totalMatches score_stats" style="display: flex; font-weight: 600; font-size: 12px;">
-                        <div  style="flex: 1; text-align: center;">
-                            <p class="header" style="color: #d1c4e1">Time</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">home</div>
-                                <div style="height: 15px;">away</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">home</div>
-                                <div style="height: 15px;">away</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">home</div>
-                                <div style="height: 15px;">away</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">home</div>
-                                <div style="height: 15px;">away</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">home</div>
-                                <div style="height: 15px;">away</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">home</div>
-                                <div style="height: 15px;">away</div>
-                            </div>
-                        </div>
-                        <div  style="flex: 1; text-align: center;">
-                            <p class="header">Time</p>
-                            <div class="value stats-cell" style="padding-top: 8px;">0 - 15</div>
-                            <div class="percent stats-cell" style="padding-top: 8px;">16 - 30</div>
-                            <div class="value stats-cell" style="padding-top: 8px;">31 - 45+</div>
-                            <div class="percent stats-cell" style="padding-top: 8px;">46 - 60</div>
-                            <div class="value stats-cell" style="padding-top: 8px;">61 - 75</div>
-                            <div class="percent stats-cell" style="padding-top: 8px;">76 - 90+</div>
-                        </div>
 
-                        <div style="flex: 1; text-align: center;">
-                            <p class="header">Goal</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">{{live_segment_stats2.stats_0_15.home.goal}}</div>
-                                <div style="height: 15px;">{{live_segment_stats2.stats_0_15.away.goal}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">{{live_segment_stats2.stats_16_30.home.goal}}</div>
-                                <div style="height: 15px;">{{live_segment_stats2.stats_16_30.away.goal}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">{{live_segment_stats2.stats_31_45.home.goal}}</div>
-                                <div style="height: 15px;">{{live_segment_stats2.stats_31_45.away.goal}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">{{live_segment_stats2.stats_46_60.home.goal}}</div>
-                                <div style="height: 15px;">{{live_segment_stats2.stats_46_60.away.goal}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">{{live_segment_stats2.stats_61_75.home.goal}}</div>
-                                <div style="height: 15px;">{{live_segment_stats2.stats_61_75.away.goal}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px;">{{live_segment_stats2.stats_76_90.home.goal}}</div>
-                                <div style="height: 15px;">{{live_segment_stats2.stats_76_90.away.goal}}</div>
-                            </div>
-                        </div>
-                        <div style="flex: 1; text-align: center;">
-                            <p class="header">On</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.on}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.on}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.on}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.on}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.on}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.on}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.on}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.on}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.on}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.on}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.on}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.on}}</div>
-                            </div>
-                        </div>
-                        <div style="flex: 1; text-align: center;">
-                            <p class="header">Off</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.off}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.off}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.off}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.off}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.off}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.off}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.off}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.off}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.off}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.off}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.off}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.off}}</div>
-                            </div>
-                        </div>
-                        <div style="flex: 1; text-align: center;">
-                            <p class="header">Blk</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.blk}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.blk}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.blk}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.blk}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.blk}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.blk}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.blk}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.blk}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.blk}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.blk}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.blk}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.blk}}</div>
-                            </div>
-                        </div>
-                        <div style="flex: 1; text-align: center;">
-                            <p class="header">In</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.in}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.in}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.in}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.in}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.in}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.in}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.in}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.in}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.in}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.in}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.in}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.in}}</div>
-                            </div>
-                        </div>
-                        <div style="flex: 1; text-align: center;">
-                            <p class="header">Out</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.out}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.out}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.out}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.out}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.out}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.out}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.out}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.out}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.out}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.out}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.out}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.out}}</div>
-                            </div>
-                        </div>
-                        <div style="flex: 1; text-align: center;">
-                            <p class="header">Cnr</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.cnr}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.cnr}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.cnr}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.cnr}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.cnr}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.cnr}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.cnr}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.cnr}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.cnr}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.cnr}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.cnr}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.cnr}}</div>
-                            </div>
-                        </div>
-                        <div style="flex: 1; text-align: center;">
-                            <p class="header">DA</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.da}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.da}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.da}}</div>
-                                 <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.da}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.da}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.da}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.da}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.da}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.da}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.da}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.da}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.da}}</div>
-                            </div>
-                        </div>
-                        <div style="flex: 1; text-align: center;">
-                            <p class="header">Pos</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.pos}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.pos}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.pos}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.pos}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.pos}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.pos}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.pos}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.pos}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.pos}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.pos}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.pos}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.pos}}</div>
-                            </div>
-                        </div>
-                        <div style="flex: 1; text-align: center;">
-                            <p class="header">Red</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.red}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.red}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.red}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.red}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.red}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.red}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.red}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.red}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.red}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.red}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.red}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.red}}</div>
-                            </div>
-                        </div>
-                        <div style="flex: 1; text-align: center;">
-                            <p class="header">Yel</p>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.home.yel}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_0_15.away.yel}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.home.yel}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_16_30.away.yel}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.home.yel}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_31_45.away.yel}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.home.yel}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_46_60.away.yel}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.home.yel}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_61_75.away.yel}}</div>
-                            </div>
-                            <div class="value stats-cell">
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.home.yel}}</div>
-                                <div style="height: 15px; font-size: 11px!important;">{{live_segment_stats2.stats_76_90.away.yel}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </CCol>
             <!--            <CCol lg="6" style="height: 300px; background: #fd4016;">-->
 
