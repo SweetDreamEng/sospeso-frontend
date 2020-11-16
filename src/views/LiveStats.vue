@@ -4215,7 +4215,7 @@
                                         this.eventArray[j].events[k].home.time = data1[i].currentData.time.minute + '+' + data1[i].currentData.time.injury_time
                                     }
                                     if(data1[i].currentData.time.status == 'HT'){
-                                        this.eventArray[j].events[k].home.time == 'HT'
+                                        this.eventArray[j].events[k].home.time = 'HT'
                                     }
 
                                     this.eventArray[j].events[k].goal_tooltip = data1[i].updateArray.goal_tooltip
