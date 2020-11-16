@@ -5005,60 +5005,60 @@
                                 <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
                                     {{item3.home.swing3}}
                                 </div>
-<!--                                <div class="height: 50px; graph-detail00" style="min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.home.attack}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray; min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.home.defense}}-->
-<!--                                </div>-->
-<!--                                <div style="height: 50px; min-width: 80px; float: left; text-align: center; width: 8%;">-->
-<!--                                    {{item3.home.form}}-->
-<!--                                </div>-->
-<!--                                <div style="height: 50px; min-width: 80px; float: left; text-align: center; width: 8%;">-->
-<!--                                    {{item3.home.form_H_A}}-->
-<!--                                </div>-->
+                                <div class="height: 50px; graph-detail00" style="min-width: 70px; width: 7%;">
+                                    {{item3.home.attack}}
+                                </div>
+                                <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
+                                    {{item3.home.defense}}
+                                </div>
+                                <div style="height: 50px; min-width: 80px; float: left; text-align: center; width: 8%;">
+                                    {{item3.home.form}}
+                                </div>
+                                <div style="height: 50px; min-width: 80px; float: left; text-align: center; width: 8%;">
+                                    {{item3.home.form_H_A}}
+                                </div>
                             </div>
-<!--                            <div class="graph1 graph-percent">-->
-<!--                                <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">-->
-<!--                                    A-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 150px; float: left; width: 15%; height: 31px;">-->
-<!--                                    {{item3.away.name}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-left: 1px solid lightgray; min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.away.pos}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.away.h_a}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray; min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.away.swing1}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.away.FH}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray;min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.away.swing2}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.away.SH}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray; min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.away.swing3}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.away.attack}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray; min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.away.defense}}-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 80px; float: left; text-align: center; width: 8%;">-->
-<!--                                    {{item3.away.form}}-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 80px; float: left; text-align: center; width: 8%;">-->
-<!--                                    {{item3.away.form_H_A}}-->
-<!--                                </div>-->
-<!--                            </div>-->
+                            <div class="graph1 graph-percent">
+                                <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">
+                                    A
+                                </div>
+                                <div style="min-width: 150px; float: left; width: 15%; height: 31px;">
+                                    {{item3.away.name}}
+                                </div>
+                                <div class="graph-detail00" style="border-left: 1px solid lightgray; min-width: 70px; width: 7%;">
+                                    {{item3.away.pos}}
+                                </div>
+                                <div class="graph-detail00" style="min-width: 70px; width: 7%;">
+                                    {{item3.away.h_a}}
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
+                                    {{item3.away.swing1}}
+                                </div>
+                                <div class="graph-detail00" style="min-width: 70px; width: 7%;">
+                                    {{item3.away.FH}}
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray;min-width: 70px; width: 7%;">
+                                    {{item3.away.swing2}}
+                                </div>
+                                <div class="graph-detail00" style="min-width: 70px; width: 7%;">
+                                    {{item3.away.SH}}
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
+                                    {{item3.away.swing3}}
+                                </div>
+                                <div class="graph-detail00" style="min-width: 70px; width: 7%;">
+                                    {{item3.away.attack}}
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
+                                    {{item3.away.defense}}
+                                </div>
+                                <div style="min-width: 80px; float: left; text-align: center; width: 8%;">
+                                    {{item3.away.form}}
+                                </div>
+                                <div style="min-width: 80px; float: left; text-align: center; width: 8%;">
+                                    {{item3.away.form_H_A}}
+                                </div>
+                            </div>
                         </div>
                     </CCol>
                 </CRow>
