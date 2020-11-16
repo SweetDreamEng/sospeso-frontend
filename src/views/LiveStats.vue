@@ -4217,7 +4217,10 @@
                                     if(data1[i].currentData.time.status == 'HT'){
                                         this.eventArray[j].events[k].home.time == 'HT'
                                     }
+
                                     this.eventArray[j].events[k].goal_tooltip = data1[i].updateArray.goal_tooltip
+                                    this.eventArray[j].events[k].home_tooltip = data1[i].updateArray.home_tooltip
+                                    this.eventArray[j].events[k].away_tooltip = data1[i].updateArray.away_tooltip
                                     if(this.eventArray[j].events[k].home.id === data1[i].updateArray.stats[0].team_id){
                                         this.eventArray[j].events[k].home.score = data1[i].updateArray.scores.localteam_score
                                         this.eventArray[j].events[k].away.score = data1[i].updateArray.scores.visitorteam_score
