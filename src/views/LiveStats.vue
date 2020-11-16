@@ -179,7 +179,7 @@
                             </div>
                             <div style="width: 5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
                                 <div style="width: 100%; padding: 3px 7px; color: black;">
-                                    <transition name="slide-fade" mode="out-in" class="livenow">
+                                    <transition name="slide-fade" mode="out-in" class="goalcelebration">
                                         <div v-c-tooltip="item1.goal_tooltip" :key="item1.home.score" class="detail" style="color: red; position: relative; top: 22px; left: 7px; font-size: 18px;">
                                             {{item1.home.score}} - {{item1.away.score}}
                                         </div>
@@ -4215,7 +4215,7 @@
                                         this.eventArray[j].events[k].home.time = data1[i].currentData.time.minute + '+' + data1[i].currentData.time.injury_time
                                     }
                                     if(data1[i].currentData.time.status == 'HT'){
-                                        this.eventArray[j].events[k].home.time == 'HT'
+                                        this.eventArray[j].events[k].home.time = 'HT'
                                     }
 
                                     this.eventArray[j].events[k].goal_tooltip = data1[i].updateArray.goal_tooltip
@@ -4674,6 +4674,9 @@
     .goal_manner{
         animation: splash1 infinite 1.5s;
     }
+    .goalcelebration_manner {
+        animation: splash1 infinite 30s;
+    }
     @keyframes splash {
         0% {
             color: white;
@@ -4723,6 +4726,15 @@
         -webkit-animation-iteration-count: 1;
         animation-name: example;
         animation-duration: 3s;
+        animation-iteration-count: 1;
+    }
+
+    .goalcelebration {
+        -webkit-animation-name: example;
+        -webkit-animation-duration: 30s;
+        -webkit-animation-iteration-count: 1;
+        animation-name: example;
+        animation-duration: 30s;
         animation-iteration-count: 1;
     }
     @keyframes example {
