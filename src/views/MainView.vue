@@ -4067,51 +4067,51 @@
                                     </div>
                                 </div>
                                 <div style="min-width: 150px; float: left; width: 15%;">
-<!--                                    <div style="width: 100%; height: 30px;">-->
-<!--                                        <label style="float: left; margin-left: 10px; ">Red Card</label>-->
-<!--                                        <div style="width: 25%; float: right;">-->
-<!--                                            <CInputCheckbox class="check-box"-->
-<!--                                                            :checked="false"-->
-<!--                                                            @update:checked="SH_red"-->
-<!--                                                            @click="item_X = item3, home_date_list = item3.homeDateList, away_date_list = item3.awayDateList, basic_data = item3.b_data"-->
-<!--                                            >-->
-<!--                                                <template #label>-->
-<!--                                                    SH-->
-<!--                                                </template>-->
-<!--                                            </CInputCheckbox>-->
-<!--                                        </div>-->
-<!--                                        <div style="width: 25%; float: right;">-->
-<!--                                            <CInputCheckbox class="check-box check-box-x"-->
-<!--                                                            :checked="false"-->
-<!--                                                            @update:checked="FH_red"-->
-<!--                                                            @click="item_X = item3, home_date_list = item3.homeDateList, away_date_list = item3.awayDateList, basic_data = item3.b_data"-->
-<!--                                            >-->
-<!--                                                <template #label>-->
-<!--                                                    FH-->
-<!--                                                </template>-->
-<!--                                            </CInputCheckbox>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div>-->
-<!--                                        <label style="float: left; margin-left: 10px; margin-top: 10px;">Show last</label>-->
-<!--                                        <CSelect-->
-<!--                                                v-if="item3.homeDateList.length <= item3.awayDateList.length"-->
-<!--                                                class="eventdays date-range"-->
-<!--                                                :options="item3.homeDateList"-->
-<!--                                                @click="item_X = item3, home_date_list = item3.homeDateList, away_date_list = item3.awayDateList, basic_data = item3.b_data"-->
-<!--                                                @update:value="refreshCalc"-->
-<!--                                        >-->
-<!--                                        </CSelect>-->
-<!--                                        <CSelect-->
-<!--                                                v-if="item3.homeDateList.length > item3.awayDateList.length"-->
-<!--                                                class="eventdays date-range"-->
-<!--                                                @click="item_X = item3"-->
-<!--                                                :options="item3.awayDateList"-->
-<!--                                                @update:value="refreshCalc"-->
-<!--                                        >-->
-<!--                                        </CSelect>-->
-<!--                                        <label style="margin-top: 10px;">days</label>-->
-<!--                                    </div>-->
+                                    <div style="width: 100%; height: 30px;">
+                                        <label style="float: left; margin-left: 10px; ">Red Card</label>
+                                        <div style="width: 25%; float: right;">
+                                            <CInputCheckbox class="check-box"
+                                                            :checked="false"
+                                                            @update:checked="SH_red"
+                                                            @click="item_X = item3, home_date_list = item3.homeDateList, away_date_list = item3.awayDateList, basic_data = item3.b_data"
+                                            >
+                                                <template #label>
+                                                    SH
+                                                </template>
+                                            </CInputCheckbox>
+                                        </div>
+                                        <div style="width: 25%; float: right;">
+                                            <CInputCheckbox class="check-box check-box-x"
+                                                            :checked="false"
+                                                            @update:checked="FH_red"
+                                                            @click="item_X = item3, home_date_list = item3.homeDateList, away_date_list = item3.awayDateList, basic_data = item3.b_data"
+                                            >
+                                                <template #label>
+                                                    FH
+                                                </template>
+                                            </CInputCheckbox>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label style="float: left; margin-left: 10px; margin-top: 10px;">Show last</label>
+                                        <CSelect
+                                                v-if="item3.homeDateList.length <= item3.awayDateList.length"
+                                                class="eventdays date-range"
+                                                :options="item3.homeDateList"
+                                                @click="item_X = item3, home_date_list = item3.homeDateList, away_date_list = item3.awayDateList, basic_data = item3.b_data"
+                                                @update:value="refreshCalc"
+                                        >
+                                        </CSelect>
+                                        <CSelect
+                                                v-if="item3.homeDateList.length > item3.awayDateList.length"
+                                                class="eventdays date-range"
+                                                @click="item_X = item3"
+                                                :options="item3.awayDateList"
+                                                @update:value="refreshCalc"
+                                        >
+                                        </CSelect>
+                                        <label style="margin-top: 10px;">days</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="graph1">
@@ -4221,32 +4221,32 @@
                                     </div>
                                 </div>
 
-<!--                                <div v-if="item3.rankFilter === true" style="min-width: 150px; float: left; width: 15%;">-->
-<!--                                    <div style="width: 100%; height: 30px;">-->
-<!--                                        <label style="float: left; margin-left: 10px; ">HomeTeam:</label>-->
-<!--                                        <div style="width: 50%; float: right;">-->
-<!--                                            <CSelect-->
-<!--                                                    class="rank_filter"-->
-<!--                                                    :options="item3.rank_option"-->
-<!--                                                    @click = "rank_filter = item3.rank_set, item_X = item3, away_team = item3.away, home_team = item3.home"-->
-<!--                                                    @update:value="home_rank_filter"-->
-<!--                                            >-->
-<!--                                            </CSelect>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div style="width: 100%; height: 30px;">-->
-<!--                                        <label style="float: left; margin-left: 10px; ">AwayTeam:</label>-->
-<!--                                        <div style="width: 50%; float: right;">-->
-<!--                                            <CSelect-->
-<!--                                                    class="rank_filter"-->
-<!--                                                    :options="item3.rank_option"-->
-<!--                                                    @click = "rank_filter = item3.rank_set, item_X = item3, away_team = item3.away, home_team = item3.home"-->
-<!--                                                    @update:value="away_rank_filter"-->
-<!--                                            >-->
-<!--                                            </CSelect>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                <div v-if="item3.rankFilter === true" style="min-width: 150px; float: left; width: 15%;">
+                                    <div style="width: 100%; height: 30px;">
+                                        <label style="float: left; margin-left: 10px; ">HomeTeam:</label>
+                                        <div style="width: 50%; float: right;">
+                                            <CSelect
+                                                    class="rank_filter"
+                                                    :options="item3.rank_option"
+                                                    @click = "rank_filter = item3.rank_set, item_X = item3, away_team = item3.away, home_team = item3.home"
+                                                    @update:value="home_rank_filter"
+                                            >
+                                            </CSelect>
+                                        </div>
+                                    </div>
+                                    <div style="width: 100%; height: 30px;">
+                                        <label style="float: left; margin-left: 10px; ">AwayTeam:</label>
+                                        <div style="width: 50%; float: right;">
+                                            <CSelect
+                                                    class="rank_filter"
+                                                    :options="item3.rank_option"
+                                                    @click = "rank_filter = item3.rank_set, item_X = item3, away_team = item3.away, home_team = item3.home"
+                                                    @update:value="away_rank_filter"
+                                            >
+                                            </CSelect>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="event-graph-header">
