@@ -4069,7 +4069,6 @@
                                 <div style="min-width: 150px; float: left; width: 15%;">
 <!--                                    <div style="width: 100%; height: 30px;">-->
 <!--                                        <label style="float: left; margin-left: 10px; ">Red Card</label>-->
-
 <!--                                        <div style="width: 25%; float: right;">-->
 <!--                                            <CInputCheckbox class="check-box"-->
 <!--                                                            :checked="false"-->
@@ -4081,7 +4080,6 @@
 <!--                                                </template>-->
 <!--                                            </CInputCheckbox>-->
 <!--                                        </div>-->
-
 <!--                                        <div style="width: 25%; float: right;">-->
 <!--                                            <CInputCheckbox class="check-box check-box-x"-->
 <!--                                                            :checked="false"-->
@@ -4104,7 +4102,6 @@
 <!--                                                @update:value="refreshCalc"-->
 <!--                                        >-->
 <!--                                        </CSelect>-->
-
 <!--                                        <CSelect-->
 <!--                                                v-if="item3.homeDateList.length > item3.awayDateList.length"-->
 <!--                                                class="eventdays date-range"-->
@@ -4224,32 +4221,32 @@
                                     </div>
                                 </div>
 
-                                <div v-if="item3.rankFilter === true" style="min-width: 150px; float: left; width: 15%;">
-                                    <div style="width: 100%; height: 30px;">
-                                        <label style="float: left; margin-left: 10px; ">HomeTeam:</label>
-                                        <div style="width: 50%; float: right;">
-                                            <CSelect
-                                                    class="rank_filter"
-                                                    :options="item3.rank_option"
-                                                    @click = "rank_filter = item3.rank_set, item_X = item3, away_team = item3.away, home_team = item3.home"
-                                                    @update:value="home_rank_filter"
-                                            >
-                                            </CSelect>
-                                        </div>
-                                    </div>
-                                    <div style="width: 100%; height: 30px;">
-                                        <label style="float: left; margin-left: 10px; ">AwayTeam:</label>
-                                        <div style="width: 50%; float: right;">
-                                            <CSelect
-                                                    class="rank_filter"
-                                                    :options="item3.rank_option"
-                                                    @click = "rank_filter = item3.rank_set, item_X = item3, away_team = item3.away, home_team = item3.home"
-                                                    @update:value="away_rank_filter"
-                                            >
-                                            </CSelect>
-                                        </div>
-                                    </div>
-                                </div>
+<!--                                <div v-if="item3.rankFilter === true" style="min-width: 150px; float: left; width: 15%;">-->
+<!--                                    <div style="width: 100%; height: 30px;">-->
+<!--                                        <label style="float: left; margin-left: 10px; ">HomeTeam:</label>-->
+<!--                                        <div style="width: 50%; float: right;">-->
+<!--                                            <CSelect-->
+<!--                                                    class="rank_filter"-->
+<!--                                                    :options="item3.rank_option"-->
+<!--                                                    @click = "rank_filter = item3.rank_set, item_X = item3, away_team = item3.away, home_team = item3.home"-->
+<!--                                                    @update:value="home_rank_filter"-->
+<!--                                            >-->
+<!--                                            </CSelect>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div style="width: 100%; height: 30px;">-->
+<!--                                        <label style="float: left; margin-left: 10px; ">AwayTeam:</label>-->
+<!--                                        <div style="width: 50%; float: right;">-->
+<!--                                            <CSelect-->
+<!--                                                    class="rank_filter"-->
+<!--                                                    :options="item3.rank_option"-->
+<!--                                                    @click = "rank_filter = item3.rank_set, item_X = item3, away_team = item3.away, home_team = item3.home"-->
+<!--                                                    @update:value="away_rank_filter"-->
+<!--                                            >-->
+<!--                                            </CSelect>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                             </div>
 
                             <div class="event-graph-header">
@@ -4296,718 +4293,718 @@
                                     85+
                                 </div>
                             </div>
-<!--                            <div class="graph1">-->
-<!--                                <div style="min-width: 40px; float: left; width: 5%; height: 50px; text-align: center; padding-top: 15px;">-->
-<!--                                    H-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 100px; float: left; width: 10%; height: 50px; padding-top: 15px;">-->
-<!--                                    {{item3.home.name}}-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 5%; height: 50px; padding-top: 15px;">-->
-<!--                                    {{item3.home.p}}-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 90px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1">-->
-<!--                                        <div class="graph-inner" :style="{'position': 'absolute', 'left': '0','width': (item3.home.average1/(parseFloat(item3.home.average1) + parseFloat(item3.home.average2))*100).toFixed(2)+'%', 'background': '#00cc00'}"></div>-->
-<!--                                        <div class="graph-inner" :style="{'position': 'absolute', 'right': '-1px','width': (item3.home.average2/(parseFloat(item3.home.average1) + parseFloat(item3.home.average2))*100).toFixed(2)+'%', 'background': '#fe9f9f'}"></div>-->
-<!--                                        <label class="graph-label">{{(parseFloat(item3.home.average1)*parseFloat(item3.home.p)).toFixed(0)}}</label>-->
-<!--                                        <label class="graph-label1">{{(parseFloat(item3.home.average2)*parseFloat(item3.home.p)).toFixed(0)}}</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash;                                    <div style="min-width:450px ;width: 42%;">&ndash;&gt;-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.home.time15_S" :style="{'height': item3.home.time15_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.home.time15_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time15_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label" style="left: 0;">{{item3.home.time15_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.home.time15_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.home.time30_S" :style="{'height': item3.home.time30_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.home.time30_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time30_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.home.time30_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.home.time30_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.home.time45_S" :style="{'height': item3.home.time45_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.home.time45_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time45_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.home.time45_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.home.time45_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.home.time60_S" :style="{'height': item3.home.time60_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.home.time60_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time60_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.home.time60_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.home.time60_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.home.time75_S" :style="{'height': item3.home.time75_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.home.time75_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time75_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.home.time75_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.home.time75_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.home.time90_S" :style="{'height': item3.home.time90_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.home.time90_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time90_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.home.time90_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.home.time90_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash;                                    </div>&ndash;&gt;-->
+                            <div class="graph1">
+                                <div style="min-width: 40px; float: left; width: 5%; height: 50px; text-align: center; padding-top: 15px;">
+                                    H
+                                </div>
+                                <div style="min-width: 100px; float: left; width: 10%; height: 50px; padding-top: 15px;">
+                                    {{item3.home.name}}
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 5%; height: 50px; padding-top: 15px;">
+                                    {{item3.home.p}}
+                                </div>
+                                <div style="min-width: 90px; float: left; width: 7%;">
+                                    <div class="graph-detail1">
+                                        <div class="graph-inner" :style="{'position': 'absolute', 'left': '0','width': (item3.home.average1/(parseFloat(item3.home.average1) + parseFloat(item3.home.average2))*100).toFixed(2)+'%', 'background': '#00cc00'}"></div>
+                                        <div class="graph-inner" :style="{'position': 'absolute', 'right': '-1px','width': (item3.home.average2/(parseFloat(item3.home.average1) + parseFloat(item3.home.average2))*100).toFixed(2)+'%', 'background': '#fe9f9f'}"></div>
+                                        <label class="graph-label">{{(parseFloat(item3.home.average1)*parseFloat(item3.home.p)).toFixed(0)}}</label>
+                                        <label class="graph-label1">{{(parseFloat(item3.home.average2)*parseFloat(item3.home.p)).toFixed(0)}}</label>
+                                    </div>
+                                </div>
+                                <!--                                    <div style="min-width:450px ;width: 42%;">-->
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.home.time15_S" :style="{'height': item3.home.time15_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.home.time15_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time15_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label" style="left: 0;">{{item3.home.time15_S}}%</label>
+                                        <label class="graph-label1">{{item3.home.time15_C}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.home.time30_S" :style="{'height': item3.home.time30_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.home.time30_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time30_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label">{{item3.home.time30_S}}%</label>
+                                        <label class="graph-label1">{{item3.home.time30_C}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.home.time45_S" :style="{'height': item3.home.time45_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.home.time45_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time45_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label">{{item3.home.time45_S}}%</label>
+                                        <label class="graph-label1">{{item3.home.time45_C}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.home.time60_S" :style="{'height': item3.home.time60_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.home.time60_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time60_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label">{{item3.home.time60_S}}%</label>
+                                        <label class="graph-label1">{{item3.home.time60_C}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.home.time75_S" :style="{'height': item3.home.time75_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.home.time75_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time75_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label">{{item3.home.time75_S}}%</label>
+                                        <label class="graph-label1">{{item3.home.time75_C}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.home.time90_S" :style="{'height': item3.home.time90_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.home.time90_C" :style="{'position': 'absolute', 'right': '5px','height': item3.home.time90_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label">{{item3.home.time90_S}}%</label>
+                                        <label class="graph-label1">{{item3.home.time90_C}}%</label>
+                                    </div>
+                                </div>
+                                <!--                                    </div>-->
 
 
-<!--                                <div style="min-width: 90px; float: left; width: 9%;">-->
-<!--                                    <div class="graph-detail1">-->
-<!--                                        <div class="graph-inner" :title="item3.home.gs1" :style="{'position': 'absolute', 'left': '0','width': item3.home.gs1+'%', 'background': '#00cc00'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.home.gs2" :style="{'position': 'absolute', 'right': '-1px','width': (100 - parseInt(item3.home.gs1))+'%', 'background': '#00c900'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.home.gs1}}%</label>-->
-<!--                                        <label class="graph-label1">{{100 - parseInt(item3.home.gs1)}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 90px; float: left; width: 9%;">-->
-<!--                                    <div class="graph-detail1">-->
-<!--                                        <div class="graph-inner" :title="item3.home.gc1" :style="{'position': 'absolute', 'left': '0','width': item3.home.gc1+'%', 'background': '#fe9f9f'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.home.gc2" :style="{'position': 'absolute', 'right': '-1px','width': 100 - parseInt(item3.home.gc1)+'%', 'background': '#fe9f9f'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.home.gc1}}%</label>-->
-<!--                                        <label class="graph-label1">{{100 - parseInt(item3.home.gc1)}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 60px; float: left; width: 6%;">-->
-<!--                                    <div class="graph-detail">-->
-<!--                                        <div class="graph-inner" :title="item3.home.over40" :style="{'height': item3.home.over40+'%', 'background': '#655'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.home.over40}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 60px; float: left; width: 6%;">-->
-<!--                                    <div class="graph-detail">-->
-<!--                                        <div class="graph-inner" :title="item3.home.over85" :style="{'height': item3.home.over85+'%', 'background': '#655'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.home.over85}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="graph1">-->
-<!--                                <div style="min-width: 40px; float: left; width: 5%; height: 50px; text-align: center; padding-top: 15px;">-->
-<!--                                    A-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 100px; float: left; width: 10%; height: 50px; padding-top: 15px;">-->
-<!--                                    {{item3.away.name}}-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 5%; height: 50px; padding-top: 15px;">-->
-<!--                                    {{item3.away.p}}-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 90px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1">-->
-<!--                                        <div class="graph-inner" :style="{'position': 'absolute', 'left': '0','width': item3.away.average1/(parseFloat(item3.away.average1) + parseFloat(item3.away.average2))*100+'%', 'background': '#00cc00'}"></div>-->
-<!--                                        <div class="graph-inner" :style="{'position': 'absolute', 'right': '-1px','width': item3.away.average2/(parseFloat(item3.away.average1) + parseFloat(item3.away.average2))*100+'%', 'background': '#fe9f9f'}"></div>-->
-<!--                                        <label class="graph-label">{{(parseFloat(item3.away.average1)*item3.away.p).toFixed(0)}}</label>-->
-<!--                                        <label class="graph-label1">{{(parseFloat(item3.away.average2)*item3.away.p).toFixed(0)}}</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.away.time15_S" :style="{'height': item3.away.time15_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.away.time15_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time15_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label" style="left: 0;">{{item3.away.time15_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.away.time15_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.away.time30_S" :style="{'height': item3.away.time30_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.away.time30_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time30_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.away.time30_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.away.time30_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.away.time45_S" :style="{'height': item3.away.time45_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.away.time45_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time45_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.away.time45_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.away.time45_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.away.time60_S" :style="{'height': item3.away.time60_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.away.time60_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time60_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.away.time60_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.away.time60_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.away.time75_S" :style="{'height': item3.away.time75_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.away.time75_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time75_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.away.time75_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.away.time75_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 75px; float: left; width: 7%;">-->
-<!--                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">-->
-<!--                                        <div class="graph-inner" :title="item3.away.time90_S" :style="{'height': item3.away.time90_S+'%', 'background': '#00cc00','width': '25px'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.away.time90_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time90_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.away.time90_S}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.away.time90_C}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 90px; float: left; width: 9%;">-->
-<!--                                    <div class="graph-detail1">-->
-<!--                                        <div class="graph-inner" :title="item3.away.gs1" :style="{'position': 'absolute', 'left': '0','width': item3.away.gs1+'%', 'background': '#00cc00'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.away.gs2" :style="{'position': 'absolute', 'right': '-1px','width': item3.away.gs2+'%', 'background': '#00cc00'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.away.gs1}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.away.gs2}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 90px; float: left; width: 9%;">-->
-<!--                                    <div class="graph-detail1">-->
-<!--                                        <div class="graph-inner" :title="item3.away.gc1" :style="{'position': 'absolute', 'left': '0','width': item3.away.gc1+'%', 'background': '#fe9f9f'}"></div>-->
-<!--                                        <div class="graph-inner" :title="item3.away.gc2" :style="{'position': 'absolute', 'right': '-1px','width': item3.away.gc2+'%', 'background': '#fe9f9f'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.away.gc1}}%</label>-->
-<!--                                        <label class="graph-label1">{{item3.away.gc2}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 60px; float: left; width: 6%;">-->
-<!--                                    <div class="graph-detail">-->
-<!--                                        <div class="graph-inner" :title="item3.away.over40" :style="{'height': item3.away.over40+'%', 'background': '#655'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.away.over40}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 60px; float: left; width: 6%;">-->
-<!--                                    <div class="graph-detail">-->
-<!--                                        <div class="graph-inner" :title="item3.away.over85" :style="{'height': item3.away.over85+'%', 'background': '#655'}"></div>-->
-<!--                                        <label class="graph-label">{{item3.away.over85}}%</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="event-graph-header">-->
-<!--                                <div style="min-width: 40px; float: left; width: 5%; height: 30px;">-->
+                                <div style="min-width: 90px; float: left; width: 9%;">
+                                    <div class="graph-detail1">
+                                        <div class="graph-inner" :title="item3.home.gs1" :style="{'position': 'absolute', 'left': '0','width': item3.home.gs1+'%', 'background': '#00cc00'}"></div>
+                                        <div class="graph-inner" :title="item3.home.gs2" :style="{'position': 'absolute', 'right': '-1px','width': (100 - parseInt(item3.home.gs1))+'%', 'background': '#00c900'}"></div>
+                                        <label class="graph-label">{{item3.home.gs1}}%</label>
+                                        <label class="graph-label1">{{100 - parseInt(item3.home.gs1)}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 90px; float: left; width: 9%;">
+                                    <div class="graph-detail1">
+                                        <div class="graph-inner" :title="item3.home.gc1" :style="{'position': 'absolute', 'left': '0','width': item3.home.gc1+'%', 'background': '#fe9f9f'}"></div>
+                                        <div class="graph-inner" :title="item3.home.gc2" :style="{'position': 'absolute', 'right': '-1px','width': 100 - parseInt(item3.home.gc1)+'%', 'background': '#fe9f9f'}"></div>
+                                        <label class="graph-label">{{item3.home.gc1}}%</label>
+                                        <label class="graph-label1">{{100 - parseInt(item3.home.gc1)}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 60px; float: left; width: 6%;">
+                                    <div class="graph-detail">
+                                        <div class="graph-inner" :title="item3.home.over40" :style="{'height': item3.home.over40+'%', 'background': '#655'}"></div>
+                                        <label class="graph-label">{{item3.home.over40}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 60px; float: left; width: 6%;">
+                                    <div class="graph-detail">
+                                        <div class="graph-inner" :title="item3.home.over85" :style="{'height': item3.home.over85+'%', 'background': '#655'}"></div>
+                                        <label class="graph-label">{{item3.home.over85}}%</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="graph1">
+                                <div style="min-width: 40px; float: left; width: 5%; height: 50px; text-align: center; padding-top: 15px;">
+                                    A
+                                </div>
+                                <div style="min-width: 100px; float: left; width: 10%; height: 50px; padding-top: 15px;">
+                                    {{item3.away.name}}
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 5%; height: 50px; padding-top: 15px;">
+                                    {{item3.away.p}}
+                                </div>
+                                <div style="min-width: 90px; float: left; width: 7%;">
+                                    <div class="graph-detail1">
+                                        <div class="graph-inner" :style="{'position': 'absolute', 'left': '0','width': item3.away.average1/(parseFloat(item3.away.average1) + parseFloat(item3.away.average2))*100+'%', 'background': '#00cc00'}"></div>
+                                        <div class="graph-inner" :style="{'position': 'absolute', 'right': '-1px','width': item3.away.average2/(parseFloat(item3.away.average1) + parseFloat(item3.away.average2))*100+'%', 'background': '#fe9f9f'}"></div>
+                                        <label class="graph-label">{{(parseFloat(item3.away.average1)*item3.away.p).toFixed(0)}}</label>
+                                        <label class="graph-label1">{{(parseFloat(item3.away.average2)*item3.away.p).toFixed(0)}}</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.away.time15_S" :style="{'height': item3.away.time15_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.away.time15_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time15_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label" style="left: 0;">{{item3.away.time15_S}}%</label>
+                                        <label class="graph-label1">{{item3.away.time15_C}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.away.time30_S" :style="{'height': item3.away.time30_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.away.time30_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time30_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label">{{item3.away.time30_S}}%</label>
+                                        <label class="graph-label1">{{item3.away.time30_C}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.away.time45_S" :style="{'height': item3.away.time45_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.away.time45_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time45_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label">{{item3.away.time45_S}}%</label>
+                                        <label class="graph-label1">{{item3.away.time45_C}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.away.time60_S" :style="{'height': item3.away.time60_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.away.time60_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time60_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label">{{item3.away.time60_S}}%</label>
+                                        <label class="graph-label1">{{item3.away.time60_C}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.away.time75_S" :style="{'height': item3.away.time75_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.away.time75_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time75_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label">{{item3.away.time75_S}}%</label>
+                                        <label class="graph-label1">{{item3.away.time75_C}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 75px; float: left; width: 7%;">
+                                    <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
+                                        <div class="graph-inner" :title="item3.away.time90_S" :style="{'height': item3.away.time90_S+'%', 'background': '#00cc00','width': '25px'}"></div>
+                                        <div class="graph-inner" :title="item3.away.time90_C" :style="{'position': 'absolute', 'right': '5px','height': item3.away.time90_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
+                                        <label class="graph-label">{{item3.away.time90_S}}%</label>
+                                        <label class="graph-label1">{{item3.away.time90_C}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 90px; float: left; width: 9%;">
+                                    <div class="graph-detail1">
+                                        <div class="graph-inner" :title="item3.away.gs1" :style="{'position': 'absolute', 'left': '0','width': item3.away.gs1+'%', 'background': '#00cc00'}"></div>
+                                        <div class="graph-inner" :title="item3.away.gs2" :style="{'position': 'absolute', 'right': '-1px','width': item3.away.gs2+'%', 'background': '#00cc00'}"></div>
+                                        <label class="graph-label">{{item3.away.gs1}}%</label>
+                                        <label class="graph-label1">{{item3.away.gs2}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 90px; float: left; width: 9%;">
+                                    <div class="graph-detail1">
+                                        <div class="graph-inner" :title="item3.away.gc1" :style="{'position': 'absolute', 'left': '0','width': item3.away.gc1+'%', 'background': '#fe9f9f'}"></div>
+                                        <div class="graph-inner" :title="item3.away.gc2" :style="{'position': 'absolute', 'right': '-1px','width': item3.away.gc2+'%', 'background': '#fe9f9f'}"></div>
+                                        <label class="graph-label">{{item3.away.gc1}}%</label>
+                                        <label class="graph-label1">{{item3.away.gc2}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 60px; float: left; width: 6%;">
+                                    <div class="graph-detail">
+                                        <div class="graph-inner" :title="item3.away.over40" :style="{'height': item3.away.over40+'%', 'background': '#655'}"></div>
+                                        <label class="graph-label">{{item3.away.over40}}%</label>
+                                    </div>
+                                </div>
+                                <div style="min-width: 60px; float: left; width: 6%;">
+                                    <div class="graph-detail">
+                                        <div class="graph-inner" :title="item3.away.over85" :style="{'height': item3.away.over85+'%', 'background': '#655'}"></div>
+                                        <label class="graph-label">{{item3.away.over85}}%</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="event-graph-header">
+                                <div style="min-width: 40px; float: left; width: 5%; height: 30px;">
 
-<!--                                </div>-->
-<!--                                <div style="min-width: 100px; float: left; width: 10%;">-->
-<!--                                    Team-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 5%;">-->
-<!--                                    P-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-left: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    H-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">-->
-<!--                                    D-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    A-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">-->
-<!--                                    1-0-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">-->
-<!--                                    1-1-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    2-0-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">-->
-<!--                                    0-1-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">-->
-<!--                                    1-1-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    0-2-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">-->
-<!--                                    First-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">-->
-<!--                                    Last-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">-->
-<!--                                    2+-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    2- -->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 5%; text-align: center;">-->
-<!--                                    H 1st-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    D 1st-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    A 1st-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    H 2nd-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    D 2nd-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    A 2nd-->
-<!--                                </div>-->
+                                </div>
+                                <div style="min-width: 100px; float: left; width: 10%;">
+                                    Team
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 5%;">
+                                    P
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-left: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    H
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
+                                    D
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    A
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
+                                    1-0
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
+                                    1-1
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    2-0
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
+                                    0-1
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
+                                    1-1
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    0-2
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
+                                    First
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
+                                    Last
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
+                                    2+
+                                </div>
+                                <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    2-
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
+                                    H 1st
+                                </div>
+                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
+                                    D 1st
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    A 1st
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 4.5%; text-align: center;">
+                                    H 2nd
+                                </div>
+                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
+                                    D 2nd
+                                </div>
+                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
+                                    A 2nd
+                                </div>
 
-<!--                            </div>-->
-<!--                            <div class="graph1 graph-percent">-->
-<!--                                <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">-->
-<!--                                    H-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 100px; float: left; width: 10%; height: 31px;">-->
-<!--                                    {{item3.home.name}}-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 5%; height: 31px;">-->
-<!--                                    {{item3.home.p}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-left: 1px solid lightgray;">-->
-<!--                                    {{item3.home.C_H}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.home.C_D}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">-->
-<!--                                    {{item3.home.C_A}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.home.first10}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.home.first11}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">-->
-<!--                                    {{item3.home.first20}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.home.second01}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.home.second11}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">-->
-<!--                                    {{item3.home.second02}}%-->
-<!--                                </div>-->
-<!--                                <div v-if="item3.home.p != 0" class="graph-detail00">-->
-<!--                                    {{(item3.home.first10/item3.home.p*100).toFixed(0)}}%-->
-<!--                                </div>-->
-<!--                                <div v-if="item3.home.p == 0" class="graph-detail00">-->
-<!--                                    0%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.home.lastGoal}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.home.secondplus}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">-->
-<!--                                    {{item3.home.secondminus}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 5%; text-align: center;">-->
-<!--                                    {{item3.home.homefirst}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    {{item3.home.drawfirst}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    {{item3.home.awayfirst}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    {{item3.home.homesecond}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    {{item3.home.drawsecond}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    {{item3.home.awaysecond}}%-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="graph1 graph-percent" style="margin-top: -10px;">-->
-<!--                                <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">-->
-<!--                                    A-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 100px; float: left; width: 10%; height: 31px;">-->
-<!--                                    {{item3.away.name}}-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 5%; height: 31px;">-->
-<!--                                    {{item3.away.p}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-left: 1px solid lightgray;">-->
-<!--                                    {{item3.away.C_H}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.away.C_D}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">-->
-<!--                                    {{item3.away.C_A}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.away.first10}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.away.first11}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">-->
-<!--                                    {{item3.away.first20}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.away.second01}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.away.second11}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">-->
-<!--                                    {{item3.away.second02}}%-->
-<!--                                </div>-->
-<!--                                <div v-if="item3.away.p != 0" class="graph-detail00">-->
-<!--                                    {{(item3.away.second01/item3.away.p*100).toFixed(0)}}%-->
-<!--                                </div>-->
-<!--                                <div v-if="item3.away.p == 0" class="graph-detail00">-->
-<!--                                    0%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.away.lastGoal}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00">-->
-<!--                                    {{item3.away.secondplus}}%-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">-->
-<!--                                    {{item3.away.secondminus}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 5%; text-align: center;">-->
-<!--                                    {{item3.away.homefirst}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    {{item3.away.drawfirst}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    {{item3.away.awayfirst}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 50px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    {{item3.away.homesecond}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    {{item3.away.drawsecond}}%-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">-->
-<!--                                    {{item3.away.awaysecond}}%-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="graph1 graph-percent0" style="margin-top: -10px;">-->
-<!--                                <div style="min-width: 190px; float: left; width: 20%; height: 70px; text-align: right; padding-right: 45px;">-->
-<!--                                    Total-->
-<!--                                </div>-->
-<!--                                <div v-if="(item3.away.p + item3.home.p) == 0" class="graph-detail00" style="border-left: 1px solid lightgray; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b', 'height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else class="graph-detail00" style="border-left: 1px solid lightgray; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b', 'height': ((item3.away.C_H*item3.away.p + item3.home.C_H*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">{{((item3.away.C_H*item3.away.p + item3.home.C_H*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                            </div>
+                            <div class="graph1 graph-percent">
+                                <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">
+                                    H
+                                </div>
+                                <div style="min-width: 100px; float: left; width: 10%; height: 31px;">
+                                    {{item3.home.name}}
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 5%; height: 31px;">
+                                    {{item3.home.p}}
+                                </div>
+                                <div class="graph-detail00" style="border-left: 1px solid lightgray;">
+                                    {{item3.home.C_H}}%
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.home.C_D}}%
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">
+                                    {{item3.home.C_A}}%
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.home.first10}}
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.home.first11}}%
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">
+                                    {{item3.home.first20}}%
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.home.second01}}
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.home.second11}}%
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">
+                                    {{item3.home.second02}}%
+                                </div>
+                                <div v-if="item3.home.p != 0" class="graph-detail00">
+                                    {{(item3.home.first10/item3.home.p*100).toFixed(0)}}%
+                                </div>
+                                <div v-if="item3.home.p == 0" class="graph-detail00">
+                                    0%
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.home.lastGoal}}%
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.home.secondplus}}%
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">
+                                    {{item3.home.secondminus}}%
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
+                                    {{item3.home.homefirst}}%
+                                </div>
+                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
+                                    {{item3.home.drawfirst}}%
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    {{item3.home.awayfirst}}%
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 4.5%; text-align: center;">
+                                    {{item3.home.homesecond}}%
+                                </div>
+                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
+                                    {{item3.home.drawsecond}}%
+                                </div>
+                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
+                                    {{item3.home.awaysecond}}%
+                                </div>
+                            </div>
+                            <div class="graph1 graph-percent" style="margin-top: -10px;">
+                                <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">
+                                    A
+                                </div>
+                                <div style="min-width: 100px; float: left; width: 10%; height: 31px;">
+                                    {{item3.away.name}}
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 5%; height: 31px;">
+                                    {{item3.away.p}}
+                                </div>
+                                <div class="graph-detail00" style="border-left: 1px solid lightgray;">
+                                    {{item3.away.C_H}}%
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.away.C_D}}%
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">
+                                    {{item3.away.C_A}}%
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.away.first10}}
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.away.first11}}%
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">
+                                    {{item3.away.first20}}%
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.away.second01}}
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.away.second11}}%
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">
+                                    {{item3.away.second02}}%
+                                </div>
+                                <div v-if="item3.away.p != 0" class="graph-detail00">
+                                    {{(item3.away.second01/item3.away.p*100).toFixed(0)}}%
+                                </div>
+                                <div v-if="item3.away.p == 0" class="graph-detail00">
+                                    0%
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.away.lastGoal}}%
+                                </div>
+                                <div class="graph-detail00">
+                                    {{item3.away.secondplus}}%
+                                </div>
+                                <div class="graph-detail00" style="border-right: 1px solid lightgray;">
+                                    {{item3.away.secondminus}}%
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
+                                    {{item3.away.homefirst}}%
+                                </div>
+                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
+                                    {{item3.away.drawfirst}}%
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    {{item3.away.awayfirst}}%
+                                </div>
+                                <div style="min-width: 50px; float: left; width: 4.5%; text-align: center;">
+                                    {{item3.away.homesecond}}%
+                                </div>
+                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
+                                    {{item3.away.drawsecond}}%
+                                </div>
+                                <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
+                                    {{item3.away.awaysecond}}%
+                                </div>
+                            </div>
+                            <div class="graph1 graph-percent0" style="margin-top: -10px;">
+                                <div style="min-width: 190px; float: left; width: 20%; height: 70px; text-align: right; padding-right: 45px;">
+                                    Total
+                                </div>
+                                <div v-if="(item3.away.p + item3.home.p) == 0" class="graph-detail00" style="border-left: 1px solid lightgray; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b', 'height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">0%</label>
+                                </div>
+                                <div v-else class="graph-detail00" style="border-left: 1px solid lightgray; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b', 'height': ((item3.away.C_H*item3.away.p + item3.home.C_H*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">{{((item3.away.C_H*item3.away.p + item3.home.C_H*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.away.p + item3.home.p) == 0" class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.C_D*item3.away.p + item3.home.C_D*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">{{((item3.away.C_D*item3.away.p + item3.home.C_D*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.away.p + item3.home.p) == 0" class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">0%</label>
+                                </div>
+                                <div v-else class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.C_D*item3.away.p + item3.home.C_D*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">{{((item3.away.C_D*item3.away.p + item3.home.C_D*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.away.p + item3.home.p) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.C_A*item3.away.p + item3.home.C_A*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">{{((item3.away.C_A*item3.away.p + item3.home.C_A*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.away.p + item3.home.p) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">0%</label>
+                                </div>
+                                <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.C_A*item3.away.p + item3.home.C_A*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">{{((item3.away.C_A*item3.away.p + item3.home.C_A*item3.home.p)/(item3.away.p + item3.home.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.away.p + item3.home.p) == 0" class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.first10/item3.away.p + item3.home.first10/item3.home.p)*50).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">{{((item3.away.first10*100 + item3.home.first10*100)/(item3.away.p + item3.home.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.away.p + item3.home.p) == 0" class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">0%</label>
+                                </div>
+                                <div v-else class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.first10/item3.away.p + item3.home.first10/item3.home.p)*50).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">{{((item3.away.first10*100 + item3.home.first10*100)/(item3.away.p + item3.home.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.home.first10 + item3.away.first10) == 0" class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height':'0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.first11*item3.away.first10 + item3.home.first11*item3.home.first10)/(item3.home.first10 + item3.away.first10)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">{{((item3.away.first11*item3.away.first10 + item3.home.first11*item3.home.first10)/(item3.home.first10 + item3.away.first10)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.home.first10 + item3.away.first10) == 0" class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height':'0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">0%</label>
+                                </div>
+                                <div v-else class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.first11*item3.away.first10 + item3.home.first11*item3.home.first10)/(item3.home.first10 + item3.away.first10)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">{{((item3.away.first11*item3.away.first10 + item3.home.first11*item3.home.first10)/(item3.home.first10 + item3.away.first10)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.home.first10 + item3.away.first10) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.first20*item3.away.first10 + item3.home.first20*item3.home.first10)/(item3.home.first10 + item3.away.first10)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">{{((item3.away.first20*item3.away.first10 + item3.home.first20*item3.home.first10)/(item3.home.first10 + item3.away.first10)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.home.first10 + item3.away.first10) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">0%</label>
+                                </div>
+                                <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.first20*item3.away.first10 + item3.home.first20*item3.home.first10)/(item3.home.first10 + item3.away.first10)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">{{((item3.away.first20*item3.away.first10 + item3.home.first20*item3.home.first10)/(item3.home.first10 + item3.away.first10)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.away.p + item3.home.p) == 0" class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.second01*100 + item3.home.second01*100)/(item3.away.p + item3.home.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">{{((item3.away.second01*100 + item3.home.second01*100)/(item3.away.p + item3.home.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.away.p + item3.home.p) == 0" class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">0%</label>
+                                </div>
+                                <div v-else class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.second01*100 + item3.home.second01*100)/(item3.away.p + item3.home.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">{{((item3.away.second01*100 + item3.home.second01*100)/(item3.away.p + item3.home.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.home.second01 + item3.away.second01) == 0" class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.second11*item3.away.second01 + item3.home.second11*item3.home.second01)/(item3.home.second01 + item3.away.second01)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">{{((item3.away.second11*item3.away.second01 + item3.home.second11*item3.home.second01)/(item3.home.second01 + item3.away.second01)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.home.second01 + item3.away.second01) == 0" class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">0%</label>
+                                </div>
+                                <div v-else class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.second11*item3.away.second01 + item3.home.second11*item3.home.second01)/(item3.home.second01 + item3.away.second01)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">{{((item3.away.second11*item3.away.second01 + item3.home.second11*item3.home.second01)/(item3.home.second01 + item3.away.second01)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.home.second01 + item3.away.second01) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.second02*item3.away.second01 + item3.home.second02*item3.home.second01)/(item3.home.second01 + item3.away.second01)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">{{((item3.away.second02*item3.away.second01 + item3.home.second02*item3.home.second01)/(item3.home.second01 + item3.away.second01)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.home.second01 + item3.away.second01) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">0%</label>
+                                </div>
+                                <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.second02*item3.away.second01 + item3.home.second02*item3.home.second01)/(item3.home.second01 + item3.away.second01)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">{{((item3.away.second02*item3.away.second01 + item3.home.second02*item3.home.second01)/(item3.home.second01 + item3.away.second01)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px; border: none;">-->
+                                <div class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px; border: none;">
 
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px"></label>-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px; border: none;">-->
+                                    </div>
+                                    <label class="graph-label" style="left: 13px"></label>
+                                </div>
+                                <div class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px; border: none;">
 
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px"></label>-->
-<!--                                </div>-->
-<!--                                <div v-if="(item3.home.p + item3.away.p) == 0" class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else class="graph-detail00" style="height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.secondplus*item3.away.p + item3.home.secondplus*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">{{((item3.away.secondplus*item3.away.p + item3.home.secondplus*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                    </div>
+                                    <label class="graph-label" style="left: 13px"></label>
+                                </div>
+                                <div v-if="(item3.home.p + item3.away.p) == 0" class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">0%</label>
+                                </div>
+                                <div v-else class="graph-detail00" style="height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.secondplus*item3.away.p + item3.home.secondplus*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">{{((item3.away.secondplus*item3.away.p + item3.home.secondplus*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.home.p + item3.away.p) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.secondminus*item3.away.p + item3.home.secondminus*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 13px">{{((item3.away.secondminus*item3.away.p + item3.home.secondminus*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.home.p + item3.away.p) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">0%</label>
+                                </div>
+                                <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.secondminus*item3.away.p + item3.home.secondminus*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 13px">{{((item3.away.secondminus*item3.away.p + item3.home.secondminus*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.home.p + item3.away.p) == 0" style="min-width: 50px; float: left; width: 5%; text-align: center; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px; position: relative; top: -10px;">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else style="min-width: 50px; float: left; width: 5%; text-align: center; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.homefirst*item1.away.p + item1.home.homefirst*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px; position: relative; top: -10px;">{{((item1.away.homefirst*item1.away.p + item1.home.homefirst*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.home.p + item3.away.p) == 0" style="min-width: 50px; float: left; width: 5%; text-align: center; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px; position: relative; top: -10px;">0%</label>
+                                </div>
+                                <div v-else style="min-width: 50px; float: left; width: 5%; text-align: center; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.homefirst*item1.away.p + item1.home.homefirst*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px; position: relative; top: -10px;">{{((item1.away.homefirst*item1.away.p + item1.home.homefirst*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item1.home.p + item1.away.p) == 0" style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.drawfirst*item3.away.p + item3.home.drawfirst*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item3.away.drawfirst*item3.away.p + item3.home.drawfirst*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item1.home.p + item1.away.p) == 0" style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>
+                                </div>
+                                <div v-else style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.drawfirst*item3.away.p + item3.home.drawfirst*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item3.away.drawfirst*item3.away.p + item3.home.drawfirst*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.home.p + item3.away.p) == 0" style="height: 70px; min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; top: -9px; padding-top: 9px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else style="height: 70px; min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; top: -9px; padding-top: 9px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.awayfirst*item3.away.p + item3.home.awayfirst*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item3.away.awayfirst*item3.away.p + item3.home.awayfirst*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.home.p + item3.away.p) == 0" style="height: 70px; min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; top: -9px; padding-top: 9px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>
+                                </div>
+                                <div v-else style="height: 70px; min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; top: -9px; padding-top: 9px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.awayfirst*item3.away.p + item3.home.awayfirst*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item3.away.awayfirst*item3.away.p + item3.home.awayfirst*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.home.p + item3.away.p) == 0" style="min-width: 50px; float: left; width: 4.5%; text-align: center; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else style="min-width: 50px; float: left; width: 4.5%; text-align: center; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.homesecond*item3.away.p + item3.home.homesecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item3.away.homesecond*item3.away.p + item3.home.homesecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item3.home.p + item3.away.p) == 0" style="min-width: 50px; float: left; width: 4.5%; text-align: center; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>
+                                </div>
+                                <div v-else style="min-width: 50px; float: left; width: 4.5%; text-align: center; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.homesecond*item3.away.p + item3.home.homesecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item3.away.homesecond*item3.away.p + item3.home.homesecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item1.home.p + item1.away.p) == 0" style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.drawsecond*item3.away.p + item3.home.drawsecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item3.away.drawsecond*item3.away.p + item3.home.drawsecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
+                                <div v-if="(item1.home.p + item1.away.p) == 0" style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>
+                                </div>
+                                <div v-else style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.drawsecond*item3.away.p + item3.home.drawsecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item3.away.drawsecond*item3.away.p + item3.home.drawsecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>
+                                </div>
 
-<!--                                <div v-if="(item3.home.p + item3.away.p) == 0" style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>-->
-<!--                                </div>-->
-<!--                                <div v-else style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">-->
-<!--                                    <div class="graph-detail" style="top: -10px;">-->
-<!--                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.awaysecond*item3.away.p + item3.home.awaysecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>-->
-<!--                                    </div>-->
-<!--                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item3.away.awaysecond*item3.away.p + item3.home.awaysecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="event-graph-header">-->
-<!--                                <div style="min-width: 40px; float: left; width: 5%; height: 30px;">-->
+                                <div v-if="(item3.home.p + item3.away.p) == 0" style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>
+                                </div>
+                                <div v-else style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
+                                    <div class="graph-detail" style="top: -10px;">
+                                        <div class="graph-inner" :style="{'background':'#01235b','height': ((item3.away.awaysecond*item3.away.p + item3.home.awaysecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(2)+'%'}"></div>
+                                    </div>
+                                    <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item3.away.awaysecond*item3.away.p + item3.home.awaysecond*item3.home.p)/(item3.home.p + item3.away.p)).toFixed(0)}}%</label>
+                                </div>
+                            </div>
+                            <div class="event-graph-header">
+                                <div style="min-width: 40px; float: left; width: 5%; height: 30px;">
 
-<!--                                </div>-->
-<!--                                <div style="min-width: 150px; float: left; width: 15%;">-->
-<!--                                    Team-->
-<!--                                </div>-->
+                                </div>
+                                <div style="min-width: 150px; float: left; width: 15%;">
+                                    Team
+                                </div>
 
-<!--                                <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-left: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    Pos-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 70px; float: left; width: 7%; text-align: center;">-->
-<!--                                    H/A-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    Swing-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 70px; float: left; width: 7%; text-align: center;">-->
-<!--                                    FH-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    Swing-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 70px; float: left; width: 7%; text-align: center;">-->
-<!--                                    SH-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    Swing-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 70px; float: left; width: 7%; text-align: center;">-->
-<!--                                    Attack-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    Defense-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 80px; float: left; width: 8%; text-align: center;">-->
-<!--                                    Form-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 80px; float: left; width: 8%; text-align: center; position: relative; height: 40px; top: -9px; padding-top: 9px;">-->
-<!--                                    H/A Form-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="graph1 graph-percent">-->
-<!--                                <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">-->
-<!--                                    H-->
-<!--                                </div>-->
-<!--                                <div style="min-width: 150px; float: left; width: 15%; height: 31px;">-->
-<!--                                    {{item3.home.name}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="height: 50px; border-left: 1px solid lightgray; min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.home.pos}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="height: 50px; min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.home.h_a}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray; min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.home.swing1}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="height: 50px; min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.home.FH}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray;min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.home.swing2}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="height: 50px; min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.home.SH}}-->
-<!--                                </div>-->
-<!--                                <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray; min-width: 70px; width: 7%;">-->
-<!--                                    {{item3.home.swing3}}-->
-<!--                                </div>-->
+                                <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-left: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    Pos
+                                </div>
+                                <div style="min-width: 70px; float: left; width: 7%; text-align: center;">
+                                    H/A
+                                </div>
+                                <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    Swing
+                                </div>
+                                <div style="min-width: 70px; float: left; width: 7%; text-align: center;">
+                                    FH
+                                </div>
+                                <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    Swing
+                                </div>
+                                <div style="min-width: 70px; float: left; width: 7%; text-align: center;">
+                                    SH
+                                </div>
+                                <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    Swing
+                                </div>
+                                <div style="min-width: 70px; float: left; width: 7%; text-align: center;">
+                                    Attack
+                                </div>
+                                <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
+                                    Defense
+                                </div>
+                                <div style="min-width: 80px; float: left; width: 8%; text-align: center;">
+                                    Form
+                                </div>
+                                <div style="min-width: 80px; float: left; width: 8%; text-align: center; position: relative; height: 40px; top: -9px; padding-top: 9px;">
+                                    H/A Form
+                                </div>
+                            </div>
+                            <div class="graph1 graph-percent">
+                                <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">
+                                    H
+                                </div>
+                                <div style="min-width: 150px; float: left; width: 15%; height: 31px;">
+                                    {{item3.home.name}}
+                                </div>
+                                <div class="graph-detail00" style="height: 50px; border-left: 1px solid lightgray; min-width: 70px; width: 7%;">
+                                    {{item3.home.pos}}
+                                </div>
+                                <div class="graph-detail00" style="height: 50px; min-width: 70px; width: 7%;">
+                                    {{item3.home.h_a}}
+                                </div>
+                                <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
+                                    {{item3.home.swing1}}
+                                </div>
+                                <div class="graph-detail00" style="height: 50px; min-width: 70px; width: 7%;">
+                                    {{item3.home.FH}}
+                                </div>
+                                <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray;min-width: 70px; width: 7%;">
+                                    {{item3.home.swing2}}
+                                </div>
+                                <div class="graph-detail00" style="height: 50px; min-width: 70px; width: 7%;">
+                                    {{item3.home.SH}}
+                                </div>
+                                <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
+                                    {{item3.home.swing3}}
+                                </div>
 <!--                                <div class="height: 50px; graph-detail00" style="min-width: 70px; width: 7%;">-->
 <!--                                    {{item3.home.attack}}-->
 <!--                                </div>-->
@@ -5020,7 +5017,7 @@
 <!--                                <div style="height: 50px; min-width: 80px; float: left; text-align: center; width: 8%;">-->
 <!--                                    {{item3.home.form_H_A}}-->
 <!--                                </div>-->
-<!--                            </div>-->
+                            </div>
 <!--                            <div class="graph1 graph-percent">-->
 <!--                                <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">-->
 <!--                                    A-->
@@ -14564,24 +14561,16 @@ console.log('mainData===>', main_data)
                             home.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
                             if(home.p == 0){home.secondplus = 0; home.secondminus = 0; home.homefirst = 0; home.drawfirst = 0; home.awayfirst = 0; home.homesecond = 0; home.drawsecond = 0; home.awaysecond = 0}
 
-                            for(let c = 0 ; c < this.mainList.length ; c++){
-                                for(let cc = 0 ; cc < this.mainList[c].events.length ; cc++){
-                                    if(this.mainList[c].events[cc].home_id == homeTeamId && this.mainList[c].events[cc].away_id == awayTeamId){
-                                        let home_name = this.mainList[c].events[cc].home.name
-                                        let home_rank = this.mainList[c].events[cc].home.rank
-                                        let away_name = this.mainList[c].events[cc].away.name
-                                        let away_rank = this.mainList[c].events[cc].away.rank
-                                        this.mainList[c].events[cc].home = home
-                                        this.mainList[c].events[cc].away = away
-                                        this.mainList[c].events[cc].home.name = home_name
-                                        this.mainList[c].events[cc].home.rank = home_rank
-                                        this.mainList[c].events[cc].away.name = away_name
-                                        this.mainList[c].events[cc].away.rank = away_rank
-
-                                    }
-                                }
-
-                            }
+                            let home_name = this.item3.home.name
+                            let home_rank = this.item3.home.rank
+                            let away_name = this.item3.away.name
+                            let away_rank = this.item3.away.rank
+                            this.item3.home = home
+                            this.item3.away = away
+                            this.item3.home.name = home_name
+                            this.item3.home.rank = home_rank
+                            this.item3.away.name = away_name
+                            this.item3.away.rank = away_rank
                         }
                     }
                 }
@@ -14790,24 +14779,16 @@ console.log('mainData===>', main_data)
                             away.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
                             if(away.p == 0){away.secondplus = 0; away.secondminus = 0; away.homefirst = 0; away.drawfirst = 0; away.awayfirst = 0; away.homesecond = 0; away.drawsecond = 0; away.awaysecond = 0}
 
-                            for(let c = 0 ; c < this.mainList.length ; c++){
-                                for(let cc = 0 ; cc < this.mainList[c].events.length ; cc++){
-                                    if(this.mainList[c].events[cc].home_id == homeTeamId && this.mainList[c].events[cc].away_id == awayTeamId){
-                                        let home_name = this.mainList[c].events[cc].home.name
-                                        let home_rank = this.mainList[c].events[cc].home.rank
-                                        let away_name = this.mainList[c].events[cc].away.name
-                                        let away_rank = this.mainList[c].events[cc].away.rank
-                                        this.mainList[c].events[cc].home = home
-                                        this.mainList[c].events[cc].away = away
-                                        this.mainList[c].events[cc].home.name = home_name
-                                        this.mainList[c].events[cc].home.rank = home_rank
-                                        this.mainList[c].events[cc].away.name = away_name
-                                        this.mainList[c].events[cc].away.rank = away_rank
-
-                                    }
-                                }
-
-                            }
+                            let home_name = this.item3.home.name
+                            let home_rank = this.item3.home.rank
+                            let away_name = this.item3.away.name
+                            let away_rank = this.item3.away.rank
+                            this.item3.home = home
+                            this.item3.away = away
+                            this.item3.home.name = home_name
+                            this.item3.home.rank = home_rank
+                            this.item3.away.name = away_name
+                            this.item3.away.rank = away_rank
                         }
                     }
                 }
