@@ -3463,8 +3463,9 @@
                     for(let i = 0 ; i < competitionArray.length ; i++){
                         this.eventArray.push({'league': competitionArray[i], 'events': []})
                         for(let j = 0 ; j < main_data.length ; j++) {
-                            if(main_data[j].stats.length > 0){
-                                if((main_data[j].competitions[0].league == competitionArray[i] && main_data[j].time.status == 'LIVE') || (main_data[j].competitions[0].league == competitionArray[i] && main_data[j].time.status == 'HT') || (main_data[j].competitions[0].league == competitionArray[i] && main_data[j].time.status == 'ET')){
+                            let current_main_data = main_data[j];
+                            if(current_main_data.stats.length > 0){
+                                if((current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'LIVE') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'HT') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'ET')){
                                     let home = {
                                         'id': 0,
                                         'on': 0,
@@ -3599,18 +3600,18 @@
                                     }
                                     let home_p = 0
                                     let away_p = 0
-                                    let fixture_id = main_data[j]._id
-                                    home.id = main_data[j].home_id
-                                    away.id = main_data[j].away_id
+                                    let fixture_id = current_main_data._id
+                                    home.id = current_main_data.home_id
+                                    away.id = current_main_data.away_id
                                     let home_poss_index = 0
                                     let away_poss_index = 0
 
-                                    if(main_data[j].season_stats.length > 0){
-                                        for(let u = 0 ; u < main_data[j].season_stats.length ; u++){
-                                            if(main_data[j].season_stats[u].stats){
-                                                if(main_data[j].season_stats[u].stats.length > 0){
-                                                    for(let uu = 0 ; uu < main_data[j].season_stats[u].stats.length ; uu++){
-                                                        let stats = main_data[j].season_stats[u].stats[uu]
+                                    if(current_main_data.season_stats.length > 0){
+                                        for(let u = 0 ; u < current_main_data.season_stats.length ; u++){
+                                            if(current_main_data.season_stats[u].stats){
+                                                if(current_main_data.season_stats[u].stats.length > 0){
+                                                    for(let uu = 0 ; uu < current_main_data.season_stats[u].stats.length ; uu++){
+                                                        let stats = current_main_data.season_stats[u].stats[uu]
                                                         if (!!stats.stats)
                                                             stats = stats.stats
                                                         if(stats[0]){
@@ -3730,12 +3731,12 @@
                                         }
                                     }
 
-                                    home.score = main_data[j].scores.localteam_score
-                                    away.score = main_data[j].scores.visitorteam_score
+                                    home.score = current_main_data.scores.localteam_score
+                                    away.score = current_main_data.scores.visitorteam_score
 
                                     let goal_tooltip = ''
-                                    if(main_data[j].goal_tooltip){
-                                        goal_tooltip = main_data[j].goal_tooltip
+                                    if(current_main_data.goal_tooltip){
+                                        goal_tooltip = current_main_data.goal_tooltip
                                     }
 
                                     let home_tooltip = {
@@ -3753,248 +3754,250 @@
                                         'blk': ''
                                     }
 
-                                    if(main_data[j].home_tooltip){
-                                        home_tooltip = main_data[j].home_tooltip
+                                    if(current_main_data.home_tooltip){
+                                        home_tooltip = current_main_data.home_tooltip
                                     }
-                                    if(main_data[j].away_tooltip){
-                                        away_tooltip = main_data[j].away_tooltip
+                                    if(current_main_data.away_tooltip){
+                                        away_tooltip = current_main_data.away_tooltip
                                     }
 
-                                    home.time = main_data[j].time.minute
-                                    if (main_data[j].time.injury_time > 0) {
-                                        home.time = main_data[j].time.minute + '+' + main_data[j].time.injury_time + "'"
+                                    home.time = current_main_data.time.minute
+                                    if (current_main_data.time.injury_time > 0) {
+                                        home.time = current_main_data.time.minute + '+' + current_main_data.time.injury_time + "'"
                                     }
-                                    if (main_data[j].time.status == 'HT') {
+                                    if (current_main_data.time.status == 'HT') {
                                         home.time = 'HT'
                                     }
 
                                     //---------Last 10 min Part----------//
-                                    if (main_data[j].stats_ten) {
-                                        if(!main_data[j].stats_ten[0]){return}
-                                        if(main_data[j].stats_ten[0].length > 0){
-                                            if (main_data[j].home_id == main_data[j].stats_ten[0][0].team_id) {
-                                                if(main_data[j].stats[0].shots && main_data[j].stats_ten[0][0].shots){
-                                                    home.on = main_data[j].stats[0].shots.ongoal - main_data[j].stats_ten[0][0].shots.ongoal
-                                                    away.on = main_data[j].stats[1].shots.ongoal - main_data[j].stats_ten[0][1].shots.ongoal
-                                                    home.off = main_data[j].stats[0].shots.offgoal - main_data[j].stats_ten[0][0].shots.offgoal
-                                                    away.off = main_data[j].stats[1].shots.offgoal - main_data[j].stats_ten[0][1].shots.offgoal
-                                                    if(main_data[j].stats[0].shots.blocked){
-                                                        home.blk = main_data[j].stats[0].shots.blocked - main_data[j].stats_ten[0][0].shots.blocked
-                                                        away.blk = main_data[j].stats[1].shots.blocked - main_data[j].stats_ten[0][1].shots.blocked
+                                    let stats = current_main_data.stats;
+                                    let stats_ten = current_main_data.stats_ten;
+                                    if (stats_ten) {
+                                        if(!stats_ten[0]){return}
+                                        if(stats_ten[0].length > 0){
+                                            if (current_main_data.home_id == stats_ten[0][0].team_id) {
+                                                if(stats[0].shots && stats_ten[0][0].shots){
+                                                    home.on = stats[0].shots.ongoal - stats_ten[0][0].shots.ongoal
+                                                    away.on = stats[1].shots.ongoal - stats_ten[0][1].shots.ongoal
+                                                    home.off = stats[0].shots.offgoal - stats_ten[0][0].shots.offgoal
+                                                    away.off = stats[1].shots.offgoal - stats_ten[0][1].shots.offgoal
+                                                    if(stats[0].shots.blocked){
+                                                        home.blk = stats[0].shots.blocked - stats_ten[0][0].shots.blocked
+                                                        away.blk = stats[1].shots.blocked - stats_ten[0][1].shots.blocked
                                                     }
                                                     else{
                                                         home.blk = null
                                                         away.blk = null
                                                     }
-                                                    if(main_data[j].stats[0].shots.insidebox){
-                                                        home.in = main_data[j].stats[0].shots.insidebox - main_data[j].stats_ten[0][0].shots.insidebox
-                                                        away.in = main_data[j].stats[1].shots.insidebox - main_data[j].stats_ten[0][1].shots.insidebox
+                                                    if(stats[0].shots.insidebox){
+                                                        home.in = stats[0].shots.insidebox - stats_ten[0][0].shots.insidebox
+                                                        away.in = stats[1].shots.insidebox - stats_ten[0][1].shots.insidebox
                                                     }
                                                     else{
                                                         home.in = null
                                                         away.in = null
                                                     }
-                                                    if(main_data[j].stats[0].shots.outsidebox){
-                                                        home.out = main_data[j].stats[0].shots.outsidebox - main_data[j].stats_ten[0][0].shots.outsidebox
-                                                        away.out = main_data[j].stats[1].shots.outsidebox - main_data[j].stats_ten[0][1].shots.outsidebox
+                                                    if(stats[0].shots.outsidebox){
+                                                        home.out = stats[0].shots.outsidebox - stats_ten[0][0].shots.outsidebox
+                                                        away.out = stats[1].shots.outsidebox - stats_ten[0][1].shots.outsidebox
                                                     }
                                                 }
 
-                                                home.cnr = main_data[j].stats[0].corners - main_data[j].stats_ten[0][0].corners
-                                                away.cnr = main_data[j].stats[1].corners - main_data[j].stats_ten[0][1].corners
-                                                if (!main_data[j].stats[0].corners) {
+                                                home.cnr = stats[0].corners - stats_ten[0][0].corners
+                                                away.cnr = stats[1].corners - stats_ten[0][1].corners
+                                                if (!stats[0].corners) {
                                                     home.cnr = null
                                                     away.cnr = null
                                                 }
 
-                                                if(main_data[j].stats[0].attacks && main_data[j].stats_ten[0][0].attacks){
-                                                    home.da = main_data[j].stats[0].attacks.dangerous_attacks - main_data[j].stats_ten[0][0].attacks.dangerous_attacks
-                                                    away.da = main_data[j].stats[1].attacks.dangerous_attacks - main_data[j].stats_ten[0][1].attacks.dangerous_attacks
+                                                if(stats[0].attacks && stats_ten[0][0].attacks){
+                                                    home.da = stats[0].attacks.dangerous_attacks - stats_ten[0][0].attacks.dangerous_attacks
+                                                    away.da = stats[1].attacks.dangerous_attacks - stats_ten[0][1].attacks.dangerous_attacks
 
-                                                    home.atk = main_data[j].stats[0].attacks.attacks - main_data[j].stats_ten[0][0].attacks.attacks
-                                                    away.atk = main_data[j].stats[1].attacks.attacks - main_data[j].stats_ten[0][1].attacks.attacks
+                                                    home.atk = stats[0].attacks.attacks - stats_ten[0][0].attacks.attacks
+                                                    away.atk = stats[1].attacks.attacks - stats_ten[0][1].attacks.attacks
                                                 }
 
-                                                home.goal = main_data[j].stats[0].goals - main_data[j].stats_ten[0][0].goals
-                                                away.goal = main_data[j].stats[1].goals - main_data[j].stats_ten[0][1].goals
+                                                home.goal = stats[0].goals - stats_ten[0][0].goals
+                                                away.goal = stats[1].goals - stats_ten[0][1].goals
 
-                                                home.poss = main_data[j].stats_ten[0][0].possessiontime
+                                                home.poss = stats_ten[0][0].possessiontime
                                                 away.poss = 100 - home.poss
                                                 if (home.poss === null || home.poss === 0) {
                                                     away.poss = 0
                                                 }
 
-                                                if (main_data[j].stats[0].passes && main_data[j].stats_ten[0][0].passes) {
-                                                    home.pas = main_data[j].stats[0].passes.total - main_data[j].stats_ten[0][0].passes.total
-                                                    away.pas = main_data[j].stats[1].passes.total - main_data[j].stats_ten[0][1].passes.total
+                                                if (stats[0].passes && stats_ten[0][0].passes) {
+                                                    home.pas = stats[0].passes.total - stats_ten[0][0].passes.total
+                                                    away.pas = stats[1].passes.total - stats_ten[0][1].passes.total
                                                 } else {
                                                     home.pas = null
                                                     away.pas = null
                                                 }
 
-                                                if (main_data[j].stats[0].passes && main_data[j].stats_ten[0][0].passes) {
-                                                    home.acc = main_data[j].stats[0].passes.accurate - main_data[j].stats_ten[0][0].passes.accurate
-                                                    away.acc = main_data[j].stats[1].passes.accurate - main_data[j].stats_ten[0][1].passes.accurate
+                                                if (stats[0].passes && stats_ten[0][0].passes) {
+                                                    home.acc = stats[0].passes.accurate - stats_ten[0][0].passes.accurate
+                                                    away.acc = stats[1].passes.accurate - stats_ten[0][1].passes.accurate
                                                 } else {
                                                     home.acc = null
                                                     away.acc = null
                                                 }
 
-                                                home.ofs = main_data[j].stats[0].offsides - main_data[j].stats_ten[0][0].offsides
-                                                away.ofs = main_data[j].stats[1].offsides - main_data[j].stats_ten[0][1].offsides
+                                                home.ofs = stats[0].offsides - stats_ten[0][0].offsides
+                                                away.ofs = stats[1].offsides - stats_ten[0][1].offsides
 
-                                                if (!main_data[j].stats[0].offsides) {
+                                                if (!stats[0].offsides) {
                                                     home.ofs = null
                                                     away.ofs = null
                                                 }
-                                                home.sav = main_data[j].stats[0].saves - main_data[j].stats_ten[0][0].saves
-                                                away.sav = main_data[j].stats[1].saves - main_data[j].stats_ten[0][1].saves
-                                                if (!main_data[j].stats[0].saves) {
+                                                home.sav = stats[0].saves - stats_ten[0][0].saves
+                                                away.sav = stats[1].saves - stats_ten[0][1].saves
+                                                if (!stats[0].saves) {
                                                     home.sav = null
                                                     away.sav = null
                                                 }
-                                                if (main_data[j].stats[0].substitutions != null) {
-                                                    home.sbst = main_data[j].stats[0].substitutions - main_data[j].stats_ten[0][0].substitutions
-                                                    away.sbst = main_data[j].stats[1].substitutions - main_data[j].stats_ten[0][1].substitutions
+                                                if (stats[0].substitutions != null) {
+                                                    home.sbst = stats[0].substitutions - stats_ten[0][0].substitutions
+                                                    away.sbst = stats[1].substitutions - stats_ten[0][1].substitutions
                                                 } else {
                                                     home.sbst = null
                                                     away.sbst = null
                                                 }
 
-                                                home.red = main_data[j].stats[0].redcards - main_data[j].stats_ten[0][0].redcards
-                                                away.red = main_data[j].stats[1].redcards - main_data[j].stats_ten[0][1].redcards
-                                                if (!main_data[j].stats[0].redcards) {
+                                                home.red = stats[0].redcards - stats_ten[0][0].redcards
+                                                away.red = stats[1].redcards - stats_ten[0][1].redcards
+                                                if (!stats[0].redcards) {
                                                     home.red = null
                                                     away.red = null
                                                 }
-                                                home.fou = main_data[j].stats[0].fouls - main_data[j].stats_ten[0][0].fouls
-                                                away.fou = main_data[j].stats[1].fouls - main_data[j].stats_ten[0][1].fouls
+                                                home.fou = stats[0].fouls - stats_ten[0][0].fouls
+                                                away.fou = stats[1].fouls - stats_ten[0][1].fouls
 
-                                                if (!main_data[j].stats[0].fouls) {
+                                                if (!stats[0].fouls) {
                                                     home.fou = null
                                                     away.fou = null
                                                 }
-                                                if (main_data[j].stats[0].goal_attempts != null) {
-                                                    home.g_att = main_data[j].stats[0].goal_attempts - main_data[j].stats_ten[0][0].goal_attempts
-                                                    away.g_att = main_data[j].stats[1].goal_attempts - main_data[j].stats_ten[0][1].goal_attempts
+                                                if (stats[0].goal_attempts != null) {
+                                                    home.g_att = stats[0].goal_attempts - stats_ten[0][0].goal_attempts
+                                                    away.g_att = stats[1].goal_attempts - stats_ten[0][1].goal_attempts
                                                 } else {
                                                     home.g_att = null
                                                     away.g_att = null
                                                 }
 
-                                                if (main_data[j].stats[0].ball_safe != null) {
-                                                    home.safe = main_data[j].stats[0].ball_safe - main_data[j].stats_ten[0][0].ball_safe
-                                                    away.safe = main_data[j].stats[1].ball_safe - main_data[j].stats_ten[0][1].ball_safe
+                                                if (stats[0].ball_safe != null) {
+                                                    home.safe = stats[0].ball_safe - stats_ten[0][0].ball_safe
+                                                    away.safe = stats[1].ball_safe - stats_ten[0][1].ball_safe
                                                 } else {
                                                     home.safe = null
                                                     away.safe = null
                                                 }
                                             }
                                             else {
-                                                home.on = main_data[j].stats[1].shots.ongoal - main_data[j].stats_ten[0][1].shots.ongoal
-                                                away.on = main_data[j].stats[0].shots.ongoal - main_data[j].stats_ten[0][0].shots.ongoal
-                                                home.off = main_data[j].stats[1].shots.offgoal - main_data[j].stats_ten[0][1].shots.offgoal
-                                                away.off = main_data[j].stats[0].shots.offgoal - main_data[j].stats_ten[0][0].shots.offgoal
-                                                home.blk = main_data[j].stats[1].shots.blocked - main_data[j].stats_ten[0][1].shots.blocked
-                                                away.blk = main_data[j].stats[0].shots.blocked - main_data[j].stats_ten[0][0].shots.blocked
-                                                if (!main_data[j].stats[0].shots.blocked) {
+                                                home.on = stats[1].shots.ongoal - stats_ten[0][1].shots.ongoal
+                                                away.on = stats[0].shots.ongoal - stats_ten[0][0].shots.ongoal
+                                                home.off = stats[1].shots.offgoal - stats_ten[0][1].shots.offgoal
+                                                away.off = stats[0].shots.offgoal - stats_ten[0][0].shots.offgoal
+                                                home.blk = stats[1].shots.blocked - stats_ten[0][1].shots.blocked
+                                                away.blk = stats[0].shots.blocked - stats_ten[0][0].shots.blocked
+                                                if (!stats[0].shots.blocked) {
                                                     home.blk = null
                                                     away.blk = null
                                                 }
-                                                home.in = main_data[j].stats[1].shots.insidebox - main_data[j].stats_ten[0][1].shots.insidebox
-                                                away.in = main_data[j].stats[0].shots.insidebox - main_data[j].stats_ten[0][0].shots.insidebox
-                                                if (!main_data[j].stats[0].shots.insidebox) {
+                                                home.in = stats[1].shots.insidebox - stats_ten[0][1].shots.insidebox
+                                                away.in = stats[0].shots.insidebox - stats_ten[0][0].shots.insidebox
+                                                if (!stats[0].shots.insidebox) {
                                                     home.in = null
                                                     away.in = null
                                                 }
-                                                home.out = main_data[j].stats[1].shots.outsidebox - main_data[j].stats_ten[0][1].shots.outsidebox
-                                                away.out = main_data[j].stats[0].shots.outsidebox - main_data[j].stats_ten[0][0].shots.outsidebox
+                                                home.out = stats[1].shots.outsidebox - stats_ten[0][1].shots.outsidebox
+                                                away.out = stats[0].shots.outsidebox - stats_ten[0][0].shots.outsidebox
 
-                                                home.cnr = main_data[j].stats[1].corners - main_data[j].stats_ten[0][1].corners
-                                                away.cnr = main_data[j].stats[0].corners - main_data[j].stats_ten[0][0].corners
-                                                if (!main_data[j].stats[0].corners) {
+                                                home.cnr = stats[1].corners - stats_ten[0][1].corners
+                                                away.cnr = stats[0].corners - stats_ten[0][0].corners
+                                                if (!stats[0].corners) {
                                                     home.cnr = null
                                                     away.cnr = null
                                                 }
 
-                                                if(main_data[j].stats[1].attacks && main_data[j].stats_ten[0][1].attacks){
-                                                    home.da = main_data[j].stats[1].attacks.dangerous_attacks - main_data[j].stats_ten[0][1].attacks.dangerous_attacks
-                                                    away.da = main_data[j].stats[0].attacks.dangerous_attacks - main_data[j].stats_ten[0][0].attacks.dangerous_attacks
+                                                if(stats[1].attacks && stats_ten[0][1].attacks){
+                                                    home.da = stats[1].attacks.dangerous_attacks - stats_ten[0][1].attacks.dangerous_attacks
+                                                    away.da = stats[0].attacks.dangerous_attacks - stats_ten[0][0].attacks.dangerous_attacks
 
-                                                    home.atk = main_data[j].stats[1].attacks.attacks - main_data[j].stats_ten[0][1].attacks.attacks
-                                                    away.atk = main_data[j].stats[0].attacks.attacks - main_data[j].stats_ten[0][0].attacks.attacks
+                                                    home.atk = stats[1].attacks.attacks - stats_ten[0][1].attacks.attacks
+                                                    away.atk = stats[0].attacks.attacks - stats_ten[0][0].attacks.attacks
                                                 }
 
-                                                home.goal = main_data[j].stats[1].goals - main_data[j].stats_ten[0][1].goals
-                                                away.goal = main_data[j].stats[0].goals - main_data[j].stats_ten[0][0].goals
+                                                home.goal = stats[1].goals - stats_ten[0][1].goals
+                                                away.goal = stats[0].goals - stats_ten[0][0].goals
 
-                                                home.poss = main_data[j].stats_ten[0][0].possessiontime
+                                                home.poss = stats_ten[0][0].possessiontime
                                                 away.poss = 100 - home.poss
                                                 if (home.poss === null || home.poss === 0) {
                                                     away.poss = 0
                                                 }
 
-                                                if (main_data[j].stats[0].passes != null) {
-                                                    home.pas = main_data[j].stats[1].passes.total - main_data[j].stats_ten[0][1].passes.total
-                                                    away.pas = main_data[j].stats[0].passes.total - main_data[j].stats_ten[0][0].passes.total
+                                                if (stats[0].passes != null) {
+                                                    home.pas = stats[1].passes.total - stats_ten[0][1].passes.total
+                                                    away.pas = stats[0].passes.total - stats_ten[0][0].passes.total
                                                 } else {
                                                     home.pas = null
                                                     away.pas = null
                                                 }
 
-                                                if (main_data[j].stats[0].passes != null) {
-                                                    home.acc = main_data[j].stats[1].passes.accurate - main_data[j].stats_ten[0][1].passes.accurate
-                                                    away.acc = main_data[j].stats[0].passes.accurate - main_data[j].stats_ten[0][0].passes.accurate
+                                                if (stats[0].passes != null) {
+                                                    home.acc = stats[1].passes.accurate - stats_ten[0][1].passes.accurate
+                                                    away.acc = stats[0].passes.accurate - stats_ten[0][0].passes.accurate
                                                 } else {
                                                     home.acc = null
                                                     away.acc = null
                                                 }
 
-                                                home.ofs = main_data[j].stats[1].offsides - main_data[j].stats_ten[0][1].offsides
-                                                away.ofs = main_data[j].stats[0].offsides - main_data[j].stats_ten[0][0].offsides
+                                                home.ofs = stats[1].offsides - stats_ten[0][1].offsides
+                                                away.ofs = stats[0].offsides - stats_ten[0][0].offsides
 
-                                                if (!main_data[j].stats[0].offsides) {
+                                                if (!stats[0].offsides) {
                                                     home.ofs = null
                                                     away.ofs = null
                                                 }
-                                                home.sav = main_data[j].stats[1].saves - main_data[j].stats_ten[0][1].saves
-                                                away.sav = main_data[j].stats[0].saves - main_data[j].stats_ten[0][0].saves
-                                                if (!main_data[j].stats[0].saves) {
+                                                home.sav = stats[1].saves - stats_ten[0][1].saves
+                                                away.sav = stats[0].saves - stats_ten[0][0].saves
+                                                if (!stats[0].saves) {
                                                     home.sav = null
                                                     away.sav = null
                                                 }
-                                                if (main_data[j].stats[0].substitutions != null) {
-                                                    home.sbst = main_data[j].stats[1].substitutions - main_data[j].stats_ten[0][1].substitutions
-                                                    away.sbst = main_data[j].stats[0].substitutions - main_data[j].stats_ten[0][0].substitutions
+                                                if (stats[0].substitutions != null) {
+                                                    home.sbst = stats[1].substitutions - stats_ten[0][1].substitutions
+                                                    away.sbst = stats[0].substitutions - stats_ten[0][0].substitutions
                                                 } else {
                                                     home.sbst = null
                                                     away.sbst = null
                                                 }
 
-                                                home.red = main_data[j].stats[1].redcards - main_data[j].stats_ten[0][1].redcards
-                                                away.red = main_data[j].stats[0].redcards - main_data[j].stats_ten[0][0].redcards
-                                                if (!main_data[j].stats[0].redcards) {
+                                                home.red = stats[1].redcards - stats_ten[0][1].redcards
+                                                away.red = stats[0].redcards - stats_ten[0][0].redcards
+                                                if (!stats[0].redcards) {
                                                     home.red = null
                                                     away.red = null
                                                 }
-                                                home.fou = main_data[j].stats[1].fouls - main_data[j].stats_ten[0][1].fouls
-                                                away.fou = main_data[j].stats[0].fouls - main_data[j].stats_ten[0][0].fouls
+                                                home.fou = stats[1].fouls - stats_ten[0][1].fouls
+                                                away.fou = stats[0].fouls - stats_ten[0][0].fouls
 
-                                                if (!main_data[j].stats[0].fouls) {
+                                                if (!stats[0].fouls) {
                                                     home.fou = null
                                                     away.fou = null
                                                 }
-                                                if (main_data[j].stats[0].goal_attempts != null) {
-                                                    home.g_att = main_data[j].stats[1].goal_attempts - main_data[j].stats_ten[0][1].goal_attempts
-                                                    away.g_att = main_data[j].stats[0].goal_attempts - main_data[j].stats_ten[0][0].goal_attempts
+                                                if (stats[0].goal_attempts != null) {
+                                                    home.g_att = stats[1].goal_attempts - stats_ten[0][1].goal_attempts
+                                                    away.g_att = stats[0].goal_attempts - stats_ten[0][0].goal_attempts
                                                 } else {
                                                     home.g_att = null
                                                     away.g_att = null
                                                 }
 
-                                                if (main_data[j].stats[0].ball_safe != null) {
-                                                    home.safe = main_data[j].stats[1].ball_safe - main_data[j].stats_ten[0][1].ball_safe
-                                                    away.safe = main_data[j].stats[0].ball_safe - main_data[j].stats_ten[0][0].ball_safe
+                                                if (stats[0].ball_safe != null) {
+                                                    home.safe = stats[1].ball_safe - stats_ten[0][1].ball_safe
+                                                    away.safe = stats[0].ball_safe - stats_ten[0][0].ball_safe
                                                 } else {
                                                     home.safe = null
                                                     away.safe = null
@@ -4004,27 +4007,27 @@
                                         }
                                     }
                                     //-------------Total Part------------//
-                                    if (main_data[j].home_id === main_data[j].stats[0].team_id) {
-                                        if(main_data[j].stats[0].shots){
-                                            homeT.on = main_data[j].stats[0].shots.ongoal
-                                            awayT.on = main_data[j].stats[1].shots.ongoal
-                                            homeT.off = main_data[j].stats[0].shots.offgoal
-                                            awayT.off = main_data[j].stats[1].shots.offgoal
-                                            homeT.blk = main_data[j].stats[0].shots.blocked
-                                            awayT.blk = main_data[j].stats[1].shots.blocked
-                                            homeT.in = main_data[j].stats[0].shots.insidebox
-                                            awayT.in = main_data[j].stats[1].shots.insidebox
-                                            homeT.out = main_data[j].stats[0].shots.outsidebox
-                                            awayT.out = main_data[j].stats[1].shots.outsidebox
+                                    if (current_main_data.home_id === stats[0].team_id) {
+                                        if(stats[0].shots){
+                                            homeT.on = stats[0].shots.ongoal
+                                            awayT.on = stats[1].shots.ongoal
+                                            homeT.off = stats[0].shots.offgoal
+                                            awayT.off = stats[1].shots.offgoal
+                                            homeT.blk = stats[0].shots.blocked
+                                            awayT.blk = stats[1].shots.blocked
+                                            homeT.in = stats[0].shots.insidebox
+                                            awayT.in = stats[1].shots.insidebox
+                                            homeT.out = stats[0].shots.outsidebox
+                                            awayT.out = stats[1].shots.outsidebox
                                         }
 
-                                        homeT.cnr = main_data[j].stats[0].corners
-                                        awayT.cnr = main_data[j].stats[1].corners
-                                        if(main_data[j].stats[0].attacks){
-                                            homeT.da = main_data[j].stats[0].attacks.dangerous_attacks
-                                            awayT.da = main_data[j].stats[1].attacks.dangerous_attacks
-                                            homeT.atk = main_data[j].stats[0].attacks.attacks
-                                            awayT.atk = main_data[j].stats[1].attacks.attacks
+                                        homeT.cnr = stats[0].corners
+                                        awayT.cnr = stats[1].corners
+                                        if(stats[0].attacks){
+                                            homeT.da = stats[0].attacks.dangerous_attacks
+                                            awayT.da = stats[1].attacks.dangerous_attacks
+                                            homeT.atk = stats[0].attacks.attacks
+                                            awayT.atk = stats[1].attacks.attacks
                                         }
                                         else{
                                             homeT.da = null
@@ -4033,87 +4036,87 @@
                                             awayT.atk = null
                                         }
 
-                                        homeT.poss = main_data[j].stats[0].possessiontime
-                                        awayT.poss = main_data[j].stats[1].possessiontime
-                                        if (main_data[j].stats[0].passes != null) {
-                                            homeT.pas = main_data[j].stats[0].passes.total
-                                            awayT.pas = main_data[j].stats[1].passes.total
+                                        homeT.poss = stats[0].possessiontime
+                                        awayT.poss = stats[1].possessiontime
+                                        if (stats[0].passes != null) {
+                                            homeT.pas = stats[0].passes.total
+                                            awayT.pas = stats[1].passes.total
                                         } else {
                                             homeT.pas = null
                                             awayT.pas = null
                                         }
 
-                                        if (main_data[j].stats[0].passes != null) {
-                                            homeT.acc = main_data[j].stats[0].passes.accurate
-                                            awayT.acc = main_data[j].stats[1].passes.accurate
+                                        if (stats[0].passes != null) {
+                                            homeT.acc = stats[0].passes.accurate
+                                            awayT.acc = stats[1].passes.accurate
                                         } else {
                                             homeT.acc = null
                                             awayT.acc = null
                                         }
 
-                                        homeT.ofs = main_data[j].stats[0].offsides
-                                        awayT.ofs = main_data[j].stats[1].offsides
-                                        homeT.sav = main_data[j].stats[0].saves
-                                        awayT.sav = main_data[j].stats[1].saves
-                                        homeT.sbst = main_data[j].stats[0].substitutions
-                                        awayT.sbst = main_data[j].stats[1].substitutions
-                                        homeT.red = main_data[j].stats[0].redcards
-                                        awayT.red = main_data[j].stats[1].redcards
-                                        homeT.fou = main_data[j].stats[0].fouls
-                                        awayT.fou = main_data[j].stats[1].fouls
-                                        homeT.g_att = main_data[j].stats[0].goal_attempts
-                                        awayT.g_att = main_data[j].stats[1].goal_attempts
-                                        homeT.safe = main_data[j].stats[0].ball_safe
-                                        awayT.safe = main_data[j].stats[1].ball_safe
+                                        homeT.ofs = stats[0].offsides
+                                        awayT.ofs = stats[1].offsides
+                                        homeT.sav = stats[0].saves
+                                        awayT.sav = stats[1].saves
+                                        homeT.sbst = stats[0].substitutions
+                                        awayT.sbst = stats[1].substitutions
+                                        homeT.red = stats[0].redcards
+                                        awayT.red = stats[1].redcards
+                                        homeT.fou = stats[0].fouls
+                                        awayT.fou = stats[1].fouls
+                                        homeT.g_att = stats[0].goal_attempts
+                                        awayT.g_att = stats[1].goal_attempts
+                                        homeT.safe = stats[0].ball_safe
+                                        awayT.safe = stats[1].ball_safe
                                     }
                                     else {
-                                        homeT.on = main_data[j].stats[1].shots.ongoal
-                                        awayT.on = main_data[j].stats[0].shots.ongoal
-                                        homeT.off = main_data[j].stats[1].shots.offgoal
-                                        awayT.off = main_data[j].stats[0].shots.offgoal
-                                        homeT.blk = main_data[j].stats[1].shots.blocked
-                                        awayT.blk = main_data[j].stats[0].shots.blocked
-                                        homeT.in = main_data[j].stats[1].shots.insidebox
-                                        awayT.in = main_data[j].stats[0].shots.insidebox
-                                        homeT.out = main_data[j].stats[1].shots.outsidebox
-                                        awayT.out = main_data[j].stats[0].shots.outsidebox
-                                        homeT.cnr = main_data[j].stats[1].corners
-                                        awayT.cnr = main_data[j].stats[0].corners
-                                        homeT.da = main_data[j].stats[1].attacks.dangerous_attacks
-                                        awayT.da = main_data[j].stats[0].attacks.dangerous_attacks
-                                        homeT.poss = main_data[j].stats[1].possessiontime
-                                        awayT.poss = main_data[j].stats[0].possessiontime
-                                        if (main_data[j].stats[0].passes != null) {
-                                            homeT.pas = main_data[j].stats[1].passes.total
-                                            awayT.pas = main_data[j].stats[0].passes.total
+                                        homeT.on = stats[1].shots.ongoal
+                                        awayT.on = stats[0].shots.ongoal
+                                        homeT.off = stats[1].shots.offgoal
+                                        awayT.off = stats[0].shots.offgoal
+                                        homeT.blk = stats[1].shots.blocked
+                                        awayT.blk = stats[0].shots.blocked
+                                        homeT.in = stats[1].shots.insidebox
+                                        awayT.in = stats[0].shots.insidebox
+                                        homeT.out = stats[1].shots.outsidebox
+                                        awayT.out = stats[0].shots.outsidebox
+                                        homeT.cnr = stats[1].corners
+                                        awayT.cnr = stats[0].corners
+                                        homeT.da = stats[1].attacks.dangerous_attacks
+                                        awayT.da = stats[0].attacks.dangerous_attacks
+                                        homeT.poss = stats[1].possessiontime
+                                        awayT.poss = stats[0].possessiontime
+                                        if (stats[0].passes != null) {
+                                            homeT.pas = stats[1].passes.total
+                                            awayT.pas = stats[0].passes.total
                                         } else {
                                             homeT.pas = null
                                             awayT.pas = null
                                         }
 
-                                        if (main_data[j].stats[0].passes != null) {
-                                            homeT.acc = main_data[j].stats[1].passes.accurate
-                                            awayT.acc = main_data[j].stats[0].passes.accurate
+                                        if (stats[0].passes != null) {
+                                            homeT.acc = stats[1].passes.accurate
+                                            awayT.acc = stats[0].passes.accurate
                                         } else {
                                             homeT.acc = null
                                             awayT.acc = null
                                         }
-                                        homeT.atk = main_data[j].stats[1].attacks.attacks
-                                        awayT.atk = main_data[j].stats[0].attacks.attacks
-                                        homeT.ofs = main_data[j].stats[1].offsides
-                                        awayT.ofs = main_data[j].stats[0].offsides
-                                        homeT.sav = main_data[j].stats[1].saves
-                                        awayT.sav = main_data[j].stats[0].saves
-                                        homeT.sbst = main_data[j].stats[1].substitutions
-                                        awayT.sbst = main_data[j].stats[0].substitutions
-                                        homeT.red = main_data[j].stats[1].redcards
-                                        awayT.red = main_data[j].stats[0].redcards
-                                        homeT.fou = main_data[j].stats[1].fouls
-                                        awayT.fou = main_data[j].stats[0].fouls
-                                        homeT.g_att = main_data[j].stats[1].goal_attempts
-                                        awayT.g_att = main_data[j].stats[0].goal_attempts
-                                        homeT.safe = main_data[j].stats[1].ball_safe
-                                        awayT.safe = main_data[j].stats[0].ball_safe
+                                        homeT.atk = stats[1].attacks.attacks
+                                        awayT.atk = stats[0].attacks.attacks
+                                        homeT.ofs = stats[1].offsides
+                                        awayT.ofs = stats[0].offsides
+                                        homeT.sav = stats[1].saves
+                                        awayT.sav = stats[0].saves
+                                        homeT.sbst = stats[1].substitutions
+                                        awayT.sbst = stats[0].substitutions
+                                        homeT.red = stats[1].redcards
+                                        awayT.red = stats[0].redcards
+                                        homeT.fou = stats[1].fouls
+                                        awayT.fou = stats[0].fouls
+                                        homeT.g_att = stats[1].goal_attempts
+                                        awayT.g_att = stats[0].goal_attempts
+                                        homeT.safe = stats[1].ball_safe
+                                        awayT.safe = stats[0].ball_safe
                                     }
                                     //-----------------------------------//
                                     // home_season.pos = parseInt(home_season.pos/home_poss_index)
@@ -4121,7 +4124,7 @@
                                     this.eventArray[i].events.push({
                                         'index0': k,
                                         'fixtureId': fixture_id,
-                                        'main_data': main_data[j],
+                                        'main_data': current_main_data,
                                         'home': home,
                                         'away': away,
                                         'home_p': home_p,
@@ -4200,345 +4203,349 @@
                 let check_new_total = 0
                 for(let i = 0 ; i < data1.length ; i++){
                     if(data1[i].updateArray){
+                        let stats = data1[i].updateArray.stats
+                        let stats_ten = data1[i].updateArray.stats_ten
                         let check_new  = 0
                         for(let j = 0 ; j < this.eventArray.length ; j++){
                             for(let k = 0 ; k < this.eventArray[j].events.length ; k++){
                                 if(this.eventArray[j].events[k].main_data._id == data1[i].updateArray._id && data1[i].currentData.stats[0]){
                                     check_new = 1
+                                    let current_event = this.eventArray[j].events[k]
                                     if(data1[i].currentData.time.status == "FT"){
                                         this.readData()
                                     }
-                                    this.eventArray[j].events[k].home.time = data1[i].currentData.time.minute
+                                    current_event.home.time = data1[i].currentData.time.minute
                                     if(data1[i].currentData.time.injury_time != null){
-                                        this.eventArray[j].events[k].home.time = data1[i].currentData.time.minute + '+' + data1[i].currentData.time.injury_time
+                                        current_event.home.time = data1[i].currentData.time.minute + '+' + data1[i].currentData.time.injury_time
                                     }
                                     if(data1[i].currentData.time.status == 'HT'){
-                                        this.eventArray[j].events[k].home.time = 'HT'
+                                        current_event.home.time = 'HT'
                                     }
 
-                                    this.eventArray[j].events[k].goal_tooltip = data1[i].updateArray.goal_tooltip
-                                    this.eventArray[j].events[k].home_tooltip = data1[i].updateArray.home_tooltip
-                                    this.eventArray[j].events[k].away_tooltip = data1[i].updateArray.away_tooltip
-                                    if(this.eventArray[j].events[k].home.id === data1[i].updateArray.stats[0].team_id){
-                                        this.eventArray[j].events[k].home.score = data1[i].updateArray.scores.localteam_score
-                                        this.eventArray[j].events[k].away.score = data1[i].updateArray.scores.visitorteam_score
-                                        if(data1[i].updateArray.stats[0].shots && data1[i].updateArray.stats_ten[0][0].shots){
-                                            this.eventArray[j].events[k].home.on = data1[i].updateArray.stats[0].shots.ongoal - data1[i].updateArray.stats_ten[0][0].shots.ongoal
-                                            this.eventArray[j].events[k].away.on = data1[i].updateArray.stats[1].shots.ongoal - data1[i].updateArray.stats_ten[0][1].shots.ongoal
-                                            this.eventArray[j].events[k].home.off = data1[i].updateArray.stats[0].shots.offgoal - data1[i].updateArray.stats_ten[0][0].shots.offgoal
-                                            this.eventArray[j].events[k].away.off = data1[i].updateArray.stats[1].shots.offgoal - data1[i].updateArray.stats_ten[0][1].shots.offgoal
-                                            this.eventArray[j].events[k].home.blk = data1[i].updateArray.stats[0].shots.blocked - data1[i].updateArray.stats_ten[0][0].shots.blocked
-                                            this.eventArray[j].events[k].away.blk = data1[i].updateArray.stats[1].shots.blocked - data1[i].updateArray.stats_ten[0][1].shots.blocked
-                                            this.eventArray[j].events[k].home.in = data1[i].updateArray.stats[0].shots.insidebox - data1[i].updateArray.stats_ten[0][0].shots.insidebox
-                                            this.eventArray[j].events[k].away.in = data1[i].updateArray.stats[1].shots.insidebox - data1[i].updateArray.stats_ten[0][1].shots.insidebox
-                                            this.eventArray[j].events[k].home.out = data1[i].updateArray.stats[0].shots.outsidebox - data1[i].updateArray.stats_ten[0][0].shots.outsidebox
-                                            this.eventArray[j].events[k].away.out = data1[i].updateArray.stats[1].shots.outsidebox - data1[i].updateArray.stats_ten[0][1].shots.outsidebox
+                                    current_event.goal_tooltip = data1[i].updateArray.goal_tooltip
+                                    current_event.home_tooltip = data1[i].updateArray.home_tooltip
+                                    current_event.away_tooltip = data1[i].updateArray.away_tooltip
+                                    if(current_event.home.id === stats[0].team_id){
+                                        current_event.home.score = data1[i].updateArray.scores.localteam_score
+                                        current_event.away.score = data1[i].updateArray.scores.visitorteam_score
+                                        if(stats[0].shots && stats_ten[0][0].shots){
+                                            current_event.home.on = stats[0].shots.ongoal - stats_ten[0][0].shots.ongoal
+                                            current_event.away.on = stats[1].shots.ongoal - stats_ten[0][1].shots.ongoal
+                                            current_event.home.off = stats[0].shots.offgoal - stats_ten[0][0].shots.offgoal
+                                            current_event.away.off = stats[1].shots.offgoal - stats_ten[0][1].shots.offgoal
+                                            current_event.home.blk = stats[0].shots.blocked - stats_ten[0][0].shots.blocked
+                                            current_event.away.blk = stats[1].shots.blocked - stats_ten[0][1].shots.blocked
+                                            current_event.home.in = stats[0].shots.insidebox - stats_ten[0][0].shots.insidebox
+                                            current_event.away.in = stats[1].shots.insidebox - stats_ten[0][1].shots.insidebox
+                                            current_event.home.out = stats[0].shots.outsidebox - stats_ten[0][0].shots.outsidebox
+                                            current_event.away.out = stats[1].shots.outsidebox - stats_ten[0][1].shots.outsidebox
                                         }
 
-                                        this.eventArray[j].events[k].home.cnr = data1[i].updateArray.stats[0].corners - data1[i].updateArray.stats_ten[0][0].corners
-                                        this.eventArray[j].events[k].away.cnr = data1[i].updateArray.stats[1].corners - data1[i].updateArray.stats_ten[0][1].corners
-                                        if(data1[i].updateArray.stats[0].attacks && data1[i].updateArray.stats_ten[0][0].attacks){
-                                            this.eventArray[j].events[k].home.da = data1[i].updateArray.stats[0].attacks.dangerous_attacks - data1[i].updateArray.stats_ten[0][0].attacks.dangerous_attacks
-                                            this.eventArray[j].events[k].away.da = data1[i].updateArray.stats[1].attacks.dangerous_attacks - data1[i].updateArray.stats_ten[0][1].attacks.dangerous_attacks
+                                        current_event.home.cnr = stats[0].corners - stats_ten[0][0].corners
+                                        current_event.away.cnr = stats[1].corners - stats_ten[0][1].corners
+                                        if(stats[0].attacks && stats_ten[0][0].attacks){
+                                            current_event.home.da = stats[0].attacks.dangerous_attacks - stats_ten[0][0].attacks.dangerous_attacks
+                                            current_event.away.da = stats[1].attacks.dangerous_attacks - stats_ten[0][1].attacks.dangerous_attacks
                                         }
 
-                                        this.eventArray[j].events[k].home.poss =data1[i].updateArray.stats_ten[0][0].possessiontime
-                                        this.eventArray[j].events[k].away.poss =data1[i].updateArray.stats_ten[0][1].possessiontime
+                                        current_event.home.poss =stats_ten[0][0].possessiontime
+                                        current_event.away.poss =stats_ten[0][1].possessiontime
 
-                                        if(data1[i].updateArray.stats[0].passes && data1[i].updateArray.stats_ten[0][0]){
-                                            if(data1[i].updateArray.stats_ten[0][0].passes){
-                                                this.eventArray[j].events[k].home.pas = data1[i].updateArray.stats[0].passes.total - data1[i].updateArray.stats_ten[0][0].passes.total
-                                                this.eventArray[j].events[k].away.pas = data1[i].updateArray.stats[1].passes.total - data1[i].updateArray.stats_ten[0][1].passes.total
+                                        if(stats[0].passes && stats_ten[0][0]){
+                                            if(stats_ten[0][0].passes){
+                                                current_event.home.pas = stats[0].passes.total - stats_ten[0][0].passes.total
+                                                current_event.away.pas = stats[1].passes.total - stats_ten[0][1].passes.total
 
-                                                this.eventArray[j].events[k].home.acc = data1[i].updateArray.stats[0].passes.accurate - data1[i].updateArray.stats_ten[0][0].passes.accurate
-                                                this.eventArray[j].events[k].away.acc = data1[i].updateArray.stats[1].passes.accurate - data1[i].updateArray.stats_ten[0][1].passes.accurate
+                                                current_event.home.acc = stats[0].passes.accurate - stats_ten[0][0].passes.accurate
+                                                current_event.away.acc = stats[1].passes.accurate - stats_ten[0][1].passes.accurate
                                             }
                                         }
                                         else{
-                                            this.eventArray[j].events[k].home.pas = null
-                                            this.eventArray[j].events[k].away.pas = null
-                                            this.eventArray[j].events[k].home.acc = null
-                                            this.eventArray[j].events[k].away.acc = null
+                                            current_event.home.pas = null
+                                            current_event.away.pas = null
+                                            current_event.home.acc = null
+                                            current_event.away.acc = null
                                         }
 
-                                        if(data1[i].updateArray.stats[0].attacks && data1[i].updateArray.stats_ten[0][0].attacks){
-                                            this.eventArray[j].events[k].home.atk = data1[i].updateArray.stats[0].attacks.attacks - data1[i].updateArray.stats_ten[0][0].attacks.attacks
-                                            this.eventArray[j].events[k].away.atk = data1[i].updateArray.stats[1].attacks.attacks - data1[i].updateArray.stats_ten[0][1].attacks.attacks
+                                        if(stats[0].attacks && stats_ten[0][0].attacks){
+                                            current_event.home.atk = stats[0].attacks.attacks - stats_ten[0][0].attacks.attacks
+                                            current_event.away.atk = stats[1].attacks.attacks - stats_ten[0][1].attacks.attacks
                                         }
 
-                                        this.eventArray[j].events[k].home.ofs = data1[i].updateArray.stats[0].offsides - data1[i].updateArray.stats_ten[0][0].offsides
-                                        this.eventArray[j].events[k].away.ofs = data1[i].updateArray.stats[1].offsides - data1[i].updateArray.stats_ten[0][1].offsides
-                                        this.eventArray[j].events[k].home.sav = data1[i].updateArray.stats[0].saves - data1[i].updateArray.stats_ten[0][0].saves
-                                        this.eventArray[j].events[k].away.sav = data1[i].updateArray.stats[1].saves - data1[i].updateArray.stats_ten[0][1].saves
-                                        if(data1[i].updateArray.stats[0].substitutions != null){
-                                            this.eventArray[j].events[k].home.sbst = data1[i].updateArray.stats[0].substitutions - data1[i].updateArray.stats_ten[0][0].substitutions
-                                            this.eventArray[j].events[k].away.sbst = data1[i].updateArray.stats[1].substitutions - data1[i].updateArray.stats_ten[0][1].substitutions
+                                        current_event.home.ofs = stats[0].offsides - stats_ten[0][0].offsides
+                                        current_event.away.ofs = stats[1].offsides - stats_ten[0][1].offsides
+                                        current_event.home.sav = stats[0].saves - stats_ten[0][0].saves
+                                        current_event.away.sav = stats[1].saves - stats_ten[0][1].saves
+                                        if(stats[0].substitutions != null){
+                                            current_event.home.sbst = stats[0].substitutions - stats_ten[0][0].substitutions
+                                            current_event.away.sbst = stats[1].substitutions - stats_ten[0][1].substitutions
                                         }
                                         else{
-                                            this.eventArray[j].events[k].home.sbst = null
-                                            this.eventArray[j].events[k].away.sbst = null
+                                            current_event.home.sbst = null
+                                            current_event.away.sbst = null
                                         }
-                                        this.eventArray[j].events[k].home.red = data1[i].updateArray.stats[0].redcards - data1[i].updateArray.stats_ten[0][0].redcards
-                                        this.eventArray[j].events[k].away.red = data1[i].updateArray.stats[1].redcards - data1[i].updateArray.stats_ten[0][1].redcards
-                                        this.eventArray[j].events[k].home.fou = data1[i].updateArray.stats[0].fouls - data1[i].updateArray.stats_ten[0][0].fouls
-                                        this.eventArray[j].events[k].away.fou = data1[i].updateArray.stats[1].fouls - data1[i].updateArray.stats_ten[0][1].fouls
-                                        if(data1[i].updateArray.stats[0].goal_attempts != null){
-                                            this.eventArray[j].events[k].home.g_att = data1[i].updateArray.stats[0].goal_attempts - data1[i].updateArray.stats_ten[0][0].goal_attempts
-                                            this.eventArray[j].events[k].away.g_att = data1[i].updateArray.stats[1].goal_attempts - data1[i].updateArray.stats_ten[0][1].goal_attempts
-                                        }
-                                        else{
-                                            this.eventArray[j].events[k].home.g_att = null
-                                            this.eventArray[j].events[k].away.g_att = null
-                                        }
-                                        if(data1[i].updateArray.stats[0].ball_safe != null){
-                                            this.eventArray[j].events[k].home.safe = data1[i].updateArray.stats[0].ball_safe - data1[i].updateArray.stats_ten[0][0].ball_safe
-                                            this.eventArray[j].events[k].away.safe = data1[i].updateArray.stats[1].ball_safe - data1[i].updateArray.stats_ten[0][1].ball_safe
+                                        current_event.home.red = stats[0].redcards - stats_ten[0][0].redcards
+                                        current_event.away.red = stats[1].redcards - stats_ten[0][1].redcards
+                                        current_event.home.fou = stats[0].fouls - stats_ten[0][0].fouls
+                                        current_event.away.fou = stats[1].fouls - stats_ten[0][1].fouls
+                                        if(stats[0].goal_attempts != null){
+                                            current_event.home.g_att = stats[0].goal_attempts - stats_ten[0][0].goal_attempts
+                                            current_event.away.g_att = stats[1].goal_attempts - stats_ten[0][1].goal_attempts
                                         }
                                         else{
-                                            this.eventArray[j].events[k].home.safe = null
-                                            this.eventArray[j].events[k].away.safe = null
+                                            current_event.home.g_att = null
+                                            current_event.away.g_att = null
+                                        }
+                                        if(stats[0].ball_safe != null){
+                                            current_event.home.safe = stats[0].ball_safe - stats_ten[0][0].ball_safe
+                                            current_event.away.safe = stats[1].ball_safe - stats_ten[0][1].ball_safe
+                                        }
+                                        else{
+                                            current_event.home.safe = null
+                                            current_event.away.safe = null
                                         }
 
-                                        if(data1[i].updateArray.stats[0].goals > this.eventArray[j].events[k].home.goal){
-                                            this.eventArray[j].events[k].home.flash = 1
+                                        if(stats[0].goals > current_event.home.goal){
+                                            current_event.home.flash = 1
                                         }
                                         else{
-                                            this.eventArray[j].events[k].home.flash = 0
+                                            current_event.home.flash = 0
                                         }
 
-                                        if(data1[i].updateArray.stats[1].goals > this.eventArray[j].events[k].away.goal){
-                                            this.eventArray[j].events[k].away.flash = 1
+                                        if(stats[1].goals > current_event.away.goal){
+                                            current_event.away.flash = 1
                                         }
                                         else{
-                                            this.eventArray[j].events[k].away.flash = 0
+                                            current_event.away.flash = 0
                                         }
 
-                                        this.eventArray[j].events[k].home.goal = data1[i].updateArray.stats[0].goals - data1[i].updateArray.stats_ten[0][0].goals
-                                        this.eventArray[j].events[k].away.goal = data1[i].updateArray.stats[1].goals - data1[i].updateArray.stats_ten[0][1].goals
+                                        current_event.home.goal = stats[0].goals - stats_ten[0][0].goals
+                                        current_event.away.goal = stats[1].goals - stats_ten[0][1].goals
                                     }
                                     else{
-                                        this.eventArray[j].events[k].home.score = data1[i].updateArray.scores.localteam_score
-                                        this.eventArray[j].events[k].away.score = data1[i].updateArray.scores.visitorteam_score
-                                        this.eventArray[j].events[k].home.on = data1[i].updateArray.stats[1].shots.ongoal - data1[i].updateArray.stats_ten[0][1].shots.ongoal
-                                        this.eventArray[j].events[k].away.on = data1[i].updateArray.stats[0].shots.ongoal - data1[i].updateArray.stats_ten[0][0].shots.ongoal
-                                        this.eventArray[j].events[k].home.off = data1[i].updateArray.stats[1].shots.offgoal - data1[i].updateArray.stats_ten[0][1].shots.offgoal
-                                        this.eventArray[j].events[k].away.off = data1[i].updateArray.stats[0].shots.offgoal - data1[i].updateArray.stats_ten[0][0].shots.offgoal
-                                        this.eventArray[j].events[k].home.blk = data1[i].updateArray.stats[1].shots.blocked - data1[i].updateArray.stats_ten[0][1].shots.blocked
-                                        this.eventArray[j].events[k].away.blk = data1[i].updateArray.stats[0].shots.blocked - data1[i].updateArray.stats_ten[0][0].shots.blocked
-                                        this.eventArray[j].events[k].home.in = data1[i].updateArray.stats[1].shots.insidebox - data1[i].updateArray.stats_ten[0][1].shots.insidebox
-                                        this.eventArray[j].events[k].away.in = data1[i].updateArray.stats[0].shots.insidebox - data1[i].updateArray.stats_ten[0][0].shots.insidebox
-                                        this.eventArray[j].events[k].home.out = data1[i].updateArray.stats[1].shots.outsidebox - data1[i].updateArray.stats_ten[0][1].shots.outsidebox
-                                        this.eventArray[j].events[k].away.out = data1[i].updateArray.stats[0].shots.outsidebox - data1[i].updateArray.stats_ten[0][0].shots.outsidebox
-                                        this.eventArray[j].events[k].home.cnr = data1[i].updateArray.stats[1].corners - data1[i].updateArray.stats_ten[0][1].corners
-                                        this.eventArray[j].events[k].away.cnr = data1[i].updateArray.stats[0].corners - data1[i].updateArray.stats_ten[0][0].corners
-                                        this.eventArray[j].events[k].home.da = data1[i].updateArray.stats[1].attacks.dangerous_attacks - data1[i].updateArray.stats_ten[0][1].attacks.dangerous_attacks
-                                        this.eventArray[j].events[k].away.da = data1[i].updateArray.stats[0].attacks.dangerous_attacks - data1[i].updateArray.stats_ten[0][0].attacks.dangerous_attacks
+                                        current_event.home.score = data1[i].updateArray.scores.localteam_score
+                                        current_event.away.score = data1[i].updateArray.scores.visitorteam_score
+                                        current_event.home.on = stats[1].shots.ongoal - stats_ten[0][1].shots.ongoal
+                                        current_event.away.on = stats[0].shots.ongoal - stats_ten[0][0].shots.ongoal
+                                        current_event.home.off = stats[1].shots.offgoal - stats_ten[0][1].shots.offgoal
+                                        current_event.away.off = stats[0].shots.offgoal - stats_ten[0][0].shots.offgoal
+                                        current_event.home.blk = stats[1].shots.blocked - stats_ten[0][1].shots.blocked
+                                        current_event.away.blk = stats[0].shots.blocked - stats_ten[0][0].shots.blocked
+                                        current_event.home.in = stats[1].shots.insidebox - stats_ten[0][1].shots.insidebox
+                                        current_event.away.in = stats[0].shots.insidebox - stats_ten[0][0].shots.insidebox
+                                        current_event.home.out = stats[1].shots.outsidebox - stats_ten[0][1].shots.outsidebox
+                                        current_event.away.out = stats[0].shots.outsidebox - stats_ten[0][0].shots.outsidebox
+                                        current_event.home.cnr = stats[1].corners - stats_ten[0][1].corners
+                                        current_event.away.cnr = stats[0].corners - stats_ten[0][0].corners
+                                        current_event.home.da = stats[1].attacks.dangerous_attacks - stats_ten[0][1].attacks.dangerous_attacks
+                                        current_event.away.da = stats[0].attacks.dangerous_attacks - stats_ten[0][0].attacks.dangerous_attacks
 
-                                        this.eventArray[j].events[k].home.poss =data1[i].updateArray.stats_ten[0][1].possessiontime
-                                        this.eventArray[j].events[k].away.poss =data1[i].updateArray.stats_ten[0][0].possessiontime
+                                        current_event.home.poss =stats_ten[0][1].possessiontime
+                                        current_event.away.poss =stats_ten[0][0].possessiontime
 
-                                        if(data1[i].updateArray.stats[0].passes != null){
-                                            this.eventArray[j].events[k].home.pas = data1[i].updateArray.stats[1].passes.total - data1[i].updateArray.stats_ten[0][1].passes.total
-                                            this.eventArray[j].events[k].away.pas = data1[i].updateArray.stats[0].passes.total - data1[i].updateArray.stats_ten[0][0].passes.total
+                                        if(stats[0].passes != null){
+                                            current_event.home.pas = stats[1].passes.total - stats_ten[0][1].passes.total
+                                            current_event.away.pas = stats[0].passes.total - stats_ten[0][0].passes.total
                                         }
                                         else{
-                                            this.eventArray[j].events[k].home.pas = null
-                                            this.eventArray[j].events[k].away.pas = null
+                                            current_event.home.pas = null
+                                            current_event.away.pas = null
                                         }
-                                        if(data1[i].updateArray.stats[0].passes != null){
-                                            this.eventArray[j].events[k].home.acc = data1[i].updateArray.stats[1].passes.accurate - data1[i].updateArray.stats_ten[0][1].passes.accurate
-                                            this.eventArray[j].events[k].away.acc = data1[i].updateArray.stats[0].passes.accurate - data1[i].updateArray.stats_ten[0][0].passes.accurate
-                                        }
-                                        else{
-                                            this.eventArray[j].events[k].home.acc = null
-                                            this.eventArray[j].events[k].away.acc = null
-                                        }
-                                        this.eventArray[j].events[k].home.atk = data1[i].updateArray.stats[1].attacks.attacks - data1[i].updateArray.stats_ten[0][1].attacks.attacks
-                                        this.eventArray[j].events[k].away.atk = data1[i].updateArray.stats[0].attacks.attacks - data1[i].updateArray.stats_ten[0][0].attacks.attacks
-                                        this.eventArray[j].events[k].home.ofs = data1[i].updateArray.stats[1].offsides - data1[i].updateArray.stats_ten[0][1].offsides
-                                        this.eventArray[j].events[k].away.ofs = data1[i].updateArray.stats[0].offsides - data1[i].updateArray.stats_ten[0][0].offsides
-                                        this.eventArray[j].events[k].home.sav = data1[i].updateArray.stats[1].saves - data1[i].updateArray.stats_ten[0][1].saves
-                                        this.eventArray[j].events[k].away.sav = data1[i].updateArray.stats[0].saves - data1[i].updateArray.stats_ten[0][0].saves
-                                        if(data1[i].updateArray.stats[0].substitutions != null){
-                                            this.eventArray[j].events[k].home.sbst = data1[i].updateArray.stats[1].substitutions - data1[i].updateArray.stats_ten[0][1].substitutions
-                                            this.eventArray[j].events[k].away.sbst = data1[i].updateArray.stats[0].substitutions - data1[i].updateArray.stats_ten[0][0].substitutions
+                                        if(stats[0].passes != null){
+                                            current_event.home.acc = stats[1].passes.accurate - stats_ten[0][1].passes.accurate
+                                            current_event.away.acc = stats[0].passes.accurate - stats_ten[0][0].passes.accurate
                                         }
                                         else{
-                                            this.eventArray[j].events[k].home.sbst = null
-                                            this.eventArray[j].events[k].away.sbst = null
+                                            current_event.home.acc = null
+                                            current_event.away.acc = null
                                         }
-                                        this.eventArray[j].events[k].home.red = data1[i].updateArray.stats[1].redcards - data1[i].updateArray.stats_ten[0][1].redcards
-                                        this.eventArray[j].events[k].away.red = data1[i].updateArray.stats[0].redcards - data1[i].updateArray.stats_ten[0][0].redcards
-                                        this.eventArray[j].events[k].home.fou = data1[i].updateArray.stats[1].fouls - data1[i].updateArray.stats_ten[0][1].fouls
-                                        this.eventArray[j].events[k].away.fou = data1[i].updateArray.stats[0].fouls - data1[i].updateArray.stats_ten[0][0].fouls
-                                        if(data1[i].updateArray.stats[0].goal_attempts != null){
-                                            this.eventArray[j].events[k].home.g_att = data1[i].updateArray.stats[1].goal_attempts - data1[i].updateArray.stats_ten[0][1].goal_attempts
-                                            this.eventArray[j].events[k].away.g_att = data1[i].updateArray.stats[0].goal_attempts - data1[i].updateArray.stats_ten[0][0].goal_attempts
-                                        }
-                                        else{
-                                            this.eventArray[j].events[k].home.g_att = null
-                                            this.eventArray[j].events[k].away.g_att = null
-                                        }
-                                        if(data1[i].updateArray.stats[0].ball_safe != null){
-                                            this.eventArray[j].events[k].home.safe = data1[i].updateArray.stats[1].ball_safe - data1[i].updateArray.stats_ten[0][1].ball_safe
-                                            this.eventArray[j].events[k].away.safe = data1[i].updateArray.stats[0].ball_safe - data1[i].updateArray.stats_ten[0][0].ball_safe
+                                        current_event.home.atk = stats[1].attacks.attacks - stats_ten[0][1].attacks.attacks
+                                        current_event.away.atk = stats[0].attacks.attacks - stats_ten[0][0].attacks.attacks
+                                        current_event.home.ofs = stats[1].offsides - stats_ten[0][1].offsides
+                                        current_event.away.ofs = stats[0].offsides - stats_ten[0][0].offsides
+                                        current_event.home.sav = stats[1].saves - stats_ten[0][1].saves
+                                        current_event.away.sav = stats[0].saves - stats_ten[0][0].saves
+                                        if(stats[0].substitutions != null){
+                                            current_event.home.sbst = stats[1].substitutions - stats_ten[0][1].substitutions
+                                            current_event.away.sbst = stats[0].substitutions - stats_ten[0][0].substitutions
                                         }
                                         else{
-                                            this.eventArray[j].events[k].home.safe = null
-                                            this.eventArray[j].events[k].away.safe = null
+                                            current_event.home.sbst = null
+                                            current_event.away.sbst = null
                                         }
-
-                                        if(data1[i].updateArray.stats[0].goals > this.eventArray[j].events[k].home.goal){
-                                            this.eventArray[j].events[k].home.flash = 1
+                                        current_event.home.red = stats[1].redcards - stats_ten[0][1].redcards
+                                        current_event.away.red = stats[0].redcards - stats_ten[0][0].redcards
+                                        current_event.home.fou = stats[1].fouls - stats_ten[0][1].fouls
+                                        current_event.away.fou = stats[0].fouls - stats_ten[0][0].fouls
+                                        if(stats[0].goal_attempts != null){
+                                            current_event.home.g_att = stats[1].goal_attempts - stats_ten[0][1].goal_attempts
+                                            current_event.away.g_att = stats[0].goal_attempts - stats_ten[0][0].goal_attempts
                                         }
                                         else{
-                                            this.eventArray[j].events[k].home.flash = 0
+                                            current_event.home.g_att = null
+                                            current_event.away.g_att = null
+                                        }
+                                        if(stats[0].ball_safe != null){
+                                            current_event.home.safe = stats[1].ball_safe - stats_ten[0][1].ball_safe
+                                            current_event.away.safe = stats[0].ball_safe - stats_ten[0][0].ball_safe
+                                        }
+                                        else{
+                                            current_event.home.safe = null
+                                            current_event.away.safe = null
                                         }
 
-                                        if(data1[i].updateArray.stats[1].goals > this.eventArray[j].events[k].away.goal){
-                                            this.eventArray[j].events[k].away.flash = 1
+                                        if(stats[0].goals > current_event.home.goal){
+                                            current_event.home.flash = 1
                                         }
                                         else{
-                                            this.eventArray[j].events[k].away.flash = 0
+                                            current_event.home.flash = 0
                                         }
 
-                                        this.eventArray[j].events[k].home.goal = data1[i].updateArray.stats[1].goals - data1[i].updateArray.stats_ten[0][1].goals
-                                        this.eventArray[j].events[k].away.goal = data1[i].updateArray.stats[0].goals - data1[i].updateArray.stats_ten[0][0].goals
+                                        if(stats[1].goals > current_event.away.goal){
+                                            current_event.away.flash = 1
+                                        }
+                                        else{
+                                            current_event.away.flash = 0
+                                        }
+
+                                        current_event.home.goal = stats[1].goals - stats_ten[0][1].goals
+                                        current_event.away.goal = stats[0].goals - stats_ten[0][0].goals
                                     }
                                     //-----------------------------------------------------------------------------------------------
-                                    if(data1[i].updateArray.stats[0].goals - data1[i].updateArray.stats_ten[0][0].goals > this.eventArray[j].events[k].home.goal){
-                                        this.eventArray[j].events[k].home.flash = 1
+                                    if(stats[0].goals - stats_ten[0][0].goals > current_event.home.goal){
+                                        current_event.home.flash = 1
                                     }
                                     else{
-                                        this.eventArray[j].events[k].home.flash = 0
+                                        current_event.home.flash = 0
                                     }
-                                    this.eventArray[j].events[k].home.goal = data1[i].updateArray.stats[0].goals - data1[i].updateArray.stats_ten[0][0].goals
+                                    current_event.home.goal = stats[0].goals - stats_ten[0][0].goals
 
-                                    if(data1[i].updateArray.stats[1].goals - data1[i].updateArray.stats_ten[0][1].goals > this.eventArray[j].events[k].away.goal){
-                                        this.eventArray[j].events[k].away.flash = 1
+                                    if(stats[1].goals - stats_ten[0][1].goals > current_event.away.goal){
+                                        current_event.away.flash = 1
                                     }
                                     else{
-                                        this.eventArray[j].events[k].away.flash = 0
+                                        current_event.away.flash = 0
                                     }
-                                    this.eventArray[j].events[k].away.goal = data1[i].updateArray.stats[1].goals - data1[i].updateArray.stats_ten[0][1].goals
+                                    current_event.away.goal = stats[1].goals - stats_ten[0][1].goals
                                     //---------------------------------------Total Part-------------------------------------------
-                                    if(this.eventArray[j].events[k].home.id === data1[i].updateArray.stats[0].team_id){
-                                        this.eventArray[j].events[k].homeT.on = data1[i].updateArray.stats[0].shots.ongoal
-                                        this.eventArray[j].events[k].awayT.on = data1[i].updateArray.stats[1].shots.ongoal
-                                        this.eventArray[j].events[k].homeT.off = data1[i].updateArray.stats[0].shots.offgoal
-                                        this.eventArray[j].events[k].awayT.off = data1[i].updateArray.stats[1].shots.offgoal
-                                        this.eventArray[j].events[k].homeT.blk = data1[i].updateArray.stats[0].shots.blocked
-                                        this.eventArray[j].events[k].awayT.blk = data1[i].updateArray.stats[1].shots.blocked
-                                        this.eventArray[j].events[k].homeT.in = data1[i].updateArray.stats[0].shots.insidebox
-                                        this.eventArray[j].events[k].awayT.in = data1[i].updateArray.stats[1].shots.insidebox
-                                        this.eventArray[j].events[k].homeT.out = data1[i].updateArray.stats[0].shots.outsidebox
-                                        this.eventArray[j].events[k].awayT.out = data1[i].updateArray.stats[1].shots.outsidebox
-                                        this.eventArray[j].events[k].homeT.cnr = data1[i].updateArray.stats[0].corners
-                                        this.eventArray[j].events[k].awayT.cnr = data1[i].updateArray.stats[1].corners
-                                        if(data1[i].updateArray.stats[0].attacks){
-                                            this.eventArray[j].events[k].homeT.da = data1[i].updateArray.stats[0].attacks.dangerous_attacks
-                                            this.eventArray[j].events[k].awayT.da = data1[i].updateArray.stats[1].attacks.dangerous_attacks
-                                            this.eventArray[j].events[k].homeT.atk = data1[i].updateArray.stats[0].attacks.attacks
-                                            this.eventArray[j].events[k].awayT.atk = data1[i].updateArray.stats[1].attacks.attacks
+                                    if(current_event.home.id === stats[0].team_id){
+                                        current_event.homeT.on = stats[0].shots.ongoal
+                                        current_event.awayT.on = stats[1].shots.ongoal
+                                        current_event.homeT.off = stats[0].shots.offgoal
+                                        current_event.awayT.off = stats[1].shots.offgoal
+                                        current_event.homeT.blk = stats[0].shots.blocked
+                                        current_event.awayT.blk = stats[1].shots.blocked
+                                        current_event.homeT.in = stats[0].shots.insidebox
+                                        current_event.awayT.in = stats[1].shots.insidebox
+                                        current_event.homeT.out = stats[0].shots.outsidebox
+                                        current_event.awayT.out = stats[1].shots.outsidebox
+                                        current_event.homeT.cnr = stats[0].corners
+                                        current_event.awayT.cnr = stats[1].corners
+                                        if(stats[0].attacks){
+                                            current_event.homeT.da = stats[0].attacks.dangerous_attacks
+                                            current_event.awayT.da = stats[1].attacks.dangerous_attacks
+                                            current_event.homeT.atk = stats[0].attacks.attacks
+                                            current_event.awayT.atk = stats[1].attacks.attacks
                                         }
                                         else{
-                                            this.eventArray[j].events[k].homeT.da = null
-                                            this.eventArray[j].events[k].awayT.da = null
-                                            this.eventArray[j].events[k].homeT.atk = null
-                                            this.eventArray[j].events[k].awayT.atk = null
+                                            current_event.homeT.da = null
+                                            current_event.awayT.da = null
+                                            current_event.homeT.atk = null
+                                            current_event.awayT.atk = null
                                         }
 
-                                        this.eventArray[j].events[k].homeT.goal = data1[i].updateArray.stats[0].goals
-                                        this.eventArray[j].events[k].awayT.goal = data1[i].updateArray.stats[1].goals
+                                        current_event.homeT.goal = stats[0].goals
+                                        current_event.awayT.goal = stats[1].goals
 
-                                        this.eventArray[j].events[k].homeT.poss = data1[i].updateArray.stats[0].possessiontime
-                                        this.eventArray[j].events[k].awayT.poss = data1[i].updateArray.stats[1].possessiontime
-                                        if(data1[i].updateArray.stats[0].passes != null){
-                                            this.eventArray[j].events[k].homeT.pas = data1[i].updateArray.stats[0].passes.total
-                                            this.eventArray[j].events[k].awayT.pas = data1[i].updateArray.stats[1].passes.total
+                                        current_event.homeT.poss = stats[0].possessiontime
+                                        current_event.awayT.poss = stats[1].possessiontime
+                                        if(stats[0].passes != null){
+                                            current_event.homeT.pas = stats[0].passes.total
+                                            current_event.awayT.pas = stats[1].passes.total
                                         }
                                         else{
-                                            this.eventArray[j].events[k].homeT.pas = null
-                                            this.eventArray[j].events[k].awayT.pas = null
+                                            current_event.homeT.pas = null
+                                            current_event.awayT.pas = null
                                         }
-                                        if(data1[i].updateArray.stats[0].passes != null){
-                                            this.eventArray[j].events[k].homeT.acc = data1[i].updateArray.stats[0].passes.accurate
-                                            this.eventArray[j].events[k].awayT.acc = data1[i].updateArray.stats[1].passes.accurate
+                                        if(stats[0].passes != null){
+                                            current_event.homeT.acc = stats[0].passes.accurate
+                                            current_event.awayT.acc = stats[1].passes.accurate
                                         }
                                         else{
-                                            this.eventArray[j].events[k].homeT.acc = null
-                                            this.eventArray[j].events[k].awayT.acc = null
+                                            current_event.homeT.acc = null
+                                            current_event.awayT.acc = null
                                         }
 
-                                        this.eventArray[j].events[k].homeT.ofs = data1[i].updateArray.stats[0].offsides
-                                        this.eventArray[j].events[k].awayT.ofs = data1[i].updateArray.stats[1].offsides
-                                        this.eventArray[j].events[k].homeT.sav = data1[i].updateArray.stats[0].saves
-                                        this.eventArray[j].events[k].awayT.sav = data1[i].updateArray.stats[1].saves
-                                        this.eventArray[j].events[k].homeT.sbst = data1[i].updateArray.stats[0].substitutions
-                                        this.eventArray[j].events[k].awayT.sbst = data1[i].updateArray.stats[1].substitutions
-                                        this.eventArray[j].events[k].homeT.red = data1[i].updateArray.stats[0].redcards
-                                        this.eventArray[j].events[k].awayT.red = data1[i].updateArray.stats[1].redcards
-                                        this.eventArray[j].events[k].homeT.fou = data1[i].updateArray.stats[0].fouls
-                                        this.eventArray[j].events[k].awayT.fou = data1[i].updateArray.stats[1].fouls
-                                        this.eventArray[j].events[k].homeT.g_att = data1[i].updateArray.stats[0].goal_attempts
-                                        this.eventArray[j].events[k].awayT.g_att = data1[i].updateArray.stats[1].goal_attempts
-                                        this.eventArray[j].events[k].homeT.safe = data1[i].updateArray.stats[0].ball_safe
-                                        this.eventArray[j].events[k].awayT.safe = data1[i].updateArray.stats[1].ball_safe
+                                        current_event.homeT.ofs = stats[0].offsides
+                                        current_event.awayT.ofs = stats[1].offsides
+                                        current_event.homeT.sav = stats[0].saves
+                                        current_event.awayT.sav = stats[1].saves
+                                        current_event.homeT.sbst = stats[0].substitutions
+                                        current_event.awayT.sbst = stats[1].substitutions
+                                        current_event.homeT.red = stats[0].redcards
+                                        current_event.awayT.red = stats[1].redcards
+                                        current_event.homeT.fou = stats[0].fouls
+                                        current_event.awayT.fou = stats[1].fouls
+                                        current_event.homeT.g_att = stats[0].goal_attempts
+                                        current_event.awayT.g_att = stats[1].goal_attempts
+                                        current_event.homeT.safe = stats[0].ball_safe
+                                        current_event.awayT.safe = stats[1].ball_safe
                                     }
                                     else{
-                                        this.eventArray[j].events[k].homeT.on = data1[i].updateArray.stats[1].shots.ongoal
-                                        this.eventArray[j].events[k].awayT.on = data1[i].updateArray.stats[0].shots.ongoal
-                                        this.eventArray[j].events[k].homeT.off = data1[i].updateArray.stats[1].shots.offgoal
-                                        this.eventArray[j].events[k].awayT.off = data1[i].updateArray.stats[0].shots.offgoal
-                                        this.eventArray[j].events[k].homeT.blk = data1[i].updateArray.stats[1].shots.blocked
-                                        this.eventArray[j].events[k].awayT.blk = data1[i].updateArray.stats[0].shots.blocked
-                                        this.eventArray[j].events[k].homeT.in = data1[i].updateArray.stats[1].shots.insidebox
-                                        this.eventArray[j].events[k].awayT.in = data1[i].updateArray.stats[0].shots.insidebox
-                                        this.eventArray[j].events[k].homeT.out = data1[i].updateArray.stats[1].shots.outsidebox
-                                        this.eventArray[j].events[k].awayT.out = data1[i].updateArray.stats[0].shots.outsidebox
-                                        this.eventArray[j].events[k].homeT.cnr = data1[i].updateArray.stats[1].corners
-                                        this.eventArray[j].events[k].awayT.cnr = data1[i].updateArray.stats[0].corners
-                                        this.eventArray[j].events[k].homeT.da = data1[i].updateArray.stats[1].attacks.dangerous_attacks
-                                        this.eventArray[j].events[k].awayT.da = data1[i].updateArray.stats[0].attacks.dangerous_attacks
-                                        this.eventArray[j].events[k].homeT.goal = data1[i].updateArray.stats[1].goals
-                                        this.eventArray[j].events[k].awayT.goal = data1[i].updateArray.stats[0].goals
+                                        this.eventArray[j].events[k].homeT.on = stats[1].shots.ongoal
+                                        this.eventArray[j].events[k].awayT.on = stats[0].shots.ongoal
+                                        this.eventArray[j].events[k].homeT.off = stats[1].shots.offgoal
+                                        this.eventArray[j].events[k].awayT.off = stats[0].shots.offgoal
+                                        this.eventArray[j].events[k].homeT.blk = stats[1].shots.blocked
+                                        this.eventArray[j].events[k].awayT.blk = stats[0].shots.blocked
+                                        this.eventArray[j].events[k].homeT.in = stats[1].shots.insidebox
+                                        this.eventArray[j].events[k].awayT.in = stats[0].shots.insidebox
+                                        this.eventArray[j].events[k].homeT.out = stats[1].shots.outsidebox
+                                        this.eventArray[j].events[k].awayT.out = stats[0].shots.outsidebox
+                                        this.eventArray[j].events[k].homeT.cnr = stats[1].corners
+                                        this.eventArray[j].events[k].awayT.cnr = stats[0].corners
+                                        this.eventArray[j].events[k].homeT.da = stats[1].attacks.dangerous_attacks
+                                        this.eventArray[j].events[k].awayT.da = stats[0].attacks.dangerous_attacks
+                                        this.eventArray[j].events[k].homeT.goal = stats[1].goals
+                                        this.eventArray[j].events[k].awayT.goal = stats[0].goals
 
-                                        this.eventArray[j].events[k].homeT.poss = data1[i].updateArray.stats[1].possessiontime
-                                        this.eventArray[j].events[k].awayT.poss = data1[i].updateArray.stats[0].possessiontime
-                                        if(data1[i].updateArray.stats[0].passes != null){
-                                            this.eventArray[j].events[k].homeT.pas = data1[i].updateArray.stats[1].passes.total
-                                            this.eventArray[j].events[k].awayT.pas = data1[i].updateArray.stats[0].passes.total
+                                        this.eventArray[j].events[k].homeT.poss = stats[1].possessiontime
+                                        this.eventArray[j].events[k].awayT.poss = stats[0].possessiontime
+                                        if(stats[0].passes != null){
+                                            this.eventArray[j].events[k].homeT.pas = stats[1].passes.total
+                                            this.eventArray[j].events[k].awayT.pas = stats[0].passes.total
                                         }
                                         else{
                                             this.eventArray[j].events[k].homeT.pas = null
                                             this.eventArray[j].events[k].awayT.pas = null
                                         }
-                                        if(data1[i].updateArray.stats[0].passes != null){
-                                            this.eventArray[j].events[k].homeT.acc = data1[i].updateArray.stats[1].passes.accurate
-                                            this.eventArray[j].events[k].awayT.acc = data1[i].updateArray.stats[0].passes.accurate
+                                        if(stats[0].passes != null){
+                                            this.eventArray[j].events[k].homeT.acc = stats[1].passes.accurate
+                                            this.eventArray[j].events[k].awayT.acc = stats[0].passes.accurate
                                         }
                                         else{
                                             this.eventArray[j].events[k].homeT.acc = null
                                             this.eventArray[j].events[k].awayT.acc = null
                                         }
-                                        this.eventArray[j].events[k].homeT.atk = data1[i].updateArray.stats[1].attacks.attacks
-                                        this.eventArray[j].events[k].awayT.atk = data1[i].updateArray.stats[0].attacks.attacks
-                                        this.eventArray[j].events[k].homeT.ofs = data1[i].updateArray.stats[1].offsides
-                                        this.eventArray[j].events[k].awayT.ofs = data1[i].updateArray.stats[0].offsides
-                                        this.eventArray[j].events[k].homeT.sav = data1[i].updateArray.stats[1].saves
-                                        this.eventArray[j].events[k].awayT.sav = data1[i].updateArray.stats[0].saves
-                                        this.eventArray[j].events[k].homeT.sbst = data1[i].updateArray.stats[1].substitutions
-                                        this.eventArray[j].events[k].awayT.sbst = data1[i].updateArray.stats[0].substitutions
-                                        this.eventArray[j].events[k].homeT.red = data1[i].updateArray.stats[1].redcards
-                                        this.eventArray[j].events[k].awayT.red = data1[i].updateArray.stats[0].redcards
-                                        this.eventArray[j].events[k].homeT.fou = data1[i].updateArray.stats[1].fouls
-                                        this.eventArray[j].events[k].awayT.fou = data1[i].updateArray.stats[0].fouls
-                                        this.eventArray[j].events[k].homeT.g_att = data1[i].updateArray.stats[1].goal_attempts
-                                        this.eventArray[j].events[k].awayT.g_att = data1[i].updateArray.stats[0].goal_attempts
-                                        this.eventArray[j].events[k].homeT.safe = data1[i].updateArray.stats[1].ball_safe
-                                        this.eventArray[j].events[k].awayT.safe = data1[i].updateArray.stats[0].ball_safe
+                                        this.eventArray[j].events[k].homeT.atk = stats[1].attacks.attacks
+                                        this.eventArray[j].events[k].awayT.atk = stats[0].attacks.attacks
+                                        this.eventArray[j].events[k].homeT.ofs = stats[1].offsides
+                                        this.eventArray[j].events[k].awayT.ofs = stats[0].offsides
+                                        this.eventArray[j].events[k].homeT.sav = stats[1].saves
+                                        this.eventArray[j].events[k].awayT.sav = stats[0].saves
+                                        this.eventArray[j].events[k].homeT.sbst = stats[1].substitutions
+                                        this.eventArray[j].events[k].awayT.sbst = stats[0].substitutions
+                                        this.eventArray[j].events[k].homeT.red = stats[1].redcards
+                                        this.eventArray[j].events[k].awayT.red = stats[0].redcards
+                                        this.eventArray[j].events[k].homeT.fou = stats[1].fouls
+                                        this.eventArray[j].events[k].awayT.fou = stats[0].fouls
+                                        this.eventArray[j].events[k].homeT.g_att = stats[1].goal_attempts
+                                        this.eventArray[j].events[k].awayT.g_att = stats[0].goal_attempts
+                                        this.eventArray[j].events[k].homeT.safe = stats[1].ball_safe
+                                        this.eventArray[j].events[k].awayT.safe = stats[0].ball_safe
                                     }
                                     //------------------------------------------------------------------------------------------------
+                                    this.eventArray[j].events[k] = current_event
                                 }
                             }
                         }
