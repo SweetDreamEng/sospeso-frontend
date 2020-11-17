@@ -5528,53 +5528,6 @@ console.log('++++++++++++++++++++++++++++++++', this.homeTeam.on.from, ', ', thi
 
                     if(away_statsdata.length > 0){
                         if(away_statsdata[0].team_id == home_id){
-                            if(away_statsdata[0].shots){
-                                if(away_statsdata[0].shots.ongoal){
-                                    away_stats_data.on = away_statsdata[0].shots.ongoal
-                                }
-                                if(away_statsdata[0].shots.offgoal){
-                                    away_stats_data.off = away_statsdata[0].shots.offgoal
-                                }
-                                if(away_statsdata[0].shots.blocked){
-                                    away_stats_data.blk = away_statsdata[0].shots.blocked
-                                }
-
-                                if(away_statsdata[0].shots.insidebox){
-                                    away_stats_data.in = away_statsdata[0].shots.insidebox
-                                }
-
-                                if(away_statsdata[0].shots.outsidebox){
-                                    away_stats_data.out = away_statsdata[0].shots.outsidebox
-                                }
-                            }
-
-                            if(away_statsdata[0].corners){
-                                away_stats_data.cnr = away_statsdata[0].corners
-                            }
-
-                            if(away_statsdata[0].attacks){
-                                if(away_statsdata[0].attacks.dangerous_attacks){
-                                    away_stats_data.da = away_statsdata[0].attacks.dangerous_attacks
-                                }
-                            }
-
-                            if(away_statsdata[0].possessiontime){
-                                away_stats_data.pos = away_statsdata[0].possessiontime
-                            }
-
-                            if(away_statsdata[0].redcards){
-                                away_stats_data.red = away_statsdata[0].redcards
-                            }
-
-                            if(away_statsdata[0].yellowcards){
-                                away_stats_data.yel = away_statsdata[0].yellowcards
-                            }
-
-                            if(away_statsdata[0].goals){
-                                away_stats_data.goal = away_statsdata[0].goals
-                            }
-                        }
-                        else if(home_statsData[1].team_id == home_id){
                             if(away_statsdata[1].shots){
                                 if(away_statsdata[1].shots.ongoal){
                                     away_stats_data.on = away_statsdata[1].shots.ongoal
@@ -5618,7 +5571,54 @@ console.log('++++++++++++++++++++++++++++++++', this.homeTeam.on.from, ', ', thi
                             }
 
                             if(away_statsdata[1].goals){
-                                away_stats_data.goal = away_statsdata[1].goals
+                                away_stats_data.goal = away_statsdata[0].goals
+                            }
+                        }
+                        else if(home_statsData[1].team_id == home_id){
+                            if(away_statsdata[0].shots){
+                                if(away_statsdata[0].shots.ongoal){
+                                    away_stats_data.on = away_statsdata[0].shots.ongoal
+                                }
+                                if(away_statsdata[0].shots.offgoal){
+                                    away_stats_data.off = away_statsdata[0].shots.offgoal
+                                }
+                                if(away_statsdata[0].shots.blocked){
+                                    away_stats_data.blk = away_statsdata[0].shots.blocked
+                                }
+
+                                if(away_statsdata[0].shots.insidebox){
+                                    away_stats_data.in = away_statsdata[0].shots.insidebox
+                                }
+
+                                if(away_statsdata[0].shots.outsidebox){
+                                    away_stats_data.out = away_statsdata[0].shots.outsidebox
+                                }
+                            }
+
+                            if(away_statsdata[0].corners){
+                                away_stats_data.cnr = away_statsdata[0].corners
+                            }
+
+                            if(away_statsdata[0].attacks){
+                                if(away_statsdata[1].attacks.dangerous_attacks){
+                                    away_stats_data.da = away_statsdata[0].attacks.dangerous_attacks
+                                }
+                            }
+
+                            if(away_statsdata[0].possessiontime){
+                                away_stats_data.pos = away_statsdata[0].possessiontime
+                            }
+
+                            if(away_statsdata[0].redcards){
+                                away_stats_data.red = away_statsdata[0].redcards
+                            }
+
+                            if(away_statsdata[0].yellowcards){
+                                away_stats_data.yel = away_statsdata[0].yellowcards
+                            }
+
+                            if(away_statsdata[0].goals){
+                                away_stats_data.goal = away_statsdata[0].goals
                             }
                         }
                     }
