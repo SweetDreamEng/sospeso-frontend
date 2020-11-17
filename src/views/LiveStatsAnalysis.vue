@@ -74,8 +74,7 @@
                     <label style="color: red; font-weight: bold;">Missed livestats data: <strong style="color: blue; font-weight: bold; font-size: 14px!important">{{missed_filtered_result}}</strong></label>
                 </div>
             </CCol>
-            <CCol lg="6" class="stats-filter-content" style="height: 520px; background: white; padding: 20px 30px;">
-
+            <CCol lg="6" class="stats-filter-content" style="height: 630px; background: white; padding: 20px 30px;">
                 <label style="color: red; margin-top: 30px;">Score Filter</label>
                 <div class="totalMatches" style="display: flex; font-weight: 600; font-size: 12px;">
                     <div style="flex: 1; text-align: center;">
@@ -648,7 +647,7 @@
                 </div>
 
             </CCol>
-            <CCol lg="6" class="stats-filter-content" style="height: 520px; background: white; padding: 20px 30px;">
+            <CCol lg="6" class="stats-filter-content" style="height: 630px; background: white; padding: 20px 30px;">
                 <label style="color: red; font-weight: bold;">Selected Event Stats:</label>
                 <div class="stats-header">
                     <div style="flex: 2; border-right: 1px solid lightgray; color: black;">
