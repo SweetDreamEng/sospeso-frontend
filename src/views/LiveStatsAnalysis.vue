@@ -75,6 +75,142 @@
                 </div>
             </CCol>
             <CCol lg="6" class="stats-filter-content" style="height: 520px; background: white; padding: 20px 30px;">
+
+                <label style="color: red; margin-top: 30px;">Score Filter</label>
+                <div class="totalMatches" style="display: flex; font-weight: 600; font-size: 12px;">
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header" style="color: #d1c4e1;">.</p>
+                        <p class="value" style="padding: 3px; width: 100px;">From minute</p>
+                        <p class="percent" style="padding: 3px; width: 100px;">To minute</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Ov 0.5</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.over05.from" @update:value="score_over05_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.over05.to" @update:value="score_over05_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Ov 1.5</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.over15.from" @update:value="score_over15_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.over15.to" @update:value="score_over15_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Ov 2.5</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.over25.from" @update:value="score_over25_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.over25.to" @update:value="score_over25_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Ov 3.5</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.over35.from" @update:value="score_over35_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.over35.to" @update:value="score_over35_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Un 0.5</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.under05.from" @update:value="score_under05_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.under05.to" @update:value="score_under05_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Un 1.5</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.under15.from" @update:value="score_under15_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.under15.to" @update:value="score_under15_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Un 2.5</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.under25.from" @update:value="score_under25_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.under25.to" @update:value="score_under25_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Un 3.5</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.under35.from" @update:value="score_under35_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.under35.to" @update:value="score_under35_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Home</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.home.from" @update:value="score_home_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.home.to" @update:value="score_home_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Draws</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.draws.from" @update:value="score_draws_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.draws.to" @update:value="score_draws_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Away</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.away.from" @update:value="score_away_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.away.to" @update:value="score_away_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">BTS</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.bts.from" @update:value="score_bts_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.bts.to" @update:value="score_bts_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Odd</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.odd.from" @update:value="score_odd_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.odd.to" @update:value="score_odd_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <p class="header">Even</p>
+                        <p class="value">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.even.from" @update:value="score_even_from" class="minOdd1"></CInput>
+                        </p>
+                        <p class="percent">
+                            <CInput type="number" min="0" max="90000000" :value="score_minute_filter.even.to" @update:value="score_even_to" class="minOdd1"></CInput>
+                        </p>
+                    </div>
+                </div>
+
                 <div style="width: 100%;">
                     <label>Home Team:</label>
                 </div>
@@ -2513,6 +2649,68 @@
                     'red': '-',
                     'yel': '-'
                 },
+                score_minute_filter:{
+                    'minute':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'over05':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'over15':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'over25':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'over35':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'under05':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'under15':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'under25':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'under35':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'home':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'draws':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'away':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'bts':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'odd':{
+                        'from': 0,
+                        'to': 1000
+                    },
+                    'even':{
+                        'from': 0,
+                        'to': 1000
+                    }
+                }
             }
         },
         methods: {
@@ -4818,6 +5016,350 @@
             max_minute_f(){
 
             },
+
+            score_over05_from(val){
+                this.score_minute_filter.over05.from = parseInt(val)
+                console.log('over 0.5 home minute=>', this.score_minute_filter.over05.from)
+                this.get_search_events()
+            },
+            score_over05_to(val){
+                this.score_minute_filter.over05.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_over15_from(val){
+                this.score_minute_filter.over15.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_over15_to(val){
+                this.score_minute_filter.over15.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_over25_from(val){
+                this.score_minute_filter.over25.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_over25_to(val){
+                this.score_minute_filter.over25.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_over35_from(val){
+                this.score_minute_filter.over35.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_over35_to(val){
+                this.score_minute_filter.over35.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_under05_from(val){
+                this.score_minute_filter.under05.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_under05_to(val){
+                this.score_minute_filter.under05.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_under15_from(val){
+                this.score_minute_filter.under15.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_under15_to(val){
+                this.score_minute_filter.under15.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_under25_from(val){
+                this.score_minute_filter.under25.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_under25_to(val){
+                this.score_minute_filter.under25.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_under35_from(val){
+                this.score_minute_filter.under35.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_under35_to(val){
+                this.score_minute_filter.under35.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_home_from(val){
+                this.score_minute_filter.home.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_home_to(val){
+                this.score_minute_filter.home.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_draws_from(val){
+                this.score_minute_filter.draws.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_draws_to(val){
+                this.score_minute_filter.draws.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_away_from(val){
+                this.score_minute_filter.away.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_away_to(val){
+                this.score_minute_filter.away.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_bts_from(val){
+                this.score_minute_filter.bts.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_bts_to(val){
+                this.score_minute_filter.bts.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_odd_from(val){
+                this.score_minute_filter.odd.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_odd_to(val){
+                this.score_minute_filter.odd.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_even_from(val){
+                this.score_minute_filter.even.from = parseInt(val)
+                this.get_search_events()
+            },
+            score_even_to(val){
+                this.score_minute_filter.even.to = parseInt(val)
+                this.get_search_events()
+            },
+            score_filter_function1(sum, a , b){
+                console.log('final score filter check===>', sum, a, b)
+                for(let i = 1 ; i < this.eventList.length ; i++){
+                    if(this.eventList[i].value.scores.length > 0){
+                        let home_score = -100
+                        let away_score = -100
+                        for(let j = 0 ; j < this.eventList[i].value.scores.length ; j++){
+                            if(this.eventList[i].value.time[j].minute >= a && this.eventList[i].value.time[j].minute <= b){
+                                home_score = this.eventList[i].value.scores[j].localteam_score
+                                away_score = this.eventList[i].value.scores[j].visitorteam_score
+                            }
+                        }
+                        if((parseInt(home_score) + parseInt(away_score)) < sum){
+                            console.log('remove====>', home_score, away_score, sum)
+                            let index = this.eventList.indexOf(this.eventList[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.eventList.splice(index, 1);
+                            }
+                        }
+                    }
+                    else{
+                        let index = this.eventList.indexOf(this.eventList[i]);
+                        if (index > -1) {
+                            i = i - 1
+                            this.eventList.splice(index, 1);
+                        }
+                    }
+                }
+            },
+            score_filter_function2(sum, a, b){
+                for(let i = 1 ; i < this.eventList.length ; i++){
+                    if(this.eventList[i].value.scores.length > 0){
+                        let home_score = -100
+                        let away_score = -100
+                        for(let j = 0 ; j < this.eventList[i].value.scores.length ; j++){
+                            if(this.eventList[i].value.time[j].minute >= a && this.eventList[i].value.time[j].minute <= b){
+                                home_score = this.eventList[i].value.scores[j].localteam_score
+                                away_score = this.eventList[i].value.scores[j].visitorteam_score
+                            }
+                        }
+                        if((parseInt(home_score) + parseInt(away_score)) >= sum){
+                            let index = this.eventList.indexOf(this.eventList[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.eventList.splice(index, 1);
+                            }
+                        }
+                    }
+                    else{
+                        let index = this.eventList.indexOf(this.eventList[i]);
+                        if (index > -1) {
+                            i = i - 1
+                            this.eventList.splice(index, 1);
+                        }
+                    }
+                }
+            },
+            score_filter_function3(sum, a, b){
+                if(sum === 1){
+                    for(let i = 1 ; i < this.eventList.length ; i++){
+                        if(this.eventList[i].value.scores.length > 0){
+                            let home_score = -100
+                            let away_score = -100
+                            for(let j = 0 ; j < this.eventList[i].value.scores.length ; j++){
+                                if(this.eventList[i].value.time[j].minute >= a && this.eventList[i].value.time[j].minute <= b){
+                                    home_score = this.eventList[i].value.scores[j].localteam_score
+                                    away_score = this.eventList[i].value.scores[j].visitorteam_score
+                                }
+                            }
+                            if(parseInt(home_score) <= parseInt(away_score)){
+                                let index = this.eventList.indexOf(this.eventList[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.eventList.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.eventList.indexOf(this.eventList[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.eventList.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+                if(sum === 2){
+                    for(let i = 1 ; i < this.eventList.length ; i++){
+                        if(this.eventList[i].value.scores.length > 0){
+                            let home_score = -100
+                            let away_score = -100
+                            for(let j = 0 ; j < this.eventList[i].value.scores.length ; j++){
+                                if(this.eventList[i].value.time[j].minute >= a && this.eventList[i].value.time[j].minute <= b){
+                                    home_score = this.eventList[i].value.scores[j].localteam_score
+                                    away_score = this.eventList[i].value.scores[j].visitorteam_score
+                                }
+                            }
+                            if(parseInt(home_score) != parseInt(away_score)){
+                                let index = this.eventList.indexOf(this.eventList[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.eventList.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.eventList.indexOf(this.eventList[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.eventList.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+                if(sum === 3){
+                    for(let i = 1 ; i < this.eventList.length ; i++){
+                        if(this.eventList[i].value.scores.length > 0){
+                            let home_score = -100
+                            let away_score = -100
+                            for(let j = 0 ; j < this.eventList[i].value.scores.length ; j++){
+                                if(this.eventList[i].value.time[j].minute >= a && this.eventList[i].value.time[j].minute <= b){
+                                    home_score = this.eventList[i].value.scores[j].localteam_score
+                                    away_score = this.eventList[i].value.scores[j].visitorteam_score
+                                }
+                            }
+                            if(parseInt(home_score) >= parseInt(away_score)){
+                                let index = this.eventList.indexOf(this.eventList[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.eventList.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.eventList.indexOf(this.eventList[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.eventList.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+            },
+            score_filter_function4(sum, a, b){
+                if(sum === 1){
+                    for(let i = 1 ; i < this.eventList.length ; i++){
+                        if(this.eventList[i].value.scores.length > 0){
+                            let home_score = -100
+                            let away_score = -100
+                            for(let j = 0 ; j < this.eventList[i].value.scores.length ; j++){
+                                if(this.eventList[i].value.time[j].minute >= a && this.eventList[i].value.time[j].minute <= b){
+                                    home_score = this.eventList[i].value.scores[j].localteam_score
+                                    away_score = this.eventList[i].value.scores[j].visitorteam_score
+                                }
+                            }
+                            if(parseInt(home_score) < 1 || parseInt(away_score) < 1){
+                                let index = this.eventList.indexOf(this.eventList[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.eventList.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.eventList.indexOf(this.eventList[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.eventList.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+                if(sum === 2){
+                    for(let i = 1 ; i < this.eventList.length ; i++){
+                        if(this.eventList[i].value.scores.length > 0){
+                            let home_score = -100
+                            let away_score = -100
+                            for(let j = 0 ; j < this.eventList[i].value.scores.length ; j++){
+                                if(this.eventList[i].value.time[j].minute >= a && this.eventList[i].value.time[j].minute <= b){
+                                    home_score = this.eventList[i].value.scores[j].localteam_score
+                                    away_score = this.eventList[i].value.scores[j].visitorteam_score
+                                }
+                            }
+                            if((parseInt(home_score) + parseInt(away_score)) % 2 === 0){
+                                let index = this.eventList.indexOf(this.eventList[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.eventList.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.eventList.indexOf(this.eventList[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.eventList.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+                if(sum === 3){
+                    for(let i = 1 ; i < this.eventList.length ; i++){
+                        if(this.eventList[i].value.scores.length > 0){
+                            let home_score = -100
+                            let away_score = -100
+                            for(let j = 0 ; j < this.eventList[i].value.scores.length ; j++){
+                                if(this.eventList[i].value.time[j].minute >= a && this.eventList[i].value.time[j].minute <= b){
+                                    home_score = this.eventList[i].value.scores[j].localteam_score
+                                    away_score = this.eventList[i].value.scores[j].visitorteam_score
+                                }
+                            }
+                            if((parseInt(home_score) + parseInt(away_score)) % 2 === 1){
+                                let index = this.eventList.indexOf(this.eventList[i]);
+                                if (index > -1) {
+                                    i = i - 1
+                                    this.eventList.splice(index, 1);
+                                }
+                            }
+                        }
+                        else{
+                            let index = this.eventList.indexOf(this.eventList[i]);
+                            if (index > -1) {
+                                i = i - 1
+                                this.eventList.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+            },
             home_minute_from_filter(val){
                 this.homeTeam.minute.from = val
                 this.get_search_events()
@@ -6000,6 +6542,53 @@
 //                     }
                 }
                 this.eventList = event_list
+
+                //------------------------------score minute filter-----------------------
+                if(this.score_minute_filter.over05.from != 0 || this.score_minute_filter.over05.to != 1000){
+                    console.log('score filter check==>', this.score_minute_filter.over05.from)
+                    this.score_filter_function1(1, this.score_minute_filter.over05.from, this.score_minute_filter.over05.to)
+                }
+                if(this.score_minute_filter.over15.from != 0 || this.score_minute_filter.over15.to != 1000){
+                    this.score_filter_function1(2, this.score_minute_filter.over15.from, this.score_minute_filter.over15.to)
+                }
+                if(this.score_minute_filter.over25.from != 0 || this.score_minute_filter.over25.to != 1000){
+                    this.score_filter_function1(3, this.score_minute_filter.over25.from, this.score_minute_filter.over25.to)
+                }
+                if(this.score_minute_filter.over35.from != 0 || this.score_minute_filter.over35.to != 1000){
+                    this.score_filter_function1(4, this.score_minute_filter.over35.from, this.score_minute_filter.over35.to)
+                }
+                if(this.score_minute_filter.under05.from != 0 || this.score_minute_filter.under05.to != 1000){
+                    this.score_filter_function2(1, this.score_minute_filter.under05.from, this.score_minute_filter.under05.to)
+                }
+                if(this.score_minute_filter.under15.from != 0 || this.score_minute_filter.under15.to != 1000){
+                    this.score_filter_function2(2, this.score_minute_filter.under15.from, this.score_minute_filter.under15.to)
+                }
+                if(this.score_minute_filter.under25.from != 0 || this.score_minute_filter.under25.to != 1000){
+                    this.score_filter_function2(3, this.score_minute_filter.under25.from, this.score_minute_filter.under25.to)
+                }
+                if(this.score_minute_filter.under35.from != 0 || this.score_minute_filter.under35.to != 1000){
+                    this.score_filter_function2(4, this.score_minute_filter.under35.from, this.score_minute_filter.under35.to)
+                }
+                if(this.score_minute_filter.home.from != 0 || this.score_minute_filter.home.to != 1000){
+                    this.score_filter_function3(1, this.score_minute_filter.home.from, this.score_minute_filter.home.to)
+                }
+                if(this.score_minute_filter.draws.from != 0 || this.score_minute_filter.draws.to != 1000){
+                    this.score_filter_function3(2, this.score_minute_filter.draws.from, this.score_minute_filter.draws.to)
+                }
+                if(this.score_minute_filter.away.from != 0 || this.score_minute_filter.away.to != 1000){
+                    this.score_filter_function3(3, this.score_minute_filter.away.from, this.score_minute_filter.away.to)
+                }
+                if(this.score_minute_filter.bts.from != 0 || this.score_minute_filter.bts.to != 1000){
+                    this.score_filter_function4(1, this.score_minute_filter.bts.from, this.score_minute_filter.bts.to)
+                }
+                if(this.score_minute_filter.odd.from != 0 || this.score_minute_filter.odd.to != 1000){
+                    this.score_filter_function4(2, this.score_minute_filter.odd.from, this.score_minute_filter.odd.to)
+                }
+                if(this.score_minute_filter.even.from != 0 || this.score_minute_filter.even.to != 1000){
+                    this.score_filter_function4(3, this.score_minute_filter.even.from, this.score_minute_filter.even.to)
+                }
+                //------------------------------------end--------------------------------
+
                 this.filtered_result = event_list.length - 1
                 this.missed_filtered_result = 0
                 for(let i = 1 ; i < event_list.length ; i++){
