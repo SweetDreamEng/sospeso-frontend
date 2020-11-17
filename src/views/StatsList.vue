@@ -6114,12 +6114,13 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                 window.axios.post(`${process.env.VUE_APP_URL}getStatsNew`).then(({data})=> {
                     console.log('data******', data.data[0])
                     console.log('data1******', data.data[1])
+                    console.log('data2******', data.data[2])
                     this.standingList = data.data[1]
-                    let main_data = data.data[0]
+                    let main_data = data.data[2]
                     this.mainData = main_data
                     let competitionArray = []
                     for(let i = 0 ; i < main_data.length ; i++){
-                        competitionArray[i] = main_data[i].competitions[0].name
+                        competitionArray[i] = main_data[i].competitions[0].league
                     }
                     competitionArray = Array.from(new Set (competitionArray))
 
@@ -6131,7 +6132,7 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                         let percentage = 0
                         let numbers = 0
                         for(let j = 0; j < main_data.length ; j++){
-                            if(competitionArray[i] == main_data[j].competitions[0].name && main_data[j].events.length < 45){
+                            if(competitionArray[i] == main_data[j].competitions[0].league && main_data[j].events.length < 45){
                                 k++
                                 let start_date4 = new Date();
                                 let next_date4 = start_date4.setDate(start_date4.getDate() + 0);
