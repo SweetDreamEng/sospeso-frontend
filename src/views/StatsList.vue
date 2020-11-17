@@ -6605,16 +6605,19 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                                 if(away.p == 0){away.secondplus = 0; away.secondminus = 0; away.homefirst = 0; away.drawfirst = 0; away.awayfirst = 0; away.homesecond = 0; away.drawsecond = 0; away.awaysecond = 0}
                             }
                         }
+
                         let countryName = this.countryCodeList.filter(function(item) {
                             return item.ccode == countryCode;
                         });
 
-                        if(countryName.length > 0 && events.length > 0){
-                            this.mainList.push({'country': countryName[0].cname, 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers,  'events': events})
+                        let country1 = (competitionArray[i].split('(')[1]).split(')')[0]
+                        let league = competitionArray[i].split('(')[0]
+                        if(events.length > 0){
+                            this.mainList.push({'country': country1, 'league': league, 'percentage': percentage, 'numbers': numbers,  'events': events})
                         }
-                        else if(countryName.length < 1 && events.length > 0){
-                            this.mainList.push({'country': 'International', 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers, 'events': events})
-                        }
+                        // else if(countryName.length < 1 && events.length > 0){
+                        //     this.mainList.push({'country': 'International', 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers, 'events': events})
+                        // }
                         let self = this
                         this.sortJSON(self.mainList,'country', '123');
                     }
