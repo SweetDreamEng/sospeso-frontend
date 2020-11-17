@@ -5298,7 +5298,7 @@
 
                     if(this.homeTeam.rank.from != 0 || this.homeTeam.rank.to != 1000){
                         if(value.home_rank){
-                             if(value.home_rank < this.homeTeam.rank.from && value.home_rank > this.homeTeam.rank.to){
+                             if(value.home_rank < this.homeTeam.rank.from || value.home_rank > this.homeTeam.rank.to){
                                 check_status = 1
                              }
                         }
@@ -5420,10 +5420,10 @@
                     else{
                         check_status = 1
                     }
-console.log('++++++++++++++++++++++++++++++++', this.homeTeam.on.from, ', ', this.homeTeam.on.to, ', ', home_stats_data.on)
+console.log('++++++++++++++++++++++++++++++++', this.homeTeam.rank.from, ', ', this.homeTeam.rank.to)
                     if(this.homeTeam.on.from != 0 || this.homeTeam.on.to != 1000){
                         if(check_status === 0){
-                            if(!(home_stats_data.on >= this.homeTeam.on.from && home_stats_data.on <= this.homeTeam.on.to)){
+                            if(!(home_stats_data.on >= this.homeTeam.on.from || home_stats_data.on <= this.homeTeam.on.to)){
                                 check_status = 1
                             }
                         }
@@ -5491,6 +5491,14 @@ console.log('++++++++++++++++++++++++++++++++', this.homeTeam.on.from, ', ', thi
                             }
                         }
                     }
+
+                    if(this.homeTeam.goal.from != 0 || this.homeTeam.goal.to != 1000){
+                        if(check_status === 0){
+                            if(home_stats_data.goal < this.homeTeam.goal.from || home_stats_data.goal > this.homeTeam.goal.to){
+                                check_status = 1
+                            }
+                        }
+                    }
 //------------------------------------away team filter----------------------------------
                     for(let j = 0 ; j < times.length; j++){
                         if(times[j].minute >= this.awayTeam.minute.from && times[j].minute <= this.awayTeam.minute.to){
@@ -5503,7 +5511,7 @@ console.log('++++++++++++++++++++++++++++++++', this.homeTeam.on.from, ', ', thi
 
                     if(this.awayTeam.rank.from != 0 || this.awayTeam.rank.to != 1000){
                         if(value.away_rank){
-                            if(value.away_rank < this.awayTeam.rank.from && value.away_rank > this.awayTeam.rank.to){
+                            if(value.away_rank < this.awayTeam.rank.from || value.away_rank > this.awayTeam.rank.to){
                                 check_status = 1
                             }
                         }
@@ -5571,7 +5579,7 @@ console.log('++++++++++++++++++++++++++++++++', this.homeTeam.on.from, ', ', thi
                             }
 
                             if(away_statsdata[1].goals){
-                                away_stats_data.goal = away_statsdata[0].goals
+                                away_stats_data.goal = away_statsdata[1].goals
                             }
                         }
                         else if(home_statsData[1].team_id == home_id){
@@ -5692,6 +5700,13 @@ console.log('++++++++++++++++++++++++++++++++', this.homeTeam.on.from, ', ', thi
                     if(this.awayTeam.yel.from != 0 || this.awayTeam.yel.to != 1000){
                         if(check_status === 0){
                             if(away_stats_data.yel < this.awayTeam.yel.from || away_stats_data.yel > this.awayTeam.yel.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.awayTeam.goal.from != 0 || this.awayTeam.goal.to != 1000){
+                        if(check_status === 0){
+                            if(away_stats_data.goal < this.awayTeam.goal.from || away_stats_data.goal > this.awayTeam.goal.to){
                                 check_status = 1
                             }
                         }
