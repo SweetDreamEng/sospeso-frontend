@@ -5298,9 +5298,9 @@
 
                     if(this.homeTeam.rank.from != 0 || this.homeTeam.rank.to != 1000){
                         if(value.home_rank){
-                             if(value.home_rank < this.homeTeam.rank.from || value.home_rank > this.homeTeam.rank.to){
+                            if(value.home_rank < this.homeTeam.rank.from || value.home_rank > this.homeTeam.rank.to){
                                 check_status = 1
-                             }
+                            }
                         }
                         else{
                             check_status = 1
@@ -5420,7 +5420,6 @@
                     else{
                         check_status = 1
                     }
-console.log('++++++++++++++++++++++++++++++++', this.homeTeam.rank.from, ', ', this.homeTeam.rank.to)
                     if(this.homeTeam.on.from != 0 || this.homeTeam.on.to != 1000){
                         if(check_status === 0){
                             if(!(home_stats_data.on >= this.homeTeam.on.from || home_stats_data.on <= this.homeTeam.on.to)){
@@ -5491,7 +5490,6 @@ console.log('++++++++++++++++++++++++++++++++', this.homeTeam.rank.from, ', ', t
                             }
                         }
                     }
-
                     if(this.homeTeam.goal.from != 0 || this.homeTeam.goal.to != 1000){
                         if(check_status === 0){
                             if(home_stats_data.goal < this.homeTeam.goal.from || home_stats_data.goal > this.homeTeam.goal.to){
