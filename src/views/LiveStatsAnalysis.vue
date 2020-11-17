@@ -56,7 +56,7 @@
                 </div>
             </CCol>
             <CCol lg="6" style="height: 180px; background: white; padding: 20px 30px;">
-                <div style="width: 60%; float: left">
+                <div style="width: 40%; float: left">
                     <label style="color: red; font-weight: bold;">Events List</label>
                     <CSelect
                             class="event-list"
@@ -65,9 +65,13 @@
                     >
                     </CSelect>
                 </div>
-                <div style="width: 40%; float: left; padding-top: 20px;">
+                <div style="width: 30%; float: left; padding-top: 20px;">
                     <label style="color: red; font-weight: bold;">Total Matches Found: <strong style="color: blue; font-weight: bold; font-size: 14px!important">{{matches_found}}</strong></label><br>
                     <label style="color: red; font-weight: bold;">Total Filtered: <strong style="color: blue; font-weight: bold; font-size: 14px!important">{{filtered_result}}</strong></label>
+                </div>
+                <div style="width: 30%; float: left; padding-top: 20px;">
+                    <label style="color: red; font-weight: bold;">Missed livestats Data: <strong style="color: blue; font-weight: bold; font-size: 14px!important">{{missed_matches_found}}</strong></label><br>
+                    <label style="color: red; font-weight: bold;">Missed livestats data: <strong style="color: blue; font-weight: bold; font-size: 14px!important">{{missed_filtered_result}}</strong></label>
                 </div>
             </CCol>
             <CCol lg="6" class="stats-filter-content" style="height: 520px; background: white; padding: 20px 30px;">
@@ -2114,7 +2118,9 @@
                     }
                 },
                 matches_found: 0,
+                missed_matches_found: 0,
                 filtered_result: 0,
+                missed_filtered_result: 0,
                 total_live_home_stats:{
                     'goal': 0,
                     'on': 0,
@@ -2526,6 +2532,14 @@
                     this.origin_events = this.eventList
                     console.log('origin_events=>', this.origin_events)
                     this.matches_found = this.eventList.length - 1
+                    this.missed_filtered_result = 0
+                    this.missed_matches_found = 0
+                    for(let i = 1 ; i < this.eventList.length ; i++){
+                        if(this.eventList[i].value.stats.length < 1){
+                            this.missed_filtered_result++
+                            this.missed_matches_found++
+                        }
+                    }
                     this.filtered_result = this.eventList.length - 1
                     this.get_time_seg_stats(this.origin_events)
                     this.homeTeam = {
@@ -5269,342 +5283,717 @@
                     let times = value.time
                     let home_id = value.home_id
                     let away_id = value.away_id
-                    let statsData = []
+                    let home_statsData = []
+                    let away_statsdata = []
+                    let check_status = 0
+//---------------------------------------home team filter------------------------
                     for(let j = 0 ; j < times.length; j++){
-                        if(times[j].minute >= this.homeTeam.minute.from && times[j].minute <= this.homeTeam.minute.to && times[j].minute >= this.awayTeam.minute.from && times[j].minute <= this.awayTeam.minute.to){
-                            statsData = stats[j]
+                        if(times[j].minute >= this.homeTeam.minute.from && times[j].minute <= this.homeTeam.minute.to){
+                            home_statsData = stats[j]
                         }
                     }
-
-                    if(this.homeTeam.minute.from != 0 || this.homeTeam.minute.to != 1000){
-
+                    if(home_statsData.length < 1){
+                        check_status = 1
                     }
+
                     if(this.homeTeam.rank.from != 0 || this.homeTeam.rank.to != 1000){
                         if(value.home_rank){
-                             if(value.home_rank >= this.homeTeam.rank.from){
-
+                             if(value.home_rank < this.homeTeam.rank.from && value.home_rank > this.homeTeam.rank.to){
+                                check_status = 1
                              }
                         }
                         else{
-
+                            check_status = 1
                         }
                     }
-                    if(this.homeTeam.on.from != 0 || this.homeTeam.on.to != 1000){
 
-                    }
-                    if(this.homeTeam.off.from != 0 || this.homeTeam.off.to != 1000){
-
-                    }
-                    if(this.homeTeam.blk.from != 0 || this.homeTeam.blk.to != 1000){
-
-                    }
-                    if(this.homeTeam.in.from != 0 || this.homeTeam.in.to != 1000){
-
-                    }
-                    if(this.homeTeam.out.from != 0 || this.homeTeam.out.to != 1000){
-
-                    }
-                    if(this.homeTeam.cnr.from != 0 || this.homeTeam.cnr.to != 1000){
-
-                    }
-                    if(this.homeTeam.da.from != 0 || this.homeTeam.da.to != 1000){
-
-                    }
-                    if(this.homeTeam.pos.from != 0 || this.homeTeam.pos.to != 1000){
-
-                    }
-                    if(this.homeTeam.red.from != 0 || this.homeTeam.red.to != 1000){
-
-                    }
-                    if(this.homeTeam.yel.from != 0 || this.homeTeam.yel.to != 1000){
-
+                    let home_stats_data = {
+                        'on': null,
+                        'off': null,
+                        'blk': null,
+                        'in': null,
+                        'out': null,
+                        'cnr': null,
+                        'da': null,
+                        'pos': null,
+                        'red': null,
+                        'yel': null,
+                        'goal': null
                     }
 
-                    if(value.away_rank && value.home_rank){
-                        if(value.home_rank >= this.homeTeam.rank.from && value.home_rank <= this.homeTeam.rank.to && value.away_rank >= this.awayTeam.rank.from && value.away_rank <= this.awayTeam.rank.to){
-                            let stats_length = stats.length
-
-                            if(stats_length > 0){
-                                // console.log('rank checking', value.home_rank, value.away_rank)
-                                let statsData = stats[stats_length - 1]
-
-                                // for(let j = 0 ; j < times.length; j++){
-                                //     if(times[j].minute >= this.homeTeam.minute.from && times[j].minute <= this.homeTeam.minute.to && times[j].minute >= this.awayTeam.minute.from && times[j].minute <= this.awayTeam.minute.to){
-                                //         statsData = stats[j]
-                                //     }
-                                // }
-
-                                // console.log('statsData=>', statsData)
-                                let home_stats_data = {
-                                    'on': 0,
-                                    'off': 0,
-                                    'blk': 0,
-                                    'in': 0,
-                                    'out': 0,
-                                    'cnr': 0,
-                                    'da': 0,
-                                    'pos': 0,
-                                    'red': 0,
-                                    'yel': 0,
-                                    'goal': 0
+                    if(home_statsData.length > 0){
+                        if(home_statsData[0].team_id == home_id){
+                            if(home_statsData[0].shots){
+                                if(home_statsData[0].shots.ongoal){
+                                    home_stats_data.on = home_statsData[0].shots.ongoal
                                 }
-                                let away_stats_data = {
-                                    'on': 0,
-                                    'off': 0,
-                                    'blk': 0,
-                                    'in': 0,
-                                    'out': 0,
-                                    'cnr': 0,
-                                    'da': 0,
-                                    'pos': 0,
-                                    'red': 0,
-                                    'yel': 0,
-                                    'goal': 0
+                                if(home_statsData[0].shots.offgoal){
+                                    home_stats_data.off = home_statsData[0].shots.offgoal
                                 }
-                                if(statsData[0].team_id == home_id){
-                                    if(statsData[0].shots){
-                                        if(statsData[0].shots.ongoal){
-                                            home_stats_data.on = statsData[0].shots.ongoal
-                                            away_stats_data.on = statsData[1].shots.ongoal
-                                        }
-                                        else{
-                                            home_stats_data.on = 0
-                                            away_stats_data.on = 0
-                                        }
-                                        if(statsData[0].shots.offgoal){
-                                            home_stats_data.off = statsData[0].shots.offgoal
-                                            away_stats_data.off = statsData[1].shots.offgoal
-                                        }
-                                        else{
-                                            home_stats_data.off = 0
-                                            away_stats_data.off = 0
-                                        }
-                                        if(statsData[0].shots.blocked){
-                                            home_stats_data.blk = statsData[0].shots.blocked
-                                            away_stats_data.blk = statsData[1].shots.blocked
-                                        }
-                                        else{
-                                            home_stats_data.blk = 0
-                                            away_stats_data.blk = 0
-                                        }
-                                        if(statsData[0].shots.insidebox){
-                                            home_stats_data.in = statsData[0].shots.insidebox
-                                            away_stats_data.in = statsData[1].shots.insidebox
-                                        }
-                                        else{
-                                            home_stats_data.in = 0
-                                            away_stats_data.in = 0
-                                        }
-                                        if(statsData[0].shots.outsidebox){
-                                            home_stats_data.out = statsData[0].shots.outsidebox
-                                            away_stats_data.out = statsData[1].shots.outsidebox
-                                        }
-                                        else{
-                                            home_stats_data.out = 0
-                                            away_stats_data.out = 0
-                                        }
-                                    }
+                                if(home_statsData[0].shots.blocked){
+                                    home_stats_data.blk = home_statsData[0].shots.blocked
+                                }
 
-                                    if(statsData[0].corners){
-                                        home_stats_data.cnr = statsData[0].corners
-                                        away_stats_data.cnr = statsData[1].corners
-                                    }
-                                    else{
-                                        home_stats_data.cnr = 0
-                                        away_stats_data.cnr = 0
-                                    }
-                                    if(statsData[0].attacks){
-                                        if(statsData[0].attacks.dangerous_attacks){
-                                            home_stats_data.da = statsData[0].attacks.dangerous_attacks
-                                            away_stats_data.da = statsData[1].attacks.dangerous_attacks
-                                        }
-                                        else{
-                                            home_stats_data.da = 0
-                                            away_stats_data.da = 0
-                                        }
-                                    }
-                                    if(statsData[0].possessiontime){
-                                        home_stats_data.pos = statsData[0].possessiontime
-                                        away_stats_data.pos = statsData[1].possessiontime
-                                    }
-                                    else{
-                                        home_stats_data.pos = 0
-                                        away_stats_data.pos = 0
-                                    }
-                                    if(statsData[0].redcards){
-                                        home_stats_data.red = statsData[0].redcards
-                                        away_stats_data.red = statsData[1].redcards
-                                    }
-                                    else{
-                                        if(this.homeTeam.red.from !== 0 || this.homeTeam.red.to !== 1000 || this.awayTeam.red.from !== 0 || this.awayTeam.red.to !== 1000){
-                                            home_stats_data.red = -1
-                                            away_stats_data.red = -1
-                                        }
-                                        else{
-                                            home_stats_data.red = 0
-                                            away_stats_data.red = 0
-                                        }
-                                    }
-                                    if(statsData[0].yellowcards){
-                                        home_stats_data.yel = statsData[0].yellowcards
-                                        away_stats_data.yel = statsData[1].yellowcards
-                                    }
-                                    else{
-                                        if(this.homeTeam.yel.from !== 0 || this.homeTeam.yel.to !== 1000 || this.awayTeam.yel.from !== 0 || this.awayTeam.yel.to !== 1000){
-                                            home_stats_data.yel = -1
-                                            away_stats_data.yel = -1
-                                        }
-                                        else{
-                                            home_stats_data.yel = 0
-                                            away_stats_data.yel = 0
-                                        }
-                                    }
-                                    if(statsData[0].goals){
-                                        home_stats_data.goal = statsData[0].goals
-                                        away_stats_data.goal = statsData[1].goals
-                                    }
-                                    else{
-                                        home_stats_data.goal = 0
-                                        away_stats_data.goal = 0
-                                    }
+                                if(home_statsData[0].shots.insidebox){
+                                    home_stats_data.in = home_statsData[0].shots.insidebox
                                 }
-                                else if(statsData[1].team_id == home_id){
-                                    if(statsData[1].shots){
-                                        if(statsData[1].shots.ongoal){
-                                            home_stats_data.on = statsData[1].shots.ongoal
-                                            away_stats_data.on = statsData[0].shots.ongoal
-                                        }
-                                        else{
-                                            home_stats_data.on = 0
-                                            away_stats_data.on = 0
-                                        }
-                                        if(statsData[1].shots.offgoal){
-                                            home_stats_data.off = statsData[1].shots.offgoal
-                                            away_stats_data.off = statsData[0].shots.offgoal
-                                        }
-                                        else{
-                                            home_stats_data.off = 0
-                                            away_stats_data.off = 0
-                                        }
-                                        if(statsData[1].shots.blocked){
-                                            home_stats_data.blk = statsData[1].shots.blocked
-                                            away_stats_data.blk = statsData[0].shots.blocked
-                                        }
-                                        else{
-                                            home_stats_data.blk = 0
-                                            away_stats_data.blk = 0
-                                        }
-                                        if(statsData[1].shots.insidebox){
-                                            home_stats_data.in = statsData[1].shots.insidebox
-                                            away_stats_data.in = statsData[0].shots.insidebox
-                                        }
-                                        else{
-                                            home_stats_data.in = 0
-                                            away_stats_data.in = 0
-                                        }
-                                        if(statsData[1].shots.outsidebox){
-                                            home_stats_data.out = statsData[1].shots.outsidebox
-                                            away_stats_data.out = statsData[0].shots.outsidebox
-                                        }
-                                        else{
-                                            home_stats_data.out = 0
-                                            away_stats_data.out = 0
-                                        }
-                                    }
 
-                                    if(statsData[1].corners){
-                                        home_stats_data.cnr = statsData[1].corners
-                                        away_stats_data.cnr = statsData[0].corners
-                                    }
-                                    else{
-                                        home_stats_data.cnr = 0
-                                        away_stats_data.cnr = 0
-                                    }
-                                    if(statsData[1].attacks){
-                                        if(statsData[1].attacks.dangerous_attacks){
-                                            home_stats_data.da = statsData[1].attacks.dangerous_attacks
-                                            away_stats_data.da = statsData[0].attacks.dangerous_attacks
-                                        }
-                                        else{
-                                            home_stats_data.da = 0
-                                            away_stats_data.da = 0
-                                        }
-                                    }
-                                    if(statsData[1].possessiontime){
-                                        home_stats_data.pos = statsData[1].possessiontime
-                                        away_stats_data.pos = statsData[0].possessiontime
-                                    }
-                                    else{
-                                        home_stats_data.pos = 0
-                                        away_stats_data.pos = 0
-                                    }
-                                    if(statsData[1].redcards){
-                                        home_stats_data.red = statsData[1].redcards
-                                        away_stats_data.red = statsData[0].redcards
-                                    }
-                                    else{
-                                        if(this.homeTeam.red.from !== 0 || this.homeTeam.red.to !== 1000 || this.awayTeam.red.from !== 0 || this.awayTeam.red.to !== 1000){
-                                            home_stats_data.red = -1
-                                            away_stats_data.red = -1
-                                        }
-                                        else{
-                                            home_stats_data.red = 0
-                                            away_stats_data.red = 0
-                                        }
-                                    }
-                                    if(statsData[1].yellowcards){
-                                        home_stats_data.yel = statsData[1].yellowcards
-                                        away_stats_data.yel = statsData[0].yellowcards
-                                    }
-                                    else{
-                                        if(this.homeTeam.yel.from !== 0 || this.homeTeam.yel.to !== 1000 || this.awayTeam.yel.from !== 0 || this.awayTeam.yel.to !== 1000){
-                                            home_stats_data.yel = -1
-                                            away_stats_data.yel = -1
-                                        }
-                                        else{
-                                            home_stats_data.yel = 0
-                                            away_stats_data.yel = 0
-                                        }
-                                    }
+                                if(home_statsData[0].shots.outsidebox){
+                                    home_stats_data.out = home_statsData[0].shots.outsidebox
+                                }
+                            }
 
-                                    if(statsData[1].goals){
-                                        home_stats_data.goal = statsData[1].goals
-                                        away_stats_data.goal = statsData[0].goals
-                                    }
-                                    else{
-                                        home_stats_data.goal = 0
-                                        away_stats_data.goal = 0
-                                    }
+                            if(home_statsData[0].corners){
+                                home_stats_data.cnr = home_statsData[0].corners
+                            }
+
+                            if(home_statsData[0].attacks){
+                                if(home_statsData[0].attacks.dangerous_attacks){
+                                    home_stats_data.da = home_statsData[0].attacks.dangerous_attacks
                                 }
-                                if(home_stats_data.on >= this.homeTeam.on.from && home_stats_data.on <= this.homeTeam.on.to && away_stats_data.on >= this.awayTeam.on.from && away_stats_data.on <= this.awayTeam.on.to){
-                                    if(home_stats_data.off >= this.homeTeam.off.from && home_stats_data.off <= this.homeTeam.off.to && away_stats_data.off >= this.awayTeam.off.from && away_stats_data.off <= this.awayTeam.off.to){
-                                        if(home_stats_data.blk >= this.homeTeam.blk.from && home_stats_data.blk <= this.homeTeam.blk.to && away_stats_data.blk >= this.awayTeam.blk.from && away_stats_data.blk <= this.awayTeam.blk.to){
-                                              if(home_stats_data.in >= this.homeTeam.in.from && home_stats_data.in <= this.homeTeam.in.to && away_stats_data.in >= this.awayTeam.in.from && away_stats_data.in <= this.awayTeam.in.to){
-                                                if(home_stats_data.out >= this.homeTeam.out.from && home_stats_data.out <= this.homeTeam.out.to && away_stats_data.out >= this.awayTeam.out.from && away_stats_data.out <= this.awayTeam.out.to){
-                                                    if(home_stats_data.cnr >= this.homeTeam.cnr.from && home_stats_data.cnr <= this.homeTeam.cnr.to && away_stats_data.cnr >= this.awayTeam.cnr.from && away_stats_data.cnr <= this.awayTeam.cnr.to){
-                                                        if(home_stats_data.da >= this.homeTeam.da.from && home_stats_data.da <= this.homeTeam.da.to && away_stats_data.da >= this.awayTeam.da.from && away_stats_data.da <= this.awayTeam.da.to){
-                                                            if(home_stats_data.pos >= this.homeTeam.pos.from && home_stats_data.pos <= this.homeTeam.pos.to && away_stats_data.pos >= this.awayTeam.pos.from && away_stats_data.pos <= this.awayTeam.pos.to){
-                                                                if(home_stats_data.red >= this.homeTeam.red.from && home_stats_data.red <= this.homeTeam.red.to && away_stats_data.red >= this.awayTeam.red.from && away_stats_data.red <= this.awayTeam.red.to){
-                                                                    if(home_stats_data.yel >= this.homeTeam.yel.from && home_stats_data.yel <= this.homeTeam.yel.to && away_stats_data.yel >= this.awayTeam.yel.from && away_stats_data.yel <= this.awayTeam.yel.to){
-                                                                        if(home_stats_data.goal >= this.homeTeam.goal.from && home_stats_data.goal <= this.homeTeam.goal.to && away_stats_data.goal >= this.awayTeam.goal.from && away_stats_data.goal <= this.awayTeam.goal.to){
-                                                                            event_list.push({"label": events[i].label, "value": events[i].value})
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
+                            }
+
+                            if(home_statsData[0].possessiontime){
+                                home_stats_data.pos = home_statsData[0].possessiontime
+                            }
+
+                            if(home_statsData[0].redcards){
+                                home_stats_data.red = home_statsData[0].redcards
+                            }
+
+                            if(home_statsData[0].yellowcards){
+                                home_stats_data.yel = home_statsData[0].yellowcards
+                            }
+
+                            if(home_statsData[0].goals){
+                                home_stats_data.goal = home_statsData[0].goals
+                            }
+                        }
+                        else if(home_statsData[1].team_id == home_id){
+                            if(home_statsData[1].shots){
+                                if(home_statsData[1].shots.ongoal){
+                                    home_stats_data.on = home_statsData[1].shots.ongoal
                                 }
+                                if(home_statsData[1].shots.offgoal){
+                                    home_stats_data.off = home_statsData[1].shots.offgoal
+                                }
+                                if(home_statsData[1].shots.blocked){
+                                    home_stats_data.blk = home_statsData[1].shots.blocked
+                                }
+
+                                if(home_statsData[1].shots.insidebox){
+                                    home_stats_data.in = home_statsData[1].shots.insidebox
+                                }
+
+                                if(home_statsData[1].shots.outsidebox){
+                                    home_stats_data.out = home_statsData[1].shots.outsidebox
+                                }
+                            }
+
+                            if(home_statsData[1].corners){
+                                home_stats_data.cnr = home_statsData[1].corners
+                            }
+
+                            if(home_statsData[1].attacks){
+                                if(home_statsData[1].attacks.dangerous_attacks){
+                                    home_stats_data.da = home_statsData[1].attacks.dangerous_attacks
+                                }
+                            }
+
+                            if(home_statsData[1].possessiontime){
+                                home_stats_data.pos = home_statsData[1].possessiontime
+                            }
+
+                            if(home_statsData[1].redcards){
+                                home_stats_data.red = home_statsData[1].redcards
+                            }
+
+                            if(home_statsData[1].yellowcards){
+                                home_stats_data.yel = home_statsData[1].yellowcards
+                            }
+
+                            if(home_statsData[1].goals){
+                                home_stats_data.goal = home_statsData[1].goals
                             }
                         }
                     }
+                    else{
+                        check_status = 1
+                    }
+console.log('++++++++++++++++++++++++++++++++', this.homeTeam.on.from, ', ', this.homeTeam.on.to, ', ', home_stats_data.on)
+                    if(this.homeTeam.on.from != 0 || this.homeTeam.on.to != 1000){
+                        if(check_status === 0){
+                            if(!(home_stats_data.on >= this.homeTeam.on.from && home_stats_data.on <= this.homeTeam.on.to)){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.homeTeam.off.from != 0 || this.homeTeam.off.to != 1000){
+                        if(check_status === 0){
+                            if(home_stats_data.off < this.homeTeam.off.from || home_stats_data.off > this.homeTeam.off.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.homeTeam.blk.from != 0 || this.homeTeam.blk.to != 1000){
+                        if(check_status === 0){
+                            if(home_stats_data.blk < this.homeTeam.blk.from || home_stats_data.blk > this.homeTeam.blk.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.homeTeam.in.from != 0 || this.homeTeam.in.to != 1000){
+                        if(check_status === 0){
+                            if(home_stats_data.in < this.homeTeam.in.from || home_stats_data.in > this.homeTeam.in.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.homeTeam.out.from != 0 || this.homeTeam.out.to != 1000){
+                        if(check_status === 0){
+                            if(home_stats_data.out < this.homeTeam.out.from || home_stats_data.out > this.homeTeam.out.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.homeTeam.cnr.from != 0 || this.homeTeam.cnr.to != 1000){
+                        if(check_status === 0){
+                            if(home_stats_data.cnr < this.homeTeam.cnr.from || home_stats_data.cnr > this.homeTeam.cnr.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.homeTeam.da.from != 0 || this.homeTeam.da.to != 1000){
+                        if(check_status === 0){
+                            if(home_stats_data.da < this.homeTeam.da.from || home_stats_data.da > this.homeTeam.da.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.homeTeam.pos.from != 0 || this.homeTeam.pos.to != 1000){
+                        if(check_status === 0){
+                            if(home_stats_data.pos < this.homeTeam.pos.from || home_stats_data.pos > this.homeTeam.pos.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.homeTeam.red.from != 0 || this.homeTeam.red.to != 1000){
+                        if(check_status === 0){
+                            if(home_stats_data.red < this.homeTeam.red.from || home_stats_data.red > this.homeTeam.red.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.homeTeam.yel.from != 0 || this.homeTeam.yel.to != 1000){
+                        if(check_status === 0){
+                            if(home_stats_data.yel < this.homeTeam.yel.from || home_stats_data.yel > this.homeTeam.yel.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+//------------------------------------away team filter----------------------------------
+                    for(let j = 0 ; j < times.length; j++){
+                        if(times[j].minute >= this.awayTeam.minute.from && times[j].minute <= this.awayTeam.minute.to){
+                            away_statsdata = stats[j]
+                        }
+                    }
+                    if(away_statsdata.length < 1){
+                        check_status = 1
+                    }
+
+                    if(this.awayTeam.rank.from != 0 || this.awayTeam.rank.to != 1000){
+                        if(value.away_rank){
+                            if(value.away_rank < this.awayTeam.rank.from && value.away_rank > this.awayTeam.rank.to){
+                                check_status = 1
+                            }
+                        }
+                        else{
+                            check_status = 1
+                        }
+                    }
+
+                    let away_stats_data = {
+                        'on': null,
+                        'off': null,
+                        'blk': null,
+                        'in': null,
+                        'out': null,
+                        'cnr': null,
+                        'da': null,
+                        'pos': null,
+                        'red': null,
+                        'yel': null,
+                        'goal': null
+                    }
+
+                    if(away_statsdata.length > 0){
+                        if(away_statsdata[0].team_id == home_id){
+                            if(away_statsdata[0].shots){
+                                if(away_statsdata[0].shots.ongoal){
+                                    away_stats_data.on = away_statsdata[0].shots.ongoal
+                                }
+                                if(away_statsdata[0].shots.offgoal){
+                                    away_stats_data.off = away_statsdata[0].shots.offgoal
+                                }
+                                if(away_statsdata[0].shots.blocked){
+                                    away_stats_data.blk = away_statsdata[0].shots.blocked
+                                }
+
+                                if(away_statsdata[0].shots.insidebox){
+                                    away_stats_data.in = away_statsdata[0].shots.insidebox
+                                }
+
+                                if(away_statsdata[0].shots.outsidebox){
+                                    away_stats_data.out = away_statsdata[0].shots.outsidebox
+                                }
+                            }
+
+                            if(away_statsdata[0].corners){
+                                away_stats_data.cnr = away_statsdata[0].corners
+                            }
+
+                            if(away_statsdata[0].attacks){
+                                if(away_statsdata[0].attacks.dangerous_attacks){
+                                    away_stats_data.da = away_statsdata[0].attacks.dangerous_attacks
+                                }
+                            }
+
+                            if(away_statsdata[0].possessiontime){
+                                away_stats_data.pos = away_statsdata[0].possessiontime
+                            }
+
+                            if(away_statsdata[0].redcards){
+                                away_stats_data.red = away_statsdata[0].redcards
+                            }
+
+                            if(away_statsdata[0].yellowcards){
+                                away_stats_data.yel = away_statsdata[0].yellowcards
+                            }
+
+                            if(away_statsdata[0].goals){
+                                away_stats_data.goal = away_statsdata[0].goals
+                            }
+                        }
+                        else if(home_statsData[1].team_id == home_id){
+                            if(away_statsdata[1].shots){
+                                if(away_statsdata[1].shots.ongoal){
+                                    away_stats_data.on = away_statsdata[1].shots.ongoal
+                                }
+                                if(away_statsdata[1].shots.offgoal){
+                                    away_stats_data.off = away_statsdata[1].shots.offgoal
+                                }
+                                if(away_statsdata[1].shots.blocked){
+                                    away_stats_data.blk = away_statsdata[1].shots.blocked
+                                }
+
+                                if(away_statsdata[1].shots.insidebox){
+                                    away_stats_data.in = away_statsdata[1].shots.insidebox
+                                }
+
+                                if(away_statsdata[1].shots.outsidebox){
+                                    away_stats_data.out = away_statsdata[1].shots.outsidebox
+                                }
+                            }
+
+                            if(away_statsdata[1].corners){
+                                away_stats_data.cnr = away_statsdata[1].corners
+                            }
+
+                            if(away_statsdata[1].attacks){
+                                if(away_statsdata[1].attacks.dangerous_attacks){
+                                    away_stats_data.da = away_statsdata[1].attacks.dangerous_attacks
+                                }
+                            }
+
+                            if(away_statsdata[1].possessiontime){
+                                away_stats_data.pos = away_statsdata[1].possessiontime
+                            }
+
+                            if(away_statsdata[1].redcards){
+                                away_stats_data.red = away_statsdata[1].redcards
+                            }
+
+                            if(away_statsdata[1].yellowcards){
+                                away_stats_data.yel = away_statsdata[1].yellowcards
+                            }
+
+                            if(away_statsdata[1].goals){
+                                away_stats_data.goal = away_statsdata[1].goals
+                            }
+                        }
+                    }
+                    else{
+                        check_status = 1
+                    }
+
+                    if(this.awayTeam.on.from != 0 || this.awayTeam.on.to != 1000){
+                        if(check_status === 0){
+                            if(away_stats_data.on < this.awayTeam.on.from || away_stats_data.on > this.awayTeam.on.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.awayTeam.off.from != 0 || this.awayTeam.off.to != 1000){
+                        if(check_status === 0){
+                            if(away_stats_data.off < this.awayTeam.off.from || away_stats_data.off > this.awayTeam.off.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.awayTeam.blk.from != 0 || this.awayTeam.blk.to != 1000){
+                        if(check_status === 0){
+                            if(away_stats_data.blk < this.awayTeam.blk.from || away_stats_data.blk > this.awayTeam.blk.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.awayTeam.in.from != 0 || this.awayTeam.in.to != 1000){
+                        if(check_status === 0){
+                            if(away_stats_data.in < this.awayTeam.in.from || away_stats_data.in > this.awayTeam.in.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.awayTeam.out.from != 0 || this.awayTeam.out.to != 1000){
+                        if(check_status === 0){
+                            if(away_stats_data.out < this.awayTeam.out.from || away_stats_data.out > this.awayTeam.out.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.awayTeam.cnr.from != 0 || this.awayTeam.cnr.to != 1000){
+                        if(check_status === 0){
+                            if(away_stats_data.cnr < this.awayTeam.cnr.from || away_stats_data.cnr > this.awayTeam.cnr.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.awayTeam.da.from != 0 || this.awayTeam.da.to != 1000){
+                        if(check_status === 0){
+                            if(away_stats_data.da < this.awayTeam.da.from || away_stats_data.da > this.awayTeam.da.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.awayTeam.pos.from != 0 || this.awayTeam.pos.to != 1000){
+                        if(check_status === 0){
+                            if(away_stats_data.pos < this.awayTeam.pos.from || away_stats_data.pos > this.awayTeam.pos.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.awayTeam.red.from != 0 || this.awayTeam.red.to != 1000){
+                        if(check_status === 0){
+                            if(away_stats_data.red < this.awayTeam.red.from || away_stats_data.red > this.awayTeam.red.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+                    if(this.awayTeam.yel.from != 0 || this.awayTeam.yel.to != 1000){
+                        if(check_status === 0){
+                            if(away_stats_data.yel < this.awayTeam.yel.from || away_stats_data.yel > this.awayTeam.yel.to){
+                                check_status = 1
+                            }
+                        }
+                    }
+
+//--------------------------------------------------------------------
+                    console.log('check_status====>!!!!!!!!!', check_status)
+                    if(check_status === 0){
+                        event_list.push({"label": events[i].label, "value": events[i].value})
+                    }
+//------------------------------------------------------------------------
+//                     if(value.away_rank && value.home_rank){
+//                         if(value.home_rank >= this.homeTeam.rank.from && value.home_rank <= this.homeTeam.rank.to && value.away_rank >= this.awayTeam.rank.from && value.away_rank <= this.awayTeam.rank.to){
+//                             let stats_length = stats.length
+//
+//                             if(stats_length > 0){
+//                                 // console.log('rank checking', value.home_rank, value.away_rank)
+//                                 let statsData = stats[stats_length - 1]
+//
+//                                 // for(let j = 0 ; j < times.length; j++){
+//                                 //     if(times[j].minute >= this.homeTeam.minute.from && times[j].minute <= this.homeTeam.minute.to && times[j].minute >= this.awayTeam.minute.from && times[j].minute <= this.awayTeam.minute.to){
+//                                 //         statsData = stats[j]
+//                                 //     }
+//                                 // }
+//
+//                                 // console.log('statsData=>', statsData)
+//                                 let home_stats_data = {
+//                                     'on': 0,
+//                                     'off': 0,
+//                                     'blk': 0,
+//                                     'in': 0,
+//                                     'out': 0,
+//                                     'cnr': 0,
+//                                     'da': 0,
+//                                     'pos': 0,
+//                                     'red': 0,
+//                                     'yel': 0,
+//                                     'goal': 0
+//                                 }
+//                                 let away_stats_data = {
+//                                     'on': 0,
+//                                     'off': 0,
+//                                     'blk': 0,
+//                                     'in': 0,
+//                                     'out': 0,
+//                                     'cnr': 0,
+//                                     'da': 0,
+//                                     'pos': 0,
+//                                     'red': 0,
+//                                     'yel': 0,
+//                                     'goal': 0
+//                                 }
+//                                 if(statsData[0].team_id == home_id){
+//                                     if(statsData[0].shots){
+//                                         if(statsData[0].shots.ongoal){
+//                                             home_stats_data.on = statsData[0].shots.ongoal
+//                                             away_stats_data.on = statsData[1].shots.ongoal
+//                                         }
+//                                         else{
+//                                             home_stats_data.on = 0
+//                                             away_stats_data.on = 0
+//                                         }
+//                                         if(statsData[0].shots.offgoal){
+//                                             home_stats_data.off = statsData[0].shots.offgoal
+//                                             away_stats_data.off = statsData[1].shots.offgoal
+//                                         }
+//                                         else{
+//                                             home_stats_data.off = 0
+//                                             away_stats_data.off = 0
+//                                         }
+//                                         if(statsData[0].shots.blocked){
+//                                             home_stats_data.blk = statsData[0].shots.blocked
+//                                             away_stats_data.blk = statsData[1].shots.blocked
+//                                         }
+//                                         else{
+//                                             home_stats_data.blk = 0
+//                                             away_stats_data.blk = 0
+//                                         }
+//                                         if(statsData[0].shots.insidebox){
+//                                             home_stats_data.in = statsData[0].shots.insidebox
+//                                             away_stats_data.in = statsData[1].shots.insidebox
+//                                         }
+//                                         else{
+//                                             home_stats_data.in = 0
+//                                             away_stats_data.in = 0
+//                                         }
+//                                         if(statsData[0].shots.outsidebox){
+//                                             home_stats_data.out = statsData[0].shots.outsidebox
+//                                             away_stats_data.out = statsData[1].shots.outsidebox
+//                                         }
+//                                         else{
+//                                             home_stats_data.out = 0
+//                                             away_stats_data.out = 0
+//                                         }
+//                                     }
+//
+//                                     if(statsData[0].corners){
+//                                         home_stats_data.cnr = statsData[0].corners
+//                                         away_stats_data.cnr = statsData[1].corners
+//                                     }
+//                                     else{
+//                                         home_stats_data.cnr = 0
+//                                         away_stats_data.cnr = 0
+//                                     }
+//                                     if(statsData[0].attacks){
+//                                         if(statsData[0].attacks.dangerous_attacks){
+//                                             home_stats_data.da = statsData[0].attacks.dangerous_attacks
+//                                             away_stats_data.da = statsData[1].attacks.dangerous_attacks
+//                                         }
+//                                         else{
+//                                             home_stats_data.da = 0
+//                                             away_stats_data.da = 0
+//                                         }
+//                                     }
+//                                     if(statsData[0].possessiontime){
+//                                         home_stats_data.pos = statsData[0].possessiontime
+//                                         away_stats_data.pos = statsData[1].possessiontime
+//                                     }
+//                                     else{
+//                                         home_stats_data.pos = 0
+//                                         away_stats_data.pos = 0
+//                                     }
+//                                     if(statsData[0].redcards){
+//                                         home_stats_data.red = statsData[0].redcards
+//                                         away_stats_data.red = statsData[1].redcards
+//                                     }
+//                                     else{
+//                                         if(this.homeTeam.red.from !== 0 || this.homeTeam.red.to !== 1000 || this.awayTeam.red.from !== 0 || this.awayTeam.red.to !== 1000){
+//                                             home_stats_data.red = -1
+//                                             away_stats_data.red = -1
+//                                         }
+//                                         else{
+//                                             home_stats_data.red = 0
+//                                             away_stats_data.red = 0
+//                                         }
+//                                     }
+//                                     if(statsData[0].yellowcards){
+//                                         home_stats_data.yel = statsData[0].yellowcards
+//                                         away_stats_data.yel = statsData[1].yellowcards
+//                                     }
+//                                     else{
+//                                         if(this.homeTeam.yel.from !== 0 || this.homeTeam.yel.to !== 1000 || this.awayTeam.yel.from !== 0 || this.awayTeam.yel.to !== 1000){
+//                                             home_stats_data.yel = -1
+//                                             away_stats_data.yel = -1
+//                                         }
+//                                         else{
+//                                             home_stats_data.yel = 0
+//                                             away_stats_data.yel = 0
+//                                         }
+//                                     }
+//                                     if(statsData[0].goals){
+//                                         home_stats_data.goal = statsData[0].goals
+//                                         away_stats_data.goal = statsData[1].goals
+//                                     }
+//                                     else{
+//                                         home_stats_data.goal = 0
+//                                         away_stats_data.goal = 0
+//                                     }
+//                                 }
+//                                 else if(statsData[1].team_id == home_id){
+//                                     if(statsData[1].shots){
+//                                         if(statsData[1].shots.ongoal){
+//                                             home_stats_data.on = statsData[1].shots.ongoal
+//                                             away_stats_data.on = statsData[0].shots.ongoal
+//                                         }
+//                                         else{
+//                                             home_stats_data.on = 0
+//                                             away_stats_data.on = 0
+//                                         }
+//                                         if(statsData[1].shots.offgoal){
+//                                             home_stats_data.off = statsData[1].shots.offgoal
+//                                             away_stats_data.off = statsData[0].shots.offgoal
+//                                         }
+//                                         else{
+//                                             home_stats_data.off = 0
+//                                             away_stats_data.off = 0
+//                                         }
+//                                         if(statsData[1].shots.blocked){
+//                                             home_stats_data.blk = statsData[1].shots.blocked
+//                                             away_stats_data.blk = statsData[0].shots.blocked
+//                                         }
+//                                         else{
+//                                             home_stats_data.blk = 0
+//                                             away_stats_data.blk = 0
+//                                         }
+//                                         if(statsData[1].shots.insidebox){
+//                                             home_stats_data.in = statsData[1].shots.insidebox
+//                                             away_stats_data.in = statsData[0].shots.insidebox
+//                                         }
+//                                         else{
+//                                             home_stats_data.in = 0
+//                                             away_stats_data.in = 0
+//                                         }
+//                                         if(statsData[1].shots.outsidebox){
+//                                             home_stats_data.out = statsData[1].shots.outsidebox
+//                                             away_stats_data.out = statsData[0].shots.outsidebox
+//                                         }
+//                                         else{
+//                                             home_stats_data.out = 0
+//                                             away_stats_data.out = 0
+//                                         }
+//                                     }
+//
+//                                     if(statsData[1].corners){
+//                                         home_stats_data.cnr = statsData[1].corners
+//                                         away_stats_data.cnr = statsData[0].corners
+//                                     }
+//                                     else{
+//                                         home_stats_data.cnr = 0
+//                                         away_stats_data.cnr = 0
+//                                     }
+//                                     if(statsData[1].attacks){
+//                                         if(statsData[1].attacks.dangerous_attacks){
+//                                             home_stats_data.da = statsData[1].attacks.dangerous_attacks
+//                                             away_stats_data.da = statsData[0].attacks.dangerous_attacks
+//                                         }
+//                                         else{
+//                                             home_stats_data.da = 0
+//                                             away_stats_data.da = 0
+//                                         }
+//                                     }
+//                                     if(statsData[1].possessiontime){
+//                                         home_stats_data.pos = statsData[1].possessiontime
+//                                         away_stats_data.pos = statsData[0].possessiontime
+//                                     }
+//                                     else{
+//                                         home_stats_data.pos = 0
+//                                         away_stats_data.pos = 0
+//                                     }
+//                                     if(statsData[1].redcards){
+//                                         home_stats_data.red = statsData[1].redcards
+//                                         away_stats_data.red = statsData[0].redcards
+//                                     }
+//                                     else{
+//                                         if(this.homeTeam.red.from !== 0 || this.homeTeam.red.to !== 1000 || this.awayTeam.red.from !== 0 || this.awayTeam.red.to !== 1000){
+//                                             home_stats_data.red = -1
+//                                             away_stats_data.red = -1
+//                                         }
+//                                         else{
+//                                             home_stats_data.red = 0
+//                                             away_stats_data.red = 0
+//                                         }
+//                                     }
+//                                     if(statsData[1].yellowcards){
+//                                         home_stats_data.yel = statsData[1].yellowcards
+//                                         away_stats_data.yel = statsData[0].yellowcards
+//                                     }
+//                                     else{
+//                                         if(this.homeTeam.yel.from !== 0 || this.homeTeam.yel.to !== 1000 || this.awayTeam.yel.from !== 0 || this.awayTeam.yel.to !== 1000){
+//                                             home_stats_data.yel = -1
+//                                             away_stats_data.yel = -1
+//                                         }
+//                                         else{
+//                                             home_stats_data.yel = 0
+//                                             away_stats_data.yel = 0
+//                                         }
+//                                     }
+//
+//                                     if(statsData[1].goals){
+//                                         home_stats_data.goal = statsData[1].goals
+//                                         away_stats_data.goal = statsData[0].goals
+//                                     }
+//                                     else{
+//                                         home_stats_data.goal = 0
+//                                         away_stats_data.goal = 0
+//                                     }
+//                                 }
+//                                 if(home_stats_data.on >= this.homeTeam.on.from && home_stats_data.on <= this.homeTeam.on.to && away_stats_data.on >= this.awayTeam.on.from && away_stats_data.on <= this.awayTeam.on.to){
+//                                     if(home_stats_data.off >= this.homeTeam.off.from && home_stats_data.off <= this.homeTeam.off.to && away_stats_data.off >= this.awayTeam.off.from && away_stats_data.off <= this.awayTeam.off.to){
+//                                         if(home_stats_data.blk >= this.homeTeam.blk.from && home_stats_data.blk <= this.homeTeam.blk.to && away_stats_data.blk >= this.awayTeam.blk.from && away_stats_data.blk <= this.awayTeam.blk.to){
+//                                               if(home_stats_data.in >= this.homeTeam.in.from && home_stats_data.in <= this.homeTeam.in.to && away_stats_data.in >= this.awayTeam.in.from && away_stats_data.in <= this.awayTeam.in.to){
+//                                                 if(home_stats_data.out >= this.homeTeam.out.from && home_stats_data.out <= this.homeTeam.out.to && away_stats_data.out >= this.awayTeam.out.from && away_stats_data.out <= this.awayTeam.out.to){
+//                                                     if(home_stats_data.cnr >= this.homeTeam.cnr.from && home_stats_data.cnr <= this.homeTeam.cnr.to && away_stats_data.cnr >= this.awayTeam.cnr.from && away_stats_data.cnr <= this.awayTeam.cnr.to){
+//                                                         if(home_stats_data.da >= this.homeTeam.da.from && home_stats_data.da <= this.homeTeam.da.to && away_stats_data.da >= this.awayTeam.da.from && away_stats_data.da <= this.awayTeam.da.to){
+//                                                             if(home_stats_data.pos >= this.homeTeam.pos.from && home_stats_data.pos <= this.homeTeam.pos.to && away_stats_data.pos >= this.awayTeam.pos.from && away_stats_data.pos <= this.awayTeam.pos.to){
+//                                                                 if(home_stats_data.red >= this.homeTeam.red.from && home_stats_data.red <= this.homeTeam.red.to && away_stats_data.red >= this.awayTeam.red.from && away_stats_data.red <= this.awayTeam.red.to){
+//                                                                     if(home_stats_data.yel >= this.homeTeam.yel.from && home_stats_data.yel <= this.homeTeam.yel.to && away_stats_data.yel >= this.awayTeam.yel.from && away_stats_data.yel <= this.awayTeam.yel.to){
+//                                                                         if(home_stats_data.goal >= this.homeTeam.goal.from && home_stats_data.goal <= this.homeTeam.goal.to && away_stats_data.goal >= this.awayTeam.goal.from && away_stats_data.goal <= this.awayTeam.goal.to){
+//                                                                             event_list.push({"label": events[i].label, "value": events[i].value})
+//                                                                         }
+//                                                                     }
+//                                                                 }
+//                                                             }
+//                                                         }
+//                                                     }
+//                                                 }
+//                                             }
+//                                         }
+//                                     }
+//                                 }
+//                             }
+//                         }
+//                     }
                 }
                 this.eventList = event_list
                 this.filtered_result = event_list.length - 1
+                this.missed_filtered_result = 0
+                for(let i = 1 ; i < event_list.length ; i++){
+                    if(event_list[i].value.stats.length < 1){
+                        this.missed_filtered_result++
+                    }
+                }
                 this.get_time_seg_stats(event_list)
             },
             h_rank_from(val){
