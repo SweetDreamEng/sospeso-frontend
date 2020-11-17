@@ -4101,6 +4101,9 @@
                     if(times.length > 0){
                         for(let j = 0; j < times.length; j++){
                             let cStats = stats[j]
+                            if(!cStats[0]){
+                                return
+                            }
                             if(times[j].minute <= 15){
                                 if(home_id == cStats[0].team_id){
                                     if(cStats[0].shots){
@@ -5964,7 +5967,8 @@
                     }
                     if(this.homeTeam.on.from != 0 || this.homeTeam.on.to != 1000){
                         if(check_status === 0){
-                            if(!(home_stats_data.on >= this.homeTeam.on.from || home_stats_data.on <= this.homeTeam.on.to)){
+                            console.log('on&off filter check===>', home_stats_data.on)
+                            if(home_stats_data.on < this.homeTeam.on.from || home_stats_data.on > this.homeTeam.on.to){
                                 check_status = 1
                             }
                         }
