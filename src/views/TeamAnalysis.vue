@@ -1824,7 +1824,7 @@
                     let main_data = data.data[0]
                     let competitionArray = []
                     for(let i = 0 ; i < main_data.length ; i++){
-                        competitionArray[i] = main_data[i].competitions[0].name
+                        competitionArray[i] = main_data[i].competitions[0].league
                     }
                     competitionArray = Array.from(new Set (competitionArray))
 
@@ -3068,12 +3068,15 @@
                             return item.ccode == countryCode;
                         });
 
+                        let country1 = (competitionArray[i].split('(')[1]).split(')')[0]
+                        let league = competitionArray[i].split('(')[0]
+
                         if(countryName.length > 0 && events.length > 0){
-                            this.mainList.push({'country': countryName[0].cname, 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers, 'events': events})
+                            this.mainList.push({'country': country1, 'league': league, 'percentage': percentage, 'numbers': numbers, 'events': events})
                         }
-                        else if(countryName.length < 1 && events.length > 0){
-                            this.mainList.push({'country': 'International', 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers, 'events': events})
-                        }
+                        // else if(countryName.length < 1 && events.length > 0){
+                        //     this.mainList.push({'country': 'International', 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers, 'events': events})
+                        // }
                         let self = this
                         this.sortJSON(self.mainList,'country', '123');
                     }

@@ -1,5 +1,5 @@
 <template>
-    <div    style="min-width: 1250px">
+    <div style="min-width: 1250px">
         <CCard body-wrapper>
             <div
                     v-for="(item,index) in mainList"
@@ -36,1156 +36,637 @@
                         <CCollapse
                                 :show="isCollapsed1(item1.eventName)" class="mt-0"
                         >
-                            <div
-                                    class="event-graph"
+                            <div class="event-graph"
                             >
-                                <div class="event-graph-header">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 30px;">
-
-                                    </div>
-                                    <div style="min-width: 100px; float: left; width: 10%;">
-                                        Team
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        P
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        0 - 0
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        Ov. 1.5
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        Ov. 2.5
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        Ov. 3.5
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        Scored
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        Conc.
-                                    </div>
-                                    <div style="min-width: 80px; float: left; width: 8%; text-align: center;">
-                                        Average
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        BTS
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        1 + 1st
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        2 + 1st
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        1 + 2st
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        2 + 2st
-                                    </div>
-                                </div>
-                                <div class="graph1">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 50px; text-align: center; padding-top: 15px;">
-                                        H
-                                    </div>
-                                    <div style="min-width: 100px; float: left; width: 10%; height: 50px; padding-top: 15px;">
-                                        {{item1.home.name}}
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; height: 50px; padding-top: 15px;">
-                                        {{item1.home.p}}
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.home.z_z <= 10" class="graph-inner" :style="{'background':'#00CC00','height': item1.home.z_z+'%'}"></div>
-                                            <div v-if="item1.home.z_z >= 20" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.home.z_z+'%'}"></div>
-                                            <div v-if="item1.home.z_z > 10 && item1.home.z_z < 20" class="graph-inner" :style="{'background':'#CDCF46','height': item1.home.z_z+'%'}"></div>
-                                            <label class="graph-label">{{item1.home.z_z}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.home.over15 >= 80" class="graph-inner" :style="{'background':'#00CC00','height': item1.home.over15 +'%'}"></div>
-                                            <div v-if="item1.home.over15 < 60" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.home.over15 +'%'}"></div>
-                                            <div v-if="item1.home.over15 < 80 && item1.home.over15 >= 60" class="graph-inner" :style="{'background':'#CDCF46','height': item1.home.over15+'%'}"></div>
-                                            <label class="graph-label">{{item1.home.over15}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.home.over25 >= 65" class="graph-inner" :style="{'background':'#00CC00','height': item1.home.over25+'%'}"></div>
-                                            <div v-if="item1.home.over25 < 50" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.home.over25 +'%'}"></div>
-                                            <div v-if="item1.home.over25 >= 50 && item1.home.over25 < 65" class="graph-inner" :style="{'background':'#CDCF46','height': item1.home.over25+'%'}"></div>
-                                            <label class="graph-label">{{item1.home.over25}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.home.over35 >= 40" class="graph-inner" :style="{'background':'#00CC00','height': item1.home.over35+'%'}"></div>
-                                            <div v-if="item1.home.over35 < 25" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.home.over35+'%'}"></div>
-                                            <div v-if="item1.home.over35 >= 25 && item1.home.over35 < 40" class="graph-inner" :style="{'background':'#CDCF46','height': item1.home.over35 +'%'}"></div>
-                                            <label class="graph-label">{{item1.home.over35}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.home.scored >= 70" class="graph-inner" :style="{'background':'#00CC00','height': item1.home.scored +'%'}"></div>
-                                            <div v-if="item1.home.scored < 60" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.home.scored +'%'}"></div>
-                                            <div v-if="item1.home.scored >= 60 && item1.home.scored < 70" class="graph-inner" :style="{'background':'#CDCF46','height': item1.home.scored +'%'}"></div>
-                                            <label class="graph-label">{{item1.home.scored}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.home.conc >= 70" class="graph-inner" :style="{'background':'#00CC00','height': item1.home.conc +'%'}"></div>
-                                            <div v-if="item1.home.conc < 60" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.home.conc +'%'}"></div>
-                                            <div v-if="item1.home.conc >= 60 && item1.home.conc <70" class="graph-inner" :style="{'background':'#CDCF46','height': item1.home.conc +'%'}"></div>
-                                            <label class="graph-label">{{item1.home.conc}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 80px; float: left; width: 8%;">
-                                        <div class="graph-detail1">
-                                            <div class="graph-inner" :style="{'position': 'absolute', 'left': '0','width':'100%', 'width': (item1.home.average1/(parseFloat(item1.home.average1) + parseFloat(item1.home.average2))*100).toFixed(2)+'%'}"></div>
-                                            <div class="graph-inner" :style="{'position': 'absolute', 'right': '-1px','width':'0%','width': (item1.home.average2/(parseFloat(item1.home.average1) + parseFloat(item1.home.average2))*100).toFixed(2)+'%', 'background': '#fe9f9f'}"></div>
-                                            <label class="graph-label">{{item1.home.average1}}</label>
-                                            <label class="graph-label1">{{item1.home.average2}}</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.home.bts >= 65" class="graph-inner" :style="{'background':'#00CC00','height': item1.home.bts+'%'}"></div>
-                                            <div v-if="item1.home.bts < 45" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.home.bts+'%'}"></div>
-                                            <div v-if="item1.home.bts >= 45 && item1.home.bts < 65" class="graph-inner" :style="{'background':'#CDCF46','height': item1.home.bts +'%'}"></div>
-                                            <label class="graph-label">{{item1.home.bts}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.home.first1 >= 80" class="graph-inner" :style="{'background':'#00CC00','height': item1.home.first1+'%'}"></div>
-                                            <div v-if="item1.home.first1 < 60" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.home.first1+'%'}"></div>
-                                            <div v-if="item1.home.first1 >= 60 && item1.home.first1 < 80" class="graph-inner" :style="{'background':'#CDCF46','height': item1.home.first1+'%'}"></div>
-                                            <label class="graph-label">{{item1.home.first1}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.home.first2 >= 50" class="graph-inner" :style="{'background':'#00CC00','height': item1.home.first2+'%'}"></div>
-                                            <div v-if="item1.home.first2 < 40" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.home.first2+'%'}"></div>
-                                            <div v-if="item1.home.first2 >= 40 && item1.home.first2 <50" class="graph-inner" :style="{'background':'#CDCF46','height': item1.home.first2+'%'}"></div>
-                                            <label class="graph-label">{{item1.home.first2}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.home.second1 >= 80" class="graph-inner" :style="{'background':'#00CC00','height': item1.home.second1+'%'}"></div>
-                                            <div v-if="item1.home.second1 < 60" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.home.second1+'%'}"></div>
-                                            <div v-if="item1.home.second1 >= 60 && item1.home.second1 < 80" class="graph-inner" :style="{'background':'#CDCF46','height': item1.home.second1+'%'}"></div>
-                                            <label class="graph-label">{{item1.home.second1}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.home.second2 >= 50" class="graph-inner" :style="{'background':'#00CC00','height': item1.home.second2+'%'}"></div>
-                                            <div v-if="item1.home.second2 < 40" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.home.second2+'%'}"></div>
-                                            <div v-if="item1.home.second2 >= 40 && item1.home.second2 < 50" class="graph-inner" :style="{'background':'#CDCF46','height': item1.home.second2+'%'}"></div>
-                                            <label class="graph-label">{{item1.home.second2}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 150px; float: left; width: 15%;">
-                                        <div style="width: 100%; height: 30px;">
-                                            <label style="float: left; margin-left: 10px; ">Red Card</label>
-
-                                            <div style="width: 25%; float: right;">
-                                                <CInputCheckbox class="check-box"
-                                                    :checked="false"
-                                                    @update:checked="SH_red"
-                                                    @click="item_X = item1, home_date_list = item1.homeDateList, away_date_list = item1.awayDateList, basic_data = item1.b_data"
-                                                >
-                                                    <template #label>
-                                                        SH
-                                                    </template>
-                                                </CInputCheckbox>
-                                            </div>
-
-                                            <div style="width: 25%; float: right;">
-                                                <CInputCheckbox class="check-box"
-                                                    :checked="false"
-                                                    @update:checked="FH_red"
-                                                    @click="item_X = item1, home_date_list = item1.homeDateList, away_date_list = item1.awayDateList, basic_data = item1.b_data"
-                                                >
-                                                    <template #label>
-                                                        FH
-                                                    </template>
-                                                </CInputCheckbox>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <label style="float: left; margin-left: 10px; margin-top: 10px;">Show last</label>
-                                            <CSelect
-                                                    v-if="item1.homeDateList.length <= item1.awayDateList.length"
-                                                    class="eventdays date-range"
-                                                    :options="item1.homeDateList"
-                                                    @click="item_X = item1, home_date_list = item1.homeDateList, away_date_list = item1.awayDateList, basic_data = item1.b_data"
-                                                    @update:value="refreshCalc"
-                                            >
-                                            </CSelect>
-
-                                            <CSelect
-                                                    v-if="item1.homeDateList.length > item1.awayDateList.length"
-                                                    class="eventdays date-range"
-                                                    @click="item_X = item1"
-                                                    :options="item1.awayDateList"
-                                                    @update:value="refreshCalc"
-                                            >
-                                            </CSelect>
-                                            <label style="margin-top: 10px;">days</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="graph1">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 50px; text-align: center; padding-top: 15px;">
-                                        A
-                                    </div>
-                                    <div style="min-width: 100px; float: left; width: 10%; height: 50px; padding-top: 15px;">
-                                        {{item1.away.name}}
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; height: 50px; padding-top: 15px;">
-                                        {{item1.away.p}}
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.away.z_z <= 10" class="graph-inner" :style="{'background':'#00CC00','height': item1.away.z_z+'%'}"></div>
-                                            <div v-if="item1.away.z_z >= 20" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.away.z_z+'%'}"></div>
-                                            <div v-if="item1.away.z_z < 20 && item1.away.z_z > 10" class="graph-inner" :style="{'background':'#CDCF46','height': item1.away.z_z+'%'}"></div>
-                                            <label class="graph-label">{{item1.away.z_z}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.away.over15 >= 80" class="graph-inner" :style="{'background':'#00CC00','height': item1.away.over15+'%'}"></div>
-                                            <div v-if="item1.away.over15 < 60" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.away.over15+'%'}"></div>
-                                            <div v-if="item1.away.over15 < 80 && item1.away.over15 >= 60" class="graph-inner" :style="{'background':'#CDCF46','height': item1.away.over15+'%'}"></div>
-                                            <label class="graph-label">{{item1.away.over15}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.away.over25 >= 65" class="graph-inner" :style="{'background':'#00CC00','height': item1.away.over25+'%'}"></div>
-                                            <div v-if="item1.away.over25 < 50" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.away.over25+'%'}"></div>
-                                            <div v-if="item1.away.over25 >= 50 && item1.away.over25 < 65" class="graph-inner" :style="{'background':'#CDCF46','height': item1.away.over25+'%'}"></div>
-                                            <label class="graph-label">{{item1.away.over25}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.away.over35 >= 40" class="graph-inner" :style="{'background':'#00CC00','height': item1.away.over35+'%'}"></div>
-                                            <div v-if="item1.away.over35 < 25" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.away.over35+'%'}"></div>
-                                            <div v-if="item1.away.over35 >= 25 && item1.away.over35 < 40" class="graph-inner" :style="{'background':'#CDCF46','height': item1.away.over35+'%'}"></div>
-                                            <label class="graph-label">{{item1.away.over35}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.away.scored >= 70" class="graph-inner" :style="{'background':'#00CC00','height': item1.away.scored+'%'}"></div>
-                                            <div v-if="item1.away.scored < 60" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.away.scored+'%'}"></div>
-                                            <div v-if="item1.away.scored >= 60 && item1.away.scored < 70" class="graph-inner" :style="{'background':'#CDCF46','height': item1.away.scored+'%'}"></div>
-                                            <label class="graph-label">{{item1.away.scored}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.away.conc >= 70" class="graph-inner" :style="{'background':'#00CC00','height': item1.away.conc+'%'}"></div>
-                                            <div v-if="item1.away.conc < 60" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.away.conc+'%'}"></div>
-                                            <div v-if="item1.away.conc >= 60 && item1.away.conc < 70" class="graph-inner" :style="{'background':'#CDCF46','height': item1.away.conc+'%'}"></div>
-                                            <label class="graph-label">{{item1.away.conc}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 80px; float: left; width: 8%;">
-                                        <div class="graph-detail1">
-                                            <div class="graph-inner" :style="{'position': 'absolute', 'left': '0','width':'100%','width': (item1.away.average1/(parseFloat(item1.away.average1) + parseFloat(item1.away.average2))*100).toFixed(2)+'%', 'background': '#00cc00'}"></div>
-                                            <div class="graph-inner" :style="{'position': 'absolute', 'right': '-1px','width':'0%','width': (item1.away.average2/(parseFloat(item1.away.average1) + parseFloat(item1.away.average2))*100).toFixed(2)+'%', 'background': '#fe9f9f'}"></div>
-                                            <label class="graph-label">{{item1.away.average1}}</label>
-                                            <label class="graph-label1">{{item1.away.average2}}</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.away.bts >= 65" class="graph-inner" :style="{'background':'#00CC00','height': item1.away.bts+'%'}"></div>
-                                            <div v-if="item1.away.bts < 45" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.away.bts+'%'}"></div>
-                                            <div v-if="item1.away.bts >= 45 && item1.away.bts < 65" class="graph-inner" :style="{'background':'#CDCF46','height': item1.away.bts+'%'}"></div>
-                                            <label class="graph-label">{{item1.away.bts}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.away.first1 >= 80" class="graph-inner" :style="{'background':'#00CC00','height': item1.away.first1+'%'}"></div>
-                                            <div v-if="item1.away.first1 < 60" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.away.first1+'%'}"></div>
-                                            <div v-if="item1.away.first1 >= 60 && item1.away.first1 < 80" class="graph-inner" :style="{'background':'#CDCF46','height': item1.away.first1+'%'}"></div>
-                                            <label class="graph-label">{{item1.away.first1}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.away.first2 >= 50" class="graph-inner" :style="{'background':'#00CC00','height': item1.away.first2+'%'}"></div>
-                                            <div v-if="item1.away.first2 < 40" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.away.first2+'%'}"></div>
-                                            <div v-if="item1.away.first2 >= 40 && item1.away.first2 < 50" class="graph-inner" :style="{'background':'#CDCF46','height': item1.away.first2+'%'}"></div>
-                                            <label class="graph-label">{{item1.away.first2}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.away.second1 >= 80" class="graph-inner" :style="{'background':'#00CC00','height': item1.away.second1+'%'}"></div>
-                                            <div v-if="item1.away.second1 < 60" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.away.second1+'%'}"></div>
-                                            <div v-if="item1.away.second1 >= 60 && item1.away.second1 < 80" class="graph-inner" :style="{'background':'#CDCF46','height': item1.away.second1+'%'}"></div>
-                                            <label class="graph-label">{{item1.away.second1}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        <div class="graph-detail">
-                                            <div v-if="item1.away.second2 >= 50" class="graph-inner" :style="{'background':'#00CC00','height': item1.away.second2+'%'}"></div>
-                                            <div v-if="item1.away.second2 < 40" class="graph-inner" :style="{'background':'#FE9F9F','height': item1.away.second2+'%'}"></div>
-                                            <div v-if="item1.away.second2 >= 40 && item1.away.second2 < 50" class="graph-inner" :style="{'background':'#CDCF46','height': item1.away.second2+'%'}"></div>
-                                            <label class="graph-label">{{item1.away.second2}}%</label>
-                                        </div>
-                                    </div>
-
-                                    <div v-if="item1.rankFilter === true" style="min-width: 150px; float: left; width: 15%;">
-                                        <div style="width: 100%; height: 30px;">
-                                            <label style="float: left; margin-left: 10px; ">HomeTeam:</label>
-                                            <div style="width: 50%; float: right;">
-                                                <CSelect
-                                                    class="rank_filter"
-                                                    :options="item1.rank_option"
-                                                    @click = "rank_filter = item1.rank_set, item_X = item1, away_team = item1.away, home_team = item1.home"
-                                                    @update:value="home_rank_filter"
-                                                >
-                                                </CSelect>
-                                            </div>
-                                        </div>
-                                        <div style="width: 100%; height: 30px;">
-                                            <label style="float: left; margin-left: 10px; ">AwayTeam:</label>
-                                            <div style="width: 50%; float: right;">
-                                                <CSelect
-                                                    class="rank_filter"
-                                                    :options="item1.rank_option"
-                                                    @click = "rank_filter = item1.rank_set, item_X = item1, away_team = item1.away, home_team = item1.home"
-                                                    @update:value="away_rank_filter"
-                                                >
-                                                </CSelect>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="event-graph-header">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 30px;">
-
-                                    </div>
-                                    <div style="min-width: 100px; float: left; width: 10%;">
-                                        Team
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        P
-                                    </div>
-                                    <div style="min-width: 90px; float: left; width: 7%; text-align: center; padding: 0px 10px;">
-                                        <span style="float: left;">G+</span><span style="float: right;">G-</span>
-                                    </div>
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center;">
-                                        0 - 15
-                                    </div>
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center;">
-                                        16 - 30
-                                    </div>
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center;">
-                                        31 - 45
-                                    </div>
-                                    <div style="min-width: 60px; float: left; width: 7%; text-align: center;">
-                                        46 - 60
-                                    </div>
-                                    <div style="min-width: 60px; float: left; width: 7%; text-align: center;">
-                                        61 - 75
-                                    </div>
-                                    <div title="sdfsdfsdf" style="min-width: 60px; float: left; width: 7%; text-align: center;">
-                                        76 - 90
-                                    </div>
-                                    <div style="min-width: 90px; float: left; width: 9%; text-align: center; padding: 0px 10px;">
-                                        <span style="float: left;">GS1</span><span style="float: right;">GS2</span>
-                                    </div>
-                                    <div style="min-width: 90px; float: left; width: 9%; text-align: center; padding: 0px 10px;">
-                                        <span style="float: left;">GC1</span><span style="float: right;">GC2</span>
-                                    </div>
-                                    <div style="min-width: 60px; float: left; width: 6%; text-align: center;">
-                                        40+
-                                    </div>
-                                    <div style="min-width: 60px; float: left; width: 6%; text-align: center;">
-                                        85+
-                                    </div>
-                                </div>
-                                <div class="graph1">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 50px; text-align: center; padding-top: 15px;">
-                                        H
-                                    </div>
-                                    <div style="min-width: 100px; float: left; width: 10%; height: 50px; padding-top: 15px;">
-                                        {{item1.home.name}}
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; height: 50px; padding-top: 15px;">
-                                        {{item1.home.p}}
-                                    </div>
-                                    <div style="min-width: 90px; float: left; width: 7%;">
-                                        <div class="graph-detail1">
-                                            <div class="graph-inner" :style="{'position': 'absolute', 'left': '0','width': (item1.home.average1/(parseFloat(item1.home.average1) + parseFloat(item1.home.average2))*100).toFixed(2)+'%', 'background': '#00cc00'}"></div>
-                                            <div class="graph-inner" :style="{'position': 'absolute', 'right': '-1px','width': (item1.home.average2/(parseFloat(item1.home.average1) + parseFloat(item1.home.average2))*100).toFixed(2)+'%', 'background': '#fe9f9f'}"></div>
-                                            <label class="graph-label">{{(parseFloat(item1.home.average1)*parseFloat(item1.home.p)).toFixed(0)}}</label>
-                                            <label class="graph-label1">{{(parseFloat(item1.home.average2)*parseFloat(item1.home.p)).toFixed(0)}}</label>
-                                        </div>
-                                    </div>
-                                    <!--                                    <div style="min-width:450px ;width: 42%;">-->
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.home.time15_S" :style="{'height': item1.home.time15_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.home.time15_C" :style="{'position': 'absolute', 'right': '5px','height': item1.home.time15_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label" style="left: 0;">{{item1.home.time15_S}}%</label>
-                                            <label class="graph-label1">{{item1.home.time15_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.home.time30_S" :style="{'height': item1.home.time30_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.home.time30_C" :style="{'position': 'absolute', 'right': '5px','height': item1.home.time30_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label">{{item1.home.time30_S}}%</label>
-                                            <label class="graph-label1">{{item1.home.time30_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.home.time45_S" :style="{'height': item1.home.time45_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.home.time45_C" :style="{'position': 'absolute', 'right': '5px','height': item1.home.time45_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label">{{item1.home.time45_S}}%</label>
-                                            <label class="graph-label1">{{item1.home.time45_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.home.time60_S" :style="{'height': item1.home.time60_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.home.time60_C" :style="{'position': 'absolute', 'right': '5px','height': item1.home.time60_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label">{{item1.home.time60_S}}%</label>
-                                            <label class="graph-label1">{{item1.home.time60_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.home.time75_S" :style="{'height': item1.home.time75_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.home.time75_C" :style="{'position': 'absolute', 'right': '5px','height': item1.home.time75_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label">{{item1.home.time75_S}}%</label>
-                                            <label class="graph-label1">{{item1.home.time75_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.home.time90_S" :style="{'height': item1.home.time90_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.home.time90_C" :style="{'position': 'absolute', 'right': '5px','height': item1.home.time90_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label">{{item1.home.time90_S}}%</label>
-                                            <label class="graph-label1">{{item1.home.time90_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <!--                                    </div>-->
-
-
-                                    <div style="min-width: 90px; float: left; width: 9%;">
-                                        <div class="graph-detail1">
-                                            <div class="graph-inner" :title="item1.home.gs1" :style="{'position': 'absolute', 'left': '0','width': item1.home.gs1+'%', 'background': '#00cc00'}"></div>
-                                            <div class="graph-inner" :title="item1.home.gs2" :style="{'position': 'absolute', 'right': '-1px','width': (100 - parseInt(item1.home.gs1))+'%', 'background': '#00c900'}"></div>
-                                            <label class="graph-label">{{item1.home.gs1}}%</label>
-                                            <label class="graph-label1">{{100 - parseInt(item1.home.gs1)}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 90px; float: left; width: 9%;">
-                                        <div class="graph-detail1">
-                                            <div class="graph-inner" :title="item1.home.gc1" :style="{'position': 'absolute', 'left': '0','width': item1.home.gc1+'%', 'background': '#fe9f9f'}"></div>
-                                            <div class="graph-inner" :title="item1.home.gc2" :style="{'position': 'absolute', 'right': '-1px','width': 100 - parseInt(item1.home.gc1)+'%', 'background': '#fe9f9f'}"></div>
-                                            <label class="graph-label">{{item1.home.gc1}}%</label>
-                                            <label class="graph-label1">{{100 - parseInt(item1.home.gc1)}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 60px; float: left; width: 6%;">
-                                        <div class="graph-detail">
-                                            <div class="graph-inner" :title="item1.home.over40" :style="{'height': item1.home.over40+'%', 'background': '#655'}"></div>
-                                            <label class="graph-label">{{item1.home.over40}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 60px; float: left; width: 6%;">
-                                        <div class="graph-detail">
-                                            <div class="graph-inner" :title="item1.home.over85" :style="{'height': item1.home.over85+'%', 'background': '#655'}"></div>
-                                            <label class="graph-label">{{item1.home.over85}}%</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="graph1">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 50px; text-align: center; padding-top: 15px;">
-                                        A
-                                    </div>
-                                    <div style="min-width: 100px; float: left; width: 10%; height: 50px; padding-top: 15px;">
-                                        {{item1.away.name}}
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; height: 50px; padding-top: 15px;">
-                                        {{item1.away.p}}
-                                    </div>
-                                    <div style="min-width: 90px; float: left; width: 7%;">
-                                        <div class="graph-detail1">
-                                            <div class="graph-inner" :style="{'position': 'absolute', 'left': '0','width': item1.away.average1/(parseFloat(item1.away.average1) + parseFloat(item1.away.average2))*100+'%', 'background': '#00cc00'}"></div>
-                                            <div class="graph-inner" :style="{'position': 'absolute', 'right': '-1px','width': item1.away.average2/(parseFloat(item1.away.average1) + parseFloat(item1.away.average2))*100+'%', 'background': '#fe9f9f'}"></div>
-                                            <label class="graph-label">{{(parseFloat(item1.away.average1)*item1.away.p).toFixed(0)}}</label>
-                                            <label class="graph-label1">{{(parseFloat(item1.away.average2)*item1.away.p).toFixed(0)}}</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.away.time15_S" :style="{'height': item1.away.time15_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.away.time15_C" :style="{'position': 'absolute', 'right': '5px','height': item1.away.time15_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label" style="left: 0;">{{item1.away.time15_S}}%</label>
-                                            <label class="graph-label1">{{item1.away.time15_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.away.time30_S" :style="{'height': item1.away.time30_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.away.time30_C" :style="{'position': 'absolute', 'right': '5px','height': item1.away.time30_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label">{{item1.away.time30_S}}%</label>
-                                            <label class="graph-label1">{{item1.away.time30_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.away.time45_S" :style="{'height': item1.away.time45_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.away.time45_C" :style="{'position': 'absolute', 'right': '5px','height': item1.away.time45_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label">{{item1.away.time45_S}}%</label>
-                                            <label class="graph-label1">{{item1.away.time45_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.away.time60_S" :style="{'height': item1.away.time60_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.away.time60_C" :style="{'position': 'absolute', 'right': '5px','height': item1.away.time60_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label">{{item1.away.time60_S}}%</label>
-                                            <label class="graph-label1">{{item1.away.time60_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.away.time75_S" :style="{'height': item1.away.time75_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.away.time75_C" :style="{'position': 'absolute', 'right': '5px','height': item1.away.time75_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label">{{item1.away.time75_S}}%</label>
-                                            <label class="graph-label1">{{item1.away.time75_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 75px; float: left; width: 7%;">
-                                        <div class="graph-detail1" style="width: 75px; border: 1px solid lightgrey;">
-                                            <div class="graph-inner" :title="item1.away.time90_S" :style="{'height': item1.away.time90_S+'%', 'background': '#00cc00','width': '25px'}"></div>
-                                            <div class="graph-inner" :title="item1.away.time90_C" :style="{'position': 'absolute', 'right': '5px','height': item1.away.time90_C+'%', 'background': '#fe9f9f','width': '25px'}"></div>
-                                            <label class="graph-label">{{item1.away.time90_S}}%</label>
-                                            <label class="graph-label1">{{item1.away.time90_C}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 90px; float: left; width: 9%;">
-                                        <div class="graph-detail1">
-                                            <div class="graph-inner" :title="item1.away.gs1" :style="{'position': 'absolute', 'left': '0','width': item1.away.gs1+'%', 'background': '#00cc00'}"></div>
-                                            <div class="graph-inner" :title="item1.away.gs2" :style="{'position': 'absolute', 'right': '-1px','width': item1.away.gs2+'%', 'background': '#00cc00'}"></div>
-                                            <label class="graph-label">{{item1.away.gs1}}%</label>
-                                            <label class="graph-label1">{{item1.away.gs2}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 90px; float: left; width: 9%;">
-                                        <div class="graph-detail1">
-                                            <div class="graph-inner" :title="item1.away.gc1" :style="{'position': 'absolute', 'left': '0','width': item1.away.gc1+'%', 'background': '#fe9f9f'}"></div>
-                                            <div class="graph-inner" :title="item1.away.gc2" :style="{'position': 'absolute', 'right': '-1px','width': item1.away.gc2+'%', 'background': '#fe9f9f'}"></div>
-                                            <label class="graph-label">{{item1.away.gc1}}%</label>
-                                            <label class="graph-label1">{{item1.away.gc2}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 60px; float: left; width: 6%;">
-                                        <div class="graph-detail">
-                                            <div class="graph-inner" :title="item1.away.over40" :style="{'height': item1.away.over40+'%', 'background': '#655'}"></div>
-                                            <label class="graph-label">{{item1.away.over40}}%</label>
-                                        </div>
-                                    </div>
-                                    <div style="min-width: 60px; float: left; width: 6%;">
-                                        <div class="graph-detail">
-                                            <div class="graph-inner" :title="item1.away.over85" :style="{'height': item1.away.over85+'%', 'background': '#655'}"></div>
-                                            <label class="graph-label">{{item1.away.over85}}%</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="event-graph-header">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 30px;">
-
-                                    </div>
-                                    <div style="min-width: 100px; float: left; width: 10%;">
-                                        Team
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%;">
-                                        P
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-left: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        H
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
-                                        D
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        A
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
-                                        1-0
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
-                                        1-1
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        2-0
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
-                                        0-1
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
-                                        1-1
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        0-2
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
-                                        First
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
-                                        Last
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center;">
-                                        2+
-                                    </div>
-                                    <div style="min-width: 40px; float: left; width: 4%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        2-
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        H 1st
-                                    </div>
-                                    <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
-                                        D 1st
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        A 1st
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 4.5%; text-align: center;">
-                                        H 2nd
-                                    </div>
-                                    <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
-                                        D 2nd
-                                    </div>
-                                    <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
-                                        A 2nd
-                                    </div>
-
-                                </div>
-                                <div class="graph1 graph-percent">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">
-                                        H
-                                    </div>
-                                    <div style="min-width: 100px; float: left; width: 10%; height: 31px;">
-                                        {{item1.home.name}}
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; height: 31px;">
-                                        {{item1.home.p}}
-                                    </div>
-                                    <div class="graph-detail00" style="border-left: 1px solid lightgray;">
-                                        {{item1.home.C_H}}%
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.home.C_D}}%
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray;">
-                                        {{item1.home.C_A}}%
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.home.first10}}
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.home.first11}}%
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray;">
-                                        {{item1.home.first20}}%
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.home.second01}}
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.home.second11}}%
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray;">
-                                        {{item1.home.second02}}%
-                                    </div>
-                                    <div v-if="item1.home.p != 0" class="graph-detail00">
-                                        {{(item1.home.first10/item1.home.p*100).toFixed(0)}}%
-                                    </div>
-                                    <div v-if="item1.home.p == 0" class="graph-detail00">
-                                        0%
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.home.lastGoal}}%
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.home.secondplus}}%
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray;">
-                                        {{item1.home.secondminus}}%
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        {{item1.home.homefirst}}%
-                                    </div>
-                                    <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
-                                        {{item1.home.drawfirst}}%
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        {{item1.home.awayfirst}}%
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 4.5%; text-align: center;">
-                                        {{item1.home.homesecond}}%
-                                    </div>
-                                    <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
-                                        {{item1.home.drawsecond}}%
-                                    </div>
-                                    <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
-                                        {{item1.home.awaysecond}}%
-                                    </div>
-                                </div>
-                                <div class="graph1 graph-percent" style="margin-top: -10px;">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">
-                                        A
-                                    </div>
-                                    <div style="min-width: 100px; float: left; width: 10%; height: 31px;">
-                                        {{item1.away.name}}
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; height: 31px;">
-                                        {{item1.away.p}}
-                                    </div>
-                                    <div class="graph-detail00" style="border-left: 1px solid lightgray;">
-                                        {{item1.away.C_H}}%
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.away.C_D}}%
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray;">
-                                        {{item1.away.C_A}}%
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.away.first10}}
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.away.first11}}%
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray;">
-                                        {{item1.away.first20}}%
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.away.second01}}
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.away.second11}}%
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray;">
-                                        {{item1.away.second02}}%
-                                    </div>
-                                    <div v-if="item1.away.p != 0" class="graph-detail00">
-                                        {{(item1.away.second01/item1.away.p*100).toFixed(0)}}%
-                                    </div>
-                                    <div v-if="item1.away.p == 0" class="graph-detail00">
-                                        0%
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.away.lastGoal}}%
-                                    </div>
-                                    <div class="graph-detail00">
-                                        {{item1.away.secondplus}}%
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray;">
-                                        {{item1.away.secondminus}}%
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center;">
-                                        {{item1.away.homefirst}}%
-                                    </div>
-                                    <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
-                                        {{item1.away.drawfirst}}%
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        {{item1.away.awayfirst}}%
-                                    </div>
-                                    <div style="min-width: 50px; float: left; width: 4.5%; text-align: center;">
-                                        {{item1.away.homesecond}}%
-                                    </div>
-                                    <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
-                                        {{item1.away.drawsecond}}%
-                                    </div>
-                                    <div style="min-width: 45px; float: left; width: 4.5%; text-align: center;">
-                                        {{item1.away.awaysecond}}%
-                                    </div>
-                                </div>
-                                <div class="graph1 graph-percent0" style="margin-top: -10px;">
-                                    <div style="min-width: 190px; float: left; width: 20%; height: 70px; text-align: right; padding-right: 45px;">
-                                        Total
-                                    </div>
-                                    <div v-if="(item1.away.p + item1.home.p) == 0" class="graph-detail00" style="border-left: 1px solid lightgray; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b', 'height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">0%</label>
-                                    </div>
-                                    <div v-else class="graph-detail00" style="border-left: 1px solid lightgray; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b', 'height': ((item1.away.C_H*item1.away.p + item1.home.C_H*item1.home.p)/(item1.away.p + item1.home.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">{{((item1.away.C_H*item1.away.p + item1.home.C_H*item1.home.p)/(item1.away.p + item1.home.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.away.p + item1.home.p) == 0" class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">0%</label>
-                                    </div>
-                                    <div v-else class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.C_D*item1.away.p + item1.home.C_D*item1.home.p)/(item1.away.p + item1.home.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">{{((item1.away.C_D*item1.away.p + item1.home.C_D*item1.home.p)/(item1.away.p + item1.home.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.away.p + item1.home.p) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">0%</label>
-                                    </div>
-                                    <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.C_A*item1.away.p + item1.home.C_A*item1.home.p)/(item1.away.p + item1.home.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">{{((item1.away.C_A*item1.away.p + item1.home.C_A*item1.home.p)/(item1.away.p + item1.home.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.away.p + item1.home.p) == 0" class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">0%</label>
-                                    </div>
-                                    <div v-else class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.first10/item1.away.p + item1.home.first10/item1.home.p)*50).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">{{((item1.away.first10*100 + item1.home.first10*100)/(item1.away.p + item1.home.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.home.first10 + item1.away.first10) == 0" class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height':'0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">0%</label>
-                                    </div>
-                                    <div v-else class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.first11*item1.away.first10 + item1.home.first11*item1.home.first10)/(item1.home.first10 + item1.away.first10)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">{{((item1.away.first11*item1.away.first10 + item1.home.first11*item1.home.first10)/(item1.home.first10 + item1.away.first10)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.home.first10 + item1.away.first10) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">0%</label>
-                                    </div>
-                                    <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.first20*item1.away.first10 + item1.home.first20*item1.home.first10)/(item1.home.first10 + item1.away.first10)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">{{((item1.away.first20*item1.away.first10 + item1.home.first20*item1.home.first10)/(item1.home.first10 + item1.away.first10)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.away.p + item1.home.p) == 0" class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">0%</label>
-                                    </div>
-                                    <div v-else class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.second01*100 + item1.home.second01*100)/(item1.away.p + item1.home.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">{{((item1.away.second01*100 + item1.home.second01*100)/(item1.away.p + item1.home.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.home.second01 + item1.away.second01) == 0" class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">0%</label>
-                                    </div>
-                                    <div v-else class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.second11*item1.away.second01 + item1.home.second11*item1.home.second01)/(item1.home.second01 + item1.away.second01)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">{{((item1.away.second11*item1.away.second01 + item1.home.second11*item1.home.second01)/(item1.home.second01 + item1.away.second01)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.home.second01 + item1.away.second01) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">0%</label>
-                                    </div>
-                                    <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.second02*item1.away.second01 + item1.home.second02*item1.home.second01)/(item1.home.second01 + item1.away.second01)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">{{((item1.away.second02*item1.away.second01 + item1.home.second02*item1.home.second01)/(item1.home.second01 + item1.away.second01)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px; border: none;">
-
-                                        </div>
-                                        <label class="graph-label" style="left: 13px"></label>
-                                    </div>
-                                    <div class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px; border: none;">
-
-                                        </div>
-                                        <label class="graph-label" style="left: 13px"></label>
-                                    </div>
-                                    <div v-if="(item1.home.p + item1.away.p) == 0" class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">0%</label>
-                                    </div>
-                                    <div v-else class="graph-detail00" style="height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.secondplus*item1.away.p + item1.home.secondplus*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">{{((item1.away.secondplus*item1.away.p + item1.home.secondplus*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.home.p + item1.away.p) == 0" class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">0%</label>
-                                    </div>
-                                    <div v-else class="graph-detail00" style="border-right: 1px solid lightgray; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.secondminus*item1.away.p + item1.home.secondminus*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 13px">{{((item1.away.secondminus*item1.away.p + item1.home.secondminus*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.home.p + item1.away.p) == 0" style="min-width: 50px; float: left; width: 5%; text-align: center; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px; position: relative; top: -10px;">0%</label>
-                                    </div>
-                                    <div v-else style="min-width: 50px; float: left; width: 5%; text-align: center; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.homefirst*item1.away.p + item1.home.homefirst*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px; position: relative; top: -10px;">{{((item1.away.homefirst*item1.away.p + item1.home.homefirst*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.home.p + item1.away.p) == 0" style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>
-                                    </div>
-                                    <div v-else style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.drawfirst*item1.away.p + item1.home.drawfirst*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item1.away.drawfirst*item1.away.p + item1.home.drawfirst*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.home.p + item1.away.p) == 0" style="height: 70px; min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; top: -9px; padding-top: 9px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>
-                                    </div>
-                                    <div v-else style="height: 70px; min-width: 50px; float: left; width: 5%; text-align: center; position: relative; border-right: 1px solid lightgray; top: -9px; padding-top: 9px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.awayfirst*item1.away.p + item1.home.awayfirst*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item1.away.awayfirst*item1.away.p + item1.home.awayfirst*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.home.p + item1.away.p) == 0" style="min-width: 50px; float: left; width: 4.5%; text-align: center; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>
-                                    </div>
-                                    <div v-else style="min-width: 50px; float: left; width: 4.5%; text-align: center; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.homesecond*item1.away.p + item1.home.homesecond*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item1.away.homesecond*item1.away.p + item1.home.homesecond*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.home.p + item1.away.p) == 0" style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>
-                                    </div>
-                                    <div v-else style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.drawsecond*item1.away.p + item1.home.drawsecond*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item1.away.drawsecond*item1.away.p + item1.home.drawsecond*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(0)}}%</label>
-                                    </div>
-
-                                    <div v-if="(item1.home.p + item1.away.p) == 0" style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': '0%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">0%</label>
-                                    </div>
-                                    <div v-else style="min-width: 45px; float: left; width: 4.5%; text-align: center; height: 70px;">
-                                        <div class="graph-detail" style="top: -10px;">
-                                            <div class="graph-inner" :style="{'background':'#01235b','height': ((item1.away.awaysecond*item1.away.p + item1.home.awaysecond*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(2)+'%'}"></div>
-                                        </div>
-                                        <label class="graph-label" style="left: 0px;  position: relative; top: -10px;">{{((item1.away.awaysecond*item1.away.p + item1.home.awaysecond*item1.home.p)/(item1.home.p + item1.away.p)).toFixed(0)}}%</label>
-                                    </div>
-                                </div>
-                                <div class="event-graph-header">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 30px;">
-
-                                    </div>
-                                    <div style="min-width: 150px; float: left; width: 15%;">
-                                        Team
-                                    </div>
-
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-left: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        Pos
-                                    </div>
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center;">
-                                        H/A
-                                    </div>
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        Swing
-                                    </div>
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center;">
-                                        FH
-                                    </div>
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        Swing
-                                    </div>
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center;">
-                                        SH
-                                    </div>
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        Swing
-                                    </div>
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center;">
-                                        Attack
-                                    </div>
-                                    <div style="min-width: 70px; float: left; width: 7%; text-align: center; position: relative; border-right: 1px solid lightgray; height: 40px; top: -9px; padding-top: 9px;">
-                                        Defense
-                                    </div>
-                                    <div style="min-width: 80px; float: left; width: 8%; text-align: center;">
-                                        Form
-                                    </div>
-                                    <div style="min-width: 80px; float: left; width: 8%; text-align: center; position: relative; height: 40px; top: -9px; padding-top: 9px;">
-                                        H/A Form
-                                    </div>
-                                </div>
-                                <div class="graph1 graph-percent">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">
-                                        H
-                                    </div>
-                                    <div style="min-width: 150px; float: left; width: 15%; height: 31px;">
-                                        {{item1.home.name}}
-                                    </div>
-                                    <div class="graph-detail00" style="height: 50px; border-left: 1px solid lightgray; min-width: 70px; width: 7%;">
-                                        {{item1.home.pos}}
-                                    </div>
-                                    <div class="graph-detail00" style="height: 50px; min-width: 70px; width: 7%;">
-                                        {{item1.home.h_a}}
-                                    </div>
-                                    <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
-                                        {{item1.home.swing1}}
-                                    </div>
-                                    <div class="graph-detail00" style="height: 50px; min-width: 70px; width: 7%;">
-                                        {{item1.home.FH}}
-                                    </div>
-                                    <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray;min-width: 70px; width: 7%;">
-                                        {{item1.home.swing2}}
-                                    </div>
-                                    <div class="graph-detail00" style="height: 50px; min-width: 70px; width: 7%;">
-                                        {{item1.home.SH}}
-                                    </div>
-                                    <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
-                                        {{item1.home.swing3}}
-                                    </div>
-                                    <div class="height: 50px; graph-detail00" style="min-width: 70px; width: 7%;">
-                                        {{item1.home.attack}}
-                                    </div>
-                                    <div class="graph-detail00" style="height: 50px; border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
-                                        {{item1.home.defense}}
-                                    </div>
-                                    <div style="height: 50px; min-width: 80px; float: left; text-align: center; width: 8%;">
-                                        {{item1.home.form}}
-                                    </div>
-                                    <div style="height: 50px; min-width: 80px; float: left; text-align: center; width: 8%;">
-                                        {{item1.home.form_H_A}}
-                                    </div>
-                                </div>
-                                <div class="graph1 graph-percent">
-                                    <div style="min-width: 40px; float: left; width: 5%; height: 31px; text-align: center;">
-                                        A
-                                    </div>
-                                    <div style="min-width: 150px; float: left; width: 15%; height: 31px;">
-                                        {{item1.away.name}}
-                                    </div>
-                                    <div class="graph-detail00" style="border-left: 1px solid lightgray; min-width: 70px; width: 7%;">
-                                        {{item1.away.pos}}
-                                    </div>
-                                    <div class="graph-detail00" style="min-width: 70px; width: 7%;">
-                                        {{item1.away.h_a}}
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
-                                        {{item1.away.swing1}}
-                                    </div>
-                                    <div class="graph-detail00" style="min-width: 70px; width: 7%;">
-                                        {{item1.away.FH}}
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray;min-width: 70px; width: 7%;">
-                                        {{item1.away.swing2}}
-                                    </div>
-                                    <div class="graph-detail00" style="min-width: 70px; width: 7%;">
-                                        {{item1.away.SH}}
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
-                                        {{item1.away.swing3}}
-                                    </div>
-                                    <div class="graph-detail00" style="min-width: 70px; width: 7%;">
-                                        {{item1.away.attack}}
-                                    </div>
-                                    <div class="graph-detail00" style="border-right: 1px solid lightgray; min-width: 70px; width: 7%;">
-                                        {{item1.away.defense}}
-                                    </div>
-                                    <div style="min-width: 80px; float: left; text-align: center; width: 8%;">
-                                        {{item1.away.form}}
-                                    </div>
-                                    <div style="min-width: 80px; float: left; text-align: center; width: 8%;">
-                                        {{item1.away.form_H_A}}
+                                <label>Unit analysis and stats_</label>
+                                <div class="unit-analysis">
+                                    <div class="homeTeam_Container">
+                                        <CRow style="margin: 0px;">
+                                            <CCol sm="6" style="padding: 10px; border-right: 1px solid lightgray;">
+                                                <div class="home_main_tab">
+                                                    <label style="float:left;">Home Team: <span style="font-weight: 700; color: darkblue;">{{item1.homeTeamName}}</span></label>
+                                                    <label style="margin-left: 3%; float: left;">Lineup (pre): <span style="font-weight: 600; color: darkblue">{{item1.homeTeamPformation}}</span></label>
+                                                    <label style="margin-left: 3%; float: left;">Manual: </label>
+                                                    <CSelect
+                                                            @click = "selected_team = item1.homeTeamName, selected_direction = 'home'"
+                                                            class="lineup-selector"
+                                                            :options="lineup_list"
+                                                            @update:value="select_lineup"
+                                                    >
+                                                    </CSelect>
+                                                    <label style="margin-left: 3%">Used: ##</label>
+                                                    <div class="content" style="color: black;">
+                                                        <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
+                                                            <div style="width: 7%; float: left; border-right: 1px solid white;">
+                                                                S.Role
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                M.R
+                                                            </div>
+                                                            <div style="width: 20%; float: left; border-right: 1px solid white;">
+                                                                Line Up Home
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                Sub
+                                                            </div>
+                                                            <div style="width: 15%; float: left; border-right: 1px solid white;">
+                                                                Market Value
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                P.M.Role
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Primary_Role
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Alt.Role1
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Alt.Role2
+                                                            </div>
+                                                            <div style="width: 13%;">
+                                                                Titularity %
+                                                            </div>
+                                                        </div>
+                                                        <div v-for="item2 in item1.homeTeam" :key="item2.index" style="display: flex; text-align: center; background: #d8e4bc">
+                                                            <div style="width: 7%; float: left; border-right: 1px solid white;">
+                                                                {{item2.sRole}}
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                {{item2.mR}}
+                                                            </div>
+                                                            <div :style="{'height': '18px','overflow': 'hidden', 'width': '20%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'left', 'padding-left': '5px', 'background': item2.sub_order_color}">
+                                                                {{item2.Pname}}
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                {{item2.sub_minute}}
+                                                            </div>
+                                                            <div style="width: 15%; float: left; border-right: 1px solid white;">
+                                                                {{item2.marketValue}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item2.p_m_Role}}
+                                                            </div>
+                                                            <div :style="{'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'background': item2.rule_color}">
+                                                                {{item2.primaryRole}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item2.altRole1}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item2.altRole2}}
+                                                            </div>
+                                                            <div style="width: 13%;">
+                                                                {{item2.Tit}}
+                                                            </div>
+                                                        </div>
+                                                        <div style="padding-top: 2%; height: 45px;">
+                                                            <label style="margin-left: 3%;float: left;">Lineup (live): <span style="font-weight: 600; color: darkblue">{{item1.homeTeamLformation}}</span></label>
+                                                            <label style="margin-left: 3%; float: left;">Manual: </label>
+                                                            <CSelect
+                                                                    @click = "selected_team = item1.homeTeamName, selected_direction = 'home'"
+                                                                    class="lineup-selector"
+                                                                    :options="lineup_list"
+                                                                    @update:value="select_lineup1"
+                                                            >
+                                                            </CSelect>
+                                                        </div>
+                                                        <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
+                                                            <div style="width: 7%; float: left; border-right: 1px solid white;">
+                                                                S.Role
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                M.R
+                                                            </div>
+                                                            <div style="width: 20%; float: left; border-right: 1px solid white;">
+                                                                Line Up Home
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                Sub
+                                                            </div>
+                                                            <div style="width: 15%; float: left; border-right: 1px solid white;">
+                                                                Market Value
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                P.M.Role
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Primary_Role
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Alt.Role1
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Alt.Role2
+                                                            </div>
+                                                            <div style="width: 13%;">
+                                                                Titularity %
+                                                            </div>
+                                                        </div>
+                                                        <div v-for="item2 in item1.homeTeam1" :key="item2.index" style="display: flex; text-align: center; background: #d8e4bc">
+                                                            <div style="width: 7%; float: left; border-right: 1px solid white;">
+                                                                {{item2.sRole}}
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                {{item2.mR}}
+                                                            </div>
+                                                            <div :style="{'height': '18px','overflow': 'hidden', 'width': '20%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'left', 'padding-left': '5px', 'background': item2.sub_order_color}">
+                                                                {{item2.Pname}}
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                {{item2.sub_minute}}
+                                                            </div>
+                                                            <div style="width: 15%; float: left; border-right: 1px solid white;">
+                                                                {{item2.marketValue}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item2.p_m_Role}}
+                                                            </div>
+                                                            <div :style="{'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'background': item2.rule_color}">
+                                                                {{item2.primaryRole}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item2.altRole1}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item2.altRole2}}
+                                                            </div>
+                                                            <div style="width: 13%;">
+                                                                {{item2.Tit}}
+                                                            </div>
+                                                        </div>
+                                                        <br><br>
+                                                        <div style="width: 17%; float: left; height: 62px; padding-left: 20px;">
+                                                            Role legend:
+                                                        </div>
+                                                        <div style="width: 43%; float: left; height: 62px;">
+                                                            <div style="display: flex;">
+                                                                <div style="flex: 2; height: 20px; background: #92d050; text-align: center;">{{item1.home_rule_set.green_color}}</div>
+                                                                <div style="flex: 5; padding-left: 5px;">Player in Role</div>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div style="flex: 2; height: 20px; background: #ffff00; text-align: center;">{{item1.home_rule_set.yellow_color}}</div>
+                                                                <div style="flex: 5; padding-left: 5px;">Player in alternative Role</div>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div style="flex: 2; height: 20px; background: #ff0000; text-align: center;">{{item1.home_rule_set.red_color}}</div>
+                                                                <div style="flex: 5; padding-left: 5px;">Player out of role</div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 15%; float: left; height: 62px; text-align: right;">
+                                                            Subst.legend:
+                                                        </div>
+                                                        <div style="width: 25%; float: left; text-align: center; margin-bottom: 10px;">
+                                                            <div v-for="item4  in item1.home_legend" :key="item4.index" style="display: flex; width: 80%; margin: auto;">
+                                                                <div :style="{'flex': '1', 'height': '20px', 'background': item4.color}">{{item4.label}}</div>
+                                                            </div>
+                                                        </div>
+                                                        <br><br>
+                                                        <div style="width: 30%; float: left; background: #d8e4bc; padding: 5px; margin-bottom: 20px;">
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    MVP H
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    MVP H %
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    100.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    75.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    67.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    40.00 %
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 30%; float: left; background: #d8e4bc; padding: 5px; margin-bottom: 20px; margin-left: 5%;">
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    MVP H
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    MVP H %
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    100.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    75.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    67.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    40.00 %
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 30%; float: left; background: #d8e4bc; padding: 5px; margin-bottom: 20px; margin-left: 5%;">
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    MVP H
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    MVP H %
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    100.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    75.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    67.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    40.00 %
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </CCol>
+                                            <CCol sm="6" style="padding: 10px;">
+                                                <div class="home_main_tab">
+                                                    <label style="float:left;">Away Team: <span style="font-weight: 700; color: darkblue;">{{item1.awayTeamName}}</span></label>
+                                                    <label style="margin-left: 3%; float: left;">Lineup (pre): <span style="font-weight: 600; color: darkblue">{{item1.awayTeamPformation}}</span></label>
+                                                    <label style="margin-left: 3%; float: left;">Manual: </label>
+                                                    <CSelect
+                                                            @click = "selected_team = item1.awayTeamName, selected_direction = 'away'"
+                                                            class="lineup-selector"
+                                                            :options="lineup_list"
+                                                            @update:value="select_lineup"
+                                                    >
+                                                    </CSelect>
+                                                    <label style="margin-left: 3%">Used: ##</label>
+                                                    <div class="content" style="color: black;">
+                                                        <div style="display: flex; text-align: center; background: #e6b8b7; border-bottom: 1px solid white; height: 20px; color: black;">
+                                                            <div style="width: 7%; float: left; border-right: 1px solid white;">
+                                                                S.Role
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                M.R
+                                                            </div>
+                                                            <div style="width: 20%; float: left; border-right: 1px solid white;">
+                                                                Line Up Home
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                Sub
+                                                            </div>
+                                                            <div style="width: 15%; float: left; border-right: 1px solid white;">
+                                                                Market Value
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                P.M.Role
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Primary_Role
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Alt.Role1
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Alt.Role2
+                                                            </div>
+                                                            <div style="width: 13%;">
+                                                                Titularity %
+                                                            </div>
+                                                        </div>
+                                                        <div v-for="item3 in item1.awayTeam" :key="item3.index" style="display: flex; text-align: center; background: #e6b8b7">
+                                                            <div style="width: 7%; float: left; border-right: 1px solid white;">
+                                                                {{item3.sRole}}
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                {{item3.mR}}
+                                                            </div>
+                                                            <div :style="{'height': '18px','overflow': 'hidden', 'width': '20%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'left', 'padding-left': '5px', 'background': item3.sub_order_color}">
+                                                                {{item3.Pname}}
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                {{item3.sub_minute}}
+                                                            </div>
+                                                            <div style="width: 15%; float: left; border-right: 1px solid white;">
+                                                                {{item3.marketValue}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item3.p_m_Role}}
+                                                            </div>
+                                                            <div :style="{'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'background': item3.rule_color}">
+                                                                {{item3.primaryRole}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item3.altRole1}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item3.altRole2}}
+                                                            </div>
+                                                            <div style="width: 13%;">
+                                                                {{item3.Tit}}
+                                                            </div>
+                                                        </div>
+                                                        <div style="padding-top: 2%; height: 45px;">
+                                                            <label style="margin-left: 3%; float: left;">Lineup (live): <span style="font-weight: 600; color: darkblue">{{item1.awayTeamLformation}}</span></label>
+                                                            <label style="margin-left: 3%; float: left;">Manual: </label>
+                                                            <CSelect
+                                                                    @click = "selected_team = item1.awayTeamName, selected_direction = 'away'"
+                                                                    class="lineup-selector"
+                                                                    :options="lineup_list"
+                                                                    @update:value="select_lineup1"
+                                                            >
+                                                            </CSelect>
+                                                        </div>
+                                                        <div style="display: flex; text-align: center; background: #e6b8b7; border-bottom: 1px solid white; height: 20px; color: black;">
+                                                            <div style="width: 7%; float: left; border-right: 1px solid white;">
+                                                                S.Role
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                M.R
+                                                            </div>
+                                                            <div style="width: 20%; float: left; border-right: 1px solid white;">
+                                                                Line Up Home
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                Sub
+                                                            </div>
+                                                            <div style="width: 15%; float: left; border-right: 1px solid white;">
+                                                                Market Value
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                P.M.Role
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Primary_Role
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Alt.Role1
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                Alt.Role2
+                                                            </div>
+                                                            <div style="width: 13%;">
+                                                                Titularity %
+                                                            </div>
+                                                        </div>
+                                                        <div v-for="item3 in item1.awayTeam1" :key="item3.index" style="display: flex; text-align: center; background: #e6b8b7">
+                                                            <div style="width: 7%; float: left; border-right: 1px solid white;">
+                                                                {{item3.sRole}}
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                {{item3.mR}}
+                                                            </div>
+                                                            <div :style="{'height': '18px','overflow': 'hidden', 'width': '20%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'left', 'padding-left': '5px', 'background': item3.sub_order_color}">
+                                                                {{item3.Pname}}
+                                                            </div>
+                                                            <div style="width: 5%; float: left; border-right: 1px solid white;">
+                                                                {{item3.sub_minute}}
+                                                            </div>
+                                                            <div style="width: 15%; float: left; border-right: 1px solid white;">
+                                                                {{item3.marketValue}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item3.p_m_Role}}
+                                                            </div>
+                                                            <div :style="{'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'background': item3.rule_color}">
+                                                                {{item3.primaryRole}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item3.altRole1}}
+                                                            </div>
+                                                            <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                {{item3.altRole2}}
+                                                            </div>
+                                                            <div style="width: 13%;">
+                                                                {{item3.Tit}}
+                                                            </div>
+                                                        </div>
+                                                        <br><br>
+                                                        <div style="width: 20%; float: left; height: 62px; padding-left: 20px;">
+                                                            Role legend:
+                                                        </div>
+                                                        <div style="width: 40%; float: left; height: 62px;">
+                                                            <div style="display: flex;">
+                                                                <div style="flex: 1; height: 20px; background: #92d050; text-align: center;">{{item1.away_rule_set.green_color}}</div>
+                                                                <div style="flex: 2; padding-left: 5px;">Player in Role</div>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div style="flex: 1; height: 20px; background: #ffff00; text-align: center;">{{item1.away_rule_set.yellow_color}}</div>
+                                                                <div style="flex: 2; padding-left: 5px;">Player in alternative Role</div>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div style="flex: 1; height: 20px; background: #ff0000; text-align: center;">{{item1.away_rule_set.red_color}}</div>
+                                                                <div style="flex: 2; padding-left: 5px;">Player out of role</div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 15%; float: left; height: 62px; text-align: right;">
+                                                            Subst.legend:
+                                                        </div>
+                                                        <div style="width: 25%; float: left; text-align: center; margin-bottom: 10px;">
+                                                            <div v-for="item4  in item1.away_legend" :key="item4.index" style="display: flex; width: 80%; margin: auto;">
+                                                                <div :style="{'flex': '1', 'height': '20px', 'background': item4.color}">{{item4.label}}</div>
+                                                            </div>
+                                                        </div>
+                                                        <br><br>
+                                                        <div style="width: 30%; float: left; background: #e6b8b7; padding: 5px; margin-bottom: 20px;">
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    MVP H
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    MVP H %
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    100.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    75.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    67.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    40.00 %
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 30%; float: left; background: #e6b8b7; padding: 5px; margin-bottom: 20px; margin-left: 5%;">
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    MVP H
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    MVP H %
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    100.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    75.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    67.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    40.00 %
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 30%; float: left; background: #e6b8b7; padding: 5px; margin-bottom: 20px; margin-left: 5%;">
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    MVP H
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    MVP H %
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    100.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    75.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    67.00 %
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: flex">
+                                                                <div style="flex: 1;">
+                                                                    Hplayer
+                                                                </div>
+                                                                <div style="flex: 1; text-align: right;">
+                                                                    40.00 %
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </CCol>
+                                        </CRow>
                                     </div>
                                 </div>
                             </div>
@@ -1193,6 +674,7 @@
                     </div>
                 </CCollapse>
             </div>
+
         </CCard>
     </div>
 </template>
@@ -1462,24 +944,168 @@
                 eventIndex: 0,
                 mainList: [],
                 standingList:[],
-                mainData:[],
-                home_date_list:[],
-                away_date_list:[],
-                basic_data:[],
-                red_FH_check: false,
-                red_SH_check: false,
-                rankList:[
-                    {"value": 1, "label": "vs All"},
-                    {"value": 2, "label": "vs High rank"},
-                    {"value": 3, "label": "vs middle-high rank"},
-                    {"value": 4, "label": "vs middle-low rank"},
-                    {"value": 5, "label": "vs low rank"},
+                sub_color_set:[
+                    {'color': '#c6d9ec', 'label': '1st Substitution'},
+                    {'color': '#9fbedf', 'label': '2nd Substitution'},
+                    {'color': '#79a6d2', 'label': '3rd Substitution'},
+                    {'color': '#6699cc', 'label': '4th Substitution'},
+                    {'color': '#538cc6', 'label': '5th Substitution'},
+                    {'color': '#4080be', 'label': '6th Substitution'},
+                    {'color': '#4080be', 'label': '7th Substitution'},
+                    {'color': '#4080be', 'label': '8th Substitution'},
+                    {'color': '#4080be', 'label': '9th Substitution'},
+                    {'color': '#4080be', 'label': '10th Substitution'},
+                    {'color': '#4080be', 'label': '8th Substitution'},
+                    {'color': '#4080be', 'label': '9th Substitution'},
+                    {'color': '#4080be', 'label': '10th Substitution'},
                 ],
-                rank_filter:{},
-                home_team:{},
-                away_team:{}
+                s_role_set:[
+                    {
+                        "name": "4-3-1-2",
+                        "s_role":["GK", "RB", "CB", "CB", "LB", "CM", "CM", "CM", "AM", "CF", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "", "", "SS", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD", "FWD"]
+                    },
+                    {
+                        "name": "4-3-3",
+                        "s_role":["GK", "RB", "CB", "CB", "LB", "CM", "CM", "CM", "RW", "CF", "LW"],
+                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "FWD", "FWD", "FWD"]
+                    },
+                    {
+                        "name": "4-3-2-1",
+                        "s_role":["GK", "RB", "CB", "CB", "LB", "CM", "CM", "CM", "AM", "AM", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD"]
+                    },
+                    {
+                        "name": "4-4-2",
+                        "s_role":["GK", "RB", "CB", "CB", "LB", "RM", "CM", "CM", "LM", "CF", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD", "FWD"]
+                    },
+                    {
+                        "name": "4-2-3-1",
+                        "s_role":["GK", "RB", "CB", "CB", "LB", "DM", "DM", "RM", "AM", "LM", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "", "RW", "", "LW", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD"]
+                    },
+                    {
+                        "name": "4-4-1-1",
+                        "s_role":["GK", "RB", "CB", "CB", "LB", "RM", "CM", "CM", "LM", "SS", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD", "FWD"]
+                    },
+                    {
+                        "name": "5-4-1",
+                        "s_role":["GK", "RB", "CB", "CB", "CB", "LB", "RM", "CM", "CM", "LM", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD"]
+                    },
+                    {
+                        "name": "3-4-1-2",
+                        "s_role":["GK", "CB", "CB", "CB", "RM", "CM", "CM", "LM", "AM", "CF", "CF"],
+                        "alt_s_role":["", "", "", "", "", "DM", "DM", "", "", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD", "FWD"]
+                    },
+                    {
+                        "name": "3-5-2",
+                        "s_role":["GK", "CB", "CB", "CB", "RM", "CM", "CM", "CM", "LM", "CF", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "DM", "", "", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD", "FWD"]
+                    },
+                    {
+                        "name": "3-5-1-1",
+                        "s_role":["GK", "CB", "CB", "CB", "RM", "CM", "CM", "CM", "LM", "AM", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "DM", "", "", "SS", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD"]
+                    },
+                    {
+                        "name": "3-4-2-1",
+                        "s_role":["GK", "CB", "CB", "CB", "RM", "CM", "CM", "LM", "AM", "AM", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "MID", "FWD"]
+                    },
+                    {
+                        "name": "5-3-2",
+                        "s_role":["GK", "RB", "CB", "CB", "CB", "LB", "CM", "CM", "CM", "CF", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "FWD", "FWD"]
+                    },
+                    {
+                        "name": "5-3-1-1",
+                        "s_role":["GK", "RB", "CB", "CB", "CB", "LB", "CM", "CM", "CM", "AM", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "", "", "", "SS", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD"]
+                    },
+                    {
+                        "name": "4-5-1",
+                        "s_role":["GK", "RB", "CB", "CB", "LB", "RM", "CM", "CM", "CM", "LM", "CF"],
+                        "alt_s_role":["", "", "", "", "", "RW", "", "DM", "", "LW", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD"]
+                    },
+                    {
+                        "name": "4-1-4-1",
+                        "s_role":["GK", "CB", "CB", "CB", "CB", "DM", "RM", "CM", "CM", "LM", "CF"],
+                        "alt_s_role":["", "RB", "", "", "LB", "CM", "AM", "AM", "AM", "AM", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD"]
+                    },
+                    {
+                        "name": "4-1-3-2",
+                        "s_role":["GK", "CB", "CB", "CB", "CB", "DM", "AM", "AM", "AM", "CF", "CF"],
+                        "alt_s_role":["", "RB", "", "", "LB", "CM", "RM", "", "LM", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD", "FWD"]
+                    },
+                    {
+                        "name": "3-4-3",
+                        "s_role":["GK", "CB", "CB", "CB", "RM", "CM", "CM", "LM", "RW", "CF", "LW"],
+                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD", "FWD", "FWD"]
+                    },
+                    {
+                        "name": "3-1-4-2",
+                        "s_role":["GK", "CB", "CB", "CB", "DM", "RM", "CM", "CM", "LM", "CF", "CF"],
+                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD", "FWD"]
+                    },
+                ],
+                lineup_list:[
+                    { value: '0', label: 'Auto'},
+                    { value: '4-3-1-2', label: '4-3-1-2'},
+                    { value: '4-3-3', label: '4-3-3'},
+                    { value: '4-3-2-1', label: '4-3-2-1'},
+                    { value: '4-4-2', label: '4-4-2'},
+                    { value: '4-2-3-1', label: '4-2-3-1'},
+                    { value: '4-4-1-1', label: '4-4-1-1'},
+                    { value: '5-4-1', label: '5-4-1'},
+                    { value: '3-4-1-2', label: '3-4-1-2'},
+                    { value: '3-5-2', label: '3-5-2'},
+                    { value: '3-5-1-1', label: '3-5-1-1'},
+                    { value: '3-4-2-1', label: '3-4-2-1'},
+                    { value: '5-3-2', label: '5-3-2'},
+                    { value: '5-3-1-1', label: '5-3-1-1'},
+                    { value: '4-5-1', label: '4-5-1'},
+                    { value: '4-1-4-1', label: '4-1-4-1'},
+                    { value: '4-1-3-2', label: '4-1-3-2'},
+                    { value: '3-4-3', label: '3-4-3'},
+                    { value: '3-1-4-2', label: '3-1-4-2'}
+                ],
+                selected_team: '',
+                selected_direction: ''
             }
         },
+        // sub_color_set:[
+        //     'rgba(236,242,249)',
+        //     'rgba(217,230,242)',
+        //     '#c6d9ec',
+        //     '#b3cce6',
+        //     '#9fbedf',
+        //     '#8cb3d9',
+        //     '#79a6d2',
+        //     '#6699cc',
+        //     '#538cc6',
+        //     '#4080be'
+        // ]
         methods: {
             isCollapsed(id){
                 return this.collapsed.indexOf(id)>-1?true:false;
@@ -1509,285 +1135,6 @@
             },
             isMinus(id){
                 return this.collapsed.indexOf(id)>-1?true:false;
-            },
-            FH_red(val){
-                this.red_FH_check = val
-                let home_id = this.item_X.home_id
-                let away_id = this.item_X.away_id
-                let temp =  JSON.stringify(this.mainData)
-                let  main_data = JSON.parse(temp)
-
-                let bc_data = []
-                this.home_date_list = []
-                this.away_date_list = []
-                let home_date_index = 0
-                let away_date_list = 0
-                for(let j = 0; j < main_data.length ; j++){
-                    if(main_data[j].events.length < 45){
-                        if(this.item_X.home_id === main_data[j].localTeamId && this.item_X.away_id === main_data[j].visitorTeamId){
-                            bc_data = main_data[j].events
-                            for(let p = 0 ; p < main_data[j].events.length ; p++){
-                                for(let pp = 0 ; pp < main_data[j].events[p].events.length ; pp++){
-                                    if(this.item_X.home_id === main_data[j].events[p].events[pp].localteamId){
-                                        home_date_index++
-                                        this.home_date_list.push({"date": main_data[j].events[p].events[pp].date, "value": home_date_index, "label": home_date_index})
-                                    }
-                                    if(this.item_X.away_id === main_data[j].events[p].events[pp].visitorteamId){
-                                        away_date_list++
-                                        this.away_date_list.push({"date": main_data[j].events[p].events[pp].date, "value": away_date_list, "label": away_date_list})
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                console.log('date list check ===>', this.home_date_list, this.away_date_list)
-                let self = this
-                this.sortJSON(self.home_date_list,'date', '123');
-                this.sortJSON(self.away_date_list,'date', '123');
-                for(let i = 0 ; i < bc_data.length; i++){
-                    for(let j = 0 ; j < bc_data[i].redCards.length ; j++){
-                        if(this.red_FH_check === true && bc_data[i].redCards[j].redFH > 0){
-                            if(home_id === bc_data[i].redCards[j].localteamId){
-                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
-                                if (index2 > -1) {
-                                    bc_data[i].events.splice(index2, 1);
-                                }
-
-                                let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.home_date_list.splice(index1, 1)
-
-                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                if (index > -1) {
-                                    bc_data[i].redCards.splice(index, 1);
-                                    j = j - 1
-                                }
-                            }
-                            if(away_id === bc_data[i].redCards[j].visitorteamId){
-                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
-                                if (index2 > -1) {
-                                    bc_data[i].events.splice(index2, 1);
-                                }
-
-                                let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.away_date_list.splice(index1, 1)
-
-                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                if (index > -1) {
-                                    bc_data[i].redCards.splice(index, 1);
-                                    j = j - 1
-                                }
-                            }
-                        }
-                        if(this.red_SH_check === true && bc_data[i].redCards[j].redSH > 0){
-                            if(home_id === bc_data[i].redCards[j].localteamId){
-                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
-                                if (index2 > -1) {
-                                    bc_data[i].events.splice(index2, 1);
-                                }
-
-                                let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.home_date_list.splice(index1, 1)
-
-                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                if (index > -1) {
-                                    bc_data[i].redCards.splice(index, 1);
-                                    j = j - 1
-                                }
-                            }
-                            if(away_id === bc_data[i].redCards[j].visitorteamId){
-                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
-                                if (index2 > -1) {
-                                    bc_data[i].events.splice(index2, 1);
-                                }
-
-                                let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.away_date_list.splice(index1, 1)
-
-                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                if (index > -1) {
-                                    bc_data[i].redCards.splice(index, 1);
-                                    j = j - 1
-                                }
-                            }
-                        }
-                    }
-                }
-                this.basic_data = bc_data
-                this.refresh_calculation(this.item_X, this.home_date_list[0].date, this.away_date_list[0].date, this.basic_data)
-            },
-            SH_red(val){
-                this.red_SH_check = val
-                let home_id = this.item_X.home_id
-                let away_id = this.item_X.away_id
-                let temp =  JSON.stringify(this.mainData)
-                let  main_data = JSON.parse(temp)
-                let bc_data = []
-
-                this.home_date_list = []
-                this.away_date_list = []
-                let home_date_index = 0
-                let away_date_list = 0
-                for(let j = 0; j < main_data.length ; j++){
-                    if(main_data[j].events.length < 45){
-                        if(this.item_X.home_id === main_data[j].localTeamId && this.item_X.away_id === main_data[j].visitorTeamId){
-                            bc_data = main_data[j].events
-                            for(let p = 0 ; p < main_data[j].events.length ; p++){
-                                for(let pp = 0 ; pp < main_data[j].events[p].events.length ; pp++){
-                                    if(this.item_X.home_id === main_data[j].events[p].events[pp].localteamId){
-                                        home_date_index++
-                                        this.home_date_list.push({"date": main_data[j].events[p].events[pp].date, "value": home_date_index, "label": home_date_index})
-                                    }
-                                    if(this.item_X.away_id === main_data[j].events[p].events[pp].visitorteamId){
-                                        away_date_list++
-                                        this.away_date_list.push({"date": main_data[j].events[p].events[pp].date, "value": away_date_list, "label": away_date_list})
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                console.log('date list check ===>', this.home_date_list, this.away_date_list)
-                let self = this
-                this.sortJSON(self.home_date_list,'date', '123');
-                this.sortJSON(self.away_date_list,'date', '123');
-                for(let i = 0 ; i < bc_data.length; i++){
-                    for(let j = 0 ; j < bc_data[i].redCards.length ; j++){
-                        if(this.red_FH_check === true && bc_data[i].redCards[j].redFH > 0){
-                            if(home_id === bc_data[i].redCards[j].localteamId){
-                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
-                                if (index2 > -1) {
-                                    bc_data[i].events.splice(index2, 1);
-                                }
-                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                if (index > -1) {
-                                    bc_data[i].redCards.splice(index, 1);
-                                    j = j - 1
-                                }
-                                let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.home_date_list.splice(index1, 1)
-                            }
-                            if(away_id === bc_data[i].redCards[j].visitorteamId){
-                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
-                                if (index2 > -1) {
-                                    bc_data[i].events.splice(index2, 1);
-                                }
-                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                if (index > -1) {
-                                    bc_data[i].redCards.splice(index, 1);
-                                    j = j - 1
-                                }
-                                let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.away_date_list.splice(index1, 1)
-                            }
-                        }
-                        if(this.red_SH_check === true && bc_data[i].redCards[j].redSH > 0){
-                            if(home_id === bc_data[i].redCards[j].localteamId){
-                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
-                                if (index2 > -1) {
-                                    bc_data[i].events.splice(index2, 1);
-                                }
-                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                if (index > -1) {
-                                    bc_data[i].redCards.splice(index, 1);
-                                    j = j - 1
-                                }
-                                let index1 = this.home_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.home_date_list.splice(index1, 1)
-                            }
-                            if(away_id === bc_data[i].redCards[j].visitorteamId){
-                                let index2 = bc_data[i].events.indexOf(bc_data[i].events[j]);
-                                if (index2 > -1) {
-                                    bc_data[i].events.splice(index2, 1);
-                                }
-                                let index = bc_data[i].redCards.indexOf(bc_data[i].redCards[j]);
-                                if (index > -1) {
-                                    bc_data[i].redCards.splice(index, 1);
-                                    j = j - 1
-                                }
-                                let index1 = this.away_date_list.indexOf(bc_data[i].redCards[j].date)
-                                this.away_date_list.splice(index1, 1)
-                            }
-                        }
-                    }
-                }
-                this.basic_data = bc_data
-                this.refresh_calculation(this.item_X, this.home_date_list[0].date, this.away_date_list[0].date, this.basic_data)
-            },
-            refreshCalc(val){
-                let home_date = ''
-                let away_date = ''
-                for(let i = 0 ; i < this.home_date_list.length ; i++){
-                    if(this.home_date_list.length - i == val){
-                        home_date = this.home_date_list[i].date
-                    }
-                }
-                for(let i = 0 ; i < this.away_date_list.length; i++){
-                    if(this.away_date_list.length - i == val){
-                        away_date = this.away_date_list[i].date
-                    }
-                }
-console.log('=====>', this.home_date_list, ', ', this.away_date_list)
-                this.refresh_calculation(this.item_X, home_date, away_date, this.basic_data)
-            },
-            p_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-
-                return p
             },
             percentage_calculation(data){
                 let p = 0
@@ -1819,4305 +1166,662 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                     }
                 }
 
+                if(data.localTeamId === 1858){
+                    console.log('percentage calculation', name1, p)
+                }
+
                 return [p, name1]
             },
-            zeroTozero_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore == 0 && data[i].events[j].visitorteamSore == 0){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            over15_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 1)){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            over25_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 2)){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
+            select_lineup(value){
+                for(let i = 0 ; i < this.mainList.length ; i++){
+                    for(let j = 0 ; j < this.mainList[i].events.length ; j++){
+                        let eventNode = this.mainList[i].events[j]
+                        if(this.selected_direction === 'home' && this.selected_team === eventNode.homeTeamName){
+                            if(value !== '0'){
+                                for(let k = 0 ; k < eventNode.homeTeam.length ; k++){
+                                    let s_roles = this.s_role_set.filter(function(item) {
+                                        return item.name === value;
+                                    });
+                                    console.log('s roles===>', s_roles, eventNode.homeTeam[k])
+                                    if(s_roles.length > 0){
+                                        let position_number = eventNode.homeTeam[k].formation_position
+                                        // let s_role = s_roles[0].s_role[k]
+                                        // let s_role12 = s_roles[0].alt_s_role[k]
+                                        // let mean_role = s_roles[0].mean_role[k]
 
-                return p
-            },
-            over35_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && (data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 3)){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            scored_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].localteamScore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].visitorteamSore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            concd_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            average_scored_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
-                                    p = p + data[i].events[j].localteamScore
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
-                                    p = p + data[i].events[j].visitorteamSore
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > 0){
-                                    p = p + data[i].events[j].localteamScore
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > 0){
-                                    p = p + data[i].events[j].visitorteamSore
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].localteamScore > 0){
-                                    p = p + data[i].events[j].localteamScore
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].visitorteamSore > 0){
-                                    p = p + data[i].events[j].visitorteamSore
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            average_concd_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0){
-                                    p = p + data[i].events[j].visitorteamSore
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0){
-                                    p = p + data[i].events[j].localteamScore
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > 0){
-                                    p = p + data[i].events[j].visitorteamSore
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > 0){
-                                    p = p + data[i].events[j].localteamScore
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore > 0){
-                                    p = p + data[i].events[j].visitorteamSore
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore > 0){
-                                    p = p + data[i].events[j].localteamScore
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            average_bts_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > 0 && data[i].events[j].localteamScore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > 0 && data[i].events[j].visitorteamSore > 0 ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > 0 && data[i].events[j].localteamScore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > 0 && data[i].events[j].visitorteamSore > 0 ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore > 0 && data[i].events[j].localteamScore > 0){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore > 0 && data[i].events[j].visitorteamSore > 0 ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            FH_1st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            FH_2st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute < 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute < 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute < 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute < 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute < 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute < 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            SH_1st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            SH_2st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45){
-                                            check++
-                                        }
-                                    }
-                                    if(check > 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            time_scored_calculation(data, teamId, dir, date, time, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == teamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            time_concd_calculation(data, teamId, dir, date, time, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == data[i].events[j].localteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == data[i].events[j].localteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].teamId == data[i].events[j].localteamId && data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 15){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            scored_1st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            scored_2st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            concd_1st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            concd_2st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 &&  data[i].events[j].goals[k].teamId ==data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            scored_plus_calculation(data, teamId, dir, date, time, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d ==='2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d ==='3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= time && data[i].events[j].goals[k].minute > time - 6){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            win_percentage_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore < data[i].events[j].localteamScore ){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore > data[i].events[j].visitorteamSore ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore < data[i].events[j].localteamScore ){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore > data[i].events[j].visitorteamSore ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore < data[i].events[j].localteamScore ){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore > data[i].events[j].visitorteamSore ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            draw_percentage_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore == data[i].events[j].localteamScore ){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore == data[i].events[j].visitorteamSore ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore == data[i].events[j].localteamScore ){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore == data[i].events[j].visitorteamSore ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore == data[i].events[j].localteamScore ){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore == data[i].events[j].visitorteamSore ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            loss_percentage_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore > data[i].events[j].localteamScore ){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore < data[i].events[j].visitorteamSore ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore > data[i].events[j].localteamScore ){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore < data[i].events[j].visitorteamSore ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore > data[i].events[j].localteamScore ){
-                                    p++
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore < data[i].events[j].visitorteamSore ){
-                                    p++
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            one_to_zero_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            one_to_one_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            two_to_one_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].localteamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            zero_to_one_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[0].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            one_to_one2_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[1].teamId == teamId && data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[1].teamId == teamId && data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[1].teamId == teamId && data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == data[i].events[j].localteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            zero_to_two_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == data[i].events[j].visitorteamId && data[i].events[j].goals[1].teamId == data[i].events[j].visitorteamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 1){
-                                        if(data[i].events[j].goals[0].teamId == teamId && data[i].events[j].goals[1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            two_score_ahead_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(hometeamScore - awayteamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(awayteamScore - hometeamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(hometeamScore - awayteamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(awayteamScore - hometeamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(hometeamScore - awayteamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(awayteamScore - hometeamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            two_score_behind_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(awayteamScore - hometeamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(hometeamScore - awayteamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(awayteamScore - hometeamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(hometeamScore - awayteamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(awayteamScore - hometeamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let check = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        let hometeamScore = parseInt(data[i].events[j].goals[k].result.split('-')[0])
-                                        let awayteamScore = parseInt(data[i].events[j].goals[k].result.split('-')[1])
-                                        if(hometeamScore - awayteamScore >= 2){
-                                            check = 1
-                                        }
-                                    }
-                                    if(check == 1){p++}
-                                }
-                            }
-                        }
-                    }
-                }
+                                        let s_role = s_roles[0].s_role[position_number - 1]
+                                        let s_role12 = s_roles[0].alt_s_role[position_number - 1]
+                                        let mean_role = s_roles[0].mean_role[position_number - 1]
 
-                return p
-            },
-            H_1st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            D_1st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            A_1st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute <= 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            H_2st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum > visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            D_2st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum == visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            A_2st_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            localScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].visitorteamId){
-                                            visitorScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    let localScoreSum = 0
-                                    let visitorScoreSum = 0
-                                    for(let k = 0 ; k < data[i].events[j].goals.length ; k++){
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == teamId){
-                                            visitorScoreSum++
-                                        }
-                                        if(data[i].events[j].goals[k].minute > 45 && data[i].events[j].goals[k].teamId == data[i].events[j].localteamId){
-                                            localScoreSum++
-                                        }
-                                    }
-                                    if(localScoreSum < visitorScoreSum){
-                                        p++
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            Last_goal_calculation(data, teamId, dir, date, d, ranks){
-                let p = 0
-                if(d === '1'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date < date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date < date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].date >= date && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].date >= date && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0; i < data.length ; i++){
-                        if(dir == 'home'){
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].localteamId == teamId && data[i].events[j].awayRank >= ranks.from && data[i].events[j].awayRank <= ranks.to && data[i].events[j].visitorteamSore + data[i].events[j].localteamScore > 0){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
-                                            p++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            for(let j = 0 ; j < data[i].events.length; j++){
-                                if(data[i].events[j].visitorteamId == teamId && data[i].events[j].homeRank >= ranks.from && data[i].events[j].homeRank <= ranks.to && data[i].events[j].localteamScore + data[i].events[j].visitorteamSore > 0 ){
-                                    if(data[i].events[j].goals.length > 0){
-                                        if(data[i].events[j].goals[data[i].events[j].goals.length - 1].teamId == teamId){
-                                            p++
-                                        }
+                                        this.mainList[i].events[j].homeTeam[k].sRole = s_role
+                                        this.mainList[i].events[j].homeTeam[k].sRole2 = s_role12
+                                        this.mainList[i].events[j].homeTeam[k].mR = mean_role
+                                        console.log('s_role=>', s_role)
+                                        console.log('s_role12=>', s_role12)
+                                        console.log('mean_role=>', mean_role)
+                                        console.log('formation_position=>', position_number)
+                                        let main_role = this.mainList[i].events[j].homeTeam[k].primaryRole
+                                        let position = this.mainList[i].events[j].homeTeam[k].p_m_Role
+                                        let alt_role1 = this.mainList[i].events[j].homeTeam[k].altRole1
+                                        let alt_role2 = this.mainList[i].events[j].homeTeam[k].altRole2
+                                        let s_role2 = this.mainList[i].events[j].homeTeam[k].sRole2
+                                        let rule_color = 'rgb(216, 228, 188)'
+                                        if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                            rule_color = 'rgb(146,208,80)'
+                                        }
+                                        else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                            rule_color = 'rgb(255,255,0)'
+                                        }
+                                        else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                            rule_color = 'rgb(255,0,0)'
+                                        }
+                                        this.mainList[i].events[j].homeTeam[k].rule_color = rule_color
                                     }
-                                }
-                            }
-                        }
-                    }
-                }
-                return p
-            },
-            H_A_calculation(seasonId, teamId, dir){
-                let rankArray = []
-                let teamPoints = 0
-                let rank = 1
-                let team_goals_scored = 0
-                let team_goals_against = 0
-                for(let i = 0 ; i < this.standingList.length ; i++){
-                    if(this.standingList[i].season_id == seasonId){
-                        for(let j = 0 ; j < this.standingList[i].standings.length; j++){
-                            if(dir == 'home'){
-                                rankArray.push({"teamId": this.standingList[i].standings[j].team_id, "points": this.standingList[i].standings[j].home.won*3 + this.standingList[i].standings[j].home.draw, 'goals_scored': this.standingList[i].standings[j].home.goals_scored, 'goals_against': this.standingList[i].standings[j].home.goals_against})
-                                if(this.standingList[i].standings[j].team_id == teamId){
-                                    teamPoints =  this.standingList[i].standings[j].home.won*3 + this.standingList[i].standings[j].home.draw
-                                    team_goals_scored = this.standingList[i].standings[j].home.goals_scored
-                                    team_goals_against = this.standingList[i].standings[j].home.goals_against
                                 }
                             }
                             else{
-                                rankArray.push({"teamId": this.standingList[i].standings[j].team_id, "points": this.standingList[i].standings[j].away.won*3 + this.standingList[i].standings[j].away.draw, 'goals_scored': this.standingList[i].standings[j].away.goals_scored, 'goals_against': this.standingList[i].standings[j].away.goals_against})
-                                if(this.standingList[i].standings[j].team_id == teamId){
-                                    teamPoints =  this.standingList[i].standings[j].away.won*3 + this.standingList[i].standings[j].away.draw
-                                    team_goals_scored = this.standingList[i].standings[j].away.goals_scored
-                                    team_goals_against = this.standingList[i].standings[j].away.goals_against
+                                for(let k = 0 ; k < eventNode.homeTeam.length ; k++){
+                                    this.mainList[i].events[j].homeTeam[k].sRole = this.mainList[i].events[j].homeTeam[k].sRole1
+                                    this.mainList[i].events[j].homeTeam[k].mR = this.mainList[i].events[j].homeTeam[k].mR1
+                                    this.mainList[i].events[j].homeTeam[k].rule_color = 'rgb(216,228,188)'
+                                }
+                            }
+                        }
+                        else if(this.selected_direction === 'away' && this.selected_team === eventNode.awayTeamName){
+                            if(value !== '0'){
+                                for(let k = 0 ; k < eventNode.awayTeam.length ; k++){
+                                    let s_roles = this.s_role_set.filter(function(item) {
+                                        return item.name === value;
+                                    });
+                                    if(s_roles.length > 0){
+                                        let position_number = eventNode.awayTeam[k].formation_position
+                                        // let s_role = s_roles[0].s_role[k]
+                                        // let s_role12 = s_roles[0].alt_s_role[k]
+                                        // let mean_role = s_roles[0].mean_role[k]
+
+                                        let s_role = s_roles[0].s_role[position_number - 1]
+                                        let s_role12 = s_roles[0].alt_s_role[position_number - 1]
+                                        let mean_role = s_roles[0].mean_role[position_number - 1]
+
+                                        this.mainList[i].events[j].awayTeam[k].sRole = s_role
+                                        this.mainList[i].events[j].awayTeam[k].sRole2 = s_role12
+                                        this.mainList[i].events[j].awayTeam[k].mR = mean_role
+                                        let main_role = this.mainList[i].events[j].awayTeam[k].primaryRole
+                                        let position = this.mainList[i].events[j].awayTeam[k].p_m_Role
+                                        let alt_role1 = this.mainList[i].events[j].awayTeam[k].altRole1
+                                        let alt_role2 = this.mainList[i].events[j].awayTeam[k].altRole2
+                                        let s_role2 = this.mainList[i].events[j].awayTeam[k].sRole2
+                                        let rule_color = 'rgb(230,184,183)'
+                                        if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                            rule_color = 'rgb(146,208,80)'
+                                        }
+                                        else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                            rule_color = 'rgb(255,255,0)'
+                                        }
+                                        else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                            rule_color = 'rgb(255,0,0)'
+                                        }
+                                        this.mainList[i].events[j].awayTeam[k].rule_color = rule_color
+                                    }
+                                }
+                            }
+                            else{
+                                for(let k = 0 ; k < eventNode.homeTeam.length ; k++){
+                                    this.mainList[i].events[j].awayTeam[k].sRole = this.mainList[i].events[j].awayTeam[k].sRole1
+                                    this.mainList[i].events[j].awayTeam[k].mR = this.mainList[i].events[j].awayTeam[k].mR1
+                                    this.mainList[i].events[j].awayTeam[k].rule_color = 'rgb(230,184,183)'
                                 }
                             }
                         }
 
-                        for(let j = 0 ; j < rankArray.length ; j++){
-                            if(rankArray[j].points > teamPoints){
-                                rank++
+                        let home_rule_color_number = {"green_color": 0, "yellow_color": 0, "red_color": 0}
+                        for(let pp = 0 ; pp < this.mainList[i].events[j].homeTeam.length ; pp++){
+                            if(this.mainList[i].events[j].homeTeam[pp].rule_color === 'rgb(146,208,80)'){
+                                home_rule_color_number.green_color++
                             }
-                            if(rankArray[j].points == teamPoints){
-                                if((team_goals_scored - team_goals_against) < (rankArray[j].goals_scored - rankArray[j].goals_against)){
-                                    rank++
-                                }
+                            else if(this.mainList[i].events[j].homeTeam[pp].rule_color === 'rgb(255,255,0)'){
+                                home_rule_color_number.yellow_color++
                             }
-                        }
-                    }
-                }
-                if(teamId == 300){
-                    console.log('teamPoints=>',teamPoints)
-                }
-                return rank
-            },
-            FH_calculation(data, teamId, seasonId, dir, date, d, ranks){
-                let teamIdArray = []
-                let rank = 1
-                let currentTeamData = {}
-                for(let i = 0 ; i < this.standingList.length ; i++){
-                    if(this.standingList[i].season_id == seasonId){
-                        for(let j = 0 ; j < this.standingList[i].standings.length; j++){
-                            teamIdArray[j] = this.standingList[i].standings[j].team_id
-                        }
-                    }
-                }
-                teamIdArray = Array.from(new Set (teamIdArray))
-                let rankArray = []
-                if(d === '1'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = 0 ; j < data.length ; j++){
-                            if(dir == 'home'){
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date < date){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                localScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum > visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                            else{
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date < date){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                localScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum < visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = 0 ; j < data.length ; j++){
-                            if(dir == 'home'){
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date >= date){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                localScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum > visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                            else{
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date >= date){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                localScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum < visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
-                    }
-
-                }
-                else if(d === '3'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = 0 ; j < data.length ; j++){
-                            if(dir == 'home'){
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].awayRank >= ranks.from && data[j].events[k].awayRank <= ranks.to){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                localScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum > visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                            else{
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].homeRank >= ranks.from && data[j].events[k].homeRank <= ranks.to){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute <= 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                localScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum < visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
-                    }
-                }
-
-                for(let i = 0 ; i < rankArray.length ; i++){
-                    if(rankArray[i].points > currentTeamData.points){
-                        rank++
-                    }
-                    if(rankArray[i].points == currentTeamData.points){
-                        if((rankArray[i].goals_scored - rankArray[i].goals_against) > (currentTeamData.goals_scored - currentTeamData.goals_against)){
-                            rank++
-                        }
-                    }
-                }
-                return rank
-            },
-            SH_calculation(data, teamId, seasonId, dir, date, d, ranks){
-                let teamIdArray = []
-                let rank = 1
-                let currentTeamData = {}
-                for(let i = 0 ; i < this.standingList.length ; i++){
-                    if(this.standingList[i].season_id == seasonId){
-                        for(let j = 0 ; j < this.standingList[i].standings.length; j++){
-                            teamIdArray[j] = this.standingList[i].standings[j].team_id
-                        }
-                    }
-                }
-                teamIdArray = Array.from(new Set (teamIdArray))
-                let rankArray = []
-                if(d === '1'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = 0 ; j < data.length ; j++){
-                            if(dir == 'home'){
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date < date){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                localScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum > visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                            else{
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date < date){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                localScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum < visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = 0 ; j < data.length ; j++){
-                            if(dir == 'home'){
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date >= date){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                localScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum > visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                            else{
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date >= date){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                localScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum < visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = 0 ; j < data.length ; j++){
-                            if(dir == 'home'){
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].awayRank >= ranks.from && data[j].events[k].awayRank <= ranks.to){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                localScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum > visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                            else{
-                                for(let k = 0 ; k < data[j].events.length; k++){
-                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].homeRank >= ranks.from && data[j].events[k].homeRank <= ranks.to){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].minute > 45 && data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                localScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum < visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
-                    }
-                }
-                for(let i = 0 ; i < rankArray.length ; i++){
-                    if(rankArray[i].points > currentTeamData.points){
-                        rank++
-                    }
-                    if(rankArray[i].points == currentTeamData.points){
-                        if((rankArray[i].goals_scored - rankArray[i].goals_against) > (currentTeamData.goals_scored - currentTeamData.goals_against)){
-                            rank++
-                        }
-                    }
-                }
-                return rank
-            },
-            attack_calculation(seasonId, teamId, dir){
-                let rankArray = []
-                let rank = 1
-                let team_goals_scored = 0
-                for(let i = 0 ; i < this.standingList.length ; i++){
-                    if(this.standingList[i].season_id == seasonId){
-                        for(let j = 0 ; j < this.standingList[i].standings.length; j++){
-                            if(dir == 'home'){
-                                rankArray.push({"teamId": this.standingList[i].standings[j].team_id, "points": this.standingList[i].standings[j].home.won*3 + this.standingList[i].standings[j].home.draw, 'goals_scored': this.standingList[i].standings[j].home.goals_scored, 'goals_against': this.standingList[i].standings[j].home.goals_against})
-                                if(this.standingList[i].standings[j].team_id == teamId){
-                                    team_goals_scored = this.standingList[i].standings[j].home.goals_scored
-                                }
-                            }
-                            else{
-                                rankArray.push({"teamId": this.standingList[i].standings[j].team_id, "points": this.standingList[i].standings[j].away.won*3 + this.standingList[i].standings[j].away.draw, 'goals_scored': this.standingList[i].standings[j].away.goals_scored, 'goals_against': this.standingList[i].standings[j].away.goals_against})
-                                if(this.standingList[i].standings[j].team_id == teamId){
-                                    team_goals_scored = this.standingList[i].standings[j].away.goals_scored
-                                }
+                            else if(this.mainList[i].events[j].homeTeam[pp].rule_color === 'rgb(255,0,0)'){
+                                home_rule_color_number.red_color++
                             }
                         }
 
-                        for(let j = 0 ; j < rankArray.length ; j++){
-                            if(rankArray[j].goals_scored > team_goals_scored){
-                                rank++
+                        let away_rule_color_number = {"green_color": 0, "yellow_color": 0, "red_color": 0}
+                        for(let pp = 0 ; pp < this.mainList[i].events[j].awayTeam.length ; pp++){
+                            if(this.mainList[i].events[j].awayTeam[pp].rule_color === 'rgb(146,208,80)'){
+                                away_rule_color_number.green_color++
+                            }
+                            else if(this.mainList[i].events[j].awayTeam[pp].rule_color === 'rgb(255,255,0)'){
+                                away_rule_color_number.yellow_color++
+                            }
+                            else if(this.mainList[i].events[j].awayTeam[pp].rule_color === 'rgb(255,0,0)'){
+                                away_rule_color_number.red_color++
                             }
                         }
+                        this.mainList[i].events[j].home_rule_set = home_rule_color_number
+                        this.mainList[i].events[j].away_rule_set = away_rule_color_number
                     }
                 }
-                return rank
             },
-            defense_calculation(seasonId, teamId, dir){
-                let rankArray = []
-                let rank = 1
-                let team_goals_against = 0
-                for(let i = 0 ; i < this.standingList.length ; i++){
-                    if(this.standingList[i].season_id == seasonId){
-                        for(let j = 0 ; j < this.standingList[i].standings.length; j++){
-                            if(dir == 'home'){
-                                rankArray.push({"teamId": this.standingList[i].standings[j].team_id, "points": this.standingList[i].standings[j].home.won*3 + this.standingList[i].standings[j].home.draw, 'goals_scored': this.standingList[i].standings[j].home.goals_scored, 'goals_against': this.standingList[i].standings[j].home.goals_against})
-                                if(this.standingList[i].standings[j].team_id == teamId){
-                                    team_goals_against = this.standingList[i].standings[j].home.goals_against
+            select_lineup1(value){
+                for(let i = 0 ; i < this.mainList.length ; i++){
+                    for(let j = 0 ; j < this.mainList[i].events.length ; j++){
+                        let eventNode = this.mainList[i].events[j]
+                        if(this.selected_direction === 'home' && this.selected_team === eventNode.homeTeamName){
+                            if(value !== '0'){
+                                let homeTeam2 = eventNode.homeTeam1
+                                let homeTeam3 = eventNode.homeTeam1
+                                for(let k = 0 ; k < homeTeam2.length ; k++){
+                                    homeTeam2[k].order_key = 0
+                                    homeTeam3[k].order_key = 0
+                                }
+
+                                for(let k = 0 ; k < homeTeam2.length ; k++){
+                                    let s_roles = this.s_role_set.filter(function(item) {
+                                        return item.name === value;
+                                    });
+                                    if(s_roles.length > 0) {
+                                        let position_number = homeTeam2[k].formation_position
+                                        let s_role = s_roles[0].s_role[position_number - 1]
+                                        let s_role12 = s_roles[0].alt_s_role[position_number - 1]
+                                        let mean_role = s_roles[0].mean_role[position_number - 1]
+                                        homeTeam2[k].sRole = s_role
+                                        homeTeam2[k].sRole2 = s_role12
+                                        homeTeam2[k].mR = mean_role
+                                        let check = 0
+                                        let check_key = 0
+
+                                        for(let kk = 0 ; kk < homeTeam3.length ; kk++){
+                                            if(homeTeam3[kk].order_key === 0){
+                                                let main_role = homeTeam3[kk].primaryRole
+                                                let position = homeTeam3[kk].p_m_Role
+                                                let alt_role1 = homeTeam3[kk].altRole1
+                                                let alt_role2 = homeTeam3[kk].altRole2
+                                                let s_role2 = homeTeam2[kk].sRole2
+                                                if (alt_role1 === '...' || alt_role1 === '') {
+                                                    alt_role1 = ''
+                                                }
+                                                if (alt_role2 === '...' || alt_role2 === '') {
+                                                    alt_role2 = ''
+                                                }
+                                                if((s_role === main_role || s_role12 === main_role) && alt_role1 === '' && alt_role2 === '') {
+                                                    homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                                    homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                                    homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                                    homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                                    homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                                    homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                                    homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                                    homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                                    homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                                    homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].rule_color = 'blue'
+                                                    homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                                    homeTeam2[k].order_key = 1
+                                                    homeTeam3[kk].order_key = 1
+                                                    check_key = kk
+                                                    check = 1
+                                                }
+                                                if((s_role === main_role || s_role12 === main_role) && ((alt_role1 !== '' && alt_role2 === '') || (alt_role1 === '' && alt_role2 !== ''))){
+                                                    homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                                    homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                                    homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                                    homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                                    homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                                    homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                                    homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                                    homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                                    homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                                    homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].rule_color = 'green'
+                                                    homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                                    homeTeam2[k].order_key = 1
+                                                    homeTeam3[kk].order_key = 1
+                                                    check = 1
+                                                    check_key = kk
+                                                }
+                                                if((s_role === main_role || s_role12 === main_role) && alt_role1 !== '' && alt_role2 !== ''){
+                                                    homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                                    homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                                    homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                                    homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                                    homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                                    homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                                    homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                                    homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                                    homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                                    homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].rule_color = 'pink'
+                                                    homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                                    homeTeam2[k].order_key = 1
+                                                    homeTeam3[kk].order_key = 1
+                                                    check = 1
+                                                    check_key = kk
+                                                }
+                                            }
+
+                                        }
+
+                                        //
+                                        // if(homeTeam2[k].order_key === 0){
+                                        //     for(let kk = 0 ; kk < homeTeam3.length ; kk++){
+                                        //         if(homeTeam3[kk].order_key === 0){
+                                        //             let main_role = homeTeam3[kk].primaryRole
+                                        //             let position = homeTeam3[kk].p_m_Role
+                                        //             let alt_role1 = homeTeam3[kk].altRole1
+                                        //             let alt_role2 = homeTeam3[kk].altRole2
+                                        //             let s_role2 = homeTeam2[kk].sRole2
+                                        //             homeTeam2[k].sRole1 = homeTeam3[kk].sRole1
+                                        //             if(alt_role1 === '...' || alt_role1 === ''){
+                                        //                 alt_role1 = ''
+                                        //             }
+                                        //             if(alt_role2 === '...' || alt_role2 === ''){
+                                        //                 alt_role2 = ''
+                                        //             }
+                                        //             // homeTeam.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id, 'formation_position': position_number, 'teamId':localTeamId ,'sRole': s_role, 'mR': mean_role, 'sRole1': s_role, 'sRole2': s_role2, 'mR1': mean_role, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(216, 228, 188)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
+                                        //             if(homeTeam2[k].order_key === 0){
+                                        //                 if((s_role === main_role || s_role12 === main_role) && alt_role1 === '' && alt_role2 === '' && homeTeam2[k].order_key === 0){
+                                        //                     // homeTeam2[k].order_key = 1
+                                        //                     homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                        //                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //                     homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                        //                     homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                        //                     homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                        //                     homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                        //                     homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                        //                     homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                        //                     homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                        //                     homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                        //                     homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                        //                     homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                        //                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //                     homeTeam2[k].rule_color = homeTeam3[kk].rule_color
+                                        //                     homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                        //                     homeTeam3[kk].order_key = 1
+                                        //                     let rule_color = 'rgb(216, 228, 188)'
+                                        //                     if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                        //                         rule_color = 'rgb(146,208,80)'
+                                        //                     }
+                                        //                     else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                        //                         rule_color = 'rgb(255,255,0)'
+                                        //                     }
+                                        //                     else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                        //                         rule_color = 'rgb(255,0,0)'
+                                        //                     }
+                                        //                     homeTeam2[k].rule_color = rule_color
+                                        //                     // if(homeTeam2[k].teamId === 7057){
+                                        //                     //     console.log('player=>', homeTeam2[k].Pname)
+                                        //                     // }
+                                        //                 }
+                                        //                 else if((s_role === main_role || s_role12 === main_role) && (alt_role1 !== '' && alt_role2 === '') || (alt_role1 === '' && alt_role2 !== '' && homeTeam2[k].order_key === 0)){
+                                        //                     homeTeam2[k].order_key = 1
+                                        //                     homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                        //                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //                     homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                        //                     homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                        //                     homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                        //                     homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                        //                     homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                        //                     homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                        //                     homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                        //                     homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                        //                     homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                        //                     homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                        //                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //                     homeTeam2[k].rule_color = homeTeam3[kk].rule_color
+                                        //                     homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                        //                     homeTeam3[kk].order_key = 1
+                                        //
+                                        //                     let rule_color = 'rgb(216, 228, 188)'
+                                        //                     if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                        //                         rule_color = 'rgb(146,208,80)'
+                                        //                     }
+                                        //                     else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                        //                         rule_color = 'rgb(255,255,0)'
+                                        //                     }
+                                        //                     else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                        //                         rule_color = 'rgb(255,0,0)'
+                                        //                     }
+                                        //                     homeTeam2[k].rule_color = rule_color
+                                        //                     // if(homeTeam2[k].teamId === 7057){
+                                        //                     //     console.log('player=>', homeTeam2[k].Pname)
+                                        //                     // }
+                                        //                 }
+                                        //                 else if((s_role === main_role || s_role12 === main_role) && alt_role1 !== '' && alt_role2 !== '' && homeTeam2[k].order_key === 0){
+                                        //                     homeTeam2[k].order_key = 1
+                                        //                     homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                        //                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //                     homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                        //                     homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                        //                     homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                        //                     homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                        //                     homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                        //                     homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                        //                     homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                        //                     homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                        //                     homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                        //                     homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                        //                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //                     homeTeam2[k].rule_color = homeTeam3[kk].rule_color
+                                        //                     homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                        //                     homeTeam3[kk].order_key = 1
+                                        //
+                                        //                     let rule_color = 'rgb(216, 228, 188)'
+                                        //                     if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                        //                         rule_color = 'rgb(146,208,80)'
+                                        //                     }
+                                        //                     else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                        //                         rule_color = 'rgb(255,255,0)'
+                                        //                     }
+                                        //                     else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                        //                         rule_color = 'rgb(255,0,0)'
+                                        //                     }
+                                        //                     homeTeam2[k].rule_color = rule_color
+                                        //                     // if(homeTeam2[k].teamId === 7057){
+                                        //                     //     console.log('player=>', homeTeam2[k].Pname)
+                                        //                     // }
+                                        //                 }
+                                        //                 else if(position === mean_role && (alt_role1 !== '' && alt_role2 === '') || (alt_role1 === '' && alt_role2 !== '' && homeTeam2[k].order_key === 0)){
+                                        //                     homeTeam2[k].order_key = 1
+                                        //                     homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                        //                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //                     homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                        //                     homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                        //                     homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                        //                     homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                        //                     homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                        //                     homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                        //                     homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                        //                     homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                        //                     homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                        //                     homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                        //                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //                     homeTeam2[k].rule_color = homeTeam3[kk].rule_color
+                                        //                     homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                        //                     homeTeam3[kk].order_key = 1
+                                        //
+                                        //                     let rule_color = 'rgb(216, 228, 188)'
+                                        //                     if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                        //                         rule_color = 'rgb(146,208,80)'
+                                        //                     }
+                                        //                     else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                        //                         rule_color = 'rgb(255,255,0)'
+                                        //                     }
+                                        //                     else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                        //                         rule_color = 'rgb(255,0,0)'
+                                        //                     }
+                                        //                     homeTeam2[k].rule_color = rule_color
+                                        //                     // if(homeTeam2[k].teamId === 7057){
+                                        //                     //     console.log('player=>', homeTeam2[k].Pname)
+                                        //                     // }
+                                        //                 }
+                                        //                 else if(position === mean_role && alt_role1 !== '' && alt_role2 !== '' && homeTeam2[k].order_key === 0){
+                                        //                     homeTeam2[k].order_key = 1
+                                        //                     homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                        //                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //                     homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                        //                     homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                        //                     homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                        //                     homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                        //                     homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                        //                     homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                        //                     homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                        //                     homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                        //                     homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                        //                     homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                        //                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //                     homeTeam2[k].rule_color = homeTeam3[kk].rule_color
+                                        //                     homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                        //                     homeTeam3[kk].order_key = 1
+                                        //
+                                        //                     let rule_color = 'rgb(216, 228, 188)'
+                                        //                     if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                        //                         rule_color = 'rgb(146,208,80)'
+                                        //                     }
+                                        //                     else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                        //                         rule_color = 'rgb(255,255,0)'
+                                        //                     }
+                                        //                     else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                        //                         rule_color = 'rgb(255,0,0)'
+                                        //                     }
+                                        //                     homeTeam2[k].rule_color = rule_color
+                                        //                     // if(homeTeam2[k].teamId === 7057){
+                                        //                     //     console.log('players=>', homeTeam2[k].Pname)
+                                        //                     // }
+                                        //
+                                        //                 }
+                                        //                 if(homeTeam2[k].teamId === 7057){
+                                        //                     console.log('player_order_key_value=>', homeTeam2[k].order_key)
+                                        //                 }
+                                        //             }
+                                        //         }
+                                        //     }
+                                        // }
+
+                                        // for(let kk = 0 ; kk < homeTeam3.length ; kk++){
+                                        //     let main_role = homeTeam3[kk].primaryRole
+                                        //     let position = homeTeam3[kk].p_m_Role
+                                        //     let alt_role1 = homeTeam3[kk].altRole1
+                                        //     let alt_role2 = homeTeam3[kk].altRole2
+                                        //     let s_role2 = homeTeam2[kk].sRole2
+                                        //     if(alt_role1 === '...' || alt_role1 === ''){
+                                        //         alt_role1 = ''
+                                        //     }
+                                        //     if(alt_role2 === '...' || alt_role2 === ''){
+                                        //         alt_role2 = ''
+                                        //     }
+                                        //     if(homeTeam3[kk].order_key === 0){
+                                        //         if((s_role === main_role || s_role12 === main_role) && alt_role1 === '' && alt_role2 === ''){
+                                        //             homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                        //             homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //             homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                        //             homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                        //             homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                        //             homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                        //             homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                        //             homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                        //             homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                        //             homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                        //             homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                        //             homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                        //             homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //             homeTeam2[k].rule_color = homeTeam3[kk].rule_color
+                                        //             homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                        //             homeTeam2[k].order_key = 1
+                                        //             homeTeam3[kk].order_key = 1
+                                        //             check_key = kk
+                                        //             check = 1
+                                        //         }
+                                        //         if((s_role === main_role || s_role12 === main_role) && ((alt_role1 !== '' && alt_role2 === '') || (alt_role1 === '' && alt_role2 !== ''))){
+                                        //             homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                        //             homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //             homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                        //             homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                        //             homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                        //             homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                        //             homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                        //             homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                        //             homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                        //             homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                        //             homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                        //             homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                        //             homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //             homeTeam2[k].rule_color = homeTeam3[kk].rule_color
+                                        //             homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                        //             homeTeam2[k].order_key = 1
+                                        //             homeTeam3[kk].order_key = 1
+                                        //             check = 1
+                                        //             check_key = kk
+                                        //         }
+                                        //         if((s_role === main_role || s_role12 === main_role) && alt_role1 !== '' && alt_role2 !== ''){
+                                        //             homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                        //             homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //             homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                        //             homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                        //             homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                        //             homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                        //             homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                        //             homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                        //             homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                        //             homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                        //             homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                        //             homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                        //             homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //             homeTeam2[k].rule_color = homeTeam3[kk].rule_color
+                                        //             homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                        //             homeTeam2[k].order_key = 1
+                                        //             homeTeam3[kk].order_key = 1
+                                        //             check = 1
+                                        //             check_key = kk
+                                        //         }
+                                        //         if((position === mean_role) && ((alt_role1 !== '' && alt_role2 === '') || (alt_role1 === '' && alt_role2 !== ''))){
+                                        //             homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                        //             homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //             homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                        //             homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                        //             homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                        //             homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                        //             homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                        //             homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                        //             homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                        //             homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                        //             homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                        //             homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                        //             homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //             homeTeam2[k].rule_color = homeTeam3[kk].rule_color
+                                        //             homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                        //             homeTeam2[k].order_key = 1
+                                        //             homeTeam3[kk].order_key = 1
+                                        //             check = 1
+                                        //             check_key = kk
+                                        //         }
+                                        //         if((position === mean_role) && alt_role1 !== '' && alt_role2 !== ''){
+                                        //             homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                        //             homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //             homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                        //             homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                        //             homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                        //             homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                        //             homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                        //             homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                        //             homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                        //             homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                        //             homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                        //             homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                        //             homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                        //             homeTeam2[k].rule_color = homeTeam3[kk].rule_color
+                                        //             homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                        //             homeTeam2[k].order_key = 1
+                                        //             homeTeam3[kk].order_key = 1
+                                        //             check = 1
+                                        //             check_key = kk
+                                        //         }
+                                        //     }
+                                        // }
+
+                                        if(check === 0){
+                                            homeTeam2[k].order_key = 0
+                                        }
+                                    }
+                                }
+                                this.mainList[i].events[j].homeTeam1 = homeTeam2
+                            }
+                            else{
+                                for(let k = 0 ; k < eventNode.homeTeam1.length ; k++){
+                                    this.mainList[i].events[j].homeTeam1[k].sRole = this.mainList[i].events[j].homeTeam1[k].sRole1
+                                    this.mainList[i].events[j].homeTeam1[k].mR = this.mainList[i].events[j].homeTeam1[k].mR1
+                                    this.mainList[i].events[j].homeTeam1[k].rule_color = 'rgb(216,228,188)'
+                                }
+                            }
+                        }
+                        else if(this.selected_direction === 'away' && this.selected_team === eventNode.awayTeamName){
+                            if(value !== '0'){
+                                for(let k = 0 ; k < eventNode.awayTeam1.length ; k++){
+                                    let s_roles = this.s_role_set.filter(function(item){
+                                        return item.name === value;
+                                    });
+                                    if(s_roles.length > 0){
+                                        let position_number = eventNode.awayTeam1[k].formation_position
+                                        let s_role = s_roles[0].s_role[position_number - 1]
+                                        let s_role12 = s_roles[0].alt_s_role[position_number - 1]
+                                        let mean_role = s_roles[0].mean_role[position_number - 1]
+                                        this.mainList[i].events[j].awayTeam1[k].sRole = s_role
+                                        this.mainList[i].events[j].awayTeam1[k].sRole2 = s_role12
+                                        this.mainList[i].events[j].awayTeam1[k].mR = mean_role
+                                        let main_role = this.mainList[i].events[j].awayTeam1[k].primaryRole
+                                        let position = this.mainList[i].events[j].awayTeam1[k].p_m_Role
+                                        let alt_role1 = this.mainList[i].events[j].awayTeam1[k].altRole1
+                                        let alt_role2 = this.mainList[i].events[j].awayTeam1[k].altRole2
+                                        let s_role2 = this.mainList[i].events[j].awayTeam1[k].sRole2
+                                        let rule_color = 'rgb(230,184,183)'
+                                        if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                            rule_color = 'rgb(146,208,80)'
+                                        }
+                                        else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                            rule_color = 'rgb(255,255,0)'
+                                        }
+                                        else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                            rule_color = 'rgb(255,0,0)'
+                                        }
+                                        this.mainList[i].events[j].awayTeam1[k].rule_color = rule_color
+                                    }
                                 }
                             }
                             else{
-                                rankArray.push({"teamId": this.standingList[i].standings[j].team_id, "points": this.standingList[i].standings[j].away.won*3 + this.standingList[i].standings[j].away.draw, 'goals_scored': this.standingList[i].standings[j].away.goals_scored, 'goals_against': this.standingList[i].standings[j].away.goals_against})
-                                if(this.standingList[i].standings[j].team_id == teamId){
-                                    team_goals_against = this.standingList[i].standings[j].away.goals_against
+                                for(let k = 0 ; k < eventNode.homeTeam.length ; k++){
+                                    this.mainList[i].events[j].awayTeam1[k].sRole = this.mainList[i].events[j].awayTeam1[k].sRole1
+                                    this.mainList[i].events[j].awayTeam1[k].mR = this.mainList[i].events[j].awayTeam1[k].mR1
+                                    this.mainList[i].events[j].awayTeam1[k].rule_color = 'rgb(230,184,183)'
                                 }
                             }
                         }
 
-                        for(let j = 0 ; j < rankArray.length ; j++){
-                            if(rankArray[j].goals_against < team_goals_against){
-                                rank++
+                        let home_rule_color_number = {"green_color": 0, "yellow_color": 0, "red_color": 0}
+                        for(let pp = 0 ; pp < this.mainList[i].events[j].homeTeam1.length ; pp++){
+                            if(this.mainList[i].events[j].homeTeam1[pp].rule_color === 'rgb(146,208,80)'){
+                                home_rule_color_number.green_color++
+                            }
+                            else if(this.mainList[i].events[j].homeTeam1[pp].rule_color === 'rgb(255,255,0)'){
+                                home_rule_color_number.yellow_color++
+                            }
+                            else if(this.mainList[i].events[j].homeTeam1[pp].rule_color === 'rgb(255,0,0)'){
+                                home_rule_color_number.red_color++
                             }
                         }
-                    }
-                }
-                return rank
-            },
-            H_A_Form_calculation(data, teamId, seasonId, dir, date,d, ranks){
-                let teamIdArray = []
-                let rank = 1
-                let currentTeamData = {}
-                for(let i = 0 ; i < this.standingList.length ; i++){
-                    if(this.standingList[i].season_id == seasonId){
-                        for(let j = 0 ; j < this.standingList[i].standings.length; j++){
-                            teamIdArray[j] = this.standingList[i].standings[j].team_id
-                        }
-                    }
-                }
-                teamIdArray = Array.from(new Set (teamIdArray))
-                let rankArray = []
-                if(d === '1'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        let limit = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = data.length - 1 ; j >= 0 ; j--){
-                            if(dir == 'home'){
-                                for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date < date){
-                                        limit++
-                                        if(limit <= 3){
-                                            let localScoreSum = 0
-                                            let visitorScoreSum = 0
-                                            for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                                if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                    localScoreSum++
-                                                    rankArray[i].goals_scored++
-                                                }
-                                                if(data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                    visitorScoreSum++
-                                                    rankArray[i].goals_against++
-                                                }
-                                            }
-                                            if(localScoreSum == visitorScoreSum){
-                                                draw++
-                                            }
-                                            else if(localScoreSum > visitorScoreSum){
-                                                won++
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            else{
-                                for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date < date){
-                                        limit++
-                                        if(limit <= 3){
-                                            let localScoreSum = 0
-                                            let visitorScoreSum = 0
-                                            for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                                if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                    visitorScoreSum++
-                                                    rankArray[i].goals_scored++
-                                                }
-                                                if(data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                    localScoreSum++
-                                                    rankArray[i].goals_against++
-                                                }
-                                            }
-                                            if(localScoreSum == visitorScoreSum){
-                                                draw++
-                                            }
-                                            else if(localScoreSum < visitorScoreSum){
-                                                won++
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
-                    }
-                }
-                else if(d === '2'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        let limit = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = data.length - 1 ; j >= 0 ; j--){
-                            if(dir == 'home'){
-                                for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].date >= date){
-                                        limit++
-                                        if(limit <= 3){
-                                            let localScoreSum = 0
-                                            let visitorScoreSum = 0
-                                            for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                                if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                    localScoreSum++
-                                                    rankArray[i].goals_scored++
-                                                }
-                                                if(data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                    visitorScoreSum++
-                                                    rankArray[i].goals_against++
-                                                }
-                                            }
-                                            if(localScoreSum == visitorScoreSum){
-                                                draw++
-                                            }
-                                            else if(localScoreSum > visitorScoreSum){
-                                                won++
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            else{
-                                for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].date >= date){
-                                        limit++
-                                        if(limit <= 3){
-                                            let localScoreSum = 0
-                                            let visitorScoreSum = 0
-                                            for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                                if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                    visitorScoreSum++
-                                                    rankArray[i].goals_scored++
-                                                }
-                                                if(data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                    localScoreSum++
-                                                    rankArray[i].goals_against++
-                                                }
-                                            }
-                                            if(localScoreSum == visitorScoreSum){
-                                                draw++
-                                            }
-                                            else if(localScoreSum < visitorScoreSum){
-                                                won++
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        let limit = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = data.length - 1 ; j >= 0 ; j--){
-                            if(dir == 'home'){
-                                for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && data[j].events[k].awayRank >= ranks.from && data[j].events[k].awayRank <= ranks.to){
-                                        limit++
-                                        if(limit <= 3){
-                                            let localScoreSum = 0
-                                            let visitorScoreSum = 0
-                                            for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                                if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                    localScoreSum++
-                                                    rankArray[i].goals_scored++
-                                                }
-                                                if(data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                    visitorScoreSum++
-                                                    rankArray[i].goals_against++
-                                                }
-                                            }
-                                            if(localScoreSum == visitorScoreSum){
-                                                draw++
-                                            }
-                                            else if(localScoreSum > visitorScoreSum){
-                                                won++
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            else{
-                                for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                                    if(data[j].events[k].visitorteamId == teamIdArray[i] && data[j].events[k].homeRank >= ranks.from && data[j].events[k].homeRank <= ranks.to){
-                                        limit++
-                                        if(limit <= 3){
-                                            let localScoreSum = 0
-                                            let visitorScoreSum = 0
-                                            for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                                if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                    visitorScoreSum++
-                                                    rankArray[i].goals_scored++
-                                                }
-                                                if(data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                    localScoreSum++
-                                                    rankArray[i].goals_against++
-                                                }
-                                            }
-                                            if(localScoreSum == visitorScoreSum){
-                                                draw++
-                                            }
-                                            else if(localScoreSum < visitorScoreSum){
-                                                won++
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
-                    }
-                }
 
-                for(let i = 0 ; i < rankArray.length ; i++){
-                    if(rankArray[i].points > currentTeamData.points){
-                        rank++
-                    }
-                    if(rankArray[i].points == currentTeamData.points){
-                        if((rankArray[i].goals_scored - rankArray[i].goals_against) > (currentTeamData.goals_scored - currentTeamData.goals_against)){
-                            rank++
-                        }
-                    }
-                }
-                return rank
-            },
-            Form_calculation(data, teamId, seasonId, date, d, ranks){
-                let teamIdArray = []
-                let rank = 1
-                let currentTeamData = {}
-                for(let i = 0 ; i < this.standingList.length ; i++){
-                    if(this.standingList[i].season_id == seasonId){
-                        for(let j = 0 ; j < this.standingList[i].standings.length; j++){
-                            teamIdArray[j] = this.standingList[i].standings[j].team_id
-                        }
-                    }
-                }
-                teamIdArray = Array.from(new Set (teamIdArray))
-                let rankArray = []
-                if(d === '1'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        let limit = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = data.length - 1 ; j >= 0 ; j--){
-                            for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                                if((data[j].events[k].localteamId == teamIdArray[i] || data[j].events[k].visitorteamId == teamIdArray[i]) && data[j].events[k].date < date){
-                                    limit++
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && limit <= 6){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                localScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum > visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                    else if(data[j].events[k].visitorteamId == teamIdArray[i] && limit <= 6){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                localScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum < visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
+                        let away_rule_color_number = {"green_color": 0, "yellow_color": 0, "red_color": 0}
+                        for(let pp = 0 ; pp < this.mainList[i].events[j].awayTeam1.length ; pp++){
+                            if(this.mainList[i].events[j].awayTeam1[pp].rule_color === 'rgb(146,208,80)'){
+                                away_rule_color_number.green_color++
+                            }
+                            else if(this.mainList[i].events[j].awayTeam1[pp].rule_color === 'rgb(255,255,0)'){
+                                away_rule_color_number.yellow_color++
+                            }
+                            else if(this.mainList[i].events[j].awayTeam1[pp].rule_color === 'rgb(255,0,0)'){
+                                away_rule_color_number.red_color++
                             }
                         }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
+                        this.mainList[i].events[j].home_rule_set = home_rule_color_number
+                        this.mainList[i].events[j].away_rule_set = away_rule_color_number
                     }
                 }
-                else if(d === '2'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        let limit = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = data.length - 1 ; j >= 0 ; j--){
-                            for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                                if((data[j].events[k].localteamId == teamIdArray[i] || data[j].events[k].visitorteamId == teamIdArray[i]) && data[j].events[k].date >= date){
-                                    limit++
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && limit <= 6){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                localScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum > visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                    else if(data[j].events[k].visitorteamId == teamIdArray[i] && limit <= 6){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                localScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum < visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
-                    }
-                }
-                else if(d === '3'){
-                    for(let i = 0 ; i < teamIdArray.length ; i++){
-                        let won = 0
-                        let draw = 0
-                        let limit = 0
-                        rankArray.push({"teamId": teamIdArray[i], "points": 0, 'goals_scored': 0, 'goals_against': 0})
-                        for(let j = data.length - 1 ; j >= 0 ; j--){
-                            for(let k = data[j].events.length - 1 ; k >= 0; k--){
-                                if((data[j].events[k].localteamId == teamIdArray[i] || data[j].events[k].visitorteamId == teamIdArray[i])  && data[j].events[k].date >= date){
-                                    limit++
-                                    if(data[j].events[k].localteamId == teamIdArray[i] && limit <= 6){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                localScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].teamId == data[j].events[k].visitorteamId){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum > visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                    else if(data[j].events[k].visitorteamId == teamIdArray[i] && limit <= 6){
-                                        let localScoreSum = 0
-                                        let visitorScoreSum = 0
-                                        for(let l = 0 ; l < data[j].events[k].goals.length ; l++){
-                                            if(data[j].events[k].goals[l].teamId == teamIdArray[i]){
-                                                visitorScoreSum++
-                                                rankArray[i].goals_scored++
-                                            }
-                                            if(data[j].events[k].goals[l].teamId == data[j].events[k].localteamId){
-                                                localScoreSum++
-                                                rankArray[i].goals_against++
-                                            }
-                                        }
-                                        if(localScoreSum == visitorScoreSum){
-                                            draw++
-                                        }
-                                        else if(localScoreSum < visitorScoreSum){
-                                            won++
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        rankArray[i].points = draw + won*3
-                        if(teamIdArray[i] == teamId){
-                            currentTeamData = rankArray[i]
-                        }
-                    }
-                }
-
-                for(let i = 0 ; i < rankArray.length ; i++){
-                    if(rankArray[i].points > currentTeamData.points){
-                        rank++
-                    }
-                    if(rankArray[i].points == currentTeamData.points){
-                        if((rankArray[i].goals_scored - rankArray[i].goals_against) > (currentTeamData.goals_scored - currentTeamData.goals_against)){
-                            rank++
-                        }
-                    }
-                }
-                return rank
             },
             readData(){
-                window.axios.post(`${process.env.VUE_APP_URL}getStatsNew`).then(({data})=> {
+                window.axios.post(`${process.env.VUE_APP_URL}teamAnalysis`).then(({data})=> {
                     console.log('data******', data.data[0])
                     console.log('data1******', data.data[1])
-                    console.log('data2******', data.data[2])
                     this.standingList = data.data[1]
-                    let main_data = data.data[2]
-                    this.mainData = main_data
+                    let main_data = data.data[0]
                     let competitionArray = []
                     for(let i = 0 ; i < main_data.length ; i++){
                         competitionArray[i] = main_data[i].competitions[0].league
@@ -6132,488 +1836,1243 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                         let percentage = 0
                         let numbers = 0
                         for(let j = 0; j < main_data.length ; j++){
-                            if(competitionArray[i] == main_data[j].competitions[0].league && main_data[j].events.length < 45){
+                            if(competitionArray[i] == main_data[j].competitions[0].name && main_data[j].local_players.length > 0){
                                 k++
-                                let start_date4 = new Date();
-                                let next_date4 = start_date4.setDate(start_date4.getDate() + 0);
-                                next_date4 = new Date(next_date4).toISOString()
-                                next_date4 = next_date4.substring(0,10)
-                                let home = {
-                                    p:0,
-                                    name:'',
-                                    rank: '',
-                                    z_z: 0,
-                                    over15: 0,
-                                    over25:0,
-                                    over35:0,
-                                    scored:0,
-                                    conc:0,
-                                    average1:0,
-                                    average2:0,
-                                    bts:0,
-                                    first1:0,
-                                    first2:0,
-                                    second1:0,
-                                    second2:0,
-                                    time15_S:0,
-                                    time30_S:0,
-                                    time45_S:0,
-                                    time60_S:0,
-                                    time75_S:0,
-                                    time90_S:0,
-                                    time15_C:0,
-                                    time30_C:0,
-                                    time45_C:0,
-                                    time60_C:0,
-                                    time75_C:0,
-                                    time90_C:0,
-                                    gs1:0,
-                                    gs2:0,
-                                    gc1:0,
-                                    gc2:0,
-                                    over40:0,
-                                    over85:0,
-                                    C_H:0,
-                                    C_D:0,
-                                    C_A:0,
-                                    first10:0,
-                                    first11:0,
-                                    first20:0,
-                                    second01:0,
-                                    second11:0,
-                                    second02:0,
-                                    firstGoal:0,
-                                    lastGoal:0,
-                                    secondplus:0,
-                                    secondminus:0,
-                                    homefirst:0,
-                                    drawfirst:0,
-                                    awayfirst:0,
-                                    homesecond:0,
-                                    drawsecond:0,
-                                    awaysecond:0,
-                                    eventdays:['All'],
-                                    pos:0,
-                                    h_a:0,
-                                    swing1:'',
-                                    FH:0,
-                                    swing2:'',
-                                    SH:0,
-                                    swing3:'',
-                                    attack:0,
-                                    defense:0,
-                                    form:0,
-                                    form_H_A:0
-
+                                let homeTeam = []
+                                let awayTeam = []
+                                let homeTeam1 = []
+                                let awayTeam1 = []
+                                let localTeamId = main_data[j].localTeamId
+                                let visitTeamId = main_data[j].visitorTeamId
+                                let homeTeamName = main_data[j].localTeamName
+                                let awayTeamName = main_data[j].visitorTeamName
+                                let homeTeamFormation = main_data[j].formations.localteam_formation
+                                let awayTeamFormation = main_data[j].formations.visitorteam_formation
+                                let homeTeamPformation = ''
+                                let awayTeamPformation = ''
+                                if(main_data[j].pre_formations){
+                                    homeTeamPformation = main_data[j].pre_formations.localteam_formation
+                                    awayTeamPformation = main_data[j].pre_formations.visitorteam_formation
                                 }
-                                let away = {
-                                    p:0,
-                                    name:'',
-                                    rank:'' ,
-                                    z_z: 0,
-                                    over15: 0,
-                                    over25:0,
-                                    over35:0,
-                                    scored:0,
-                                    conc:0,
-                                    average1:0,
-                                    average2:0,
-                                    bts:0,
-                                    first1:0,
-                                    first2:0,
-                                    second1:0,
-                                    second2:0,
-                                    time15_S:0,
-                                    time30_S:0,
-                                    time45_S:0,
-                                    time60_S:0,
-                                    time75_S:0,
-                                    time90_S:0,
-                                    time15_C:0,
-                                    time30_C:0,
-                                    time45_C:0,
-                                    time60_C:0,
-                                    time75_C:0,
-                                    time90_C:0,
-                                    gs1:0,
-                                    gs2:0,
-                                    gc1:0,
-                                    gc2:0,
-                                    over40:0,
-                                    over85:0,
-                                    C_H:0,
-                                    C_D:0,
-                                    C_A:0,
-                                    first10:0,
-                                    first11:0,
-                                    first20:0,
-                                    second01:0,
-                                    second11:0,
-                                    second02:0,
-                                    firstGoal:0,
-                                    lastGoal:0,
-                                    secondPlus:0,
-                                    secondMinus:0,
-                                    homefirst:0,
-                                    drawfirst:0,
-                                    awayfirst:0,
-                                    homesecond:0,
-                                    drawsecond:0,
-                                    awaysecond:0,
-                                    eventdays:['All'],
-                                    pos:0,
-                                    h_a:0,
-                                    swing1: '',
-                                    FH:0,
-                                    swing2: '',
-                                    SH:0,
-                                    swing3: '',
-                                    attack:0,
-                                    defense:0,
-                                    form:0,
-                                    form_H_A:0
-                                }
-                                countryCode = main_data[j].countryCode
-                                home.name = main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')'
-                                away.name = main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')'
-                                events[k - 1] = {'rank_option': [], 'rank_set': {}, 'rankFilter': false, 'b_data': main_data[j].events, 'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'home_id': 0, 'away_id': 0, 'openDate':  main_data[j].time.starting_at.time, 'home':home, 'away': away, 'homeDateList': [], "awayDateList": []}
-
-                                let homeTeamId = main_data[j].localTeamId
-                                let awayTeamId = main_data[j].visitorTeamId
-
-                                events[k - 1].home_id = homeTeamId
-                                events[k - 1].away_id = awayTeamId
-
-                                let teamsInfo = main_data[j].teamInfo
-                                let rank_filter_show = true
-                                let teamArray = []
-                                for(let m = 0 ; m < teamsInfo.length ; m++){
-                                    let teams = teamsInfo[m].teams
-                                    if(teams.length < 5){
-                                        rank_filter_show = false
-                                        break
-                                    }
-                                    for(let mm = 0 ; mm < teams.length ; mm++){
-                                        teamArray.push(teams[mm].team_id)
-                                    }
-                                }
-                                if(teamArray.length === 0){
-                                    rank_filter_show = false
-                                }
-                                teamArray = Array.from(new Set (teamArray))
-
-                                let rank_set = {
-                                    "v1": {"from": 1, "to": 0},
-                                    "v2": {"from": 0, "to": 0},
-                                    "v3": {"from": 0, "to": 0},
-                                    "v4": {"from": 0, "to": 0}
-                                }
-                                let rankList_option = []
-                                if(rank_filter_show === true){
-                                    let total_teams = teamArray.length
-                                    if(total_teams % 2 === 0){
-                                        let sec = total_teams/2
-                                        if(sec % 2 === 0){
-                                            rank_set.v1.to = sec/2
-                                            rank_set.v2.to = sec
-                                            rank_set.v3.to = sec*3/2
-                                            rank_set.v4.to = sec*2
-
-                                            rank_set.v2.from = rank_set.v1.to + 1
-                                            rank_set.v3.from = rank_set.v2.to + 1
-                                            rank_set.v4.from = rank_set.v3.to + 1
-                                        }
-                                        else{
-                                            rank_set.v1.to = (sec - 1)/2
-                                            rank_set.v2.to = sec
-                                            rank_set.v3.to = sec + (sec - 1)/2
-                                            rank_set.v4.to = sec*2
-
-                                            rank_set.v2.from = rank_set.v1.to + 1
-                                            rank_set.v3.from = rank_set.v2.to + 1
-                                            rank_set.v4.from = rank_set.v3.to + 1
-                                        }
-                                    }
-                                    else{
-                                        let f_sec = (total_teams - 1)/2
-                                        let s_sec = (total_teams - 1)/2 + 1
-                                        if(f_sec % 2 === 0){
-                                            rank_set.v1.to = f_sec/2
-                                            rank_set.v2.to = f_sec
-                                            rank_set.v2.from = rank_set.v1.to + 1
-                                            rank_set.v3.from = rank_set.v2.to + 1
-                                        }
-                                        else{
-                                            rank_set.v1.to = (f_sec - 1)/2
-                                            rank_set.v2.to = f_sec
-                                            rank_set.v2.from = rank_set.v1.to + 1
-                                            rank_set.v3.from = rank_set.v2.to + 1
-                                        }
-
-                                        if(s_sec % 2 === 0){
-                                            rank_set.v3.to = s_sec/2
-                                            rank_set.v4.to = s_sec
-                                            rank_set.v4.from = rank_set.v3.to + 1
-                                        }
-                                        else{
-                                            rank_set.v3.to = f_sec + (s_sec - 1)/2
-                                            rank_set.v4.to = total_teams
-                                            rank_set.v4.from = rank_set.v3.to + 1
-                                        }
-                                    }
-                                    events[k - 1].rankFilter = true
-                                    events[k - 1].rank_set = rank_set
-                                    rankList_option = [
-                                        {"value": 1, "label": "vs All"},
-                                        {"value": 2, "label": "vs High rank ( " + rank_set.v1.from + ' to ' + rank_set.v1.to + ' )'},
-                                        {"value": 3, "label": "vs middle-high rank ( " + rank_set.v2.from + ' to ' + rank_set.v2.to + ' )'},
-                                        {"value": 4, "label": "vs middle-low rank (" + rank_set.v3.from + ' to ' + rank_set.v3.to + ' )'},
-                                        {"value": 5, "label": "vs low rank (" + rank_set.v4.from + ' to ' + rank_set.v4.to + ' )'},
-                                    ]
-                                    events[k - 1].rank_option = rankList_option
-                                }
-
-                                let seasonId = main_data[j].season_id
-                                let event_item = main_data[j].events
-                                let home_date_list = []
-                                let away_date_list = []
-                                let home_date_Index = 0
-                                let away_date_Index = 0
-                                for(let m = 0 ; m < event_item.length ; m++){
-                                    for(let mm = 0 ; mm < event_item[m].events.length ; mm++){
-                                        if(event_item[m].events[mm].localteamId == homeTeamId){
-                                            home_date_Index++
-                                            home_date_list.push({'value': home_date_Index,"date": event_item[m].events[mm].date, "label": home_date_Index})
-                                        }
-                                        if(event_item[m].events[mm].visitorteamId == awayTeamId){
-                                            away_date_Index++
-                                            away_date_list.push({'value': away_date_Index,"date": event_item[m].events[mm].date, "label": away_date_Index})
-                                        }
-                                    }
-                                }
-                                this.sortJSON(home_date_list,'date', '123');
-                                this.sortJSON(away_date_list,'date', '123');
-
-                                for(let m = 0 ; m < home_date_list.length ; m++){
-                                    home_date_list[m].value = m + 1
-                                    home_date_list[m].label = m + 1
-                                }
-
-                                for(let m = 0 ; m < away_date_list.length ; m++){
-                                    away_date_list[m].value = m + 1
-                                    away_date_list[m].label = m + 1
-                                }
-
-                                events[k - 1].homeDateList = home_date_list
-                                events[k - 1].awayDateList = away_date_list
-                                home.pos = main_data[j].standing.localteam_position
-                                away.pos = main_data[j].standing.visitorteam_position
-                                home.h_a = this.H_A_calculation(seasonId, homeTeamId, 'home')
-                                away.h_a = this.H_A_calculation(seasonId, awayTeamId, 'away')
-
-                                let swing1 = (away.pos - away.h_a) - (home.pos - home.h_a)
-                                if(swing1 > 0){
-                                    away.swing1 = '+'+swing1
-                                    home.swing1 =''
-                                }
-                                else if(swing1 < 0){
-                                    away.swing1 =''
-                                    home.swing1 = '+'+swing1*(-1)
-                                }
-                                if((home.pos > home.h_a && away.pos > away.h_a) || (home.pos < home.h_a && away.pos < away.h_a)){
-                                    away.swing1 =''
-                                    home.swing1 =''
-                                }
-                                home.FH = this.FH_calculation(main_data[j].events, main_data[j].localTeamId,seasonId, 'home', next_date4, '1', {})
-                                away.FH = this.FH_calculation(main_data[j].events, main_data[j].visitorTeamId,seasonId, 'away', next_date4, '1', {})
-
-                                let swing2 =(away.pos - away.FH) -  (home.pos - home.FH)
-                                if(swing2 > 0){
-                                    away.swing2 = '+'+swing2
-                                    home.swing2 =''
-                                }
-                                else if(swing2 < 0){
-                                    away.swing2 =''
-                                    home.swing2 = '+'+swing2*(-1)
-                                }
-                                if((home.pos > home.FH && away.pos > away.FH) || (home.pos < home.FH && away.pos < away.FH)){
-                                    away.swing2 =''
-                                    home.swing2 =''
-                                }
-
-                                home.SH = this.SH_calculation(main_data[j].events, main_data[j].localTeamId,seasonId, 'home', next_date4, '1', {})
-                                away.SH = this.SH_calculation(main_data[j].events, main_data[j].visitorTeamId,seasonId, 'away', next_date4, '1', {})
-
-                                let swing3 =(away.pos - away.SH) -  (home.pos - home.SH)
-                                if(swing3 > 0){
-                                    away.swing3 = '+'+swing3
-                                    home.swing3 =''
-                                }
-                                else if(swing3 < 0){
-                                    away.swing3 =''
-                                    home.swing3 = '+'+swing3*(-1)
-                                }
-                                if((home.pos > home.SH && away.pos > away.SH) || (home.pos < home.SH && away.pos < away.SH)){
-                                    away.swing3 =''
-                                    home.swing3 =''
-                                }
-
-                                home.attack = this.attack_calculation(seasonId, homeTeamId, 'home')
-                                away.attack = this.attack_calculation(seasonId, awayTeamId, 'away')
-                                home.defense = this.defense_calculation(seasonId, homeTeamId, 'home')
-                                away.defense = this.defense_calculation(seasonId, awayTeamId, 'away')
-                                home.form_H_A = this.H_A_Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, 'home', next_date4, '1', {})
-                                away.form_H_A = this.H_A_Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, 'away', next_date4, '1', {})
-                                home.form = this.Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, next_date4, '1', {})
-                                away.form = this.Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, next_date4, '1', {})
 
                                 let percentage0 = this.percentage_calculation(main_data[j])
                                 percentage = percentage0[0]
                                 numbers = percentage0[1]
 
-                                home.p = this.p_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})
-                                away.p = this.p_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})
-                                home.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p + 0.001)*100).toFixed(0)
-                                away.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p + 0.001)*100).toFixed(0)
-                                home.over15 = (this.over15_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p + 0.001)*100).toFixed(0)
-                                away.over15 = (this.over15_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p + 0.001)*100).toFixed(0)
-                                home.over25 = (this.over25_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p + 0.001)*100).toFixed(0)
-                                away.over25 = (this.over25_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p + 0.001)*100).toFixed(0)
-                                home.over35 = (this.over35_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p + 0.001)*100).toFixed(0)
-                                away.over35 = (this.over35_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p + 0.001)*100).toFixed(0)
-                                home.scored = (this.scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p + 0.001)*100).toFixed(0)
-                                away.scored = (this.scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p + 0.001)*100).toFixed(0)
-                                home.conc = (this.concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p + 0.001)*100).toFixed(0)
-                                away.conc = (this.concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p + 0.001)*100).toFixed(0)
-                                home.average1 = (this.average_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)).toFixed(2)
-                                away.average1 = (this.average_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)).toFixed(2)
-                                home.average2 = (this.average_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)).toFixed(2)
-                                away.average2 = (this.average_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)).toFixed(2)
-                                if(this.average_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {}) == 0){home.average1 = 0;}
-                                if(this.average_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {}) == 0){away.average1 = 0;}
-                                if(this.average_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {}) == 0){home.average2 = 0;}
-                                if(this.average_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {}) == 0){away.average2 = 0;}
-                                home.bts = (this.average_bts_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.bts = (this.average_bts_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.first1 = (this.FH_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.first1 = (this.FH_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.first2 = (this.FH_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.first2 = (this.FH_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.second1 = (this.SH_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.second1 = (this.SH_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.second2 = (this.SH_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.second2 = (this.SH_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p + 0.0001)*100).toFixed(0)
+                                let homeTeamLformation = main_data[j].live_formations.localteam_formation
+                                let awayTeamLformation = main_data[j].live_formations.visitorteam_formation
+                                if(main_data[j].lineup != null){
+                                    for(let k = 0 ; k < main_data[j].lineup.data.length ; k++){
+                                        if(main_data[j].lineup.data[k].team_id === localTeamId && main_data[j].local_players.length > 0){
+                                            let position = ''
+                                            if(main_data[j].lineup.data[k].position === 'G'){
+                                                position = 'GK'
+                                            }
+                                            else if(main_data[j].lineup.data[k].position === 'D'){
+                                                position = 'DEF'
+                                            }
+                                            else if(main_data[j].lineup.data[k].position === 'M'){
+                                                position = 'MID'
+                                            }
+                                            else if(main_data[j].lineup.data[k].position === 'A'){
+                                                position = 'FWD'
+                                            }
+                                            else{
+                                                position = '-'
+                                            }
 
-                                home.time15_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 15, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time15_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 15, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.time15_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 15, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time15_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 15, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.time30_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 30, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time30_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 30, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.time30_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 30, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time30_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 30, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.time45_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time45_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.time45_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time45_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.time60_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 60, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time60_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 60, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.time60_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 60, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time60_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 60, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.time75_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 75, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time75_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 75, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.time75_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 75, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time75_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 75, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.time90_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time90_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                home.time90_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90, '1', {})/(home.p + 0.0001)*100).toFixed(0)
-                                away.time90_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90, '1', {})/(away.p + 0.0001)*100).toFixed(0)
-                                let hgs1 = this.scored_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})
-                                let ags1 = this.scored_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})
-                                let hgs2 = this.scored_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})
-                                let ags2 = this.scored_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})
-                                home.gs1 = (hgs1/(hgs1 + hgs2)*100).toFixed(0)
-                                home.gs2 = (hgs2/(hgs1 + hgs2)*100).toFixed(0)
-                                if((hgs1 + hgs2) == 0){home.gs1 = 0; home.gs2 = 0}
-                                away.gs1 = (ags1/(ags1 + ags2)*100).toFixed(0)
-                                away.gs2 = (ags2/(ags1 + ags2)*100).toFixed(0)
-                                if((ags1 + ags2) == 0){away.gs1 = 0 ; away.gs2 = 0}
-                                let hgc1 = this.concd_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})
-                                let agc1 = this.concd_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})
-                                let hgc2 = this.concd_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})
-                                let agc2 = this.concd_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})
-                                home.gc1 = (hgc1/(hgc1 + hgc2)*100).toFixed(0)
-                                home.gc2 = (hgc2/(hgc1 + hgc2)*100).toFixed(0)
-                                if((hgc1 + hgc2) == 0){home.gc1 = 0; home.gc2 = 0}
-                                away.gc1 = (agc1/(agc1 + agc2)*100).toFixed(0)
-                                away.gc2 = (agc2/(agc1 + agc2)*100).toFixed(0)
-                                if((agc1 + agc2) == 0){away.gc1 = 0 ; away.gc2 = 0}
-                                home.over40 = (this.scored_plus_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45, '1', {})/(home.p)*100).toFixed(0)
-                                away.over40 = (this.scored_plus_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45, '1', {})/(away.p)*100).toFixed(0)
-                                home.over85 = (this.scored_plus_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90, '1', {})/(home.p)*100).toFixed(0)
-                                away.over85 = (this.scored_plus_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90, '1', {})/(away.p)*100).toFixed(0)
+                                            let market_value = '...'
+                                            let main_role = '...'
+                                            let alt_role1 = '...'
+                                            let alt_role2 = '...'
+                                            let market_player_name = ''
+                                            let local_players = main_data[j].local_players.filter(function(item) {
+                                                return item.team_id == localTeamId && item.market_values.length > 0;
+                                            });
 
-                                home.C_H = (this.win_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.C_H = (this.win_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
-                                home.C_D = (this.draw_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.C_D = (this.draw_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
-                                home.C_A = (this.loss_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.C_A = (this.loss_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
+                                            if(local_players.length > 0){
+                                                let values = local_players[0].market_values.filter(function(item) {
+                                                    return item.player_number == main_data[j].lineup.data[k].number;
+                                                });
+                                                if(values.length > 0){
+                                                    market_value = values[0].player_marketvalue
+                                                    market_player_name = values[0].player_name
+                                                }
+                                                else{
+                                                    let value = local_players[0].market_values.filter(function(item) {
+                                                        return item.player_name.trim() == main_data[j].lineup.data[k].player_name;
+                                                    });
+                                                    if(value.length > 0){
+                                                        market_value = value[0].player_marketvalue
+                                                        market_player_name = value[0].player_name
+                                                    }
+                                                    else{
+                                                        let value0 = local_players[0].market_values.filter(function(item) {
+                                                            return item.player_name.trim().substring(item.player_name.trim().length - 4, item.player_name.trim().length) == main_data[j].lineup.data[k].player_name.substring(main_data[j].lineup.data[k].player_name.length - 4, main_data[j].lineup.data[k].player_name.length);
+                                                        });
+                                                        if(value0.length > 0){
+                                                            market_value = value0[0].player_marketvalue
+                                                            market_player_name = value0[0].player_name
+                                                        }
+                                                        else{
+                                                            let value1 = local_players[0].market_values.filter(function(item) {
+                                                                return item.player_name.trim().substring(0, 3) == main_data[j].lineup.data[k].player_name.substring(0, 3);
+                                                            });
+                                                            if(value1.length > 0){
+                                                                market_value = value1[0].player_marketvalue
+                                                                market_player_name = value1[0].player_name
+                                                            }
+                                                        }
+                                                    }
+                                                }
 
-                                home.lastGoal = (this.Last_goal_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.lastGoal = (this.Last_goal_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
-                                if(home.p == 0){home.over40 = 0; home.over85 = 0; home.C_H = 0; home.C_D = 0; home.C_A = 0; home.lastGoal = 0}
-                                if(away.p == 0){away.over40 = 0; away.over85 = 0; away.C_H = 0; away.C_D = 0; away.C_A = 0; away.lastGoal = 0}
-                                home.first10 = this.one_to_zero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})
-                                away.first10 = this.one_to_zero_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})
+                                                let roles = local_players[0].roles.filter(function(item) {
+                                                    return item.player_number == main_data[j].lineup.data[k].number;
+                                                });
+                                                if(roles.length > 0){
+                                                    main_role = roles[0].player_main_role
+                                                    alt_role1 = roles[0].player_alt_role1
+                                                    alt_role2 = roles[0].player_alt_role2
+                                                    if(alt_role1 == ''){
+                                                        alt_role1 = '...'
+                                                    }
+                                                    if(alt_role2 == ''){
+                                                        alt_role2 = '...'
+                                                    }
+                                                }
+                                                else{
+                                                    let names = local_players[0].roles.filter(function(item) {
+                                                        return item.player_name.trim() == main_data[j].lineup.data[k].player_name;
+                                                    });
+                                                    if(names.length > 0){
+                                                        main_role = names[0].player_main_role
+                                                        alt_role1 = names[0].player_alt_role1
+                                                        alt_role2 = names[0].player_alt_role2
+                                                        if(alt_role1 == ''){
+                                                            alt_role1 = '...'
+                                                        }
+                                                        if(alt_role2 == ''){
+                                                            alt_role2 = '...'
+                                                        }
+                                                    }
+                                                    else{
+                                                        let namex = local_players[0].roles.filter(function(item) {
+                                                            return item.player_name.trim() === market_player_name;
+                                                        });
+                                                        if(namex.length > 0){
+                                                            main_role = namex[0].player_main_role
+                                                            alt_role1 = namex[0].player_alt_role1
+                                                            alt_role2 = namex[0].player_alt_role2
+                                                            if(alt_role1 == ''){
+                                                                alt_role1 = '...'
+                                                            }
+                                                            if(alt_role2 == ''){
+                                                                alt_role2 = '...'
+                                                            }
+                                                        }else{
+                                                            let name0 = local_players[0].roles.filter(function(item) {
+                                                                return item.player_name.trim().substring(item.player_name.trim().length - 4, item.player_name.trim().length) == main_data[j].lineup.data[k].player_name.substring(main_data[j].lineup.data[k].player_name.length - 4, main_data[j].lineup.data[k].player_name.length);
+                                                            });
+                                                            if(name0.length > 0){
+                                                                main_role = name0[0].player_main_role
+                                                                alt_role1 = name0[0].player_alt_role1
+                                                                alt_role2 = name0[0].player_alt_role2
+                                                                if(alt_role1 == ''){
+                                                                    alt_role1 = '...'
+                                                                }
+                                                                if(alt_role2 == ''){
+                                                                    alt_role2 = '...'
+                                                                }
+                                                            }
+                                                            else{
+                                                                let name1 = local_players[0].roles.filter(function(item) {
+                                                                    return item.player_name.trim().substring(0, 3) == main_data[j].lineup.data[k].player_name.substring(0, 3);
+                                                                });
+                                                                if(name1.length > 0){
+                                                                    main_role = name1[0].player_main_role
+                                                                    alt_role1 = name1[0].player_alt_role1
+                                                                    alt_role2 = name1[0].player_alt_role2
+                                                                    if(alt_role1 == ''){
+                                                                        alt_role1 = '...'
+                                                                    }
+                                                                    if(alt_role2 == ''){
+                                                                        alt_role2 = '...'
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
 
-                                home.first11 = (this.one_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.first10)*100).toFixed(0)
-                                away.first11 = (this.one_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.first10)*100).toFixed(0)
-                                home.first20 = (this.two_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.first10)*100).toFixed(0)
-                                away.first20 = (this.two_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.first10)*100).toFixed(0)
+                                            if(main_role == 'GK'){ position = 'GK' }
+                                            else if(main_role == 'RB'){ position = 'DEF' }
+                                            else if(main_role == 'CB'){ position = 'DEF' }
+                                            else if(main_role == 'LB'){ position = 'DEF' }
+                                            else if(main_role == 'RM'){ position = 'MID' }
+                                            else if(main_role == 'CM'){ position = 'MID' }
+                                            else if(main_role == 'LM'){ position = 'MID' }
+                                            else if(main_role == 'DM'){ position = 'MID' }
+                                            else if(main_role == 'AM'){ position = 'MID' }
+                                            else if(main_role == 'RW'){ position = 'FWD' }
+                                            else if(main_role == 'LW'){ position = 'FWD' }
+                                            else if(main_role == 'SS'){ position = 'FWD' }
+                                            else if(main_role == 'CF'){ position = 'FWD' }
 
-                                if(home.first10 == 0){home.first11 = 0; home.first20 = 0}
-                                if(away.first10 == 0){away.first11 = 0; away.first20 = 0}
-                                home.second01 = this.zero_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})
-                                away.second01 = this.zero_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})
+                                            let Tit = (0).toFixed(2)
+                                            let titularity = main_data[j].local_players[0].titularity.filter(function(item) {
+                                                return item.player_id === main_data[j].lineup.data[k].player_id;
+                                            })
 
-                                home.second11 = (this.one_to_one2_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.second01)*100).toFixed(0)
-                                away.second11 = (this.one_to_one2_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.second01)*100).toFixed(0)
-                                home.second02 = (this.zero_to_two_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.second01)*100).toFixed(0)
-                                away.second02 = (this.zero_to_two_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.second01)*100).toFixed(0)
+                                            let Tit1 = 0
+                                            let Tit2 = 0
+                                            if(titularity[0]){
+                                                let appearences = titularity[0].appearences
+                                                let lineups = titularity[0].lineups
+                                                let substitute_in = titularity[0].substitute_in
+                                                let substitute_out = titularity[0].substitute_out
+                                                let presences = titularity[0].appearences
 
-                                if(home.second01 == 0){home.second11 = 0; home.second02 = 0}
-                                if(away.second01 == 0){away.second11 = 0; away.second02 = 0}
-                                home.secondplus = (this.two_score_ahead_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.secondplus = (this.two_score_ahead_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
-                                home.secondminus = (this.two_score_behind_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.secondminus = (this.two_score_behind_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
-                                home.homefirst = (this.H_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.homefirst = (this.H_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
-                                home.drawfirst = (this.D_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.drawfirst = (this.D_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
-                                home.awayfirst = (this.A_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.awayfirst = (this.A_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
+                                                if(lineups !== null && appearences !== null){
+                                                    Tit1 = lineups/appearences*100
+                                                }
+                                                if(presences !== null && substitute_in !== null && substitute_out !== null){
+                                                    Tit2 = (lineups + substitute_out - substitute_in)/presences*100
+                                                }
+                                                if(Tit2 != 0 && Tit1 != 0){
+                                                    Tit = (Tit1 + Tit2)/2
+                                                }
+                                                if(Tit2 == 0 && Tit1 != 0){
+                                                    Tit = Tit1
+                                                }
+                                            }
+                                            if(Tit1 == 0 && Tit2 == 0){
+                                                Tit = '##'
+                                            }
+                                            else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
+                                                Tit = (0).toFixed(2)
+                                            }
+                                            else if(Tit > 0 && Tit <= 100){
+                                                let Tit3 = Tit
+                                                Tit = Tit3.toFixed(2)
+                                            }
+                                            else if(Tit < 0){
+                                                Tit = (0).toFixed(2)
+                                            }
+                                            else if(Tit > 100){
+                                                Tit = (100).toFixed(2)
+                                            }
 
-                                home.homesecond = (this.H_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.homesecond = (this.H_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
-                                home.drawsecond = (this.D_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.drawsecond = (this.D_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
-                                home.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '1', {})/(home.p)*100).toFixed(0)
-                                away.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '1', {})/(away.p)*100).toFixed(0)
-                                if(home.p == 0){home.secondplus = 0; home.secondminus = 0; home.homefirst = 0; home.drawfirst = 0; home.awayfirst = 0; home.homesecond = 0; home.drawsecond = 0; home.awaysecond = 0}
-                                if(away.p == 0){away.secondplus = 0; away.secondminus = 0; away.homefirst = 0; away.drawfirst = 0; away.awayfirst = 0; away.homesecond = 0; away.drawsecond = 0; away.awaysecond = 0}
+                                            // console.log('titularity==>', titularity[0])
+                                            // console.log('Tit==>', Tit, ', Tit1=>', Tit1, ', Tit2=>', Tit2)
+                                            let rule_color = 'rgb(216, 228, 188)'
+                                            // pre-formartion part
+                                            let s_roles = this.s_role_set.filter(function(item) {
+                                                return item.name === homeTeamPformation;
+                                            })
+
+                                            if(s_roles.length > 0){
+                                                let position_number = main_data[j].lineup.data[k].formation_position
+                                                console.log('position_number=>', position_number)
+                                                let s_role = s_roles[0].s_role[position_number - 1]
+                                                let s_role2 = s_roles[0].alt_s_role[position_number - 1]
+                                                let mean_role = s_roles[0].mean_role[position_number - 1]
+                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                    rule_color = 'rgb(146,208,80)'
+                                                }
+                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                    rule_color = 'rgb(255,255,0)'
+                                                }
+                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                    rule_color = 'rgb(255,0,0)'
+                                                }
+                                                homeTeam.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id, 'formation_position': position_number, 'teamId':localTeamId ,'sRole': s_role, 'mR': mean_role, 'sRole1': s_role, 'sRole2': s_role2, 'mR1': mean_role, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(216, 228, 188)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                            else{
+                                                let position_number = main_data[j].lineup.data[k].formation_position
+                                                homeTeam.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id, 'formation_position': position_number, 'teamId':localTeamId ,'sRole': '...', 'mR': position, 'sRole1': '...','sRole2': '', 'mR1': position, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(216, 228, 188)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                            //live formartion part
+                                            let s_roles_live = this.s_role_set.filter(function(item) {
+                                                return item.name === homeTeamLformation;
+                                            })
+
+                                            if(s_roles_live.length > 0){
+                                                let position_number = main_data[j].lineup.data[k].formation_position
+                                                let s_role = s_roles_live[0].s_role[position_number - 1]
+                                                let s_role2 = s_roles_live[0].alt_s_role[position_number - 1]
+                                                let mean_role = s_roles_live[0].mean_role[position_number - 1]
+                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                    rule_color = 'rgb(146,208,80)'
+                                                }
+                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                    rule_color = 'rgb(255,255,0)'
+                                                }
+                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                    rule_color = 'rgb(255,0,0)'
+                                                }
+                                                homeTeam1.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id, 'formation_position': position_number, 'teamId':localTeamId ,'sRole': s_role, 'mR': mean_role, 'sRole1': s_role, 'sRole2': s_role2, 'mR1': mean_role, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(216, 228, 188)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                            else{
+                                                let position_number = main_data[j].lineup.data[k].formation_position
+                                                homeTeam1.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id, 'formation_position': position_number, 'teamId':localTeamId ,'sRole': '...', 'mR': position, 'sRole1': '...','sRole2': '', 'mR1': position, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(216, 228, 188)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                            //-------------------------------------------------------------------
+                                        }
+                                        else{
+                                            let position = ''
+                                            if(main_data[j].lineup.data[k].position === 'G'){
+                                                position = 'GK'
+                                            }
+                                            else if(main_data[j].lineup.data[k].position === 'D'){
+                                                position = 'DEF'
+                                            }
+                                            else if(main_data[j].lineup.data[k].position === 'M'){
+                                                position = 'MID'
+                                            }
+                                            else if(main_data[j].lineup.data[k].position === 'A'){
+                                                position = 'FWD'
+                                            }
+                                            else{
+                                                position = '-'
+                                            }
+
+                                            let market_value = '...'
+                                            let main_role = '...'
+                                            let alt_role1 = '...'
+                                            let alt_role2 = '...'
+                                            let local_players = main_data[j].visitor_players.filter(function(item) {
+                                                return item.team_id == visitTeamId && item.market_values.length > 0;
+                                            });
+
+                                            if(local_players.length > 0){
+                                                let values = local_players[0].market_values.filter(function(item) {
+                                                    return item.player_number == main_data[j].lineup.data[k].number;
+                                                });
+                                                if(values.length > 0){
+                                                    market_value = values[0].player_marketvalue
+                                                }
+                                                else{
+                                                    let value = local_players[0].market_values.filter(function(item) {
+                                                        return item.player_name == main_data[j].lineup.data[k].player_name;
+                                                    });
+                                                    if(value.length > 0){
+                                                        market_value = value[0].player_marketvalue
+                                                    }
+                                                    else{
+                                                        let value0 = local_players[0].market_values.filter(function(item) {
+                                                            return item.player_name.substring(item.player_name.length - 4, item.player_name.length) == main_data[j].lineup.data[k].player_name.substring(main_data[j].lineup.data[k].player_name.length - 4, main_data[j].lineup.data[k].player_name.length);
+                                                        });
+                                                        if(value0.length > 0){
+                                                            market_value = value0[0].player_marketvalue
+                                                        }
+                                                        else{
+                                                            let value1 = local_players[0].market_values.filter(function(item) {
+                                                                return item.player_name.substring(0, 3) == main_data[j].lineup.data[k].player_name.substring(0, 3);
+                                                            });
+                                                            if(value1.length > 0){
+                                                                market_value = value1[0].player_marketvalue
+                                                            }
+                                                        }
+                                                    }
+                                                }
+
+                                                let roles = local_players[0].roles.filter(function(item) {
+                                                    return item.player_number == main_data[j].lineup.data[k].number;
+                                                });
+                                                if(roles.length > 0){
+                                                    main_role = roles[0].player_main_role
+                                                    alt_role1 = roles[0].player_alt_role1
+                                                    alt_role2 = roles[0].player_alt_role2
+                                                    if(alt_role1 == ''){
+                                                        alt_role1 = '...'
+                                                    }
+                                                    if(alt_role2 == ''){
+                                                        alt_role2 = '...'
+                                                    }
+                                                }
+                                                else{
+                                                    let names = local_players[0].roles.filter(function(item) {
+                                                        return item.player_name == main_data[j].lineup.data[k].player_name;
+                                                    });
+                                                    if(names.length > 0){
+                                                        main_role = names[0].player_main_role
+                                                        alt_role1 = names[0].player_alt_role1
+                                                        alt_role2 = names[0].player_alt_role2
+                                                        if(alt_role1 == ''){
+                                                            alt_role1 = '...'
+                                                        }
+                                                        if(alt_role2 == ''){
+                                                            alt_role2 = '...'
+                                                        }
+                                                    }
+                                                    else{
+                                                        let name0 = local_players[0].roles.filter(function(item) {
+                                                            return item.player_name.substring(item.player_name.length - 4, item.player_name.length) == main_data[j].lineup.data[k].player_name.substring(main_data[j].lineup.data[k].player_name.length - 4, main_data[j].lineup.data[k].player_name.length);
+                                                        });
+                                                        if(name0.length > 0){
+                                                            main_role = name0[0].player_main_role
+                                                            alt_role1 = name0[0].player_alt_role1
+                                                            alt_role2 = name0[0].player_alt_role2
+                                                            if(alt_role1 == ''){
+                                                                alt_role1 = '...'
+                                                            }
+                                                            if(alt_role2 == ''){
+                                                                alt_role2 = '...'
+                                                            }
+                                                        }
+                                                        else{
+                                                            let name1 = local_players[0].roles.filter(function(item) {
+                                                                return item.player_name.substring(0, 3) == main_data[j].lineup.data[k].player_name.substring(0, 3);
+                                                            });
+                                                            if(name1.length > 0){
+                                                                main_role = name1[0].player_main_role
+                                                                alt_role1 = name1[0].player_alt_role1
+                                                                alt_role2 = name1[0].player_alt_role2
+                                                                if(alt_role1 == ''){
+                                                                    alt_role1 = '...'
+                                                                }
+                                                                if(alt_role2 == ''){
+                                                                    alt_role2 = '...'
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            if(main_role == 'GK'){ position = 'GK' }
+                                            else if(main_role == 'RB'){ position = 'DEF' }
+                                            else if(main_role == 'CB'){ position = 'DEF' }
+                                            else if(main_role == 'LB'){ position = 'DEF' }
+                                            else if(main_role == 'RM'){ position = 'MID' }
+                                            else if(main_role == 'CM'){ position = 'MID' }
+                                            else if(main_role == 'LM'){ position = 'MID' }
+                                            else if(main_role == 'DM'){ position = 'MID' }
+                                            else if(main_role == 'AM'){ position = 'MID' }
+                                            else if(main_role == 'RW'){ position = 'FWD' }
+                                            else if(main_role == 'LW'){ position = 'FWD' }
+                                            else if(main_role == 'SS'){ position = 'FWD' }
+                                            else if(main_role == 'CF'){ position = 'FWD' }
+
+                                            let Tit = (0).toFixed(2)
+                                            let Tit1 = 0
+                                            let Tit2 = 0
+                                            let titularity = []
+                                            if(main_data[j].visitor_players.length > 0){
+                                                titularity = main_data[j].visitor_players[0].titularity.filter(function(item) {
+                                                    return item.player_id === main_data[j].lineup.data[k].player_id;
+                                                })
+                                            }
+                                            if(titularity[0]){
+                                                let appearences = titularity[0].appearences
+                                                let lineups = titularity[0].lineups
+                                                let substitute_in = titularity[0].substitute_in
+                                                let substitute_out = titularity[0].substitute_out
+                                                let presences = titularity[0].appearences
+
+                                                if(lineups !== null && appearences !== null){
+                                                    Tit1 = lineups/appearences*100
+                                                }
+                                                if(presences !== null && substitute_in !== null && substitute_out !== null){
+                                                    Tit2 = (lineups + substitute_out - substitute_in)/presences*100
+                                                }
+                                                if(Tit2 != 0 && Tit1 != 0){
+                                                    Tit = (Tit1 + Tit2)/2
+                                                }
+                                                if(Tit2 == 0 && Tit1 != 0){
+                                                    Tit = Tit1
+                                                }
+                                            }
+                                            if(Tit1 == 0 && Tit2 == 0){
+                                                Tit = '##'
+                                            }
+                                            else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
+                                                Tit = (0).toFixed(2)
+                                            }
+                                            else if(Tit > 0 && Tit <= 100){
+                                                let Tit3 = Tit
+                                                Tit = Tit3.toFixed(2)
+                                            }
+                                            else if(Tit < 0){
+                                                Tit = (0).toFixed(2)
+                                            }
+                                            else if(Tit > 100){
+                                                Tit = (100).toFixed(2)
+                                            }
+                                            // console.log('titularity==>', titularity[0])
+                                            // console.log('Tit==>', Tit, ', Tit1=>', Tit1, ', Tit2=>', Tit2)
+                                            let rule_color = 'rgb(230,184,183)'
+                                            // away pre formation part
+                                            let s_roles = this.s_role_set.filter(function(item) {
+                                                return item.name === awayTeamPformation;
+                                            });
+
+                                            if(s_roles.length > 0){
+                                                let position_number = main_data[j].lineup.data[k].formation_position
+                                                let s_role = s_roles[0].s_role[position_number - 1]
+                                                let s_role2 = s_roles[0].alt_s_role[position_number - 1]
+                                                let mean_role = s_roles[0].mean_role[position_number - 1]
+                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                    rule_color = 'rgb(146,208,80)'
+                                                }
+                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                    rule_color = 'rgb(255,255,0)'
+                                                }
+                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                    rule_color = 'rgb(255,0,0)'
+                                                }
+                                                awayTeam.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id,'formation_position': position_number, 'teamId': visitTeamId, 'sRole': s_role, 'mR': mean_role, 'sRole1': s_role, 'sRole2': s_role2, 'mR1': mean_role, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(230, 184, 183)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                            else{
+                                                let position_number = main_data[j].lineup.data[k].formation_position
+                                                awayTeam.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id,'formation_position': position_number,  'teamId': visitTeamId, 'sRole': '...', 'mR': position, 'sRole1': '...', 'sRole2': '', 'mR1': position, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(230, 184, 183)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                            // away live formation part
+                                            let s_roles_live_a = this.s_role_set.filter(function(item) {
+                                                return item.name === awayTeamLformation;
+                                            });
+
+                                            if(s_roles_live_a.length > 0){
+                                                let position_number = main_data[j].lineup.data[k].formation_position
+                                                let s_role = s_roles_live_a[0].s_role[position_number - 1]
+                                                let s_role2 = s_roles_live_a[0].alt_s_role[position_number - 1]
+                                                let mean_role = s_roles_live_a[0].mean_role[position_number - 1]
+                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                    rule_color = 'rgb(146,208,80)'
+                                                }
+                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                    rule_color = 'rgb(255,255,0)'
+                                                }
+                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                    rule_color = 'rgb(255,0,0)'
+                                                }
+                                                awayTeam1.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id,'formation_position': position_number, 'teamId': visitTeamId, 'sRole': s_role, 'mR': mean_role, 'sRole1': s_role, 'sRole2': s_role2, 'mR1': mean_role, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(230, 184, 183)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                            else{
+                                                let position_number = main_data[j].lineup.data[k].formation_position
+                                                awayTeam1.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id,'formation_position': position_number,  'teamId': visitTeamId, 'sRole': '...', 'mR': position, 'sRole1': '...', 'sRole2': '', 'mR1': position, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(230, 184, 183)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                        }
+                                    }
+
+                                    let local_sub_array = []
+                                    let visitor_sub_array = []
+                                    let localTeam_substitution_index = 0
+                                    let visitorTeam_substitution_index = 0
+                                    if(main_data[j].events1 != null){
+                                        for(let k = 0 ; k < main_data[j].events1.data.length ; k++){
+                                            let eventsNode = main_data[j].events1.data[k]
+                                            if(eventsNode.type === 'substitution'){
+                                                if(eventsNode.team_id == localTeamId){
+                                                    localTeam_substitution_index++
+                                                    local_sub_array[localTeam_substitution_index - 1] = {'minute': eventsNode.minute, 'player_id': eventsNode.player_id, 'player_name':eventsNode.player_name, 'related_player_id': eventsNode.related_player_id, 'related_player_name': eventsNode.related_player_name}
+                                                }
+                                                else{
+                                                    visitorTeam_substitution_index++
+                                                    visitor_sub_array[visitorTeam_substitution_index - 1] = {'minute': eventsNode.minute, 'player_id': eventsNode.player_id, 'player_name':eventsNode.player_name, 'related_player_id': eventsNode.related_player_id, 'related_player_name': eventsNode.related_player_name}
+                                                }
+                                            }
+                                        }
+                                    }
+                                    let home_order_index = 0
+                                    let home_substitutions = []
+                                    for(let kk = 0 ; kk < local_sub_array.length; kk++){
+                                        for(let k = 0 ; k < homeTeam.length ; k++){
+                                            if(homeTeam[k].playerId === local_sub_array[kk].related_player_id){
+                                                home_order_index++
+                                                homeTeam[k].sub_order_color = this.sub_color_set[home_order_index - 1].color
+                                                homeTeam[k].sub_minute = local_sub_array[kk].minute
+                                                let local_players_markets = main_data[j].local_players[0].market_values
+                                                let local_players_roles = main_data[j].local_players[0].roles
+                                                let market_value = '...'
+                                                let main_role = '...'
+                                                let alt_role1 = '...'
+                                                let alt_role2 = '...'
+                                                let market_values = local_players_markets.filter(function(item) {
+                                                    return item.player_name.substring(item.player_name.length - 4, item.player_name.length) === local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 4, local_sub_array[kk].player_name.length);
+                                                });
+                                                if(market_values.length > 0){
+                                                    market_value = market_values[0].player_marketvalue
+                                                }
+                                                else{
+                                                    let compare_index = 0
+                                                    for(let n = 0 ; n < local_players_markets.length ; n++){
+                                                        let compare1 = local_players_markets[n].player_name.substring(local_players_markets[n].player_name.length - 4, local_players_markets[n].player_name.length - 3)
+                                                        let compare2 = local_players_markets[n].player_name.substring(local_players_markets[n].player_name.length - 3, local_players_markets[n].player_name.length - 2)
+                                                        let compare3 = local_players_markets[n].player_name.substring(local_players_markets[n].player_name.length - 2, local_players_markets[n].player_name.length - 1)
+                                                        let compare4 = local_players_markets[n].player_name.substring(local_players_markets[n].player_name.length - 1, local_players_markets[n].player_name.length)
+                                                        let local_compare1 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 4, local_sub_array[kk].player_name.length - 3)
+                                                        let local_compare2 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 3, local_sub_array[kk].player_name.length - 2)
+                                                        let local_compare3 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 2, local_sub_array[kk].player_name.length - 1)
+                                                        let local_compare4 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 1, local_sub_array[kk].player_name.length)
+                                                        if(compare1 === local_compare1){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare2 === local_compare2){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare3 === local_compare3){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare4 === local_compare4){
+                                                            compare_index++
+                                                        }
+                                                        if(compare_index >= 3){
+                                                            market_value = local_players_markets[n].player_marketvalue
+                                                        }
+                                                    }
+                                                }
+
+                                                let roles = local_players_roles.filter(function(item) {
+                                                    return item.player_name.substring(item.player_name.length - 4, item.player_name.length) === local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 4, local_sub_array[kk].player_name.length);
+                                                });
+                                                if(roles.length > 0){
+                                                    main_role = roles[0].player_main_role
+                                                    alt_role1 = roles[0].player_alt_role1
+                                                    alt_role2 = roles[0].player_alt_role2
+                                                }
+                                                else{
+                                                    let compare_index = 0
+                                                    for(let n = 0 ; n < local_players_roles.length ; n++){
+                                                        let compare1 = local_players_roles[n].player_name.substring(local_players_roles[n].player_name.length - 4, local_players_roles[n].player_name.length - 3)
+                                                        let compare2 = local_players_roles[n].player_name.substring(local_players_roles[n].player_name.length - 3, local_players_roles[n].player_name.length - 2)
+                                                        let compare3 = local_players_roles[n].player_name.substring(local_players_roles[n].player_name.length - 2, local_players_roles[n].player_name.length - 1)
+                                                        let compare4 = local_players_roles[n].player_name.substring(local_players_roles[n].player_name.length - 1, local_players_roles[n].player_name.length)
+                                                        let local_compare1 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 4, local_sub_array[kk].player_name.length - 3)
+                                                        let local_compare2 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 3, local_sub_array[kk].player_name.length - 2)
+                                                        let local_compare3 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 2, local_sub_array[kk].player_name.length - 1)
+                                                        let local_compare4 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 1, local_sub_array[kk].player_name.length)
+                                                        if(compare1 === local_compare1){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare2 === local_compare2){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare3 === local_compare3){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare4 === local_compare4){
+                                                            compare_index++
+                                                        }
+                                                        if(compare_index >= 3){
+                                                            main_role = local_players_roles[n].player_main_role
+                                                            alt_role1 = local_players_roles[n].player_alt_role1
+                                                            alt_role2 = local_players_roles[n].player_alt_role2
+                                                        }
+                                                    }
+                                                }
+
+                                                let rule_color = 'rgb(216,228,188)'
+                                                let mean_role = homeTeam[k].mR
+                                                let position = homeTeam[k].p_m_Role
+                                                let s_role = homeTeam[k].sRole
+                                                let s_role2 = homeTeam[k].sRole2
+
+                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                    rule_color = 'rgb(146,208,80)'
+                                                }
+                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                    rule_color = 'rgb(255,255,0)'
+                                                }
+                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                    rule_color = 'rgb(255,0,0)'
+                                                }
+
+                                                let titularity = main_data[j].local_players[0].titularity.filter(function(item) {
+                                                    return item.player_id === local_sub_array[kk].player_id;
+                                                })
+
+                                                let Tit = (0).toFixed(2)
+                                                let Tit1 = 0
+                                                let Tit2 = 0
+                                                if(titularity[0]){
+                                                    let appearences = titularity[0].appearences
+                                                    let lineups = titularity[0].lineups
+                                                    let substitute_in = titularity[0].substitute_in
+                                                    let substitute_out = titularity[0].substitute_out
+                                                    let presences = titularity[0].appearences
+
+                                                    if(lineups !== null && appearences !== null){
+                                                        Tit1 = lineups/appearences*100
+                                                    }
+                                                    if(presences !== null && substitute_in !== null && substitute_out !== null){
+                                                        Tit2 = (lineups + substitute_out - substitute_in)/presences*100
+                                                    }
+                                                    if(Tit2 != 0 && Tit1 != 0){
+                                                        Tit = (Tit1 + Tit2)/2
+                                                    }
+                                                    if(Tit2 == 0 && Tit1 != 0){
+                                                        Tit = Tit1
+                                                    }
+                                                }
+                                                if(Tit1 == 0 && Tit2 == 0){
+                                                    Tit = '##'
+                                                }
+                                                else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
+                                                    Tit = (0).toFixed(2)
+                                                }
+                                                else if(Tit > 0 && Tit <= 100){
+                                                    let Tit3 = Tit
+                                                    Tit = Tit3.toFixed(2)
+                                                }
+                                                else if(Tit < 0){
+                                                    Tit = (0).toFixed(2)
+                                                }
+                                                else if(Tit > 100){
+                                                    Tit = (100).toFixed(2)
+                                                }
+                                                home_substitutions.push({'playerId': local_sub_array[kk].player_id, 'teamId':homeTeam[k].teamId ,'sRole': homeTeam[k].sRole, 'sRole2': homeTeam[k].sRole2, 'mR': homeTeam[k].mR, 'Pname': local_sub_array[kk].player_name, 'marketValue': market_value, 'p_m_Role': homeTeam[k].p_m_Role, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': homeTeam[k].sub_order_color, 'sub_minute': homeTeam[k].sub_minute, 'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                        }
+                                    }
+                                    home_order_index = 0
+                                    for(let kk = 0 ; kk < local_sub_array.length; kk++){
+                                        for(let k = 0 ; k < homeTeam1.length ; k++){
+                                            if(homeTeam1[k].playerId === local_sub_array[kk].related_player_id){
+                                                home_order_index++
+                                                homeTeam1[k].sub_order_color = this.sub_color_set[home_order_index - 1].color
+                                                homeTeam1[k].sub_minute = local_sub_array[kk].minute
+                                                let local_players_markets = main_data[j].local_players[0].market_values
+                                                let local_players_roles = main_data[j].local_players[0].roles
+                                                let market_value = '...'
+                                                let main_role = '...'
+                                                let alt_role1 = '...'
+                                                let alt_role2 = '...'
+                                                let market_values = local_players_markets.filter(function(item) {
+                                                    return item.player_name.substring(item.player_name.length - 4, item.player_name.length) === local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 4, local_sub_array[kk].player_name.length);
+                                                });
+                                                if(market_values.length > 0){
+                                                    market_value = market_values[0].player_marketvalue
+                                                }
+                                                else{
+                                                    let compare_index = 0
+                                                    for(let n = 0 ; n < local_players_markets.length ; n++){
+                                                        let compare1 = local_players_markets[n].player_name.substring(local_players_markets[n].player_name.length - 4, local_players_markets[n].player_name.length - 3)
+                                                        let compare2 = local_players_markets[n].player_name.substring(local_players_markets[n].player_name.length - 3, local_players_markets[n].player_name.length - 2)
+                                                        let compare3 = local_players_markets[n].player_name.substring(local_players_markets[n].player_name.length - 2, local_players_markets[n].player_name.length - 1)
+                                                        let compare4 = local_players_markets[n].player_name.substring(local_players_markets[n].player_name.length - 1, local_players_markets[n].player_name.length)
+                                                        let local_compare1 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 4, local_sub_array[kk].player_name.length - 3)
+                                                        let local_compare2 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 3, local_sub_array[kk].player_name.length - 2)
+                                                        let local_compare3 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 2, local_sub_array[kk].player_name.length - 1)
+                                                        let local_compare4 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 1, local_sub_array[kk].player_name.length)
+                                                        if(compare1 === local_compare1){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare2 === local_compare2){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare3 === local_compare3){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare4 === local_compare4){
+                                                            compare_index++
+                                                        }
+                                                        if(compare_index >= 3){
+                                                            market_value = local_players_markets[n].player_marketvalue
+                                                        }
+                                                    }
+                                                }
+
+                                                let roles = local_players_roles.filter(function(item) {
+                                                    return item.player_name.substring(item.player_name.length - 4, item.player_name.length) === local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 4, local_sub_array[kk].player_name.length);
+                                                });
+                                                if(roles.length > 0){
+                                                    main_role = roles[0].player_main_role
+                                                    alt_role1 = roles[0].player_alt_role1
+                                                    alt_role2 = roles[0].player_alt_role2
+                                                }
+                                                else{
+                                                    let compare_index = 0
+                                                    for(let n = 0 ; n < local_players_roles.length ; n++){
+                                                        let compare1 = local_players_roles[n].player_name.substring(local_players_roles[n].player_name.length - 4, local_players_roles[n].player_name.length - 3)
+                                                        let compare2 = local_players_roles[n].player_name.substring(local_players_roles[n].player_name.length - 3, local_players_roles[n].player_name.length - 2)
+                                                        let compare3 = local_players_roles[n].player_name.substring(local_players_roles[n].player_name.length - 2, local_players_roles[n].player_name.length - 1)
+                                                        let compare4 = local_players_roles[n].player_name.substring(local_players_roles[n].player_name.length - 1, local_players_roles[n].player_name.length)
+                                                        let local_compare1 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 4, local_sub_array[kk].player_name.length - 3)
+                                                        let local_compare2 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 3, local_sub_array[kk].player_name.length - 2)
+                                                        let local_compare3 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 2, local_sub_array[kk].player_name.length - 1)
+                                                        let local_compare4 = local_sub_array[kk].player_name.substring(local_sub_array[kk].player_name.length - 1, local_sub_array[kk].player_name.length)
+                                                        if(compare1 === local_compare1){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare2 === local_compare2){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare3 === local_compare3){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare4 === local_compare4){
+                                                            compare_index++
+                                                        }
+                                                        if(compare_index >= 3){
+                                                            main_role = local_players_roles[n].player_main_role
+                                                            alt_role1 = local_players_roles[n].player_alt_role1
+                                                            alt_role2 = local_players_roles[n].player_alt_role2
+                                                        }
+                                                    }
+                                                }
+
+                                                // let rule_color = 'rgb(216,228,188)'
+                                                // let mean_role = homeTeam[k].mR
+                                                // let position = homeTeam[k].p_m_Role
+                                                // let s_role = homeTeam[k].sRole
+                                                // let s_role2 = homeTeam[k].sRole2
+
+                                                // if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                //     rule_color = 'rgb(146,208,80)'
+                                                // }
+                                                // else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                //     rule_color = 'rgb(255,255,0)'
+                                                // }
+                                                // else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                //     rule_color = 'rgb(255,0,0)'
+                                                // }
+
+                                                let titularity = main_data[j].local_players[0].titularity.filter(function(item) {
+                                                    return item.player_id === local_sub_array[kk].player_id;
+                                                })
+
+                                                let Tit = (0).toFixed(2)
+                                                let Tit1 = 0
+                                                let Tit2 = 0
+                                                if(titularity[0]){
+                                                    let appearences = titularity[0].appearences
+                                                    let lineups = titularity[0].lineups
+                                                    let substitute_in = titularity[0].substitute_in
+                                                    let substitute_out = titularity[0].substitute_out
+                                                    let presences = titularity[0].appearences
+
+                                                    if(lineups !== null && appearences !== null){
+                                                        Tit1 = lineups/appearences*100
+                                                    }
+                                                    if(presences !== null && substitute_in !== null && substitute_out !== null){
+                                                        Tit2 = (lineups + substitute_out - substitute_in)/presences*100
+                                                    }
+                                                    if(Tit2 != 0 && Tit1 != 0){
+                                                        Tit = (Tit1 + Tit2)/2
+                                                    }
+                                                    if(Tit2 == 0 && Tit1 != 0){
+                                                        Tit = Tit1
+                                                    }
+                                                }
+                                                if(Tit1 == 0 && Tit2 == 0){
+                                                    Tit = '##'
+                                                }
+                                                else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
+                                                    Tit = (0).toFixed(2)
+                                                }
+                                                else if(Tit > 0 && Tit <= 100){
+                                                    let Tit3 = Tit
+                                                    Tit = Tit3.toFixed(2)
+                                                }
+                                                else if(Tit < 0){
+                                                    Tit = (0).toFixed(2)
+                                                }
+                                                else if(Tit > 100){
+                                                    Tit = (100).toFixed(2)
+                                                }
+                                                homeTeam1[k].Pname = local_sub_array[kk].player_name
+                                                homeTeam1[k].marketValue = market_value
+                                                homeTeam1[k].primaryRole = main_role
+                                                homeTeam1[k].altRole1 = alt_role1
+                                                homeTeam1[k].altRole2 = alt_role2
+                                                homeTeam1[k].Tit = Tit
+                                                // homeTeam1[k].rule_color = rule_color
+                                                // home_substitutions.push({'playerId': local_sub_array[kk].player_id, 'teamId':homeTeam[k].teamId ,'sRole': homeTeam[k].sRole, 'sRole2': homeTeam[k].sRole2, 'mR': homeTeam[k].mR, 'Pname': local_sub_array[kk].player_name, 'marketValue': market_value, 'p_m_Role': homeTeam[k].p_m_Role, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': homeTeam[k].sub_order_color, 'sub_minute': homeTeam[k].sub_minute, 'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                        }
+                                    }
+                                    let away_order_index = 0
+                                    let away_substitutions = []
+                                    for(let kk = 0 ; kk < visitor_sub_array.length; kk++){
+                                        for(let k = 0 ; k < awayTeam.length ; k++){
+                                            if(awayTeam[k].playerId === visitor_sub_array[kk].related_player_id){
+                                                away_order_index++
+                                                awayTeam[k].sub_order_color = this.sub_color_set[away_order_index - 1].color
+                                                awayTeam[k].sub_minute = visitor_sub_array[kk].minute
+
+                                                let visitor_players_markets = []
+                                                let visitor_players_roles = []
+                                                if(main_data[j].visitor_players.length > 0){
+                                                    visitor_players_markets = main_data[j].visitor_players[0].market_values
+                                                    visitor_players_roles = main_data[j].visitor_players[0].roles
+                                                }
+                                                let market_value = '...'
+                                                let main_role = '...'
+                                                let alt_role1 = '...'
+                                                let alt_role2 = '...'
+                                                let market_values = visitor_players_markets.filter(function(item) {
+                                                    return item.player_name.substring(item.player_name.length - 4, item.player_name.length) === visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 4, visitor_sub_array[kk].player_name.length);
+                                                });
+                                                if(market_values.length > 0){
+                                                    market_value = market_values[0].player_marketvalue
+                                                }
+                                                else{
+                                                    let compare_index = 0
+                                                    for(let n = 0 ; n < visitor_players_markets.length ; n++){
+                                                        let compare1 = visitor_players_markets[n].player_name.substring(visitor_players_markets[n].player_name.length - 4, visitor_players_markets[n].player_name.length - 3)
+                                                        let compare2 = visitor_players_markets[n].player_name.substring(visitor_players_markets[n].player_name.length - 3, visitor_players_markets[n].player_name.length - 2)
+                                                        let compare3 = visitor_players_markets[n].player_name.substring(visitor_players_markets[n].player_name.length - 2, visitor_players_markets[n].player_name.length - 1)
+                                                        let compare4 = visitor_players_markets[n].player_name.substring(visitor_players_markets[n].player_name.length - 1, visitor_players_markets[n].player_name.length)
+                                                        let local_compare1 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 4, visitor_sub_array[kk].player_name.length - 3)
+                                                        let local_compare2 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 3, visitor_sub_array[kk].player_name.length - 2)
+                                                        let local_compare3 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 2, visitor_sub_array[kk].player_name.length - 1)
+                                                        let local_compare4 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 1, visitor_sub_array[kk].player_name.length)
+                                                        if(compare1 === local_compare1){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare2 === local_compare2){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare3 === local_compare3){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare4 === local_compare4){
+                                                            compare_index++
+                                                        }
+                                                        if(compare_index >= 3){
+                                                            market_value = visitor_players_markets[n].player_marketvalue
+                                                        }
+                                                    }
+                                                }
+
+                                                let roles = visitor_players_roles.filter(function(item) {
+                                                    return item.player_name.substring(item.player_name.length - 4, item.player_name.length) === visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 4, visitor_sub_array[kk].player_name.length);
+                                                });
+                                                if(roles.length > 0){
+                                                    main_role = roles[0].player_main_role
+                                                    alt_role1 = roles[0].player_alt_role1
+                                                    alt_role2 = roles[0].player_alt_role2
+                                                }
+                                                else{
+                                                    let compare_index = 0
+                                                    for(let n = 0 ; n < visitor_players_roles.length ; n++){
+                                                        let compare1 = visitor_players_roles[n].player_name.substring(visitor_players_roles[n].player_name.length - 4, visitor_players_roles[n].player_name.length - 3)
+                                                        let compare2 = visitor_players_roles[n].player_name.substring(visitor_players_roles[n].player_name.length - 3, visitor_players_roles[n].player_name.length - 2)
+                                                        let compare3 = visitor_players_roles[n].player_name.substring(visitor_players_roles[n].player_name.length - 2, visitor_players_roles[n].player_name.length - 1)
+                                                        let compare4 = visitor_players_roles[n].player_name.substring(visitor_players_roles[n].player_name.length - 1, visitor_players_roles[n].player_name.length)
+                                                        let local_compare1 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 4, visitor_sub_array[kk].player_name.length - 3)
+                                                        let local_compare2 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 3, visitor_sub_array[kk].player_name.length - 2)
+                                                        let local_compare3 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 2, visitor_sub_array[kk].player_name.length - 1)
+                                                        let local_compare4 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 1, visitor_sub_array[kk].player_name.length)
+                                                        if(compare1 === local_compare1){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare2 === local_compare2){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare3 === local_compare3){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare4 === local_compare4){
+                                                            compare_index++
+                                                        }
+                                                        if(compare_index >= 3){
+                                                            main_role = visitor_players_roles[n].player_main_role
+                                                            alt_role1 = visitor_players_roles[n].player_alt_role1
+                                                            alt_role2 = visitor_players_roles[n].player_alt_role2
+                                                        }
+                                                    }
+                                                }
+
+                                                let rule_color = 'rgb(230,184,183)'
+                                                let mean_role = awayTeam[k].mR
+                                                let position = awayTeam[k].p_m_Role
+                                                let s_role = awayTeam[k].sRole
+                                                let s_role2 = awayTeam[k].sRole2
+
+                                                if(s_role2 === ''){
+                                                    s_role2 = '...'
+                                                }
+
+                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                    rule_color = 'rgb(146,208,80)'
+                                                    if(localTeamId === 3562){
+                                                        console.log('awayTeamPlayer=>',s_role, ', primaryRole=>', main_role,', player=>', visitor_sub_array[kk].player_name)
+                                                    }
+                                                }
+                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                    rule_color = 'rgb(255,255,0)'
+                                                }
+                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                    rule_color = 'rgb(255,0,0)'
+                                                }
+
+                                                let titularity = []
+                                                if(main_data[j].visitor_players.length > 0){
+                                                    titularity = main_data[j].visitor_players[0].titularity.filter(function(item) {
+                                                        return item.player_id === visitor_sub_array[kk].player_id;
+                                                    })
+                                                }
+                                                let Tit = (0).toFixed(2)
+                                                let Tit1 = 0
+                                                let Tit2 = 0
+
+                                                if(titularity[0]){
+                                                    let appearences = titularity[0].appearences
+                                                    let lineups = titularity[0].lineups
+                                                    let substitute_in = titularity[0].substitute_in
+                                                    let substitute_out = titularity[0].substitute_out
+                                                    let presences = titularity[0].appearences
+
+                                                    if(lineups !== null && appearences !== null){
+                                                        Tit1 = lineups/appearences*100
+                                                    }
+                                                    if(presences !== null && substitute_in !== null && substitute_out !== null){
+                                                        Tit2 = (lineups + substitute_out - substitute_in)/presences*100
+                                                    }
+                                                    if(Tit2 != 0 && Tit1 != 0){
+                                                        Tit = (Tit1 + Tit2)/2
+                                                    }
+                                                    if(Tit2 == 0 && Tit1 != 0){
+                                                        Tit = Tit1
+                                                    }
+                                                }
+                                                if(Tit1 == 0 && Tit2 == 0){
+                                                    Tit = '##'
+                                                }
+                                                else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
+                                                    Tit = (0).toFixed(2)
+                                                }
+                                                else if(Tit > 0 && Tit <= 100){
+                                                    let Tit3 = Tit
+                                                    Tit = Tit3.toFixed(2)
+                                                }
+                                                else if(Tit < 0){
+                                                    Tit = (0).toFixed(2)
+                                                }
+                                                else if(Tit > 100){
+                                                    Tit = (100).toFixed(2)
+                                                }
+                                                away_substitutions.push({'playerId': visitor_sub_array[kk].player_id, 'teamId':awayTeam[k].teamId ,'sRole': awayTeam[k].sRole, 'sRole2': awayTeam[k].sRole2, 'mR': awayTeam[k].mR, 'Pname': visitor_sub_array[kk].player_name, 'marketValue': market_value, 'p_m_Role': awayTeam[k].p_m_Role, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': awayTeam[k].sub_order_color, 'sub_minute': awayTeam[k].sub_minute,'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                        }
+                                    }
+                                    away_order_index = 0
+                                    for(let kk = 0 ; kk < visitor_sub_array.length; kk++){
+                                        for(let k = 0 ; k < awayTeam1.length ; k++){
+                                            if(awayTeam1[k].playerId === visitor_sub_array[kk].related_player_id){
+                                                away_order_index++
+                                                awayTeam1[k].sub_order_color = this.sub_color_set[away_order_index - 1].color
+                                                awayTeam1[k].sub_minute = visitor_sub_array[kk].minute
+
+                                                let visitor_players_markets = []
+                                                let visitor_players_roles = []
+                                                if(main_data[j].visitor_players.length > 0){
+                                                    visitor_players_markets = main_data[j].visitor_players[0].market_values
+                                                    visitor_players_roles = main_data[j].visitor_players[0].roles
+                                                }
+
+                                                let market_value = '...'
+                                                let main_role = '...'
+                                                let alt_role1 = '...'
+                                                let alt_role2 = '...'
+                                                let market_values = visitor_players_markets.filter(function(item) {
+                                                    return item.player_name.substring(item.player_name.length - 4, item.player_name.length) === visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 4, visitor_sub_array[kk].player_name.length);
+                                                });
+                                                if(market_values.length > 0){
+                                                    market_value = market_values[0].player_marketvalue
+                                                }
+                                                else{
+                                                    let compare_index = 0
+                                                    for(let n = 0 ; n < visitor_players_markets.length ; n++){
+                                                        let compare1 = visitor_players_markets[n].player_name.substring(visitor_players_markets[n].player_name.length - 4, visitor_players_markets[n].player_name.length - 3)
+                                                        let compare2 = visitor_players_markets[n].player_name.substring(visitor_players_markets[n].player_name.length - 3, visitor_players_markets[n].player_name.length - 2)
+                                                        let compare3 = visitor_players_markets[n].player_name.substring(visitor_players_markets[n].player_name.length - 2, visitor_players_markets[n].player_name.length - 1)
+                                                        let compare4 = visitor_players_markets[n].player_name.substring(visitor_players_markets[n].player_name.length - 1, visitor_players_markets[n].player_name.length)
+                                                        let local_compare1 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 4, visitor_sub_array[kk].player_name.length - 3)
+                                                        let local_compare2 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 3, visitor_sub_array[kk].player_name.length - 2)
+                                                        let local_compare3 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 2, visitor_sub_array[kk].player_name.length - 1)
+                                                        let local_compare4 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 1, visitor_sub_array[kk].player_name.length)
+                                                        if(compare1 === local_compare1){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare2 === local_compare2){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare3 === local_compare3){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare4 === local_compare4){
+                                                            compare_index++
+                                                        }
+                                                        if(compare_index >= 3){
+                                                            market_value = visitor_players_markets[n].player_marketvalue
+                                                        }
+                                                    }
+                                                }
+
+                                                let roles = visitor_players_roles.filter(function(item) {
+                                                    return item.player_name.substring(item.player_name.length - 4, item.player_name.length) === visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 4, visitor_sub_array[kk].player_name.length);
+                                                });
+                                                if(roles.length > 0){
+                                                    main_role = roles[0].player_main_role
+                                                    alt_role1 = roles[0].player_alt_role1
+                                                    alt_role2 = roles[0].player_alt_role2
+                                                }
+                                                else{
+                                                    let compare_index = 0
+                                                    for(let n = 0 ; n < visitor_players_roles.length ; n++){
+                                                        let compare1 = visitor_players_roles[n].player_name.substring(visitor_players_roles[n].player_name.length - 4, visitor_players_roles[n].player_name.length - 3)
+                                                        let compare2 = visitor_players_roles[n].player_name.substring(visitor_players_roles[n].player_name.length - 3, visitor_players_roles[n].player_name.length - 2)
+                                                        let compare3 = visitor_players_roles[n].player_name.substring(visitor_players_roles[n].player_name.length - 2, visitor_players_roles[n].player_name.length - 1)
+                                                        let compare4 = visitor_players_roles[n].player_name.substring(visitor_players_roles[n].player_name.length - 1, visitor_players_roles[n].player_name.length)
+                                                        let local_compare1 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 4, visitor_sub_array[kk].player_name.length - 3)
+                                                        let local_compare2 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 3, visitor_sub_array[kk].player_name.length - 2)
+                                                        let local_compare3 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 2, visitor_sub_array[kk].player_name.length - 1)
+                                                        let local_compare4 = visitor_sub_array[kk].player_name.substring(visitor_sub_array[kk].player_name.length - 1, visitor_sub_array[kk].player_name.length)
+                                                        if(compare1 === local_compare1){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare2 === local_compare2){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare3 === local_compare3){
+                                                            compare_index++
+                                                        }
+                                                        else if(compare4 === local_compare4){
+                                                            compare_index++
+                                                        }
+                                                        if(compare_index >= 3){
+                                                            main_role = visitor_players_roles[n].player_main_role
+                                                            alt_role1 = visitor_players_roles[n].player_alt_role1
+                                                            alt_role2 = visitor_players_roles[n].player_alt_role2
+                                                        }
+                                                    }
+                                                }
+
+                                                // let rule_color = 'rgb(230,184,183)'
+                                                // let mean_role = awayTeam[k].mR
+                                                // let position = awayTeam[k].p_m_Role
+                                                // let s_role = awayTeam[k].sRole
+                                                // let s_role2 = awayTeam[k].sRole2
+                                                //
+                                                // if(s_role2 === ''){
+                                                //     s_role2 = '...'
+                                                // }
+                                                //
+                                                // if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                //     rule_color = 'rgb(146,208,80)'
+                                                //     if(localTeamId === 3562){
+                                                //         console.log('awayTeamPlayer=>',s_role, ', primaryRole=>', main_role,', player=>', visitor_sub_array[kk].player_name)
+                                                //     }
+                                                // }
+                                                // else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                //     rule_color = 'rgb(255,255,0)'
+                                                // }
+                                                // else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                //     rule_color = 'rgb(255,0,0)'
+                                                // }
+                                                let titularity = []
+                                                if(main_data[j].visitor_players.length > 0){
+                                                    titularity = main_data[j].visitor_players[0].titularity.filter(function(item) {
+                                                        return item.player_id === visitor_sub_array[kk].player_id;
+                                                    })
+                                                }
+
+                                                let Tit = (0).toFixed(2)
+                                                let Tit1 = 0
+                                                let Tit2 = 0
+
+                                                if(titularity[0]){
+                                                    let appearences = titularity[0].appearences
+                                                    let lineups = titularity[0].lineups
+                                                    let substitute_in = titularity[0].substitute_in
+                                                    let substitute_out = titularity[0].substitute_out
+                                                    let presences = titularity[0].appearences
+
+                                                    if(lineups !== null && appearences !== null){
+                                                        Tit1 = lineups/appearences*100
+                                                    }
+                                                    if(presences !== null && substitute_in !== null && substitute_out !== null){
+                                                        Tit2 = (lineups + substitute_out - substitute_in)/presences*100
+                                                    }
+                                                    if(Tit2 != 0 && Tit1 != 0){
+                                                        Tit = (Tit1 + Tit2)/2
+                                                    }
+                                                    if(Tit2 == 0 && Tit1 != 0){
+                                                        Tit = Tit1
+                                                    }
+                                                }
+                                                if(Tit1 == 0 && Tit2 == 0){
+                                                    Tit = '##'
+                                                }
+                                                else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
+                                                    Tit = (0).toFixed(2)
+                                                }
+                                                else if(Tit > 0 && Tit <= 100){
+                                                    let Tit3 = Tit
+                                                    Tit = Tit3.toFixed(2)
+                                                }
+                                                else if(Tit < 0){
+                                                    Tit = (0).toFixed(2)
+                                                }
+                                                else if(Tit > 100){
+                                                    Tit = (100).toFixed(2)
+                                                }
+                                                awayTeam1[k].Pname = visitor_sub_array[kk].player_name
+                                                awayTeam1[k].marketValue = market_value
+                                                awayTeam1[k].primaryRole = main_role
+                                                awayTeam1[k].altRole1 = alt_role1
+                                                awayTeam1[k].altRole2 = alt_role2
+                                                awayTeam1[k].Tit = Tit
+
+                                                // away_substitutions.push({'playerId': visitor_sub_array[kk].player_id, 'teamId':awayTeam[k].teamId ,'sRole': awayTeam[k].sRole, 'sRole2': awayTeam[k].sRole2, 'mR': awayTeam[k].mR, 'Pname': visitor_sub_array[kk].player_name, 'marketValue': market_value, 'p_m_Role': awayTeam[k].p_m_Role, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': awayTeam[k].sub_order_color, 'sub_minute': awayTeam[k].sub_minute,'rule_color': rule_color, 'Tit': Tit})
+                                            }
+                                        }
+                                    }
+                                    let home_legend = []
+                                    let away_legend = []
+                                    for(let k = 0 ; k < home_substitutions.length ; k++){
+                                        home_legend.push(this.sub_color_set[k])
+                                    }
+                                    for(let k = 0 ; k < away_substitutions.length ; k++){
+                                        away_legend.push(this.sub_color_set[k])
+                                    }
+                                    homeTeam.sort(this.sortByProperty('formation_position'))
+                                    awayTeam.sort(this.sortByProperty('formation_position'))
+                                    homeTeam1.sort(this.sortByProperty('formation_position'))
+                                    awayTeam1.sort(this.sortByProperty('formation_position'))
+                                    let home_rule_color_number = {"green_color": 0, "yellow_color": 0, "red_color": 0}
+                                    for(let pp = 0 ; pp < homeTeam.length ; pp++){
+                                        if(homeTeam[pp].rule_color === 'rgb(146,208,80)'){
+                                            home_rule_color_number.green_color++
+                                        }
+                                        else if(homeTeam[pp].rule_color === 'rgb(255,255,0)'){
+                                            home_rule_color_number.yellow_color++
+                                        }
+                                        else if(homeTeam[pp].rule_color === 'rgb(255,0,0)'){
+                                            home_rule_color_number.red_color++
+                                        }
+                                    }
+
+                                    let away_rule_color_number = {"green_color": 0, "yellow_color": 0, "red_color": 0}
+                                    for(let pp = 0 ; pp < awayTeam.length ; pp++){
+                                        if(awayTeam[pp].rule_color === 'rgb(146,208,80)'){
+                                            away_rule_color_number.green_color++
+                                        }
+                                        else if(awayTeam[pp].rule_color === 'rgb(255,255,0)'){
+                                            away_rule_color_number.yellow_color++
+                                        }
+                                        else if(awayTeam[pp].rule_color === 'rgb(255,0,0)'){
+                                            away_rule_color_number.red_color++
+                                        }
+                                    }
+                                    countryCode = main_data[j].countryCode
+                                    events[k - 1] = {'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'openDate':  main_data[j].time.starting_at.time, 'homeTeam': homeTeam, 'awayTeam': awayTeam, 'homeTeam1': homeTeam1, 'awayTeam1': awayTeam1, 'homeTeamName': homeTeamName, 'awayTeamName': awayTeamName, 'homeTeamformation': homeTeamFormation, 'awayTeamformation': awayTeamFormation, 'homeTeamPformation': homeTeamPformation, 'awayTeamPformation': awayTeamPformation,  'homeTeamLformation': homeTeamLformation, 'awayTeamLformation': awayTeamLformation, 'home_substitutions': home_substitutions, 'away_substitutions': away_substitutions, 'home_legend': home_legend, 'away_legend': away_legend, 'home_rule_set': home_rule_color_number, 'away_rule_set': away_rule_color_number}
+                                }
                             }
                         }
-
                         let countryName = this.countryCodeList.filter(function(item) {
                             return item.ccode == countryCode;
                         });
 
                         let country1 = (competitionArray[i].split('(')[1]).split(')')[0]
                         let league = competitionArray[i].split('(')[0]
-                        if(events.length > 0){
-                            this.mainList.push({'country': country1, 'league': league, 'percentage': percentage, 'numbers': numbers,  'events': events})
+
+                        if(countryName.length > 0 && events.length > 0){
+                            this.mainList.push({'country': country1, 'league': league, 'percentage': percentage, 'numbers': numbers, 'events': events})
                         }
                         // else if(countryName.length < 1 && events.length > 0){
                         //     this.mainList.push({'country': 'International', 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers, 'events': events})
@@ -6624,894 +3083,20 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
                     console.log('this.mainList==>',this.mainList)
                 })
             },
-            refresh_calculation(val, home_date, away_date, b_data){
-                console.log('refresh final data check==!', val, ', ', home_date, ', ', away_date, ', ', b_data)
-
-                let c_home_id = val.home_id
-                let c_away_id = val.away_id
-                let main_data = this.mainData
-                for(let j = 0; j < main_data.length ; j++){
-                        if(main_data[j].events.length < 45){
-
-                            let home = {
-                                p:0,
-                                name:'',
-                                rank: '',
-                                z_z: 0,
-                                over15: 0,
-                                over25:0,
-                                over35:0,
-                                scored:0,
-                                conc:0,
-                                average1:0,
-                                average2:0,
-                                bts:0,
-                                first1:0,
-                                first2:0,
-                                second1:0,
-                                second2:0,
-                                time15_S:0,
-                                time30_S:0,
-                                time45_S:0,
-                                time60_S:0,
-                                time75_S:0,
-                                time90_S:0,
-                                time15_C:0,
-                                time30_C:0,
-                                time45_C:0,
-                                time60_C:0,
-                                time75_C:0,
-                                time90_C:0,
-                                gs1:0,
-                                gs2:0,
-                                gc1:0,
-                                gc2:0,
-                                over40:0,
-                                over85:0,
-                                C_H:0,
-                                C_D:0,
-                                C_A:0,
-                                first10:0,
-                                first11:0,
-                                first20:0,
-                                second01:0,
-                                second11:0,
-                                second02:0,
-                                firstGoal:0,
-                                lastGoal:0,
-                                secondplus:0,
-                                secondminus:0,
-                                homefirst:0,
-                                drawfirst:0,
-                                awayfirst:0,
-                                homesecond:0,
-                                drawsecond:0,
-                                awaysecond:0,
-                                eventdays:['All'],
-                                pos:0,
-                                h_a:0,
-                                swing1:'',
-                                FH:0,
-                                swing2:'',
-                                SH:0,
-                                swing3:'',
-                                attack:0,
-                                defense:0,
-                                form:0,
-                                form_H_A:0
-
-                            }
-                            let away = {
-                                p:0,
-                                name:'',
-                                rank:'' ,
-                                z_z: 0,
-                                over15: 0,
-                                over25:0,
-                                over35:0,
-                                scored:0,
-                                conc:0,
-                                average1:0,
-                                average2:0,
-                                bts:0,
-                                first1:0,
-                                first2:0,
-                                second1:0,
-                                second2:0,
-                                time15_S:0,
-                                time30_S:0,
-                                time45_S:0,
-                                time60_S:0,
-                                time75_S:0,
-                                time90_S:0,
-                                time15_C:0,
-                                time30_C:0,
-                                time45_C:0,
-                                time60_C:0,
-                                time75_C:0,
-                                time90_C:0,
-                                gs1:0,
-                                gs2:0,
-                                gc1:0,
-                                gc2:0,
-                                over40:0,
-                                over85:0,
-                                C_H:0,
-                                C_D:0,
-                                C_A:0,
-                                first10:0,
-                                first11:0,
-                                first20:0,
-                                second01:0,
-                                second11:0,
-                                second02:0,
-                                firstGoal:0,
-                                lastGoal:0,
-                                secondPlus:0,
-                                secondMinus:0,
-                                homefirst:0,
-                                drawfirst:0,
-                                awayfirst:0,
-                                homesecond:0,
-                                drawsecond:0,
-                                awaysecond:0,
-                                eventdays:['All'],
-                                pos:0,
-                                h_a:0,
-                                swing1: '',
-                                FH:0,
-                                swing2: '',
-                                SH:0,
-                                swing3: '',
-                                attack:0,
-                                defense:0,
-                                form:0,
-                                form_H_A:0
-                            }
-
-                            let homeTeamId = main_data[j].localTeamId
-                            let awayTeamId = main_data[j].visitorTeamId
-
-                            if(homeTeamId == c_home_id && awayTeamId == c_away_id){
-                                let seasonId = main_data[j].season_id
-
-                                home.pos = main_data[j].standing.localteam_position
-                                away.pos = main_data[j].standing.visitorteam_position
-                                home.h_a = this.H_A_calculation(seasonId, homeTeamId, 'home')
-                                away.h_a = this.H_A_calculation(seasonId, awayTeamId, 'away')
-
-                                let swing1 = (away.pos - away.h_a) - (home.pos - home.h_a)
-                                if(swing1 > 0){
-                                    away.swing1 = '+'+swing1
-                                    home.swing1 =''
-                                }
-                                else if(swing1 < 0){
-                                    away.swing1 =''
-                                    home.swing1 = '+'+swing1*(-1)
-                                }
-                                if((home.pos > home.h_a && away.pos > away.h_a) || (home.pos < home.h_a && away.pos < away.h_a)){
-                                    away.swing1 =''
-                                    home.swing1 =''
-                                }
-                                home.FH = this.FH_calculation(b_data, main_data[j].localTeamId,seasonId, 'home', home_date, '2')
-                                away.FH = this.FH_calculation(b_data, main_data[j].visitorTeamId,seasonId, 'away', away_date, '2')
-
-                                let swing2 =(away.pos - away.FH) -  (home.pos - home.FH)
-                                if(swing2 > 0){
-                                    away.swing2 = '+'+swing2
-                                    home.swing2 =''
-                                }
-                                else if(swing2 < 0){
-                                    away.swing2 =''
-                                    home.swing2 = '+'+swing2*(-1)
-                                }
-                                if((home.pos > home.FH && away.pos > away.FH) || (home.pos < home.FH && away.pos < away.FH)){
-                                    away.swing2 =''
-                                    home.swing2 =''
-                                }
-
-                                home.SH = this.SH_calculation(b_data, main_data[j].localTeamId,seasonId, 'home', home_date, '2')
-                                away.SH = this.SH_calculation(b_data, main_data[j].visitorTeamId,seasonId, 'away', away_date, '2')
-
-                                let swing3 =(away.pos - away.SH) -  (home.pos - home.SH)
-                                if(swing3 > 0){
-                                    away.swing3 = '+'+swing3
-                                    home.swing3 =''
-                                }
-                                else if(swing3 < 0){
-                                    away.swing3 =''
-                                    home.swing3 = '+'+swing3*(-1)
-                                }
-                                if((home.pos > home.SH && away.pos > away.SH) || (home.pos < home.SH && away.pos < away.SH)){
-                                    away.swing3 =''
-                                    home.swing3 =''
-                                }
-
-                                home.attack = this.attack_calculation(seasonId, homeTeamId, 'home')
-                                away.attack = this.attack_calculation(seasonId, awayTeamId, 'away')
-                                home.defense = this.defense_calculation(seasonId, homeTeamId, 'home')
-                                away.defense = this.defense_calculation(seasonId, awayTeamId, 'away')
-                                home.form_H_A = this.H_A_Form_calculation(b_data, main_data[j].localTeamId, seasonId, 'home', home_date, '2')
-                                away.form_H_A = this.H_A_Form_calculation(b_data, main_data[j].visitorTeamId, seasonId, 'away', away_date, '2')
-                                home.form = this.Form_calculation(b_data, main_data[j].localTeamId, seasonId, home_date, '2')
-                                away.form = this.Form_calculation(b_data, main_data[j].visitorTeamId, seasonId, away_date, '2')
-
-                                home.p = this.p_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')
-                                away.p = this.p_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')
-                                home.z_z = (this.zeroTozero_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
-                                away.z_z = (this.zeroTozero_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
-                                home.over15 = (this.over15_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
-                                away.over15 = (this.over15_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
-                                home.over25 = (this.over25_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
-                                away.over25 = (this.over25_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
-                                home.over35 = (this.over35_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
-                                away.over35 = (this.over35_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
-                                home.scored = (this.scored_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
-                                away.scored = (this.scored_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
-                                home.conc = (this.concd_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.001)*100).toFixed(0)
-                                away.conc = (this.concd_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.001)*100).toFixed(0)
-                                home.average1 = (this.average_scored_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)).toFixed(2)
-                                away.average1 = (this.average_scored_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)).toFixed(2)
-                                home.average2 = (this.average_concd_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)).toFixed(2)
-                                away.average2 = (this.average_concd_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)).toFixed(2)
-                                if(this.average_scored_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2') == 0){home.average1 = 0;}
-                                if(this.average_scored_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2') == 0){away.average1 = 0;}
-                                if(this.average_concd_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2') == 0){home.average2 = 0;}
-                                if(this.average_concd_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2') == 0){away.average2 = 0;}
-                                home.bts = (this.average_bts_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.bts = (this.average_bts_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.first1 = (this.FH_1st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.first1 = (this.FH_1st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.first2 = (this.FH_2st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.first2 = (this.FH_2st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.second1 = (this.SH_1st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.second1 = (this.SH_1st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.second2 = (this.SH_2st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.second2 = (this.SH_2st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time15_S = (this.time_scored_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 15, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time15_S = (this.time_scored_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 15, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time15_C = (this.time_concd_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 15, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time15_C = (this.time_concd_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 15, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time30_S = (this.time_scored_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 30, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time30_S = (this.time_scored_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 30, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time30_C = (this.time_concd_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 30, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time30_C = (this.time_concd_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 30, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time45_S = (this.time_scored_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 45, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time45_S = (this.time_scored_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 45, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time45_C = (this.time_concd_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 45, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time45_C = (this.time_concd_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 45, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time60_S = (this.time_scored_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 60, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time60_S = (this.time_scored_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 60, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time60_C = (this.time_concd_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 60, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time60_C = (this.time_concd_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 60, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time75_S = (this.time_scored_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 75, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time75_S = (this.time_scored_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 75, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time75_C = (this.time_concd_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 75, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time75_C = (this.time_concd_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 75, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time90_S = (this.time_scored_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 90, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time90_S = (this.time_scored_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 90, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                home.time90_C = (this.time_concd_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 90, '2')/(home.p + 0.0001)*100).toFixed(0)
-                                away.time90_C = (this.time_concd_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 90, '2')/(away.p + 0.0001)*100).toFixed(0)
-                                let hgs1 = this.scored_1st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')
-                                let ags1 = this.scored_1st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')
-                                let hgs2 = this.scored_2st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')
-                                let ags2 = this.scored_2st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')
-                                home.gs1 = (hgs1/(hgs1 + hgs2)*100).toFixed(0)
-                                home.gs2 = (hgs2/(hgs1 + hgs2)*100).toFixed(0)
-                                if((hgs1 + hgs2) == 0){home.gs1 = 0; home.gs2 = 0}
-                                away.gs1 = (ags1/(ags1 + ags2)*100).toFixed(0)
-                                away.gs2 = (ags2/(ags1 + ags2)*100).toFixed(0)
-                                if((ags1 + ags2) == 0){away.gs1 = 0 ; away.gs2 = 0}
-                                let hgc1 = this.concd_1st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')
-                                let agc1 = this.concd_1st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')
-                                let hgc2 = this.concd_2st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')
-                                let agc2 = this.concd_2st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')
-                                home.gc1 = (hgc1/(hgc1 + hgc2)*100).toFixed(0)
-                                home.gc2 = (hgc2/(hgc1 + hgc2)*100).toFixed(0)
-                                if((hgc1 + hgc2) == 0){home.gc1 = 0; home.gc2 = 0}
-                                away.gc1 = (agc1/(agc1 + agc2)*100).toFixed(0)
-                                away.gc2 = (agc2/(agc1 + agc2)*100).toFixed(0)
-                                if((agc1 + agc2) == 0){away.gc1 = 0 ; away.gc2 = 0}
-                                home.over40 = (this.scored_plus_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 45, '2')/(home.p)*100).toFixed(0)
-                                away.over40 = (this.scored_plus_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 45, '2')/(away.p)*100).toFixed(0)
-                                home.over85 = (this.scored_plus_calculation(b_data, main_data[j].localTeamId, 'home', home_date, 90, '2')/(home.p)*100).toFixed(0)
-                                away.over85 = (this.scored_plus_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, 90, '2')/(away.p)*100).toFixed(0)
-
-                                home.C_H = (this.win_percentage_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.C_H = (this.win_percentage_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-                                home.C_D = (this.draw_percentage_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.C_D = (this.draw_percentage_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-                                home.C_A = (this.loss_percentage_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.C_A = (this.loss_percentage_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-
-                                home.lastGoal = (this.Last_goal_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.lastGoal = (this.Last_goal_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-                                if(home.p == 0){home.over40 = 0; home.over85 = 0; home.C_H = 0; home.C_D = 0; home.C_A = 0; home.lastGoal = 0}
-                                if(away.p == 0){away.over40 = 0; away.over85 = 0; away.C_H = 0; away.C_D = 0; away.C_A = 0; away.lastGoal = 0}
-                                home.first10 = this.one_to_zero_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')
-                                away.first10 = this.one_to_zero_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')
-
-                                home.first11 = (this.one_to_one_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.first10)*100).toFixed(0)
-                                away.first11 = (this.one_to_one_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.first10)*100).toFixed(0)
-                                home.first20 = (this.two_to_one_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.first10)*100).toFixed(0)
-                                away.first20 = (this.two_to_one_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.first10)*100).toFixed(0)
-
-                                if(home.first10 == 0){home.first11 = 0; home.first20 = 0}
-                                if(away.first10 == 0){away.first11 = 0; away.first20 = 0}
-                                home.second01 = this.zero_to_one_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')
-                                away.second01 = this.zero_to_one_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')
-
-                                home.second11 = (this.one_to_one2_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.second01)*100).toFixed(0)
-                                away.second11 = (this.one_to_one2_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.second01)*100).toFixed(0)
-                                home.second02 = (this.zero_to_two_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.second01)*100).toFixed(0)
-                                away.second02 = (this.zero_to_two_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.second01)*100).toFixed(0)
-
-                                if(home.second01 == 0){home.second11 = 0; home.second02 = 0}
-                                if(away.second01 == 0){away.second11 = 0; away.second02 = 0}
-                                home.secondplus = (this.two_score_ahead_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.secondplus = (this.two_score_ahead_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-                                home.secondminus = (this.two_score_behind_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.secondminus = (this.two_score_behind_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-                                home.homefirst = (this.H_1st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.homefirst = (this.H_1st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-                                home.drawfirst = (this.D_1st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.drawfirst = (this.D_1st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-                                home.awayfirst = (this.A_1st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.awayfirst = (this.A_1st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-
-                                home.homesecond = (this.H_2st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.homesecond = (this.H_2st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-                                home.drawsecond = (this.D_2st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.drawsecond = (this.D_2st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-                                home.awaysecond = (this.A_2st_calculation(b_data, main_data[j].localTeamId, 'home', home_date, '2')/(home.p)*100).toFixed(0)
-                                away.awaysecond = (this.A_2st_calculation(b_data, main_data[j].visitorTeamId, 'away', away_date, '2')/(away.p)*100).toFixed(0)
-                                if(home.p == 0){home.secondplus = 0; home.secondminus = 0; home.homefirst = 0; home.drawfirst = 0; home.awayfirst = 0; home.homesecond = 0; home.drawsecond = 0; home.awaysecond = 0}
-                                if(away.p == 0){away.secondplus = 0; away.secondminus = 0; away.homefirst = 0; away.drawfirst = 0; away.awayfirst = 0; away.homesecond = 0; away.drawsecond = 0; away.awaysecond = 0}
-
-                                for(let c = 0 ; c < this.mainList.length ; c++){
-                                    for(let cc = 0 ; cc < this.mainList[c].events.length ; cc++){
-                                        if(this.mainList[c].events[cc].home_id == homeTeamId && this.mainList[c].events[cc].away_id == awayTeamId){
-                                            let home_name = this.mainList[c].events[cc].home.name
-                                            let home_rank = this.mainList[c].events[cc].home.rank
-                                            let away_name = this.mainList[c].events[cc].away.name
-                                            let away_rank = this.mainList[c].events[cc].away.rank
-                                            this.mainList[c].events[cc].home = home
-                                            this.mainList[c].events[cc].away = away
-                                            this.mainList[c].events[cc].home.name = home_name
-                                            this.mainList[c].events[cc].home.rank = home_rank
-                                            this.mainList[c].events[cc].away.name = away_name
-                                            this.mainList[c].events[cc].away.rank = away_rank
-
-                                        }
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-            },
-            home_rank_refresh(ranks, val){
-                console.log('refresh final data check==!', val, ', ', ranks)
-
-                let c_home_id = val.home_id
-                let c_away_id = val.away_id
-                let main_data = this.mainData
-
-                let start_date4 = new Date();
-                let next_date4 = start_date4.setDate(start_date4.getDate() + 0);
-                next_date4 = new Date(next_date4).toISOString()
-                next_date4 = next_date4.substring(0,10)
-
-                for(let j = 0; j < main_data.length ; j++){
-                    if(main_data[j].events.length < 45){
-
-                        let home = {
-                            p:0,
-                            name:'',
-                            rank: '',
-                            z_z: 0,
-                            over15: 0,
-                            over25:0,
-                            over35:0,
-                            scored:0,
-                            conc:0,
-                            average1:0,
-                            average2:0,
-                            bts:0,
-                            first1:0,
-                            first2:0,
-                            second1:0,
-                            second2:0,
-                            time15_S:0,
-                            time30_S:0,
-                            time45_S:0,
-                            time60_S:0,
-                            time75_S:0,
-                            time90_S:0,
-                            time15_C:0,
-                            time30_C:0,
-                            time45_C:0,
-                            time60_C:0,
-                            time75_C:0,
-                            time90_C:0,
-                            gs1:0,
-                            gs2:0,
-                            gc1:0,
-                            gc2:0,
-                            over40:0,
-                            over85:0,
-                            C_H:0,
-                            C_D:0,
-                            C_A:0,
-                            first10:0,
-                            first11:0,
-                            first20:0,
-                            second01:0,
-                            second11:0,
-                            second02:0,
-                            firstGoal:0,
-                            lastGoal:0,
-                            secondplus:0,
-                            secondminus:0,
-                            homefirst:0,
-                            drawfirst:0,
-                            awayfirst:0,
-                            homesecond:0,
-                            drawsecond:0,
-                            awaysecond:0,
-                            eventdays:['All'],
-                            pos:0,
-                            h_a:0,
-                            swing1:'',
-                            FH:0,
-                            swing2:'',
-                            SH:0,
-                            swing3:'',
-                            attack:0,
-                            defense:0,
-                            form:0,
-                            form_H_A:0
-
-                        }
-                        let away = this.away_team
-                        let homeTeamId = main_data[j].localTeamId
-                        let awayTeamId = main_data[j].visitorTeamId
-
-                        if(homeTeamId == c_home_id && awayTeamId == c_away_id){
-                            let seasonId = main_data[j].season_id
-
-                            home.pos = main_data[j].standing.localteam_position
-                            home.h_a = this.H_A_calculation(seasonId, homeTeamId, 'home')
-
-                            let swing1 = (away.pos - away.h_a) - (home.pos - home.h_a)
-                            if(swing1 > 0){
-                                away.swing1 = '+'+swing1
-                                home.swing1 =''
-                            }
-                            else if(swing1 < 0){
-                                away.swing1 =''
-                                home.swing1 = '+'+swing1*(-1)
-                            }
-                            if((home.pos > home.h_a && away.pos > away.h_a) || (home.pos < home.h_a && away.pos < away.h_a)){
-                                away.swing1 =''
-                                home.swing1 =''
-                            }
-
-                            home.FH = this.FH_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, 'home', next_date4, '3', ranks)
-                            let swing2 =(away.pos - away.FH) -  (home.pos - home.FH)
-                            if(swing2 > 0){
-                                away.swing2 = '+'+swing2
-                                home.swing2 =''
-                            }
-                            else if(swing2 < 0){
-                                away.swing2 =''
-                                home.swing2 = '+'+swing2*(-1)
-                            }
-                            if((home.pos > home.FH && away.pos > away.FH) || (home.pos < home.FH && away.pos < away.FH)){
-                                away.swing2 =''
-                                home.swing2 =''
-                            }
-
-                            home.SH = this.SH_calculation(main_data[j].events, main_data[j].localTeamId,seasonId, 'home', next_date4, '3', ranks)
-                            let swing3 =(away.pos - away.SH) -  (home.pos - home.SH)
-                            if(swing3 > 0){
-                                away.swing3 = '+'+swing3
-                                home.swing3 =''
-                            }
-                            else if(swing3 < 0){
-                                away.swing3 =''
-                                home.swing3 = '+'+swing3*(-1)
-                            }
-                            if((home.pos > home.SH && away.pos > away.SH) || (home.pos < home.SH && away.pos < away.SH)){
-                                away.swing3 =''
-                                home.swing3 =''
-                            }
-
-                            home.attack = this.attack_calculation(seasonId, homeTeamId, 'home')
-                            home.defense = this.defense_calculation(seasonId, homeTeamId, 'home')
-                            home.form_H_A = this.H_A_Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, 'home', next_date4, '3', ranks)
-                            home.form = this.Form_calculation(main_data[j].events, main_data[j].localTeamId, seasonId, next_date4, '2')
-                            home.p = this.p_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)
-                            home.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p + 0.001)*100).toFixed(0)
-                            home.over15 = (this.over15_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p + 0.001)*100).toFixed(0)
-                            home.over25 = (this.over25_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p + 0.001)*100).toFixed(0)
-                            home.over35 = (this.over35_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p + 0.001)*100).toFixed(0)
-                            home.scored = (this.scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p + 0.001)*100).toFixed(0)
-                            home.conc = (this.concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p + 0.001)*100).toFixed(0)
-                            home.average1 = (this.average_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)).toFixed(2)
-                            home.average2 = (this.average_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)).toFixed(2)
-                            if(this.average_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks) == 0){home.average1 = 0;}
-                            if(this.average_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks) == 0){home.average2 = 0;}
-                            home.bts = (this.average_bts_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.first1 = (this.FH_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.first2 = (this.FH_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.second1 = (this.SH_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.second2 = (this.SH_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time15_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 15, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time15_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 15, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time30_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 30, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time30_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 30, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time45_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time45_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time60_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 60, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time60_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 60, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time75_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 75, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time75_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 75, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time90_S = (this.time_scored_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            home.time90_C = (this.time_concd_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90, '3', ranks)/(home.p + 0.0001)*100).toFixed(0)
-                            let hgs1 = this.scored_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)
-                            let hgs2 = this.scored_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)
-                            home.gs1 = (hgs1/(hgs1 + hgs2)*100).toFixed(0)
-                            home.gs2 = (hgs2/(hgs1 + hgs2)*100).toFixed(0)
-                            if((hgs1 + hgs2) == 0){home.gs1 = 0; home.gs2 = 0}
-                            let hgc1 = this.concd_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)
-                            let hgc2 = this.concd_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)
-                            home.gc1 = (hgc1/(hgc1 + hgc2)*100).toFixed(0)
-                            home.gc2 = (hgc2/(hgc1 + hgc2)*100).toFixed(0)
-                            if((hgc1 + hgc2) == 0){home.gc1 = 0; home.gc2 = 0}
-                            home.over40 = (this.scored_plus_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 45, '3', ranks)/(home.p)*100).toFixed(0)
-                            home.over85 = (this.scored_plus_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, 90, '3', ranks)/(home.p)*100).toFixed(0)
-                            home.C_H = (this.win_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-                            home.C_D = (this.draw_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-                            home.C_A = (this.loss_percentage_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-
-                            home.lastGoal = (this.Last_goal_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-                            if(home.p == 0){home.over40 = 0; home.over85 = 0; home.C_H = 0; home.C_D = 0; home.C_A = 0; home.lastGoal = 0}
-                            home.first10 = this.one_to_zero_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)
-                            home.first11 = (this.one_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '2')/(home.first10)*100).toFixed(0)
-                            home.first20 = (this.two_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.first10)*100).toFixed(0)
-                            if(home.first10 == 0){home.first11 = 0; home.first20 = 0}
-                            home.second01 = this.zero_to_one_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)
-                            home.second11 = (this.one_to_one2_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.second01)*100).toFixed(0)
-                            home.second02 = (this.zero_to_two_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.second01)*100).toFixed(0)
-                            if(home.second01 == 0){home.second11 = 0; home.second02 = 0}
-                            home.secondplus = (this.two_score_ahead_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-                            home.secondminus = (this.two_score_behind_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-                            home.homefirst = (this.H_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-                            home.drawfirst = (this.D_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-                            home.awayfirst = (this.A_1st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-                            home.homesecond = (this.H_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-                            home.drawsecond = (this.D_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-                            home.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].localTeamId, 'home', next_date4, '3', ranks)/(home.p)*100).toFixed(0)
-                            if(home.p == 0){home.secondplus = 0; home.secondminus = 0; home.homefirst = 0; home.drawfirst = 0; home.awayfirst = 0; home.homesecond = 0; home.drawsecond = 0; home.awaysecond = 0}
-
-                            for(let c = 0 ; c < this.mainList.length ; c++){
-                                for(let cc = 0 ; cc < this.mainList[c].events.length ; cc++){
-                                    if(this.mainList[c].events[cc].home_id == homeTeamId && this.mainList[c].events[cc].away_id == awayTeamId){
-                                        let home_name = this.mainList[c].events[cc].home.name
-                                        let home_rank = this.mainList[c].events[cc].home.rank
-                                        let away_name = this.mainList[c].events[cc].away.name
-                                        let away_rank = this.mainList[c].events[cc].away.rank
-                                        this.mainList[c].events[cc].home = home
-                                        this.mainList[c].events[cc].away = away
-                                        this.mainList[c].events[cc].home.name = home_name
-                                        this.mainList[c].events[cc].home.rank = home_rank
-                                        this.mainList[c].events[cc].away.name = away_name
-                                        this.mainList[c].events[cc].away.rank = away_rank
-
-                                    }
-                                }
-
-                            }
-                        }
-                    }
-                }
-            },
-            away_rank_refresh(ranks, val){
-                console.log('refresh final data check==!', val, ', ', ranks)
-
-                let c_home_id = val.home_id
-                let c_away_id = val.away_id
-                let main_data = this.mainData
-
-                let start_date4 = new Date();
-                let next_date4 = start_date4.setDate(start_date4.getDate() + 0);
-                next_date4 = new Date(next_date4).toISOString()
-                next_date4 = next_date4.substring(0,10)
-
-                for(let j = 0; j < main_data.length ; j++){
-                    if(main_data[j].events.length < 45){
-
-                        let away = {
-                            p:0,
-                            name:'',
-                            rank: '',
-                            z_z: 0,
-                            over15: 0,
-                            over25:0,
-                            over35:0,
-                            scored:0,
-                            conc:0,
-                            average1:0,
-                            average2:0,
-                            bts:0,
-                            first1:0,
-                            first2:0,
-                            second1:0,
-                            second2:0,
-                            time15_S:0,
-                            time30_S:0,
-                            time45_S:0,
-                            time60_S:0,
-                            time75_S:0,
-                            time90_S:0,
-                            time15_C:0,
-                            time30_C:0,
-                            time45_C:0,
-                            time60_C:0,
-                            time75_C:0,
-                            time90_C:0,
-                            gs1:0,
-                            gs2:0,
-                            gc1:0,
-                            gc2:0,
-                            over40:0,
-                            over85:0,
-                            C_H:0,
-                            C_D:0,
-                            C_A:0,
-                            first10:0,
-                            first11:0,
-                            first20:0,
-                            second01:0,
-                            second11:0,
-                            second02:0,
-                            firstGoal:0,
-                            lastGoal:0,
-                            secondplus:0,
-                            secondminus:0,
-                            homefirst:0,
-                            drawfirst:0,
-                            awayfirst:0,
-                            homesecond:0,
-                            drawsecond:0,
-                            awaysecond:0,
-                            eventdays:['All'],
-                            pos:0,
-                            h_a:0,
-                            swing1:'',
-                            FH:0,
-                            swing2:'',
-                            SH:0,
-                            swing3:'',
-                            attack:0,
-                            defense:0,
-                            form:0,
-                            form_H_A:0
-
-                        }
-                        let home = this.home_team
-                        let homeTeamId = main_data[j].localTeamId
-                        let awayTeamId = main_data[j].visitorTeamId
-
-                        if(homeTeamId == c_home_id && awayTeamId == c_away_id){
-                            let seasonId = main_data[j].season_id
-
-                            away.pos = main_data[j].standing.visitorteam_position
-                            away.h_a = this.H_A_calculation(seasonId, awayTeamId, 'away')
-
-                            let swing1 = (away.pos - away.h_a) - (home.pos - home.h_a)
-                            if(swing1 > 0){
-                                away.swing1 = '+'+swing1
-                                home.swing1 =''
-                            }
-                            else if(swing1 < 0){
-                                away.swing1 =''
-                                home.swing1 = '+'+swing1*(-1)
-                            }
-                            if((home.pos > home.h_a && away.pos > away.h_a) || (home.pos < home.h_a && away.pos < away.h_a)){
-                                away.swing1 =''
-                                home.swing1 =''
-                            }
-                            away.FH = this.FH_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, 'away', next_date4, '3', ranks)
-
-                            let swing2 =(away.pos - away.FH) -  (home.pos - home.FH)
-                            if(swing2 > 0){
-                                away.swing2 = '+'+swing2
-                                home.swing2 =''
-                            }
-                            else if(swing2 < 0){
-                                away.swing2 =''
-                                home.swing2 = '+'+swing2*(-1)
-                            }
-                            if((home.pos > home.FH && away.pos > away.FH) || (home.pos < home.FH && away.pos < away.FH)){
-                                away.swing2 =''
-                                home.swing2 =''
-                            }
-                            away.SH = this.SH_calculation(main_data[j].events, main_data[j].visitorTeamId,seasonId, 'away', next_date4, '3', ranks)
-
-                            let swing3 =(away.pos - away.SH) -  (home.pos - home.SH)
-                            if(swing3 > 0){
-                                away.swing3 = '+'+swing3
-                                home.swing3 =''
-                            }
-                            else if(swing3 < 0){
-                                away.swing3 =''
-                                home.swing3 = '+'+swing3*(-1)
-                            }
-                            if((home.pos > home.SH && away.pos > away.SH) || (home.pos < home.SH && away.pos < away.SH)){
-                                away.swing3 =''
-                                home.swing3 =''
-                            }
-
-                            away.attack = this.attack_calculation(seasonId, awayTeamId, 'away')
-                            away.defense = this.defense_calculation(seasonId, awayTeamId, 'away')
-                            away.form_H_A = this.H_A_Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, 'away', next_date4, '3', ranks)
-                            away.form = this.Form_calculation(main_data[j].events, main_data[j].visitorTeamId, seasonId, next_date4, '2')
-                            away.p = this.p_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)
-                            away.z_z = (this.zeroTozero_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p + 0.001)*100).toFixed(0)
-                            away.over15 = (this.over15_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p + 0.001)*100).toFixed(0)
-                            away.over25 = (this.over25_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p + 0.001)*100).toFixed(0)
-                            away.over35 = (this.over35_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p + 0.001)*100).toFixed(0)
-                            away.scored = (this.scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p + 0.001)*100).toFixed(0)
-                            away.conc = (this.concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p + 0.001)*100).toFixed(0)
-                            away.average1 = (this.average_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)).toFixed(2)
-                            away.average2 = (this.average_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)).toFixed(2)
-                            if(this.average_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks) == 0){away.average1 = 0;}
-                            if(this.average_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks) == 0){away.average2 = 0;}
-                            away.bts = (this.average_bts_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.first1 = (this.FH_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.first2 = (this.FH_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.second1 = (this.SH_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.second2 = (this.SH_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time15_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 15, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time15_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 15, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time30_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 30, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time30_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 30, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time45_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time45_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time60_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 60, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time60_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 60, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time75_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 75, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time75_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 75, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time90_S = (this.time_scored_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            away.time90_C = (this.time_concd_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90, '3', ranks)/(away.p + 0.0001)*100).toFixed(0)
-                            let ags1 = this.scored_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)
-                            let ags2 = this.scored_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)
-                            away.gs1 = (ags1/(ags1 + ags2)*100).toFixed(0)
-                            away.gs2 = (ags2/(ags1 + ags2)*100).toFixed(0)
-                            if((ags1 + ags2) == 0){away.gs1 = 0 ; away.gs2 = 0}
-                            let agc1 = this.concd_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)
-                            let agc2 = this.concd_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)
-                            away.gc1 = (agc1/(agc1 + agc2)*100).toFixed(0)
-                            away.gc2 = (agc2/(agc1 + agc2)*100).toFixed(0)
-                            if((agc1 + agc2) == 0){away.gc1 = 0 ; away.gc2 = 0}
-                            away.over40 = (this.scored_plus_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 45, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.over85 = (this.scored_plus_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, 90, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.C_H = (this.win_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.C_D = (this.draw_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.C_A = (this.loss_percentage_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.lastGoal = (this.Last_goal_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            if(away.p == 0){away.over40 = 0; away.over85 = 0; away.C_H = 0; away.C_D = 0; away.C_A = 0; away.lastGoal = 0}
-                            away.first10 = this.one_to_zero_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)
-                            away.first11 = (this.one_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.first10)*100).toFixed(0)
-                            away.first20 = (this.two_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.first10)*100).toFixed(0)
-                            if(away.first10 == 0){away.first11 = 0; away.first20 = 0}
-                            away.second01 = this.zero_to_one_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)
-                            away.second11 = (this.one_to_one2_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.second01)*100).toFixed(0)
-                            away.second02 = (this.zero_to_two_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.second01)*100).toFixed(0)
-                            if(away.second01 == 0){away.second11 = 0; away.second02 = 0}
-                            away.secondplus = (this.two_score_ahead_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.secondminus = (this.two_score_behind_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.homefirst = (this.H_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.drawfirst = (this.D_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.awayfirst = (this.A_1st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.homesecond = (this.H_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.drawsecond = (this.D_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            away.awaysecond = (this.A_2st_calculation(main_data[j].events, main_data[j].visitorTeamId, 'away', next_date4, '3', ranks)/(away.p)*100).toFixed(0)
-                            if(away.p == 0){away.secondplus = 0; away.secondminus = 0; away.homefirst = 0; away.drawfirst = 0; away.awayfirst = 0; away.homesecond = 0; away.drawsecond = 0; away.awaysecond = 0}
-
-                            for(let c = 0 ; c < this.mainList.length ; c++){
-                                for(let cc = 0 ; cc < this.mainList[c].events.length ; cc++){
-                                    if(this.mainList[c].events[cc].home_id == homeTeamId && this.mainList[c].events[cc].away_id == awayTeamId){
-                                        let home_name = this.mainList[c].events[cc].home.name
-                                        let home_rank = this.mainList[c].events[cc].home.rank
-                                        let away_name = this.mainList[c].events[cc].away.name
-                                        let away_rank = this.mainList[c].events[cc].away.rank
-                                        this.mainList[c].events[cc].home = home
-                                        this.mainList[c].events[cc].away = away
-                                        this.mainList[c].events[cc].home.name = home_name
-                                        this.mainList[c].events[cc].home.rank = home_rank
-                                        this.mainList[c].events[cc].away.name = away_name
-                                        this.mainList[c].events[cc].away.rank = away_rank
-
-                                    }
-                                }
-
-                            }
-                        }
-                    }
-                }
-            },
-            home_rank_filter(val){
-                if(val === 1){
-                    console.log("ALL")
-                    let data = this.item_X
-                    let ranks = {"from": 0, "to": 50}
-                    this.home_rank_refresh(ranks, data)
-                }
-                else if(val === 2){
-                    console.log(this.rank_filter.v1)
-                    let data = this.item_X
-                    let ranks = this.rank_filter.v1
-                    this.home_rank_refresh(ranks, data)
-                }
-                else if(val === 3){
-                    console.log(this.rank_filter.v2)
-                    let data = this.item_X
-                    let ranks = this.rank_filter.v2
-                    this.home_rank_refresh(ranks, data)
-                }
-                else if(val === 4){
-                    console.log(this.rank_filter.v3)
-                    let data = this.item_X
-                    let ranks = this.rank_filter.v3
-                    this.home_rank_refresh(ranks, data)
-                }
-                else if(val === 5){
-                    console.log(this.rank_filter.v4)
-                    let data = this.item_X
-                    let ranks = this.rank_filter.v4
-                    this.home_rank_refresh(ranks, data)
-                }
-            },
-            away_rank_filter(val){
-                if(val === 1){
-                    console.log("ALL")
-                    let data = this.item_X
-                    let ranks = {"from": 0, "to": 50}
-                    this.away_rank_refresh(ranks, data)
-                }
-                else if(val === 2){
-                    console.log(this.rank_filter.v1)
-                    let data = this.item_X
-                    let ranks = this.rank_filter.v1
-                    this.away_rank_refresh(ranks, data)
-                }
-                else if(val === 3){
-                    console.log(this.rank_filter.v2)
-                    let data = this.item_X
-                    let ranks = this.rank_filter.v2
-                    this.away_rank_refresh(ranks, data)
-                }
-                else if(val === 4){
-                    console.log(this.rank_filter.v3)
-                    let data = this.item_X
-                    let ranks = this.rank_filter.v3
-                    this.away_rank_refresh(ranks, data)
-                }
-                else if(val === 5){
-                    console.log(this.rank_filter.v4)
-                    let data = this.item_X
-                    let ranks = this.rank_filter.v4
-                    this.away_rank_refresh(ranks, data)
-                }
-            },
             sortJSON(data, key){
                 return data.sort(function(a, b) {
                     var x = a[key]; var y = b[key];
                     return ((x < y) ? -1 : ((x > y) ? 1 : 0));
                 });
+            },
+            sortByProperty(property){
+                return function(a,b){
+                    if(a[property] > b[property])
+                        return 1;
+                    else if(a[property] < b[property])
+                        return -1;
+                    return 0;
+                }
             }
         },
         created() {
@@ -7520,114 +3105,51 @@ console.log('=====>', this.home_date_list, ', ', this.away_date_list)
     }
 </script>
 <style>
-    .rank_filter{
-        margin-bottom: 0px;
-    }
-    .rank_filter select{
-        border-radius: 0px;
-        height: 24px;
-        padding: 0;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
     .eventdays select{
         padding-left: 5px;
     }
-    .eventdays{
-        width: 55px;
+    .event-graph{
+        height: auto;
+        background: #f9f9f9;
+        padding: 20px 20px;
+    }
+    .unit-analysis{
+        border: 1px solid gray;
+        padding: 30px 10px;
+    }
+    .homeTeam_Container{
+        width: 100%;
+        min-height: 450px;
+        border: 1px solid lightgrey;
+        font-size: 12px;
+    }
+    .awayTeam_Container{
+        width: 100%;
+        min-height: 450px;
+        border: 1px solid lightgrey;
+        font-size: 12px;
+        margin-top: 25px;
+    }
+    .home_main_tab{
+        width: 100%;
+        height: 420px;
+        padding: 0px;
+        padding-top: 5px;
+    }
+    .content{
+        width: 100%;
+    }
+    .lineup-selector{
+        width: 70px;
+        margin-bottom: 0;
         float: left;
         margin-left: 10px;
-        margin-right: 10px;
     }
-    .eventdays select{
-        height: 25px;
+    .lineup-selector select{
         border-radius: 0;
         padding: 0;
         padding-left: 5px;
-    }
-    .eventdays.date-range{
-        margin-top: 8px;
-    }
-    .event-list{
-        background: #dff0d8;
-        padding: 7px 12px;
-        font-weight: 600;
-        cursor: pointer;
-    }
-    .event-content{
-        background: #effaeb;
-        font-size: 13px;
-        padding: 7px 12px;
-        cursor: pointer;
-    }
-    .event-graph{
-        height: 803px;
-        background: #f9f9f9;
-    }
-    .event-graph-header{
-        background: #b1a0c7;
-        height: 40px;
-        padding: 9px 0px;
-        font-size: 13px;
-        font-weight: 600;
-    }
-    .graph1{
-        height: 100px;
-        padding: 9px 0px;
-        font-size: 13px;
-        font-weight: 600;
-    }
-    .graph-detail{
-        width: 40px;
-        height: 50px;
-        padding: 10px 5px;
-        border: 1px solid #bebebe;
-        position: relative;
-        margin: auto;
-    }
-    .graph-detail1{
-        width: 80px;
-        height: 50px;
-        padding: 10px 5px;
-        /*border: 1px solid #bebebe;*/
-        position: relative;
-        margin: auto;
-    }
-    .graph-inner{
+        padding-right: 5px;
         height: 20px;
-        background: #00cc00;
-        position: absolute;
-        width: 28px;
-        bottom: 0px;
-    }
-    .graph-label{
-        position: absolute;
-        top: 48px;
-        font-size: 12px;
-        left: 7px;
-        font-weight: normal;
-    }
-    .graph-label1{
-        position: absolute;
-        top: 48px;
-        font-size: 12px;
-        left: 45px;
-        font-weight: normal;
-    }
-    .graph-detail00{
-        margin: auto;
-        text-align: center;
-        min-width: 40px;
-        float: left;
-        width: 4%;
-        position: relative;
-        height: 40px; top: -9px;
-        padding-top: 9px;
-    }
-    .graph-percent{
-        height: 50px;
-    }
-    .graph-percent0{
-        height: 70px;
     }
 </style>
