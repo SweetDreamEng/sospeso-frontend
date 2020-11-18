@@ -1,6 +1,13 @@
 <template>
     <div style="min-width: 1250px">
         <CCard body-wrapper>
+            <div style="width: 200px;">
+                <CSelect
+                        :options="date_filter"
+                        @update:value="select_date"
+                >
+                </CSelect>
+            </div>
             <div
                     v-for="(item,index) in mainList"
                     :key="item.league"
@@ -1091,7 +1098,17 @@
                     { value: '3-1-4-2', label: '3-1-4-2'}
                 ],
                 selected_team: '',
-                selected_direction: ''
+                selected_direction: '',
+                week_set:[
+                    {'value': 0, 'label': 'Monday'},
+                    {'value': 1, 'label': 'Tuesday'},
+                    {'value': 2, 'label': 'Wednesday'},
+                    {'value': 3, 'label': 'Tursday'},
+                    {'value': 4, 'label': 'Friday'},
+                    {'value': 5, 'label': 'Saturday'},
+                    {'value': 6, 'label': 'Sunday'}
+                ],
+                date_filter:[]
             }
         },
         // sub_color_set:[
@@ -1815,6 +1832,9 @@
                         this.mainList[i].events[j].away_rule_set = away_rule_color_number
                     }
                 }
+            },
+            select_date(val){
+                console.log('date===>', val)
             },
             readData(){
                 window.axios.post(`${process.env.VUE_APP_URL}teamAnalysis`).then(({data})=> {
@@ -3081,6 +3101,33 @@
                         this.sortJSON(self.mainList,'country', '123');
                     }
                     console.log('this.mainList==>',this.mainList)
+
+                    var d = new Date();
+                    var n = d.getDay()
+
+                    let dayList = []
+                    for(let i = 0 ; i < 7 ; i++){
+                        let c = this.week_set.filter(function(item) {return item.value === ((n + i) % 7)})
+                        dayList[i] = c[0].label
+                    }
+
+                    for(let i = 0 ; i < 7 ; i++){
+                        let date = new Date();
+                        let date1 = date.setDate(date.getDate() + i);
+                        let date2 = new Date(date1).toISOString()
+                        date2 = date2.substring(0,10)
+                        if(i === 0){
+                            this.date_filter[i] = {'value': date2, 'label': 'Search fixtures for today'}
+                        }
+                        else if(i === 1){
+                            this.date_filter[i] = {'value': date2, 'label': 'Search fixtures for tomorrow'}
+                        }
+                        else{
+                            this.date_filter[i] = {'value': date2, 'label': 'Search fixtures for ' + dayList[i]}
+                        }
+                    }
+
+                    console.log('daylist==>', this.date_filter)
                 })
             },
             sortJSON(data, key){
