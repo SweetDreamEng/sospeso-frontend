@@ -1,6 +1,13 @@
 <template>
     <div    style="min-width: 1250px">
         <CCard body-wrapper>
+            <div style="width: 200px;">
+                <CSelect
+                        :options="week_filter"
+                        @update:value="date_select"
+                >
+                </CSelect>
+            </div>
             <div
                     v-for="(item,index) in mainList"
                     :key="item.league"
@@ -1477,7 +1484,17 @@
                 ],
                 rank_filter:{},
                 home_team:{},
-                away_team:{}
+                away_team:{},
+                week_set:[
+                    {'value': 0 , 'label': 'Monday'},
+                    {'value': 1 , 'label': 'Tuesday'},
+                    {'value': 2 , 'label': 'Wendnesday'},
+                    {'value': 3 , 'label': 'Tursday'},
+                    {'value': 4 , 'label': 'Friday'},
+                    {'value': 5 , 'label': 'Saturday'},
+                    {'value': 6 , 'label': 'Sunday'},
+                ],
+                week_filter:[]
             }
         },
         methods: {
@@ -6110,6 +6127,9 @@
                 }
                 return rank
             },
+            date_select(val){
+                console.log('====>', val)
+            },
             readData(){
                 window.axios.post(`${process.env.VUE_APP_URL}getStatsNew`).then(({data})=> {
                     console.log('data******', data.data[0])
@@ -6618,8 +6638,35 @@
                         // }
                         let self = this
                         this.sortJSON(self.mainList,'country', '123');
+
                     }
                     console.log('this.mainList==>',this.mainList)
+                    var d = new Date();
+                    var n = d.getDay();
+
+                    let dayList = []
+                    for(let i = 0 ; i < 7 ; i++){
+                        let day = this.week_set.filter(function(item) {
+                            return item.value === ((n + i) % 7);
+                        });
+                        dayList[i] = day[0].label
+                    }
+                    this.week_filter = []
+                    for(let i = 0 ; i < 7 ; i++){
+                        let date1 = new Date();
+                        let date2 = date1.setDate(date1.getDate() + i);
+                        date2 = new Date(date2).toISOString()
+                        let date = date2.substring(0,10)
+                        if(i === 0){
+                            this.week_filter[i] = {'value': date, 'label': 'Search fixtures for today'}
+                        }
+                        else if(i === 1){
+                            this.week_filter[i] = {'value': date, 'label': 'Search fixtures for tomorrow'}
+                        }
+                        else{
+                            this.week_filter[i] = {'value': date, 'label': 'Search fixtures for ' + dayList[i]}
+                        }
+                    }
                 })
             },
             refresh_calculation(val, home_date, away_date, b_data){
