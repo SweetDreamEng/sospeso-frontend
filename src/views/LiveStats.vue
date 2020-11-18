@@ -166,7 +166,7 @@
                             <!--  home team data part Total -->
                             <div style="width: 16%; height: 30px; float: left; position: relative; top: 0px;">
                                 <div class="time_manner" style="width: 60px; float: left;position: relative; top:  23px; left: 15px; font-size: 17px; font-weight: normal">{{item1.home.time}}'</div>
-                                <div v-if="item1.home.flash == 1" class="goal_manner" style="width: calc(100% - 65px); float: left;">{{item1.main_data.home_name}} ({{item1.main_data.home_rank}})</div>
+                                <div v-if="item1.home.flash == 1" class="goalcelebration" style="width: calc(100% - 65px); float: left;">{{item1.main_data.home_name}} ({{item1.main_data.home_rank}})</div>
                                 <div v-else style="width: calc(100% - 65px); float: left;">{{item1.main_data.home_name}} ({{item1.main_data.home_rank}})</div>
                             </div>
                             <div
@@ -179,7 +179,7 @@
                             </div>
                             <div style="width: 5%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
                                 <div style="width: 100%; padding: 3px 7px; color: black;">
-                                    <transition name="slide-fade" mode="out-in" class="goalcelebration">
+                                    <transition name="slide-fade" mode="out-in" class="livenow">
                                         <div v-c-tooltip="item1.goal_tooltip" :key="item1.home.score" class="detail" style="color: red; position: relative; top: 22px; left: 7px; font-size: 18px;">
                                             {{item1.home.score}} - {{item1.away.score}}
                                         </div>
@@ -318,76 +318,76 @@
                             <div class="detail_total" style="width: 26%; height: 30px; float: left; border-left: 1px solid #e2e2e2;">
                                 <div style="width: 100%; padding: 3px 7px; color: black;">
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.on" :key="item1.home.on" v-if="item1.home.on >= 0" class="detail" style="color: green;">
+                                        <div :key="item1.home.on" v-if="item1.home.on >= 0" class="detail" style="color: green;">
                                             {{item1.home.on}}
                                         </div>
                                     </transition>
 
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.off" :key="item1.home.off" v-if="item1.home.off >= 0" class="detail" style="color: green">
+                                        <div :key="item1.home.off" v-if="item1.home.off >= 0" class="detail" style="color: green">
                                             {{item1.home.off}}
                                         </div>
                                     </transition>
 
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.blk" v-if="item1.homeT.blk > 0" class="detail" style="color: red">
+                                        <div v-if="item1.homeT.blk > 0" class="detail" style="color: red">
                                             {{item1.home.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.blk" v-if="(item1.homeT.blk == 0 && item1.awayT.blk != 0)" class="detail" style="color: red">
+                                        <div v-if="(item1.homeT.blk == 0 && item1.awayT.blk != 0)" class="detail" style="color: red">
                                             {{item1.home.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.blk" :key="item1.homeT.blk" v-if="item1.homeT.blk == null || (item1.homeT.blk == 0 && item1.awayT.blk == 0)" class="detail" style="color: red">
+                                        <div :key="item1.homeT.blk" v-if="item1.homeT.blk == null || (item1.homeT.blk == 0 && item1.awayT.blk == 0)" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
 
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.in" :key="item1.homeT.in" v-if="item1.homeT.in > 0" class="detail" style="color: green;">
+                                        <div :key="item1.homeT.in" v-if="item1.homeT.in > 0" class="detail" style="color: green;">
                                             {{item1.home.in}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.in" :key="item1.homeT.in" v-if="item1.homeT.in == 0" class="detail" style="color: green;">
+                                        <div :key="item1.homeT.in" v-if="item1.homeT.in == 0" class="detail" style="color: green;">
                                             {{item1.home.in}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.in" :key="item1.homeT.in" v-if="item1.homeT.in == null" class="detail" style="color: red">
+                                        <div :key="item1.homeT.in" v-if="item1.homeT.in == null" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
 
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.out" :key="item1.homeT.out" v-if="item1.homeT.out > 0" class="detail" style="color: green">
+                                        <div :key="item1.homeT.out" v-if="item1.homeT.out > 0" class="detail" style="color: green">
                                             {{item1.home.out}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.out" :key="item1.homeT.out" v-if="item1.homeT.out == 0" class="detail" style="color: green">
+                                        <div :key="item1.homeT.out" v-if="item1.homeT.out == 0" class="detail" style="color: green">
                                             {{item1.home.out}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.out" :key="item1.homeT.out" v-if="item1.homeT.out == null" class="detail">
+                                        <div :key="item1.homeT.out" v-if="item1.homeT.out == null" class="detail">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.cnr" :key="item1.homeT.cnr" v-if="item1.homeT.cnr == 0" class="detail" style="color: red">
+                                        <div :key="item1.homeT.cnr" v-if="item1.homeT.cnr == 0" class="detail" style="color: red">
                                             {{item1.home.cnr}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.cnr" :key="item1.homeT.cnr" v-if="item1.homeT.cnr > 0" class="detail" style="color: green">
+                                        <div :key="item1.homeT.cnr" v-if="item1.homeT.cnr > 0" class="detail" style="color: green">
                                             {{item1.home.cnr}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.cnr" :key="item1.homeT.cnr" v-if="item1.homeT.cnr == null" class="detail">
+                                        <div :key="item1.homeT.cnr" v-if="item1.homeT.cnr == null" class="detail">
                                             -
                                         </div>
                                     </transition>
@@ -447,7 +447,7 @@
                             <!--  away team data part  Total-->
                             <div style="width: 16%; height: 30px; float: left; position: relative; top: 0px; border-bottom: 1px solid lightgray;">
                                 <div style="width: 60px; float: left; color: white;">.</div>
-                                <div v-if="item1.away.flash == 1" class="goal_manner" style="width: calc(100% - 65px); float: left;">{{item1.main_data.away_name}} ({{item1.main_data.away_rank}})</div>
+                                <div v-if="item1.away.flash == 1" class="goalcelebration" style="width: calc(100% - 65px); float: left;">{{item1.main_data.away_name}} ({{item1.main_data.away_rank}})</div>
                                 <div v-else style="width: calc(100% - 65px); float: left;">{{item1.main_data.away_name}} ({{item1.main_data.away_rank}})</div>
                             </div>
                             <div style="width: 5%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
@@ -588,84 +588,84 @@
                             <div class="detail_total" style="width: 26%; height: 30px; float: left; border-left: 1px solid #e2e2e2; border-bottom: 1px solid lightgray;">
                                 <div style="width: 100%; padding: 3px 7px; color: black;">
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.on" :key="item1.away.on" v-if="item1.away.on == null" class="detail" style="color: red;">
+                                        <div :key="item1.away.on" v-if="item1.away.on == null" class="detail" style="color: red;">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.on" :key="item1.away.on" v-if="item1.away.on != null" class="detail" style="color: green;">
+                                        <div :key="item1.away.on" v-if="item1.away.on != null" class="detail" style="color: green;">
                                             {{item1.away.on}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.off" :key="item1.away.off" v-if="item1.away.off == null" class="detail" style="color: red">
+                                        <div :key="item1.away.off" v-if="item1.away.off == null" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.off" :key="item1.away.off" v-if="item1.away.off != null" class="detail" style="color: green">
+                                        <div :key="item1.away.off" v-if="item1.away.off != null" class="detail" style="color: green">
                                             {{item1.away.off}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.blk" :key="item1.awayT.blk" v-if="item1.awayT.blk > 0" class="detail" style="color: green">
+                                        <div :key="item1.awayT.blk" v-if="item1.awayT.blk > 0" class="detail" style="color: green">
                                             {{item1.away.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.blk" :key="item1.awayT.blk" v-if="item1.awayT.blk == 0 && item1.homeT.blk != 0" class="detail" style="color: red">
+                                        <div :key="item1.awayT.blk" v-if="item1.awayT.blk == 0 && item1.homeT.blk != 0" class="detail" style="color: red">
                                             {{item1.away.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.blk" :key="item1.awayT.blk" v-if="item1.awayT.blk == null || (item1.awayT.blk == 0 && item1.homeT.blk == 0)" class="detail" style="color: red">
+                                        <div :key="item1.awayT.blk" v-if="item1.awayT.blk == null || (item1.awayT.blk == 0 && item1.homeT.blk == 0)" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.in" :key="item1.awayT.in" v-if="item1.awayT.in == 0" class="detail" style="color: red">
+                                        <div :key="item1.awayT.in" v-if="item1.awayT.in == 0" class="detail" style="color: red">
                                             {{item1.away.in}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.in" :key="item1.awayT.in" v-if="item1.awayT.in > 0" class="detail" style="color: green;">
+                                        <div :key="item1.awayT.in" v-if="item1.awayT.in > 0" class="detail" style="color: green;">
                                             {{item1.away.in}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.in" :key="item1.awayT.in" v-if="item1.awayT.in == null" class="detail" style="color: red">
+                                        <div :key="item1.awayT.in" v-if="item1.awayT.in == null" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
 
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.out" :key="item1.awayT.out" v-if="item1.awayT.out == 0" class="detail" style="color: red">
+                                        <div :key="item1.awayT.out" v-if="item1.awayT.out == 0" class="detail" style="color: red">
                                             {{item1.away.out}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.out" :key="item1.awayT.out" v-if="item1.awayT.out > 0" class="detail" style="color: green">
+                                        <div :key="item1.awayT.out" v-if="item1.awayT.out > 0" class="detail" style="color: green">
                                             {{item1.away.out}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.out" :key="item1.awayT.out" v-if="item1.awayT.out == null" class="detail">
+                                        <div :key="item1.awayT.out" v-if="item1.awayT.out == null" class="detail">
                                             -
                                         </div>
                                     </transition>
 
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.cnr" :key="item1.away.cnr" v-if="item1.awayT.cnr == 0" class="detail" style="color: red">
+                                        <div :key="item1.away.cnr" v-if="item1.awayT.cnr == 0" class="detail" style="color: red">
                                             {{item1.away.cnr}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.cnr" :key="item1.away.cnr" v-if="item1.awayT.cnr > 0" class="detail" style="color: green">
+                                        <div :key="item1.away.cnr" v-if="item1.awayT.cnr > 0" class="detail" style="color: green">
                                             {{item1.away.cnr}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.cnr" :key="item1.away.cnr" v-if="item1.awayT.cnr == null" class="detail">
+                                        <div :key="item1.away.cnr" v-if="item1.awayT.cnr == null" class="detail">
                                             -
                                         </div>
                                     </transition>
@@ -4213,6 +4213,7 @@
                                 if(this.eventArray[j].events[k].main_data._id == data1[i].updateArray._id && data1[i].currentData.stats[0]){
                                     check_new = 1
                                     let current_event = this.eventArray[j].events[k]
+                                    console.log('current_event ', current_event)
                                     if(data1[i].currentData.time.status == "FT"){
                                         this.readData()
                                     }
@@ -4420,6 +4421,8 @@
                                     else{
                                         current_event.home.flash = 0
                                     }
+                                    console.log("home.flash", current_event.home.flash)
+                                    console.log("away.flash", current_event.away.flash)
                                     current_event.home.goal = stats[0].goals - stats_ten[0][0].goals
 
                                     if(stats[1].goals - stats_ten[0][1].goals > current_event.away.goal){
@@ -4494,57 +4497,57 @@
                                         current_event.awayT.safe = stats[1].ball_safe
                                     }
                                     else{
-                                        this.eventArray[j].events[k].homeT.on = stats[1].shots.ongoal
-                                        this.eventArray[j].events[k].awayT.on = stats[0].shots.ongoal
-                                        this.eventArray[j].events[k].homeT.off = stats[1].shots.offgoal
-                                        this.eventArray[j].events[k].awayT.off = stats[0].shots.offgoal
-                                        this.eventArray[j].events[k].homeT.blk = stats[1].shots.blocked
-                                        this.eventArray[j].events[k].awayT.blk = stats[0].shots.blocked
-                                        this.eventArray[j].events[k].homeT.in = stats[1].shots.insidebox
-                                        this.eventArray[j].events[k].awayT.in = stats[0].shots.insidebox
-                                        this.eventArray[j].events[k].homeT.out = stats[1].shots.outsidebox
-                                        this.eventArray[j].events[k].awayT.out = stats[0].shots.outsidebox
-                                        this.eventArray[j].events[k].homeT.cnr = stats[1].corners
-                                        this.eventArray[j].events[k].awayT.cnr = stats[0].corners
-                                        this.eventArray[j].events[k].homeT.da = stats[1].attacks.dangerous_attacks
-                                        this.eventArray[j].events[k].awayT.da = stats[0].attacks.dangerous_attacks
-                                        this.eventArray[j].events[k].homeT.goal = stats[1].goals
-                                        this.eventArray[j].events[k].awayT.goal = stats[0].goals
+                                        current_event.homeT.on = stats[1].shots.ongoal
+                                        current_event.awayT.on = stats[0].shots.ongoal
+                                        current_event.homeT.off = stats[1].shots.offgoal
+                                        current_event.awayT.off = stats[0].shots.offgoal
+                                        current_event.homeT.blk = stats[1].shots.blocked
+                                        current_event.awayT.blk = stats[0].shots.blocked
+                                        current_event.homeT.in = stats[1].shots.insidebox
+                                        current_event.awayT.in = stats[0].shots.insidebox
+                                        current_event.homeT.out = stats[1].shots.outsidebox
+                                        current_event.awayT.out = stats[0].shots.outsidebox
+                                        current_event.homeT.cnr = stats[1].corners
+                                        current_event.awayT.cnr = stats[0].corners
+                                        current_event.homeT.da = stats[1].attacks.dangerous_attacks
+                                        current_event.awayT.da = stats[0].attacks.dangerous_attacks
+                                        current_event.homeT.goal = stats[1].goals
+                                        current_event.awayT.goal = stats[0].goals
 
-                                        this.eventArray[j].events[k].homeT.poss = stats[1].possessiontime
-                                        this.eventArray[j].events[k].awayT.poss = stats[0].possessiontime
+                                        current_event.homeT.poss = stats[1].possessiontime
+                                        current_event.awayT.poss = stats[0].possessiontime
                                         if(stats[0].passes != null){
-                                            this.eventArray[j].events[k].homeT.pas = stats[1].passes.total
-                                            this.eventArray[j].events[k].awayT.pas = stats[0].passes.total
+                                            current_event.homeT.pas = stats[1].passes.total
+                                            current_event.awayT.pas = stats[0].passes.total
                                         }
                                         else{
-                                            this.eventArray[j].events[k].homeT.pas = null
-                                            this.eventArray[j].events[k].awayT.pas = null
+                                            current_event.homeT.pas = null
+                                            current_event.awayT.pas = null
                                         }
                                         if(stats[0].passes != null){
-                                            this.eventArray[j].events[k].homeT.acc = stats[1].passes.accurate
-                                            this.eventArray[j].events[k].awayT.acc = stats[0].passes.accurate
+                                            current_event.homeT.acc = stats[1].passes.accurate
+                                            current_event.awayT.acc = stats[0].passes.accurate
                                         }
                                         else{
-                                            this.eventArray[j].events[k].homeT.acc = null
-                                            this.eventArray[j].events[k].awayT.acc = null
+                                            current_event.homeT.acc = null
+                                            current_event.awayT.acc = null
                                         }
-                                        this.eventArray[j].events[k].homeT.atk = stats[1].attacks.attacks
-                                        this.eventArray[j].events[k].awayT.atk = stats[0].attacks.attacks
-                                        this.eventArray[j].events[k].homeT.ofs = stats[1].offsides
-                                        this.eventArray[j].events[k].awayT.ofs = stats[0].offsides
-                                        this.eventArray[j].events[k].homeT.sav = stats[1].saves
-                                        this.eventArray[j].events[k].awayT.sav = stats[0].saves
-                                        this.eventArray[j].events[k].homeT.sbst = stats[1].substitutions
-                                        this.eventArray[j].events[k].awayT.sbst = stats[0].substitutions
-                                        this.eventArray[j].events[k].homeT.red = stats[1].redcards
-                                        this.eventArray[j].events[k].awayT.red = stats[0].redcards
-                                        this.eventArray[j].events[k].homeT.fou = stats[1].fouls
-                                        this.eventArray[j].events[k].awayT.fou = stats[0].fouls
-                                        this.eventArray[j].events[k].homeT.g_att = stats[1].goal_attempts
-                                        this.eventArray[j].events[k].awayT.g_att = stats[0].goal_attempts
-                                        this.eventArray[j].events[k].homeT.safe = stats[1].ball_safe
-                                        this.eventArray[j].events[k].awayT.safe = stats[0].ball_safe
+                                        current_event.homeT.atk = stats[1].attacks.attacks
+                                        current_event.awayT.atk = stats[0].attacks.attacks
+                                        current_event.homeT.ofs = stats[1].offsides
+                                        current_event.awayT.ofs = stats[0].offsides
+                                        current_event.homeT.sav = stats[1].saves
+                                        current_event.awayT.sav = stats[0].saves
+                                        current_event.homeT.sbst = stats[1].substitutions
+                                        current_event.awayT.sbst = stats[0].substitutions
+                                        current_event.homeT.red = stats[1].redcards
+                                        current_event.awayT.red = stats[0].redcards
+                                        current_event.homeT.fou = stats[1].fouls
+                                        current_event.awayT.fou = stats[0].fouls
+                                        current_event.homeT.g_att = stats[1].goal_attempts
+                                        current_event.awayT.g_att = stats[0].goal_attempts
+                                        current_event.homeT.safe = stats[1].ball_safe
+                                        current_event.awayT.safe = stats[0].ball_safe
                                     }
                                     //------------------------------------------------------------------------------------------------
                                     this.eventArray[j].events[k] = current_event
@@ -4681,9 +4684,7 @@
     .goal_manner{
         animation: splash1 infinite 1.5s;
     }
-    .goalcelebration_manner {
-        animation: splash1 infinite 30s;
-    }
+    
     @keyframes splash {
         0% {
             color: white;
@@ -4735,14 +4736,13 @@
         animation-duration: 3s;
         animation-iteration-count: 1;
     }
-
     .goalcelebration {
         -webkit-animation-name: example;
-        -webkit-animation-duration: 30s;
-        -webkit-animation-iteration-count: 1;
+        -webkit-animation-duration: 3s;
+        -webkit-animation-iteration-count: 10;
         animation-name: example;
-        animation-duration: 30s;
-        animation-iteration-count: 1;
+        animation-duration: 3s;
+        animation-iteration-count: 10;
     }
     @keyframes example {
         0% {
