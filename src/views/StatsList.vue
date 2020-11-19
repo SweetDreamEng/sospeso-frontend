@@ -6138,6 +6138,7 @@
                 this.readData(val)
             },
             readData(c_date){
+                this.isload = false
                 window.axios.post(`${process.env.VUE_APP_URL}getStatsNew`, [c_date]).then(({data})=> {
                     console.log('data******', data.data[2])
                     console.log('data1******', data.data[1])
