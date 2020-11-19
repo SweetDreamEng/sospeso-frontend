@@ -3464,6 +3464,7 @@
                         this.eventArray.push({'league': competitionArray[i], 'events': []})
                         for(let j = 0 ; j < main_data.length ; j++) {
                             let current_main_data = main_data[j];
+                            //console.log('current_main_data', current_main_data)
                             if(current_main_data.stats.length > 0){
                                 if((current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'LIVE') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'HT') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'ET')){
                                     let home = {
@@ -3605,7 +3606,6 @@
                                     away.id = current_main_data.away_id
                                     let home_poss_index = 0
                                     let away_poss_index = 0
-
                                     if(current_main_data.season_stats.length > 0){
                                         for(let u = 0 ; u < current_main_data.season_stats.length ; u++){
                                             if(current_main_data.season_stats[u].stats){
@@ -3773,8 +3773,9 @@
                                     let stats = current_main_data.stats;
                                     let stats_ten = current_main_data.stats_ten;
                                     if (stats_ten) {
-                                        if(!stats_ten[0]){return}
-                                        if(stats_ten[0].length > 0){
+                                        // console.log('stats_ten', stats_ten)
+                                        // if(!stats_ten[0]){return}
+                                        if(stats_ten.length && stats_ten[0].length > 0){
                                             if (current_main_data.home_id == stats_ten[0][0].team_id) {
                                                 if(stats[0].shots && stats_ten[0][0].shots){
                                                     home.on = stats[0].shots.ongoal - stats_ten[0][0].shots.ongoal
@@ -4121,10 +4122,13 @@
                                     //-----------------------------------//
                                     // home_season.pos = parseInt(home_season.pos/home_poss_index)
                                     // away_season.pos = 100 - home_season.pos
+                                    current_main_data.stats = stats
+                                    current_main_data.stats_ten = stats_ten
+                                    main_data[j] = current_main_data
                                     this.eventArray[i].events.push({
                                         'index0': k,
                                         'fixtureId': fixture_id,
-                                        'main_data': current_main_data,
+                                        'main_data': main_data[j],
                                         'home': home,
                                         'away': away,
                                         'home_p': home_p,
@@ -4137,6 +4141,7 @@
                                         'home_tooltip': home_tooltip,
                                         'away_tooltip': away_tooltip
                                     })
+                                    // console.log('eventArray => ', this.eventArray)
                                     k++
                                     //-----------------------------------//
                                 }
@@ -4213,7 +4218,7 @@
                                 if(this.eventArray[j].events[k].main_data._id == data1[i].updateArray._id && data1[i].currentData.stats[0]){
                                     check_new = 1
                                     let current_event = this.eventArray[j].events[k]
-                                    console.log('current_event ', current_event)
+                                    //console.log('current_event ', current_event)
                                     if(data1[i].currentData.time.status == "FT"){
                                         this.readData()
                                     }
@@ -4421,8 +4426,8 @@
                                     else{
                                         current_event.home.flash = 0
                                     }
-                                    console.log("home.flash", current_event.home.flash)
-                                    console.log("away.flash", current_event.away.flash)
+                                    // console.log("home.flash", current_event.home.flash)
+                                    // console.log("away.flash", current_event.away.flash)
                                     current_event.home.goal = stats[0].goals - stats_ten[0][0].goals
 
                                     if(stats[1].goals - stats_ten[0][1].goals > current_event.away.goal){
@@ -4560,6 +4565,7 @@
                     }
                 }
                 if(check_new_total == 1){
+                    // console.log('reloading data')
                     this.readData()
                 }
             })
