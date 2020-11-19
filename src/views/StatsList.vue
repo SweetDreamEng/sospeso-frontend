@@ -6636,7 +6636,6 @@ console.log('competitionArray==>', competitionArray)
                         if(competitionArray[i]){
                             country1 = (competitionArray[i].split('(')[1]).split(')')[0]
                         }
-
                         if(events.length > 0){
                             this.mainList.push({'country': country1, 'league1': competitionArray[i].split('(')[0], 'percentage': percentage, 'numbers': numbers,  'events': events})
                         }
