@@ -6645,7 +6645,6 @@ console.log('competitionArray==>', competitionArray)
                         // }
                         let self = this
                         this.sortJSON(self.mainList,'country', '123');
-
                     }
                     console.log('this.mainList==>',this.mainList)
                     var d = new Date();
