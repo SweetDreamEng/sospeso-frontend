@@ -3463,7 +3463,6 @@
                     }
                     competitionArray = Array.from(new Set (competitionArray))
 
-
                     let k = 0
                     this.eventArray = []
                     for(let i = 0 ; i < competitionArray.length ; i++){
