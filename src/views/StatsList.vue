@@ -1,5 +1,8 @@
 <template>
     <div    style="min-width: 1250px">
+            <div v-if="!isload">
+                <b-progress :value="current_counter" :max="counter" animated></b-progress>
+            </div>
         <CCard body-wrapper>
             <div style="width: 200px;">
                 <CSelect
@@ -1210,6 +1213,9 @@
         },
         data () {
             return {
+                isload: false,
+                counter: 10,
+                current_counter: 5,
                 collapse: false,
                 countryCodeList:[
                     {'ccode' : 'AF', 'cname' : 'Afghanistan'},
@@ -6669,9 +6675,10 @@ console.log('competitionArray==>', competitionArray)
                             this.week_filter[i] = {'value': date, 'label': 'Search fixtures for tomorrow'}
                         }
                         else{
-                            this.week_filter[i] = {'value': date, 'label': 'Search fixtures for ' + dayList[i]}
+                            this.week_filter[i] = {'value': date, 'label': 'Search fixtures for ' + dayList[i - 1]}
                         }
                     }
+                    console.log('date list==>', this.week_filter)
                 })
             },
             refresh_calculation(val, home_date, away_date, b_data){
