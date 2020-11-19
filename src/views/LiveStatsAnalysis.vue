@@ -7509,7 +7509,6 @@
                     this.score_filter_function4(3, this.score_minute_filter.even.from, this.score_minute_filter.even.to)
                 }
                 //------------------------------------end--------------------------------
-
                 this.filtered_result = event_list.length - 1
                 this.missed_filtered_result = 0
                 for(let i = 1 ; i < event_list.length ; i++){
