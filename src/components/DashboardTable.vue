@@ -1,5 +1,5 @@
 <template>
-    <CDataTable v-if="tableItems.length"
+    <CDataTable v-if="eventListsLength"
             class="mb-0 table-outline"
             hover
             :items="tableItems"
@@ -74,7 +74,9 @@
         </template>
         <template #gain="{item}">
             <transition name="slide-fade" mode="out-in">
-                <td :key="item.gain.value" class="table-cell text-center" :style="{'color': item.gain.value && Number(item.gain.value.replace('%', ''))>=0 ? 'lightgreen': 'red'}">    
+                <td :key="item.gain.value" class="table-cell text-center"
+                    :style="{'color': item.gain.value && Number(item.gain.value.replace('%', ''))>=0 ? 'rgb(32, 160, 82)': 'rgb(184, 1, 1)',
+                    'background': item.gain.value && Number(item.gain.value.replace('%', ''))>=0 ? 'rgb(216, 228, 188)': 'rgb(255, 199, 206)'}">    
                     {{item.gain.value}}
                 </td>
             </transition>
@@ -150,7 +152,11 @@
                     this.tableItems[index].minute.value = this.timeRecord;
                 }
                 this.tableItems[index].score.value = this.scoreOne + this.scoreTwo;
-                this.tableItems[index].gain.value = this.percent_text2;
+                if (this.status == 'CLOSED') {
+                    this.tableItems[index].gain.value = '';
+                } else {
+                    this.tableItems[index].gain.value = this.percent_text2;
+                }
 
                 if (!this.marketIds.includes(this.marketId)) {
                     this.marketIds.push(
@@ -160,6 +166,7 @@
                             'selectionId': this.selectionId,
                             'eventValue': val,
                             'prematchOdd': this.prematchOdd,
+                            'oddSelect': this.prematchOdd===this.back ? 'back':'lay',
                             'selectedArray': this.selectedArray[6],
                             'status': this.status,
                             'eventId': this.eventId
@@ -537,7 +544,7 @@
                     this.max_profit = 0
                     this.max_lose = 0
                     this.guad_max = 0
-                    this.percent_text2 = 'Insert Odd and Stake'
+                    this.percent_text2 = ''
                     this.guad_att = 0
                 }
             },
@@ -607,7 +614,7 @@
                     this.max_profit = 0
                     this.max_lose = 0
                     this.guad_max = 0
-                    this.percent_text2 = 'Insert Odd and Stake'
+                    this.percent_text2 = ''
                     this.guad_att = 0
                 }
             },
@@ -675,9 +682,14 @@
                     this.max_profit = 0
                     this.max_lose = 0
                     this.guad_max = 0
-                    this.percent_text2 = 'Insert Odd and Stake'
+                    this.percent_text2 = ''
                     this.guad_att = 0
                 }
+            },
+            Rerender () {
+                this.$nextTick (() => {
+                    this.eventListsLength = this.eventLists3.length;
+                });
             },
         },
         watch: {
@@ -712,6 +724,7 @@
                         }
                     )
                 }
+                // this.Rerender();
             },
             eventFlag(event) {
                 if (this.eventListsLength == 0) {
@@ -768,8 +781,6 @@
                     // })
                 }
             },
-            bookmarkerFee(bookvalue) {
-            }
         },
         created() {
             let self = this
@@ -777,21 +788,24 @@
                 for (let i=0; i<this.marketIds.length; i++) {
                     const element = this.marketIds[i];
                     for (let j = 0; j < data.length; j++) {
+                        
                         if(element.market == data[j].marketId){
                             
                             let selections = data[j].runners.filter(function(runner) {
                                 return runner.selectionId == element.selectionId;
                             });
+
                             if(data[j].state.status == 'SUSPENDED'){
-                                    this.status = 'SUSPENDED';
-                                    this.marketIds[i].market = 'SUSPENDED';
-                                }
-                                else if(data[j].state.status == "CLOSED"){
-                                    this.status = 'CLOSED';
-                                    this.marketIds[i].market = 'CLOSED';
-                                } else {
-                                    this.status = element.status;
-                                }
+                                this.status = 'SUSPENDED';
+                            }
+                            else if(data[j].state.status == "CLOSED"){
+                                this.status = 'CLOSED';
+                            } else if (data[j].state.inplay) {
+                                this.status = 'Live';
+                            } else {
+                                this.status = element.status;
+                            }
+                                console.log("created -> data[j].state.inplay", data[j].state.status, data[j].state.inplay, self.status)
 
                             if (selections.length > 0) {
                                 
@@ -814,7 +828,19 @@
                                 }
                                 self.total_matched = (data[j].state.totalMatched).toFixed(1);
                             }
-                            self.oddCalcRefresh(element.prematchOdd, element.selectedArray, self.lay, self.back);
+
+                            if (self.status == 'Coming Up' && element.oddSelect == 'back') {
+                                self.oddCalcRefresh(self.back, element.selectedArray, self.lay, self.back);
+                                self.tableItems[element.index].preodd.value = self.back;
+                                self.marketIds[i].prematchOdd = self.back;
+                            } else if (self.status == 'Coming Up' && element.oddSelect == 'lay') {
+                                self.oddCalcRefresh(self.lay, element.selectedArray, self.lay, self.back);
+                                self.tableItems[element.index].preodd.value = self.lay;
+                                self.marketIds[i].prematchOdd = self.lay;
+                            } else {
+                                self.oddCalcRefresh(self.marketIds[i].prematchOdd, element.selectedArray, self.lay, self.back);
+                                self.tableItems[element.index].preodd.value = self.marketIds[i].prematchOdd;
+                            }
 
                             if (element.index >= self.tableItems.length) {
                                 continue
@@ -824,7 +850,11 @@
                             self.tableItems[element.index].back.value = self.back;
                             self.tableItems[element.index].lay.value = self.lay;
                             self.tableItems[element.index].status.value = self.status;
-                            self.tableItems[element.index].gain.value = self.currentPercent.toString() + '%';
+                            if (self.currentPercent == 0) {
+                                self.tableItems[element.index].gain.value = '';
+                            } else {
+                                self.tableItems[element.index].gain.value = self.currentPercent.toString() + '%';
+                            }
                         }
                     }
                 }
@@ -902,7 +932,6 @@
                             self.timeRecord = "HT"
                         }
 
-                        self.tableItems[element.index].status.value = self.status;
                         if (typeof this.timeRecord == 'string' && this.timeRecord.includes('undefined')) {
                             self.tableItems[element.index].minute.value = 'Unknown';
                         } else {
