@@ -3450,6 +3450,7 @@
                     this.liveDataArray = data.data[1]
                     let main_data = data.data[0]
                     console.log('main_data===>', main_data)
+                    console.log('schedule data===>', data.data[2])
                     let competitionArray = []
                     let index = 0
                     for(let i = 0 ; i < main_data.length ; i++){
@@ -3461,7 +3462,7 @@
                         }
                     }
                     competitionArray = Array.from(new Set (competitionArray))
-console.log('competition Array=>', competitionArray, main_data.length)
+
                     let k = 0
                     this.eventArray = []
                     for(let i = 0 ; i < competitionArray.length ; i++){
@@ -4149,12 +4150,11 @@ console.log('competition Array=>', competitionArray, main_data.length)
                     let self = this
                     this.sortJSON(self.eventArray,'league', '123');
                     this.liveNumbers = k
-console.log('event array==>', this.eventArray)
 
                     let eventList = data.data[2]
                     let competitionArray1 = []
                     for(let i = 0 ; i < eventList.length; i++){
-                        let competitionName = eventList[i].competitions[0].name
+                        let competitionName = eventList[i].competitions[0].league
                         competitionArray1[i] = competitionName
                     }
                     competitionArray1 = Array.from(new Set (competitionArray1))
@@ -4164,12 +4164,15 @@ console.log('event array==>', this.eventArray)
                     for(let j = 0 ; j < competitionArray1.length ; j++){
                         this.scheduleArray.push({'league': competitionArray1[j], 'events': []})
                         for(let k = 0 ;  k < eventList.length ; k++){
-                            if(eventList[k].competitions[0].name == competitionArray1[j] && eventList[k].time.status == 'NS'){
+                            if(eventList[k].competitions[0].league == competitionArray1[j] && eventList[k].time.status == 'NS'){
                                 this.scheduleLength++
                                 this.scheduleArray[j].events.push(eventList[k])
                             }
                         }
                     }
+
+                    console.log('scheduled event result===>', this.scheduleArray)
+
                     this.finishedArray = []
                     this.finishedLength = 0
                     for(let j = 0 ; j < competitionArray1.length ; j++){
