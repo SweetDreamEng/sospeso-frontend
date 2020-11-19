@@ -1,6 +1,6 @@
 <template>
     <div    style="min-width: 1250px">
-            <div v-if="!isload">
+            <div v-if="!isload" style="height: 10px;">
                 <b-progress :value="current_counter" :max="counter" animated></b-progress>
             </div>
         <CCard body-wrapper>
@@ -1213,9 +1213,10 @@
         },
         data () {
             return {
+                current_week: 0,
                 isload: false,
                 counter: 10,
-                current_counter: 5,
+                current_counter: 0,
                 collapse: false,
                 countryCodeList:[
                     {'ccode' : 'AF', 'cname' : 'Afghanistan'},
@@ -6135,10 +6136,22 @@
             },
             date_select(val){
                 console.log('====>', val)
+                // let week = this.week_filter.filter(function(item) {
+                //     return item.label == val;
+                // });
                 this.readData(val)
+            },
+            frame() {
+                if (this.current_counter >= 10) {
+                    clearInterval(this.current_counter = 10);
+                } else {
+                    this.current_counter++;
+                }
             },
             readData(c_date){
                 this.isload = false
+                this.current_counter = 0
+                setInterval(this.frame, 1000);
                 window.axios.post(`${process.env.VUE_APP_URL}getStatsNew`, [c_date]).then(({data})=> {
                     console.log('data******', data.data[2])
                     console.log('data1******', data.data[1])
