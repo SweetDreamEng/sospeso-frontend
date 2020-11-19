@@ -6652,6 +6652,7 @@ console.log('competitionArray==>', competitionArray)
                         this.sortJSON(self.mainList,'country', '123');
                     }
                     console.log('this.mainList==>',this.mainList)
+                    this.isload = true
                     var d = new Date();
                     var n = d.getDay();
 
