@@ -3470,6 +3470,10 @@
                         for(let j = 0 ; j < main_data.length ; j++) {
                             if(main_data[j].stats.length > 0){
                                 if((main_data[j].competitions[0].league == competitionArray[i] && main_data[j].time.status == 'LIVE') || (main_data[j].competitions[0].league == competitionArray[i] && main_data[j].time.status == 'HT') || (main_data[j].competitions[0].league == competitionArray[i] && main_data[j].time.status == 'ET')){
+                            let current_main_data = main_data[j];
+                            //console.log('current_main_data', current_main_data)
+                            if(current_main_data.stats.length > 0){
+                                if((current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'LIVE') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'HT') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'ET')){
                                     let home = {
                                         'id': 0,
                                         'on': 0,
@@ -3621,6 +3625,16 @@
                                                         if(main_data[j].season_stats[u].stats[uu].stats[0]){
                                                             // console.log('homeId Check!!!!',home.id,',', main_data[j].season_stats[u].stats[uu])
                                                             if(main_data[j].season_stats[u].stats[uu].stats[0].team_id == home.id){
+                                    if(current_main_data.season_stats.length > 0){
+                                        for(let u = 0 ; u < current_main_data.season_stats.length ; u++){
+                                            if(current_main_data.season_stats[u].stats){
+                                                if(current_main_data.season_stats[u].stats.length > 0){
+                                                    for(let uu = 0 ; uu < current_main_data.season_stats[u].stats.length ; uu++){
+                                                        let stats = current_main_data.season_stats[u].stats[uu]
+                                                        if (!!stats.stats)
+                                                            stats = stats.stats
+                                                        if(stats[0]){
+                                                            if(stats[0].team_id == home.id){
                                                                 home_p++
                                                                 if(main_data[j].season_stats[u].stats[uu].stats[0].shots){
                                                                     home_season.on = home_season.on + main_data[j].season_stats[u].stats[uu].stats[0].shots.ongoal
@@ -3787,6 +3801,21 @@
                                                     if(main_data[j].stats[0].shots.blocked){
                                                         home.blk = main_data[j].stats[0].shots.blocked - main_data[j].stats_ten[0][0].shots.blocked
                                                         away.blk = main_data[j].stats[1].shots.blocked - main_data[j].stats_ten[0][1].shots.blocked
+                                    let stats = current_main_data.stats;
+                                    let stats_ten = current_main_data.stats_ten;
+                                    if (stats_ten) {
+                                        // console.log('stats_ten', stats_ten)
+                                        // if(!stats_ten[0]){return}
+                                        if(stats_ten.length && stats_ten[0].length > 0){
+                                            if (current_main_data.home_id == stats_ten[0][0].team_id) {
+                                                if(stats[0].shots && stats_ten[0][0].shots){
+                                                    home.on = stats[0].shots.ongoal - stats_ten[0][0].shots.ongoal
+                                                    away.on = stats[1].shots.ongoal - stats_ten[0][1].shots.ongoal
+                                                    home.off = stats[0].shots.offgoal - stats_ten[0][0].shots.offgoal
+                                                    away.off = stats[1].shots.offgoal - stats_ten[0][1].shots.offgoal
+                                                    if(stats[0].shots.blocked){
+                                                        home.blk = stats[0].shots.blocked - stats_ten[0][0].shots.blocked
+                                                        away.blk = stats[1].shots.blocked - stats_ten[0][1].shots.blocked
                                                     }
                                                     else{
                                                         home.blk = null
@@ -4125,6 +4154,9 @@
                                     //-----------------------------------//
                                     // home_season.pos = parseInt(home_season.pos/home_poss_index)
                                     // away_season.pos = 100 - home_season.pos
+                                    current_main_data.stats = stats
+                                    current_main_data.stats_ten = stats_ten
+                                    main_data[j] = current_main_data
                                     this.eventArray[i].events.push({
                                         'index0': k,
                                         'fixtureId': fixture_id,
@@ -4141,6 +4173,7 @@
                                         'home_tooltip': home_tooltip,
                                         'away_tooltip': away_tooltip
                                     })
+                                    // console.log('eventArray => ', this.eventArray)
                                     k++
                                     //-----------------------------------//
                                 }
@@ -4215,6 +4248,8 @@
                             for(let k = 0 ; k < this.eventArray[j].events.length ; k++){
                                 if(this.eventArray[j].events[k].main_data._id == data1[i].updateArray._id && data1[i].currentData.stats[0]){
                                     check_new = 1
+                                    let current_event = this.eventArray[j].events[k]
+                                    //console.log('current_event ', current_event)
                                     if(data1[i].currentData.time.status == "FT"){
                                         console.log('reload===>!!!!!!')
                                         this.readData()
@@ -4421,6 +4456,9 @@
                                         this.eventArray[j].events[k].home.flash = 0
                                     }
                                     this.eventArray[j].events[k].home.goal = data1[i].updateArray.stats[0].goals - data1[i].updateArray.stats_ten[0][0].goals
+                                    // console.log("home.flash", current_event.home.flash)
+                                    // console.log("away.flash", current_event.away.flash)
+                                    current_event.home.goal = stats[0].goals - stats_ten[0][0].goals
 
                                     if(data1[i].updateArray.stats[1].goals - data1[i].updateArray.stats_ten[0][1].goals > this.eventArray[j].events[k].away.goal){
                                         this.eventArray[j].events[k].away.flash = 1
@@ -4556,7 +4594,9 @@
                     }
                 }
                 if(check_new_total == 1){
+
                     console.log('reload data===>!')
+                    // console.log('reloading data')
                     this.readData()
                 }
             })
