@@ -4751,4 +4751,5 @@
             max-width: 44px;
         }
     }
+
 </style>
