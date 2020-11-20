@@ -3456,11 +3456,7 @@
                             if (main_data[i].competitions.length) {
                                 index++
                                 competitionArray[index - 1] = main_data[i].competitions[0].league
-
                             }
-
-                            }  
-
                         }
                     }
                     competitionArray = Array.from(new Set (competitionArray))
