@@ -3467,6 +3467,8 @@
                             //console.log('current_main_data', current_main_data)
                             if(current_main_data.stats.length > 0){
                                 if((current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'LIVE') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'HT') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'ET')){
+                                    // console.log(current_main_data)
+
                                     let home = {
                                         'id': 0,
                                         'on': 0,
@@ -4154,18 +4156,21 @@
 
                     let eventList = data.data[2]
                     let competitionArray1 = []
+                    let competitionArrayCount = 0
                     for(let i = 0 ; i < eventList.length; i++){
-                        let competitionName = eventList[i].competitions[0].name
-                        competitionArray1[i] = competitionName
+                        // console.log(eventList[i])
+                        if (eventList[i].competitions.length && eventList[i].competitions[0].league) {
+                            let competitionName = eventList[i].competitions[0].league
+                            competitionArray1[competitionArrayCount++] = competitionName
+                        }
                     }
                     competitionArray1 = Array.from(new Set (competitionArray1))
-
                     this.scheduleArray = []
                     this.scheduleLength = 0
                     for(let j = 0 ; j < competitionArray1.length ; j++){
                         this.scheduleArray.push({'league': competitionArray1[j], 'events': []})
                         for(let k = 0 ;  k < eventList.length ; k++){
-                            if(eventList[k].competitions[0].name == competitionArray1[j] && eventList[k].time.status == 'NS'){
+                            if(eventList[k].competitions.length && eventList[k].competitions[0].league == competitionArray1[j] && eventList[k].time.status == 'NS'){
                                 this.scheduleLength++
                                 this.scheduleArray[j].events.push(eventList[k])
                             }
@@ -4177,7 +4182,7 @@
                     for(let j = 0 ; j < competitionArray1.length ; j++){
                         this.finishedArray.push({'league': competitionArray1[j], 'events': []})
                         for(let k = 0 ;  k < eventList.length ; k++){
-                            if(eventList[k].competitions[0].name == competitionArray1[j] && eventList[k].time.status == 'FT'){
+                            if(eventList[k].competitions.length && eventList[k].competitions[0].league == competitionArray1[j] && eventList[k].time.status == 'FT'){
                                 this.finishedLength++
                                 this.finishedArray[j].events.push(eventList[k])
                             }
