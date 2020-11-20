@@ -11,7 +11,7 @@
                         class="event-list"
                         v-if="item.events.length > 0"
                 >
-                    {{item.country}} - {{item.league}}  <span v-if="item.percentage != 0" style="font-weight: normal; margin-left: 10px;">{{item.percentage}}%</span>
+                    {{item.country}} - {{item.league1}}  <span v-if="item.percentage != 0" style="font-weight: normal; margin-left: 10px;">{{item.percentage}}%</span>
                     <img v-if="item.percentage >= 96 && item.numbers > 6" src="/img/icon-warning-orange.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
                     <img v-if="item.percentage <= 10 || item.numbers <= 6" src="/img/icon-warning-red.png" width="13px;" style="width: 18px; position:relative; top: -3px; margin-left: 5px; margin-right: 10px;"/>
                     <img v-if="item.percentage >= 11  && item.numbers > 6 && item.percentage <= 95" src="/img/icon-tick.png" width="13px;" style="width: 18px; position:relative; top: -1px; margin-left: 5px; margin-right: 10px;"/>
@@ -1824,7 +1824,9 @@
                     let main_data = data.data[0]
                     let competitionArray = []
                     for(let i = 0 ; i < main_data.length ; i++){
-                        competitionArray[i] = main_data[i].competitions[0].league
+                        if(main_data[i].competitions[0]){
+                            competitionArray[i] = main_data[i].competitions[0].league
+                        }
                     }
                     competitionArray = Array.from(new Set (competitionArray))
 
@@ -1836,7 +1838,7 @@
                         let percentage = 0
                         let numbers = 0
                         for(let j = 0; j < main_data.length ; j++){
-                            if(competitionArray[i] == main_data[j].competitions[0].name && main_data[j].local_players.length > 0){
+                            if(competitionArray[i] == main_data[j].competitions[0].league && main_data[j].local_players.length > 0){
                                 k++
                                 let homeTeam = []
                                 let awayTeam = []
@@ -2073,7 +2075,6 @@
 
                                             if(s_roles.length > 0){
                                                 let position_number = main_data[j].lineup.data[k].formation_position
-                                                console.log('position_number=>', position_number)
                                                 let s_role = s_roles[0].s_role[position_number - 1]
                                                 let s_role2 = s_roles[0].alt_s_role[position_number - 1]
                                                 let mean_role = s_roles[0].mean_role[position_number - 1]
@@ -3061,6 +3062,7 @@
                                     }
                                     countryCode = main_data[j].countryCode
                                     events[k - 1] = {'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'openDate':  main_data[j].time.starting_at.time, 'homeTeam': homeTeam, 'awayTeam': awayTeam, 'homeTeam1': homeTeam1, 'awayTeam1': awayTeam1, 'homeTeamName': homeTeamName, 'awayTeamName': awayTeamName, 'homeTeamformation': homeTeamFormation, 'awayTeamformation': awayTeamFormation, 'homeTeamPformation': homeTeamPformation, 'awayTeamPformation': awayTeamPformation,  'homeTeamLformation': homeTeamLformation, 'awayTeamLformation': awayTeamLformation, 'home_substitutions': home_substitutions, 'away_substitutions': away_substitutions, 'home_legend': home_legend, 'away_legend': away_legend, 'home_rule_set': home_rule_color_number, 'away_rule_set': away_rule_color_number}
+                                    console.log('event result===>', events)
                                 }
                             }
                         }
@@ -3071,8 +3073,8 @@
                         let country1 = (competitionArray[i].split('(')[1]).split(')')[0]
                         let league = competitionArray[i].split('(')[0]
 
-                        if(countryName.length > 0 && events.length > 0){
-                            this.mainList.push({'country': country1, 'league': league, 'percentage': percentage, 'numbers': numbers, 'events': events})
+                        if(events.length > 0){
+                            this.mainList.push({'country': country1, 'league1': league, 'percentage': percentage, 'numbers': numbers, 'events': events})
                         }
                         // else if(countryName.length < 1 && events.length > 0){
                         //     this.mainList.push({'country': 'International', 'league': competitionArray[i], 'percentage': percentage, 'numbers': numbers, 'events': events})

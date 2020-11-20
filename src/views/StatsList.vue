@@ -1213,9 +1213,14 @@
         },
         data () {
             return {
+                clock: null,
+                clock1: null,
+                clock2: null,
+                clock3: null,
+                clock4: null,
                 current_week: 0,
                 isload: false,
-                counter: 10,
+                counter: 100,
                 current_counter: 0,
                 collapse: false,
                 countryCodeList:[
@@ -6136,14 +6141,43 @@
             },
             date_select(val){
                 console.log('====>', val)
-                // let week = this.week_filter.filter(function(item) {
-                //     return item.label == val;
-                // });
+                let week = this.week_filter.filter(function(item) {
+                    return item.value == val;
+                });
+                this.current_week = week[0].pages
                 this.readData(val)
             },
             frame() {
-                if (this.current_counter >= 10) {
-                    clearInterval(this.current_counter = 10);
+                if (this.current_counter >= 100) {
+                    clearInterval(this.clock);
+                } else {
+                    this.current_counter++;
+                }
+            },
+            frame1() {
+                if (this.current_counter >= 100) {
+                    clearInterval(this.clock1);
+                } else {
+                    this.current_counter++;
+                }
+            },
+            frame2() {
+                if (this.current_counter >= 100) {
+                    clearInterval(this.clock2);
+                } else {
+                    this.current_counter++;
+                }
+            },
+            frame3() {
+                if (this.current_counter >= 100) {
+                    clearInterval(this.clock3);
+                } else {
+                    this.current_counter++;
+                }
+            },
+            frame4() {
+                if (this.current_counter >= 100) {
+                    clearInterval(this.clock4);
                 } else {
                     this.current_counter++;
                 }
@@ -6151,10 +6185,27 @@
             readData(c_date){
                 this.isload = false
                 this.current_counter = 0
-                setInterval(this.frame, 1000);
+                console.log('this current week====>', this.current_week)
+                if(this.current_week <= 1){
+                    this.clock = setInterval(this.frame, 100);
+                }
+                else if(this.current_week === 2){
+                    this.clock1 = setInterval(this.frame1, 100);
+                }
+                else if(this.current_week === 3){
+                    this.clock2 = setInterval(this.frame2, 200);
+                }
+                else if(this.current_week === 4){
+                    this.clock3 = setInterval(this.frame3, 300);
+                }
+                else{
+                    this.clock4 = setInterval(this.frame4, 350);
+                }
                 window.axios.post(`${process.env.VUE_APP_URL}getStatsNew`, [c_date]).then(({data})=> {
                     console.log('data******', data.data[2])
                     console.log('data1******', data.data[1])
+                    console.log('data_date_fixture===>', data.data[3])
+                    let date_list = data.data[3]
                     this.standingList = data.data[1]
                     let main_data = data.data[2]
                     this.mainData = main_data
@@ -6666,7 +6717,14 @@ console.log('competitionArray==>', competitionArray)
                         this.sortJSON(self.mainList,'country', '123');
                     }
                     console.log('this.mainList==>',this.mainList)
+                    this.current_counter = 90
                     this.isload = true
+                    clearInterval(this.clock)
+                    clearInterval(this.clock1)
+                    clearInterval(this.clock2)
+                    clearInterval(this.clock3)
+                    clearInterval(this.clock4)
+
                     var d = new Date();
                     var n = d.getDay();
 
@@ -6677,6 +6735,7 @@ console.log('competitionArray==>', competitionArray)
                         });
                         dayList[i] = day[0].label
                     }
+                    console.log('daylist===>', dayList)
                     this.week_filter = []
                     for(let i = 0 ; i < 7 ; i++){
                         let date1 = new Date();
@@ -6684,16 +6743,17 @@ console.log('competitionArray==>', competitionArray)
                         date2 = new Date(date2).toISOString()
                         let date = date2.substring(0,10)
                         if(i === 0){
-                            this.week_filter[i] = {'value': date, 'label': 'Search fixtures for today'}
+                            this.week_filter[i] = {'value': date, 'label': 'Search fixtures for today', 'pages': date_list[0].pages}
                         }
                         else if(i === 1){
-                            this.week_filter[i] = {'value': date, 'label': 'Search fixtures for tomorrow'}
+                            this.week_filter[i] = {'value': date, 'label': 'Search fixtures for tomorrow', 'pages': date_list[1].pages}
                         }
                         else{
-                            this.week_filter[i] = {'value': date, 'label': 'Search fixtures for ' + dayList[i - 1]}
+                            this.week_filter[i] = {'value': date, 'label': 'Search fixtures for ' + dayList[i - 1], 'pages': date_list[i].pages}
                         }
                     }
                     console.log('date list==>', this.week_filter)
+                    this.current_counter = 100
                 })
             },
             refresh_calculation(val, home_date, away_date, b_data){
