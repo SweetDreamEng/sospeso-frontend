@@ -6148,35 +6148,40 @@
                 this.readData(val)
             },
             frame() {
-                if (this.current_counter >= 100) {
+                if (this.current_counter >= 95) {
+                    this.current_counter = 95
                     clearInterval(this.clock);
                 } else {
                     this.current_counter++;
                 }
             },
             frame1() {
-                if (this.current_counter >= 100) {
+                if (this.current_counter >= 95) {
+                    this.current_counter = 95
                     clearInterval(this.clock1);
                 } else {
                     this.current_counter++;
                 }
             },
             frame2() {
-                if (this.current_counter >= 100) {
+                if (this.current_counter >= 95) {
+                    this.current_counter = 95
                     clearInterval(this.clock2);
                 } else {
                     this.current_counter++;
                 }
             },
             frame3() {
-                if (this.current_counter >= 100) {
+                if (this.current_counter >= 95) {
+                    this.current_counter = 95
                     clearInterval(this.clock3);
                 } else {
                     this.current_counter++;
                 }
             },
             frame4() {
-                if (this.current_counter >= 100) {
+                if (this.current_counter >= 95) {
+                    this.current_counter = 95
                     clearInterval(this.clock4);
                 } else {
                     this.current_counter++;
@@ -6185,21 +6190,26 @@
             readData(c_date){
                 this.isload = false
                 this.current_counter = 0
+                clearInterval(this.clock)
+                clearInterval(this.clock1)
+                clearInterval(this.clock2)
+                clearInterval(this.clock3)
+                clearInterval(this.clock4)
                 console.log('this current week====>', this.current_week)
                 if(this.current_week <= 1){
-                    this.clock = setInterval(this.frame, 100);
+                    this.clock = setInterval(this.frame, 150);
                 }
                 else if(this.current_week === 2){
-                    this.clock1 = setInterval(this.frame1, 100);
+                    this.clock1 = setInterval(this.frame1, 200);
                 }
                 else if(this.current_week === 3){
-                    this.clock2 = setInterval(this.frame2, 200);
+                    this.clock2 = setInterval(this.frame2, 300);
                 }
                 else if(this.current_week === 4){
-                    this.clock3 = setInterval(this.frame3, 300);
+                    this.clock3 = setInterval(this.frame3, 500);
                 }
                 else{
-                    this.clock4 = setInterval(this.frame4, 350);
+                    this.clock4 = setInterval(this.frame4, 700);
                 }
                 window.axios.post(`${process.env.VUE_APP_URL}getStatsNew`, [c_date]).then(({data})=> {
                     console.log('data******', data.data[2])
@@ -6216,7 +6226,6 @@
                         }
                     }
                     competitionArray = Array.from(new Set (competitionArray))
-console.log('competitionArray==>', competitionArray)
                     this.mainList = []
                     for(let i = 0 ; i < competitionArray.length; i++){
                         let k = 0
@@ -6717,7 +6726,7 @@ console.log('competitionArray==>', competitionArray)
                         this.sortJSON(self.mainList,'country', '123');
                     }
                     console.log('this.mainList==>',this.mainList)
-                    this.current_counter = 90
+                    this.current_counter = 95
                     this.isload = true
                     clearInterval(this.clock)
                     clearInterval(this.clock1)
