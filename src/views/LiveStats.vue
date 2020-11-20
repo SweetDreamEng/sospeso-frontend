@@ -3467,7 +3467,7 @@
                             //console.log('current_main_data', current_main_data)
                             if(current_main_data.stats.length > 0){
                                 if((current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'LIVE') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'HT') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'ET')){
-                                    console.log(current_main_data)
+                                    // console.log(current_main_data)
 
                                     let home = {
                                         'id': 0,
@@ -4156,18 +4156,21 @@
 
                     let eventList = data.data[2]
                     let competitionArray1 = []
+                    let competitionArrayCount = 0
                     for(let i = 0 ; i < eventList.length; i++){
-                        let competitionName = eventList[i].competitions[0].name
-                        competitionArray1[i] = competitionName
+                        // console.log(eventList[i])
+                        if (eventList[i].competitions.length && eventList[i].competitions[0].league) {
+                            let competitionName = eventList[i].competitions[0].league
+                            competitionArray1[competitionArrayCount++] = competitionName
+                        }
                     }
                     competitionArray1 = Array.from(new Set (competitionArray1))
-
                     this.scheduleArray = []
                     this.scheduleLength = 0
                     for(let j = 0 ; j < competitionArray1.length ; j++){
                         this.scheduleArray.push({'league': competitionArray1[j], 'events': []})
                         for(let k = 0 ;  k < eventList.length ; k++){
-                            if(eventList[k].competitions[0].name == competitionArray1[j] && eventList[k].time.status == 'NS'){
+                            if(eventList[k].competitions.length && eventList[k].competitions[0].league == competitionArray1[j] && eventList[k].time.status == 'NS'){
                                 this.scheduleLength++
                                 this.scheduleArray[j].events.push(eventList[k])
                             }
@@ -4179,7 +4182,7 @@
                     for(let j = 0 ; j < competitionArray1.length ; j++){
                         this.finishedArray.push({'league': competitionArray1[j], 'events': []})
                         for(let k = 0 ;  k < eventList.length ; k++){
-                            if(eventList[k].competitions[0].name == competitionArray1[j] && eventList[k].time.status == 'FT'){
+                            if(eventList[k].competitions.length && eventList[k].competitions[0].league == competitionArray1[j] && eventList[k].time.status == 'FT'){
                                 this.finishedLength++
                                 this.finishedArray[j].events.push(eventList[k])
                             }
@@ -4233,8 +4236,26 @@
                                     }
 
                                     current_event.goal_tooltip = data1[i].updateArray.goal_tooltip
-                                    current_event.home_tooltip = data1[i].updateArray.home_tooltip
-                                    current_event.away_tooltip = data1[i].updateArray.away_tooltip
+                                    current_event.home_tooltip = {
+                                        'on': '',
+                                        'off': '',
+                                        'in': '',
+                                        'out': '',
+                                        'blk': ''
+                                    }
+                                    current_event.away_tooltip = {
+                                        'on': '',
+                                        'off': '',
+                                        'in': '',
+                                        'out': '',
+                                        'blk': ''
+                                    }
+                                    if(data1[i].updateArray.home_tooltip){
+                                        current_event.home_tooltip = data1[i].updateArray.home_tooltip
+                                    }
+                                    if(data1[i].updateArray.away_tooltip){
+                                        current_event.away_tooltip = data1[i].updateArray.away_tooltip
+                                    }
                                     if(current_event.home.id === stats[0].team_id){
                                         current_event.home.score = data1[i].updateArray.scores.localteam_score
                                         current_event.away.score = data1[i].updateArray.scores.visitorteam_score
@@ -4558,6 +4579,8 @@
                                     }
                                     //------------------------------------------------------------------------------------------------
                                     this.eventArray[j].events[k] = current_event
+                                    console.log('home_tooltip', this.eventArray[j].events[k].home_tooltip)
+                                    console.log('away_tooltip', this.eventArray[j].events[k].away_tooltip)
                                 }
                             }
                         }
@@ -4692,7 +4715,7 @@
     .goal_manner{
         animation: splash1 infinite 1.5s;
     }
-    
+
     @keyframes splash {
         0% {
             color: white;
