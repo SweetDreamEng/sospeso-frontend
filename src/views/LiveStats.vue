@@ -3453,8 +3453,10 @@
                     let index = 0
                     for(let i = 0 ; i < main_data.length ; i++){
                         if((main_data[i].time.status == 'LIVE' || main_data[i].time.status == 'HT' || main_data[i].time.status == 'ET') && main_data[i].stats.length > 0){
-                            index++
-                            competitionArray[index - 1] = main_data[i].competitions[0].league
+                            if (main_data[i].competitions.length) {
+                                index++
+                                competitionArray[index - 1] = main_data[i].competitions[0].league
+                            }  
                         }
                     }
                     competitionArray = Array.from(new Set (competitionArray))
@@ -3465,7 +3467,7 @@
                         for(let j = 0 ; j < main_data.length ; j++) {
                             let current_main_data = main_data[j];
                             //console.log('current_main_data', current_main_data)
-                            if(current_main_data.stats.length > 0){
+                            if(current_main_data.stats.length > 0 && current_main_data.competitions.length){
                                 if((current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'LIVE') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'HT') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'ET')){
                                     // console.log(current_main_data)
 
@@ -4236,8 +4238,26 @@
                                     }
 
                                     current_event.goal_tooltip = data1[i].updateArray.goal_tooltip
-                                    current_event.home_tooltip = data1[i].updateArray.home_tooltip
-                                    current_event.away_tooltip = data1[i].updateArray.away_tooltip
+                                    current_event.home_tooltip = {
+                                        'on': '',
+                                        'off': '',
+                                        'in': '',
+                                        'out': '',
+                                        'blk': ''
+                                    }
+                                    current_event.away_tooltip = {
+                                        'on': '',
+                                        'off': '',
+                                        'in': '',
+                                        'out': '',
+                                        'blk': ''
+                                    }
+                                    if(data1[i].updateArray.home_tooltip){
+                                        current_event.home_tooltip = data1[i].updateArray.home_tooltip
+                                    }
+                                    if(data1[i].updateArray.away_tooltip){
+                                        current_event.away_tooltip = data1[i].updateArray.away_tooltip
+                                    }
                                     if(current_event.home.id === stats[0].team_id){
                                         current_event.home.score = data1[i].updateArray.scores.localteam_score
                                         current_event.away.score = data1[i].updateArray.scores.visitorteam_score
@@ -4561,6 +4581,9 @@
                                     }
                                     //------------------------------------------------------------------------------------------------
                                     this.eventArray[j].events[k] = current_event
+                                    console.log(this.eventArray[j].events[k].main_data.home_name)
+                                    console.log('home_tooltip', this.eventArray[j].events[k].home_tooltip)
+                                    console.log('away_tooltip', this.eventArray[j].events[k].away_tooltip)
                                 }
                             }
                         }
