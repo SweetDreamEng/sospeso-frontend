@@ -6197,19 +6197,19 @@
                 clearInterval(this.clock4)
                 console.log('this current week====>', this.current_week)
                 if(this.current_week <= 1){
-                    this.clock = setInterval(this.frame, 200);
+                    this.clock = setInterval(this.frame, 150);
                 }
                 else if(this.current_week === 2){
                     this.clock1 = setInterval(this.frame1, 200);
                 }
                 else if(this.current_week === 3){
-                    this.clock2 = setInterval(this.frame2, 400);
+                    this.clock2 = setInterval(this.frame2, 300);
                 }
                 else if(this.current_week === 4){
-                    this.clock3 = setInterval(this.frame3, 600);
+                    this.clock3 = setInterval(this.frame3, 500);
                 }
                 else{
-                    this.clock4 = setInterval(this.frame4, 800);
+                    this.clock4 = setInterval(this.frame4, 700);
                 }
                 window.axios.post(`${process.env.VUE_APP_URL}getStatsNew`, [c_date]).then(({data})=> {
                     console.log('data******', data.data[2])
