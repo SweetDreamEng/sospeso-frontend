@@ -4581,9 +4581,9 @@
                                     }
                                     //------------------------------------------------------------------------------------------------
                                     this.eventArray[j].events[k] = current_event
-                                    console.log(this.eventArray[j].events[k].main_data.home_name)
-                                    console.log('home_tooltip', this.eventArray[j].events[k].home_tooltip)
-                                    console.log('away_tooltip', this.eventArray[j].events[k].away_tooltip)
+                                    // console.log(this.eventArray[j].events[k].main_data.home_name)
+                                    // console.log('home_tooltip', this.eventArray[j].events[k].home_tooltip)
+                                    // console.log('away_tooltip', this.eventArray[j].events[k].away_tooltip)
                                 }
                             }
                         }
