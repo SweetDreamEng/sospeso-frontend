@@ -1365,7 +1365,7 @@
                                                 if (alt_role2 === '...' || alt_role2 === '') {
                                                     alt_role2 = ''
                                                 }
-                                                if((s_role === main_role || s_role12 === main_role || s_role22 === main_role) && alt_role1 === '' && alt_role2 === '') {
+                                                if((s_role === main_role || s_role12 === main_role || s_role22 === main_role) && (position === mean_role) && alt_role1 === '' && alt_role2 === '') {
                                                     homeTeam2[k].Pname = homeTeam3[kk].Pname
                                                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
                                                     homeTeam2[k].marketValue = homeTeam3[kk].marketValue
@@ -2023,6 +2023,9 @@
 
                                             if(s_roles.length > 0){
                                                 let position_number = main_data[j].lineup.data[k].formation_position
+                                                if(!main_data[j].lineup.data[k].formation_position){
+                                                    position_number = h_k
+                                                }
                                                 let s_role = s_roles[0].s_role[h_k - 1]
                                                 let s_role2 = s_roles[0].alt_s_role[h_k - 1]
                                                 let mean_role = s_roles[0].mean_role[h_k - 1]
@@ -2048,6 +2051,9 @@
 
                                             if(s_roles_live.length > 0){
                                                 let position_number = main_data[j].lineup.data[k].formation_position
+                                                if(!main_data[j].lineup.data[k].formation_position){
+                                                    position_number = h_k
+                                                }
                                                 let s_role = s_roles_live[0].s_role[h_k - 1]
                                                 let s_role2 = s_roles_live[0].alt_s_role[h_k - 1]
                                                 let mean_role = s_roles_live[0].mean_role[h_k - 1]
@@ -2069,7 +2075,7 @@
                                             //-------------------------------------------------------------------
                                         }
                                         else{
-                                            a_k++
+
                                             let position = ''
                                             if(main_data[j].lineup.data[k].position === 'G'){
                                                 position = 'GK'
@@ -2257,9 +2263,12 @@
                                             let s_roles = this.s_role_set.filter(function(item) {
                                                 return item.name === awayTeamPformation;
                                             });
-
+                                            a_k++
                                             if(s_roles.length > 0){
                                                 let position_number = main_data[j].lineup.data[k].formation_position
+                                                if(!main_data[j].lineup.data[k].formation_position){
+                                                    position_number = a_k
+                                                }
                                                 let s_role = s_roles[0].s_role[a_k - 1]
                                                 let s_role2 = s_roles[0].alt_s_role[a_k - 1]
                                                 let mean_role = s_roles[0].mean_role[a_k - 1]
@@ -2285,6 +2294,9 @@
 
                                             if(s_roles_live_a.length > 0){
                                                 let position_number = main_data[j].lineup.data[k].formation_position
+                                                if(!main_data[j].lineup.data[k].formation_position){
+                                                    position_number = a_k
+                                                }
                                                 let s_role = s_roles_live_a[0].s_role[a_k - 1]
                                                 let s_role2 = s_roles_live_a[0].alt_s_role[a_k - 1]
                                                 let mean_role = s_roles_live_a[0].mean_role[a_k - 1]
@@ -3006,10 +3018,10 @@
                                     for(let k = 0 ; k < away_substitutions.length ; k++){
                                         away_legend.push(this.sub_color_set[k])
                                     }
-                                    homeTeam.sort(this.sortByProperty('formation_position'))
-                                    awayTeam.sort(this.sortByProperty('formation_position'))
-                                    homeTeam1.sort(this.sortByProperty('formation_position'))
-                                    awayTeam1.sort(this.sortByProperty('formation_position'))
+                                    // homeTeam.sort(this.sortByProperty('formation_position'))
+                                    // awayTeam.sort(this.sortByProperty('formation_position'))
+                                    // homeTeam1.sort(this.sortByProperty('formation_position'))
+                                    // awayTeam1.sort(this.sortByProperty('formation_position'))
                                     let home_rule_color_number = {"green_color": 0, "yellow_color": 0, "red_color": 0}
                                     for(let pp = 0 ; pp < homeTeam.length ; pp++){
                                         if(homeTeam[pp].rule_color === 'rgb(146,208,80)'){
@@ -3037,6 +3049,9 @@
                                     }
                                     countryCode = main_data[j].countryCode
                                     events[k - 1] = {'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'openDate':  main_data[j].time.starting_at.time, 'homeTeam': homeTeam, 'awayTeam': awayTeam, 'homeTeam1': homeTeam1, 'awayTeam1': awayTeam1, 'homeTeam2': homeTeam1, 'awayTeam2': awayTeam1, 'homeTeamName': homeTeamName, 'awayTeamName': awayTeamName, 'homeTeamformation': homeTeamFormation, 'awayTeamformation': awayTeamFormation, 'homeTeamPformation': homeTeamPformation, 'awayTeamPformation': awayTeamPformation,  'homeTeamLformation': homeTeamLformation, 'awayTeamLformation': awayTeamLformation, 'home_substitutions': home_substitutions, 'away_substitutions': away_substitutions, 'home_legend': home_legend, 'away_legend': away_legend, 'home_rule_set': home_rule_color_number, 'away_rule_set': away_rule_color_number}
+                                    if(main_data[j].visitorTeamName == "Montreal Impact"){
+                                        console.log('s_roles===>', events[k - 1])
+                                    }
                                 }
                             }
                         }
