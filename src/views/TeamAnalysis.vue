@@ -1829,8 +1829,11 @@
                                 let homeTeamLformation = main_data[j].live_formations.localteam_formation
                                 let awayTeamLformation = main_data[j].live_formations.visitorteam_formation
                                 if(main_data[j].lineup != null){
+                                    let h_k = 0
+                                    let a_k = 0
                                     for(let k = 0 ; k < main_data[j].lineup.data.length ; k++){
                                         if(main_data[j].lineup.data[k].team_id === localTeamId && main_data[j].local_players.length > 0){
+                                            h_k++
                                             let position = ''
                                             if(main_data[j].lineup.data[k].position === 'G'){
                                                 position = 'GK'
@@ -2038,9 +2041,9 @@
 
                                             if(s_roles.length > 0){
                                                 let position_number = main_data[j].lineup.data[k].formation_position
-                                                let s_role = s_roles[0].s_role[k]
-                                                let s_role2 = s_roles[0].alt_s_role[k]
-                                                let mean_role = s_roles[0].mean_role[k]
+                                                let s_role = s_roles[0].s_role[h_k - 1]
+                                                let s_role2 = s_roles[0].alt_s_role[h_k - 1]
+                                                let mean_role = s_roles[0].mean_role[h_k - 1]
                                                 if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
                                                     rule_color = 'rgb(146,208,80)'
                                                 }
@@ -2063,9 +2066,9 @@
 
                                             if(s_roles_live.length > 0){
                                                 let position_number = main_data[j].lineup.data[k].formation_position
-                                                let s_role = s_roles_live[0].s_role[k]
-                                                let s_role2 = s_roles_live[0].alt_s_role[k]
-                                                let mean_role = s_roles_live[0].mean_role[k]
+                                                let s_role = s_roles_live[0].s_role[h_k - 1]
+                                                let s_role2 = s_roles_live[0].alt_s_role[h_k - 1]
+                                                let mean_role = s_roles_live[0].mean_role[h_k - 1]
                                                 if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
                                                     rule_color = 'rgb(146,208,80)'
                                                 }
@@ -2084,6 +2087,7 @@
                                             //-------------------------------------------------------------------
                                         }
                                         else{
+                                            a_k++
                                             let position = ''
                                             if(main_data[j].lineup.data[k].position === 'G'){
                                                 position = 'GK'
@@ -2274,9 +2278,9 @@
 
                                             if(s_roles.length > 0){
                                                 let position_number = main_data[j].lineup.data[k].formation_position
-                                                let s_role = s_roles[0].s_role[k]
-                                                let s_role2 = s_roles[0].alt_s_role[k]
-                                                let mean_role = s_roles[0].mean_role[k]
+                                                let s_role = s_roles[0].s_role[a_k - 1]
+                                                let s_role2 = s_roles[0].alt_s_role[a_k - 1]
+                                                let mean_role = s_roles[0].mean_role[a_k - 1]
                                                 if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
                                                     rule_color = 'rgb(146,208,80)'
                                                 }
@@ -2299,9 +2303,9 @@
 
                                             if(s_roles_live_a.length > 0){
                                                 let position_number = main_data[j].lineup.data[k].formation_position
-                                                let s_role = s_roles_live_a[0].s_role[k]
-                                                let s_role2 = s_roles_live_a[0].alt_s_role[k]
-                                                let mean_role = s_roles_live_a[0].mean_role[k]
+                                                let s_role = s_roles_live_a[0].s_role[a_k - 1]
+                                                let s_role2 = s_roles_live_a[0].alt_s_role[a_k - 1]
+                                                let mean_role = s_roles_live_a[0].mean_role[a_k - 1]
                                                 if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
                                                     rule_color = 'rgb(146,208,80)'
                                                 }
