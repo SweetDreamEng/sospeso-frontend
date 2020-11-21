@@ -963,109 +963,127 @@
                     {
                         "name": "4-3-1-2",
                         "s_role":["GK", "RB", "CB", "CB", "LB", "CM", "CM", "CM", "AM", "CF", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "", "", "SS", "", ""],
+                        "alt_s_role":["", "RM", "", "", "LM", "RM", "DM", "LM", "", "SS", ""],
+                        "alt_s_role1":["", "RW", "", "", "LW", "", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD", "FWD"]
                     },
                     {
                         "name": "4-3-3",
                         "s_role":["GK", "RB", "CB", "CB", "LB", "CM", "CM", "CM", "RW", "CF", "LW"],
-                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "alt_s_role":["", "RM", "", "", "LM", "RM", "DM", "LM", "", "", ""],
+                        "alt_s_role1":["", "RW", "", "", "LW", "", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "FWD", "FWD", "FWD"]
                     },
                     {
                         "name": "4-3-2-1",
                         "s_role":["GK", "RB", "CB", "CB", "LB", "CM", "CM", "CM", "AM", "AM", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "alt_s_role":["", "RM", "", "", "LM", "RM", "DM", "LM", "", "SS", ""],
+                        "alt_s_role1":["", "RW", "", "", "LW", "", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD"]
                     },
                     {
                         "name": "4-4-2",
                         "s_role":["GK", "RB", "CB", "CB", "LB", "RM", "CM", "CM", "LM", "CF", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "alt_s_role":["", "RM", "", "", "LM", "RW", "DM", "DM", "LW", "SS", ""],
+                        "alt_s_role1":["", "RW", "", "", "LW", "", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD", "FWD"]
                     },
                     {
                         "name": "4-2-3-1",
                         "s_role":["GK", "RB", "CB", "CB", "LB", "DM", "DM", "RM", "AM", "LM", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "", "RW", "", "LW", ""],
+                        "alt_s_role":["", "RM", "", "", "LM", "CM", "CM", "RW", "", "LW", ""],
+                        "alt_s_role1":["", "RW", "", "", "LW", "", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD"]
                     },
                     {
                         "name": "4-4-1-1",
                         "s_role":["GK", "RB", "CB", "CB", "LB", "RM", "CM", "CM", "LM", "SS", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "alt_s_role":["", "RM", "", "", "LM", "RW", "DM", "DM", "LW", "AM", ""],
+                        "alt_s_role1":["", "RW", "", "", "LW", "", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD", "FWD"]
                     },
                     {
                         "name": "5-4-1",
                         "s_role":["GK", "RB", "CB", "CB", "CB", "LB", "RM", "CM", "CM", "LM", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "alt_s_role":["", "RM", "", "", "", "LM", "RW", "DM", "DM", "LW", ""],
+                        "alt_s_role1":["", "RW", "", "", "", "LW", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD"]
                     },
                     {
                         "name": "3-4-1-2",
                         "s_role":["GK", "CB", "CB", "CB", "RM", "CM", "CM", "LM", "AM", "CF", "CF"],
-                        "alt_s_role":["", "", "", "", "", "DM", "DM", "", "", "", ""],
+                        "alt_s_role":["", "RB", "", "LB", "", "DM", "DM", "", "", "SS", ""],
+                        "alt_s_role1":["", "", "", "", "", "", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD", "FWD"]
                     },
                     {
                         "name": "3-5-2",
                         "s_role":["GK", "CB", "CB", "CB", "RM", "CM", "CM", "CM", "LM", "CF", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "DM", "", "", "", ""],
+                        "alt_s_role":["", "RB", "", "LB", "RB", "DM", "DM", "DM", "LB", "SS", ""],
+                        "alt_s_role1":["", "", "", "", "RW", "", "", "", "LW", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD", "FWD"]
                     },
                     {
                         "name": "3-5-1-1",
                         "s_role":["GK", "CB", "CB", "CB", "RM", "CM", "CM", "CM", "LM", "AM", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "DM", "", "", "SS", ""],
+                        "alt_s_role":["", "RB", "", "LB", "RB", "DM", "DM", "DM", "LB", "", ""],
+                        "alt_s_role1":["", "", "", "", "RW", "", "", "", "LW", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD"]
                     },
                     {
                         "name": "3-4-2-1",
                         "s_role":["GK", "CB", "CB", "CB", "RM", "CM", "CM", "LM", "AM", "AM", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "alt_s_role":["", "RB", "", "LB", "", "DM", "DM", "", "", "SS", ""],
+                        "alt_s_role1":["", "", "", "", "", "", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "MID", "FWD"]
                     },
                     {
                         "name": "5-3-2",
                         "s_role":["GK", "RB", "CB", "CB", "CB", "LB", "CM", "CM", "CM", "CF", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "alt_s_role":["", "RM", "", "", "", "LM", "RM", "DM", "LM", "SS", ""],
+                        "alt_s_role1":["", "RW", "", "", "", "LW", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "FWD", "FWD"]
                     },
                     {
                         "name": "5-3-1-1",
                         "s_role":["GK", "RB", "CB", "CB", "CB", "LB", "CM", "CM", "CM", "AM", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "", "", "", "SS", ""],
+                        "alt_s_role":["", "RM", "", "", "", "LM", "RM", "DM", "LM", "", ""],
+                        "alt_s_role1":["", "RW", "", "", "", "LW", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD"]
                     },
                     {
                         "name": "4-5-1",
                         "s_role":["GK", "RB", "CB", "CB", "LB", "RM", "CM", "CM", "CM", "LM", "CF"],
-                        "alt_s_role":["", "", "", "", "", "RW", "", "DM", "", "LW", ""],
+                        "alt_s_role":["", "RM", "", "", "LM", "RW", "DM", "DM", "DM", "LW", ""],
+                        "alt_s_role1":["", "RW", "", "", "LW", "", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD"]
                     },
                     {
                         "name": "4-1-4-1",
                         "s_role":["GK", "CB", "CB", "CB", "CB", "DM", "RM", "CM", "CM", "LM", "CF"],
                         "alt_s_role":["", "RB", "", "", "LB", "CM", "AM", "AM", "AM", "AM", ""],
+                        "alt_s_role1":["", "", "", "", "", "", "RW", "DM", "DM", "LW", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD"]
                     },
                     {
                         "name": "4-1-3-2",
                         "s_role":["GK", "CB", "CB", "CB", "CB", "DM", "AM", "AM", "AM", "CF", "CF"],
-                        "alt_s_role":["", "RB", "", "", "LB", "CM", "RM", "", "LM", "", ""],
+                        "alt_s_role":["", "RB", "", "", "LB", "CM", "RM", "", "LM", "SS", ""],
+                        "alt_s_role1":["", "", "", "", "", "", "RW", "", "LW", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD", "FWD"]
                     },
                     {
                         "name": "3-4-3",
                         "s_role":["GK", "CB", "CB", "CB", "RM", "CM", "CM", "LM", "RW", "CF", "LW"],
-                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "alt_s_role":["", "RB", "", "LB", "CM", "DM", "DM", "CM", "", "", ""],
+                        "alt_s_role1":["", "", "", "", "", "", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "FWD", "FWD", "FWD"]
                     },
                     {
                         "name": "3-1-4-2",
                         "s_role":["GK", "CB", "CB", "CB", "DM", "RM", "CM", "CM", "LM", "CF", "CF"],
-                        "alt_s_role":["", "", "", "", "", "", "", "", "", "", ""],
+                        "alt_s_role":["", "RB", "", "LB", "CM", "RW", "", "", "LW", "SS", ""],
+                        "alt_s_role1":["", "", "", "", "", "", "", "", "", "", ""],
                         "mean_role":["GK", "DEF", "DEF", "DEF", "MID", "MID", "MID", "MID", "MID", "FWD", "FWD"]
                     },
                 ],
@@ -1328,6 +1346,7 @@
                                     for(let k = 0 ; k < 11 ; k++){
                                         let s_role = s_roles[0].s_role[k]
                                         let s_role12 = s_roles[0].alt_s_role[k]
+                                        let s_role22 = s_roles[0].alt_s_role1[k]
                                         let mean_role = s_roles[0].mean_role[k]
                                         homeTeam2[k].sRole = s_role
                                         homeTeam2[k].sRole2 = s_role12
@@ -1346,7 +1365,7 @@
                                                 if (alt_role2 === '...' || alt_role2 === '') {
                                                     alt_role2 = ''
                                                 }
-                                                if((s_role === main_role || s_role12 === main_role) && alt_role1 === '' && alt_role2 === '') {
+                                                if((s_role === main_role || s_role12 === main_role || s_role22 === main_role) && alt_role1 === '' && alt_role2 === '') {
                                                     homeTeam2[k].Pname = homeTeam3[kk].Pname
                                                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
                                                     homeTeam2[k].marketValue = homeTeam3[kk].marketValue
@@ -1371,6 +1390,7 @@
                                     for(let k = 0 ; k < 11 ; k++){
                                         let s_role = s_roles[0].s_role[k]
                                         let s_role12 = s_roles[0].alt_s_role[k]
+                                        let s_role22 = s_roles[0].alt_s_role1[k]
                                         let mean_role = s_roles[0].mean_role[k]
                                         homeTeam2[k].sRole = s_role
                                         homeTeam2[k].sRole2 = s_role12
@@ -1389,7 +1409,7 @@
                                                 if (alt_role2 === '...' || alt_role2 === '') {
                                                     alt_role2 = ''
                                                 }
-                                                if((s_role === main_role || s_role12 === main_role)){
+                                                if((s_role === main_role || s_role12 === main_role|| s_role22 === main_role)){
                                                     homeTeam2[k].Pname = homeTeam3[kk].Pname
                                                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
                                                     homeTeam2[k].marketValue = homeTeam3[kk].marketValue
@@ -1414,6 +1434,7 @@
                                     for(let k = 0 ; k < 11 ; k++){
                                         let s_role = s_roles[0].s_role[k]
                                         let s_role12 = s_roles[0].alt_s_role[k]
+                                        let s_role22 = s_roles[0].alt_s_role1[k]
                                         let mean_role = s_roles[0].mean_role[k]
                                         homeTeam2[k].sRole = s_role
                                         homeTeam2[k].sRole2 = s_role12
@@ -1432,7 +1453,7 @@
                                                 if (alt_role2 === '...' || alt_role2 === '') {
                                                     alt_role2 = ''
                                                 }
-                                                if((position === mean_role) && ((s_role === alt_role1 || s_role === alt_role2) || ((s_role12 === alt_role1 || s_role12 === alt_role2) && s_role12 != ''))){
+                                                if((position === mean_role) && ((s_role === alt_role1 || s_role === alt_role2) || ((s_role12 === alt_role1 || s_role12 === alt_role2) && s_role12 != '') || ((s_role22 === alt_role1 || s_role22 === alt_role2) && s_role22 != ''))){
                                                     homeTeam2[k].Pname = homeTeam3[kk].Pname
                                                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
                                                     homeTeam2[k].marketValue = homeTeam3[kk].marketValue
@@ -1666,7 +1687,7 @@
                                 for(let k = 0 ; k < eventNode.homeTeam2.length ; k++){
                                     this.mainList[i].events[j].homeTeam1[k].sRole = eventNode.homeTeam2[k].sRole1
                                     this.mainList[i].events[j].homeTeam1[k].mR = eventNode.homeTeam2[k].mR1
-                                    this.mainList[i].events[j].homeTeam1[k].rule_color = 'rgb(216,228,188)'
+                                    this.mainList[i].events[j].homeTeam1[k].rule_color = eventNode.homeTeam2[k].rule_color
                                 }
                             }
                         }
