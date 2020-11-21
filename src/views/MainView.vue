@@ -5061,6 +5061,11 @@
                             </div>
                         </div>
                     </CCol>
+                    <CCol lg="12">
+                        <div class="event-graph"
+                        >
+                        </div>
+                    </CCol>
                 </CRow>
             </CCardBody>
         </CCard>
@@ -7060,6 +7065,7 @@
                 }
             }
                 this.item1.league = c
+
                 window.axios.post(`${process.env.VUE_APP_URL}getPredictionLivestats`,[this.eventId]).then(({data})=>{
                         console.log('getPredictionLiveStats==>', data.data[0][0])
                     this.coldstatsdata = data.data[0]
