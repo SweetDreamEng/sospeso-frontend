@@ -1409,7 +1409,7 @@
                                                 if (alt_role2 === '...' || alt_role2 === '') {
                                                     alt_role2 = ''
                                                 }
-                                                if((s_role === main_role || s_role12 === main_role|| s_role22 === main_role)){
+                                                if((s_role === main_role || s_role12 === main_role|| s_role22 === main_role) && (position === mean_role)){
                                                     homeTeam2[k].Pname = homeTeam3[kk].Pname
                                                     homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
                                                     homeTeam2[k].marketValue = homeTeam3[kk].marketValue
