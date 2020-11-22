@@ -3018,10 +3018,65 @@
                                     for(let k = 0 ; k < away_substitutions.length ; k++){
                                         away_legend.push(this.sub_color_set[k])
                                     }
-                                    // homeTeam.sort(this.sortByProperty('formation_position'))
-                                    // awayTeam.sort(this.sortByProperty('formation_position'))
-                                    // homeTeam1.sort(this.sortByProperty('formation_position'))
-                                    // awayTeam1.sort(this.sortByProperty('formation_position'))
+
+                                    homeTeam.sort(this.sortByProperty('formation_position'))
+                                    awayTeam.sort(this.sortByProperty('formation_position'))
+                                    homeTeam1.sort(this.sortByProperty('formation_position'))
+                                    awayTeam1.sort(this.sortByProperty('formation_position'))
+
+                                    let s_roles = this.s_role_set.filter(function(item) {
+                                        return item.name === homeTeamPformation;
+                                    })
+
+                                    if(s_roles.length > 0){
+                                        for(let p = 0 ; p < 11 ; p++){
+                                            homeTeam[p].sRole = s_roles[0].s_role[p]
+                                            homeTeam[p].sRole1 = s_roles[0].s_role[p]
+                                            homeTeam[p].sRole2 = s_roles[0].alt_s_role[p]
+                                            homeTeam[p].mR = s_roles[0].mean_role[p]
+                                            homeTeam[p].mR1 = s_roles[0].mean_role[p]
+                                        }
+                                    }
+
+                                    let s_roles_live = this.s_role_set.filter(function(item) {
+                                        return item.name === homeTeamLformation;
+                                    })
+                                    if(s_roles_live.length > 0){
+                                        for(let p = 0 ; p < 11 ; p++){
+                                            homeTeam1[p].sRole = s_roles_live[0].s_role[p]
+                                            homeTeam1[p].sRole1 = s_roles_live[0].s_role[p]
+                                            homeTeam1[p].sRole2 = s_roles_live[0].alt_s_role[p]
+                                            homeTeam1[p].mR = s_roles_live[0].mean_role[p]
+                                            homeTeam1[p].mR1 = s_roles_live[0].mean_role[p]
+                                        }
+                                    }
+
+                                    let s_roles1 = this.s_role_set.filter(function(item) {
+                                        return item.name === awayTeamPformation;
+                                    });
+                                    if(s_roles1.length > 0){
+                                        for(let p = 0 ; p < 11 ; p++){
+                                            awayTeam[p].sRole = s_roles1[0].s_role[p]
+                                            awayTeam[p].sRole1 = s_roles1[0].s_role[p]
+                                            awayTeam[p].sRole2 = s_roles1[0].alt_s_role[p]
+                                            awayTeam[p].mR = s_roles1[0].mean_role[p]
+                                            awayTeam[p].mR1 = s_roles1[0].mean_role[p]
+                                        }
+                                    }
+
+                                    let s_roles_live_a = this.s_role_set.filter(function(item) {
+                                        return item.name === awayTeamLformation;
+                                    });
+                                    if(s_roles_live_a.length > 0){
+                                        for(let p = 0 ; p < 11 ; p++){
+                                            awayTeam1[p].sRole = s_roles_live_a[0].s_role[p]
+                                            awayTeam1[p].sRole1 = s_roles_live_a[0].s_role[p]
+                                            awayTeam1[p].sRole2 = s_roles_live_a[0].alt_s_role[p]
+                                            awayTeam1[p].mR = s_roles_live_a[0].mean_role[p]
+                                            awayTeam1[p].mR1 = s_roles_live_a[0].mean_role[p]
+                                        }
+                                    }
+
                                     let home_rule_color_number = {"green_color": 0, "yellow_color": 0, "red_color": 0}
                                     for(let pp = 0 ; pp < homeTeam.length ; pp++){
                                         if(homeTeam[pp].rule_color === 'rgb(146,208,80)'){
