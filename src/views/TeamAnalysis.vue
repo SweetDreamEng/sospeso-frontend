@@ -2085,6 +2085,17 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
 
                                             let Tit1 = 0
                                             let Tit2 = 0
+                                            let home_team_played = 0
+                                            let away_team_played = 0
+                                            for(let p = 0 ; p < main_data[j].events.length ; p++){
+                                                let events = main_data[j].events[p]
+                                                for(let pp = 0 ; pp < events.events.length ; pp++){
+                                                    if(events.events[pp].localTeamId == localTeamId){
+                                                        home_team_played++
+                                                    }
+                                                }
+                                            }
+                                            let minute = 0
                                             if(titularity[0]){
                                                 let appearences = titularity[0].appearences
                                                 let lineups = titularity[0].lineups
@@ -2092,34 +2103,39 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                 let substitute_out = titularity[0].substitute_out
                                                 let presences = titularity[0].appearences
 
-                                                if(lineups !== null && appearences !== null){
-                                                    Tit1 = lineups/appearences*100
-                                                }
-                                                if(presences !== null && substitute_in !== null && substitute_out !== null){
-                                                    Tit2 = (lineups + substitute_out - substitute_in)/presences*100
-                                                }
-                                                if(Tit2 != 0 && Tit1 != 0){
-                                                    Tit = (Tit1 + Tit2)/2
-                                                }
-                                                if(Tit2 == 0 && Tit1 != 0){
-                                                    Tit = Tit1
-                                                }
+                                                minute = titularity[0].minutes
+
+                                                // if(lineups !== null && appearences !== null){
+                                                //     Tit1 = lineups/appearences*100
+                                                // }
+                                                // if(presences !== null && substitute_in !== null && substitute_out !== null){
+                                                //     Tit2 = (lineups + substitute_out - substitute_in)/presences*100
+                                                // }
+                                                // if(Tit2 != 0 && Tit1 != 0){
+                                                //     Tit = (Tit1 + Tit2)/2
+                                                // }
+                                                // if(Tit2 == 0 && Tit1 != 0){
+                                                //     Tit = Tit1
+                                                // }
                                             }
-                                            if(Tit1 == 0 && Tit2 == 0){
-                                                Tit = '##'
-                                            }
-                                            else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
-                                                Tit = (0).toFixed(2)
-                                            }
-                                            else if(Tit > 0 && Tit <= 100){
-                                                let Tit3 = Tit
-                                                Tit = Tit3.toFixed(2)
-                                            }
-                                            else if(Tit < 0){
-                                                Tit = (0).toFixed(2)
-                                            }
-                                            else if(Tit > 100){
-                                                Tit = (100).toFixed(2)
+                                            // if(Tit1 == 0 && Tit2 == 0){
+                                            //     Tit = '##'
+                                            // }
+                                            // else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
+                                            //     Tit = (0).toFixed(2)
+                                            // }
+                                            // else if(Tit > 0 && Tit <= 100){
+                                            //     let Tit3 = Tit
+                                            //     Tit = Tit3.toFixed(2)
+                                            // }
+                                            // else if(Tit < 0){
+                                            //     Tit = (0).toFixed(2)
+                                            // }
+                                            // else if(Tit > 100){
+                                            //     Tit = (100).toFixed(2)
+                                            // }
+                                            if(home_team_played > 0){
+                                                Tit = minute/90/home_team_played
                                             }
 
                                             let rule_color = 'rgb(216, 228, 188)'
@@ -2327,44 +2343,58 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                     return item.player_id === main_data[j].lineup.data[k].player_id;
                                                 })
                                             }
+
+                                            let away_team_played = 0
+                                            for(let p = 0 ; p < main_data[j].events.length ; p++){
+                                                let events = main_data[j].events[p]
+                                                for(let pp = 0 ; pp < events.events.length ; pp++){
+                                                    if(events.events[pp].visitorteamId == visitTeamId){
+                                                        away_team_played++
+                                                    }
+                                                }
+                                            }
+                                            let minute = 0
                                             if(titularity[0]){
                                                 let appearences = titularity[0].appearences
                                                 let lineups = titularity[0].lineups
                                                 let substitute_in = titularity[0].substitute_in
                                                 let substitute_out = titularity[0].substitute_out
                                                 let presences = titularity[0].appearences
-
-                                                if(lineups !== null && appearences !== null){
-                                                    Tit1 = lineups/appearences*100
-                                                }
-                                                if(presences !== null && substitute_in !== null && substitute_out !== null){
-                                                    Tit2 = (lineups + substitute_out - substitute_in)/presences*100
-                                                }
-                                                if(Tit2 != 0 && Tit1 != 0){
-                                                    Tit = (Tit1 + Tit2)/2
-                                                }
-                                                if(Tit2 == 0 && Tit1 != 0){
-                                                    Tit = Tit1
-                                                }
+                                                minute = titularity[0].minutes
+                                                // if(lineups !== null && appearences !== null){
+                                                //     Tit1 = lineups/appearences*100
+                                                // }
+                                                // if(presences !== null && substitute_in !== null && substitute_out !== null){
+                                                //     Tit2 = (lineups + substitute_out - substitute_in)/presences*100
+                                                // }
+                                                // if(Tit2 != 0 && Tit1 != 0){
+                                                //     Tit = (Tit1 + Tit2)/2
+                                                // }
+                                                // if(Tit2 == 0 && Tit1 != 0){
+                                                //     Tit = Tit1
+                                                // }
                                             }
-                                            if(Tit1 == 0 && Tit2 == 0){
-                                                Tit = '##'
-                                            }
-                                            else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
-                                                Tit = (0).toFixed(2)
-                                            }
-                                            else if(Tit > 0 && Tit <= 100){
-                                                let Tit3 = Tit
-                                                Tit = Tit3.toFixed(2)
-                                            }
-                                            else if(Tit < 0){
-                                                Tit = (0).toFixed(2)
-                                            }
-                                            else if(Tit > 100){
-                                                Tit = (100).toFixed(2)
-                                            }
+                                            // if(Tit1 == 0 && Tit2 == 0){
+                                            //     Tit = '##'
+                                            // }
+                                            // else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
+                                            //     Tit = (0).toFixed(2)
+                                            // }
+                                            // else if(Tit > 0 && Tit <= 100){
+                                            //     let Tit3 = Tit
+                                            //     Tit = Tit3.toFixed(2)
+                                            // }
+                                            // else if(Tit < 0){
+                                            //     Tit = (0).toFixed(2)
+                                            // }
+                                            // else if(Tit > 100){
+                                            //     Tit = (100).toFixed(2)
+                                            // }
                                             // console.log('titularity==>', titularity[0])
                                             // console.log('Tit==>', Tit, ', Tit1=>', Tit1, ', Tit2=>', Tit2)
+                                            if(away_team_played > 0){
+                                                Tit = minute/90/away_team_played
+                                            }
                                             let rule_color = 'rgb(230,184,183)'
                                             // away pre formation part
                                             let s_roles = this.s_role_set.filter(function(item) {
