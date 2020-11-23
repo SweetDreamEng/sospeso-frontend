@@ -2086,11 +2086,10 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             let Tit1 = 0
                                             let Tit2 = 0
                                             let home_team_played = 0
-                                            let away_team_played = 0
                                             for(let p = 0 ; p < main_data[j].events.length ; p++){
                                                 let events = main_data[j].events[p]
                                                 for(let pp = 0 ; pp < events.events.length ; pp++){
-                                                    if(events.events[pp].localTeamId == localTeamId){
+                                                    if(events.events[pp].localTeamId == localTeamId || events.events[pp].visitorteamId == localTeamId){
                                                         home_team_played++
                                                     }
                                                 }
@@ -2135,7 +2134,7 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             //     Tit = (100).toFixed(2)
                                             // }
                                             if(home_team_played > 0){
-                                                Tit = minute/90/home_team_played
+                                                Tit = (minute/90/home_team_played*100).toFixed(2) + ', ' + home_team_played
                                             }
 
                                             let rule_color = 'rgb(216, 228, 188)'
@@ -2348,7 +2347,7 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             for(let p = 0 ; p < main_data[j].events.length ; p++){
                                                 let events = main_data[j].events[p]
                                                 for(let pp = 0 ; pp < events.events.length ; pp++){
-                                                    if(events.events[pp].visitorteamId == visitTeamId){
+                                                    if(events.events[pp].localTeamId == visitTeamId || events.events[pp].visitorteamId == visitTeamId){
                                                         away_team_played++
                                                     }
                                                 }
@@ -2393,7 +2392,7 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             // console.log('titularity==>', titularity[0])
                                             // console.log('Tit==>', Tit, ', Tit1=>', Tit1, ', Tit2=>', Tit2)
                                             if(away_team_played > 0){
-                                                Tit = (minute/90/away_team_played*100).toFixed(2)
+                                                Tit = (minute/90/away_team_played*100).toFixed(2) + ', ' + away_team_played
                                             }
                                             let rule_color = 'rgb(230,184,183)'
                                             // away pre formation part
