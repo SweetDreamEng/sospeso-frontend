@@ -1386,6 +1386,7 @@
                                             }
                                         }
                                     }
+
                                     for(let k = 0 ; k < 11 ; k++){
                                         let s_role = s_roles[0].s_role[k]
                                         let s_role12 = s_roles[0].alt_s_role[k]
@@ -1513,6 +1514,257 @@
                                                     homeTeam2[k].Tit = homeTeam3[kk].Tit
                                                     homeTeam2[k].order_key = 1
                                                     homeTeam3[kk].order_key = 1
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    for(let k = 0 ; k < 11 ; k++){
+                                        let s_role = s_roles[0].s_role[k]
+                                        let s_role12 = s_roles[0].alt_s_role[k]
+                                        let s_role22 = s_roles[0].alt_s_role1[k]
+                                        let mean_role = s_roles[0].mean_role[k]
+                                        homeTeam2[k].sRole = s_role
+                                        homeTeam2[k].sRole2 = s_role12
+                                        homeTeam2[k].mR = mean_role
+                                        for(let kk = 0 ; kk < homeTeam3.length ; kk++){
+                                            if(homeTeam3[kk].order_key === 0 && homeTeam2[k].order_key === 0){
+                                                let main_role = homeTeam3[kk].primaryRole
+                                                let position = homeTeam3[kk].p_m_Role
+                                                let alt_role1 = homeTeam3[kk].altRole1
+                                                let alt_role2 = homeTeam3[kk].altRole2
+                                                let s_role2 = homeTeam2[kk].sRole2
+
+                                                if (alt_role1 === '...' || alt_role1 === '') {
+                                                    alt_role1 = ''
+                                                }
+                                                if (alt_role2 === '...' || alt_role2 === '') {
+                                                    alt_role2 = ''
+                                                }
+                                                if((s_role === main_role || s_role12 === main_role || s_role22 === main_role) && (alt_role1 === '' || alt_role2 === '')){
+                                                    homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                                    homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                                    homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                                    homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                                    homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                                    homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                                    homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                                    homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                                    homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                                    homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].rule_color = 'pink'
+                                                    homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                                    homeTeam2[k].order_key = 1
+                                                    homeTeam3[kk].order_key = 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                    for(let k = 0 ; k < 11 ; k++){
+                                        let s_role = s_roles[0].s_role[k]
+                                        let s_role12 = s_roles[0].alt_s_role[k]
+                                        let s_role22 = s_roles[0].alt_s_role1[k]
+                                        let mean_role = s_roles[0].mean_role[k]
+                                        homeTeam2[k].sRole = s_role
+                                        homeTeam2[k].sRole2 = s_role12
+                                        homeTeam2[k].mR = mean_role
+                                        for(let kk = 0 ; kk < homeTeam3.length ; kk++){
+                                            if(homeTeam3[kk].order_key === 0 && homeTeam2[k].order_key === 0){
+                                                let main_role = homeTeam3[kk].primaryRole
+                                                let position = homeTeam3[kk].p_m_Role
+                                                let alt_role1 = homeTeam3[kk].altRole1
+                                                let alt_role2 = homeTeam3[kk].altRole2
+                                                let s_role2 = homeTeam2[kk].sRole2
+
+                                                if (alt_role1 === '...' || alt_role1 === '') {
+                                                    alt_role1 = ''
+                                                }
+                                                if (alt_role2 === '...' || alt_role2 === '') {
+                                                    alt_role2 = ''
+                                                }
+                                                if((position === mean_role) && (((alt_role1 === s_role || alt_role1 === s_role12 || alt_role1 === s_role22) && (alt_role1 != '')) || ((alt_role2 === s_role || alt_role2 === s_role12 || alt_role2 === s_role22) && (alt_role2 != '')))){
+                                                    homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                                    homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                                    homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                                    homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                                    homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                                    homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                                    homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                                    homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                                    homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                                    homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].rule_color = 'pink'
+                                                    homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                                    homeTeam2[k].order_key = 1
+                                                    homeTeam3[kk].order_key = 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                    for(let k = 0 ; k < 11 ; k++){
+                                        let s_role = s_roles[0].s_role[k]
+                                        let s_role12 = s_roles[0].alt_s_role[k]
+                                        let s_role22 = s_roles[0].alt_s_role1[k]
+                                        let mean_role = s_roles[0].mean_role[k]
+                                        homeTeam2[k].sRole = s_role
+                                        homeTeam2[k].sRole2 = s_role12
+                                        homeTeam2[k].mR = mean_role
+                                        for(let kk = 0 ; kk < homeTeam3.length ; kk++){
+                                            if(homeTeam3[kk].order_key === 0 && homeTeam2[k].order_key === 0){
+                                                let main_role = homeTeam3[kk].primaryRole
+                                                let position = homeTeam3[kk].p_m_Role
+                                                let alt_role1 = homeTeam3[kk].altRole1
+                                                let alt_role2 = homeTeam3[kk].altRole2
+                                                let s_role2 = homeTeam2[kk].sRole2
+
+                                                if (alt_role1 === '...' || alt_role1 === '') {
+                                                    alt_role1 = ''
+                                                }
+                                                if (alt_role2 === '...' || alt_role2 === '') {
+                                                    alt_role2 = ''
+                                                }
+                                                if(position === mean_role){
+                                                    homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                                    homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                                    homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                                    homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                                    homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                                    homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                                    homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                                    homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                                    homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                                    homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].rule_color = 'pink'
+                                                    homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                                    homeTeam2[k].order_key = 1
+                                                    homeTeam3[kk].order_key = 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                    for(let k = 0 ; k < 11 ; k++){
+                                        let s_role = s_roles[0].s_role[k]
+                                        let s_role12 = s_roles[0].alt_s_role[k]
+                                        let s_role22 = s_roles[0].alt_s_role1[k]
+                                        let mean_role = s_roles[0].mean_role[k]
+                                        homeTeam2[k].sRole = s_role
+                                        homeTeam2[k].sRole2 = s_role12
+                                        homeTeam2[k].mR = mean_role
+                                        for(let kk = 0 ; kk < homeTeam3.length ; kk++){
+                                            if(homeTeam3[kk].order_key === 0 && homeTeam2[k].order_key === 0){
+                                                let main_role = homeTeam3[kk].primaryRole
+                                                let position = homeTeam3[kk].p_m_Role
+                                                let alt_role1 = homeTeam3[kk].altRole1
+                                                let alt_role2 = homeTeam3[kk].altRole2
+                                                let s_role2 = homeTeam2[kk].sRole2
+
+                                                if (alt_role1 === '...' || alt_role1 === '') {
+                                                    alt_role1 = ''
+                                                }
+                                                if (alt_role2 === '...' || alt_role2 === '') {
+                                                    alt_role2 = ''
+                                                }
+                                                if(((alt_role1 === s_role || alt_role1 === s_role12 || alt_role1 === s_role22) && (alt_role1 != '')) || ((alt_role2 === s_role || alt_role2 === s_role12 || alt_role2 === s_role22) && (alt_role2 != ''))){
+                                                    homeTeam2[k].Pname = homeTeam3[kk].Pname
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].marketValue = homeTeam3[kk].marketValue
+                                                    homeTeam2[k].playerId = homeTeam3[kk].playerId
+                                                    homeTeam2[k].formation_position = homeTeam3[kk].formation_position
+                                                    homeTeam2[k].teamId = homeTeam3[kk].teamId
+                                                    homeTeam2[k].mR1 = homeTeam3[kk].mR1
+                                                    homeTeam2[k].p_m_Role = homeTeam3[kk].p_m_Role
+                                                    homeTeam2[k].primaryRole = homeTeam3[kk].primaryRole
+                                                    homeTeam2[k].altRole1 = homeTeam3[kk].altRole1
+                                                    homeTeam2[k].altRole2 = homeTeam3[kk].altRole2
+                                                    homeTeam2[k].sub_order_color = homeTeam3[kk].sub_order_color
+                                                    homeTeam2[k].sub_minute = homeTeam3[kk].sub_minute
+                                                    homeTeam2[k].rule_color = 'pink'
+                                                    homeTeam2[k].Tit = homeTeam3[kk].Tit
+                                                    homeTeam2[k].order_key = 1
+                                                    homeTeam3[kk].order_key = 1
+                                                }
+                                            }
+                                        }
+                                    }
+console.log('homeTeam data check====!', homeTeam2, homeTeam3)
+                                    for(let k = 0 ; k < 11 ; k++){
+                                        if(homeTeam3[k].order_key === 0){
+                                            let mean_role = homeTeam3[k].mR
+                                            console.log('homeTeam3 mean_role check===!', homeTeam3[k].mR)
+                                            for(let kk = 0 ; kk < 11 ; kk++){
+                                                if(homeTeam2[kk].order_key === 0){
+                                                    let mean_role1 = homeTeam2[kk].mR
+                                                    console.log('homeTeam2 mean_role check===!', homeTeam2[k].mR)
+                                                    if(mean_role === 'DEF'){
+                                                        if(mean_role1 === 'DEF'){
+                                                            homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].rule_color = 'gray'
+                                                            homeTeam2[kk].order_key = 1
+                                                            homeTeam3[k].order_key = 1
+                                                        }
+                                                        else if(mean_role1 === 'MID'){
+                                                            homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].rule_color = 'gray'
+                                                            homeTeam2[kk].order_key = 1
+                                                            homeTeam3[k].order_key = 1
+                                                        }
+                                                        else if(mean_role1 === 'FWD'){
+                                                            homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].rule_color = 'gray'
+                                                            homeTeam2[kk].order_key = 1
+                                                            homeTeam3[k].order_key = 1
+                                                        }
+                                                    }
+                                                    else if(mean_role === 'MID'){
+                                                        if(mean_role1 === 'MID'){
+                                                            homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].rule_color = 'gray'
+                                                            homeTeam2[kk].order_key = 1
+                                                            homeTeam3[k].order_key = 1
+                                                        }
+                                                        else if(mean_role1 === 'FWD'){
+                                                            homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].rule_color = 'gray'
+                                                            homeTeam2[kk].order_key = 1
+                                                            homeTeam3[k].order_key = 1
+                                                        }
+                                                        else if(mean_role1 === 'DEF'){
+                                                            homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].rule_color = 'gray'
+                                                            homeTeam2[kk].order_key = 1
+                                                            homeTeam3[k].order_key = 1
+                                                        }
+                                                    }
+                                                    else if(mean_role === 'FWD'){
+                                                        if(mean_role1 === 'FWD'){
+                                                            homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].rule_color = 'gray'
+                                                            homeTeam2[kk].order_key = 1
+                                                            homeTeam3[k].order_key = 1
+                                                        }
+                                                        else if(mean_role1 === 'MID'){
+                                                            homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].rule_color = 'gray'
+                                                            homeTeam2[kk].order_key = 1
+                                                            homeTeam3[k].order_key = 1
+                                                        }
+                                                        else if(mean_role1 === 'DEF'){
+                                                            homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].rule_color = 'gray'
+                                                            homeTeam2[kk].order_key = 1
+                                                            homeTeam3[k].order_key = 1
+                                                        }
+                                                    }
+                                                    break
                                                 }
                                             }
                                         }
