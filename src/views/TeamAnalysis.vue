@@ -2393,7 +2393,7 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             // console.log('titularity==>', titularity[0])
                                             // console.log('Tit==>', Tit, ', Tit1=>', Tit1, ', Tit2=>', Tit2)
                                             if(away_team_played > 0){
-                                                Tit = minute/90/away_team_played
+                                                Tit = (minute/90/away_team_played*100).toFixed(2)
                                             }
                                             let rule_color = 'rgb(230,184,183)'
                                             // away pre formation part
