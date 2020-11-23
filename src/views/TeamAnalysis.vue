@@ -1332,7 +1332,6 @@
                                 let temp3 =  JSON.stringify(eventNode.homeTeam2)
                                 let homeTeam2 = JSON.parse(temp2)
                                 let homeTeam3 = JSON.parse(temp3)
-
                                 console.log('homeTeam2===>', homeTeam2, homeTeam3)
                                 for(let k = 0 ; k < homeTeam2.length ; k++){
                                     homeTeam2[k].order_key = 0
@@ -1566,7 +1565,7 @@
                                 for(let k = 0 ; k < eventNode.homeTeam.length ; k++){
                                     this.mainList[i].events[j].awayTeam1[k].sRole = this.mainList[i].events[j].awayTeam1[k].sRole1
                                     this.mainList[i].events[j].awayTeam1[k].mR = this.mainList[i].events[j].awayTeam1[k].mR1
-                                    this.mainList[i].events[j].awayTeam1[k].rule_color = 'rgb(230,184,183)'
+                                    this.mainList[i].events[j].awayTeam1[k].rule_color = this.mailList[i].events[j].awayTeam1[k].rule_color
                                 }
                             }
                         }
@@ -1614,7 +1613,6 @@
                         }
                     }
                     competitionArray = Array.from(new Set (competitionArray))
-
                     this.mainList = []
                     for(let i = 0 ; i < competitionArray.length; i++){
                         let countryCode = ''
