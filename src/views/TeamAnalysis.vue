@@ -1703,22 +1703,29 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             for(let kk = 0 ; kk < 11 ; kk++){
                                                 if(homeTeam2[kk].order_key === 0){
                                                     let mean_role1 = homeTeam2[kk].mR
+                                                    let s_role = homeTeam2[kk].sRole
                                                     console.log('homeTeam2 mean_role check===!', homeTeam2[k].mR)
                                                     if(mean_role === 'DEF'){
                                                         if(mean_role1 === 'DEF'){
                                                             homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].sRole = s_role
+                                                            homeTeam2[kk].mR = mean_role1
                                                             homeTeam2[kk].rule_color = 'gray'
                                                             homeTeam2[kk].order_key = 1
                                                             homeTeam3[k].order_key = 1
                                                         }
                                                         else if(mean_role1 === 'MID'){
                                                             homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].sRole = s_role
+                                                            homeTeam2[kk].mR = mean_role1
                                                             homeTeam2[kk].rule_color = 'gray'
                                                             homeTeam2[kk].order_key = 1
                                                             homeTeam3[k].order_key = 1
                                                         }
                                                         else if(mean_role1 === 'FWD'){
                                                             homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].sRole = s_role
+                                                            homeTeam2[kk].mR = mean_role1
                                                             homeTeam2[kk].rule_color = 'gray'
                                                             homeTeam2[kk].order_key = 1
                                                             homeTeam3[k].order_key = 1
@@ -1727,18 +1734,24 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                     else if(mean_role === 'MID'){
                                                         if(mean_role1 === 'MID'){
                                                             homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].sRole = s_role
+                                                            homeTeam2[kk].mR = mean_role1
                                                             homeTeam2[kk].rule_color = 'gray'
                                                             homeTeam2[kk].order_key = 1
                                                             homeTeam3[k].order_key = 1
                                                         }
                                                         else if(mean_role1 === 'FWD'){
                                                             homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].sRole = s_role
+                                                            homeTeam2[kk].mR = mean_role1
                                                             homeTeam2[kk].rule_color = 'gray'
                                                             homeTeam2[kk].order_key = 1
                                                             homeTeam3[k].order_key = 1
                                                         }
                                                         else if(mean_role1 === 'DEF'){
                                                             homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].sRole = s_role
+                                                            homeTeam2[kk].mR = mean_role1
                                                             homeTeam2[kk].rule_color = 'gray'
                                                             homeTeam2[kk].order_key = 1
                                                             homeTeam3[k].order_key = 1
@@ -1747,18 +1760,24 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                     else if(mean_role === 'FWD'){
                                                         if(mean_role1 === 'FWD'){
                                                             homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].sRole = s_role
+                                                            homeTeam2[kk].mR = mean_role1
                                                             homeTeam2[kk].rule_color = 'gray'
                                                             homeTeam2[kk].order_key = 1
                                                             homeTeam3[k].order_key = 1
                                                         }
                                                         else if(mean_role1 === 'MID'){
                                                             homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].sRole = s_role
+                                                            homeTeam2[kk].mR = mean_role1
                                                             homeTeam2[kk].rule_color = 'gray'
                                                             homeTeam2[kk].order_key = 1
                                                             homeTeam3[k].order_key = 1
                                                         }
                                                         else if(mean_role1 === 'DEF'){
                                                             homeTeam2[kk] = homeTeam3[k]
+                                                            homeTeam2[kk].sRole = s_role
+                                                            homeTeam2[kk].mR = mean_role1
                                                             homeTeam2[kk].rule_color = 'gray'
                                                             homeTeam2[kk].order_key = 1
                                                             homeTeam3[k].order_key = 1
