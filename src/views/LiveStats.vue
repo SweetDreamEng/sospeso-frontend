@@ -1,6 +1,11 @@
 <template>
     <div class="live-stats-container" style="min-width: 1275px;">
-        <CCard body-wrapper>
+        <div class="d-flex justify-content-center" style="height: 500px" v-if="!eventArray.length" >
+            <div class="spinner-border" role="status" style="margin: auto">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <CCard body-wrapper v-if="eventArray.length" >
             <CTabs variant="tabs" :active-tab="1">
                 <CTab :title="'Scheduled Games('+scheduleLength+')'">
                     <div v-for="item in scheduleArray" :key="item.league">
@@ -4258,6 +4263,10 @@
                                     if(data1[i].updateArray.away_tooltip){
                                         current_event.away_tooltip = data1[i].updateArray.away_tooltip
                                     }
+                                    // console.log('home_T', current_event.homeT)
+                                    // console.log('home_tooltip', current_event.home_tooltip)
+                                    // console.log('away_T', current_event.awayT)
+                                    // console.log('away_tooltip', current_event.away_tooltip)
                                     if(current_event.home.id === stats[0].team_id){
                                         current_event.home.score = data1[i].updateArray.scores.localteam_score
                                         current_event.away.score = data1[i].updateArray.scores.visitorteam_score
@@ -4581,9 +4590,9 @@
                                     }
                                     //------------------------------------------------------------------------------------------------
                                     this.eventArray[j].events[k] = current_event
-                                    console.log(this.eventArray[j].events[k].main_data.home_name)
-                                    console.log('home_tooltip', this.eventArray[j].events[k].home_tooltip)
-                                    console.log('away_tooltip', this.eventArray[j].events[k].away_tooltip)
+                                    // console.log(this.eventArray[j].events[k].main_data.home_name)
+                                    // console.log('home_tooltip', this.eventArray[j].events[k].home_tooltip)
+                                    // console.log('away_tooltip', this.eventArray[j].events[k].away_tooltip)
                                 }
                             }
                         }
