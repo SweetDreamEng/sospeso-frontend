@@ -2089,7 +2089,7 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             for(let p = 0 ; p < main_data[j].events.length ; p++){
                                                 let events = main_data[j].events[p]
                                                 for(let pp = 0 ; pp < events.events.length ; pp++){
-                                                    if(events.events[pp].localTeamId == localTeamId || events.events[pp].visitorteamId == localTeamId){
+                                                    if(events.events[pp].localteamId == localTeamId || events.events[pp].visitorteamId == localTeamId){
                                                         home_team_played++
                                                     }
                                                 }
@@ -2347,7 +2347,7 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             for(let p = 0 ; p < main_data[j].events.length ; p++){
                                                 let events = main_data[j].events[p]
                                                 for(let pp = 0 ; pp < events.events.length ; pp++){
-                                                    if(events.events[pp].localTeamId == visitTeamId || events.events[pp].visitorteamId == visitTeamId){
+                                                    if(events.events[pp].localteamId == visitTeamId || events.events[pp].visitorteamId == visitTeamId){
                                                         away_team_played++
                                                     }
                                                 }
