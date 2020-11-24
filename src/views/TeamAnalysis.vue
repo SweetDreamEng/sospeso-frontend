@@ -2086,21 +2086,7 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             let Tit1 = 0
                                             let Tit2 = 0
                                             let home_team_played = 0
-
-                                            let start_date = new Date();
-                                            let next_date = start_date.setDate(start_date.getDate() - 4);
-                                            next_date = new Date(next_date).toISOString()
-                                            next_date = next_date.substring(0,10)
-
-                                            for(let p = 0 ; p < main_data[j].events.length ; p++){
-                                                let events = main_data[j].events[p]
-                                                for(let pp = 0 ; pp < events.events.length ; pp++){
-                                                    if((events.events[pp].localteamId == localTeamId || events.events[pp].visitorteamId == localTeamId) && (events.events[pp].date < next_date)){
-                                                        home_team_played++
-                                                        console.log('+++++', home_team_played, next_date, events.events[pp].date)
-                                                    }
-                                                }
-                                            }
+                                                home_team_played = main_data[j].home_events_number
                                             let minute = 0
                                             if(titularity[0]){
                                                 let appearences = titularity[0].appearences
@@ -2110,7 +2096,6 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                 let presences = titularity[0].appearences
 
                                                 minute = titularity[0].minutes
-
                                                 // if(lineups !== null && appearences !== null){
                                                 //     Tit1 = lineups/appearences*100
                                                 // }
@@ -2350,20 +2335,8 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                 })
                                             }
 
-                                            let start_date = new Date();
-                                            let next_date = start_date.setDate(start_date.getDate() - 4);
-                                            next_date = new Date(next_date).toISOString()
-                                            next_date = next_date.substring(0,10)
-
                                             let away_team_played = 0
-                                            for(let p = 0 ; p < main_data[j].events.length ; p++){
-                                                let events = main_data[j].events[p]
-                                                for(let pp = 0 ; pp < events.events.length ; pp++){
-                                                    if((events.events[pp].localteamId == visitTeamId || events.events[pp].visitorteamId == visitTeamId) && (events.events[pp].date < next_date)){
-                                                        away_team_played++
-                                                    }
-                                                }
-                                            }
+                                            away_team_played = main_data[j].away_events_number
                                             let minute = 0
                                             if(titularity[0]){
                                                 let appearences = titularity[0].appearences
