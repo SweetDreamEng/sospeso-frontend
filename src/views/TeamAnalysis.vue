@@ -2088,7 +2088,7 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             let home_team_played = 0
 
                                             let start_date = new Date();
-                                            let next_date = start_date.setDate(start_date.getDate() - 3);
+                                            let next_date = start_date.setDate(start_date.getDate() - 4);
                                             next_date = new Date(next_date).toISOString()
                                             next_date = next_date.substring(0,10)
 
@@ -2351,7 +2351,7 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             }
 
                                             let start_date = new Date();
-                                            let next_date = start_date.setDate(start_date.getDate() - 3);
+                                            let next_date = start_date.setDate(start_date.getDate() - 4);
                                             next_date = new Date(next_date).toISOString()
                                             next_date = next_date.substring(0,10)
 
