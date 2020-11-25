@@ -1949,6 +1949,18 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                 return item.team_id == localTeamId && item.market_values.length > 0;
                                             });
 
+                                            let player_birthday = ''
+                                            let titularity1 = main_data[j].local_players[0].titularity.filter(function(item) {
+                                                return item.player_id === main_data[j].lineup.data[k].player_id;
+                                            })
+                                            if(titularity1.length > 0){
+                                                if(titularity1[0].player){
+                                                    player_birthday = titularity1[0].player.data.birthdate
+                                                }
+                                            }
+                                            if(player_birthday === "NaN/NaN/NaN"){
+                                                player_birthday = ''
+                                            }
                                             if(local_players.length > 0){
                                                 let values = local_players[0].market_values.filter(function(item) {
                                                     return item.player_number == main_data[j].lineup.data[k].number;
@@ -1966,16 +1978,22 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                         market_player_name = value[0].player_name
                                                     }
                                                     else{
+                                                        // let value0 = local_players[0].market_values.filter(function(item) {
+                                                        //     return item.player_name.trim().substring(item.player_name.trim().length - 4, item.player_name.trim().length) == main_data[j].lineup.data[k].player_name.substring(main_data[j].lineup.data[k].player_name.length - 4, main_data[j].lineup.data[k].player_name.length) && player_birthday == item.player_birthday ;
+                                                        // });
                                                         let value0 = local_players[0].market_values.filter(function(item) {
-                                                            return item.player_name.trim().substring(item.player_name.trim().length - 4, item.player_name.trim().length) == main_data[j].lineup.data[k].player_name.substring(main_data[j].lineup.data[k].player_name.length - 4, main_data[j].lineup.data[k].player_name.length);
+                                                            return player_birthday == item.player_birthday ;
                                                         });
                                                         if(value0.length > 0){
                                                             market_value = value0[0].player_marketvalue
                                                             market_player_name = value0[0].player_name
                                                         }
                                                         else{
+                                                            // let value1 = local_players[0].market_values.filter(function(item) {
+                                                            //     return item.player_name.trim().substring(0, 3) == main_data[j].lineup.data[k].player_name.substring(0, 3) && player_birthday == item.player_birthday;
+                                                            // });
                                                             let value1 = local_players[0].market_values.filter(function(item) {
-                                                                return item.player_name.trim().substring(0, 3) == main_data[j].lineup.data[k].player_name.substring(0, 3);
+                                                                return player_birthday == item.player_birthday;
                                                             });
                                                             if(value1.length > 0){
                                                                 market_value = value1[0].player_marketvalue
@@ -2083,48 +2101,12 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                 return item.player_id === main_data[j].lineup.data[k].player_id;
                                             })
 
-                                            let Tit1 = 0
-                                            let Tit2 = 0
                                             let home_team_played = 0
                                                 home_team_played = main_data[j].home_events_number
                                             let minute = 0
                                             if(titularity[0]){
-                                                let appearences = titularity[0].appearences
-                                                let lineups = titularity[0].lineups
-                                                let substitute_in = titularity[0].substitute_in
-                                                let substitute_out = titularity[0].substitute_out
-                                                let presences = titularity[0].appearences
-
                                                 minute = titularity[0].minutes
-                                                // if(lineups !== null && appearences !== null){
-                                                //     Tit1 = lineups/appearences*100
-                                                // }
-                                                // if(presences !== null && substitute_in !== null && substitute_out !== null){
-                                                //     Tit2 = (lineups + substitute_out - substitute_in)/presences*100
-                                                // }
-                                                // if(Tit2 != 0 && Tit1 != 0){
-                                                //     Tit = (Tit1 + Tit2)/2
-                                                // }
-                                                // if(Tit2 == 0 && Tit1 != 0){
-                                                //     Tit = Tit1
-                                                // }
                                             }
-                                            // if(Tit1 == 0 && Tit2 == 0){
-                                            //     Tit = '##'
-                                            // }
-                                            // else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
-                                            //     Tit = (0).toFixed(2)
-                                            // }
-                                            // else if(Tit > 0 && Tit <= 100){
-                                            //     let Tit3 = Tit
-                                            //     Tit = Tit3.toFixed(2)
-                                            // }
-                                            // else if(Tit < 0){
-                                            //     Tit = (0).toFixed(2)
-                                            // }
-                                            // else if(Tit > 100){
-                                            //     Tit = (100).toFixed(2)
-                                            // }
                                             if(home_team_played > 0){
                                                 Tit = (minute/90/home_team_played*100).toFixed(2) + ', ' + home_team_played
                                             }
@@ -2211,9 +2193,23 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             let main_role = '...'
                                             let alt_role1 = '...'
                                             let alt_role2 = '...'
+                                            let market_player_name = '...'
                                             let local_players = main_data[j].visitor_players.filter(function(item) {
                                                 return item.team_id == visitTeamId && item.market_values.length > 0;
                                             });
+
+                                            let player_birthday = ''
+                                            let titularity1 = main_data[j].local_players[0].titularity.filter(function(item) {
+                                                return item.player_id === main_data[j].lineup.data[k].player_id;
+                                            })
+                                            if(titularity1.length > 0){
+                                                if(titularity1[0].player){
+                                                    player_birthday = titularity1[0].player.data.birthdate
+                                                }
+                                            }
+                                            if(player_birthday === "NaN/NaN/NaN"){
+                                                player_birthday = ''
+                                            }
 
                                             if(local_players.length > 0){
                                                 let values = local_players[0].market_values.filter(function(item) {
@@ -2221,6 +2217,7 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                 });
                                                 if(values.length > 0){
                                                     market_value = values[0].player_marketvalue
+                                                    market_player_name  = values[0].player_name
                                                 }
                                                 else{
                                                     let value = local_players[0].market_values.filter(function(item) {
@@ -2228,20 +2225,29 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                     });
                                                     if(value.length > 0){
                                                         market_value = value[0].player_marketvalue
+                                                        market_player_name  = value[0].player_name
                                                     }
                                                     else{
+                                                        // let value0 = local_players[0].market_values.filter(function(item) {
+                                                        //     return item.player_name.substring(item.player_name.length - 4, item.player_name.length) == main_data[j].lineup.data[k].player_name.substring(main_data[j].lineup.data[k].player_name.length - 4, main_data[j].lineup.data[k].player_name.length) && player_birthday == item.player_birthday;
+                                                        // });
                                                         let value0 = local_players[0].market_values.filter(function(item) {
-                                                            return item.player_name.substring(item.player_name.length - 4, item.player_name.length) == main_data[j].lineup.data[k].player_name.substring(main_data[j].lineup.data[k].player_name.length - 4, main_data[j].lineup.data[k].player_name.length);
+                                                            return player_birthday == item.player_birthday;
                                                         });
                                                         if(value0.length > 0){
                                                             market_value = value0[0].player_marketvalue
+                                                            market_player_name  = value0[0].player_name
                                                         }
                                                         else{
+                                                            // let value1 = local_players[0].market_values.filter(function(item) {
+                                                            //     return item.player_name.substring(0, 3) == main_data[j].lineup.data[k].player_name.substring(0, 3) && player_birthday == item.player_birthday;
+                                                            // });
                                                             let value1 = local_players[0].market_values.filter(function(item) {
-                                                                return item.player_name.substring(0, 3) == main_data[j].lineup.data[k].player_name.substring(0, 3);
+                                                                return player_birthday == item.player_birthday;
                                                             });
                                                             if(value1.length > 0){
                                                                 market_value = value1[0].player_marketvalue
+                                                                market_player_name  = value1[0].player_name
                                                             }
                                                         }
                                                     }
@@ -2263,7 +2269,7 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                                 }
                                                 else{
                                                     let names = local_players[0].roles.filter(function(item) {
-                                                        return item.player_name == main_data[j].lineup.data[k].player_name;
+                                                        return item.player_name == main_data[j].lineup.data[k].player_name || market_player_name  == item.player_name;
                                                     });
                                                     if(names.length > 0){
                                                         main_role = names[0].player_main_role
@@ -2326,8 +2332,6 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             else if(main_role == 'CF'){ position = 'FWD' }
 
                                             let Tit = (0).toFixed(2)
-                                            let Tit1 = 0
-                                            let Tit2 = 0
                                             let titularity = []
                                             if(main_data[j].visitor_players.length > 0){
                                                 titularity = main_data[j].visitor_players[0].titularity.filter(function(item) {
@@ -2339,43 +2343,8 @@ console.log('homeTeam data check====!', homeTeam2, homeTeam3)
                                             away_team_played = main_data[j].away_events_number
                                             let minute = 0
                                             if(titularity[0]){
-                                                let appearences = titularity[0].appearences
-                                                let lineups = titularity[0].lineups
-                                                let substitute_in = titularity[0].substitute_in
-                                                let substitute_out = titularity[0].substitute_out
-                                                let presences = titularity[0].appearences
                                                 minute = titularity[0].minutes
-                                                // if(lineups !== null && appearences !== null){
-                                                //     Tit1 = lineups/appearences*100
-                                                // }
-                                                // if(presences !== null && substitute_in !== null && substitute_out !== null){
-                                                //     Tit2 = (lineups + substitute_out - substitute_in)/presences*100
-                                                // }
-                                                // if(Tit2 != 0 && Tit1 != 0){
-                                                //     Tit = (Tit1 + Tit2)/2
-                                                // }
-                                                // if(Tit2 == 0 && Tit1 != 0){
-                                                //     Tit = Tit1
-                                                // }
                                             }
-                                            // if(Tit1 == 0 && Tit2 == 0){
-                                            //     Tit = '##'
-                                            // }
-                                            // else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
-                                            //     Tit = (0).toFixed(2)
-                                            // }
-                                            // else if(Tit > 0 && Tit <= 100){
-                                            //     let Tit3 = Tit
-                                            //     Tit = Tit3.toFixed(2)
-                                            // }
-                                            // else if(Tit < 0){
-                                            //     Tit = (0).toFixed(2)
-                                            // }
-                                            // else if(Tit > 100){
-                                            //     Tit = (100).toFixed(2)
-                                            // }
-                                            // console.log('titularity==>', titularity[0])
-                                            // console.log('Tit==>', Tit, ', Tit1=>', Tit1, ', Tit2=>', Tit2)
                                             if(away_team_played > 0){
                                                 Tit = (minute/90/away_team_played*100).toFixed(2) + ', ' + away_team_played
                                             }
