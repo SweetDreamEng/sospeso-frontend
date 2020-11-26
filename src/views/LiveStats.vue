@@ -63,39 +63,12 @@
                                     <div class="detail">
                                         Poss
                                     </div>
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Pas-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Acc-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Atk-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Ofs-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Sav-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Sbst-->
-                                    <!--                                        </div>-->
                                     <div class="detail">
                                         Red
                                     </div>
                                     <div class="detail" style="width: 4%;">
                                         Rtg
                                     </div>
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Fou-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail" style="min-width: 30px;">-->
-                                    <!--                                            G_att-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Safe-->
-                                    <!--                                        </div>-->
                                 </div>
                             </div>
                             <div class="header-content detail_total" style="width: 26%; height: 50px; float: left; border-left: 1px solid whitesmoke">
@@ -125,39 +98,12 @@
                                     <div class="detail" style="min-width: 32px;">
                                         Poss
                                     </div>
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Pas-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Acc-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Atk-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Ofs-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Sav-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Sbst-->
-                                    <!--                                        </div>-->
                                     <div class="detail" style="min-width: 30px;">
                                         Goals
                                     </div>
                                     <div class="detail" style="width: 4%;">
                                         Rtg
                                     </div>
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Fou-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail" style="min-width: 30px;">-->
-                                    <!--                                            G_att-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Safe-->
-                                    <!--                                        </div>-->
                                 </div>
                             </div>
                             <div class="header-content" style="width: 10%; height: 50px; float: left; border-left: 1px solid whitesmoke">
@@ -733,7 +679,7 @@
                             </div>
                             <!--  home team data part  last 10 minutes-->
                             <CCollapse
-                                    :show="isCollapsed1(item1.index0)" class="mt-0"
+                                v-if="isCollapsed1(item1.index0)" :show="isCollapsed1(item1.index0)" class="mt-0"
                             >
                                 <div class = "bottom-part bottom-part1">
                                     <div class="header" style="width: 100%; height: 50px;">
@@ -3396,36 +3342,6 @@
                 finishedArray:[],
                 finishedLength:0,
                 collapsed1:[],
-                // data:[
-                //     {
-                //         x: [1,2,3,4],
-                //         y: [10,15,13,17],
-                //         type:"bar",
-                //         name: 'Trace1',
-                //         showarrow: false,
-                //         marker: {
-                //             color: 'rgba(50,171, 96, 0.7)',
-                //             line: {
-                //                 color: 'rgba(50,171,96,1.0)',
-                //                 width: 1
-                //             }
-                //         }
-                //     },
-                //     {
-                //         x: [1,2,3,4],
-                //         y: [-10,-15,-13,-17],
-                //         overlaying: 'y',
-                //         type:"bar",
-                //         name: 'Trace2',
-                //         showarrow: false
-                //     },
-                // ],
-                // layout:{
-                //     title: "My graph",
-                //     showlegend: true,
-                //     barmode: 'relative',
-                //     showarrow: false
-                // }
                 data: [{ x: [1, 3], y: [2, 4] },{ x: [1, 4], y: [2, 6] }],
                 layout: {},
                 options: {}
@@ -3451,7 +3367,6 @@
             },
             readData(){
                 window.axios.post(`${process.env.VUE_APP_URL}getLiveStats`).then(({data})=> {
-
                     this.liveDataArray = data.data[1]
                     let main_data = data.data[0]
                     let competitionArray = []
@@ -3465,6 +3380,7 @@
                         }
                     }
                     competitionArray = Array.from(new Set (competitionArray))
+
                     let k = 0
                     this.eventArray = []
                     for(let i = 0 ; i < competitionArray.length ; i++){
@@ -3475,7 +3391,6 @@
                             if(current_main_data.stats.length > 0 && current_main_data.competitions.length){
                                 if((current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'LIVE') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'HT') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'ET')){
                                     // console.log(current_main_data)
-
                                     let home = {
                                         'id': 0,
                                         'on': 0,
@@ -3615,6 +3530,9 @@
                                     away.id = current_main_data.away_id
                                     let home_poss_index = 0
                                     let away_poss_index = 0
+
+                                    let current_data_stats0
+                                    let current_data_stats1
                                     if(current_main_data.season_stats.length > 0){
                                         for(let u = 0 ; u < current_main_data.season_stats.length ; u++){
                                             if(current_main_data.season_stats[u].stats){
@@ -3624,113 +3542,115 @@
                                                         if (!!stats.stats)
                                                             stats = stats.stats
                                                         if(stats[0]){
-                                                            if(stats[0].team_id == home.id){
+                                                            current_data_stats0 = stats[0]
+                                                            current_data_stats1 = stats[1]
+                                                            if(current_data_stats0.team_id == home.id){
                                                                 home_p++
-                                                                if(stats[0].shots){
-                                                                    home_season.on = home_season.on + stats[0].shots.ongoal
-                                                                    home_season.off = home_season.off + stats[0].shots.offgoal
-                                                                    home_season.block = home_season.block + stats[0].shots.block
-                                                                    home_season.in = home_season.in + stats[0].shots.insidebox
-                                                                    home_season.out = home_season.out + stats[0].shots.outsidebox
+                                                                if(current_data_stats0.shots){
+                                                                    home_season.on = home_season.on + current_data_stats0.shots.ongoal
+                                                                    home_season.off = home_season.off + current_data_stats0.shots.offgoal
+                                                                    home_season.block = home_season.block + current_data_stats0.shots.block
+                                                                    home_season.in = home_season.in + current_data_stats0.shots.insidebox
+                                                                    home_season.out = home_season.out + current_data_stats0.shots.outsidebox
                                                                 }
 
-                                                                if(stats[0].goals){
-                                                                    home_season.goals = home_season.goals + stats[0].goals
+                                                                if(current_data_stats0.goals){
+                                                                    home_season.goals = home_season.goals + current_data_stats0.goals
                                                                 }
-                                                                if(stats[0].corners != null){
-                                                                    home_season.cnr = home_season.cnr + stats[0].corners
+                                                                if(current_data_stats0.corners != null){
+                                                                    home_season.cnr = home_season.cnr + current_data_stats0.corners
                                                                 }
-                                                                if(stats[0].attacks != null){
-                                                                    home_season.da = home_season.da + stats[0].attacks.dangerous_attacks
+                                                                if(current_data_stats0.attacks != null){
+                                                                    home_season.da = home_season.da + current_data_stats0.attacks.dangerous_attacks
                                                                 }
-                                                                if(stats[0].possessiontime){
+                                                                if(current_data_stats0.possessiontime){
                                                                     home_poss_index++
-                                                                    home_season.pos = home_season.pos + stats[0].possessiontime
+                                                                    home_season.pos = home_season.pos + current_data_stats0.possessiontime
                                                                 }
-                                                                if(stats[0].passes){
-                                                                    home_season.pas = home_season.pas + stats[0].passes.total
+                                                                if(current_data_stats0.passes){
+                                                                    home_season.pas = home_season.pas + current_data_stats0.passes.total
                                                                 }
-                                                                if(stats[0].passes){
-                                                                    home_season.acc = home_season.acc + stats[0].passes.accurate
+                                                                if(current_data_stats0.passes){
+                                                                    home_season.acc = home_season.acc + current_data_stats0.passes.accurate
                                                                 }
-                                                                if(stats[0].attacks){
-                                                                    home_season.atk = home_season.atk + stats[0].attacks.attacks
+                                                                if(current_data_stats0.attacks){
+                                                                    home_season.atk = home_season.atk + current_data_stats0.attacks.attacks
                                                                 }
-                                                                if(stats[0].offsides){
-                                                                    home_season.ofs = home_season.ofs + stats[0].offsides
+                                                                if(current_data_stats0.offsides){
+                                                                    home_season.ofs = home_season.ofs + current_data_stats0.offsides
                                                                 }
-                                                                if(stats[0].saves){
-                                                                    home_season.sav = home_season.sav + stats[0].saves
+                                                                if(current_data_stats0.saves){
+                                                                    home_season.sav = home_season.sav + current_data_stats0.saves
                                                                 }
-                                                                if(stats[0].saves){
-                                                                    home_season.sbst = home_season.sbst + stats[0].substitutions
+                                                                if(current_data_stats0.saves){
+                                                                    home_season.sbst = home_season.sbst + current_data_stats0.substitutions
                                                                 }
-                                                                if(stats[0].fouls){
-                                                                    home_season.fou = home_season.fou + stats[0].fouls
+                                                                if(current_data_stats0.fouls){
+                                                                    home_season.fou = home_season.fou + current_data_stats0.fouls
                                                                 }
-                                                                if(stats[0].goal_attempts){
-                                                                    home_season.g_att = home_season.g_att + stats[0].goal_attempts
+                                                                if(current_data_stats0.goal_attempts){
+                                                                    home_season.g_att = home_season.g_att + current_data_stats0.goal_attempts
                                                                 }
-                                                                if(stats[0].ball_safe){
-                                                                    home_season.safe = home_season.safe + stats[0].ball_safe
+                                                                if(current_data_stats0.ball_safe){
+                                                                    home_season.safe = home_season.safe + current_data_stats0.ball_safe
                                                                 }
                                                             }
-                                                            if(stats[1].team_id == away.id){
+                                                            if(current_data_stats1.team_id == away.id){
                                                                 away_p++
-                                                                if(stats[1].shots){
-                                                                    away_season.on = home_season.on + stats[1].shots.ongoal
-                                                                    away_season.off = home_season.off + stats[1].shots.offgoal
+                                                                if(current_data_stats1.shots){
+                                                                    away_season.on = home_season.on + current_data_stats1.shots.ongoal
+                                                                    away_season.off = home_season.off + current_data_stats1.shots.offgoal
 
-                                                                    if(stats[0].shots.block != null){
-                                                                        away_season.block = home_season.block + stats[1].shots.block
+                                                                    if(current_data_stats0.shots.block != null){
+                                                                        away_season.block = home_season.block + current_data_stats1.shots.block
                                                                     }
-                                                                    if(stats[0].shots.insidebox != null){
-                                                                        away_season.in = home_season.in + stats[1].shots.insidebox
+                                                                    if(current_data_stats0.shots.insidebox != null){
+                                                                        away_season.in = home_season.in + current_data_stats1.shots.insidebox
                                                                     }
-                                                                    if(stats[0].shots.outsidebox != null){
-                                                                        away_season.out = home_season.out + stats[1].shots.outsidebox
+                                                                    if(current_data_stats0.shots.outsidebox != null){
+                                                                        away_season.out = home_season.out + current_data_stats1.shots.outsidebox
                                                                     }
                                                                 }
-                                                                if(stats[1].goals){
-                                                                    away_season.goals = away_season.goals + stats[1].goals
+                                                                if(current_data_stats1.goals){
+                                                                    away_season.goals = away_season.goals + current_data_stats1.goals
                                                                 }
 
-                                                                if(stats[0].corners != null){
-                                                                    away_season.cnr = home_season.cnr + stats[1].corners
+                                                                if(current_data_stats0.corners != null){
+                                                                    away_season.cnr = home_season.cnr + current_data_stats1.corners
                                                                 }
-                                                                if(stats[0].attacks != null){
-                                                                    away_season.da = home_season.da + stats[1].attacks.dangerous_attacks
+                                                                if(current_data_stats0.attacks != null){
+                                                                    away_season.da = home_season.da + current_data_stats1.attacks.dangerous_attacks
                                                                 }
-                                                                if(stats[0].possessiontime){
+                                                                if(current_data_stats0.possessiontime){
                                                                     away_poss_index++
-                                                                    away_season.pos = home_season.pos + stats[1].possessiontime
+                                                                    away_season.pos = home_season.pos + current_data_stats1.possessiontime
                                                                 }
-                                                                if(stats[0].passes){
-                                                                    away_season.pas = home_season.pas + stats[1].passes.total
+                                                                if(current_data_stats0.passes){
+                                                                    away_season.pas = home_season.pas + current_data_stats1.passes.total
                                                                 }
-                                                                if(stats[0].passes){
-                                                                    away_season.acc = home_season.acc + stats[1].passes.accurate
+                                                                if(current_data_stats0.passes){
+                                                                    away_season.acc = home_season.acc + current_data_stats1.passes.accurate
                                                                 }
-                                                                if(stats[0].attacks){
-                                                                    away_season.atk = home_season.atk + stats[1].attacks.attacks
+                                                                if(current_data_stats0.attacks){
+                                                                    away_season.atk = home_season.atk + current_data_stats1.attacks.attacks
                                                                 }
-                                                                if(stats[0].offsides){
-                                                                    away_season.ofs = home_season.ofs + stats[1].offsides
+                                                                if(current_data_stats0.offsides){
+                                                                    away_season.ofs = home_season.ofs + current_data_stats1.offsides
                                                                 }
-                                                                if(stats[0].saves){
-                                                                    away_season.sav = home_season.sav + stats[1].saves
+                                                                if(current_data_stats0.saves){
+                                                                    away_season.sav = home_season.sav + current_data_stats1.saves
                                                                 }
-                                                                if(stats[0].saves){
-                                                                    away_season.sbst = home_season.sbst + stats[1].substitutions
+                                                                if(current_data_stats0.saves){
+                                                                    away_season.sbst = home_season.sbst + current_data_stats1.substitutions
                                                                 }
-                                                                if(stats[0].fouls){
-                                                                    away_season.fou = home_season.fou + stats[1].fouls
+                                                                if(current_data_stats0.fouls){
+                                                                    away_season.fou = home_season.fou + current_data_stats1.fouls
                                                                 }
-                                                                if(stats[0].goal_attempts){
-                                                                    away_season.g_att = home_season.g_att + stats[1].goal_attempts
+                                                                if(current_data_stats0.goal_attempts){
+                                                                    away_season.g_att = home_season.g_att + current_data_stats1.goal_attempts
                                                                 }
-                                                                if(stats[0].ball_safe){
-                                                                    away_season.safe = home_season.safe + stats[1].ball_safe
+                                                                if(current_data_stats0.ball_safe){
+                                                                    away_season.safe = home_season.safe + current_data_stats1.ball_safe
                                                                 }
                                                             }
                                                         }
@@ -3779,235 +3699,247 @@
                                     }
 
                                     //---------Last 10 min Part----------//
-                                    let stats = current_main_data.stats;
-                                    let stats_ten = current_main_data.stats_ten;
+                                    let stats = current_main_data.stats
+                                    let stats_ten = current_main_data.stats_ten
+                                    let current_data_home_stats, current_data_away_stats, current_data_home_stats_ten, current_data_away_stats_ten
                                     if (stats_ten) {
                                         // console.log('stats_ten', stats_ten)
                                         // if(!stats_ten[0]){return}
                                         if(stats_ten.length && stats_ten[0].length > 0){
                                             if (current_main_data.home_id == stats_ten[0][0].team_id) {
-                                                if(stats[0].shots && stats_ten[0][0].shots){
-                                                    home.on = stats[0].shots.ongoal - stats_ten[0][0].shots.ongoal
-                                                    away.on = stats[1].shots.ongoal - stats_ten[0][1].shots.ongoal
-                                                    home.off = stats[0].shots.offgoal - stats_ten[0][0].shots.offgoal
-                                                    away.off = stats[1].shots.offgoal - stats_ten[0][1].shots.offgoal
-                                                    if(stats[0].shots.blocked){
-                                                        home.blk = stats[0].shots.blocked - stats_ten[0][0].shots.blocked
-                                                        away.blk = stats[1].shots.blocked - stats_ten[0][1].shots.blocked
+                                                current_data_home_stats = stats[0]
+                                                current_data_away_stats = stats[1]
+                                                current_data_home_stats_ten = stats_ten[0][0]
+                                                current_data_away_stats_ten = stats_ten[0][1]
+
+                                                if(current_data_home_stats.shots && current_data_home_stats_ten.shots){
+                                                    home.on = current_data_home_stats.shots.ongoal - current_data_home_stats_ten.shots.ongoal
+                                                    away.on = current_data_home_stats_ten.shots.ongoal - current_data_away_stats_ten.shots.ongoal
+                                                    home.off = current_data_home_stats.shots.offgoal - current_data_home_stats_ten.shots.offgoal
+                                                    away.off = current_data_away_stats.shots.offgoal - current_data_away_stats_ten.shots.offgoal
+                                                    if(current_data_home_stats.shots.blocked){
+                                                        home.blk = current_data_home_stats.shots.blocked - current_data_home_stats_ten.shots.blocked
+                                                        away.blk = current_data_away_stats.shots.blocked - current_data_away_stats_ten.shots.blocked
                                                     }
                                                     else{
                                                         home.blk = null
                                                         away.blk = null
                                                     }
-                                                    if(stats[0].shots.insidebox){
-                                                        home.in = stats[0].shots.insidebox - stats_ten[0][0].shots.insidebox
-                                                        away.in = stats[1].shots.insidebox - stats_ten[0][1].shots.insidebox
+                                                    if(current_data_home_stats.shots.insidebox){
+                                                        home.in = current_data_home_stats.shots.insidebox - current_data_home_stats_ten.shots.insidebox
+                                                        away.in = current_data_away_stats.shots.insidebox - current_data_away_stats_ten.shots.insidebox
                                                     }
                                                     else{
                                                         home.in = null
                                                         away.in = null
                                                     }
-                                                    if(stats[0].shots.outsidebox){
-                                                        home.out = stats[0].shots.outsidebox - stats_ten[0][0].shots.outsidebox
-                                                        away.out = stats[1].shots.outsidebox - stats_ten[0][1].shots.outsidebox
+                                                    if(current_data_home_stats.shots.outsidebox){
+                                                        home.out = current_data_home_stats.shots.outsidebox - current_data_home_stats_ten.shots.outsidebox
+                                                        away.out = current_data_away_stats.shots.outsidebox - current_data_away_stats_ten.shots.outsidebox
                                                     }
                                                 }
 
-                                                home.cnr = stats[0].corners - stats_ten[0][0].corners
-                                                away.cnr = stats[1].corners - stats_ten[0][1].corners
-                                                if (!stats[0].corners) {
+                                                home.cnr = current_data_home_stats.corners - current_data_home_stats_ten.corners
+                                                away.cnr = current_data_away_stats.corners - current_data_away_stats_ten.corners
+                                                if (!current_data_home_stats.corners) {
                                                     home.cnr = null
                                                     away.cnr = null
                                                 }
 
-                                                if(stats[0].attacks && stats_ten[0][0].attacks){
-                                                    home.da = stats[0].attacks.dangerous_attacks - stats_ten[0][0].attacks.dangerous_attacks
-                                                    away.da = stats[1].attacks.dangerous_attacks - stats_ten[0][1].attacks.dangerous_attacks
+                                                if(current_data_home_stats.attacks && current_data_home_stats_ten.attacks){
+                                                    home.da = current_data_home_stats.attacks.dangerous_attacks - current_data_home_stats_ten.attacks.dangerous_attacks
+                                                    away.da = current_data_away_stats.attacks.dangerous_attacks - current_data_away_stats_ten.attacks.dangerous_attacks
 
-                                                    home.atk = stats[0].attacks.attacks - stats_ten[0][0].attacks.attacks
-                                                    away.atk = stats[1].attacks.attacks - stats_ten[0][1].attacks.attacks
+                                                    home.atk = current_data_home_stats.attacks.attacks - current_data_home_stats_ten.attacks.attacks
+                                                    away.atk = current_data_away_stats.attacks.attacks - current_data_away_stats_ten.attacks.attacks
                                                 }
 
-                                                home.goal = stats[0].goals - stats_ten[0][0].goals
-                                                away.goal = stats[1].goals - stats_ten[0][1].goals
+                                                home.goal = current_data_home_stats.goals - current_data_home_stats_ten.goals
+                                                away.goal = current_data_away_stats.goals - current_data_away_stats_ten.goals
 
-                                                home.poss = stats_ten[0][0].possessiontime
+                                                home.poss = current_data_home_stats_ten.possessiontime
                                                 away.poss = 100 - home.poss
                                                 if (home.poss === null || home.poss === 0) {
                                                     away.poss = 0
                                                 }
 
-                                                if (stats[0].passes && stats_ten[0][0].passes) {
-                                                    home.pas = stats[0].passes.total - stats_ten[0][0].passes.total
-                                                    away.pas = stats[1].passes.total - stats_ten[0][1].passes.total
+                                                if (current_data_home_stats.passes && current_data_home_stats_ten.passes) {
+                                                    home.pas = current_data_home_stats.passes.total - current_data_home_stats_ten.passes.total
+                                                    away.pas = current_data_away_stats.passes.total - current_data_away_stats_ten.passes.total
                                                 } else {
                                                     home.pas = null
                                                     away.pas = null
                                                 }
 
-                                                if (stats[0].passes && stats_ten[0][0].passes) {
-                                                    home.acc = stats[0].passes.accurate - stats_ten[0][0].passes.accurate
-                                                    away.acc = stats[1].passes.accurate - stats_ten[0][1].passes.accurate
+                                                if (current_data_home_stats.passes && current_data_home_stats_ten.passes) {
+                                                    home.acc = current_data_home_stats.passes.accurate - current_data_home_stats_ten.passes.accurate
+                                                    away.acc = current_data_away_stats.passes.accurate - current_data_away_stats_ten.passes.accurate
                                                 } else {
                                                     home.acc = null
                                                     away.acc = null
                                                 }
 
-                                                home.ofs = stats[0].offsides - stats_ten[0][0].offsides
-                                                away.ofs = stats[1].offsides - stats_ten[0][1].offsides
+                                                home.ofs = current_data_home_stats.offsides - current_data_home_stats_ten.offsides
+                                                away.ofs = current_data_away_stats.offsides - current_data_away_stats_ten.offsides
 
-                                                if (!stats[0].offsides) {
+                                                if (!current_data_home_stats.offsides) {
                                                     home.ofs = null
                                                     away.ofs = null
                                                 }
-                                                home.sav = stats[0].saves - stats_ten[0][0].saves
-                                                away.sav = stats[1].saves - stats_ten[0][1].saves
-                                                if (!stats[0].saves) {
+                                                home.sav = current_data_home_stats.saves - current_data_home_stats_ten.saves
+                                                away.sav = current_data_away_stats.saves - current_data_away_stats_ten.saves
+                                                if (!current_data_home_stats.saves) {
                                                     home.sav = null
                                                     away.sav = null
                                                 }
-                                                if (stats[0].substitutions != null) {
-                                                    home.sbst = stats[0].substitutions - stats_ten[0][0].substitutions
-                                                    away.sbst = stats[1].substitutions - stats_ten[0][1].substitutions
+                                                if (current_data_home_stats.substitutions != null) {
+                                                    home.sbst = current_data_home_stats.substitutions - current_data_home_stats_ten.substitutions
+                                                    away.sbst = current_data_away_stats.substitutions - current_data_away_stats_ten.substitutions
                                                 } else {
                                                     home.sbst = null
                                                     away.sbst = null
                                                 }
 
-                                                home.red = stats[0].redcards - stats_ten[0][0].redcards
-                                                away.red = stats[1].redcards - stats_ten[0][1].redcards
-                                                if (!stats[0].redcards) {
+                                                home.red = current_data_home_stats.redcards - current_data_home_stats_ten.redcards
+                                                away.red = current_data_away_stats.redcards - current_data_away_stats_ten.redcards
+                                                if (!current_data_home_stats.redcards) {
                                                     home.red = null
                                                     away.red = null
                                                 }
-                                                home.fou = stats[0].fouls - stats_ten[0][0].fouls
-                                                away.fou = stats[1].fouls - stats_ten[0][1].fouls
+                                                home.fou = current_data_home_stats.fouls - current_data_home_stats_ten.fouls
+                                                away.fou = current_data_away_stats.fouls - current_data_away_stats_ten.fouls
 
-                                                if (!stats[0].fouls) {
+                                                if (!current_data_home_stats.fouls) {
                                                     home.fou = null
                                                     away.fou = null
                                                 }
-                                                if (stats[0].goal_attempts != null) {
-                                                    home.g_att = stats[0].goal_attempts - stats_ten[0][0].goal_attempts
-                                                    away.g_att = stats[1].goal_attempts - stats_ten[0][1].goal_attempts
+                                                if (current_data_home_stats.goal_attempts != null) {
+                                                    home.g_att = current_data_home_stats.goal_attempts - current_data_home_stats_ten.goal_attempts
+                                                    away.g_att = current_data_away_stats.goal_attempts - current_data_away_stats_ten.goal_attempts
                                                 } else {
                                                     home.g_att = null
                                                     away.g_att = null
                                                 }
 
-                                                if (stats[0].ball_safe != null) {
-                                                    home.safe = stats[0].ball_safe - stats_ten[0][0].ball_safe
-                                                    away.safe = stats[1].ball_safe - stats_ten[0][1].ball_safe
+                                                if (current_data_home_stats.ball_safe != null) {
+                                                    home.safe = current_data_home_stats.ball_safe - current_data_home_stats_ten.ball_safe
+                                                    away.safe = current_data_away_stats.ball_safe - current_data_away_stats_ten.ball_safe
                                                 } else {
                                                     home.safe = null
                                                     away.safe = null
                                                 }
                                             }
                                             else {
-                                                home.on = stats[1].shots.ongoal - stats_ten[0][1].shots.ongoal
-                                                away.on = stats[0].shots.ongoal - stats_ten[0][0].shots.ongoal
-                                                home.off = stats[1].shots.offgoal - stats_ten[0][1].shots.offgoal
-                                                away.off = stats[0].shots.offgoal - stats_ten[0][0].shots.offgoal
-                                                home.blk = stats[1].shots.blocked - stats_ten[0][1].shots.blocked
-                                                away.blk = stats[0].shots.blocked - stats_ten[0][0].shots.blocked
-                                                if (!stats[0].shots.blocked) {
+
+                                                current_data_home_stats = stats[1]
+                                                current_data_away_stats = stats[0]
+                                                current_data_home_stats_ten = stats_ten[0][1]
+                                                current_data_away_stats_ten = stats_ten[0][0]
+
+                                                home.on = current_data_home_stats.shots.ongoal - current_data_home_stats_ten.shots.ongoal
+                                                away.on = current_data_away_stats.shots.ongoal - current_data_away_stats_ten.shots.ongoal
+                                                home.off = current_data_home_stats.shots.offgoal - current_data_home_stats_ten.shots.offgoal
+                                                away.off = current_data_away_stats.shots.offgoal - current_data_away_stats_ten.shots.offgoal
+                                                home.blk = current_data_home_stats.shots.blocked - current_data_home_stats_ten.shots.blocked
+                                                away.blk = current_data_away_stats.shots.blocked - current_data_away_stats_ten.shots.blocked
+                                                if (!current_data_away_stats.shots.blocked) {
                                                     home.blk = null
                                                     away.blk = null
                                                 }
-                                                home.in = stats[1].shots.insidebox - stats_ten[0][1].shots.insidebox
-                                                away.in = stats[0].shots.insidebox - stats_ten[0][0].shots.insidebox
-                                                if (!stats[0].shots.insidebox) {
+                                                home.in = current_data_home_stats.shots.insidebox - current_data_home_stats_ten.shots.insidebox
+                                                away.in = current_data_away_stats.shots.insidebox - current_data_away_stats_ten.shots.insidebox
+                                                if (!current_data_away_stats.shots.insidebox) {
                                                     home.in = null
                                                     away.in = null
                                                 }
-                                                home.out = stats[1].shots.outsidebox - stats_ten[0][1].shots.outsidebox
-                                                away.out = stats[0].shots.outsidebox - stats_ten[0][0].shots.outsidebox
+                                                home.out = current_data_home_stats.shots.outsidebox - current_data_home_stats_ten.shots.outsidebox
+                                                away.out = current_data_away_stats.shots.outsidebox - current_data_away_stats_ten.shots.outsidebox
 
-                                                home.cnr = stats[1].corners - stats_ten[0][1].corners
-                                                away.cnr = stats[0].corners - stats_ten[0][0].corners
-                                                if (!stats[0].corners) {
+                                                home.cnr = current_data_home_stats.corners - current_data_home_stats_ten.corners
+                                                away.cnr = current_data_away_stats.corners - current_data_away_stats_ten.corners
+                                                if (!current_data_away_stats.corners) {
                                                     home.cnr = null
                                                     away.cnr = null
                                                 }
 
-                                                if(stats[1].attacks && stats_ten[0][1].attacks){
-                                                    home.da = stats[1].attacks.dangerous_attacks - stats_ten[0][1].attacks.dangerous_attacks
-                                                    away.da = stats[0].attacks.dangerous_attacks - stats_ten[0][0].attacks.dangerous_attacks
+                                                if(current_data_home_stats.attacks && current_data_home_stats_ten.attacks){
+                                                    home.da = current_data_home_stats.attacks.dangerous_attacks - current_data_home_stats_ten.attacks.dangerous_attacks
+                                                    away.da = current_data_away_stats.attacks.dangerous_attacks - current_data_away_stats_ten.attacks.dangerous_attacks
 
-                                                    home.atk = stats[1].attacks.attacks - stats_ten[0][1].attacks.attacks
-                                                    away.atk = stats[0].attacks.attacks - stats_ten[0][0].attacks.attacks
+                                                    home.atk = current_data_home_stats.attacks.attacks - current_data_home_stats_ten.attacks.attacks
+                                                    away.atk = current_data_away_stats.attacks.attacks - current_data_away_stats_ten.attacks.attacks
                                                 }
 
-                                                home.goal = stats[1].goals - stats_ten[0][1].goals
-                                                away.goal = stats[0].goals - stats_ten[0][0].goals
+                                                home.goal = current_data_home_stats.goals - current_data_home_stats_ten.goals
+                                                away.goal = current_data_away_stats.goals - current_data_away_stats_ten.goals
 
-                                                home.poss = stats_ten[0][0].possessiontime
+                                                home.poss = current_data_away_stats_ten.possessiontime
                                                 away.poss = 100 - home.poss
                                                 if (home.poss === null || home.poss === 0) {
                                                     away.poss = 0
                                                 }
 
-                                                if (stats[0].passes != null) {
-                                                    home.pas = stats[1].passes.total - stats_ten[0][1].passes.total
-                                                    away.pas = stats[0].passes.total - stats_ten[0][0].passes.total
+                                                if (current_data_away_stats.passes != null) {
+                                                    home.pas = current_data_home_stats.passes.total - current_data_home_stats_ten.passes.total
+                                                    away.pas = current_data_away_stats.passes.total - current_data_away_stats_ten.passes.total
                                                 } else {
                                                     home.pas = null
                                                     away.pas = null
                                                 }
 
-                                                if (stats[0].passes != null) {
-                                                    home.acc = stats[1].passes.accurate - stats_ten[0][1].passes.accurate
-                                                    away.acc = stats[0].passes.accurate - stats_ten[0][0].passes.accurate
+                                                if (current_data_away_stats.passes != null) {
+                                                    home.acc = current_data_home_stats.passes.accurate - current_data_home_stats_ten.passes.accurate
+                                                    away.acc = current_data_away_stats.passes.accurate - current_data_away_stats_ten.passes.accurate
                                                 } else {
                                                     home.acc = null
                                                     away.acc = null
                                                 }
 
-                                                home.ofs = stats[1].offsides - stats_ten[0][1].offsides
-                                                away.ofs = stats[0].offsides - stats_ten[0][0].offsides
+                                                home.ofs = current_data_home_stats.offsides - current_data_home_stats_ten.offsides
+                                                away.ofs = current_data_away_stats.offsides - current_data_away_stats_ten.offsides
 
-                                                if (!stats[0].offsides) {
+                                                if (!current_data_away_stats.offsides) {
                                                     home.ofs = null
                                                     away.ofs = null
                                                 }
-                                                home.sav = stats[1].saves - stats_ten[0][1].saves
-                                                away.sav = stats[0].saves - stats_ten[0][0].saves
-                                                if (!stats[0].saves) {
+                                                home.sav = current_data_home_stats.saves - current_data_home_stats_ten.saves
+                                                away.sav = current_data_away_stats.saves - current_data_away_stats_ten.saves
+                                                if (!current_data_away_stats.saves) {
                                                     home.sav = null
                                                     away.sav = null
                                                 }
-                                                if (stats[0].substitutions != null) {
-                                                    home.sbst = stats[1].substitutions - stats_ten[0][1].substitutions
-                                                    away.sbst = stats[0].substitutions - stats_ten[0][0].substitutions
+                                                if (current_data_away_stats.substitutions != null) {
+                                                    home.sbst = current_data_home_stats.substitutions - current_data_home_stats_ten.substitutions
+                                                    away.sbst = current_data_away_stats.substitutions - current_data_away_stats_ten.substitutions
                                                 } else {
                                                     home.sbst = null
                                                     away.sbst = null
                                                 }
 
-                                                home.red = stats[1].redcards - stats_ten[0][1].redcards
-                                                away.red = stats[0].redcards - stats_ten[0][0].redcards
-                                                if (!stats[0].redcards) {
+                                                home.red = current_data_home_stats.redcards - current_data_home_stats_ten.redcards
+                                                away.red = current_data_away_stats.redcards - current_data_away_stats_ten.redcards
+                                                if (!current_data_away_stats.redcards) {
                                                     home.red = null
                                                     away.red = null
                                                 }
-                                                home.fou = stats[1].fouls - stats_ten[0][1].fouls
-                                                away.fou = stats[0].fouls - stats_ten[0][0].fouls
+                                                home.fou = current_data_home_stats.fouls - current_data_home_stats_ten.fouls
+                                                away.fou = current_data_away_stats.fouls - current_data_away_stats_ten.fouls
 
-                                                if (!stats[0].fouls) {
+                                                if (!current_data_away_stats.fouls) {
                                                     home.fou = null
                                                     away.fou = null
                                                 }
-                                                if (stats[0].goal_attempts != null) {
-                                                    home.g_att = stats[1].goal_attempts - stats_ten[0][1].goal_attempts
-                                                    away.g_att = stats[0].goal_attempts - stats_ten[0][0].goal_attempts
+                                                if (current_data_away_stats.goal_attempts != null) {
+                                                    home.g_att = current_data_home_stats.goal_attempts - current_data_home_stats_ten.goal_attempts
+                                                    away.g_att = current_data_away_stats.goal_attempts - current_data_away_stats_ten.goal_attempts
                                                 } else {
                                                     home.g_att = null
                                                     away.g_att = null
                                                 }
 
-                                                if (stats[0].ball_safe != null) {
-                                                    home.safe = stats[1].ball_safe - stats_ten[0][1].ball_safe
-                                                    away.safe = stats[0].ball_safe - stats_ten[0][0].ball_safe
+                                                if (current_data_away_stats.ball_safe != null) {
+                                                    home.safe = current_data_home_stats.ball_safe - current_data_home_stats_ten.ball_safe
+                                                    away.safe = current_data_away_stats.ball_safe - current_data_away_stats_ten.ball_safe
                                                 } else {
                                                     home.safe = null
                                                     away.safe = null
@@ -4017,27 +3949,29 @@
                                         }
                                     }
                                     //-------------Total Part------------//
-                                    if (current_main_data.home_id === stats[0].team_id) {
-                                        if(stats[0].shots){
-                                            homeT.on = stats[0].shots.ongoal
-                                            awayT.on = stats[1].shots.ongoal
-                                            homeT.off = stats[0].shots.offgoal
-                                            awayT.off = stats[1].shots.offgoal
-                                            homeT.blk = stats[0].shots.blocked
-                                            awayT.blk = stats[1].shots.blocked
-                                            homeT.in = stats[0].shots.insidebox
-                                            awayT.in = stats[1].shots.insidebox
-                                            homeT.out = stats[0].shots.outsidebox
-                                            awayT.out = stats[1].shots.outsidebox
+                                    current_data_stats0 = stats[0]
+                                    current_data_stats1 = stats[1]
+                                    if (current_main_data.home_id === current_data_stats0.team_id) {
+                                        if(current_data_stats0.shots){
+                                            homeT.on = current_data_stats0.shots.ongoal
+                                            awayT.on = current_data_stats1.shots.ongoal
+                                            homeT.off = current_data_stats0.shots.offgoal
+                                            awayT.off = current_data_stats1.shots.offgoal
+                                            homeT.blk = current_data_stats0.shots.blocked
+                                            awayT.blk = current_data_stats1.shots.blocked
+                                            homeT.in = current_data_stats0.shots.insidebox
+                                            awayT.in = current_data_stats1.shots.insidebox
+                                            homeT.out = current_data_stats0.shots.outsidebox
+                                            awayT.out = current_data_stats1.shots.outsidebox
                                         }
 
-                                        homeT.cnr = stats[0].corners
-                                        awayT.cnr = stats[1].corners
-                                        if(stats[0].attacks){
-                                            homeT.da = stats[0].attacks.dangerous_attacks
-                                            awayT.da = stats[1].attacks.dangerous_attacks
-                                            homeT.atk = stats[0].attacks.attacks
-                                            awayT.atk = stats[1].attacks.attacks
+                                        homeT.cnr = current_data_stats0.corners
+                                        awayT.cnr = current_data_stats1.corners
+                                        if(current_data_stats0.attacks){
+                                            homeT.da = current_data_stats0.attacks.dangerous_attacks
+                                            awayT.da = current_data_stats1.attacks.dangerous_attacks
+                                            homeT.atk = current_data_stats0.attacks.attacks
+                                            awayT.atk = current_data_stats1.attacks.attacks
                                         }
                                         else{
                                             homeT.da = null
@@ -4046,87 +3980,87 @@
                                             awayT.atk = null
                                         }
 
-                                        homeT.poss = stats[0].possessiontime
-                                        awayT.poss = stats[1].possessiontime
-                                        if (stats[0].passes != null) {
-                                            homeT.pas = stats[0].passes.total
-                                            awayT.pas = stats[1].passes.total
+                                        homeT.poss = current_data_stats0.possessiontime
+                                        awayT.poss = current_data_stats1.possessiontime
+                                        if (current_data_stats0.passes != null) {
+                                            homeT.pas = current_data_stats0.passes.total
+                                            awayT.pas = current_data_stats1.passes.total
                                         } else {
                                             homeT.pas = null
                                             awayT.pas = null
                                         }
 
-                                        if (stats[0].passes != null) {
-                                            homeT.acc = stats[0].passes.accurate
-                                            awayT.acc = stats[1].passes.accurate
+                                        if (current_data_stats0.passes != null) {
+                                            homeT.acc = current_data_stats0.passes.accurate
+                                            awayT.acc = current_data_stats1.passes.accurate
                                         } else {
                                             homeT.acc = null
                                             awayT.acc = null
                                         }
 
-                                        homeT.ofs = stats[0].offsides
-                                        awayT.ofs = stats[1].offsides
-                                        homeT.sav = stats[0].saves
-                                        awayT.sav = stats[1].saves
-                                        homeT.sbst = stats[0].substitutions
-                                        awayT.sbst = stats[1].substitutions
-                                        homeT.red = stats[0].redcards
-                                        awayT.red = stats[1].redcards
-                                        homeT.fou = stats[0].fouls
-                                        awayT.fou = stats[1].fouls
-                                        homeT.g_att = stats[0].goal_attempts
-                                        awayT.g_att = stats[1].goal_attempts
-                                        homeT.safe = stats[0].ball_safe
-                                        awayT.safe = stats[1].ball_safe
+                                        homeT.ofs = current_data_stats0.offsides
+                                        awayT.ofs = current_data_stats1.offsides
+                                        homeT.sav = current_data_stats0.saves
+                                        awayT.sav = current_data_stats1.saves
+                                        homeT.sbst = current_data_stats0.substitutions
+                                        awayT.sbst = current_data_stats1.substitutions
+                                        homeT.red = current_data_stats0.redcards
+                                        awayT.red = current_data_stats1.redcards
+                                        homeT.fou = current_data_stats0.fouls
+                                        awayT.fou = current_data_stats1.fouls
+                                        homeT.g_att = current_data_stats0.goal_attempts
+                                        awayT.g_att = current_data_stats1.goal_attempts
+                                        homeT.safe = current_data_stats0.ball_safe
+                                        awayT.safe = current_data_stats1.ball_safe
                                     }
                                     else {
-                                        homeT.on = stats[1].shots.ongoal
-                                        awayT.on = stats[0].shots.ongoal
-                                        homeT.off = stats[1].shots.offgoal
-                                        awayT.off = stats[0].shots.offgoal
-                                        homeT.blk = stats[1].shots.blocked
-                                        awayT.blk = stats[0].shots.blocked
-                                        homeT.in = stats[1].shots.insidebox
-                                        awayT.in = stats[0].shots.insidebox
-                                        homeT.out = stats[1].shots.outsidebox
-                                        awayT.out = stats[0].shots.outsidebox
-                                        homeT.cnr = stats[1].corners
-                                        awayT.cnr = stats[0].corners
-                                        homeT.da = stats[1].attacks.dangerous_attacks
-                                        awayT.da = stats[0].attacks.dangerous_attacks
-                                        homeT.poss = stats[1].possessiontime
-                                        awayT.poss = stats[0].possessiontime
-                                        if (stats[0].passes != null) {
-                                            homeT.pas = stats[1].passes.total
-                                            awayT.pas = stats[0].passes.total
+                                        homeT.on = current_data_stats1.shots.ongoal
+                                        awayT.on = current_data_stats0.shots.ongoal
+                                        homeT.off = current_data_stats1.shots.offgoal
+                                        awayT.off = current_data_stats0.shots.offgoal
+                                        homeT.blk = current_data_stats1.shots.blocked
+                                        awayT.blk = current_data_stats0.shots.blocked
+                                        homeT.in = current_data_stats1.shots.insidebox
+                                        awayT.in = current_data_stats0.shots.insidebox
+                                        homeT.out = current_data_stats1.shots.outsidebox
+                                        awayT.out = current_data_stats0.shots.outsidebox
+                                        homeT.cnr = current_data_stats1.corners
+                                        awayT.cnr = current_data_stats0.corners
+                                        homeT.da = current_data_stats1.attacks.dangerous_attacks
+                                        awayT.da = current_data_stats0.attacks.dangerous_attacks
+                                        homeT.poss = current_data_stats1.possessiontime
+                                        awayT.poss = current_data_stats0.possessiontime
+                                        if (current_data_stats0.passes != null) {
+                                            homeT.pas = current_data_stats1.passes.total
+                                            awayT.pas = current_data_stats0.passes.total
                                         } else {
                                             homeT.pas = null
                                             awayT.pas = null
                                         }
 
-                                        if (stats[0].passes != null) {
-                                            homeT.acc = stats[1].passes.accurate
-                                            awayT.acc = stats[0].passes.accurate
+                                        if (current_data_stats0.passes != null) {
+                                            homeT.acc = current_data_stats1.passes.accurate
+                                            awayT.acc = current_data_stats0.passes.accurate
                                         } else {
                                             homeT.acc = null
                                             awayT.acc = null
                                         }
-                                        homeT.atk = stats[1].attacks.attacks
-                                        awayT.atk = stats[0].attacks.attacks
-                                        homeT.ofs = stats[1].offsides
-                                        awayT.ofs = stats[0].offsides
-                                        homeT.sav = stats[1].saves
-                                        awayT.sav = stats[0].saves
-                                        homeT.sbst = stats[1].substitutions
-                                        awayT.sbst = stats[0].substitutions
-                                        homeT.red = stats[1].redcards
-                                        awayT.red = stats[0].redcards
-                                        homeT.fou = stats[1].fouls
-                                        awayT.fou = stats[0].fouls
-                                        homeT.g_att = stats[1].goal_attempts
-                                        awayT.g_att = stats[0].goal_attempts
-                                        homeT.safe = stats[1].ball_safe
-                                        awayT.safe = stats[0].ball_safe
+                                        homeT.atk = current_data_stats1.attacks.attacks
+                                        awayT.atk = current_data_stats0.attacks.attacks
+                                        homeT.ofs = current_data_stats1.offsides
+                                        awayT.ofs = current_data_stats0.offsides
+                                        homeT.sav = current_data_stats1.saves
+                                        awayT.sav = current_data_stats0.saves
+                                        homeT.sbst = current_data_stats1.substitutions
+                                        awayT.sbst = current_data_stats0.substitutions
+                                        homeT.red = current_data_stats1.redcards
+                                        awayT.red = current_data_stats0.redcards
+                                        homeT.fou = current_data_stats1.fouls
+                                        awayT.fou = current_data_stats0.fouls
+                                        homeT.g_att = current_data_stats1.goal_attempts
+                                        awayT.g_att = current_data_stats0.goal_attempts
+                                        homeT.safe = current_data_stats1.ball_safe
+                                        awayT.safe = current_data_stats0.ball_safe
                                     }
                                     //-----------------------------------//
                                     // home_season.pos = parseInt(home_season.pos/home_poss_index)
