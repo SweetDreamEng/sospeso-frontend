@@ -1700,9 +1700,10 @@
                             }
                             else{
                                 for(let k = 0 ; k < eventNode.homeTeam.length ; k++){
-                                    this.mainList[i].events[j].homeTeam[k].sRole = eventNode.homeTeam3[k].sRole1
-                                    this.mainList[i].events[j].homeTeam[k].mR = eventNode.homeTeam3[k].mR1
-                                    this.mainList[i].events[j].homeTeam[k].rule_color = eventNode.homeTeam3[k].rule_color
+                                    this.mainList[i].events[j].homeTeam[k] = eventNode.homeTeam3[k]
+                                    // this.mainList[i].events[j].homeTeam[k].sRole = eventNode.homeTeam3[k].sRole1
+                                    // this.mainList[i].events[j].homeTeam[k].mR = eventNode.homeTeam3[k].mR1
+                                    // this.mainList[i].events[j].homeTeam[k].rule_color = eventNode.homeTeam3[k].rule_color
                                 }
                             }
                         }
@@ -2207,9 +2208,10 @@
                             }
                             else{
                                 for(let k = 0 ; k < eventNode.homeTeam.length ; k++){
-                                    this.mainList[i].events[j].awayTeam[k].sRole = eventNode.awayTeam3[k].sRole1
-                                    this.mainList[i].events[j].awayTeam[k].mR = eventNode.awayTeam3[k].mR1
-                                    this.mainList[i].events[j].awayTeam[k].rule_color = eventNode.awayTeam3[k].rule_color
+                                    this.mainList[i].events[j].awayTeam[k] = eventNode.awayTeam3[k]
+                                    // this.mainList[i].events[j].awayTeam[k].sRole = eventNode.awayTeam3[k].sRole1
+                                    // this.mainList[i].events[j].awayTeam[k].mR = eventNode.awayTeam3[k].mR1
+                                    // this.mainList[i].events[j].awayTeam[k].rule_color = eventNode.awayTeam3[k].rule_color
                                 }
                             }
                         }
@@ -2711,9 +2713,10 @@
                             }
                             else{
                                 for(let k = 0 ; k < eventNode.homeTeam2.length ; k++){
-                                    this.mainList[i].events[j].homeTeam1[k].sRole = eventNode.homeTeam2[k].sRole1
-                                    this.mainList[i].events[j].homeTeam1[k].mR = eventNode.homeTeam2[k].mR1
-                                    this.mainList[i].events[j].homeTeam1[k].rule_color = eventNode.homeTeam2[k].rule_color
+                                    this.mainList[i].events[j].homeTeam1[k] = eventNode.homeTeam2[k]
+                                    // this.mainList[i].events[j].homeTeam1[k].sRole = eventNode.homeTeam2[k].sRole1
+                                    // this.mainList[i].events[j].homeTeam1[k].mR = eventNode.homeTeam2[k].mR1
+                                    // this.mainList[i].events[j].homeTeam1[k].rule_color = eventNode.homeTeam2[k].rule_color
                                 }
                             }
                         }
@@ -3181,9 +3184,10 @@
                             }
                             else{
                                 for(let k = 0 ; k < eventNode.homeTeam.length ; k++){
-                                    this.mainList[i].events[j].awayTeam1[k].sRole = eventNode.awayTeam2[k].sRole1
-                                    this.mainList[i].events[j].awayTeam1[k].mR = eventNode.awayTeam2[k].mR1
-                                    this.mainList[i].events[j].awayTeam1[k].rule_color = eventNode.awayTeam2[k].rule_color
+                                    this.mainList[i].events[j].awayTeam1[k] = eventNode.awayTeam2[k]
+                                    // this.mainList[i].events[j].awayTeam1[k].sRole = eventNode.awayTeam2[k].sRole1
+                                    // this.mainList[i].events[j].awayTeam1[k].mR = eventNode.awayTeam2[k].mR1
+                                    // this.mainList[i].events[j].awayTeam1[k].rule_color = eventNode.awayTeam2[k].rule_color
                                 }
                             }
                         }
