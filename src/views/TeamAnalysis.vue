@@ -1196,12 +1196,11 @@
                         let eventNode = this.mainList[i].events[j]
                         if(this.selected_direction === 'home' && this.selected_team === eventNode.homeTeamName){
                             if(value !== '0'){
-                                // let temp2 =  JSON.stringify(eventNode.homeTeam3)
-                                // let temp3 =  JSON.stringify(eventNode.homeTeam3)
-                                // let homeTeam2 = JSON.parse(temp2)
-                                // let homeTeam3 = JSON.parse(temp3)
-                                let homeTeam2 = eventNode.homeTeam3
-                                let homeTeam3 = eventNode.homeTeam3
+                                let temp2 =  JSON.stringify(eventNode.homeTeam3)
+                                let temp3 =  JSON.stringify(eventNode.homeTeam3)
+                                let homeTeam2 = JSON.parse(temp2)
+                                let homeTeam3 = JSON.parse(temp3)
+
                                 console.log('homeTeam2===>', homeTeam2, homeTeam3)
                                 for(let k = 0 ; k < homeTeam2.length ; k++){
                                     homeTeam2[k].order_key = 0
@@ -1709,13 +1708,10 @@
                         }
                         else if(this.selected_direction === 'away' && this.selected_team === eventNode.awayTeamName){
                             if(value !== '0'){
-                                // let temp2 =  JSON.stringify(eventNode.awayTeam3)
-                                // let temp3 =  JSON.stringify(eventNode.awayTeam3)
-                                // let homeTeam2 = JSON.parse(temp2)
-                                // let homeTeam3 = JSON.parse(temp3)
-
-                                let homeTeam2 = eventNode.awayTeam3
-                                let homeTeam3 = eventNode.awayTeam3
+                                let temp2 =  JSON.stringify(eventNode.awayTeam3)
+                                let temp3 =  JSON.stringify(eventNode.awayTeam3)
+                                let homeTeam2 = JSON.parse(temp2)
+                                let homeTeam3 = JSON.parse(temp3)
 
                                 console.log('homeTeam2===>', homeTeam2, homeTeam3)
                                 for(let k = 0 ; k < homeTeam2.length ; k++){
@@ -2723,8 +2719,8 @@
                         }
                         else if(this.selected_direction === 'away' && this.selected_team === eventNode.awayTeamName){
                             if(value !== '0'){
-                                let temp2 =  JSON.stringify(eventNode.awayTeam1)
-                                let temp3 =  JSON.stringify(eventNode.awayTeam1)
+                                let temp2 =  JSON.stringify(eventNode.awayTeam2)
+                                let temp3 =  JSON.stringify(eventNode.awayTeam2)
                                 let homeTeam2 = JSON.parse(temp2)
                                 let homeTeam3 = JSON.parse(temp3)
                                 console.log('homeTeam2===>', homeTeam2, homeTeam3)
