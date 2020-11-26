@@ -3473,18 +3473,20 @@
                                                 if(!main_data[j].lineup.data[k].formation_position){
                                                     position_number = h_k
                                                 }
-                                                let s_role = s_roles[0].s_role[h_k - 1]
-                                                let s_role2 = s_roles[0].alt_s_role[h_k - 1]
-                                                let mean_role = s_roles[0].mean_role[h_k - 1]
-                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                let s_role = s_roles[0].s_role[position_number - 1]
+                                                let s_role2 = s_roles[0].alt_s_role[position_number - 1]
+                                                let s_role3 = s_roles[0].alt_s_role1[position_number - 1]
+                                                let mean_role = s_roles[0].mean_role[position_number - 1]
+                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2)) || (mean_role === position && (s_role3 === alt_role1 || s_role3 === alt_role2 || main_role === s_role3))){
                                                     rule_color = 'rgb(146,208,80)'
                                                 }
-                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2)) || (mean_role === position && (main_role !== s_role3 && s_role3 !== alt_role1 && s_role3 !== alt_role2)) || (mean_role !== position && (main_role === s_role3 || s_role3 === alt_role1 || s_role3 === alt_role2))){
                                                     rule_color = 'rgb(255,255,0)'
                                                 }
-                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role !== s_role3 && s_role3 !== alt_role1 && s_role3 !== alt_role2))){
                                                     rule_color = 'rgb(255,0,0)'
                                                 }
+
                                                 homeTeam.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id, 'formation_position': position_number, 'teamId':localTeamId ,'sRole': s_role, 'mR': mean_role, 'sRole1': s_role, 'sRole2': s_role2, 'mR1': mean_role, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(216, 228, 188)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
                                             }
                                             else{
@@ -3501,16 +3503,17 @@
                                                 if(!main_data[j].lineup.data[k].formation_position){
                                                     position_number = h_k
                                                 }
-                                                let s_role = s_roles_live[0].s_role[h_k - 1]
-                                                let s_role2 = s_roles_live[0].alt_s_role[h_k - 1]
-                                                let mean_role = s_roles_live[0].mean_role[h_k - 1]
-                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                let s_role = s_roles_live[0].s_role[position_number - 1]
+                                                let s_role2 = s_roles_live[0].alt_s_role[position_number - 1]
+                                                let s_role3 = s_roles_live[0].alt_s_role1[position_number - 1]
+                                                let mean_role = s_roles_live[0].mean_role[position_number - 1]
+                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2)) || (mean_role === position && (s_role3 === alt_role1 || s_role3 === alt_role2 || main_role === s_role3))){
                                                     rule_color = 'rgb(146,208,80)'
                                                 }
-                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2)) || (mean_role === position && (main_role !== s_role3 && s_role3 !== alt_role1 && s_role3 !== alt_role2)) || (mean_role !== position && (main_role === s_role3 || s_role3 === alt_role1 || s_role3 === alt_role2))){
                                                     rule_color = 'rgb(255,255,0)'
                                                 }
-                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role !== s_role3 && s_role3 !== alt_role1 && s_role3 !== alt_role2))){
                                                     rule_color = 'rgb(255,0,0)'
                                                 }
                                                 homeTeam1.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id, 'formation_position': position_number, 'teamId':localTeamId ,'sRole': s_role, 'mR': mean_role, 'sRole1': s_role, 'sRole2': s_role2, 'mR1': mean_role, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(216, 228, 188)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
@@ -3710,16 +3713,17 @@
                                                 if(!main_data[j].lineup.data[k].formation_position){
                                                     position_number = a_k
                                                 }
-                                                let s_role = s_roles[0].s_role[a_k - 1]
-                                                let s_role2 = s_roles[0].alt_s_role[a_k - 1]
-                                                let mean_role = s_roles[0].mean_role[a_k - 1]
-                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                let s_role = s_roles[0].s_role[position_number - 1]
+                                                let s_role2 = s_roles[0].alt_s_role[position_number - 1]
+                                                let s_role3 = s_roles[0].alt_s_role1[position_number - 1]
+                                                let mean_role = s_roles[0].mean_role[position_number - 1]
+                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2)) || (mean_role === position && (s_role3 === alt_role1 || s_role3 === alt_role2 || main_role === s_role3))){
                                                     rule_color = 'rgb(146,208,80)'
                                                 }
-                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2)) || (mean_role === position && (main_role !== s_role3 && s_role3 !== alt_role1 && s_role3 !== alt_role2)) || (mean_role !== position && (main_role === s_role3 || s_role3 === alt_role1 || s_role3 === alt_role2))){
                                                     rule_color = 'rgb(255,255,0)'
                                                 }
-                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role !== s_role3 && s_role3 !== alt_role1 && s_role3 !== alt_role2))){
                                                     rule_color = 'rgb(255,0,0)'
                                                 }
                                                 awayTeam.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id,'formation_position': position_number, 'teamId': visitTeamId, 'sRole': s_role, 'mR': mean_role, 'sRole1': s_role, 'sRole2': s_role2, 'mR1': mean_role, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(230, 184, 183)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
@@ -3738,16 +3742,17 @@
                                                 if(!main_data[j].lineup.data[k].formation_position){
                                                     position_number = a_k
                                                 }
-                                                let s_role = s_roles_live_a[0].s_role[a_k - 1]
-                                                let s_role2 = s_roles_live_a[0].alt_s_role[a_k - 1]
-                                                let mean_role = s_roles_live_a[0].mean_role[a_k - 1]
-                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2))){
+                                                let s_role = s_roles_live_a[0].s_role[position_number - 1]
+                                                let s_role2 = s_roles_live_a[0].alt_s_role[position_number - 1]
+                                                let s_role3 = s_roles_live_a[0].alt_s_role1[position_number - 1]
+                                                let mean_role = s_roles_live_a[0].mean_role[position_number - 1]
+                                                if((mean_role === position && (s_role === alt_role1 || s_role === alt_role2 || main_role === s_role)) || (mean_role === position && (s_role2 === alt_role1 || s_role2 === alt_role2 || main_role === s_role2)) || (mean_role === position && (s_role3 === alt_role1 || s_role3 === alt_role2 || main_role === s_role3))){
                                                     rule_color = 'rgb(146,208,80)'
                                                 }
-                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2))){
+                                                else if((mean_role === position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role === s_role || s_role === alt_role1 || s_role === alt_role2)) || (mean_role === position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role === s_role2 || s_role2 === alt_role1 || s_role2 === alt_role2)) || (mean_role === position && (main_role !== s_role3 && s_role3 !== alt_role1 && s_role3 !== alt_role2)) || (mean_role !== position && (main_role === s_role3 || s_role3 === alt_role1 || s_role3 === alt_role2))){
                                                     rule_color = 'rgb(255,255,0)'
                                                 }
-                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
+                                                else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2)) || (mean_role !== position && (main_role !== s_role3 && s_role3 !== alt_role1 && s_role3 !== alt_role2))){
                                                     rule_color = 'rgb(255,0,0)'
                                                 }
                                                 awayTeam1.push({'order_key': 0, 'playerId':main_data[j].lineup.data[k].player_id,'formation_position': position_number, 'teamId': visitTeamId, 'sRole': s_role, 'mR': mean_role, 'sRole1': s_role, 'sRole2': s_role2, 'mR1': mean_role, 'Pname': main_data[j].lineup.data[k].player_name, 'marketValue': market_value, 'p_m_Role': position, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': 'rgb(230, 184, 183)', 'sub_minute': '', 'rule_color': rule_color, 'Tit': Tit})
