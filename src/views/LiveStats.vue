@@ -63,39 +63,12 @@
                                     <div class="detail">
                                         Poss
                                     </div>
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Pas-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Acc-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Atk-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Ofs-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Sav-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Sbst-->
-                                    <!--                                        </div>-->
                                     <div class="detail">
                                         Red
                                     </div>
                                     <div class="detail" style="width: 4%;">
                                         Rtg
                                     </div>
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Fou-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail" style="min-width: 30px;">-->
-                                    <!--                                            G_att-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Safe-->
-                                    <!--                                        </div>-->
                                 </div>
                             </div>
                             <div class="header-content detail_total" style="width: 26%; height: 50px; float: left; border-left: 1px solid whitesmoke">
@@ -125,39 +98,12 @@
                                     <div class="detail" style="min-width: 32px;">
                                         Poss
                                     </div>
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Pas-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Acc-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Atk-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Ofs-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Sav-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Sbst-->
-                                    <!--                                        </div>-->
                                     <div class="detail" style="min-width: 30px;">
                                         Goals
                                     </div>
                                     <div class="detail" style="width: 4%;">
                                         Rtg
                                     </div>
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Fou-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail" style="min-width: 30px;">-->
-                                    <!--                                            G_att-->
-                                    <!--                                        </div>-->
-                                    <!--                                        <div class="detail">-->
-                                    <!--                                            Safe-->
-                                    <!--                                        </div>-->
                                 </div>
                             </div>
                             <div class="header-content" style="width: 10%; height: 50px; float: left; border-left: 1px solid whitesmoke">
@@ -733,7 +679,7 @@
                             </div>
                             <!--  home team data part  last 10 minutes-->
                             <CCollapse
-                                    :show="isCollapsed1(item1.index0)" class="mt-0"
+                                v-if="isCollapsed1(item1.index0)" :show="isCollapsed1(item1.index0)" class="mt-0"
                             >
                                 <div class = "bottom-part bottom-part1">
                                     <div class="header" style="width: 100%; height: 50px;">
@@ -3396,36 +3342,6 @@
                 finishedArray:[],
                 finishedLength:0,
                 collapsed1:[],
-                // data:[
-                //     {
-                //         x: [1,2,3,4],
-                //         y: [10,15,13,17],
-                //         type:"bar",
-                //         name: 'Trace1',
-                //         showarrow: false,
-                //         marker: {
-                //             color: 'rgba(50,171, 96, 0.7)',
-                //             line: {
-                //                 color: 'rgba(50,171,96,1.0)',
-                //                 width: 1
-                //             }
-                //         }
-                //     },
-                //     {
-                //         x: [1,2,3,4],
-                //         y: [-10,-15,-13,-17],
-                //         overlaying: 'y',
-                //         type:"bar",
-                //         name: 'Trace2',
-                //         showarrow: false
-                //     },
-                // ],
-                // layout:{
-                //     title: "My graph",
-                //     showlegend: true,
-                //     barmode: 'relative',
-                //     showarrow: false
-                // }
                 data: [{ x: [1, 3], y: [2, 4] },{ x: [1, 4], y: [2, 6] }],
                 layout: {},
                 options: {}
@@ -3474,7 +3390,7 @@
                             //console.log('current_main_data', current_main_data)
                             if(current_main_data.stats.length > 0 && current_main_data.competitions.length){
                                 if((current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'LIVE') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'HT') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'ET')){
-                                    console.log(current_main_data)
+                                    // console.log(current_main_data)
                                     let home = {
                                         'id': 0,
                                         'on': 0,
