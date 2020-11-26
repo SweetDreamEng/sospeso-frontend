@@ -9,18 +9,18 @@
             <CTabs variant="tabs" :active-tab="1">
                 <CTab :title="'Scheduled Games('+scheduleLength+')'">
                     <div v-for="item in scheduleArray" :key="item.league">
-                        <div v-if="item.events.length > 0" class="schedule-header schedule-header-league-title">
+                        <div v-if="item.events.length > 0" class="schedule-header" style="height: 30px; background: #d6d8d9; font-weight: 700; font-size: 15px; padding: 3px 10px;">
                             {{item.league}}
                         </div>
-                        <div v-for="item1 in item.events" :key="item1._id" class="event-content schedule-body">
+                        <div v-for="item1 in item.events" :key="item1._id" class="event-content" style="height: 35px; font-size: 16px;">
                             <div style="background: white">
-                                <div class="float-left schedule-start-time">
+                                <div style="width: 5%; float: left;">
                                     {{item1.time.starting_at.time}}
                                 </div>
-                                <div class="float-left schedule-local-team-name">
+                                <div style="width: 20%; float: left; text-align: right; padding-right: 2%;">
                                     {{item1.localTeamName}}
                                 </div>
-                                <div class="float-left schedule-visitor-team-name">
+                                <div style="width: 20%; float: left; text-align: left; padding-left: 5%;">
                                     {{item1.visitorTeamName}}
                                 </div>
                             </div>
@@ -29,16 +29,16 @@
                 </CTab>
                 <CTab :title="'LIVE Games('+liveNumbers+')'">
                     <div v-for="item in eventArray" :key="item.league" style="margin-top: -3px;">
-                        <div v-if="item.events.length > 0 && item.league"  class="header height-50 width-100p">
-                            <div class="header-content float-left height-50 live-header-content-league-name">
+                        <div v-if="item.events.length > 0 && item.league"  class="header" style="width: 100%; height: 50px;">
+                            <div class="header-content" style="width: 16%; height: 50px; float: left; text-align: left;">
                                 {{item.league}}
                             </div>
-                            <div class="header-content live-header-content-result float-left border-left-1">
+                            <div class="header-content" style="width: 5%; min-width: 30px; height: 50px; float: left; border-left: 1px solid whitesmoke; padding-top: 23px">
                                 Result
                             </div>
-                            <div class="header-content detail_total float-left border-left-1 width-25p height-50">
+                            <div class="header-content detail_total" style="width: 25%; height: 50px; float: left; border-left: 1px solid whitesmoke">
                                 Total Game
-                                <div class="width-100p">
+                                <div style="width: 100%">
                                     <div class="detail">
                                         On
                                     </div>
@@ -71,9 +71,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="header-content detail_total float-left header-50 border-left-1 width-25p">
+                            <div class="header-content detail_total" style="width: 26%; height: 50px; float: left; border-left: 1px solid whitesmoke">
                                 Last 10 minutes
-                                <div class="width-100p">
+                                <div style="width: 100%">
                                     <div class="detail">
                                         On
                                     </div>
@@ -95,10 +95,10 @@
                                     <div class="detail">
                                         DA
                                     </div>
-                                    <div class="detail wdith-min-32">
+                                    <div class="detail" style="min-width: 32px;">
                                         Poss
                                     </div>
-                                    <div class="detail width-min-32">
+                                    <div class="detail" style="min-width: 30px;">
                                         Goals
                                     </div>
                                     <div class="detail" style="width: 4%;">
@@ -106,19 +106,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="header-content float-left height-50 border-left-1" style="width: 10%;">
+                            <div class="header-content" style="width: 10%; height: 50px; float: left; border-left: 1px solid whitesmoke">
                                 Alert
                             </div>
-                            <div class="header-content float-left height-50 border-left-1" style="width: 18%;">
+                            <div class="header-content" style="width: 18%; height: 50px; float: left; border-left: 1px solid whitesmoke">
                                 Chart
                             </div>
                         </div>
-                        <div v-for="(item1, index) in item.events" :key="item1.away_id" class="content width-100p live-body">
+                        <div v-for="(item1, index) in item.events" :key="item1.away_id" class="content" style="width: 100%; height: 62px; font-weight: 600">
                             <!--  home team data part Total -->
-                            <div class="live-home-team-data-title float-left">
-                                <div class="time_manner live-home-team-data-title-time float-left">{{item1.home.time}}'</div>
-                                <div v-if="item1.home.flash == 1" class="goalcelebration live-home-team-data-name-width float-left">{{item1.main_data.home_name}} ({{item1.main_data.home_rank}})</div>
-                                <div v-else class="live-home-team-data-name-width float-left">{{item1.main_data.home_name}} ({{item1.main_data.home_rank}})</div>
+                            <div style="width: 16%; height: 30px; float: left; position: relative; top: 0px;">
+                                <div class="time_manner" style="width: 60px; float: left;position: relative; top:  23px; left: 15px; font-size: 17px; font-weight: normal">{{item1.home.time}}'</div>
+                                <div v-if="item1.home.flash == 1" class="goalcelebration" style="width: calc(100% - 65px); float: left;">{{item1.main_data.home_name}} ({{item1.main_data.home_rank}})</div>
+                                <div v-else style="width: calc(100% - 65px); float: left;">{{item1.main_data.home_name}} ({{item1.main_data.home_rank}})</div>
                             </div>
                             <div
                                     @click="SetCollapse1(item1.index0)"
@@ -679,7 +679,7 @@
                             </div>
                             <!--  home team data part  last 10 minutes-->
                             <CCollapse
-                                    :show="isCollapsed1(item1.index0)" class="mt-0"
+                                v-if="isCollapsed1(item1.index0)" :show="isCollapsed1(item1.index0)" class="mt-0"
                             >
                                 <div class = "bottom-part bottom-part1">
                                     <div class="header" style="width: 100%; height: 50px;">
@@ -3390,7 +3390,7 @@
                             //console.log('current_main_data', current_main_data)
                             if(current_main_data.stats.length > 0 && current_main_data.competitions.length){
                                 if((current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'LIVE') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'HT') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'ET')){
-                                    // console.log(current_main_data)
+                                    console.log(current_main_data)
                                     let home = {
                                         'id': 0,
                                         'on': 0,
@@ -4542,90 +4542,9 @@
             })
             //----------------------------------------------------
         }
-        ,
-        update() {
-            let time_updated = new Date();
-            console.log("updated", time_updated);
-        }
     }
 </script>
 <style>
-    .schedule-header-league-title{
-        height: 30px;
-        background: #d6d8d9;
-        font-weight: 700;
-        font-size: 15px;
-        padding: 3px 10px;
-    }
-    .schedule-body{
-        height: 35px;
-        font-size: 16px;
-    }
-    .schedule-start-time{
-        width: 5%;
-    }
-    .schedule-local-team-name{
-        width: 20%;
-        text-align: right;
-        padding-right: 2%;
-    }
-    .schedule-visitor-team-name{
-        width: 20%;
-        text-align: left;
-        padding-left: 5%;
-    }
-    .float-left {
-        float: left;
-    }
-    .live-header-content-result{
-        width: 5%;
-        min-width: 30px;
-        height: 50px;
-        padding-top: 23px;
-    }
-    .live-header-content-league-name{
-        width: 16%;
-        text-align: left;
-    }
-    .live-body{
-        height: 62px;
-        font-weight: 600;
-    }
-    .live-home-team-data-title{
-        width: 16%;
-        height: 30px;
-        position: relative;
-        top: 0px;
-    }
-    .live-home-team-data-title-time{
-        width: 60px;
-        position: relative;
-        top:  23px;
-        left: 15px;
-        font-size: 17px;
-        font-weight: normal;
-    }
-    .live-home-team-data-name-width{
-        width: calc(100% - 65px);
-    }
-    .width-min-32 {
-        min-width: 32px;
-    }
-    .height-50{
-        height: 50px;
-    }
-    .width-25p {
-        width: 25%;
-    }
-    .width-100p {
-        width: 100%;
-    }
-    
-    .border-left-1 {
-        border-width: 1px;
-        border-style: solid;
-        border-color: whitesmoke;
-    }
     .season-detail{
         width: 5.5%!important;
         min-width: 24px!important;
