@@ -3882,49 +3882,21 @@
                                                     rule_color = 'rgb(255,0,0)'
                                                 }
 
+                                                let Tit = (0).toFixed(2)
                                                 let titularity = main_data[j].local_players[0].titularity.filter(function(item) {
                                                     return item.player_id === local_sub_array[kk].player_id;
                                                 })
 
-                                                let Tit = (0).toFixed(2)
-                                                let Tit1 = 0
-                                                let Tit2 = 0
+                                                let home_team_played = 0
+                                                home_team_played = main_data[j].home_events_number
+                                                let minute = 0
                                                 if(titularity[0]){
-                                                    let appearences = titularity[0].appearences
-                                                    let lineups = titularity[0].lineups
-                                                    let substitute_in = titularity[0].substitute_in
-                                                    let substitute_out = titularity[0].substitute_out
-                                                    let presences = titularity[0].appearences
+                                                    minute = titularity[0].minutes
+                                                }
+                                                if(home_team_played > 0){
+                                                    Tit = (minute/90/home_team_played*100).toFixed(2) + ', ' + home_team_played
+                                                }
 
-                                                    if(lineups !== null && appearences !== null){
-                                                        Tit1 = lineups/appearences*100
-                                                    }
-                                                    if(presences !== null && substitute_in !== null && substitute_out !== null){
-                                                        Tit2 = (lineups + substitute_out - substitute_in)/presences*100
-                                                    }
-                                                    if(Tit2 != 0 && Tit1 != 0){
-                                                        Tit = (Tit1 + Tit2)/2
-                                                    }
-                                                    if(Tit2 == 0 && Tit1 != 0){
-                                                        Tit = Tit1
-                                                    }
-                                                }
-                                                if(Tit1 == 0 && Tit2 == 0){
-                                                    Tit = '##'
-                                                }
-                                                else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
-                                                    Tit = (0).toFixed(2)
-                                                }
-                                                else if(Tit > 0 && Tit <= 100){
-                                                    let Tit3 = Tit
-                                                    Tit = Tit3.toFixed(2)
-                                                }
-                                                else if(Tit < 0){
-                                                    Tit = (0).toFixed(2)
-                                                }
-                                                else if(Tit > 100){
-                                                    Tit = (100).toFixed(2)
-                                                }
                                                 home_substitutions.push({'playerId': local_sub_array[kk].player_id, 'teamId':homeTeam[k].teamId ,'sRole': homeTeam[k].sRole, 'sRole2': homeTeam[k].sRole2, 'mR': homeTeam[k].mR, 'Pname': local_sub_array[kk].player_name, 'marketValue': market_value, 'p_m_Role': homeTeam[k].p_m_Role, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': homeTeam[k].sub_order_color, 'sub_minute': homeTeam[k].sub_minute, 'rule_color': rule_color, 'Tit': Tit})
                                             }
                                         }
@@ -4032,49 +4004,21 @@
                                                 //     rule_color = 'rgb(255,0,0)'
                                                 // }
 
+                                                let Tit = (0).toFixed(2)
                                                 let titularity = main_data[j].local_players[0].titularity.filter(function(item) {
                                                     return item.player_id === local_sub_array[kk].player_id;
                                                 })
 
-                                                let Tit = (0).toFixed(2)
-                                                let Tit1 = 0
-                                                let Tit2 = 0
+                                                let home_team_played = 0
+                                                home_team_played = main_data[j].home_events_number
+                                                let minute = 0
                                                 if(titularity[0]){
-                                                    let appearences = titularity[0].appearences
-                                                    let lineups = titularity[0].lineups
-                                                    let substitute_in = titularity[0].substitute_in
-                                                    let substitute_out = titularity[0].substitute_out
-                                                    let presences = titularity[0].appearences
+                                                    minute = titularity[0].minutes
+                                                }
+                                                if(home_team_played > 0){
+                                                    Tit = (minute/90/home_team_played*100).toFixed(2) + ', ' + home_team_played
+                                                }
 
-                                                    if(lineups !== null && appearences !== null){
-                                                        Tit1 = lineups/appearences*100
-                                                    }
-                                                    if(presences !== null && substitute_in !== null && substitute_out !== null){
-                                                        Tit2 = (lineups + substitute_out - substitute_in)/presences*100
-                                                    }
-                                                    if(Tit2 != 0 && Tit1 != 0){
-                                                        Tit = (Tit1 + Tit2)/2
-                                                    }
-                                                    if(Tit2 == 0 && Tit1 != 0){
-                                                        Tit = Tit1
-                                                    }
-                                                }
-                                                if(Tit1 == 0 && Tit2 == 0){
-                                                    Tit = '##'
-                                                }
-                                                else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
-                                                    Tit = (0).toFixed(2)
-                                                }
-                                                else if(Tit > 0 && Tit <= 100){
-                                                    let Tit3 = Tit
-                                                    Tit = Tit3.toFixed(2)
-                                                }
-                                                else if(Tit < 0){
-                                                    Tit = (0).toFixed(2)
-                                                }
-                                                else if(Tit > 100){
-                                                    Tit = (100).toFixed(2)
-                                                }
                                                 homeTeam1[k].Pname = local_sub_array[kk].player_name
                                                 homeTeam1[k].marketValue = market_value
                                                 homeTeam1[k].primaryRole = main_role
@@ -4216,52 +4160,24 @@
                                                     rule_color = 'rgb(255,0,0)'
                                                 }
 
+                                                let Tit = (0).toFixed(2)
                                                 let titularity = []
                                                 if(main_data[j].visitor_players.length > 0){
                                                     titularity = main_data[j].visitor_players[0].titularity.filter(function(item) {
                                                         return item.player_id === visitor_sub_array[kk].player_id;
                                                     })
                                                 }
-                                                let Tit = (0).toFixed(2)
-                                                let Tit1 = 0
-                                                let Tit2 = 0
 
+                                                let away_team_played = 0
+                                                away_team_played = main_data[j].away_events_number
+                                                let minute = 0
                                                 if(titularity[0]){
-                                                    let appearences = titularity[0].appearences
-                                                    let lineups = titularity[0].lineups
-                                                    let substitute_in = titularity[0].substitute_in
-                                                    let substitute_out = titularity[0].substitute_out
-                                                    let presences = titularity[0].appearences
-
-                                                    if(lineups !== null && appearences !== null){
-                                                        Tit1 = lineups/appearences*100
-                                                    }
-                                                    if(presences !== null && substitute_in !== null && substitute_out !== null){
-                                                        Tit2 = (lineups + substitute_out - substitute_in)/presences*100
-                                                    }
-                                                    if(Tit2 != 0 && Tit1 != 0){
-                                                        Tit = (Tit1 + Tit2)/2
-                                                    }
-                                                    if(Tit2 == 0 && Tit1 != 0){
-                                                        Tit = Tit1
-                                                    }
+                                                    minute = titularity[0].minutes
                                                 }
-                                                if(Tit1 == 0 && Tit2 == 0){
-                                                    Tit = '##'
+                                                if(away_team_played > 0){
+                                                    Tit = (minute/90/away_team_played*100).toFixed(2) + ', ' + away_team_played
                                                 }
-                                                else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
-                                                    Tit = (0).toFixed(2)
-                                                }
-                                                else if(Tit > 0 && Tit <= 100){
-                                                    let Tit3 = Tit
-                                                    Tit = Tit3.toFixed(2)
-                                                }
-                                                else if(Tit < 0){
-                                                    Tit = (0).toFixed(2)
-                                                }
-                                                else if(Tit > 100){
-                                                    Tit = (100).toFixed(2)
-                                                }
+                                                //-----------------
                                                 away_substitutions.push({'playerId': visitor_sub_array[kk].player_id, 'teamId':awayTeam[k].teamId ,'sRole': awayTeam[k].sRole, 'sRole2': awayTeam[k].sRole2, 'mR': awayTeam[k].mR, 'Pname': visitor_sub_array[kk].player_name, 'marketValue': market_value, 'p_m_Role': awayTeam[k].p_m_Role, 'primaryRole': main_role, 'altRole1': alt_role1, 'altRole2': alt_role2, 'tit': '###', 'sub_order_color': awayTeam[k].sub_order_color, 'sub_minute': awayTeam[k].sub_minute,'rule_color': rule_color, 'Tit': Tit})
                                             }
                                         }
@@ -4381,6 +4297,8 @@
                                                 // else if((mean_role !== position && (main_role !== s_role && s_role !== alt_role1 && s_role !== alt_role2)) || (mean_role !== position && (main_role !== s_role2 && s_role2 !== alt_role1 && s_role2 !== alt_role2))){
                                                 //     rule_color = 'rgb(255,0,0)'
                                                 // }
+
+                                                let Tit = (0).toFixed(2)
                                                 let titularity = []
                                                 if(main_data[j].visitor_players.length > 0){
                                                     titularity = main_data[j].visitor_players[0].titularity.filter(function(item) {
@@ -4388,46 +4306,17 @@
                                                     })
                                                 }
 
-                                                let Tit = (0).toFixed(2)
-                                                let Tit1 = 0
-                                                let Tit2 = 0
-
+                                                let away_team_played = 0
+                                                away_team_played = main_data[j].away_events_number
+                                                let minute = 0
                                                 if(titularity[0]){
-                                                    let appearences = titularity[0].appearences
-                                                    let lineups = titularity[0].lineups
-                                                    let substitute_in = titularity[0].substitute_in
-                                                    let substitute_out = titularity[0].substitute_out
-                                                    let presences = titularity[0].appearences
+                                                    minute = titularity[0].minutes
+                                                }
+                                                if(away_team_played > 0){
+                                                    Tit = (minute/90/away_team_played*100).toFixed(2) + ', ' + away_team_played
+                                                }
+                                                //-----------------------
 
-                                                    if(lineups !== null && appearences !== null){
-                                                        Tit1 = lineups/appearences*100
-                                                    }
-                                                    if(presences !== null && substitute_in !== null && substitute_out !== null){
-                                                        Tit2 = (lineups + substitute_out - substitute_in)/presences*100
-                                                    }
-                                                    if(Tit2 != 0 && Tit1 != 0){
-                                                        Tit = (Tit1 + Tit2)/2
-                                                    }
-                                                    if(Tit2 == 0 && Tit1 != 0){
-                                                        Tit = Tit1
-                                                    }
-                                                }
-                                                if(Tit1 == 0 && Tit2 == 0){
-                                                    Tit = '##'
-                                                }
-                                                else if(Tit1 != 0 && Tit2 != 0 && Tit == 0){
-                                                    Tit = (0).toFixed(2)
-                                                }
-                                                else if(Tit > 0 && Tit <= 100){
-                                                    let Tit3 = Tit
-                                                    Tit = Tit3.toFixed(2)
-                                                }
-                                                else if(Tit < 0){
-                                                    Tit = (0).toFixed(2)
-                                                }
-                                                else if(Tit > 100){
-                                                    Tit = (100).toFixed(2)
-                                                }
                                                 awayTeam1[k].Pname = visitor_sub_array[kk].player_name
                                                 awayTeam1[k].marketValue = market_value
                                                 awayTeam1[k].primaryRole = main_role
