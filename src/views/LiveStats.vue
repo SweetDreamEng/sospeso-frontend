@@ -4176,7 +4176,7 @@
                                         current_event.home.time = 'HT'
                                     }
 
-                                    current_event.goal_tooltip = {...data1[i].updateArray.goal_tooltip}
+                                    current_event.goal_tooltip = data1[i].updateArray.goal_tooltip
                                     current_event.home_tooltip = {
                                         'on': '',
                                         'off': '',
