@@ -224,14 +224,14 @@
                                                             </div>
                                                         </div>
                                                         <br><br>
-                                                        <div style="margin-top: 10px; clear: left; display: none;">
+                                                        <div style="margin-top: 10px; clear: left;">
                                                             <label style="color: red; font-weight: bold;">DEF</label>
                                                             <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
                                                                 <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
                                                                     Player Name
                                                                 </div>
                                                                 <div style="width: 10%; float: left; border-right: 1px solid white;">
-                                                                    Rating
+                                                                    <span style="float: left">Rating</span>
                                                                 </div>
                                                                 <div style="width: 10%; float: left; border-right: 1px solid white;">
                                                                     Goal
@@ -736,7 +736,7 @@
                                                             </div>
                                                         </div>
                                                         <br><br>
-                                                        <div style="margin-top: 10px; clear: left; display: none;">
+                                                        <div style="margin-top: 10px; clear: left;">
                                                             <label style="color: red; font-weight: bold;">DEF</label>
                                                             <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
                                                                 <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
