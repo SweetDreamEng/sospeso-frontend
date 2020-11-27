@@ -224,7 +224,8 @@
                                                             </div>
                                                         </div>
                                                         <br><br>
-                                                        <div style="margin-top: 10px; clear: left;">
+                                                        <div style="margin-top: 10px; clear: left; display: none;">
+                                                            <label style="color: red; font-weight: bold;">DEF</label>
                                                             <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
                                                                 <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
                                                                     Player Name
@@ -251,7 +252,7 @@
                                                                     P.M.Role
                                                                 </div>
                                                             </div>
-                                                            <div v-for="item5 in item1.home_player" :key="item5.index" style="display: flex; text-align: left; background: #d8e4bc">
+                                                            <div v-for="(item5, index5 ) in item1.home_players.def" :key="index5" v-if="index5 < 5" style="display: flex; text-align: left; background: #d8e4bc">
                                                                 <div style="width: 25%; float: left; border-right: 1px solid white; padding-left: 10px;">
                                                                     {{item5.player_name}}
                                                                 </div>
@@ -278,6 +279,118 @@
                                                                 </div>
                                                                 <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
                                                                     {{item5.roles}}
+                                                                </div>
+                                                            </div>
+                                                            <label style="color: red; font-weight: bold;">MID</label>
+                                                            <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
+                                                                    Player Name
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Rating
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Goal
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Assist
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Titularity
+                                                                </div>
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white;">
+                                                                    Market Value
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    S.Role
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    P.M.Role
+                                                                </div>
+                                                            </div>
+                                                            <div v-for="(item6, index6 ) in item1.home_players.mid" :key="item6.player_name" v-if="index6 < 5" style="display: flex; text-align: left; background: #d8e4bc">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; padding-left: 10px;">
+                                                                    {{item6.player_name}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item6.rating}}
+                                                                </div>
+                                                                <div v-if="item6.goal" :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    {{item6.goal}} ({{item6.goal_percentage}})
+                                                                </div>
+                                                                <div v-else :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    -
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item6.assist}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item6.Tit}}
+                                                                </div>
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white; text-align: center">
+                                                                    {{item6.market_value}}
+                                                                </div>
+                                                                <div :style="{'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center'}">
+                                                                    {{item6.s_role}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item6.roles}}
+                                                                </div>
+                                                            </div>
+                                                            <label style="color: red; font-weight: bold;">FWD</label>
+                                                            <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
+                                                                    Player Name
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Rating
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Goal
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Assist
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Titularity
+                                                                </div>
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white;">
+                                                                    Market Value
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    S.Role
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    P.M.Role
+                                                                </div>
+                                                            </div>
+                                                            <div v-for="(item7, index7 ) in item1.home_players.fwd" :key="item7.player_name" v-if="index7 < 5" style="display: flex; text-align: left; background: #d8e4bc">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; padding-left: 10px;">
+                                                                    {{item7.player_name}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item7.rating}}
+                                                                </div>
+                                                                <div v-if="item7.goal" :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    {{item7.goal}} ({{item7.goal_percentage}})
+                                                                </div>
+                                                                <div v-else :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    -
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item7.assist}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item7.Tit}}
+                                                                </div>
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white; text-align: center">
+                                                                    {{item7.market_value}}
+                                                                </div>
+                                                                <div :style="{'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center'}">
+                                                                    {{item7.s_role}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item7.roles}}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -623,7 +736,8 @@
                                                             </div>
                                                         </div>
                                                         <br><br>
-                                                        <div style="margin-top: 10px; clear: left;">
+                                                        <div style="margin-top: 10px; clear: left; display: none;">
+                                                            <label style="color: red; font-weight: bold;">DEF</label>
                                                             <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
                                                                 <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
                                                                     Player Name
@@ -650,7 +764,119 @@
                                                                     P.M.Role
                                                                 </div>
                                                             </div>
-                                                            <div v-for="item5 in item1.away_player" :key="item5.index" style="display: flex; text-align: left; background: #d8e4bc">
+                                                            <div v-for="(item5, index5) in item1.away_players.def" :key="item5.player_name" v-if="index5 < 5" style="display: flex; text-align: left; background: #d8e4bc">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; padding-left: 10px;">
+                                                                    {{item5.player_name}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.rating}}
+                                                                </div>
+                                                                <div v-if="item5.goal" :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    {{item5.goal}} ({{item5.goal_percentage}})
+                                                                </div>
+                                                                <div v-else :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    -
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.assist}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.Tit}}
+                                                                </div>
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white; text-align: center">
+                                                                    {{item5.market_value}}
+                                                                </div>
+                                                                <div :style="{'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center'}">
+                                                                    {{item5.s_role}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.roles}}
+                                                                </div>
+                                                            </div>
+                                                            <label style="color: red; font-weight: bold;">MID</label>
+                                                            <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
+                                                                    Player Name
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Rating
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Goal
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Assist
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Titularity
+                                                                </div>
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white;">
+                                                                    Market Value
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    S.Role
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    P.M.Role
+                                                                </div>
+                                                            </div>
+                                                            <div v-for="(item5, index5) in item1.away_players.mid" :key="item5.player_name"  v-if="index5 < 5" style="display: flex; text-align: left; background: #d8e4bc">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; padding-left: 10px;">
+                                                                    {{item5.player_name}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.rating}}
+                                                                </div>
+                                                                <div v-if="item5.goal" :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    {{item5.goal}} ({{item5.goal_percentage}})
+                                                                </div>
+                                                                <div v-else :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    -
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.assist}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.Tit}}
+                                                                </div>
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white; text-align: center">
+                                                                    {{item5.market_value}}
+                                                                </div>
+                                                                <div :style="{'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center'}">
+                                                                    {{item5.s_role}}
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.roles}}
+                                                                </div>
+                                                            </div>
+                                                            <label style="color: red; font-weight: bold;">FWD</label>
+                                                            <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
+                                                                    Player Name
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Rating
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Goal
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Assist
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Titularity
+                                                                </div>
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white;">
+                                                                    Market Value
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    S.Role
+                                                                </div>
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    P.M.Role
+                                                                </div>
+                                                            </div>
+                                                            <div v-for="(item5, index5) in item1.away_players.fwd" :key="item5.player_name"  v-if="index5 < 5" style="display: flex; text-align: left; background: #d8e4bc">
                                                                 <div style="width: 25%; float: left; border-right: 1px solid white; padding-left: 10px;">
                                                                     {{item5.player_name}}
                                                                 </div>
@@ -826,9 +1052,11 @@
     </div>
 </template>
 <script>
+    import LiveStatsAnalysis from "./LiveStatsAnalysis";
     export default {
         name: 'StatsList',
         components: {
+            LiveStatsAnalysis
         },
         data () {
             return {
@@ -4561,6 +4789,7 @@
 
                                     let market_p = []
                                     let home_player = []
+                                    let home_players = {}
                                     if(temp1[0].market_values.length > 0){
                                         for(let p = 0 ; p < temp1[0].market_values.length ; p++){
                                             let check = 0
@@ -4637,6 +4866,25 @@
                                                 let home_team_played = main_data[j].home_events_number
                                                 let Tit = (minute/90/home_team_played*100).toFixed(2)
                                                 home_player.push({'assist': assist, 'goal': goals, 'goal_percentage': goal_percentage, 'rating': rating, 'Tit': Tit, 'player_name': market_p[p].player_name, 'market_value': market_p[p].player_marketvalue, 's_role': main_role, 'market_value1': market_p[p], 'role': role[0], 'tit': titu[0], 'roles': roles})
+
+                                                let def = []
+                                                let mid = []
+                                                let fwd = []
+                                                for(let c = 0 ; c < home_player.length ; c++){
+                                                    if(home_player[c].roles === "DEF"){
+                                                        def.push(home_player[c])
+                                                    }
+                                                    else if(home_player[c].roles === "MID"){
+                                                        mid.push(home_player[c])
+                                                    }
+                                                    else if(home_player[c].roles === "FWD"){
+                                                        fwd.push(home_player[c])
+                                                    }
+                                                }
+                                                def.sort(this.sortByProperty1('rating'))
+                                                mid.sort(this.sortByProperty1('rating'))
+                                                fwd.sort(this.sortByProperty1('rating'))
+                                                home_players = {"def": def, "mid": mid, "fwd": fwd}
                                             }
                                         }
                                         console.log('+++++++++++', home_player)
@@ -4647,6 +4895,7 @@
 
                                     let market_p1 = []
                                     let away_player = []
+                                    let away_players = []
                                     if(temp1[0].market_values.length > 0){
                                         for(let p = 0 ; p < temp3[0].market_values.length ; p++){
                                             let check = 0
@@ -4723,6 +4972,25 @@
                                                 let home_team_played = main_data[j].away_events_number
                                                 let Tit = (minute/90/home_team_played*100).toFixed(2)
                                                 away_player.push({'assist': assist, 'goal': goals, 'goal_percentage': goal_percentage, 'rating': rating, 'Tit': Tit, 'player_name': market_p1[p].player_name, 'market_value': market_p1[p].player_marketvalue, 's_role': main_role, 'market_value1': market_p1[p], 'role': role[0], 'tit': titu[0], 'roles': roles})
+
+                                                let def = []
+                                                let mid = []
+                                                let fwd = []
+                                                for(let c = 0 ; c < away_player.length ; c++){
+                                                    if(away_player[c].roles === "DEF"){
+                                                        def.push(away_player[c])
+                                                    }
+                                                    else if(away_player[c].roles === "MID"){
+                                                        mid.push(away_player[c])
+                                                    }
+                                                    else if(away_player[c].roles === "FWD"){
+                                                        fwd.push(away_player[c])
+                                                    }
+                                                }
+                                                def.sort(this.sortByProperty1('rating'))
+                                                mid.sort(this.sortByProperty1('rating'))
+                                                fwd.sort(this.sortByProperty1('rating'))
+                                                away_players = {"def": def, "mid": mid, "fwd": fwd}
                                             }
                                         }
                                         console.log('+++++++++++away', away_player)
@@ -4807,7 +5075,7 @@
                                         }
                                     }
                                     countryCode = main_data[j].countryCode
-                                    events[k - 1] = {'home_player': home_player, 'away_player': away_player, 'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'openDate':  main_data[j].time.starting_at.time, 'homeTeam': homeTeam, 'awayTeam': awayTeam, 'homeTeam3': homeTeam, 'awayTeam3': awayTeam,  'homeTeam1': homeTeam1, 'awayTeam1': awayTeam1, 'homeTeam2': homeTeam1, 'awayTeam2': awayTeam1, 'homeTeamName': homeTeamName, 'awayTeamName': awayTeamName, 'homeTeamformation': homeTeamFormation, 'awayTeamformation': awayTeamFormation, 'homeTeamPformation': homeTeamPformation, 'awayTeamPformation': awayTeamPformation,  'homeTeamLformation': homeTeamLformation, 'awayTeamLformation': awayTeamLformation, 'home_substitutions': home_substitutions, 'away_substitutions': away_substitutions, 'home_legend': home_legend, 'away_legend': away_legend, 'home_rule_set': home_rule_color_number, 'away_rule_set': away_rule_color_number}
+                                    events[k - 1] = {'home_players': home_players, 'away_players': away_players, 'home_player': home_player, 'away_player': away_player, 'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'openDate':  main_data[j].time.starting_at.time, 'homeTeam': homeTeam, 'awayTeam': awayTeam, 'homeTeam3': homeTeam, 'awayTeam3': awayTeam,  'homeTeam1': homeTeam1, 'awayTeam1': awayTeam1, 'homeTeam2': homeTeam1, 'awayTeam2': awayTeam1, 'homeTeamName': homeTeamName, 'awayTeamName': awayTeamName, 'homeTeamformation': homeTeamFormation, 'awayTeamformation': awayTeamFormation, 'homeTeamPformation': homeTeamPformation, 'awayTeamPformation': awayTeamPformation,  'homeTeamLformation': homeTeamLformation, 'awayTeamLformation': awayTeamLformation, 'home_substitutions': home_substitutions, 'away_substitutions': away_substitutions, 'home_legend': home_legend, 'away_legend': away_legend, 'home_rule_set': home_rule_color_number, 'away_rule_set': away_rule_color_number}
 
                                 }
                             }
@@ -4842,6 +5110,15 @@
                     if(a[property] > b[property])
                         return 1;
                     else if(a[property] < b[property])
+                        return -1;
+                    return 0;
+                }
+            },
+            sortByProperty1(property){
+                return function(a,b){
+                    if(a[property] < b[property])
+                        return 1;
+                    else if(a[property] > b[property])
                         return -1;
                     return 0;
                 }
