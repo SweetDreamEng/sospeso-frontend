@@ -222,135 +222,193 @@
                                                             </div>
                                                         </div>
                                                         <br><br>
-                                                        <div style="width: 30%; float: left; background: #d8e4bc; padding: 5px; margin-bottom: 20px;">
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    MVP H
+                                                        <div style="margin-top: 35px;">
+                                                            <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
+                                                                    Player Name
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    MVP H %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Rating
                                                                 </div>
-                                                            </div>
-                                                            <br>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Goal
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    100.00 %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Assist
                                                                 </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Titularity
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    75.00 %
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white;">
+                                                                    Market Value
                                                                 </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    S.Role
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    67.00 %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    P.M.Role
                                                                 </div>
                                                             </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                            <div v-for="item5 in item1.home_player" :key="item5.index" style="display: flex; text-align: left; background: #d8e4bc">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; padding-left: 10px;">
+                                                                    {{item5.player_name}}
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    40.00 %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.rating}}
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div style="width: 30%; float: left; background: #d8e4bc; padding: 5px; margin-bottom: 20px; margin-left: 5%;">
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    MVP H
+                                                                <div v-if="item5.goal" :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    {{item5.goal}} ({{item5.goal_percentage}})
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    MVP H %
+                                                                <div v-else :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    -
                                                                 </div>
-                                                            </div>
-                                                            <br>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.assist}}
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    100.00 %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.Tit}}
                                                                 </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white; text-align: center">
+                                                                    {{item5.market_value}}
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    75.00 %
+                                                                <div :style="{'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center'}">
+                                                                    {{item5.s_role}}
                                                                 </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    67.00 %
-                                                                </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    40.00 %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.roles}}
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div style="width: 30%; float: left; background: #d8e4bc; padding: 5px; margin-bottom: 20px; margin-left: 5%;">
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    MVP H
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    MVP H %
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    100.00 %
-                                                                </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    75.00 %
-                                                                </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    67.00 %
-                                                                </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    40.00 %
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
+<!--                                                        <div style="width: 30%; float: left; background: #d8e4bc; padding: 5px; margin-bottom: 20px;">-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    MVP H-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    MVP H %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <br>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    100.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    75.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    67.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    40.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div style="width: 30%; float: left; background: #d8e4bc; padding: 5px; margin-bottom: 20px; margin-left: 5%;">-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    MVP H-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    MVP H %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <br>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    100.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    75.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    67.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    40.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div style="width: 30%; float: left; background: #d8e4bc; padding: 5px; margin-bottom: 20px; margin-left: 5%;">-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    MVP H-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    MVP H %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <br>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    100.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    75.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    67.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    40.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
                                                     </div>
                                                 </div>
                                             </CCol>
@@ -534,135 +592,193 @@
                                                             </div>
                                                         </div>
                                                         <br><br>
-                                                        <div style="width: 30%; float: left; background: #e6b8b7; padding: 5px; margin-bottom: 20px;">
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    MVP H
+                                                        <div style="margin-top: 35px;">
+                                                            <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
+                                                                    Player Name
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    MVP H %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Rating
                                                                 </div>
-                                                            </div>
-                                                            <br>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Goal
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    100.00 %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Assist
                                                                 </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    Titularity
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    75.00 %
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white;">
+                                                                    Market Value
                                                                 </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    S.Role
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    67.00 %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white;">
+                                                                    P.M.Role
                                                                 </div>
                                                             </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                            <div v-for="item5 in item1.away_player" :key="item5.index" style="display: flex; text-align: left; background: #d8e4bc">
+                                                                <div style="width: 25%; float: left; border-right: 1px solid white; padding-left: 10px;">
+                                                                    {{item5.player_name}}
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    40.00 %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.rating}}
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div style="width: 30%; float: left; background: #e6b8b7; padding: 5px; margin-bottom: 20px; margin-left: 5%;">
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    MVP H
+                                                                <div v-if="item5.goal" :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    {{item5.goal}} ({{item5.goal_percentage}})
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    MVP H %
+                                                                <div v-else :style="{'height': '18px','overflow': 'hidden', 'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center', 'padding-left': '5px'}">
+                                                                    -
                                                                 </div>
-                                                            </div>
-                                                            <br>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.assist}}
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    100.00 %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.Tit}}
                                                                 </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
+                                                                <div style="width: 20%; float: left; border-right: 1px solid white; text-align: center">
+                                                                    {{item5.market_value}}
                                                                 </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    75.00 %
+                                                                <div :style="{'width': '10%', 'float': 'left', 'border-right': '1px solid white', 'text-align': 'center'}">
+                                                                    {{item5.s_role}}
                                                                 </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    67.00 %
-                                                                </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    40.00 %
+                                                                <div style="width: 10%; float: left; border-right: 1px solid white; text-align: center;">
+                                                                    {{item5.roles}}
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div style="width: 30%; float: left; background: #e6b8b7; padding: 5px; margin-bottom: 20px; margin-left: 5%;">
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    MVP H
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    MVP H %
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    100.00 %
-                                                                </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    75.00 %
-                                                                </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    67.00 %
-                                                                </div>
-                                                            </div>
-                                                            <div style="display: flex">
-                                                                <div style="flex: 1;">
-                                                                    Hplayer
-                                                                </div>
-                                                                <div style="flex: 1; text-align: right;">
-                                                                    40.00 %
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
+<!--                                                        <div style="width: 30%; float: left; background: #e6b8b7; padding: 5px; margin-bottom: 20px;">-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    MVP H-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    MVP H %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <br>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    100.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    75.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    67.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    40.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div style="width: 30%; float: left; background: #e6b8b7; padding: 5px; margin-bottom: 20px; margin-left: 5%;">-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    MVP H-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    MVP H %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <br>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    100.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    75.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    67.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    40.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div style="width: 30%; float: left; background: #e6b8b7; padding: 5px; margin-bottom: 20px; margin-left: 5%;">-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    MVP H-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    MVP H %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <br>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    100.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    75.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    67.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div style="display: flex">-->
+<!--                                                                <div style="flex: 1;">-->
+<!--                                                                    Hplayer-->
+<!--                                                                </div>-->
+<!--                                                                <div style="flex: 1; text-align: right;">-->
+<!--                                                                    40.00 %-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
                                                     </div>
                                                 </div>
                                             </CCol>
@@ -4359,6 +4475,178 @@
                                     homeTeam1.sort(this.sortByProperty('formation_position'))
                                     awayTeam1.sort(this.sortByProperty('formation_position'))
 
+                                    let temp0 =  JSON.stringify(main_data[j].local_players)
+                                    let temp1 = JSON.parse(temp0)
+
+                                    let market_p = []
+                                    let home_player = []
+                                    if(temp1[0].market_values.length > 0){
+                                        for(let p = 0 ; p < temp1[0].market_values.length ; p++){
+                                            let check = 0
+                                            for(let pp = 0 ; pp < homeTeam.length ; pp++){
+                                                if(temp1[0].market_values[p].player_name == homeTeam[pp].Pname){
+                                                    check = 1
+                                                }
+                                            }
+                                            for(let pp = 0 ; pp < homeTeam1.length ; pp++){
+                                                if(temp1[0].market_values[p].player_name == homeTeam1[pp].Pname){
+                                                    check = 1
+                                                }
+                                            }
+                                            if(check === 0){
+                                                market_p.push(temp1[0].market_values[p])
+                                            }
+                                        }
+
+                                        for(let p = 0 ; p < market_p.length ; p++){
+                                            let role = temp1[0].roles.filter(function(item) {
+                                                return item.player_name.trim() == market_p[p].player_name.trim();
+                                            });
+                                            let titu = []
+                                            if(temp1[0].titularity.length > 0){
+                                                if(temp1[0].titularity[0].player){
+                                                    titu = temp1[0].titularity.filter(function(item) {
+                                                        return item.player.data.birthdate == market_p[p].player_birthday;
+                                                    });
+                                                }
+                                            }
+
+                                            if(role.length > 0 && titu.length > 0){
+                                                let roles = ''
+                                                let main_role = ''
+                                                for(let c = 0 ; c < role.length ; c++){
+                                                    let position = ''
+                                                    main_role = role[c].player_main_role
+                                                    if(main_role == 'GK'){ position = 'GK' }
+                                                    else if(main_role == 'RB'){ position = 'DEF' }
+                                                    else if(main_role == 'CB'){ position = 'DEF' }
+                                                    else if(main_role == 'LB'){ position = 'DEF' }
+                                                    else if(main_role == 'RM'){ position = 'MID' }
+                                                    else if(main_role == 'CM'){ position = 'MID' }
+                                                    else if(main_role == 'LM'){ position = 'MID' }
+                                                    else if(main_role == 'DM'){ position = 'MID' }
+                                                    else if(main_role == 'AM'){ position = 'MID' }
+                                                    else if(main_role == 'RW'){ position = 'FWD' }
+                                                    else if(main_role == 'LW'){ position = 'FWD' }
+                                                    else if(main_role == 'SS'){ position = 'FWD' }
+                                                    else if(main_role == 'CF'){ position = 'FWD' }
+                                                    roles = position
+                                                }
+                                                let minute = 0
+                                                if(titu[0].minutes){
+                                                    minute = titu[0].minutes
+                                                }
+                                                let rating = ""
+                                                if(titu[0].rating){
+                                                    rating = titu[0].rating
+                                                }
+                                                let assist = null
+                                                if(titu[0].assists){
+                                                    assist = titu[0].assists
+                                                }
+                                                let goals = null
+                                                let goal_percentage = null
+                                                if(titu[0].goals){
+                                                    goals = titu[0].goals
+                                                    if(minute > 0){
+                                                        goal_percentage = (goals/90/minute*100).toFixed(1)
+                                                    }
+                                                }
+
+                                                let home_team_played = main_data[j].home_events_number
+                                                let Tit = (minute/90/home_team_played*100).toFixed(2)
+                                                home_player.push({'assist': assist, 'goal': goals, 'goal_percentage': goal_percentage, 'rating': rating, 'Tit': Tit, 'player_name': market_p[p].player_name, 'market_value': market_p[p].player_marketvalue, 's_role': main_role, 'market_value1': market_p[p], 'role': role[0], 'tit': titu[0], 'roles': roles})
+                                            }
+                                        }
+                                        console.log('+++++++++++', home_player)
+                                    }
+
+                                    let temp2 =  JSON.stringify(main_data[j].visitor_players)
+                                    let temp3 = JSON.parse(temp2)
+
+                                    let market_p1 = []
+                                    let away_player = []
+                                    if(temp1[0].market_values.length > 0){
+                                        for(let p = 0 ; p < temp3[0].market_values.length ; p++){
+                                            let check = 0
+                                            for(let pp = 0 ; pp < awayTeam.length ; pp++){
+                                                if(temp3[0].market_values[p].player_name == awayTeam[pp].Pname){
+                                                    check = 1
+                                                }
+                                            }
+                                            for(let pp = 0 ; pp < awayTeam1.length ; pp++){
+                                                if(temp3[0].market_values[p].player_name == awayTeam1[pp].Pname){
+                                                    check = 1
+                                                }
+                                            }
+                                            if(check === 0){
+                                                market_p1.push(temp3[0].market_values[p])
+                                            }
+                                        }
+
+                                        for(let p = 0 ; p < market_p1.length ; p++){
+                                            let role = temp3[0].roles.filter(function(item) {
+                                                return item.player_name.trim() == market_p1[p].player_name.trim();
+                                            });
+                                            let titu = []
+                                            if(temp3[0].titularity.length > 0){
+                                                if(temp3[0].titularity[0].player){
+                                                    titu = temp3[0].titularity.filter(function(item) {
+                                                        return item.player.data.birthdate == market_p1[p].player_birthday;
+                                                    });
+                                                }
+                                            }
+
+                                            if(role.length > 0 && titu.length > 0){
+                                                let roles = ''
+                                                let main_role = ''
+                                                for(let c = 0 ; c < role.length ; c++){
+                                                    let position = ''
+                                                    main_role = role[c].player_main_role
+                                                    if(main_role == 'GK'){ position = 'GK' }
+                                                    else if(main_role == 'RB'){ position = 'DEF' }
+                                                    else if(main_role == 'CB'){ position = 'DEF' }
+                                                    else if(main_role == 'LB'){ position = 'DEF' }
+                                                    else if(main_role == 'RM'){ position = 'MID' }
+                                                    else if(main_role == 'CM'){ position = 'MID' }
+                                                    else if(main_role == 'LM'){ position = 'MID' }
+                                                    else if(main_role == 'DM'){ position = 'MID' }
+                                                    else if(main_role == 'AM'){ position = 'MID' }
+                                                    else if(main_role == 'RW'){ position = 'FWD' }
+                                                    else if(main_role == 'LW'){ position = 'FWD' }
+                                                    else if(main_role == 'SS'){ position = 'FWD' }
+                                                    else if(main_role == 'CF'){ position = 'FWD' }
+                                                    roles = position
+                                                }
+                                                let minute = 0
+                                                if(titu[0].minutes){
+                                                    minute = titu[0].minutes
+                                                }
+                                                let rating = ""
+                                                if(titu[0].rating){
+                                                    rating = titu[0].rating
+                                                }
+                                                let assist = null
+                                                if(titu[0].assists){
+                                                    assist = titu[0].assists
+                                                }
+                                                let goals = null
+                                                let goal_percentage = null
+                                                if(titu[0].goals){
+                                                    goals = titu[0].goals
+                                                    if(minute > 0){
+                                                        goal_percentage = (goals/90/minute*100).toFixed(1)
+                                                    }
+                                                }
+
+                                                let home_team_played = main_data[j].away_events_number
+                                                let Tit = (minute/90/home_team_played*100).toFixed(2)
+                                                away_player.push({'assist': assist, 'goal': goals, 'goal_percentage': goal_percentage, 'rating': rating, 'Tit': Tit, 'player_name': market_p1[p].player_name, 'market_value': market_p1[p].player_marketvalue, 's_role': main_role, 'market_value1': market_p1[p], 'role': role[0], 'tit': titu[0], 'roles': roles})
+                                            }
+                                        }
+                                        console.log('+++++++++++away', away_player)
+                                    }
+
                                     let s_roles = this.s_role_set.filter(function(item) {
                                         return item.name === homeTeamPformation;
                                     })
@@ -4438,10 +4726,8 @@
                                         }
                                     }
                                     countryCode = main_data[j].countryCode
-                                    events[k - 1] = {'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'openDate':  main_data[j].time.starting_at.time, 'homeTeam': homeTeam, 'awayTeam': awayTeam, 'homeTeam3': homeTeam, 'awayTeam3': awayTeam,  'homeTeam1': homeTeam1, 'awayTeam1': awayTeam1, 'homeTeam2': homeTeam1, 'awayTeam2': awayTeam1, 'homeTeamName': homeTeamName, 'awayTeamName': awayTeamName, 'homeTeamformation': homeTeamFormation, 'awayTeamformation': awayTeamFormation, 'homeTeamPformation': homeTeamPformation, 'awayTeamPformation': awayTeamPformation,  'homeTeamLformation': homeTeamLformation, 'awayTeamLformation': awayTeamLformation, 'home_substitutions': home_substitutions, 'away_substitutions': away_substitutions, 'home_legend': home_legend, 'away_legend': away_legend, 'home_rule_set': home_rule_color_number, 'away_rule_set': away_rule_color_number}
-                                    if(main_data[j].visitorTeamName == "Montreal Impact"){
-                                        console.log('s_roles===>', events[k - 1])
-                                    }
+                                    events[k - 1] = {'home_player': home_player, 'away_player': away_player, 'eventName': main_data[j].time.starting_at.time.substring(0, 5) + ' ' + main_data[j].localTeamName + '(' + main_data[j].standing.localteam_position + ')' + ' v ' + main_data[j].visitorTeamName +  '(' + main_data[j].standing.visitorteam_position + ')', 'openDate':  main_data[j].time.starting_at.time, 'homeTeam': homeTeam, 'awayTeam': awayTeam, 'homeTeam3': homeTeam, 'awayTeam3': awayTeam,  'homeTeam1': homeTeam1, 'awayTeam1': awayTeam1, 'homeTeam2': homeTeam1, 'awayTeam2': awayTeam1, 'homeTeamName': homeTeamName, 'awayTeamName': awayTeamName, 'homeTeamformation': homeTeamFormation, 'awayTeamformation': awayTeamFormation, 'homeTeamPformation': homeTeamPformation, 'awayTeamPformation': awayTeamPformation,  'homeTeamLformation': homeTeamLformation, 'awayTeamLformation': awayTeamLformation, 'home_substitutions': home_substitutions, 'away_substitutions': away_substitutions, 'home_legend': home_legend, 'away_legend': away_legend, 'home_rule_set': home_rule_color_number, 'away_rule_set': away_rule_color_number}
+
                                 }
                             }
                         }
@@ -4513,7 +4799,7 @@
     }
     .home_main_tab{
         width: 100%;
-        height: 420px;
+        /*height: 420px;*/
         padding: 0px;
         padding-top: 5px;
     }
