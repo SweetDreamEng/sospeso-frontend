@@ -196,33 +196,35 @@
                                                             </div>
                                                         </div>
                                                         <br><br>
-                                                        <div style="width: 17%; float: left; height: 62px; padding-left: 20px;">
-                                                            Role legend:
-                                                        </div>
-                                                        <div style="width: 43%; float: left; height: 62px;">
-                                                            <div style="display: flex;">
-                                                                <div style="flex: 2; height: 20px; background: #92d050; text-align: center;">{{item1.home_rule_set.green_color}}</div>
-                                                                <div style="flex: 5; padding-left: 5px;">Player in Role</div>
+                                                        <div style="width: 100%">
+                                                            <div style="width: 17%; float: left; height: 62px; padding-left: 20px;">
+                                                                Role legend:
                                                             </div>
-                                                            <div style="display: flex;">
-                                                                <div style="flex: 2; height: 20px; background: #ffff00; text-align: center;">{{item1.home_rule_set.yellow_color}}</div>
-                                                                <div style="flex: 5; padding-left: 5px;">Player in alternative Role</div>
+                                                            <div style="width: 43%; float: left; height: 62px;">
+                                                                <div style="display: flex;">
+                                                                    <div style="flex: 2; height: 20px; background: #92d050; text-align: center;">{{item1.home_rule_set.green_color}}</div>
+                                                                    <div style="flex: 5; padding-left: 5px;">Player in Role</div>
+                                                                </div>
+                                                                <div style="display: flex;">
+                                                                    <div style="flex: 2; height: 20px; background: #ffff00; text-align: center;">{{item1.home_rule_set.yellow_color}}</div>
+                                                                    <div style="flex: 5; padding-left: 5px;">Player in alternative Role</div>
+                                                                </div>
+                                                                <div style="display: flex;">
+                                                                    <div style="flex: 2; height: 20px; background: #ff0000; text-align: center;">{{item1.home_rule_set.red_color}}</div>
+                                                                    <div style="flex: 5; padding-left: 5px;">Player out of role</div>
+                                                                </div>
                                                             </div>
-                                                            <div style="display: flex;">
-                                                                <div style="flex: 2; height: 20px; background: #ff0000; text-align: center;">{{item1.home_rule_set.red_color}}</div>
-                                                                <div style="flex: 5; padding-left: 5px;">Player out of role</div>
+                                                            <div style="width: 15%; float: left; height: 62px; text-align: right;">
+                                                                Subst.legend:
                                                             </div>
-                                                        </div>
-                                                        <div style="width: 15%; float: left; height: 62px; text-align: right;">
-                                                            Subst.legend:
-                                                        </div>
-                                                        <div style="width: 25%; float: left; text-align: center; margin-bottom: 10px;">
-                                                            <div v-for="item4  in item1.home_legend" :key="item4.index" style="display: flex; width: 80%; margin: auto;">
-                                                                <div :style="{'flex': '1', 'height': '20px', 'background': item4.color}">{{item4.label}}</div>
+                                                            <div style="width: 25%; float: left; text-align: center; margin-bottom: 10px;">
+                                                                <div v-for="item4  in item1.home_legend" :key="item4.index" style="display: flex; width: 80%; margin: auto;">
+                                                                    <div :style="{'flex': '1', 'height': '20px', 'background': item4.color}">{{item4.label}}</div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <br><br>
-                                                        <div style="margin-top: 35px;">
+                                                        <div style="margin-top: 10px; clear: left;">
                                                             <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
                                                                 <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
                                                                     Player Name
@@ -279,6 +281,33 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+<!--                                                        sdfsdf-->
+<!--                                                        <CDataTable-->
+<!--                                                                class="mb-0 table-outline"-->
+<!--                                                                hover-->
+<!--                                                                :items="tableItems"-->
+<!--                                                                :fields="tableFields"-->
+<!--                                                                head-color="light"-->
+<!--                                                                sorter-->
+<!--                                                        >-->
+<!--                                                            <td slot="mode" slot-scope="{item}">-->
+<!--                                                                <div>{{item.mode.name}}</div>-->
+<!--                                                            </td>-->
+
+<!--                                                            <td slot="facile" slot-scope="{item}" class="table-cell">-->
+<!--                                                                <div>{{item.mode.name}}</div>-->
+<!--                                                            </td>-->
+<!--                                                            <td-->
+<!--                                                                    slot="medio"-->
+<!--                                                                    slot-scope="{item}"-->
+<!--                                                                    class="table-cell"-->
+<!--                                                            >-->
+<!--                                                                <div>{{item.mode.name}}</div>-->
+<!--                                                            </td>-->
+<!--                                                            <td slot="elevato" slot-scope="{item}" class="table-cell">-->
+<!--                                                                <div>{{item.mode.name}}</div>-->
+<!--                                                            </td>-->
+<!--                                                        </CDataTable>-->
 
 <!--                                                        <div style="width: 30%; float: left; background: #d8e4bc; padding: 5px; margin-bottom: 20px;">-->
 <!--                                                            <div style="display: flex">-->
@@ -566,33 +595,35 @@
                                                             </div>
                                                         </div>
                                                         <br><br>
-                                                        <div style="width: 20%; float: left; height: 62px; padding-left: 20px;">
-                                                            Role legend:
-                                                        </div>
-                                                        <div style="width: 40%; float: left; height: 62px;">
-                                                            <div style="display: flex;">
-                                                                <div style="flex: 1; height: 20px; background: #92d050; text-align: center;">{{item1.away_rule_set.green_color}}</div>
-                                                                <div style="flex: 2; padding-left: 5px;">Player in Role</div>
+                                                        <div style="width: 100%">
+                                                            <div style="width: 20%; float: left; height: 62px; padding-left: 20px;">
+                                                                Role legend:
                                                             </div>
-                                                            <div style="display: flex;">
-                                                                <div style="flex: 1; height: 20px; background: #ffff00; text-align: center;">{{item1.away_rule_set.yellow_color}}</div>
-                                                                <div style="flex: 2; padding-left: 5px;">Player in alternative Role</div>
+                                                            <div style="width: 40%; float: left; height: 62px;">
+                                                                <div style="display: flex;">
+                                                                    <div style="flex: 1; height: 20px; background: #92d050; text-align: center;">{{item1.away_rule_set.green_color}}</div>
+                                                                    <div style="flex: 2; padding-left: 5px;">Player in Role</div>
+                                                                </div>
+                                                                <div style="display: flex;">
+                                                                    <div style="flex: 1; height: 20px; background: #ffff00; text-align: center;">{{item1.away_rule_set.yellow_color}}</div>
+                                                                    <div style="flex: 2; padding-left: 5px;">Player in alternative Role</div>
+                                                                </div>
+                                                                <div style="display: flex;">
+                                                                    <div style="flex: 1; height: 20px; background: #ff0000; text-align: center;">{{item1.away_rule_set.red_color}}</div>
+                                                                    <div style="flex: 2; padding-left: 5px;">Player out of role</div>
+                                                                </div>
                                                             </div>
-                                                            <div style="display: flex;">
-                                                                <div style="flex: 1; height: 20px; background: #ff0000; text-align: center;">{{item1.away_rule_set.red_color}}</div>
-                                                                <div style="flex: 2; padding-left: 5px;">Player out of role</div>
+                                                            <div style="width: 15%; float: left; height: 62px; text-align: right;">
+                                                                Subst.legend:
                                                             </div>
-                                                        </div>
-                                                        <div style="width: 15%; float: left; height: 62px; text-align: right;">
-                                                            Subst.legend:
-                                                        </div>
-                                                        <div style="width: 25%; float: left; text-align: center; margin-bottom: 10px;">
-                                                            <div v-for="item4  in item1.away_legend" :key="item4.index" style="display: flex; width: 80%; margin: auto;">
-                                                                <div :style="{'flex': '1', 'height': '20px', 'background': item4.color}">{{item4.label}}</div>
+                                                            <div style="width: 25%; float: left; text-align: center; margin-bottom: 10px;">
+                                                                <div v-for="item4  in item1.away_legend" :key="item4.index" style="display: flex; width: 80%; margin: auto;">
+                                                                    <div :style="{'flex': '1', 'height': '20px', 'background': item4.color}">{{item4.label}}</div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <br><br>
-                                                        <div style="margin-top: 35px;">
+                                                        <div style="margin-top: 10px; clear: left;">
                                                             <div style="display: flex; text-align: center; background: #d8e4bc; border-bottom: 1px solid white; height: 20px; color: black;">
                                                                 <div style="width: 25%; float: left; border-right: 1px solid white; text-align: left; padding-left: 10px;">
                                                                     Player Name
@@ -801,6 +832,56 @@
         },
         data () {
             return {
+                tableItems: [
+                    {
+                        mode: { name: 'GN'},
+                        facile: { value: 10},
+                        medio:{value: 20},
+                        elevato:{value: 30},
+                    },
+                    {
+                        mode: { name: 'GT'},
+                        facile: { value: 3},
+                        medio:{value: 5},
+                        elevato:{value: 10},
+                    },
+                    {
+                        mode: { name: 'MG'},
+                        facile: { value: 10},
+                        medio:{value: 30},
+                        elevato:{value: 60},
+                    },
+                    {
+                        mode: { name: 'SLN'},
+                        facile: { value: 30},
+                        medio:{value: 60},
+                        elevato:{value: 91},
+                    },
+                    {
+                        mode: { name: 'SLT'},
+                        facile: { value: 9},
+                        medio:{value: 15},
+                        elevato:{value: 30},
+                    },
+                    {
+                        mode: { name: 'Special %'},
+                        facile: { value: 10},
+                        medio:{value: 0},
+                        elevato:{value: 0},
+                    },
+                    {
+                        mode: { name: 'Special min'},
+                        facile: { value: 45},
+                        medio:{value: 0},
+                        elevato:{value: 0},
+                    }
+                ],
+                tableFields: [
+                    { key: 'mode', label:  ''},
+                    { key: 'facile', label: 'Facile', _classes: 'table-success'},
+                    { key: 'medio', label: 'Medio', _classes: 'table-warning'},
+                    { key: 'elevato', label: 'Elevato',_classes: 'table-danger'  },
+                ],
                 collapse: false,
                 countryCodeList:[
                     {'ccode' : 'AF', 'cname' : 'Afghanistan'},
