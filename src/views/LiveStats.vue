@@ -145,77 +145,77 @@
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.on" :key="'' + i + j + 1" v-if="item1.homeT.on > 0" class="detail" style="color: green;">
+                                        <div v-c-tooltip="item1.home_tooltip.on" :key="'tooltip' + item1.index0 + i + j + 1" v-if="item1.homeT.on > 0" class="detail" style="color: green;">
                                             {{item1.homeT.on}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.off" :key="'' + i + j + 2" v-if="item1.homeT.off == 0" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.home_tooltip.off" :key="'tooltip' + item1.index0 + i + j + 2" v-if="item1.homeT.off == 0" class="detail" style="color: red">
                                             {{item1.homeT.off}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.off" :key="'' + i + j + 3" v-if="item1.homeT.off > 0" class="detail" style="color: green">
+                                        <div v-c-tooltip="item1.home_tooltip.off" :key="'tooltip' + item1.index0 + i + j + 3" v-if="item1.homeT.off > 0" class="detail" style="color: green">
                                             {{item1.homeT.off}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.blk" :key="'' + i + j + 4" v-if="item1.homeT.blk > 0" class="detail" style="color: green">
+                                        <div v-c-tooltip="item1.home_tooltip.blk" :key="'tooltip' + item1.index0 + i + j + 4" v-if="item1.homeT.blk > 0" class="detail" style="color: green">
                                             {{item1.homeT.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.blk" :key="'' + i + j + 5" v-if="item1.homeT.blk == 0 && item1.awayT.blk != 0" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.home_tooltip.blk" :key="'tooltip' + item1.index0 + i + j + 5" v-if="item1.homeT.blk == 0 && item1.awayT.blk != 0" class="detail" style="color: red">
                                             {{item1.homeT.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div  v-c-tooltip="item1.home_tooltip.blk" :key="'' + i + j + 6" v-if="item1.homeT.blk == null || (item1.homeT.blk == 0 && item1.awayT.blk == 0)" class="detail" style="color: red">
+                                        <div  v-c-tooltip="item1.home_tooltip.blk" :key="'tooltip' + item1.index0 + i + j + 6" v-if="item1.homeT.blk == null || (item1.homeT.blk == 0 && item1.awayT.blk == 0)" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div  v-c-tooltip="item1.home_tooltip.in" :key="'' + i + j + 7" v-if="item1.homeT.in == 0" class="detail" style="color: red">
+                                        <div  v-c-tooltip="item1.home_tooltip.in" :key="'tooltip' + item1.index0 + i + j + 7" v-if="item1.homeT.in == 0" class="detail" style="color: red">
                                             {{item1.homeT.in}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.in" :key="'' + i + j + 8" v-if="item1.homeT.in > 0" class="detail" style="color: green;">
+                                        <div v-c-tooltip="item1.home_tooltip.in" :key="'tooltip' + item1.index0 + i + j + 8" v-if="item1.homeT.in > 0" class="detail" style="color: green;">
                                             {{item1.homeT.in}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.in" :key="'' + i + j + 9" v-if="item1.homeT.in == null" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.home_tooltip.in" :key="'tooltip' + item1.index0 + i + j + 9" v-if="item1.homeT.in == null" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.out" :key="'' + i + j + 10" v-if="item1.homeT.out == 0" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.home_tooltip.out" :key="'tooltip' + item1.index0 + i + j + 10" v-if="item1.homeT.out == 0" class="detail" style="color: red">
                                             {{item1.homeT.out}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.out" :key="'' + i + j + 11" v-if="item1.homeT.out > 0" class="detail" style="color: green">
+                                        <div v-c-tooltip="item1.home_tooltip.out" :key="'tooltip' + item1.index0 + i + j + 11" v-if="item1.homeT.out > 0" class="detail" style="color: green">
                                             {{item1.homeT.out}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.out" :key="'' + i + j + 12" v-if="item1.homeT.out == null" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.home_tooltip.out" :key="'tooltip' + item1.index0 + i + j + 12" v-if="item1.homeT.out == null" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.cnr" :key="'' + i + j + 13" v-if="item1.homeT.cnr == 0" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.home_tooltip.cnr" :key="'tooltip' + item1.index0 + i + j + 13" v-if="item1.homeT.cnr == 0" class="detail" style="color: red">
                                             {{item1.homeT.cnr}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.cnr" :key="'' + i + j + 14" v-if="item1.homeT.cnr > 0" class="detail" style="color: green">
+                                        <div v-c-tooltip="item1.home_tooltip.cnr" :key="'tooltip' + item1.index0 + i + j + 14" v-if="item1.homeT.cnr > 0" class="detail" style="color: green">
                                             {{item1.homeT.cnr}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.home_tooltip.cnr" :key="'' + i + j + 15" v-if="item1.homeT.cnr == null" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.home_tooltip.cnr" :key="'tooltip' + item1.index0 + i + j + 15" v-if="item1.homeT.cnr == null" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
@@ -415,72 +415,72 @@
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.on" :key="'' + i + j + 17" v-if="item1.awayT.on > 0" class="detail" style="color: green;">
+                                        <div v-c-tooltip="item1.away_tooltip.on" :key="'tooltip' + item1.index0 + i + j + 17" v-if="item1.awayT.on > 0" class="detail" style="color: green;">
                                             {{item1.awayT.on}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.off" :key="'' + i + j + 18" v-if="item1.awayT.off == 0" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.away_tooltip.off" :key="'tooltip' + item1.index0 + i + j + 18" v-if="item1.awayT.off == 0" class="detail" style="color: red">
                                             {{item1.awayT.off}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-if="item1.awayT.off > 0" v-c-tooltip="item1.away_tooltip.off" :key="'' + i + j + 19" class="detail" style="color: green">
+                                        <div v-if="item1.awayT.off > 0" v-c-tooltip="item1.away_tooltip.off" :key="'tooltip' + item1.index0 + i + j + 19" class="detail" style="color: green">
                                             {{item1.awayT.off}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.blk" :key="'' + i + j + 20" v-if="item1.awayT.blk > 0" class="detail" style="color: green">
+                                        <div v-c-tooltip="item1.away_tooltip.blk" :key="'tooltip' + item1.index0 + i + j + 20" v-if="item1.awayT.blk > 0" class="detail" style="color: green">
                                             {{item1.awayT.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.blk" :key="'' + i + j + 21" v-if="item1.awayT.blk == 0 && item1.homeT.blk != 0" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.away_tooltip.blk" :key="'tooltip' + item1.index0 + i + j + 21" v-if="item1.awayT.blk == 0 && item1.homeT.blk != 0" class="detail" style="color: red">
                                             {{item1.awayT.blk}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="'' + i + j + 22" v-if="item1.awayT.blk == null || (item1.awayT.blk == 0 && item1.homeT.blk == 0)" class="detail" style="color: red">
+                                        <div :key="'tooltip' + item1.index0 + i + j + 22" v-if="item1.awayT.blk == null || (item1.awayT.blk == 0 && item1.homeT.blk == 0)" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div  v-c-tooltip="item1.away_tooltip.in" :key="'' + i + j + 23" v-if="item1.awayT.in == 0" class="detail" style="color: red">
+                                        <div  v-c-tooltip="item1.away_tooltip.in" :key="'tooltip' + item1.index0 + i + j + 23" v-if="item1.awayT.in == 0" class="detail" style="color: red">
                                             {{item1.awayT.in}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-if="item1.awayT.in > 0" v-c-tooltip="item1.away_tooltip.in" :key="'' + i + j + 24" class="detail" style="color: green;">
+                                        <div v-if="item1.awayT.in > 0" v-c-tooltip="item1.away_tooltip.in" :key="'tooltip' + item1.index0 + i + j + 24" class="detail" style="color: green;">
                                             {{item1.awayT.in}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="'' + i + j + 25" v-if="item1.awayT.in == null" class="detail" style="color: red">
+                                        <div :key="'tooltip' + item1.index0 + i + j + 25" v-if="item1.awayT.in == null" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.out" :key="'' + i + j + 26" v-if="item1.awayT.out == 0" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.away_tooltip.out" :key="'tooltip' + item1.index0 + i + j + 26" v-if="item1.awayT.out == 0" class="detail" style="color: red">
                                             {{item1.awayT.out}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.out" :key="'' + i + j + 27" v-if="item1.awayT.out > 0" class="detail" style="color: green">
+                                        <div v-c-tooltip="item1.away_tooltip.out" :key="'tooltip' + item1.index0 + i + j + 27" v-if="item1.awayT.out > 0" class="detail" style="color: green">
                                             {{item1.awayT.out}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div :key="'' + i + j + 28" v-if="item1.awayT.out == null" class="detail" style="color: red">
+                                        <div :key="'tooltip' + item1.index0 + i + j + 28" v-if="item1.awayT.out == null" class="detail" style="color: red">
                                             -
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.cnr" :key="'' + i + j + 29" v-if="item1.awayT.cnr == 0" class="detail" style="color: red">
+                                        <div v-c-tooltip="item1.away_tooltip.cnr" :key="'tooltip' + item1.index0 + i + j + 29" v-if="item1.awayT.cnr == 0" class="detail" style="color: red">
                                             {{item1.awayT.cnr}}
                                         </div>
                                     </transition>
                                     <transition name="slide-fade" mode="out-in">
-                                        <div v-c-tooltip="item1.away_tooltip.cnr" :key="'' + i + j + 30" v-if="item1.awayT.cnr > 0" class="detail" style="color: green">
+                                        <div v-c-tooltip="item1.away_tooltip.cnr" :key="'tooltip' + item1.index0 + i + j + 30" v-if="item1.awayT.cnr > 0" class="detail" style="color: green">
                                             {{item1.awayT.cnr}}
                                         </div>
                                     </transition>
