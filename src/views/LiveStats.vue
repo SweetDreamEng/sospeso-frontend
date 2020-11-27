@@ -3386,7 +3386,7 @@
                     for(let i = 0 ; i < competitionArray.length ; i++){
                         this.eventArray.push({'league': competitionArray[i], 'events': []})
                         for(let j = 0 ; j < main_data.length ; j++) {
-                            let current_main_data = main_data[j];
+                            let current_main_data = {...main_data[j]};
                             //console.log('current_main_data', current_main_data)
                             if(current_main_data.stats.length > 0 && current_main_data.competitions.length){
                                 if((current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'LIVE') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'HT') || (current_main_data.competitions[0].league == competitionArray[i] && current_main_data.time.status == 'ET')){
@@ -3538,12 +3538,12 @@
                                             if(current_main_data.season_stats[u].stats){
                                                 if(current_main_data.season_stats[u].stats.length > 0){
                                                     for(let uu = 0 ; uu < current_main_data.season_stats[u].stats.length ; uu++){
-                                                        let stats = current_main_data.season_stats[u].stats[uu]
+                                                        let stats = {...current_main_data.season_stats[u].stats[uu]}
                                                         if (!!stats.stats)
-                                                            stats = stats.stats
+                                                            stats = {...stats.stats}
                                                         if(stats[0]){
-                                                            current_data_stats0 = stats[0]
-                                                            current_data_stats1 = stats[1]
+                                                            current_data_stats0 = {...stats[0]}
+                                                            current_data_stats1 = {...stats[1]}
                                                             if(current_data_stats0.team_id == home.id){
                                                                 home_p++
                                                                 if(current_data_stats0.shots){
@@ -3684,10 +3684,10 @@
                                     }
 
                                     if(current_main_data.home_tooltip){
-                                        home_tooltip = current_main_data.home_tooltip
+                                        home_tooltip = {...current_main_data.home_tooltip}
                                     }
                                     if(current_main_data.away_tooltip){
-                                        away_tooltip = current_main_data.away_tooltip
+                                        away_tooltip = {...current_main_data.away_tooltip}
                                     }
 
                                     home.time = current_main_data.time.minute
@@ -3707,10 +3707,10 @@
                                         // if(!stats_ten[0]){return}
                                         if(stats_ten.length && stats_ten[0].length > 0){
                                             if (current_main_data.home_id == stats_ten[0][0].team_id) {
-                                                current_data_home_stats = stats[0]
-                                                current_data_away_stats = stats[1]
-                                                current_data_home_stats_ten = stats_ten[0][0]
-                                                current_data_away_stats_ten = stats_ten[0][1]
+                                                current_data_home_stats = {...stats[0]}
+                                                current_data_away_stats = {...stats[1]}
+                                                current_data_home_stats_ten = {...stats_ten[0][0]}
+                                                current_data_away_stats_ten = {...stats_ten[0][1]}
 
                                                 if(current_data_home_stats.shots && current_data_home_stats_ten.shots){
                                                     home.on = current_data_home_stats.shots.ongoal - current_data_home_stats_ten.shots.ongoal
@@ -3831,10 +3831,10 @@
                                             }
                                             else {
 
-                                                current_data_home_stats = stats[1]
-                                                current_data_away_stats = stats[0]
-                                                current_data_home_stats_ten = stats_ten[0][1]
-                                                current_data_away_stats_ten = stats_ten[0][0]
+                                                current_data_home_stats = {...stats[1]}
+                                                current_data_away_stats = {...stats[0]}
+                                                current_data_home_stats_ten = {...stats_ten[0][1]}
+                                                current_data_away_stats_ten = {...stats_ten[0][0]}
 
                                                 home.on = current_data_home_stats.shots.ongoal - current_data_home_stats_ten.shots.ongoal
                                                 away.on = current_data_away_stats.shots.ongoal - current_data_away_stats_ten.shots.ongoal
@@ -3949,8 +3949,8 @@
                                         }
                                     }
                                     //-------------Total Part------------//
-                                    current_data_stats0 = stats[0]
-                                    current_data_stats1 = stats[1]
+                                    current_data_stats0 = {...stats[0]}
+                                    current_data_stats1 = {...stats[1]}
                                     if (current_main_data.home_id === current_data_stats0.team_id) {
                                         if(current_data_stats0.shots){
                                             homeT.on = current_data_stats0.shots.ongoal
@@ -4065,9 +4065,9 @@
                                     //-----------------------------------//
                                     // home_season.pos = parseInt(home_season.pos/home_poss_index)
                                     // away_season.pos = 100 - home_season.pos
-                                    current_main_data.stats = stats
-                                    current_main_data.stats_ten = stats_ten
-                                    main_data[j] = current_main_data
+                                    current_main_data.stats = {...stats}
+                                    current_main_data.stats_ten = {...stats_ten}
+                                    main_data[j] = {...current_main_data}
                                     this.eventArray[i].events.push({
                                         'index0': k,
                                         'fixtureId': fixture_id,
@@ -4163,8 +4163,8 @@
                             for(let k = 0 ; k < this.eventArray[j].events.length ; k++){
                                 if(this.eventArray[j].events[k].main_data._id == data1[i].updateArray._id && data1[i].currentData.stats[0]){
                                     check_new = 1
-                                    let current_event = this.eventArray[j].events[k]
-                                    //console.log('current_event ', current_event)
+                                    let current_event = {...this.eventArray[j].events[k]}
+                                    // console.log('current_event ', current_event)
                                     if(data1[i].currentData.time.status == "FT"){
                                         this.readData()
                                     }
@@ -4176,7 +4176,7 @@
                                         current_event.home.time = 'HT'
                                     }
 
-                                    current_event.goal_tooltip = data1[i].updateArray.goal_tooltip
+                                    current_event.goal_tooltip = {...data1[i].updateArray.goal_tooltip}
                                     current_event.home_tooltip = {
                                         'on': '',
                                         'off': '',
@@ -4192,18 +4192,32 @@
                                         'blk': ''
                                     }
                                     if(data1[i].updateArray.home_tooltip){
-                                        current_event.home_tooltip = data1[i].updateArray.home_tooltip
+                                        current_event.home_tooltip = {...data1[i].updateArray.home_tooltip}
                                     }
                                     if(data1[i].updateArray.away_tooltip){
-                                        current_event.away_tooltip = data1[i].updateArray.away_tooltip
+                                        current_event.away_tooltip = {...data1[i].updateArray.away_tooltip}
                                     }
                                     // console.log('home_T', current_event.homeT)
                                     // console.log('home_tooltip', current_event.home_tooltip)
                                     // console.log('away_T', current_event.awayT)
                                     // console.log('away_tooltip', current_event.away_tooltip)
+                                    // stats[0].goals++;
+                                    // console.log(current_event.home.time, stats[0].goals);
                                     if(current_event.home.id === stats[0].team_id){
+
+                                        if (current_event.home.score < data1[i].updateArray.scores.localteam_score) {
+                                            current_event.home.flash = 1
+                                        } else {
+                                            current_event.home.flash = 0
+                                        }
                                         current_event.home.score = data1[i].updateArray.scores.localteam_score
+                                        if (current_event.away.score < data1[i].updateArray.scores.visitorteam_score) {
+                                            current_event.away.flash = 1
+                                        } else {
+                                            current_event.away.flash = 0
+                                        }
                                         current_event.away.score = data1[i].updateArray.scores.visitorteam_score
+
                                         if(stats[0].shots && stats_ten[0][0].shots){
                                             current_event.home.on = stats[0].shots.ongoal - stats_ten[0][0].shots.ongoal
                                             current_event.away.on = stats[1].shots.ongoal - stats_ten[0][1].shots.ongoal
@@ -4280,27 +4294,45 @@
                                             current_event.home.safe = null
                                             current_event.away.safe = null
                                         }
+                                        // stats[0].goals += 1;
+                                        // if(stats[0].goals > current_event.home.goal){
+                                        //     current_event.home.flash = 1
+                                        // }
+                                        // else{
+                                        //     current_event.home.flash = 0
+                                        // }
+                                        // current_event.home.goal = stats[0].goals
 
-                                        if(stats[0].goals > current_event.home.goal){
-                                            current_event.home.flash = 1
-                                        }
-                                        else{
-                                            current_event.home.flash = 0
-                                        }
+                                        // if (current_event.main_data._id == 17638617)
+                                        // {
+                                        //     console.log('current-->', current_event, current_event.away.goal)
+                                        //     console.log(stats[1].goals, current_event.away.goal)
+                                        // }
 
-                                        if(stats[1].goals > current_event.away.goal){
-                                            current_event.away.flash = 1
-                                        }
-                                        else{
-                                            current_event.away.flash = 0
-                                        }
-
-                                        current_event.home.goal = stats[0].goals - stats_ten[0][0].goals
-                                        current_event.away.goal = stats[1].goals - stats_ten[0][1].goals
+                                        // if(stats[1].goals > current_event.away.goal){
+                                        //     current_event.away.flash = 1
+                                        // }
+                                        // else{
+                                        //     current_event.away.flash = 0
+                                        // }
+                                        // current_event.away.goal = stats[1].goals
+                                        // current_event.home.goal = stats[0].goals - stats_ten[0][0].goals
+                                        // current_event.away.goal = stats[1].goals - stats_ten[0][1].goals
                                     }
                                     else{
-                                        current_event.home.score = data1[i].updateArray.scores.localteam_score
-                                        current_event.away.score = data1[i].updateArray.scores.visitorteam_score
+                                        if (current_event.home.score < data1[i].updateArray.scores.visitorteam_score) {
+                                            current_event.home.flash = 1
+                                        } else {
+                                            current_event.home.flash = 0
+                                        }
+                                        current_event.home.score = data1[i].updateArray.scores.visitorteam_score
+                                        if (current_event.away.score < data1[i].updateArray.scores.localteam_score) {
+                                            current_event.away.flash = 1
+                                        } else {
+                                            current_event.away.flash = 0
+                                        }
+                                        current_event.away.score = data1[i].updateArray.scores.localteam_score
+                                        
                                         current_event.home.on = stats[1].shots.ongoal - stats_ten[0][1].shots.ongoal
                                         current_event.away.on = stats[0].shots.ongoal - stats_ten[0][0].shots.ongoal
                                         current_event.home.off = stats[1].shots.offgoal - stats_ten[0][1].shots.offgoal
@@ -4370,41 +4402,43 @@
                                             current_event.away.safe = null
                                         }
 
-                                        if(stats[0].goals > current_event.home.goal){
-                                            current_event.home.flash = 1
-                                        }
-                                        else{
-                                            current_event.home.flash = 0
-                                        }
+                                        // if(stats[1].goals > current_event.home.goal){
+                                        //     current_event.home.flash = 1
+                                        // }
+                                        // else{
+                                        //     current_event.home.flash = 0
+                                        // }
+                                        // current_event.home.goal = stats[1].goals
 
-                                        if(stats[1].goals > current_event.away.goal){
-                                            current_event.away.flash = 1
-                                        }
-                                        else{
-                                            current_event.away.flash = 0
-                                        }
+                                        // if(stats[0].goals > current_event.away.goal){
+                                        //     current_event.away.flash = 1
+                                        // }
+                                        // else{
+                                        //     current_event.away.flash = 0
+                                        // }
+                                        // current_event.away.goal = stats[0].goals
 
-                                        current_event.home.goal = stats[1].goals - stats_ten[0][1].goals
-                                        current_event.away.goal = stats[0].goals - stats_ten[0][0].goals
+                                        // current_event.home.goal = stats[1].goals - stats_ten[0][1].goals
+                                        // current_event.away.goal = stats[0].goals - stats_ten[0][0].goals
                                     }
                                     //-----------------------------------------------------------------------------------------------
-                                    if(stats[0].goals - stats_ten[0][0].goals > current_event.home.goal){
-                                        current_event.home.flash = 1
-                                    }
-                                    else{
-                                        current_event.home.flash = 0
-                                    }
-                                    // console.log("home.flash", current_event.home.flash)
-                                    // console.log("away.flash", current_event.away.flash)
-                                    current_event.home.goal = stats[0].goals - stats_ten[0][0].goals
+                                    // if(stats[0].goals - stats_ten[0][0].goals > current_event.home.goal){
+                                    //     current_event.home.flash = 1
+                                    // }
+                                    // else{
+                                    //     current_event.home.flash = 0
+                                    // }
+                                    // // console.log("home.flash", current_event.home.flash)
+                                    // // console.log("away.flash", current_event.away.flash)
+                                    // current_event.home.goal = stats[0].goals - stats_ten[0][0].goals
 
-                                    if(stats[1].goals - stats_ten[0][1].goals > current_event.away.goal){
-                                        current_event.away.flash = 1
-                                    }
-                                    else{
-                                        current_event.away.flash = 0
-                                    }
-                                    current_event.away.goal = stats[1].goals - stats_ten[0][1].goals
+                                    // if(stats[1].goals - stats_ten[0][1].goals > current_event.away.goal){
+                                    //     current_event.away.flash = 1
+                                    // }
+                                    // else{
+                                    //     current_event.away.flash = 0
+                                    // }
+                                    // current_event.away.goal = stats[1].goals - stats_ten[0][1].goals
                                     //---------------------------------------Total Part-------------------------------------------
                                     if(current_event.home.id === stats[0].team_id){
                                         current_event.homeT.on = stats[0].shots.ongoal
@@ -4523,7 +4557,7 @@
                                         current_event.awayT.safe = stats[0].ball_safe
                                     }
                                     //------------------------------------------------------------------------------------------------
-                                    this.eventArray[j].events[k] = current_event
+                                    this.eventArray[j].events[k] = {...current_event}
                                     // console.log(this.eventArray[j].events[k].main_data.home_name)
                                     // console.log('home_tooltip', this.eventArray[j].events[k].home_tooltip)
                                     // console.log('away_tooltip', this.eventArray[j].events[k].away_tooltip)
