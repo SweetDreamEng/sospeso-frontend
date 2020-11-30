@@ -4332,7 +4332,7 @@
                                             current_event.away.flash = 0
                                         }
                                         current_event.away.score = data1[i].updateArray.scores.localteam_score
-                                        
+
                                         current_event.home.on = stats[1].shots.ongoal - stats_ten[0][1].shots.ongoal
                                         current_event.away.on = stats[0].shots.ongoal - stats_ten[0][0].shots.ongoal
                                         current_event.home.off = stats[1].shots.offgoal - stats_ten[0][1].shots.offgoal
@@ -4748,10 +4748,10 @@
         animation-iteration-count: 1;
     }
     .goalcelebration {
-        -webkit-animation-name: example;
+        -webkit-animation-name: splash1;
         -webkit-animation-duration: 3s;
         -webkit-animation-iteration-count: 10;
-        animation-name: example;
+        animation-name: splash1;
         animation-duration: 3s;
         animation-iteration-count: 10;
     }
